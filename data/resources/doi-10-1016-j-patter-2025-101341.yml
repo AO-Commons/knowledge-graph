@@ -1,25 +1,20 @@
-id: resource:arxiv:2502.15840
-resource_type: preprint
-title: 'Vending-Bench: A Benchmark for Long-Term Coherence of Autonomous Agents'
-authors:
-- Axel Backlund
-- Lukas Petersson
-published_at: '2025-02-20'
-url: https://arxiv.org/abs/2502.15840
-arxiv_id: '2502.15840'
-doi: 10.48550/arXiv.2502.15840
+id: resource:doi:10-1016-j-patter-2025-101341
+resource_type: peer-reviewed-paper
+title: Lessons from complex systems science for AI governance
+published_at: '2025-08-01'
+doi: 10.1016/j.patter.2025.101341
+url: https://doi.org/10.1016/j.patter.2025.101341
 taxonomy_topics:
-- '8.1'
-- '14.1'
-- '14.5'
+- '15.3'
+- '3.4'
 facets:
-  artifact_type: preprint
+  artifact_type: peer-reviewed-paper
   evidence_strength: empirical-single-study
   source_independence: independent-academic
   temporal_relevance: current
   applicability: background
+is_borrowed_background: true
 source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
-openalex_id: W4414835304

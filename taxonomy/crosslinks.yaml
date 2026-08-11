@@ -1,15 +1,47 @@
 # Non-hierarchical relationships between topics.
 #
-# The tree has one parent per topic, but the field does not. Revocation in
-# delegation chains (2.3.x) is bound up with identity (2.1.x) and with the
-# failure codes that describe what happens when it goes wrong (11.3.x).
-# Cross-links carry that without duplicating topics into several branches.
+# The tree gives each topic one parent, but the field does not work that way.
+# Cross-links carry the relationships that matter without duplicating a topic
+# into several branches.
 #
 # Try a cross-link before proposing a new topic.
-#
-#   - from: "2.3.1"
-#     to: "11.3.4"
-#     relation: failure_mode_of
-#     note: Revocation design is what the delegation-chain failure code tests.
 
-[]
+# Collusion is designed against in section 5, detected in section 9, and
+# recorded as a failure in section 11. A researcher arriving at any one of
+# them wants the other two.
+- from: "5.2.2"
+  to: "11.6.2"
+  relation: failure_mode_of
+  note: Cartel formation is the design question; emergent collusion is what shows up in incidents.
+- from: "5.2.2"
+  to: "9.3"
+  relation: detected_by
+  note: Collusion is only actionable if it can be detected; ColludeBench and Audit the Whisper sit across both.
+- from: "10.2.6"
+  to: "5.2.2"
+  relation: mechanism_for
+  note: Covert channels are how collusion survives monitoring.
+
+# Reputation is load-bearing in two places that never reference each other.
+- from: "2.7.2"
+  to: "5.3.1"
+  relation: depends_on
+  note: >-
+    Governance weight accrued by reputation assumes reputation binds to a
+    persistent identity — which 6.3 and arXiv:2605.30169 put in question.
+- from: "5.3.1"
+  to: "6.3"
+  relation: depends_on
+  note: A reputation mechanism needs an identity to attach to.
+
+# Budgets appear as a permission, as an allocation policy, and as a control.
+- from: "8.1.4"
+  to: "2.2.3"
+  relation: related_to
+  note: A spend cap is a time-boxed permission expressed in money.
+- from: "8.1.4"
+  to: "4.1"
+  relation: related_to
+  note: >-
+    Auto-pause at a budget limit is an oversight mechanism, and is how most
+    deployed tools actually implement human control.

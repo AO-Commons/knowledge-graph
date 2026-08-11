@@ -79,6 +79,27 @@ def paper_record(entry: dict) -> dict:
     return record
 
 
+def doi_record(entry: dict) -> dict:
+    """A published paper identified by DOI rather than an arXiv id."""
+    slug = entry["doi"].replace("/", "-").replace(".", "-").lower()
+    record = {
+        "id": f"resource:doi:{slug}",
+        "resource_type": "peer-reviewed-paper",
+        "title": entry["title"],
+        "published_at": str(entry["date"]),
+        "doi": entry["doi"],
+        "url": f"https://doi.org/{entry['doi']}",
+        "taxonomy_topics": entry.get("topics", []),
+        "facets": {**PAPER_FACETS, "artifact_type": "peer-reviewed-paper"},
+        "is_borrowed_background": bool(entry.get("borrowed")),
+        "source_provenance": PROVENANCE,
+        "ingested_at": "2026-08-11",
+    }
+    if note := entry.get("note"):
+        record["description"] = note.strip()
+    return record
+
+
 def platform_record(entry: dict) -> dict:
     return {
         "id": f"resource:platform:{entry['id']}",
@@ -110,6 +131,7 @@ def main(argv: list[str] | None = None) -> int:
 
     entries = [paper_record(e) for e in manifest.get("papers", [])]
     entries += [platform_record(e) for e in manifest.get("platforms", [])]
+    entries += [doi_record(e) for e in manifest.get("round2", [])]
 
     for payload in entries:
         payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "", False)}

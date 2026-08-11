@@ -1,0 +1,21 @@
+id: resource:doi:10-1016-j-inffus-2025-103599
+resource_type: peer-reviewed-paper
+title: 'AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges'
+published_at: '2025-08-22'
+doi: 10.1016/j.inffus.2025.103599
+url: https://doi.org/10.1016/j.inffus.2025.103599
+taxonomy_topics:
+- '1.1'
+- '1.2'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Heavily cited definitional piece. Sits directly on 1.1, where the taxonomy's
+  own "what counts as agentic" question lives.

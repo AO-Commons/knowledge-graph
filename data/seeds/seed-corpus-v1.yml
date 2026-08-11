@@ -259,3 +259,35 @@ unresolved:
       Authors and arXiv ID not supplied and not found at ingestion. Covers
       Magentic-One, LangGraph, and OpenAI-Agents centralized/decentralized.
       Needs an identifier before it can be a record.
+
+# --- Round 2: citation expansion from Multi-Agent Risks (W4407806359) ---
+# Four of eight citing works passed the scope test. The rejects are worth
+# naming: two rheumatology applications, a utopian-futures simulation piece,
+# and a playbook for governing LLM use in research. All are about AI, none is
+# about an organization where agents hold authority — which is the scope test
+# doing its job on a discovery path that cannot apply it itself.
+round2:
+  - doi: 10.12688/f1000research.169927.1
+    title: "Trustworthy agentic AI systems: a cross-layer review of architectures, threat models, and governance"
+    date: 2025-09-11
+    topics: ["3.1", "10.5", "4.1"]
+    note: Cross-layer review; useful as an architecture-and-threat-model survey.
+
+  - doi: 10.1016/j.inffus.2025.103599
+    title: "AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges"
+    date: 2025-08-22
+    topics: ["1.1", "1.2"]
+    note: >-
+      Heavily cited definitional piece. Sits directly on 1.1, where the
+      taxonomy's own "what counts as agentic" question lives.
+
+  - doi: 10.1016/j.patter.2025.101341
+    title: "Lessons from complex systems science for AI governance"
+    date: 2025-08-01
+    topics: ["15.3", "3.4"]
+    borrowed: true
+
+  - doi: 10.1007/s11831-026-10675-8
+    title: "A Holistic Review of Agentic AI Frameworks, Applications, and Research Trajectories"
+    date: 2026-06-15
+    topics: ["3.1", "16.1"]

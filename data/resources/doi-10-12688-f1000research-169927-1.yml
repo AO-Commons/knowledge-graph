@@ -1,0 +1,22 @@
+id: resource:doi:10-12688-f1000research-169927-1
+resource_type: peer-reviewed-paper
+title: 'Trustworthy agentic AI systems: a cross-layer review of architectures, threat models,
+  and governance'
+published_at: '2025-09-11'
+doi: 10.12688/f1000research.169927.1
+url: https://doi.org/10.12688/f1000research.169927.1
+taxonomy_topics:
+- '3.1'
+- '10.5'
+- '4.1'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Cross-layer review; useful as an architecture-and-threat-model survey.
