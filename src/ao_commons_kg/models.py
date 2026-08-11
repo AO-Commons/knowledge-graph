@@ -255,6 +255,14 @@ class Relationship:
     extraction_method: str | None = None
     computed_at: str | None = None
     created_at: str | None = None
+    attribution: str | None = None
+    """Where a third party's data ends up on this edge.
+
+    Release-level licensing covers what we produce, but an edge imported from
+    OpenAlex or Semantic Scholar carries someone else's terms, and a consumer
+    who lifts a handful of edges into their own graph never sees our
+    metadata.json. Set it on imported edges; leave it unset on ones we derive
+    ourselves, where the release license applies."""
 
     def __post_init__(self) -> None:
         if isinstance(self.relation, str):
