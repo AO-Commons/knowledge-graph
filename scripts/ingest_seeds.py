@@ -69,6 +69,7 @@ def paper_record(entry: dict) -> dict:
         "taxonomy_topics": entry.get("topics", []),
         "facets": dict(PAPER_FACETS),
         "is_borrowed_background": bool(entry.get("borrowed")),
+        "review_status": "unreviewed",
         "source_provenance": PROVENANCE,
         "ingested_at": "2026-08-11",
     }
@@ -92,6 +93,7 @@ def doi_record(entry: dict) -> dict:
         "taxonomy_topics": entry.get("topics", []),
         "facets": {**PAPER_FACETS, "artifact_type": "peer-reviewed-paper"},
         "is_borrowed_background": bool(entry.get("borrowed")),
+        "review_status": "unreviewed",
         "source_provenance": PROVENANCE,
         "ingested_at": "2026-08-11",
     }
@@ -109,6 +111,7 @@ def platform_record(entry: dict) -> dict:
         "url": entry["url"],
         "taxonomy_topics": entry.get("topics", []),
         "facets": dict(PLATFORM_FACETS),
+        "review_status": "unreviewed",
         "source_provenance": PROVENANCE,
         "ingested_at": "2026-08-11",
     }

@@ -25,3 +25,4 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W4414971482
 description: Introduces ColludeBench-v0 — pricing duopoly, auctions, peer review.
+review_status: unreviewed

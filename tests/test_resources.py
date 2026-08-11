@@ -99,3 +99,30 @@ def test_bad_facet_fails_the_load_not_the_release(tmp_path):
 
 def test_missing_directory_is_empty_not_an_error(tmp_path):
     assert load_resources(tmp_path / "absent") == []
+
+
+# --- Review status -----------------------------------------------------------
+
+def test_every_record_declares_review_status(resources):
+    """A consumer must never infer that a missing field means unreviewed."""
+    for resource in resources:
+        assert "review_status" in resource.to_dict()
+
+
+def test_corpus_is_honestly_unreviewed(resources):
+    """The seed pass and the section-8 corrections were both AI work. An AI
+    pass does not promote a record, which is the point of the field."""
+    from ao_commons_kg.models import ReviewStatus
+    assert all(r.review_status is ReviewStatus.UNREVIEWED for r in resources)
+
+
+def test_a_reviewer_without_a_review_is_rejected():
+    from ao_commons_kg.models import Resource
+    with pytest.raises(ValueError, match="contradiction"):
+        Resource(id="r", resource_type="essay", title="T", reviewed_by="ao-commons-research")
+
+
+def test_review_status_accepts_the_string_form():
+    from ao_commons_kg.models import Resource, ReviewStatus
+    r = Resource(id="r", resource_type="essay", title="T", review_status="needs-review")
+    assert r.review_status is ReviewStatus.NEEDS_REVIEW

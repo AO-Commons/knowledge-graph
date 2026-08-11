@@ -128,3 +128,23 @@ def test_resource_types_cover_what_the_corpus_holds():
     nobody can curate."""
     for used in ("preprint", "code-tool", "peer-reviewed-paper", "memo"):
         assert used in schema.RESOURCE_TYPES
+
+
+def test_review_status_options_come_from_the_model():
+    from ao_commons_kg.models import ReviewStatus
+    field = FIELDS["Review Status *"]
+    assert [c["name"] for c in field["options"]["choices"]] == [s.value for s in ReviewStatus]
+
+
+def test_review_status_is_published_and_curation_state_is_not():
+    """Two fields with 'review' in the name is a trap, so they are named
+    apart and only one of them reaches the graph."""
+    assert "Review Status *" in schema.SIMPLE_FIELDS
+    assert "Curation State" in schema.INTERNAL_ONLY
+    assert "Curation State" not in schema.SIMPLE_FIELDS
+    assert not (set(schema.SIMPLE_FIELDS) & schema.INTERNAL_ONLY)
+
+
+def test_review_status_gates_publication():
+    """A record cannot publish without saying whether its tags were checked."""
+    assert any(name == "Review Status *" for name, _, _ in schema.BLOCKERS)

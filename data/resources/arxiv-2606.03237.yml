@@ -27,3 +27,4 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7163342836
 description: ICML 2026 position paper. Institutions as design primitives.
+review_status: unreviewed

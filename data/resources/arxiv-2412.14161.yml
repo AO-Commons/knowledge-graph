@@ -28,3 +28,4 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 description: No OpenAlex record found at ingestion; arXiv is the identity.
+review_status: unreviewed

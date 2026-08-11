@@ -43,6 +43,28 @@ class TopicStatus(str, Enum):
     code forever so old tags stay resolvable."""
 
 
+class ReviewStatus(str, Enum):
+    """Whether a record's taxonomy tags and facets have been checked.
+
+    Published deliberately, because it changes what a reader should do with a
+    result. A first-pass tag assigned from a title is a navigational aid; a
+    reviewed one is a claim AO Commons is making. Presenting them identically
+    would overstate the corpus.
+
+    `unreviewed` is the default and the honest state of most of the corpus.
+    A record moves to `reviewed` only when a named human has checked it —
+    an AI pass, however careful, does not promote a record.
+    """
+
+    UNREVIEWED = "unreviewed"
+    NEEDS_REVIEW = "needs-review"
+    """Actively suspected wrong — a stronger claim than 'not yet looked at',
+    and the queue a reviewer should work from first."""
+    REVIEWED = "reviewed"
+    DISPUTED = "disputed"
+    """Someone contested the classification and it has not been settled."""
+
+
 class ConfidenceClass(str, Enum):
     """Where an edge came from.
 
@@ -237,6 +259,10 @@ class Resource:
     organizations directly. Flagged so it can be excluded from counts that
     claim to measure the field's own literature."""
     tool: ToolProfile | None = None
+    review_status: ReviewStatus = ReviewStatus.UNREVIEWED
+    reviewed_by: str | None = None
+    """Role or handle of the human who checked the tags. Never personal
+    contact details, and never set for an automated pass."""
     sources: list[dict[str, Any]] = field(default_factory=list)
     """Evidence for the record's claims, each with a url and access date.
 
@@ -257,6 +283,13 @@ class Resource:
                 )
         if isinstance(self.tool, dict):
             self.tool = ToolProfile(**self.tool)
+        if isinstance(self.review_status, str):
+            self.review_status = ReviewStatus(self.review_status)
+        if self.reviewed_by and self.review_status is ReviewStatus.UNREVIEWED:
+            raise ValueError(
+                f"resource {self.id}: reviewed_by is set but review_status is "
+                "unreviewed — a reviewer without a review is a contradiction"
+            )
         if self.tool is not None and self.resource_type not in self.TOOL_TYPES:
             raise ValueError(
                 f"resource {self.id}: a tool profile on resource_type "
@@ -271,6 +304,9 @@ class Resource:
                 payload[key] = value.isoformat()
         if self.tool is not None:
             payload["tool"] = self.tool.to_dict()
+        # Always emitted, even at its default: a consumer must never have to
+        # infer that an absent field means unreviewed.
+        payload["review_status"] = self.review_status.value
         return _drop_empty(payload)
 
 

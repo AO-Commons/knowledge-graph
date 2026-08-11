@@ -59,3 +59,4 @@ source_provenance: 'curated: migrated from the AO Commons tooling registry. Taxo
   assigned by hand and pending review — they are a first pass, not a classification pipeline
   output.'
 ingested_at: '2026-08-11'
+review_status: unreviewed

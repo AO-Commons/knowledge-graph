@@ -18,6 +18,24 @@ Anything a researcher might read or use: paper, preprint, report, standard, repo
 
 `taxonomy_topics` holds topic codes; `facets` holds F1–F12 values, validated against their controlled vocabularies on construction. An unknown facet value is an error rather than a warning: a typo that passes silently produces a resource no filter will ever match, which is worse than one that fails to load.
 
+`review_status` says whether the record's taxonomy tags and facets have been
+checked, and it is **published**, because it changes what a reader should do
+with a result. A first-pass tag assigned from a title is a navigational aid; a
+reviewed one is a claim AO Commons is making, and presenting them identically
+would overstate the corpus. It is always emitted, even at its default, so
+nobody has to infer that a missing field means unreviewed.
+
+A record reaches `reviewed` only when a named human has checked it — an
+automated pass, however careful, does not promote one. Setting `reviewed_by`
+without a review is rejected. `needs-review` is the stronger claim that
+something is actively suspected wrong, and is the queue a reviewer should work
+from first.
+
+Note what this is *not*: Airtable also carries a `Curation State`
+(Candidate → Ready to publish) tracking where a record sits in the curation
+workflow. That one is internal and never published. Two fields with "review"
+in the name would be a trap, so they are named apart.
+
 `is_borrowed_background` marks Section 15 material — relevant by transfer rather than about agentic organizations directly — so it can be excluded from counts that claim to measure the field's own literature.
 
 ### Entity

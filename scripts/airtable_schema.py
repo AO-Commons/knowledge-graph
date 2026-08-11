@@ -26,7 +26,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.facets import FACETS  # noqa: E402
-from ao_commons_kg.models import TRISTATE, Resource  # noqa: E402
+from ao_commons_kg.models import TRISTATE, Resource, ReviewStatus  # noqa: E402
 
 RESOURCES_TABLE = "Resources"
 SOURCES_TABLE = "Sources"
@@ -58,6 +58,8 @@ SIMPLE_FIELDS = {
     "Semantic Scholar ID": "semantic_scholar_id",
     "Repository URL": "repository_url",
     "License": "license",
+    "Review Status *": "review_status",
+    "Reviewed By": "reviewed_by",
     "Source Provenance": "source_provenance",
     "Ingested At": "ingested_at",
 }
@@ -100,7 +102,7 @@ FACET_FIELDS = {
 }
 
 INTERNAL_ONLY = {
-    PUBLISHED_FIELD, "Review State", "Publish Blockers", "Suggested ID", "Notes",
+    PUBLISHED_FIELD, "Curation State", "Publish Blockers", "Suggested ID", "Notes",
 }
 
 
@@ -196,10 +198,18 @@ RESOURCE_FIELDS = [
           "How this record arrived: hand-curated, or proposed by an OpenAlex or Semantic "
           "Scholar sweep. A crawler's suggestion and a checked record must not look alike."),
     _text("Ingested At"),
-    _select("Review State",
+    _select("Review Status *", [s.value for s in ReviewStatus],
+            description=f"{REQUIRED} PUBLISHED. Whether the taxonomy tags and facets have "
+                        "been checked. 'reviewed' means a named human checked them — an "
+                        "automated pass does not promote a record. Options come from the "
+                        "model."),
+    _text("Reviewed By", "Role or handle of the human who checked the tags. Never "
+                         "personal contact details."),
+    _select("Curation State",
             ["Candidate", "Scope check", "Needs tagging", "Needs sources", "Ready to publish"],
-            description="Our confidence in the record, for maintainers only. Never "
-                        "published, and deliberately not the same as any published field."),
+            description="INTERNAL, never published. Where the record sits in the curation "
+                        "workflow — deliberately distinct from Review Status, which says "
+                        "whether its tags were checked."),
     _text("Notes", "Internal. Never published.", multiline=True),
 ]
 
@@ -232,6 +242,7 @@ BLOCKERS = [
     ("Title *", "single", "Title"),
     ("Resource Type *", "single", "ResourceType"),
     ("Taxonomy Topics *", "single", "TaxonomyTopics"),
+    ("Review Status *", "single", "ReviewStatus"),
 ]
 
 

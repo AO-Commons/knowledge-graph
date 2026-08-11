@@ -19,3 +19,4 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 description: Heavily cited definitional piece. Sits directly on 1.1, where the taxonomy's
   own "what counts as agentic" question lives.
+review_status: unreviewed
