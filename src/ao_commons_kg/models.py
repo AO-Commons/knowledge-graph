@@ -158,9 +158,59 @@ class Topic:
         return _drop_empty(payload)
 
 
+TRISTATE = frozenset({"yes", "no", "partial", "unknown"})
+
+
+@dataclass
+class ToolProfile:
+    """The extra facts a tool carries that a paper does not.
+
+    A nested object rather than ten more optional fields on Resource: papers
+    outnumber tools and should not each carry an empty `self_hostable`.
+
+    `agent_model` and `human_controls` are the fields worth the trouble. They
+    record what shape of organization a tool makes possible and what oversight
+    it actually ships — which is the question the research library exists to
+    answer, asked of software instead of of literature.
+
+    The yes/no/partial/unknown fields are tri-state rather than boolean so an
+    unresearched tool is never silently recorded as proprietary.
+    """
+
+    agent_model: str | None = None
+    human_controls: str | None = None
+    maintainer: str | None = None
+    open_source: str | None = None
+    self_hostable: str | None = None
+    model_agnostic: str | None = None
+    status: str | None = None
+    languages: list[str] = field(default_factory=list)
+    protocols: list[str] = field(default_factory=list)
+    used_by: list[str] = field(default_factory=list)
+    """Slugs of autonomous organizations known to run on this tool — the
+    cross-reference into the AO registry."""
+
+    def __post_init__(self) -> None:
+        for name in ("open_source", "self_hostable", "model_agnostic"):
+            value = getattr(self, name)
+            if value is not None and value not in TRISTATE:
+                raise ValueError(
+                    f"tool.{name} is {value!r}; expected one of {sorted(TRISTATE)}"
+                )
+
+    def to_dict(self) -> dict[str, Any]:
+        return _drop_empty(asdict(self))
+
+
 @dataclass
 class Resource:
-    """Something a researcher may want to read or use."""
+    """Something a researcher may want to read or use.
+
+    Papers, preprints, reports, standards — and tools. A tool is a resource in
+    exactly the sense that matters here: something you consult to decide how to
+    build. It carries a `tool` profile with the facts software has and
+    literature does not.
+    """
 
     id: str
     resource_type: str
@@ -186,8 +236,17 @@ class Resource:
     """Section 15 material: relevant by transfer, not about agentic
     organizations directly. Flagged so it can be excluded from counts that
     claim to measure the field's own literature."""
+    tool: ToolProfile | None = None
+    sources: list[dict[str, Any]] = field(default_factory=list)
+    """Evidence for the record's claims, each with a url and access date.
+
+    Carried through from curation rather than recomputed: a tool entry
+    asserting that agents cannot exceed a budget needs the document that
+    shows it, and that citation should survive the trip into the graph."""
     source_provenance: str | None = None
     ingested_at: str | None = None
+
+    TOOL_TYPES = frozenset({"code-tool", "repository", "framework", "platform"})
 
     def __post_init__(self) -> None:
         self.facets = validate_facets(self.facets)
@@ -196,6 +255,13 @@ class Resource:
                 raise ValueError(
                     f"resource {self.id}: taxonomy topic {code!r} is not a topic code"
                 )
+        if isinstance(self.tool, dict):
+            self.tool = ToolProfile(**self.tool)
+        if self.tool is not None and self.resource_type not in self.TOOL_TYPES:
+            raise ValueError(
+                f"resource {self.id}: a tool profile on resource_type "
+                f"{self.resource_type!r}; expected one of {sorted(self.TOOL_TYPES)}"
+            )
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
@@ -203,6 +269,8 @@ class Resource:
             value = payload.get(key)
             if isinstance(value, date):
                 payload[key] = value.isoformat()
+        if self.tool is not None:
+            payload["tool"] = self.tool.to_dict()
         return _drop_empty(payload)
 
 

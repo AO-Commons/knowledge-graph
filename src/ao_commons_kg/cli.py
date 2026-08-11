@@ -13,6 +13,7 @@ from pathlib import Path
 
 from .export import write_release
 from .models import Relationship, RelationType
+from .resources import ResourceError, load_resources, tagged_edges, unknown_tags
 from .taxonomy import TaxonomyError, load_taxonomy
 
 REPO = Path(__file__).resolve().parent.parent.parent
@@ -55,14 +56,25 @@ def cmd_taxonomy(args) -> int:
 
 def cmd_build(args) -> int:
     topics = load_taxonomy(args.taxonomy)
+    codes = {topic.code for topic in topics}
+    resources = load_resources()
+
+    # A tag pointing at a code the taxonomy doesn't define is a curation
+    # error. Reported rather than written into the graph, where it would be
+    # a dangling edge nobody notices.
+    if orphaned := unknown_tags(resources, codes):
+        for resource_id, bad in sorted(orphaned.items()):
+            print(f"warning: {resource_id} tagged to unknown topics {bad}", file=sys.stderr)
+
     out = write_release(
         args.out,
         version=args.version,
         topics=topics,
-        relationships=_parent_edges(topics),
+        resources=resources,
+        relationships=_parent_edges(topics) + tagged_edges(resources, codes),
         built_at=args.built_at,
     )
-    print(f"wrote {out}")
+    print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources)")
     for path in sorted(out.iterdir()):
         print(f"  {path.name:<22} {path.stat().st_size:>9,} bytes")
     return 0
@@ -90,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         return args.func(args)
-    except TaxonomyError as error:
+    except (TaxonomyError, ResourceError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
 

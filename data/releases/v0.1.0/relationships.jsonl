@@ -549,3 +549,11 @@
 {"source_id": "topic:9.4", "target_id": "topic:9.4.3", "relation": "PARENT_OF"}
 {"source_id": "topic:9.4", "target_id": "topic:9.4.4", "relation": "PARENT_OF"}
 {"source_id": "topic:9.4", "target_id": "topic:9.4.5", "relation": "PARENT_OF"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:2.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:9.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:9.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
