@@ -28,4 +28,11 @@ jobs:
           aokg build --version check --out /tmp/rel-a
           aokg build --version check --out /tmp/rel-b
           diff -r /tmp/rel-a /tmp/rel-b
-          diff /tmp/rel-a/check/taxonomy.json data/releases/v0.1.0/taxonomy.json
+
+          # Compare against whichever release is checked in rather than a
+          # pinned version: the version bumps, the invariant does not.
+          latest="$(ls -d data/releases/*/ | sort -V | tail -1)"
+          echo "checked-in release: $latest"
+          for f in taxonomy.json nodes.jsonl relationships.jsonl; do
+            diff "/tmp/rel-a/check/$f" "$latest$f"
+          done
