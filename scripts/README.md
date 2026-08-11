@@ -3,7 +3,7 @@
 | Script | Purpose |
 |---|---|
 | [ingest_seeds.py](ingest_seeds.py) | Expands a seed manifest into `data/resources/`. Idempotent |
-| [airtable.py](airtable.py) | `setup` · `check` · `sync` — the Airtable curation surface |
+| [airtable.py](airtable.py) | `setup` · `push` · `check` · `sync` — the Airtable curation surface |
 | [airtable_schema.py](airtable_schema.py) | The Resources table definition and its mapping to `Resource` |
 
 ## Where records come from
@@ -36,8 +36,20 @@ python3 scripts/airtable.py check
 Delete the write-scoped token afterwards. Sync needs only read access, and
 the runtime token should not be able to restructure the base.
 
+Then seed the empty table from the corpus already in the repo:
+
 ```sh
-python3 scripts/airtable.py sync && aokg build --version v0.3.0
+python3 scripts/airtable.py push --dry-run   # see what it would create
+python3 scripts/airtable.py push
+```
+
+`push` is one-way and one-time. `setup` builds the table, `push` fills it, and
+after that Airtable is the source of truth and `sync` runs the other way.
+Records already in the base are never overwritten, so an edit made there
+survives a re-run.
+
+```sh
+python3 scripts/airtable.py sync && aokg build --version v0.4.0
 ```
 
 ## Why the definition is code

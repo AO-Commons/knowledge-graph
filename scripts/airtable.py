@@ -2,6 +2,7 @@
 """Build the Airtable Resources table, and sync it into data/resources/.
 
     python3 scripts/airtable.py setup    # create or converge the tables
+    python3 scripts/airtable.py push     # seed an empty base from data/resources/
     python3 scripts/airtable.py check    # compare the live base to the definition
     python3 scripts/airtable.py sync     # regenerate data/resources/ from Airtable
 
@@ -27,7 +28,9 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 from airtable_schema import (  # noqa: E402
     BLOCKERS, PUBLISHED_FIELD, RESOURCES_TABLE, SOURCES_FIELDS, SOURCES_LINK_FIELD,
-    SOURCES_TABLE, TABLES, resource_from_row, validate_definition,
+    SUPPORTS_FIELD,
+    SOURCES_TABLE, TABLES, resource_from_row, row_from_resource,
+    validate_definition,
 )
 
 from ao_commons_kg.models import Resource  # noqa: E402
@@ -176,6 +179,78 @@ def cmd_check(args) -> int:
     return 0
 
 
+def _create(base: str, table: str, token: str, records: list[dict]) -> list[str]:
+    """Create records ten at a time — Airtable's per-request limit."""
+    ids = []
+    for start in range(0, len(records), 10):
+        batch = records[start:start + 10]
+        result = api("POST", f"{API}/{base}/{table}", token,
+                     json={"records": [{"fields": f} for f in batch]})
+        ids.extend(r["id"] for r in result["records"])
+    return ids
+
+
+def cmd_push(args) -> int:
+    """Seed an empty base from records curated in the repo.
+
+    One-way and one-time. `setup` builds the table; this fills it; after that
+    Airtable is the source of truth and `sync` runs the other way. Records
+    already in the base are left alone — this never overwrites an edit made
+    there.
+    """
+    token, base = credentials()
+    resources = load_resources(OUT)
+    if not resources:
+        print("nothing in data/resources/ to push.")
+        return 0
+
+    existing_sources = {
+        r["fields"].get("URL *"): r["id"]
+        for r in fetch_all(base, SOURCES_TABLE, token)
+        if r.get("fields", {}).get("URL *")
+    }
+    existing_ids = {
+        r["fields"].get("ID *")
+        for r in fetch_all(base, RESOURCES_TABLE, token)
+        if r.get("fields", {}).get("ID *")
+    }
+
+    # Sources first: a resource cannot link to a row that does not exist.
+    wanted: dict[str, dict] = {}
+    for resource in resources:
+        for source in resource.sources:
+            url = source.get("url")
+            if url and url not in existing_sources and url not in wanted:
+                wanted[url] = {
+                    "URL *": url,
+                    "Title": source.get("title", ""),
+                    "Accessed *": source.get("accessed"),
+                    SUPPORTS_FIELD: ", ".join(source.get("supports", [])),
+                }
+    if wanted:
+        rows = [{k: v for k, v in f.items() if v} for f in wanted.values()]
+        created = _create(base, SOURCES_TABLE, token, rows)
+        existing_sources.update(dict(zip(wanted, created)))
+        print(f"created {len(created)} source row(s)")
+
+    to_create, skipped = [], 0
+    for resource in resources:
+        slug = resource.id.removeprefix("resource:")
+        if slug in existing_ids:
+            skipped += 1
+            continue
+        to_create.append(row_from_resource(resource, existing_sources))
+
+    if to_create and not args.dry_run:
+        created = _create(base, RESOURCES_TABLE, token, to_create)
+        print(f"created {len(created)} resource row(s)")
+    elif to_create:
+        print(f"would create {len(to_create)} resource row(s)")
+
+    print(f"\n{len(to_create)} to push, {skipped} already in the base.")
+    return 0
+
+
 def cmd_sync(args) -> int:
     token, base = credentials()
     codes = {t.code for t in load_taxonomy(TAXONOMY)}
@@ -241,6 +316,9 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     for name, func in (("setup", cmd_setup), ("check", cmd_check), ("sync", cmd_sync)):
         sub.add_parser(name).set_defaults(func=func)
+    push = sub.add_parser("push", help="seed an empty base from data/resources/")
+    push.add_argument("--dry-run", action="store_true")
+    push.set_defaults(func=cmd_push)
     args = parser.parse_args(argv)
     try:
         return args.func(args)

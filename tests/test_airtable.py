@@ -148,3 +148,50 @@ def test_review_status_is_published_and_curation_state_is_not():
 def test_review_status_gates_publication():
     """A record cannot publish without saying whether its tags were checked."""
     assert any(name == "Review Status *" for name, _, _ in schema.BLOCKERS)
+
+
+# --- Seeding the base from the repo -----------------------------------------
+
+def test_a_resource_round_trips_through_airtable():
+    """push then sync must not change a record. If the two mappings disagree,
+    seeding the base silently rewrites the corpus."""
+    from ao_commons_kg.resources import load_resources
+
+    for original in load_resources():
+        row = schema.row_from_resource(original, {})
+        # Airtable hands back exactly what it was given, plus the record id.
+        returned = Resource(**schema.resource_from_row({"id": "rec", "fields": row}, {}))
+
+        assert returned.id == original.id
+        assert returned.title == original.title
+        assert returned.resource_type == original.resource_type
+        assert returned.taxonomy_topics == original.taxonomy_topics
+        assert returned.facets == original.facets
+        assert returned.authors == original.authors
+        assert returned.review_status is original.review_status
+        if original.tool:
+            assert returned.tool.maintainer == original.tool.maintainer
+            assert returned.tool.used_by == original.tool.used_by
+
+
+def test_push_marks_records_published():
+    """They are already live in the repo; the base should say so rather than
+    presenting a published corpus as a pile of drafts."""
+    from ao_commons_kg.resources import load_resources
+    row = schema.row_from_resource(load_resources()[0], {})
+    assert row[schema.PUBLISHED_FIELD] is True
+
+
+def test_push_strips_the_id_namespace():
+    from ao_commons_kg.models import Resource as R
+    row = schema.row_from_resource(R(id="resource:arxiv:1", resource_type="preprint",
+                                     title="T"), {})
+    assert row["ID *"] == "arxiv:1", "Airtable holds the bare slug"
+
+
+def test_push_links_sources_it_has_ids_for():
+    from ao_commons_kg.models import Resource as R
+    resource = R(id="resource:x", resource_type="preprint", title="T",
+                 sources=[{"url": "https://example.org/a", "accessed": "2026-08-11"}])
+    row = schema.row_from_resource(resource, {"https://example.org/a": "recS1"})
+    assert row[schema.SOURCES_LINK_FIELD] == ["recS1"]

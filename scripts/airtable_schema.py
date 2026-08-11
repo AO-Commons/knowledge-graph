@@ -336,3 +336,51 @@ def validate_definition() -> list[str]:
             f"starred-only {sorted(starred - checked)}, checked-only {sorted(checked - starred)}"
         )
     return problems
+
+
+def row_from_resource(resource, source_ids: dict[str, str]) -> dict:
+    """The inverse of resource_from_row: a Resource as Airtable fields.
+
+    Used only to seed the base from records curated in the repo. Once a
+    record is in Airtable, Airtable is where it is edited — this direction
+    is for filling an empty table, not for keeping two copies in step.
+    """
+    payload = resource.to_dict()
+    fields: dict = {}
+
+    for airtable_name, key in SIMPLE_FIELDS.items():
+        if (value := payload.get(key)) not in (None, ""):
+            # Airtable holds the bare slug; the graph namespaces it.
+            fields[airtable_name] = (
+                value.removeprefix("resource:") if key == "id" else value
+            )
+
+    for airtable_name, key in COMMA_LIST_FIELDS.items():
+        if values := payload.get(key):
+            fields[airtable_name] = ", ".join(values)
+
+    for airtable_name, key in CHECKBOX_FIELDS.items():
+        if key in payload:
+            fields[airtable_name] = bool(payload[key])
+
+    for name, airtable_name in FACET_FIELDS.items():
+        if values := (payload.get("facets") or {}).get(name):
+            facet = next(f for f in FACETS if f.name == name)
+            fields[airtable_name] = list(values) if facet.multi else values[0]
+
+    tool = payload.get("tool") or {}
+    for airtable_name, key in TOOL_FIELDS.items():
+        if value := tool.get(key):
+            fields[airtable_name] = value
+    for airtable_name, key in TOOL_LIST_FIELDS.items():
+        if values := tool.get(key):
+            fields[airtable_name] = ", ".join(values)
+
+    if links := [source_ids[s["url"]] for s in payload.get("sources", [])
+                 if s.get("url") in source_ids]:
+        fields[SOURCES_LINK_FIELD] = links
+
+    # These records are already published in the repo; the base should say so
+    # rather than presenting a live corpus as a pile of drafts.
+    fields[PUBLISHED_FIELD] = True
+    return fields
