@@ -1,0 +1,36 @@
+id: resource:arxiv:2502.14143
+resource_type: preprint
+title: Multi-Agent Risks from Advanced AI
+authors:
+- Lewis Hammond
+- Alan Chan
+- Jesse Clifton
+- Jason Hoelscher-Obermaier
+- Akbir Khan
+- Euan McLean
+- Chandler Smith
+- Wolfram Barfuß
+- Joel Z. Leibo
+- Iyad Rahwan
+published_at: '2025-02-19'
+url: https://arxiv.org/abs/2502.14143
+arxiv_id: '2502.14143'
+doi: 10.48550/arXiv.2502.14143
+taxonomy_topics:
+- '11.1'
+- '11.6'
+- '11.13'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4407806359
+description: 'Cooperative AI Foundation Technical Report #1. Three failure modes and seven
+  risk factors — the closest thing the field has to a shared risk taxonomy, and worth reconciling
+  against section 11.'

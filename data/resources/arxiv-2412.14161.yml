@@ -1,0 +1,30 @@
+id: resource:arxiv:2412.14161
+resource_type: preprint
+title: 'TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks'
+authors:
+- Frank F. Xu
+- Yufan Song
+- Boxuan Li
+- Yuxuan Tang
+- Kritanjali Jain
+- Mengxue Bao
+- Zora Z. Wang
+- Xuhui Zhou
+published_at: '2024-12-18'
+url: https://arxiv.org/abs/2412.14161
+arxiv_id: '2412.14161'
+doi: 10.48550/arXiv.2412.14161
+taxonomy_topics:
+- '14.1'
+- '16.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: No OpenAlex record found at ingestion; arXiv is the identity.

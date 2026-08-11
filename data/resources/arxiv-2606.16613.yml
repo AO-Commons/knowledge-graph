@@ -1,0 +1,30 @@
+id: resource:arxiv:2606.16613
+resource_type: preprint
+title: 'CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterogeneous Multi-Agent Economies'
+authors:
+- Issa Sugiura
+- Daichi Hattori
+- Kazuo Araragi
+- Keita Ogawa
+- Shota Onose
+- Taro Makino
+- Teppei Usuki
+- Takashi Ishida
+published_at: '2026-06-15'
+url: https://arxiv.org/abs/2606.16613
+arxiv_id: '2606.16613'
+doi: 10.48550/arXiv.2606.16613
+taxonomy_topics:
+- '5.4'
+- '14.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7164882062

@@ -1,0 +1,33 @@
+id: resource:arxiv:2312.03664
+resource_type: preprint
+title: Generative agent-based modeling with actions grounded in physical, social, or digital
+  space using Concordia
+authors:
+- Alexander Sasha Vezhnevets
+- John Agapiou
+- Avia Aharon
+- Ron Ziv
+- Jayd Matyas
+- Edgar A. Duéñez-Guzmán
+- William A. Cunningham
+- Simon Osindero
+- Danny Karmon
+- Joel Z. Leibo
+published_at: '2023-12-06'
+url: https://arxiv.org/abs/2312.03664
+arxiv_id: '2312.03664'
+doi: 10.48550/arXiv.2312.03664
+taxonomy_topics:
+- '14.5'
+- '16.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4389471395

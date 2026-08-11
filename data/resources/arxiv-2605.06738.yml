@@ -1,0 +1,21 @@
+id: resource:arxiv:2605.06738
+resource_type: preprint
+title: 'Trust Without Trusting: A Recomputable Trust Protocol for Autonomous Agents'
+published_at: '2026-05-07'
+url: https://arxiv.org/abs/2605.06738
+arxiv_id: '2605.06738'
+doi: 10.48550/arXiv.2605.06738
+taxonomy_topics:
+- '5.3'
+- '9.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7160869178

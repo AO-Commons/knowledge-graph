@@ -1,0 +1,26 @@
+id: resource:arxiv:2602.14951
+resource_type: preprint
+title: 'Sovereign Agents: Towards Infrastructural Sovereignty and Diffused Accountability
+  in Decentralized AI'
+authors:
+- Baoyu Hu
+- Helena Rong
+published_at: '2026-02-16'
+url: https://arxiv.org/abs/2602.14951
+arxiv_id: '2602.14951'
+doi: 10.48550/arXiv.2602.14951
+taxonomy_topics:
+- '1.4'
+- '12.1'
+- '12.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7129535374

@@ -1,0 +1,25 @@
+id: resource:arxiv:2605.30169
+resource_type: preprint
+title: 'Dissociative Identity: Language Model Agents Lack Grounding for Reputation Mechanisms'
+authors:
+- Botao Amber Hu
+- Helena Rong
+- Max Van Kleek
+published_at: '2026-05-28'
+url: https://arxiv.org/abs/2605.30169
+arxiv_id: '2605.30169'
+doi: 10.48550/arXiv.2605.30169
+taxonomy_topics:
+- '5.3'
+- '6.3'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7162815129

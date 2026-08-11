@@ -1,0 +1,31 @@
+id: resource:arxiv:2403.12482
+resource_type: preprint
+title: Embodied LLM Agents Learn to Cooperate in Organized Teams
+authors:
+- Xudong Guo
+- Kaixuan Huang
+- Jiale Liu
+- Wenhui Fan
+- Natalia Vélez
+- Qingyun Wu
+- Huazheng Wang
+- Thomas L. Griffiths
+- Mengdi Wang
+published_at: '2024-03-19'
+url: https://arxiv.org/abs/2403.12482
+arxiv_id: '2403.12482'
+doi: 10.48550/arXiv.2403.12482
+taxonomy_topics:
+- '3.1'
+- '5.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4393027318

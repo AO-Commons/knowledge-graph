@@ -1,0 +1,22 @@
+id: resource:arxiv:2505.23643
+resource_type: preprint
+title: Securing AI Agents with Information-Flow Control
+published_at: '2025-05-29'
+url: https://arxiv.org/abs/2505.23643
+arxiv_id: '2505.23643'
+doi: 10.48550/arXiv.2505.23643
+taxonomy_topics:
+- '2.2'
+- '10.1'
+- '10.6'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4416712242

@@ -1,0 +1,25 @@
+id: resource:arxiv:2506.12469
+resource_type: preprint
+title: Levels of Autonomy for AI Agents
+authors:
+- K. J. Kevin Feng
+- David W. McDonald
+- Amy X. Zhang
+published_at: '2025-06-14'
+url: https://arxiv.org/abs/2506.12469
+arxiv_id: '2506.12469'
+doi: 10.48550/arXiv.2506.12469
+taxonomy_topics:
+- '1.1'
+- '2.4'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4415111841

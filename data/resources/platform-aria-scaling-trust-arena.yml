@@ -1,0 +1,20 @@
+id: resource:platform:aria-scaling-trust-arena
+resource_type: code-tool
+title: ARIA — Scaling Trust Arena
+description: Live adversarial multi-agent competition environment, roughly £50m programme,
+  Arena launching Q3 2026.
+url: https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/scaling-trust/arena
+taxonomy_topics:
+- '10.4'
+- '14.2'
+facets:
+  artifact_type: code-tool
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

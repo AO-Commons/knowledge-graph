@@ -1,0 +1,19 @@
+id: resource:platform:ai-village
+resource_type: code-tool
+title: AI Village
+description: Long-horizon autonomous agent collective.
+url: https://theaidigest.org/village
+taxonomy_topics:
+- '3.4'
+- '16.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

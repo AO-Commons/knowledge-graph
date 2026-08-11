@@ -1,0 +1,25 @@
+id: resource:arxiv:2605.17698
+resource_type: preprint
+title: 'Agent Bazaar: Enabling Economic Alignment in Multi-Agent Marketplaces'
+authors:
+- Seth Karten
+- Cameron Crow
+- Chi Jin
+published_at: '2026-05-17'
+url: https://arxiv.org/abs/2605.17698
+arxiv_id: '2605.17698'
+doi: 10.48550/arXiv.2605.17698
+taxonomy_topics:
+- '5.4'
+- '13.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7161686265

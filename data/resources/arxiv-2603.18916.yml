@@ -1,0 +1,33 @@
+id: resource:arxiv:2603.18916
+resource_type: preprint
+title: 'Agentic Business Process Management: A Research Manifesto'
+authors:
+- Diego Calvanese
+- Angelo Casciani
+- Giuseppe De Giacomo
+- Marlon Dumas
+- Fabiana Fournier
+- Timotheus Kampik
+- Emanuele La Malfa
+- Lior Limonad
+- Andrea Marrella
+- Andreas Metzger
+- Marco Montali
+published_at: '2026-03-19'
+url: https://arxiv.org/abs/2603.18916
+arxiv_id: '2603.18916'
+doi: 10.48550/arXiv.2603.18916
+taxonomy_topics:
+- '3.1'
+- '16.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7139918537

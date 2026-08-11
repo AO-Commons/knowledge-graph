@@ -1,0 +1,22 @@
+id: resource:arxiv:2606.03518
+resource_type: preprint
+title: 'Overlaying Governance: A Compositional Authorization Framework for Delegation and
+  Scope in Agentic AI'
+published_at: '2026-06-02'
+url: https://arxiv.org/abs/2606.03518
+arxiv_id: '2606.03518'
+doi: 10.48550/arXiv.2606.03518
+taxonomy_topics:
+- '2.2'
+- '2.3'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7163327767

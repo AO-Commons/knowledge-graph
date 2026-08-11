@@ -1,0 +1,33 @@
+id: resource:arxiv:2107.06857
+resource_type: preprint
+title: Scalable Evaluation of Multi-Agent Reinforcement Learning with Melting Pot
+authors:
+- Joel Z. Leibo
+- Edgar A. Duéñez-Guzmán
+- Alexander Sasha Vezhnevets
+- John Agapiou
+- Peter Sunehag
+- Raphaël Koster
+- Jayd Matyas
+- Charles Beattie
+- Igor Mordatch
+- Thore Graepel
+published_at: '2021-07-14'
+url: https://arxiv.org/abs/2107.06857
+arxiv_id: '2107.06857'
+doi: 10.48550/arXiv.2107.06857
+taxonomy_topics:
+- '14.1'
+- '14.5'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+is_borrowed_background: true
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W3172330035

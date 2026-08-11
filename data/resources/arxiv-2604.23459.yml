@@ -1,0 +1,27 @@
+id: resource:arxiv:2604.23459
+resource_type: preprint
+title: Architecture Matters for Multi-Agent Security
+authors:
+- Ben Hagag
+- William L. Anderson
+- Christian Schroeder de Witt
+- Sarah Scheffler
+published_at: '2026-04-25'
+url: https://arxiv.org/abs/2604.23459
+arxiv_id: '2604.23459'
+doi: 10.48550/arXiv.2604.23459
+taxonomy_topics:
+- '3.1'
+- '10.5'
+- '14.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7157124873

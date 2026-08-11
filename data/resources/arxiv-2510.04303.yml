@@ -1,0 +1,25 @@
+id: resource:arxiv:2510.04303
+resource_type: preprint
+title: 'Audit the Whisper: Detecting Steganographic Collusion in Multi-Agent LLMs'
+authors:
+- Dhruv Tailor
+published_at: '2025-10-05'
+url: https://arxiv.org/abs/2510.04303
+arxiv_id: '2510.04303'
+doi: 10.48550/arXiv.2510.04303
+taxonomy_topics:
+- '9.3'
+- '10.2'
+- '11.6'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W4414971482
+description: Introduces ColludeBench-v0 — pricing duopoly, auctions, peer review.

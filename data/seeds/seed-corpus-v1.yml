@@ -1,0 +1,261 @@
+# Seed corpus v1 — the starting set for Milestone 2.
+#
+# Curated by hand, resolved against OpenAlex, and expanded into
+# data/resources/ by scripts/ingest_seeds.py.
+#
+# Taxonomy tags here are a FIRST PASS assigned from titles, abstracts, and
+# venue — not classification-pipeline output, and not reviewed. They are good
+# enough to make the graph navigable and wrong often enough that they should
+# be treated as a to-do list rather than as findings. `review_status` on each
+# record records that.
+#
+# The scope test still applies: an item belongs if it would change how you
+# design, operate, oversee, or hold accountable an organization where agents
+# act with real authority. Items kept mainly as method precedent or borrowed
+# foundation are marked `borrowed: true`.
+
+papers:
+  # --- Authority, delegation, and governance structure ---
+  - arxiv: "2605.24538"
+    openalex: W7162450956
+    title: "Is Decentralized AI Governable? From Regulative Policy to Constitutive Protocol"
+    date: 2026-05-23
+    authors: [Botao Amber Hu, Helena Rong]
+    topics: ["1.3", "2.1", "2.7"]
+
+  - arxiv: "2602.14951"
+    openalex: W7129535374
+    title: "Sovereign Agents: Towards Infrastructural Sovereignty and Diffused Accountability in Decentralized AI"
+    date: 2026-02-16
+    authors: [Baoyu Hu, Helena Rong]
+    topics: ["1.4", "12.1", "12.2"]
+
+  - arxiv: "2605.30169"
+    openalex: W7162815129
+    title: "Dissociative Identity: Language Model Agents Lack Grounding for Reputation Mechanisms"
+    date: 2026-05-28
+    authors: [Botao Amber Hu, Helena Rong, Max Van Kleek]
+    topics: ["5.3", "6.3"]
+
+  - arxiv: "2606.03518"
+    openalex: W7163327767
+    title: "Overlaying Governance: A Compositional Authorization Framework for Delegation and Scope in Agentic AI"
+    date: 2026-06-02
+    topics: ["2.2", "2.3"]
+
+  - arxiv: "2506.12469"
+    openalex: W4415111841
+    title: "Levels of Autonomy for AI Agents"
+    date: 2025-06-14
+    authors: [K. J. Kevin Feng, David W. McDonald, Amy X. Zhang]
+    topics: ["1.1", "2.4"]
+
+  - arxiv: "2605.06738"
+    openalex: W7160869178
+    title: "Trust Without Trusting: A Recomputable Trust Protocol for Autonomous Agents"
+    date: 2026-05-07
+    topics: ["5.3", "9.1"]
+
+  # --- Organizational architecture and coordination ---
+  - arxiv: "2601.03624"
+    openalex: W7119525918
+    title: "Architecting Agentic Communities using Design Patterns"
+    date: 2026-01-07
+    authors: [Zoran Milosevic, Fethi Rabhi]
+    topics: ["3.1", "3.2"]
+
+  - arxiv: "2512.07665"
+    openalex: W7111187885
+    title: "Reliable agent engineering should integrate machine-compatible organizational principles"
+    date: 2025-12-08
+    authors: [R. Patrick Xian, Garry A. Gabison, Ahmed Alaa, Christoph Riedl, Grigorios G. Chrysos]
+    topics: ["3.1", "15.3"]
+
+  - arxiv: "2403.12482"
+    openalex: W4393027318
+    title: "Embodied LLM Agents Learn to Cooperate in Organized Teams"
+    date: 2024-03-19
+    authors: [Xudong Guo, Kaixuan Huang, Jiale Liu, Wenhui Fan, Natalia Vélez, Qingyun Wu, Huazheng Wang, Thomas L. Griffiths, Mengdi Wang]
+    topics: ["3.1", "5.2"]
+
+  - arxiv: "2603.18916"
+    openalex: W7139918537
+    title: "Agentic Business Process Management: A Research Manifesto"
+    date: 2026-03-19
+    authors: [Diego Calvanese, Angelo Casciani, Giuseppe De Giacomo, Marlon Dumas, Fabiana Fournier, Timotheus Kampik, Emanuele La Malfa, Lior Limonad, Andrea Marrella, Andreas Metzger, Marco Montali]
+    topics: ["3.1", "16.1"]
+
+  - arxiv: "2605.07062"
+    openalex: W7160828604
+    title: "From Assistance to Agency: Rethinking Autonomy and Control in CI/CD Pipelines"
+    date: 2026-05-08
+    topics: ["2.4", "4.1"]
+
+  # --- Memory and institutional continuity ---
+  - arxiv: "2607.26637"
+    openalex: W7171849062
+    title: "Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability"
+    date: 2026-07-29
+    topics: ["7.2", "7.4"]
+
+  - arxiv: "2607.27415"
+    openalex: W7171937393
+    title: "Bridging Inference-Time Scaling and Episodic Memory with Action-Centric Graphs"
+    date: 2026-07-29
+    topics: ["7.1", "7.4"]
+
+  # --- Security ---
+  - arxiv: "2505.23643"
+    openalex: W4416712242
+    title: "Securing AI Agents with Information-Flow Control"
+    date: 2025-05-29
+    topics: ["2.2", "10.1", "10.6"]
+
+  - arxiv: "2604.23459"
+    openalex: W7157124873
+    title: "Architecture Matters for Multi-Agent Security"
+    date: 2026-04-25
+    authors: [Ben Hagag, William L. Anderson, Christian Schroeder de Witt, Sarah Scheffler]
+    topics: ["3.1", "10.5", "14.2"]
+
+  - arxiv: "2510.04303"
+    openalex: W4414971482
+    title: "Audit the Whisper: Detecting Steganographic Collusion in Multi-Agent LLMs"
+    date: 2025-10-05
+    authors: [Dhruv Tailor]
+    topics: ["9.3", "10.2", "11.6"]
+    note: Introduces ColludeBench-v0 — pricing duopoly, auctions, peer review.
+
+  - arxiv: "2401.11880"
+    openalex: W4391158756
+    title: "PsySafe: A Comprehensive Framework for Psychological-based Attack, Defense, and Evaluation of Multi-agent System Safety"
+    date: 2024-01-22
+    topics: ["10.1", "14.2"]
+
+  # --- Risk framing and position ---
+  - arxiv: "2502.14143"
+    openalex: W4407806359
+    title: "Multi-Agent Risks from Advanced AI"
+    date: 2025-02-19
+    authors: [Lewis Hammond, Alan Chan, Jesse Clifton, Jason Hoelscher-Obermaier, Akbir Khan, Euan McLean, Chandler Smith, Wolfram Barfuß, Joel Z. Leibo, Iyad Rahwan]
+    topics: ["11.1", "11.6", "11.13"]
+    note: >-
+      Cooperative AI Foundation Technical Report #1. Three failure modes and
+      seven risk factors — the closest thing the field has to a shared risk
+      taxonomy, and worth reconciling against section 11.
+
+  - arxiv: "2606.03237"
+    openalex: W7163342836
+    title: "Solipsistic Superintelligence is Unlikely to be Cooperative"
+    date: 2026-06-02
+    authors: [Rakshit S Trivedi, Natasha Jaques, Logan Cross, Alexander Sasha Vezhnevets, Joel Z Leibo]
+    topics: ["1.2", "5.2", "15.3"]
+    note: ICML 2026 position paper. Institutions as design primitives.
+
+  # --- Benchmarks and evaluation instruments ---
+  - arxiv: "2502.15840"
+    openalex: W4414835304
+    title: "Vending-Bench: A Benchmark for Long-Term Coherence of Autonomous Agents"
+    date: 2025-02-20
+    authors: [Axel Backlund, Lukas Petersson]
+    topics: ["14.1", "14.5"]
+
+  - arxiv: "2412.14161"
+    title: "TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks"
+    date: 2024-12-18
+    authors: [Frank F. Xu, Yufan Song, Boxuan Li, Yuxuan Tang, Kritanjali Jain, Mengxue Bao, Zora Z. Wang, Xuhui Zhou]
+    topics: ["14.1", "16.2"]
+    note: No OpenAlex record found at ingestion; arXiv is the identity.
+
+  - arxiv: "2107.06857"
+    openalex: W3172330035
+    title: "Scalable Evaluation of Multi-Agent Reinforcement Learning with Melting Pot"
+    date: 2021-07-14
+    authors: [Joel Z. Leibo, Edgar A. Duéñez-Guzmán, Alexander Sasha Vezhnevets, John Agapiou, Peter Sunehag, Raphaël Koster, Jayd Matyas, Charles Beattie, Igor Mordatch, Thore Graepel]
+    topics: ["14.1", "14.5"]
+    borrowed: true
+
+  - arxiv: "2312.03664"
+    openalex: W4389471395
+    title: "Generative agent-based modeling with actions grounded in physical, social, or digital space using Concordia"
+    date: 2023-12-06
+    authors: [Alexander Sasha Vezhnevets, John Agapiou, Avia Aharon, Ron Ziv, Jayd Matyas, Edgar A. Duéñez-Guzmán, William A. Cunningham, Simon Osindero, Danny Karmon, Joel Z. Leibo]
+    topics: ["14.5", "16.1"]
+
+  # --- Agent economies ---
+  - arxiv: "2606.16613"
+    openalex: W7164882062
+    title: "CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterogeneous Multi-Agent Economies"
+    date: 2026-06-15
+    authors: [Issa Sugiura, Daichi Hattori, Kazuo Araragi, Keita Ogawa, Shota Onose, Taro Makino, Teppei Usuki, Takashi Ishida]
+    topics: ["5.4", "14.1"]
+
+  - arxiv: "2605.17698"
+    openalex: W7161686265
+    title: "Agent Bazaar: Enabling Economic Alignment in Multi-Agent Marketplaces"
+    date: 2026-05-17
+    authors: [Seth Karten, Cameron Crow, Chi Jin]
+    topics: ["5.4", "13.2"]
+
+  - arxiv: "2604.07007"
+    openalex: W7152644697
+    title: "AgentCity: Constitutional Governance for Autonomous Agent Economies via Separation of Power"
+    date: 2026-04-08
+    authors: [Anbang Ruan, Xing Zhang]
+    topics: ["2.7", "5.4"]
+
+# Deployments, arenas, and platforms. Not literature — but the operating
+# record of agents holding real authority is exactly what section 16 asks
+# for, and there is very little of it.
+platforms:
+  - id: andon-labs
+    title: Andon Labs
+    url: https://andonlabs.com
+    type: code-tool
+    topics: ["13.1", "16.1"]
+    note: >-
+      Café, market, and radio-station deployments carrying rent, payroll, and
+      inference costs against real revenue. Among the few places where agents
+      hold budget authority with money that actually moves.
+
+  - id: vending-bench-arena
+    title: Vending-Bench Arena
+    url: https://andonlabs.com/evals/vending-bench-arena
+    type: code-tool
+    topics: ["14.1", "11.6"]
+    note: >-
+      Multi-agent extension of Vending-Bench; source of the July 2026
+      price-collusion, truce-breaking, and supplier-deception results.
+
+  - id: ai-village
+    title: AI Village
+    url: https://theaidigest.org/village
+    type: code-tool
+    topics: ["3.4", "16.1"]
+    note: Long-horizon autonomous agent collective.
+
+  - id: raft
+    title: Raft
+    url: https://raft.build/
+    type: code-tool
+    topics: ["3.4", "16.1"]
+    note: Multi-agent platform, observational at roughly 45,000 agents.
+
+  - id: aria-scaling-trust-arena
+    title: "ARIA — Scaling Trust Arena"
+    url: https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/scaling-trust/arena
+    type: code-tool
+    topics: ["10.4", "14.2"]
+    note: >-
+      Live adversarial multi-agent competition environment, roughly £50m
+      programme, Arena launching Q3 2026.
+
+# Named in the brief but not yet resolved to a record. Kept visible rather
+# than dropped, because an unfilled gap is a to-do and a silently dropped
+# item is a hole nobody notices.
+unresolved:
+  - title: "SafeAgents: multi-agent architectural safety evaluation across five MAS architectures"
+    note: >-
+      Authors and arXiv ID not supplied and not found at ingestion. Covers
+      Magentic-One, LangGraph, and OpenAI-Agents centralized/decentralized.
+      Needs an identifier before it can be a record.

@@ -1,0 +1,21 @@
+id: resource:arxiv:2605.07062
+resource_type: preprint
+title: 'From Assistance to Agency: Rethinking Autonomy and Control in CI/CD Pipelines'
+published_at: '2026-05-08'
+url: https://arxiv.org/abs/2605.07062
+arxiv_id: '2605.07062'
+doi: 10.48550/arXiv.2605.07062
+taxonomy_topics:
+- '2.4'
+- '4.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7160828604

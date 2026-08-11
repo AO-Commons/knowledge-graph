@@ -1,0 +1,25 @@
+id: resource:arxiv:2604.07007
+resource_type: preprint
+title: 'AgentCity: Constitutional Governance for Autonomous Agent Economies via Separation
+  of Power'
+authors:
+- Anbang Ruan
+- Xing Zhang
+published_at: '2026-04-08'
+url: https://arxiv.org/abs/2604.07007
+arxiv_id: '2604.07007'
+doi: 10.48550/arXiv.2604.07007
+taxonomy_topics:
+- '2.7'
+- '5.4'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+openalex_id: W7152644697
