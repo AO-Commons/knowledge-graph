@@ -1,0 +1,17 @@
+{
+  "version": "v0.1.0",
+  "taxonomy_version": "v3",
+  "counts": {
+    "topics": 567,
+    "resources": 0,
+    "entities": 0,
+    "relationships": 551,
+    "nodes": 567
+  },
+  "relation_counts": {
+    "PARENT_OF": 551
+  },
+  "confidence_counts": {},
+  "license": "CC-BY-4.0",
+  "attribution": "AO Commons — https://github.com/AO-Commons/knowledge-graph"
+}

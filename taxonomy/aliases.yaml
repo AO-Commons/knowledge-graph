@@ -1,0 +1,15 @@
+# Synonyms that make a topic findable under names the taxonomy doesn't use.
+#
+# The first thing to try when the corpus reveals a gap: often a topic exists
+# and simply isn't findable under the words a researcher would reach for.
+# An alias is cheap and reversible; a new topic is neither.
+#
+# Aliases feed candidate-topic retrieval during classification and search.
+# They never create nodes and never change a code.
+#
+#   "2.2.2":
+#     - macaroons
+#     - scoped tokens
+#     - object capabilities
+
+{}

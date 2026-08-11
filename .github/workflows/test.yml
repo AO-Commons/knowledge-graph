@@ -1,0 +1,31 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+
+      # The release must rebuild byte-for-byte from the checked-in taxonomy.
+      # If it doesn't, either the parser changed or the taxonomy did, and
+      # both should be visible in review rather than discovered later.
+      - name: Release is reproducible
+        run: |
+          aokg build --version check --out /tmp/rel-a
+          aokg build --version check --out /tmp/rel-b
+          diff -r /tmp/rel-a /tmp/rel-b
+          diff /tmp/rel-a/check/taxonomy.json data/releases/v0.1.0/taxonomy.json

@@ -1,0 +1,15 @@
+# Non-hierarchical relationships between topics.
+#
+# The tree has one parent per topic, but the field does not. Revocation in
+# delegation chains (2.3.x) is bound up with identity (2.1.x) and with the
+# failure codes that describe what happens when it goes wrong (11.3.x).
+# Cross-links carry that without duplicating topics into several branches.
+#
+# Try a cross-link before proposing a new topic.
+#
+#   - from: "2.3.1"
+#     to: "11.3.4"
+#     relation: failure_mode_of
+#     note: Revocation design is what the delegation-chain failure code tests.
+
+[]
