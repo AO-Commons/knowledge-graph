@@ -135,6 +135,12 @@ def main(argv: list[str] | None = None) -> int:
     entries = [paper_record(e) for e in manifest.get("papers", [])]
     entries += [platform_record(e) for e in manifest.get("platforms", [])]
     entries += [doi_record(e) for e in manifest.get("round2", [])]
+    # Round 3 mixes arXiv preprints and published papers; the identifier
+    # present decides which shape the record takes.
+    entries += [
+        paper_record(e) if e.get("arxiv") else doi_record(e)
+        for e in manifest.get("round3", [])
+    ]
 
     for payload in entries:
         payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "", False)}

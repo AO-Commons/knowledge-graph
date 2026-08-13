@@ -1,0 +1,22 @@
+id: resource:doi:10-1177-00491241251337316
+resource_type: peer-reviewed-paper
+title: 'Simulating Subjects: The Promise and Peril of Artificial Intelligence Stand-Ins for
+  Social Agents and Interactions'
+published_at: '2025-06-02'
+doi: 10.1177/00491241251337316
+url: https://doi.org/10.1177/00491241251337316
+taxonomy_topics:
+- '14.5'
+- '16.4'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+is_borrowed_background: true
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

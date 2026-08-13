@@ -1,0 +1,23 @@
+id: resource:doi:10-1017-s0140525x2510174x
+resource_type: peer-reviewed-paper
+title: Institutions as cached computation for resource-rational negotiation
+published_at: '2026-01-01'
+doi: 10.1017/s0140525x2510174x
+url: https://doi.org/10.1017/s0140525x2510174x
+taxonomy_topics:
+- '1.2'
+- '5.2'
+- '15.3'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Institutions as computation. Reads directly against Trivedi and Leibo's "institutions
+  as design primitives" position.

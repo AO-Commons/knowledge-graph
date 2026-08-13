@@ -1,0 +1,21 @@
+id: resource:arxiv:2509.14485
+resource_type: preprint
+title: 'Beyond the high score: Prosocial ability profiles of multi-agent populations'
+published_at: '2025-09-17'
+url: https://arxiv.org/abs/2509.14485
+arxiv_id: '2509.14485'
+doi: 10.48550/arXiv.2509.14485
+taxonomy_topics:
+- '14.1'
+- '5.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

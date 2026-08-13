@@ -1,0 +1,24 @@
+id: resource:arxiv:2509.10147
+resource_type: preprint
+title: Virtual Agent Economies
+published_at: '2025-09-12'
+url: https://arxiv.org/abs/2509.10147
+arxiv_id: '2509.10147'
+doi: 10.48550/arXiv.2509.10147
+taxonomy_topics:
+- '5.4'
+- '2.7'
+- '13.2'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Sandbox economies of agents transacting with each other. The closest thing to
+  a design agenda for section 5.4.

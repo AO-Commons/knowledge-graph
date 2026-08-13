@@ -1,0 +1,20 @@
+id: resource:doi:10-1073-pnas-2319947121
+resource_type: peer-reviewed-paper
+title: Tabula rasa agents display emergent in-group behavior
+published_at: '2025-06-16'
+doi: 10.1073/pnas.2319947121
+url: https://doi.org/10.1073/pnas.2319947121
+taxonomy_topics:
+- '5.1'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+is_borrowed_background: true
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

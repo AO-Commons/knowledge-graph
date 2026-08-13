@@ -1,0 +1,25 @@
+id: resource:arxiv:2506.00073
+resource_type: preprint
+title: 'The Automated but Risky Game: Modeling and Benchmarking Agent-to-Agent Negotiations
+  and Transactions in Consumer Markets'
+published_at: '2025-05-29'
+url: https://arxiv.org/abs/2506.00073
+arxiv_id: '2506.00073'
+doi: 10.48550/arXiv.2506.00073
+taxonomy_topics:
+- '3.3'
+- '5.4'
+- '14.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: 'Direct evidence for the 3.3.6 proposal: agents transacting with external counterparties,
+  benchmarked for what goes wrong.'

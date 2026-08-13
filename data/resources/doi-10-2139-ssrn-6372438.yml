@@ -1,0 +1,20 @@
+id: resource:doi:10-2139-ssrn-6372438
+resource_type: peer-reviewed-paper
+title: AI Agent Traps
+published_at: '2026-01-01'
+doi: 10.2139/ssrn.6372438
+url: https://doi.org/10.2139/ssrn.6372438
+taxonomy_topics:
+- '11.1'
+- '11.2'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

@@ -1,0 +1,21 @@
+id: resource:arxiv:2501.16173
+resource_type: preprint
+title: 'Will Systems of LLM Agents Cooperate: An Investigation into a Social Dilemma'
+published_at: '2025-01-27'
+url: https://arxiv.org/abs/2501.16173
+arxiv_id: '2501.16173'
+doi: 10.48550/arXiv.2501.16173
+taxonomy_topics:
+- '5.2'
+- '14.1'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

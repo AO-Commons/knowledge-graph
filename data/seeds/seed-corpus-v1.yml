@@ -291,3 +291,106 @@ round2:
     title: "A Holistic Review of Agentic AI Frameworks, Applications, and Research Trajectories"
     date: 2026-06-15
     topics: ["3.1", "16.1"]
+
+# --- Round 3: author and institution expansion ---
+# Traced from community members named as researchers, via OpenAlex author
+# records: Joel Z. Leibo (Google DeepMind), Alex Pentland (MIT), Ellie Rennie,
+# James A. Evans (Chicago).
+#
+# The precision here is worth recording. Author-based expansion returns an
+# author's whole output, not their relevant output: Pentland's recent works
+# include three GraphBLAS papers and a COVID consumer study, Rennie's are
+# mostly community media and blockchain ethnography, and Evans's are largely
+# science-of-science. Roughly 14 of ~90 works surveyed passed the scope test.
+# The instrument finds the right people; the scope test does the rest.
+round3:
+  # Google DeepMind — Leibo and collaborators
+  - arxiv: "2509.10147"
+    title: "Virtual Agent Economies"
+    date: 2025-09-12
+    topics: ["5.4", "2.7", "13.2"]
+    note: >-
+      Sandbox economies of agents transacting with each other. The closest
+      thing to a design agenda for section 5.4.
+
+  - arxiv: "2509.14485"
+    title: "Beyond the high score: Prosocial ability profiles of multi-agent populations"
+    date: 2025-09-17
+    topics: ["14.1", "5.2"]
+
+  - arxiv: "2501.16173"
+    title: "Will Systems of LLM Agents Cooperate: An Investigation into a Social Dilemma"
+    date: 2025-01-27
+    topics: ["5.2", "14.1"]
+
+  - arxiv: "2503.14576"
+    title: "SocialJax: An Evaluation Suite for Multi-agent Reinforcement Learning in Sequential Social Dilemmas"
+    date: 2025-03-18
+    topics: ["14.1", "14.5"]
+    borrowed: true
+
+  - arxiv: "2501.16138"
+    title: "Quantifying the Self-Interest Level of Markov Social Dilemmas"
+    date: 2025-01-27
+    topics: ["5.2"]
+    borrowed: true
+
+  - arxiv: "2501.18668"
+    title: "Simulation Streams: A Programming Paradigm for Controlling Large Language Models and Building Complex Systems with Generative AI"
+    date: 2025-01-30
+    topics: ["14.5"]
+
+  - doi: 10.1073/pnas.2319948121
+    title: "Collective cooperative intelligence"
+    date: 2025-06-16
+    topics: ["5.2", "15.3"]
+    borrowed: true
+
+  - doi: 10.1073/pnas.2319947121
+    title: "Tabula rasa agents display emergent in-group behavior"
+    date: 2025-06-16
+    topics: ["5.1"]
+    borrowed: true
+
+  # MIT — Pentland and collaborators
+  - arxiv: "2506.00073"
+    title: "The Automated but Risky Game: Modeling and Benchmarking Agent-to-Agent Negotiations and Transactions in Consumer Markets"
+    date: 2025-05-29
+    topics: ["3.3", "5.4", "14.1"]
+    note: >-
+      Direct evidence for the 3.3.6 proposal: agents transacting with external
+      counterparties, benchmarked for what goes wrong.
+
+  - arxiv: "2509.08200"
+    title: "Accelerating AI Development with Cyber Arenas"
+    date: 2025-09-10
+    topics: ["14.5", "10.4"]
+
+  - doi: 10.2139/ssrn.6372438
+    title: "AI Agent Traps"
+    date: 2026-01-01
+    topics: ["11.1", "11.2"]
+
+  # RMIT — Rennie
+  - doi: 10.1111/epic.70009
+    title: "Building the Loop: The Role of Ethnography in Artificial Organisational Intelligence"
+    date: 2025-11-01
+    topics: ["16.1", "16.4"]
+    note: >-
+      Method paper on studying artificial organisational intelligence
+      ethnographically — squarely section 16, which is thin.
+
+  # Chicago — Evans
+  - doi: 10.1017/s0140525x2510174x
+    title: "Institutions as cached computation for resource-rational negotiation"
+    date: 2026-01-01
+    topics: ["1.2", "5.2", "15.3"]
+    note: >-
+      Institutions as computation. Reads directly against Trivedi and Leibo's
+      "institutions as design primitives" position.
+
+  - doi: 10.1177/00491241251337316
+    title: "Simulating Subjects: The Promise and Peril of Artificial Intelligence Stand-Ins for Social Agents and Interactions"
+    date: 2025-06-02
+    topics: ["14.5", "16.4"]
+    borrowed: true

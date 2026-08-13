@@ -1,0 +1,23 @@
+id: resource:arxiv:2503.14576
+resource_type: preprint
+title: 'SocialJax: An Evaluation Suite for Multi-agent Reinforcement Learning in Sequential
+  Social Dilemmas'
+published_at: '2025-03-18'
+url: https://arxiv.org/abs/2503.14576
+arxiv_id: '2503.14576'
+doi: 10.48550/arXiv.2503.14576
+taxonomy_topics:
+- '14.1'
+- '14.5'
+facets:
+  artifact_type: preprint
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+is_borrowed_background: true
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
