@@ -212,6 +212,18 @@
   }
   .abstract.none { font-family: var(--sans); font-size: 14px; color: var(--signal); border-left-color: var(--signal); }
 
+  /* A claim and the sentence it came from. The quote is set apart and in the
+     serif so the eye can tell the source from our paraphrase at a glance —
+     confusing the two is the one mistake this panel cannot afford. */
+  .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .claim:first-of-type { border-top: none; }
+  .claim-text { font-size: 15px; line-height: 1.5; color: var(--ink); margin: 2px 0 10px; max-width: 62ch; }
+  .claim-quote {
+    font-family: var(--serif); font-size: 14.5px; line-height: 1.6; color: var(--faint);
+    margin: 0 0 12px; padding-left: 13px; border-left: 2px solid var(--rule-hard);
+    max-width: 62ch;
+  }
+
   .section-label {
     font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--faint); font-weight: 500; margin: 0 0 10px;
@@ -411,6 +423,10 @@
     note: "",
     noteOpen: false,
     decisions: {},
+    // Verdicts on extracted claims. Kept apart from `decisions` the whole way
+    // through, because they answer a different question and are measured
+    // against a different thing.
+    claims: {},
     sent: [],
   };
 
@@ -492,12 +508,15 @@
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
     state.decisions = saved.decisions || {};
+    state.claims = saved.claims || {};
     state.sent = Array.isArray(saved.sent) ? saved.sent : [];
   } catch (e) { /* corrupt or unavailable storage should not block filing */ }
 
   const save = () => {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions, sent: state.sent }));
+      localStorage.setItem(KEY, JSON.stringify({
+        decisions: state.decisions, claims: state.claims, sent: state.sent,
+      }));
     } catch (e) { /* private browsing; the session still works, export still offered */ }
   };
 
@@ -822,6 +841,13 @@
     ]));
     stage.append(ask);
 
+    // The second question, asked while the paper is still in your head. It
+    // comes after the filing buttons and never blocks them: placing where the
+    // record belongs is quick and reads off the abstract, while checking a
+    // sentence is slower, and a reviewer who only wants to tag should not have
+    // to scroll past work they did not sign up for.
+    if (record.claims && record.claims.length) stage.append(claimPanel(record));
+
     if (already) {
       const verdict = already.verdict === "out-of-scope" ? "marked out of scope"
         : already.verdict === "no-topic-fits" ? "marked as fitting no topic"
@@ -902,6 +928,112 @@
     if (rows.length > 60) wrap.append(el("p", { className: "empty" }, `…and ${rows.length - 60} more.`));
     return wrap;
   }
+
+  // ---- claims ------------------------------------------------------------
+  // A paper is a container; the answerable things are the statements inside
+  // it. These were read out of the abstract by a model and are worth exactly
+  // nothing until a person has checked them against the quoted sentence —
+  // which is why the sentence is shown, and why checking one takes seconds.
+
+  const VERDICTS = [
+    ["accurate", "Accurate",
+     "The paraphrase says what the quoted sentence says, no more."],
+    ["overstated", "Overstated",
+     "It is in the paper, but the paraphrase claims more than the source does — a "
+     + "hedge dropped, a scope widened. The most common way extraction goes wrong, and "
+     + "invisible in a yes/no."],
+    ["not-in-source", "Not in the source",
+     "The paper does not say this. Either the quote does not support it or the quote "
+     + "itself is wrong."],
+    ["ambiguous", "Can't tell",
+     "The sentence alone is not enough to judge, and you would need the full paper. "
+     + "A real answer, not a failure to answer."],
+  ];
+
+  const CLAIM_KINDS = {
+    finding: ["finding", "Something the work reports as observed or measured."],
+    method: ["method", "A technique or mechanism the work introduces."],
+    limitation: ["limitation", "A boundary the authors put on their own result."],
+    position: ["position", "An argument or recommendation, offered without evidence here."],
+  };
+
+  function claimPanel(record) {
+    const wrap = el("div", { className: "ask", style: "margin-top:22px" });
+    const done = record.claims.filter(c => state.claims[c.id] || c.verdict).length;
+
+    wrap.append(el("div", { className: "prompt" }, [
+      el("span", { className: "step" }, done === record.claims.length ? "checked" : "optional"),
+      el("strong", {}, "And does it actually say this?"),
+      el("span", { className: "sub" },
+        `${record.claims.length} statement${record.claims.length === 1 ? "" : "s"} were read out of `
+        + "the abstract automatically. Each one shows the sentence it came from, so checking "
+        + "it is a read of one line rather than of the paper."),
+      info("These are what makes the library answer questions instead of returning "
+           + "documents. Until someone confirms one, it is a machine's reading and is "
+           + "marked as such everywhere it appears."),
+    ]));
+
+    record.claims.forEach(claim => {
+      const card = el("div", { className: "claim" });
+      const kind = CLAIM_KINDS[claim.type] || [claim.type, ""];
+      card.append(el("div", { className: "kicker" }, [
+        el("span", {}, kind[0]),
+        ...(kind[1] ? [info(kind[1])] : []),
+      ]));
+      card.append(el("p", { className: "claim-text" }, claim.text));
+      card.append(el("blockquote", { className: "claim-quote" }, "“" + claim.quote + "”"));
+
+      // Already merged means somebody else settled it. Shown rather than
+      // asked again — re-deciding a merged verdict belongs in a disagreement,
+      // not in a queue.
+      if (claim.verdict) {
+        card.append(el("p", { className: "hint" },
+          `Checked${claim.by ? " by " + claim.by : ""} — ${claim.verdict.replace(/-/g, " ")}.`));
+        wrap.append(card);
+        return;
+      }
+
+      const mine = state.claims[claim.id];
+      const row = el("div", { className: "chips" });
+      VERDICTS.forEach(([value, label, why]) => {
+        const chip = el("button", { className: "chip" });
+        chip.setAttribute("aria-pressed", mine && mine.verdict === value ? "true" : "false");
+        chip.title = why;
+        chip.append(el("span", { className: "t" }, label));
+        chip.addEventListener("click", () => {
+          if (mine && mine.verdict === value) delete state.claims[claim.id];
+          else state.claims[claim.id] = { verdict: value, on: today(), note: (mine || {}).note || "" };
+          save(); renderReview();
+        });
+        row.append(chip);
+      });
+      card.append(row);
+
+      // A note is where the actual finding lives when a verdict is negative:
+      // "overstated" tells the extractor something is wrong, and the note
+      // tells it what.
+      if (mine && mine.verdict !== "accurate") {
+        const area = el("textarea", {
+          placeholder: "What is wrong with it? One line is plenty — this is what an "
+                       + "extractor can be fixed against.",
+          value: mine.note || "",
+        });
+        area.addEventListener("input", () => {
+          state.claims[claim.id].note = area.value; save();
+        });
+        card.append(el("div", { className: "note" }, area));
+      }
+      wrap.append(card);
+    });
+
+    wrap.append(el("p", { className: "hint" },
+      done
+        ? `${done} of ${record.claims.length} checked — they travel with your filing.`
+        : "Skipping these is fine. They go in the same submission as your topics."));
+    return wrap;
+  }
+
+  const today = () => new Date().toISOString().slice(0, 10);
 
   function commit(record, topics, verdict) {
     const entry = { topics, verdict, on: new Date().toISOString().slice(0, 10) };
@@ -1615,10 +1747,11 @@
       .flatMap(entry => entry.records || []));
     const all = Object.entries(state.decisions);
     const entries = all.filter(([id]) => !gone.has(id));
+    const checked = Object.entries(state.claims).filter(([id]) => !gone.has(id));
 
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
 
-    if (!entries.length) {
+    if (!entries.length && !checked.length) {
       // The history is most wanted by someone who has filed nothing yet —
       // returning early here hid it from exactly that person.
       stage.append(el("p", { className: "empty" }, all.length
@@ -1630,22 +1763,40 @@
       return;
     }
 
-    const lines = ["records:"];
-    entries.sort().forEach(([id, d]) => {
-      lines.push(`  ${id}:`);
-      // Quoted deliberately: unquoted, YAML reads 11.10 as the number 11.1,
-      // which is a different topic in this taxonomy and nothing would catch it.
-      lines.push(`    topics: [${d.topics.map(t => `"${t}"`).join(", ")}]`);
-      if (d.verdict && d.verdict !== "filed") lines.push(`    verdict: ${d.verdict}`);
-      if (d.unsure) lines.push("    unsure: true");
-      if (d.note) lines.push(`    note: ${JSON.stringify(d.note)}`);
-      lines.push(`    reviewed_on: ${d.on}`);
-    });
+    const lines = [];
+    if (entries.length) {
+      lines.push("records:");
+      entries.sort().forEach(([id, d]) => {
+        lines.push(`  ${id}:`);
+        // Quoted deliberately: unquoted, YAML reads 11.10 as the number 11.1,
+        // which is a different topic in this taxonomy and nothing would catch it.
+        lines.push(`    topics: [${d.topics.map(t => `"${t}"`).join(", ")}]`);
+        if (d.verdict && d.verdict !== "filed") lines.push(`    verdict: ${d.verdict}`);
+        if (d.unsure) lines.push("    unsure: true");
+        if (d.note) lines.push(`    note: ${JSON.stringify(d.note)}`);
+        lines.push(`    reviewed_on: ${d.on}`);
+      });
+    }
+    // The second block. One issue carries both because one reviewer made both
+    // judgements in one sitting; the bot files them to different places
+    // because they measure different things.
+    if (checked.length) {
+      lines.push("claims:");
+      checked.sort().forEach(([id, c]) => {
+        lines.push(`  ${id}:`);
+        lines.push(`    verdict: ${c.verdict}`);
+        if (c.note) lines.push(`    note: ${JSON.stringify(c.note)}`);
+        lines.push(`    reviewed_on: ${c.on}`);
+      });
+    }
     const yaml = lines.join("\n");
 
     const panel = el("div", { className: "panel" });
     panel.append(
-      el("h3", {}, `${entries.length} record${entries.length === 1 ? "" : "s"} ready`),
+      el("h3", {}, [
+        `${entries.length} record${entries.length === 1 ? "" : "s"} ready`,
+        checked.length ? ` · ${checked.length} claim${checked.length === 1 ? "" : "s"} checked` : "",
+      ].join("")),
       el("p", {}, "Open an issue and a bot checks every code against the taxonomy and prepares "
         + "the change. You never touch git. If something is wrong it says which record, on your "
         + "issue, and nothing is merged until it is fixed."),
@@ -1655,7 +1806,8 @@
         `${gone.size} record${gone.size === 1 ? "" : "s"} you already sent ${gone.size === 1 ? "is" : "are"} `
         + "not repeated here — only what is new goes in this one."));
     }
-    const title = `[Filing] ${entries.length} record(s)`;
+    const title = `[Filing] ${entries.length} record(s)`
+      + (checked.length ? ` and ${checked.length} claim(s)` : "");
     const waiting = sentFor(title);
     if (waiting) panel.append(sentNote(title));
     const box = el("textarea", { readOnly: true, value: yaml });
@@ -1682,7 +1834,7 @@
     const reset = el("button", { className: "btn" }, "Clear mine");
     reset.addEventListener("click", () => {
       if (!confirm("Delete everything you filed in this browser? This cannot be undone.")) return;
-      state.decisions = {}; save(); renderExport(); renderTree();
+      state.decisions = {}; state.claims = {}; save(); renderExport(); renderTree();
     });
 
     panel.append(el("div", { className: "actions" }, [copy, issue, reset]));

@@ -24,6 +24,7 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
+from ao_commons_kg.claims import load_claims  # noqa: E402
 from ao_commons_kg.classify import TopicIndex, classify_resource  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
@@ -44,6 +45,23 @@ def build_payload() -> dict:
     aliases = yaml.safe_load(ALIASES.read_text(encoding="utf-8")) if ALIASES.exists() else {}
     index = TopicIndex(topics, aliases or {})
     resources = load_resources()
+
+    # Claims travel with the record that makes them. A reviewer already has
+    # the paper in their head by the time they reach these, which is the whole
+    # argument for asking both questions in one sitting — the expensive part is
+    # the reading, and it should be paid once.
+    by_resource: dict[str, list] = {}
+    for claim in load_claims():
+        by_resource.setdefault(claim.resource_id, []).append({
+            "id": claim.id,
+            "text": claim.text,
+            "quote": claim.quote,
+            "type": claim.claim_type.value,
+            "topics": claim.topic_codes,
+            # A verdict already merged is shown rather than asked for again.
+            "verdict": claim.verdict or "",
+            "by": claim.reviewed_by or "",
+        })
 
     records = []
     for resource in sorted(resources, key=lambda r: (not r.abstract, r.id)):
@@ -68,6 +86,7 @@ def build_payload() -> dict:
             "repo": resource.repository_url or "",
             "current": resource.taxonomy_topics or [],
             "suggested": [a.code for a in suggestions],
+            "claims": by_resource.get(resource.id, []),
         })
 
     # The classifier's index, shipped compactly so the browser can suggest
