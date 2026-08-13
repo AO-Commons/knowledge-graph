@@ -70,14 +70,15 @@
      hairline under the whole header, which is what it was trying to be. */
   .masthead {
     display: grid; grid-template-columns: auto 1fr auto; align-items: center;
-    gap: 26px; padding: 12px 22px 0; border-bottom: 1px solid var(--rule);
+    gap: 20px; padding: 12px 22px 0; border-bottom: 1px solid var(--rule);
     background: var(--card); position: sticky; top: 0; z-index: 20;
   }
   .brand { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; }
   .brand img { width: 26px; height: 26px; border-radius: 2px; display: block; }
   .wordmark { font-size: 14.5px; font-weight: 620; letter-spacing: -.01em; line-height: 1.25; }
   .wordmark { font-size: 15px; }
-  .tools { display: flex; align-items: center; gap: 12px; justify-content: flex-end; padding-bottom: 12px; }
+  .tools { display: flex; align-items: center; gap: 12px; justify-content: flex-end;
+           padding-bottom: 12px; min-width: 0; }
   .progress { height: 2px; background: var(--sunk); }
   .progress i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
   @media (max-width: 860px) {
@@ -99,15 +100,16 @@
     color: var(--ink); border-bottom-color: var(--accent); font-weight: 620;
   }
 
-  .search { position: relative; flex: 0 1 260px; }
+  .search { position: relative; flex: 1 1 340px; min-width: 220px; max-width: 460px; }
   .search input {
     font: inherit; width: 100%; padding: 6px 11px; border-radius: 2px;
     border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-size: 13px;
   }
   .search-out {
-    position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 40;
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
+    width: max(100%, 520px);
     background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
-     max-height: 340px; overflow-y: auto; padding: 5px;
+     max-height: 420px; overflow-y: auto; padding: 5px;
   }
   .search-out:empty { display: none; }
   .search-out .head {
@@ -288,7 +290,9 @@
   .result {
     display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline;
     border: 0; background: transparent; text-align: left; padding: 7px 10px; border-radius: 2px;
+    width: 100%;
   }
+  .result > span:last-child { overflow-wrap: anywhere; }
   .result:hover { background: var(--sunk); }
   .result .trail { display: block; font-size: 11.5px; color: var(--faint); }
 
@@ -331,8 +335,8 @@
     <span class="wordmark">AO&nbsp;Commons</span>
   </div>
   <div class="modes" role="group" aria-label="Mode">
-    <button id="mode-review" aria-pressed="true">Review</button>
-    <button id="mode-explore" aria-pressed="false">Explore</button>
+    <button id="mode-explore" aria-pressed="true">Explore</button>
+    <button id="mode-review" aria-pressed="false">Review</button>
     <button id="mode-add" aria-pressed="false">Add</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
   </div>
@@ -379,7 +383,7 @@
   try { theme = localStorage.getItem(THEME_KEY) || theme; } catch (e) { /* default holds */ }
 
   const state = {
-    mode: "review",
+    mode: "explore",
     cursor: 0,
     picked: new Set(),
     open: new Set(),
@@ -858,23 +862,35 @@
       );
       theirs.forEach(r => {
         const item = el("div", { className: "explore-item" });
+        const open = el("button", { className: "more" }, "file this one");
+        open.addEventListener("click", () => { setMode("review"); openRecord(r); });
         item.append(
           r.url ? el("h4", {}, el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title))
                 : el("h4", {}, r.title),
           el("div", { className: "meta" }, [r.date, (r.current || []).join(", ")].filter(Boolean).join(" · ")),
+          open,
         );
         stage.append(item);
       });
-      const back = el("button", { className: "btn" }, "Clear author");
+      const back = el("button", { className: "btn" }, "← Back to the tree");
+      back.title = "Stop filtering by this author. Nothing about the records changes.";
       back.addEventListener("click", () => { state.author = null; renderStage(); });
-      stage.append(el("div", { className: "actions" }, back));
+      stage.append(el("div", { className: "actions" }, [
+        back,
+        el("span", { className: "hint" }, "nothing here can be edited or removed"),
+      ]));
       return;
     }
 
     if (!code) {
       stage.append(
         el("h1", { className: "record-title" }, "Browse the tree"),
-        el("p", { className: "empty" }, "Pick a topic on the left to see what the library holds under it — and where it holds nothing."),
+        el("p", { className: "abstract" },
+          "Pick a topic on the left to see what the library holds under it. File the records "
+          + "you know, add ones it is missing, and say so if a branch itself should change."),
+        el("p", { className: "empty" },
+          "When you are done, Submit opens a GitHub issue — a bot checks it and turns it into "
+          + "a pull request against the library."),
       );
       return;
     }
@@ -911,10 +927,108 @@
       const heading = r.url
         ? el("h4", {}, el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title))
         : el("h4", {}, r.title);
+      const open = el("button", { className: "more" }, "file this one");
+      open.addEventListener("click", () => { setMode("review"); openRecord(r); });
       item.append(heading, el("div", { className: "meta" },
-        [r.authors.slice(0, 3).join(", "), r.date].filter(Boolean).join(" · ")));
+        [r.authors.slice(0, 3).join(", "), r.date].filter(Boolean).join(" · ")), open);
       stage.append(item);
     });
+
+    stage.append(proposalForm(topic));
+  }
+
+  // ---- propose a change to the taxonomy ----------------------------------
+  const PROPOSALS = [
+    {
+      key: "alias",
+      label: "A name people search for that this topic does not answer to",
+      hint: "The cheapest fix and usually the right one. The topic exists; it is just not "
+            + "findable under the words you reached for.",
+      ask: "Which words should find it?",
+      placeholder: "steganographic collusion, covert signalling",
+    },
+    {
+      key: "crosslink",
+      label: "A link between this topic and another",
+      hint: "For a relationship the tree cannot hold, because a topic has one parent and "
+            + "the field does not work that way.",
+      ask: "Which topic should it link to, and what is the relationship?",
+      placeholder: "11.6.2 — this is the design question, that is what shows up in incidents",
+    },
+    {
+      key: "child",
+      label: "A missing topic that would sit under this one",
+      hint: "Only once an alias and a cross-link have both been ruled out. A new code is "
+            + "permanent — nothing is ever renumbered or reused.",
+      ask: "What would it be called, and what belongs under it that has nowhere to go?",
+      placeholder: "Information-flow control for agent data access — every child of 2.2 governs "
+                   + "what an agent may reach, none governs what happens to data once it has it",
+    },
+    {
+      key: "wrong",
+      label: "This topic is wrong, misnamed, or in the wrong place",
+      hint: "Say what it should be instead.",
+      ask: "What is wrong with it?",
+      placeholder: "",
+    },
+  ];
+
+  function proposalForm(topic) {
+    const wrap = el("div", { className: "ask", style: "margin-top:30px" });
+    wrap.append(el("div", { className: "prompt" }, [
+      el("span", { className: "step" }, "optional"),
+      el("strong", {}, `Should ${topic.code} itself change?`),
+      info("The taxonomy is a seed, not scripture — but its codes are stable identifiers that "
+           + "other people's tags point at. Try the cheapest fix first: an alias, then a "
+           + "cross-link, then a new topic. Most gaps turn out to be findability problems."),
+    ]));
+
+    const state_ = { kind: "", detail: "", why: "" };
+    const detail = el("div", { style: "display:none;margin-top:16px" });
+    const send = el("div", { className: "actions", style: "display:none;margin-top:16px" });
+
+    const choices = el("div", { className: "chips" });
+    PROPOSALS.forEach(option => {
+      const chip = el("button", { className: "chip", style: "max-width:100%" });
+      chip.setAttribute("aria-pressed", "false");
+      chip.append(el("span", { className: "t" }, option.label));
+      chip.title = option.hint;
+      chip.addEventListener("click", () => {
+        state_.kind = option.key;
+        [...choices.children].forEach(c => c.setAttribute("aria-pressed", "false"));
+        chip.setAttribute("aria-pressed", "true");
+        detail.textContent = "";
+        detail.append(el("p", { className: "section-label" }, option.ask));
+        const area = el("textarea", { placeholder: option.placeholder });
+        area.addEventListener("input", () => { state_.detail = area.value; refresh(); });
+        detail.append(area, el("span",
+          { className: "why", style: "color:var(--faint);font-size:12px" }, option.hint));
+        detail.style.display = "";
+        refresh();
+      });
+      choices.append(chip);
+    });
+    wrap.append(choices, detail);
+
+    const refresh = () => {
+      const ready = state_.kind && state_.detail.trim().length > 15;
+      send.style.display = ready ? "" : "none";
+      if (!ready) return;
+      const option = PROPOSALS.find(o => o.key === state_.kind);
+      send.textContent = "";
+      send.append(
+        issueButton("Open an issue with this proposal",
+          `[Taxonomy] ${topic.code} — ${option.key}`,
+          [`**Topic:** ${topic.code} ${topic.title}`,
+           `**Kind of change:** ${option.label}`, "",
+           `**${option.ask}**`, "", state_.detail, "",
+           "_Proposed from the filing site while browsing this branch._"].join("\n"),
+          "taxonomy"),
+        el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
+      );
+    };
+    wrap.append(send);
+    return wrap;
   }
 
   // ---- add something to the library -------------------------------------
@@ -1279,7 +1393,7 @@
       papers.forEach(r => {
         const hit = el("button", { className: "result" }, [
           el("span", { className: "code" }, state.decisions[r.id] || merged.has(r.id) ? "✓" : "·"),
-          el("span", {}, [r.title.slice(0, 68),
+          el("span", {}, [r.title,
             el("span", { className: "trail" }, (r.authors || []).slice(0, 3).join(", "))]),
         ]);
         hit.addEventListener("click", () => { clearSearch(); jumpTo(r); });
@@ -1341,6 +1455,6 @@
   });
 
   DATA.topics.filter(t => t.depth === 0).forEach(t => state.open.add(t.code));
-  renderTree(); renderStage();
+  setMode("explore");
 })();
 </script>

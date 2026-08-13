@@ -1,0 +1,63 @@
+name: Propose a taxonomy change
+description: An alias, a cross-link, a missing topic, or a topic that is wrong.
+title: "[Taxonomy] "
+labels: ["taxonomy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The site fills this in when you propose from a branch in **Explore**, which is
+        the easier route — the topic and its parent come along automatically.
+
+        The taxonomy is a seed, not scripture. But its codes are stable identifiers that
+        other people's tags point at, so changes go in order of cost:
+
+        1. **An alias** — the topic exists and is not findable under the words you used.
+        2. **Multi-tagging** — two existing topics cover it between them.
+        3. **A cross-link** — the relationship is real but the tree cannot hold it.
+        4. **A new topic** — only once the first three are ruled out.
+
+        Most gaps turn out to be findability problems. Two rules do not bend: codes are
+        never renumbered or reused, and V1 adds no new top-level sections.
+
+  - type: input
+    id: topic
+    attributes:
+      label: Which topic
+      placeholder: "2.2 Permissioning and capability control"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of change
+      options:
+        - An alias — a name people search for that it does not answer to
+        - A cross-link — a relationship between this topic and another
+        - A missing topic that would sit under this one
+        - This topic is wrong, misnamed, or in the wrong place
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: What is missing, and what should change
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why the cheaper fixes do not cover it
+      description: |
+        If you are proposing a new topic, this is the part that decides it. Which existing
+        topics did you try, and what specifically has nowhere to go? Example resources
+        that need it are the strongest argument.
+
+  - type: markdown
+    attributes:
+      value: |
+        Accepted proposals become a file in `taxonomy/proposals/`, then a change to the
+        taxonomy once leadership settles it.
