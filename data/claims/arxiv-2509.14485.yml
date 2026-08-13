@@ -1,0 +1,108 @@
+resource_id: resource:arxiv:2509.14485
+claims:
+- id: claim:arxiv:2509.14485:1
+  text: Measurement Layouts, a hierarchical Bayesian framework, is applied to infer capability
+    profiles of multi-agent systems.
+  quote: In this paper, we apply a Bayesian approach known as Measurement Layouts to infer
+    the capability profiles of multi-agent systems in the Melting Pot contest.
+  standalone: The paper applies Measurement Layouts — a hierarchical Bayesian network framework
+    for inferring capability profiles from task demands and observed performance — to the
+    submissions in the Melting Pot contest.
+  claim_type: method
+  topic_codes:
+  - '14.1'
+  - 16.2.1
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:2
+  text: Inferred capability profiles predict future performance within the Melting Pot suite.
+  quote: We show that these capability profiles not only predict future performance within
+    the Melting Pot suite but also reveal the underlying prosocial abilities of agents.
+  standalone: The paper reports that the capability profiles inferred by Measurement Layouts
+    have predictive power for performance on unseen Melting Pot scenarios, benchmarked against
+    linear regression, XGBoost and tabPFN.
+  claim_type: finding
+  topic_codes:
+  - 14.1.3
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:3
+  text: Higher prosocial capability does not reliably accompany higher contest score.
+  quote: Our analysis indicates that while higher prosocial capabilities sometimes correlate
+    with better performance, this is not a universal trend—some lower-scoring agents exhibit
+    stronger cooperation abilities.
+  standalone: 'Analysing the Melting Pot contest submissions, the paper finds the link between
+    prosocial ability and performance is not universal: some lower-scoring entries have stronger
+    cooperation capabilities than higher-scoring ones.'
+  claim_type: finding
+  topic_codes:
+  - '5.2'
+  - '14.1'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:4
+  text: Top-performing submissions scored highest in scenarios where prosocial capability
+    was not required.
+  quote: Furthermore, we find that top-performing contest submissions are more likely to achieve
+    high scores in scenarios where prosocial capabilities are not required.
+  standalone: The paper finds that the best-scoring Melting Pot contest entries were more
+    likely to achieve high scores precisely in the scenarios that made no cooperative demand.
+  claim_type: finding
+  topic_codes:
+  - 14.3.2
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:5
+  text: Leading submissions appear to have exploited a weakness in the evaluation framework.
+  quote: It is then plausible that the leading submissions gained much of their edge by excelling
+    in scenarios that did not reward prosocial ability, thereby exploiting a weakness in the
+    evaluation framework.
+  standalone: Combining the base-chance analysis with the contest report that the winner used
+    a hand-crafted policy, the paper concludes it is plausible that leading submissions gained
+    their edge in scenarios that did not reward cooperation, exploiting a weakness in the
+    evaluation.
+  claim_type: finding
+  topic_codes:
+  - 14.3.2
+  - 14.3.3
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:6
+  text: Some capabilities did not differentiate between submissions because the corresponding
+    task demands were sparse.
+  quote: Additionally, some capabilities did not differentiate between submissions, possibly
+    due to the sparse presence of the corresponding demands in the competition.
+  standalone: The paper notes that its own analysis could not distinguish submissions on certain
+    capabilities, most likely because those demands appeared too rarely in the contest's scenarios.
+  claim_type: limitation
+  topic_codes:
+  - '14.3'
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2509.14485:7
+  text: Future competitions should use less sparse, non-duplicated task-demand meta-features.
+  quote: Based on our findings, we recommend that future competitions incorporate better-formulated
+    meta-features to characterise task demands while avoiding duplicate demands.
+  standalone: The paper recommends that future evaluations of cooperative AI characterise
+    task demands with better-formulated meta-features that avoid duplication and are less
+    sparse, so capability profiles can be inferred with more confidence.
+  claim_type: position
+  topic_codes:
+  - '14.3'
+  - 14.1.1
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed

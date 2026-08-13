@@ -721,13 +721,22 @@
       row.title = "Both questions can be answered for this one: where it belongs, and "
         + "whether its statements are right.";
       row.append(
-        el("span", { className: "t" }, record.title.slice(0, 72)),
+        el("span", { className: "t" }, shorten(record.title, 66)),
         el("span", { className: "s" },
-           complete ? "done" : `${p.tagged ? "tagged" : "—"} · ${p.checked}/${p.total}`),
+           complete ? "done" : `${p.checked}/${p.total}${p.tagged ? " · tagged" : ""}`),
       );
       row.addEventListener("click", () => { setMode("review"); openRecord(record); });
       host.append(row);
     });
+  }
+
+  // Cutting at a fixed count leaves "…Melting P" and "…physical, socia", which
+  // reads as a rendering fault rather than as a title that did not fit.
+  function shorten(text, limit) {
+    if (text.length <= limit) return text;
+    const cut = text.slice(0, limit);
+    const space = cut.lastIndexOf(" ");
+    return (space > limit * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.\-]+$/, "") + "…";
   }
 
   // Selecting a branch narrows the queue. This is how a group divides the

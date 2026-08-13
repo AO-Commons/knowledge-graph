@@ -1,0 +1,109 @@
+resource_id: resource:arxiv:2606.03237
+claims:
+- id: claim:arxiv:2606.03237:1
+  text: The binding constraint on AI is shifting from capability to coexistence.
+  quote: AI’s central challenge is shifting from capability to coexistence.
+  standalone: The paper's central argument is that the limiting factor for beneficial AI is
+    no longer the ability to solve tasks but the ability to coexist with other adaptive actors.
+  claim_type: position
+  topic_codes:
+  - '1.2'
+  - '5.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:2
+  text: The dominant AI research paradigm treats the world as an exogenous and stationary
+    source of feedback.
+  quote: The dominant paradigm in AI research focuses on developing powerful agents that treat
+    the world as an exogenous and stationary source of feedback.
+  standalone: 'The paper characterises mainstream AI research as solipsistic: building powerful
+    agents on the assumption that the environment is external to them and does not change
+    in response to them.'
+  claim_type: background
+  topic_codes:
+  - '1.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:3
+  text: Deploying an AI system induces endogenous non-stationarity, creating a train-test-deploy
+    gap.
+  quote: Deploying AI systems induces endogenous non-stationarity, resulting in a train–test–deploy
+    gap where historical distributions diverge from the deployment context.
+  standalone: The paper argues that deployment itself changes the distribution an AI was trained
+    on, because other actors adapt — producing a gap between historical distributions and
+    the deployment context that it calls the self-undermining property of unilateral optimization.
+  claim_type: finding
+  topic_codes:
+  - '11.6'
+  - 14.1.4
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:4
+  text: The more aggressively a system exploits historical regularities, the faster other
+    actors make them obsolete.
+  quote: The more aggressively it exploits historical regularities, the faster other actors
+    adapt in ways that render those regularities obsolete.
+  standalone: 'The paper states the self-undermining dynamic directly: unilateral optimization
+    against historical patterns accelerates the adaptation of other actors that destroys those
+    patterns.'
+  claim_type: finding
+  topic_codes:
+  - 5.2.3
+  - '11.6'
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:5
+  text: A dynamic evaluation is one whose test distribution depends on the evaluated policy
+    through adaptive counterparties.
+  quote: A dynamic evaluation is the one in which depends on through the responses of adaptive
+    counterparties whose policies update as a function of ’s behavior.
+  standalone: 'The paper defines dynamic evaluation formally: an evaluation is static if its
+    test distribution is fixed independently of the policy under test, and dynamic if that
+    distribution responds to the policy through counterparties whose own policies update.'
+  claim_type: method
+  topic_codes:
+  - '14.1'
+  - 14.5.3
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:6
+  text: No existing evaluation approach meets all the requirements for valid dynamic evaluation.
+  quote: Recently evaluation research has engaged with dynamic evaluation but no approach
+    yet meets all the requirements we articulate in combination.
+  standalone: Surveying holistic, sociotechnical, dangerous-capability and autonomous-task
+    evaluation work, the paper finds that none combines all the ingredients it identifies
+    for a valid dynamic evaluation.
+  claim_type: finding
+  topic_codes:
+  - '14.1'
+  - '14.3'
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2606.03237:7
+  text: Institutions should be treated as design primitives rather than as context.
+  quote: This entails building dynamic evaluation testbeds involving adaptive counterparties,
+    treating institutions as design primitives, and preserving human agency as a structural
+    feature of the systems we build.
+  standalone: The paper calls for a non-solipsistic research paradigm whose concrete commitments
+    include dynamic evaluation testbeds with adaptive counterparties, institutions as design
+    primitives that restructure incentives, and human agency preserved as a structural feature.
+  claim_type: position
+  topic_codes:
+  - '1.2'
+  - '2.7'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed

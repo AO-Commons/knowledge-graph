@@ -1,0 +1,116 @@
+resource_id: resource:arxiv:2511.03434
+claims:
+- id: claim:arxiv:2511.03434:1
+  text: Traditional internet trust mechanisms assume static, human-operated services and cannot
+    meet the coordination needs of large-scale agent ecosystems.
+  quote: Traditional internet trust mechanisms (e.g., DNS names, TLS certificates) assume
+    relatively static, human-operated services and an ownership-based trust model, which cannot
+    meet the millisecond-by-millisecond dynamic coordination and verification needs of large-scale
+    AI agentic ecosystems.
+  standalone: The paper argues that DNS names and TLS certificates rest on an ownership-based
+    trust model built for static, human-operated services, which cannot meet the millisecond-by-millisecond
+    verification needs of an ecosystem of autonomous AI agents.
+  claim_type: background
+  topic_codes:
+  - '5.3'
+  - '2.7'
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:2
+  text: State-of-the-art LLM agent frameworks exhibit prompt injection, sycophancy, nudge-susceptibility,
+    hallucination, deception and misalignment.
+  quote: even state-of-the-art large language model (LLM)-based agent frameworks exhibit fragilities
+    and untrustworthiness such as prompt injection, sycophancy, biases, nudge-susceptibility,
+    hallucination, deception, and misalignment
+  standalone: The paper cites AI safety research finding that current large language model
+    agent frameworks exhibit fragilities including prompt injection, sycophancy, biases, nudge-susceptibility,
+    hallucination, deception and misalignment.
+  claim_type: background
+  topic_codes:
+  - 10.1.1
+  - 4.4.5
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:3
+  text: The trust models underlying inter-agent protocols had not been systematically analysed.
+  quote: However, there has been little systematic analysis of the trust models underlying
+    these protocols.
+  standalone: As of this paper, the trust assumptions built into A2A, AP2, ERC-8004 and similar
+    inter-agent protocols had received little systematic analysis.
+  claim_type: background
+  topic_codes:
+  - '5.3'
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:4
+  text: 'The paper compares six trust models: Brief, Claim, Proof, Stake, Reputation and Constraint.'
+  quote: 'This paper presents a comparative study of trust models in inter‑agent protocol
+    design: Brief (self‑ or third‑party verifiable claims), Claim (self-proclaimed capabilities
+    and identity, e.g. AgentCard), Proof (cryptographic verification, including zero‑knowledge
+    proofs and trusted execution environment attestations), Stake (bonded collateral with
+    slashing and insurance), Reputation (crowd feedback and graph‑based trust signals), and
+    Constraint (sandboxing and capability bounding).'
+  standalone: The paper's contribution is a comparative study of six trust models used in
+    inter-agent protocol design — Brief, Claim, Proof, Stake, Reputation and Constraint —
+    analysing the assumptions, attack surfaces and trade-offs of each.
+  claim_type: method
+  topic_codes:
+  - '5.3'
+  - 5.3.1
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:5
+  text: No single trust mechanism is sufficient on its own.
+  quote: Our findings indicate no single mechanism suffices.
+  standalone: The paper's central finding across its comparison of six trust models is that
+    none of them suffices alone.
+  claim_type: finding
+  topic_codes:
+  - '5.3'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:6
+  text: High-impact agent actions should be gated by Proof and Stake rather than by reputation
+    or self-declared claims.
+  quote: We argue for trustless‑by‑default architectures anchored in Proof and Stake to gate
+    high‑impact actions, augmented by Brief for identity and discovery and Reputation overlays
+    for flexibility and social signals.
+  standalone: The paper recommends trustless-by-default architectures in which cryptographic
+    proof and bonded stake gate high-impact actions, with Brief used for identity and discovery
+    and reputation added only as an overlay.
+  claim_type: position
+  topic_codes:
+  - 5.3.1
+  - 13.2.2
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2511.03434:7
+  text: 'Trust should be tiered to stakes: light verification where impact is negligible,
+    relentless verification where it is not.'
+  quote: A tiered, composable, and continuously recalibrated approach enables low-friction
+    exploration where impact is negligible and “verify relentlessly” where stakes are high,
+    allowing autonomous agents to transact with the assurance we expect of conscientious human
+    institutions.
+  standalone: The paper's closing recommendation is a tiered, composable and continuously
+    recalibrated approach, allowing low-friction exploration for negligible-impact actions
+    and demanding relentless verification where stakes are high.
+  claim_type: position
+  topic_codes:
+  - 2.1.6
+  - '5.3'
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  review_status: unreviewed
