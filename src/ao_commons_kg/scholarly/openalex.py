@@ -16,7 +16,6 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass, field
-from pathlib import Path
 from typing import Callable, Iterable, Protocol
 
 API = "https://api.openalex.org"
@@ -266,65 +265,6 @@ def scope_score(work: Work) -> tuple[int, list[str]]:
             reasons.append(f"?? domain application: {term}")
 
     return score, reasons
-
-
-# --- Reference store --------------------------------------------------------
-
-@dataclass
-class ReferenceStore:
-    """Reference lists, kept out of the resource files.
-
-    A record's own metadata is small and human-editable; its reference list
-    is neither, and inlining a hundred ids into a YAML file a person is
-    expected to correct by hand would be a poor trade. Bibliographic coupling
-    and co-citation both read from here.
-    """
-
-    path: Path
-    entries: dict[str, dict] = field(default_factory=dict)
-
-    @classmethod
-    def load(cls, path: str | Path) -> ReferenceStore:
-        path = Path(path)
-        entries = {}
-        if path.exists():
-            for line in path.read_text(encoding="utf-8").splitlines():
-                if line.strip():
-                    record = json.loads(line)
-                    entries[record["openalex_id"]] = record
-        return cls(path=path, entries=entries)
-
-    def put(self, work: Work, resource_id: str | None = None) -> None:
-        self.entries[work.openalex_id] = {
-            "openalex_id": work.openalex_id,
-            "resource_id": resource_id,
-            "cited_by_count": work.cited_by_count,
-            "referenced_works": sorted(work.referenced_works),
-        }
-
-    def save(self) -> None:
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        lines = [
-            json.dumps(self.entries[key], sort_keys=True)
-            for key in sorted(self.entries)
-        ]
-        self.path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
-
-    def citation_pairs(self, within: set[str]) -> list[tuple[str, str]]:
-        """Citations where both ends are in the corpus.
-
-        The registry of everything a paper cites is not a graph anyone can
-        use; the subgraph among things we actually hold is. Restricting here
-        is what keeps the export from ballooning with dangling references.
-        """
-        pairs = []
-        for openalex_id, record in self.entries.items():
-            if openalex_id not in within:
-                continue
-            for referenced in record.get("referenced_works", []):
-                if referenced in within:
-                    pairs.append((openalex_id, referenced))
-        return sorted(set(pairs))
 
 
 # --- Expansion --------------------------------------------------------------

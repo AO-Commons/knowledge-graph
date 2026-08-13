@@ -9,9 +9,9 @@ import json
 
 import pytest
 
+from ao_commons_kg.scholarly.store import ReferenceStore
 from ao_commons_kg.scholarly.openalex import (
     OpenAlexError,
-    ReferenceStore,
     Work,
     expand_neighborhood,
     parse_work,
@@ -156,35 +156,51 @@ class TestScopeFilter:
 class TestReferenceStore:
     def test_round_trips(self, tmp_path):
         store = ReferenceStore.load(tmp_path / "refs.jsonl")
-        store.put(parse_work(MULTI_AGENT_RISKS), resource_id="resource:arxiv:2502.14143")
+        store.put("resource:a", key="arxiv:2502.14143", source="semanticscholar",
+                  referenced_keys=["arxiv:2107.06857"], cited_by_count=8)
         store.save()
 
         reloaded = ReferenceStore.load(tmp_path / "refs.jsonl")
-        assert reloaded.entries["W4407806359"]["cited_by_count"] == 8
-        assert reloaded.entries["W4407806359"]["resource_id"] == "resource:arxiv:2502.14143"
+        assert reloaded.entries["resource:a"]["cited_by_count"] == 8
+        assert reloaded.entries["resource:a"]["key"] == "arxiv:2502.14143"
 
-    def test_citations_are_restricted_to_the_corpus(self, tmp_path):
-        """A reference to a paper we don't hold is a dangling edge that
+    def test_citations_are_restricted_to_records_we_hold(self, tmp_path):
+        """A reference to a paper we do not hold is a dangling edge that
         inflates the export without answering anything."""
         store = ReferenceStore.load(tmp_path / "refs.jsonl")
-        store.put(parse_work(MULTI_AGENT_RISKS))
+        store.put("resource:a", key="arxiv:1", source="s2",
+                  referenced_keys=["arxiv:2", "doi:10.1/unheld"])
+        store.put("resource:b", key="arxiv:2", source="s2", referenced_keys=[])
+        assert store.citation_pairs() == [("resource:a", "resource:b")]
 
-        pairs = store.citation_pairs({"W4407806359", "W3172330035"})
-        assert pairs == [("W4407806359", "W3172330035")]
-        # W4389471395 and W9999999999 are referenced but not held.
-
-    def test_a_source_outside_the_corpus_contributes_nothing(self, tmp_path):
+    def test_a_source_with_no_references_does_not_erase_another(self, tmp_path):
+        """OpenAlex carries no references for preprints. Letting it overwrite
+        a Semantic Scholar list would undo the reason that connector exists."""
         store = ReferenceStore.load(tmp_path / "refs.jsonl")
-        store.put(parse_work(MULTI_AGENT_RISKS))
-        assert store.citation_pairs({"W3172330035"}) == []
+        store.put("resource:a", key="arxiv:1", source="semanticscholar",
+                  referenced_keys=["arxiv:2", "arxiv:3"])
+        store.put("resource:a", key="arxiv:1", source="openalex", referenced_keys=[])
+        assert store.entries["resource:a"]["referenced_works"] == ["arxiv:2", "arxiv:3"]
+        assert store.entries["resource:a"]["source"] == "semanticscholar"
+
+    def test_self_citation_is_not_an_edge(self, tmp_path):
+        store = ReferenceStore.load(tmp_path / "refs.jsonl")
+        store.put("resource:a", key="arxiv:1", source="s2", referenced_keys=["arxiv:1"])
+        assert store.citation_pairs() == []
 
     def test_output_is_deterministic(self, tmp_path):
         for name in ("a", "b"):
             store = ReferenceStore.load(tmp_path / f"{name}.jsonl")
-            store.put(parse_work(MELTING_POT))
-            store.put(parse_work(MULTI_AGENT_RISKS))
+            store.put("resource:b", key="arxiv:2", source="s2", referenced_keys=["arxiv:9"])
+            store.put("resource:a", key="arxiv:1", source="s2", referenced_keys=["arxiv:9"])
             store.save()
         assert (tmp_path / "a.jsonl").read_bytes() == (tmp_path / "b.jsonl").read_bytes()
+
+    def test_coverage_reports_the_gap(self, tmp_path):
+        store = ReferenceStore.load(tmp_path / "refs.jsonl")
+        store.put("resource:a", key="arxiv:1", source="s2", referenced_keys=["arxiv:9"])
+        store.put("resource:b", key="arxiv:2", source="openalex", referenced_keys=[])
+        assert store.coverage() == (1, 2)
 
     def test_missing_file_loads_empty(self, tmp_path):
         assert ReferenceStore.load(tmp_path / "absent.jsonl").entries == {}
@@ -361,3 +377,77 @@ def test_structural_signal_finds_what_keywords_cannot():
 
     structural_score = keyword_score + 3 * counts["W_INVISIBLE"]
     assert structural_score >= 3, "structure surfaces it"
+
+
+# --- Semantic Scholar and canonical keys -------------------------------------
+
+from ao_commons_kg.scholarly.keys import canonical_key  # noqa: E402
+from ao_commons_kg.scholarly.semanticscholar import (  # noqa: E402
+    SemanticScholarError,
+    paper_url,
+    parse_paper,
+)
+
+S2_PAPER = {
+    "paperId": "abc123",
+    "title": "Multi-Agent Risks from Advanced AI",
+    "abstract": "Multi-agent systems of advanced AI introduce governance risks.",
+    "publicationDate": "2025-02-19",
+    "citationCount": 9,
+    "externalIds": {"ArXiv": "2502.14143", "DOI": "10.48550/arXiv.2502.14143"},
+    "authors": [{"name": "Lewis Hammond"}],
+    "references": [
+        {"externalIds": {"DOI": "10.1145/3442188.3445922"}, "title": "A"},
+        {"externalIds": {"ArXiv": "2107.06857"}, "title": "Melting Pot"},
+        {"externalIds": {}, "title": "No identifiers at all"},
+    ],
+}
+
+
+class TestCanonicalKeys:
+    def test_the_same_paper_gets_one_key_from_either_source(self):
+        """The failure this prevents is silent: two namespaces never
+        intersect, so coupling returns empty and looks like a corpus with
+        nothing in common rather than like a bug."""
+        from_s2 = canonical_key({"ArXiv": "2107.06857", "DOI": "10.48550/arXiv.2107.06857"})
+        from_openalex = canonical_key({"doi": "https://doi.org/10.48550/arxiv.2107.06857"})
+        assert from_s2 == from_openalex == "arxiv:2107.06857"
+
+    def test_doi_is_preferred_because_both_sources_report_it(self):
+        assert canonical_key({"DOI": "10.1038/S41586", "ArXiv": "x"}) == "doi:10.1038/s41586"
+
+    def test_arxiv_dois_resolve_to_the_arxiv_id(self):
+        """They are minted mechanically, so a record indexed under one form
+        still meets a record indexed under the other."""
+        assert canonical_key({"DOI": "10.48550/arXiv.2502.14143"}) == "arxiv:2502.14143"
+
+    def test_a_semantic_scholar_hash_is_the_last_resort(self):
+        assert canonical_key({"CorpusId": "999"}) == "semanticscholar:999"
+
+    def test_nothing_identifiable_is_none(self):
+        assert canonical_key({}) is None and canonical_key(None) is None
+
+
+class TestSemanticScholar:
+    def test_identifier_forms_route_correctly(self):
+        assert "DOI:10.1038/x" in paper_url("10.1038/x")
+        assert "arXiv:2502.14143" in paper_url("2502.14143")
+        assert "arXiv:2502.14143" in paper_url("2502.14143v3"), "version suffix dropped"
+
+    def test_an_openalex_id_is_refused_with_a_useful_message(self):
+        with pytest.raises(SemanticScholarError, match="OpenAlex id"):
+            paper_url("W4407806359")
+
+    def test_references_become_canonical_keys(self):
+        paper = parse_paper(S2_PAPER)
+        assert paper.referenced_keys == ["arxiv:2107.06857", "doi:10.1145/3442188.3445922"]
+
+    def test_references_without_identifiers_are_dropped(self):
+        """They cannot join anything, and keeping them would inflate the
+        denominator in every coupling score."""
+        assert len(parse_paper(S2_PAPER).referenced_keys) == 2
+
+    def test_it_supplies_what_openalex_lacks_for_preprints(self):
+        paper = parse_paper(S2_PAPER)
+        assert paper.abstract and paper.referenced_keys
+        assert paper.key == "arxiv:2502.14143"

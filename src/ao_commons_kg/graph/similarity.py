@@ -34,10 +34,11 @@ class Coupling:
     score: float
     method: str
 
-    def to_edge(self, resolve: dict[str, str]) -> Relationship:
+    def to_edge(self, resolve: dict[str, str] | None = None) -> Relationship:
+        resolve = resolve or {}
         return Relationship(
-            resolve[self.source],
-            resolve[self.target],
+            resolve.get(self.source, self.source),
+            resolve.get(self.target, self.target),
             RelationType.SIMILAR_TO,
             method=self.method,
             score=round(self.score, 4),
@@ -142,20 +143,20 @@ def connectivity(
 
 def similarity_edges(
     references: dict[str, list[str]],
-    resolve: dict[str, str],
+    resolve: dict[str, str] | None = None,
     *,
     min_shared: int = 2,
     limit: int | None = None,
 ) -> list[Relationship]:
-    """SIMILAR_TO edges for works we hold, from bibliographic coupling.
+    """SIMILAR_TO edges from bibliographic coupling.
 
-    `resolve` maps OpenAlex ids to resource ids; pairs we cannot resolve are
-    skipped rather than emitted as dangling edges.
+    `references` is keyed by resource id, so no translation is needed. The
+    optional `resolve` is kept for callers holding a different keying; pairs
+    it cannot resolve are skipped rather than emitted as dangling edges.
     """
-    couplings = [
-        c for c in bibliographic_coupling(references, min_shared=min_shared)
-        if c.source in resolve and c.target in resolve
-    ]
+    couplings = bibliographic_coupling(references, min_shared=min_shared)
+    if resolve:
+        couplings = [c for c in couplings if c.source in resolve and c.target in resolve]
     if limit:
         couplings = couplings[:limit]
     return [c.to_edge(resolve) for c in couplings]

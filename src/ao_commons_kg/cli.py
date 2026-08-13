@@ -19,7 +19,11 @@ from .models import ConfidenceClass, Relationship, RelationType
 import yaml
 
 from .resources import ResourceError, load_resources, tagged_edges, unknown_tags
-from .scholarly import ReferenceStore, expand_neighborhood, resolve_work, scope_score
+from .scholarly import (
+    ReferenceStore, SemanticScholarError, expand_neighborhood, key_for_resource,
+    resolve_paper, resolve_work, scope_score,
+)
+from .scholarly import semanticscholar
 from .scholarly.openalex import (
     Candidate, OpenAlexError, http_fetcher, short_id,
 )
@@ -66,90 +70,113 @@ def cmd_taxonomy(args) -> int:
     return 0
 
 
-def _citation_edges(resources) -> list[Relationship]:
-    """CITES edges for pairs where both ends are in the corpus.
+def _scholarly_edges(resources) -> list[Relationship]:
+    """CITES from stored references, SIMILAR_TO from bibliographic coupling.
 
-    Deterministic — read from scholarly metadata, so no confidence class.
-    Restricted to the corpus because a reference to a paper we do not hold is
-    a dangling edge that inflates the export without answering a question.
+    Both deterministic in the sense that matters: read or computed from
+    structured data, never inferred, so neither carries a confidence class.
     """
     store = ReferenceStore.load(REFERENCES)
-    by_openalex = {
-        r.openalex_id: r.id for r in resources if r.openalex_id
-    }
-    edges = [
-        Relationship(by_openalex[source], by_openalex[target], RelationType.CITES)
-        for source, target in store.citation_pairs(set(by_openalex))
-    ]
+    held = {r.id for r in resources}
 
-    # Bibliographic coupling: related because they cite the same work, which
-    # holds even when neither cites the other and neither shares vocabulary.
-    references = {
-        key: entry.get("referenced_works", [])
-        for key, entry in store.entries.items()
-    }
-    edges += similarity_edges(references, by_openalex, min_shared=2)
+    edges = [
+        Relationship(source, target, RelationType.CITES)
+        for source, target in store.citation_pairs()
+        if source in held and target in held
+    ]
+    references = {k: v for k, v in store.references().items() if k in held}
+    edges += similarity_edges(references, min_shared=2)
     return edges
 
 
-def cmd_resolve(args) -> int:
-    """Fill in metadata OpenAlex has and our records lack.
 
-    Idempotent, and it never overwrites a curated value — a hand-written
-    summary is worth more than a machine abstract, and losing one to a
-    refresh would make the whole command untrustworthy.
+def cmd_resolve(args) -> int:
+    """Fill in metadata our records lack, from the source that carries it.
+
+    OpenAlex is identity and citation counts. Semantic Scholar is abstracts
+    and references for preprints, which OpenAlex does not store — the gap
+    that held reference coverage at 9 of 59 records.
+
+    Never overwrites a curated value: a hand-written summary outranks a
+    machine abstract, and losing one to a refresh would make the command
+    untrustworthy.
     """
-    fetch = http_fetcher()
     store = ReferenceStore.load(REFERENCES)
     resources = load_resources()
     filled = skipped = failed = 0
 
+    use_s2 = args.source in ("semanticscholar", "both")
+    use_oa = args.source in ("openalex", "both")
+    fetch_oa = http_fetcher() if use_oa else None
+    fetch_s2 = semanticscholar.http_fetcher() if use_s2 else None
+
     for resource in resources:
-        identifier = resource.openalex_id or resource.doi or resource.arxiv_id
-        if not identifier:
+        stored = store.entries.get(resource.id, {})
+        if stored.get("referenced_works") and not args.refresh:
             skipped += 1
             continue
-        if resource.openalex_id and resource.openalex_id in store.entries and not args.refresh:
-            skipped += 1
-            continue
-        try:
-            work = resolve_work(identifier, fetch)
-        except OpenAlexError as error:
-            print(f"  {resource.id}: {error}", file=sys.stderr)
+
+        path = OUT_RESOURCES / (resource.id.removeprefix("resource:").replace(":", "-") + ".yml")
+        payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+        updates: dict = {}
+        references: list[str] = []
+        source_used = stored.get("source", "")
+        citations = stored.get("cited_by_count", 0)
+
+        if use_oa and (identifier := resource.openalex_id or resource.doi or resource.arxiv_id):
+            try:
+                work = resolve_work(identifier, fetch_oa)
+                citations = max(citations, work.cited_by_count)
+                source_used = "openalex"
+                updates.update({
+                    "openalex_id": work.openalex_id, "abstract": work.abstract,
+                    "authors": work.authors, "organizations": work.institutions,
+                    "is_open_access": work.is_open_access, "is_retracted": work.is_retracted,
+                })
+            except OpenAlexError as error:
+                print(f"  {resource.id}: openalex: {error}", file=sys.stderr)
+
+        if use_s2 and (identifier := resource.doi or resource.arxiv_id):
+            try:
+                paper = resolve_paper(identifier, fetch_s2)
+                references = paper.referenced_keys
+                citations = max(citations, paper.citation_count)
+                if references:
+                    source_used = "semanticscholar"
+                updates.setdefault("abstract", paper.abstract)
+                updates["semantic_scholar_id"] = paper.semantic_scholar_id
+                if not updates.get("authors"):
+                    updates["authors"] = paper.authors
+            except SemanticScholarError as error:
+                print(f"  {resource.id}: s2: {error}", file=sys.stderr)
+
+        if not updates and not references:
             failed += 1
             continue
 
-        store.put(work, resource_id=resource.id)
-        path = OUT_RESOURCES / (resource.id.removeprefix("resource:").replace(":", "-") + ".yml")
-        payload = yaml.safe_load(path.read_text(encoding="utf-8"))
-        for key, value in (
-            ("openalex_id", work.openalex_id),
-            ("abstract", work.abstract),
-            ("authors", work.authors),
-            ("organizations", work.institutions),
-            ("is_open_access", work.is_open_access),
-            ("is_retracted", work.is_retracted),
-        ):
+        for key, value in updates.items():
             if value not in (None, [], "") and not payload.get(key):
                 payload[key] = value
         path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=88),
                         encoding="utf-8")
+
+        store.put(resource.id, key=key_for_resource(resource), source=source_used or "unknown",
+                  referenced_keys=references, cited_by_count=citations)
         filled += 1
-        print(f"  {resource.id}: {len(work.referenced_works)} references, "
-              f"{work.cited_by_count} citations")
+        print(f"  {resource.id}: {len(references)} references, {citations} citations")
 
     store.save()
-    with_refs = sum(1 for e in store.entries.values() if e.get("referenced_works"))
-    print(f"\n{filled} resolved, {skipped} skipped, {failed} failed. "
-          f"{len(store.entries)} reference list(s) stored, {with_refs} non-empty.")
-    if with_refs < len(store.entries) / 2:
-        print(
-            "\nNote: OpenAlex holds no reference lists for arXiv preprints, which is\n"
-            "most of this corpus. Backward expansion (what a paper builds on) will\n"
-            "find little; forward expansion (what cites it) still works. Semantic\n"
-            "Scholar does carry arXiv references and is the fallback worth adding.",
-        )
+    with_refs, total = store.coverage()
+    print(f"\n{filled} resolved, {skipped} skipped, {failed} with nothing to add.")
+    if total:
+        print(f"reference coverage: {with_refs}/{total} records ({with_refs / total:.0%})")
+        if with_refs < total / 2:
+            print(
+                "\nStill thin. OpenAlex carries no reference lists for arXiv preprints;\n"
+                "run `aokg resolve --source semanticscholar --refresh` to fill them."
+            )
     return 0
+
 
 
 def cmd_expand(args) -> int:
@@ -178,7 +205,7 @@ def cmd_expand(args) -> int:
         seeds = [
             r.openalex_id for r in sorted(
                 pool,
-                key=lambda r: -(store.entries.get(r.openalex_id, {}).get("cited_by_count", 0)),
+                key=lambda r: -(store.entries.get(r.id, {}).get("cited_by_count", 0)),
             )
         ]
 
@@ -194,8 +221,6 @@ def cmd_expand(args) -> int:
     )
 
     store = ReferenceStore.load(REFERENCES)
-    for work in resolved.values():
-        store.put(work)
 
     # Structural candidates: works the corpus already cites, repeatedly.
     #
@@ -204,7 +229,7 @@ def cmd_expand(args) -> int:
     # which is how "Institutions as cached computation" would be found, and
     # keyword scoring never will.
     if not args.no_structural:
-        references = {k: e.get("referenced_works", []) for k, e in store.entries.items()}
+        references = store.references()
         co_cited = co_citation_counts(references)
         structural = [
             (work_id, count) for work_id, count in co_cited.most_common()
@@ -270,7 +295,7 @@ def cmd_build(args) -> int:
         topics=topics,
         resources=resources,
         relationships=(_parent_edges(topics) + tagged_edges(resources, codes)
-                       + _citation_edges(resources)),
+                       + _scholarly_edges(resources)),
         built_at=args.built_at,
     )
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources)")
@@ -301,6 +326,10 @@ def main(argv: list[str] | None = None) -> int:
     resolve = sub.add_parser("resolve", help="fetch OpenAlex metadata for existing records")
     resolve.add_argument("--refresh", action="store_true",
                          help="re-fetch records already stored")
+    resolve.add_argument("--source", choices=("openalex", "semanticscholar", "both"),
+                         default="both",
+                         help="openalex for identity and citations, semanticscholar "
+                              "for the arXiv abstracts and references it does not carry")
     resolve.set_defaults(func=cmd_resolve)
 
     expand = sub.add_parser("expand", help="propose new records from the citation graph")
