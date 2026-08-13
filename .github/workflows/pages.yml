@@ -41,6 +41,9 @@ jobs:
       # Rebuilt rather than trusted: the committed index.html can fall behind
       # the corpus, and a filing site showing yesterday's records would waste
       # a contributor's time.
+      # build_site.py parses the page's script and fails the build if it does
+      # not. One unbalanced template literal takes the whole page down, and the
+      # only symptom is a console message on a site nobody has opened yet.
       - run: python3 scripts/build_site.py
 
       - uses: actions/configure-pages@v5

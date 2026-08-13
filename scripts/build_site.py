@@ -70,8 +70,33 @@ def build_payload() -> dict:
             "suggested": [a.code for a in suggestions],
         })
 
+    # The classifier's index, shipped compactly so the browser can suggest
+    # topics for a paper that is not in the corpus yet. Terms are interned to
+    # integers: as raw strings this roughly trebles the page.
+    #
+    # The scoring formula ends up written twice, here in Python and again in
+    # the page. That is a real cost and worth naming — it is accepted because
+    # the browser's copy only ever produces suggestions a person confirms,
+    # never a stored classification, and shipping the same index data keeps
+    # the two from drifting on the part that actually matters.
+    terms: dict[str, int] = {}
+    topic_tokens = []
+    for topic in topics:
+        ids = []
+        for token in index.documents[topic.code]:
+            ids.append(terms.setdefault(token, len(terms)))
+        topic_tokens.append(ids)
+    idf = [round(index.idf.get(term, 0.0), 3) for term in terms]
+
     return {
         "generated_for": "AO Commons knowledge graph",
+        "index": {
+            "terms": list(terms),
+            "idf": idf,
+            "topics": topic_tokens,
+            "lengths": [len(index.documents[t.code]) for t in topics],
+            "averageLength": round(index.average_length, 2),
+        },
         "taxonomy_version": "v3",
         "topics": [
             {
@@ -87,6 +112,35 @@ def build_payload() -> dict:
         ],
         "records": records,
     }
+
+
+def check_script(path: Path) -> None:
+    """Parse the page's script before calling the build a success.
+
+    One unbalanced template literal takes the entire page down, and the only
+    symptom is a console message on a site nobody has opened yet. Skipped
+    silently where node is unavailable rather than failing a build for it.
+    """
+    import shutil
+    import subprocess
+    import tempfile
+
+    node = shutil.which("node")
+    if not node:
+        print("  (node not found — script not syntax-checked)")
+        return
+
+    html = path.read_text(encoding="utf-8")
+    script = html.rsplit("<script>", 1)[-1].rsplit("</script>", 1)[0]
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as handle:
+        handle.write(script)
+        temporary = handle.name
+
+    result = subprocess.run([node, "--check", temporary], capture_output=True, text=True)
+    Path(temporary).unlink(missing_ok=True)
+    if result.returncode != 0:
+        raise SystemExit(f"the page's script does not parse:\n{result.stderr}")
+    print("  script parses")
 
 
 def main() -> int:
@@ -113,6 +167,8 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"wrote {GOLD_OUT.relative_to(REPO)}  {len(merged)} merged filing(s)")
+
+    check_script(OUTPUT)
 
     size = OUTPUT.stat().st_size
     print(f"wrote {OUTPUT.relative_to(REPO)}  {size:,} bytes")
