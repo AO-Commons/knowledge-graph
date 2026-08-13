@@ -418,6 +418,38 @@
   // shared server behind this page, and pretending otherwise would be worse
   // than the gap.
   const merged = new Map();
+
+  // What the group has already sent in. The repository is public, so its
+  // issues are readable without a token and without anyone signing in —
+  // which is why there is no login here: a login would gate something that
+  // is already public, and make contributing feel like joining.
+  const submissions = { state: "loading", items: [] };
+  fetch("https://api.github.com/repos/AO-Commons/knowledge-graph/issues"
+        + "?state=all&per_page=60&sort=created&direction=desc",
+        { headers: { Accept: "application/vnd.github+json" } })
+    .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
+    .then(issues => {
+      submissions.state = "ready";
+      submissions.items = issues
+        .filter(issue => !issue.pull_request)
+        .map(issue => ({
+          number: issue.number,
+          title: issue.title,
+          who: issue.user && issue.user.login,
+          when: (issue.created_at || "").slice(0, 10),
+          open: issue.state === "open",
+          url: issue.html_url,
+          kind: (issue.labels || []).map(l => l.name)
+            .find(n => ["filing", "new-resource", "taxonomy"].includes(n)) || "other",
+        }));
+      if (state.mode === "export") renderStage();
+    })
+    .catch(() => {
+      // Unauthenticated GitHub allows 60 requests an hour per address. Being
+      // unable to show the history is not a reason to block filing.
+      submissions.state = "unavailable";
+      if (state.mode === "export") renderStage();
+    });
   // A 404 here is the normal case and is caught below; browsers still log the
   // failed request, which is noise rather than a fault.
   fetch("gold.json")
@@ -1451,7 +1483,11 @@
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
 
     if (!entries.length) {
-      stage.append(el("p", { className: "empty" }, "Nothing filed yet. Head to Review."));
+      // The history is most wanted by someone who has filed nothing yet —
+      // returning early here hid it from exactly that person.
+      stage.append(el("p", { className: "empty" },
+        "You have not filed anything yet. Review a record, or see what others have sent in below."));
+      stage.append(submissionHistory());
       return;
     }
 
@@ -1471,7 +1507,9 @@
     const panel = el("div", { className: "panel" });
     panel.append(
       el("h3", {}, `${entries.length} record${entries.length === 1 ? "" : "s"} ready`),
-      el("p", {}, "Open an issue and a bot checks every code against the taxonomy, then opens a pull request against the gold set. You never touch git. If something is wrong it says which record, on your issue, and nothing is merged until it is fixed."),
+      el("p", {}, "Open an issue and a bot checks every code against the taxonomy and prepares "
+        + "the change. You never touch git. If something is wrong it says which record, on your "
+        + "issue, and nothing is merged until it is fixed."),
     );
     const box = el("textarea", { readOnly: true, value: yaml });
     panel.append(box);
@@ -1504,6 +1542,58 @@
 
     stage.append(el("p", { className: "empty" },
       "Your filing lives only in this browser until you send it. Nothing is uploaded automatically."));
+    stage.append(submissionHistory());
+  }
+
+  const KINDS = {
+    filing: "tags filed",
+    "new-resource": "paper added",
+    taxonomy: "taxonomy change",
+    other: "other",
+  };
+
+  function submissionHistory() {
+    const wrap = el("div", { className: "ledger" });
+    wrap.append(el("p", { className: "section-label" }, "What the group has sent in"));
+
+    if (submissions.state === "loading") {
+      wrap.append(el("p", { className: "empty" }, "Reading the repository…"));
+      return wrap;
+    }
+    if (submissions.state === "unavailable") {
+      wrap.append(el("p", { className: "empty" }, [
+        "Could not reach GitHub just now — it allows sixty reads an hour per address. ",
+        el("a", { href: "https://github.com/AO-Commons/knowledge-graph/issues", target: "_blank", rel: "noopener" },
+           "The issues page"), " has the same list.",
+      ]));
+      return wrap;
+    }
+    if (!submissions.items.length) {
+      wrap.append(el("p", { className: "empty" }, "Nothing yet. Yours would be the first."));
+      return wrap;
+    }
+
+    const table = el("table");
+    table.append(el("tr", {}, [
+      el("th", {}, "Submission"), el("th", {}, "Kind"), el("th", {}, "By"),
+      el("th", {}, "When"), el("th", {}, "State"),
+    ]));
+    submissions.items.slice(0, 40).forEach(item => {
+      table.append(el("tr", {}, [
+        el("td", {}, el("a", { href: item.url, target: "_blank", rel: "noopener" },
+                        `#${item.number} ${item.title}`.slice(0, 66))),
+        el("td", { className: "codes" }, KINDS[item.kind]),
+        el("td", { className: "by" }, item.who || "—"),
+        el("td", { className: "when" }, item.when),
+        el("td", { className: "by" }, item.open ? "open" : "merged or closed"),
+      ]));
+    });
+    wrap.append(el("div", { className: "ledger-wrap" }, table));
+    wrap.append(el("p", { className: "empty" },
+      "Read straight from the public repository — no sign-in needed to see this. "
+      + "You are only asked to sign in at the moment you open an issue, because that is "
+      + "what records who filed it."));
+    return wrap;
   }
 
   // ---- search ------------------------------------------------------------
