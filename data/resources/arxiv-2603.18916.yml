@@ -32,3 +32,22 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7139918537
 review_status: unreviewed
+abstract: 'This paper presents a manifesto that articulates the conceptual foundations of
+  Agentic Business Process Management (APM), an extension of Business Process Management (BPM)
+  for governing autonomous agents executing processes in organizations. From a management
+  perspective, APM represents a paradigm shift from the traditional process view of the business
+  process, driven by the realization of process awareness and an agent-oriented abstraction,
+  where software and human agents act as primary functional entities that perceive, reason,
+  and act within explicit process frames. This perspective marks a shift from traditional,
+  automation-oriented BPM toward systems in which autonomy is constrained, aligned, and made
+  operational through process awareness. We introduce the core abstractions and architectural
+  elements required to realize APM systems and elaborate on four key capabilities that such
+  APM agents must support: framed autonomy, explainability, conversational actionability,
+  and self-modification. These capabilities jointly ensure that agents'' goals are aligned
+  with organizational goals and that agents behave in a framed yet proactive manner in pursuing
+  those goals. We discuss the extent to which the capabilities can be realized and identify
+  research challenges whose resolution requires further advances in BPM, AI, and multi-agent
+  systems. The manifesto thus serves as a roadmap for bridging these communities and for guiding
+  the development of APM systems in practice.'
+is_open_access: true
+is_retracted: false

@@ -28,3 +28,18 @@ ingested_at: '2026-08-11'
 openalex_id: W7163342836
 description: ICML 2026 position paper. Institutions as design primitives.
 review_status: unreviewed
+abstract: 'AI''s central challenge is shifting from capability to coexistence. The dominant
+  paradigm in AI research focuses on developing powerful agents that treat the world as an
+  exogenous and stationary source of feedback. We contend that superintelligence, an extremely
+  capable task solver, born out of such a solipsistic approach to AI design, is unlikely to
+  be cooperative. Deploying AI systems induces endogenous non-stationarity, resulting in a
+  train-test-deploy gap where historical distributions diverge from the deployment context.
+  We refer to this as the self-undermining property of unilateral optimization. Closing this
+  gap requires AI that participates in cooperation: the equilibrium-selection process through
+  which multiple actors navigate their interdependence. We call for a non-solipsistic research
+  paradigm that treats this interdependence as a core design principle rather than approaching
+  cooperation as a task to solve. This entails building dynamic evaluation testbeds involving
+  adaptive counterparties, treating institutions as design primitives, and preserving human
+  agency as a structural feature of the systems we build.'
+is_open_access: true
+is_retracted: false

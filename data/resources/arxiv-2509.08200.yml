@@ -19,3 +19,22 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4417064485
+abstract: AI development requires high fidelity testing environments to effectively transition
+  from the laboratory to operations. The flexibility offered by cyber arenas presents a novel
+  opportunity to test new artificial intelligence (AI) capabilities with users. Cyber arenas
+  are designed to expose end-users to real-world situations and must rapidly incorporate evolving
+  capabilities to meet their core objectives. To explore this concept the MIT/IEEE/Amazon
+  Graph Challenge Anonymized Network Sensor was deployed in a cyber arena during a National
+  Guard exercise.
+authors:
+- William Cashman
+- Chasen Milner
+- Michael E. Houle
+- Michael G. Jones
+- Hayden Jananthan
+- Jeremy Kepner
+- Peter Michaleas
+- Alex Pentland
+is_open_access: true
+is_retracted: false

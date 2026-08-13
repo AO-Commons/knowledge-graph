@@ -21,3 +21,27 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W4416712242
 review_status: unreviewed
+abstract: As AI agents become increasingly autonomous and capable, ensuring their security
+  against vulnerabilities such as prompt injection becomes critical. This paper explores the
+  use of information-flow control (IFC) to provide security guarantees for AI agents. We present
+  a formal model to reason about the security and expressiveness of agent planners. Using
+  this model, we characterize the class of properties enforceable by dynamic taint-tracking
+  and construct a taxonomy of tasks to evaluate security and utility trade-offs of planner
+  designs. Informed by this exploration, we present Fides, a planner that tracks confidentiality
+  and integrity labels, deterministically enforces security policies, and introduces novel
+  primitives for selectively hiding information. Its evaluation in AgentDojo demonstrates
+  that this approach enables us to complete a broad range of tasks with security guarantees.
+  A tutorial to walk readers through the the concepts introduced in the paper can be found
+  at https://github.com/microsoft/fides
+authors:
+- Manuel F. M. Costa
+- Boris Köpf
+- Aashish Kolluri
+- Andrew Paverd
+- Mark Russinovich
+- Ahmed Salem
+- Shruti Tople
+- Lukas Wutschitz
+- Santiago Zanella-Béguelin
+is_open_access: true
+is_retracted: false

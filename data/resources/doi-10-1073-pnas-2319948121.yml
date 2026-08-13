@@ -19,3 +19,57 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4411336320
+abstract: Cooperation at scale is critical for achieving a sustainable future for humanity.
+  However, achieving collective, cooperative behavior-in which intelligent actors in complex
+  environments jointly improve their well-being-remains poorly understood. Complex systems
+  science (CSS) provides a rich understanding of collective phenomena, the evolution of cooperation,
+  and the institutions that can sustain both. Yet, much of the theory in this area fails to
+  fully consider individual-level complexity and environmental context-largely for the sake
+  of tractability and because it has not been clear how to do so rigorously. These elements
+  are well captured in multiagent reinforcement learning (MARL), which has recently put focus
+  on cooperative (artificial) intelligence. However, typical MARL simulations can be computationally
+  expensive and challenging to interpret. In this perspective, we propose that bridging CSS
+  and MARL affords new directions forward. Both fields can complement each other in their
+  goals, methods, and scope. MARL offers CSS concrete ways to formalize cognitive processes
+  in dynamic environments. CSS offers MARL improved qualitative insight into emergent collective
+  phenomena. We see this approach as providing the necessary foundations for a proper science
+  of collective, cooperative intelligence. We highlight work that is already heading in this
+  direction and discuss concrete steps for future research.
+authors:
+- Wolfram Barfuß
+- Jessica C. Flack
+- Chaitanya S. Gokhale
+- Lewis Hammond
+- Christian Hilbe
+- Edward Hughes
+- Joel Z. Leibo
+- Tom Lenaerts
+- Naomi Ehrich Leonard
+- Simon A. Levin
+- Udari Madhushani
+- Alex McAvoy
+- Janusz M Meylahn
+- Fernando P. Santos
+organizations:
+- Département d'Informatique
+- Google (United Kingdom)
+- Google (United States)
+- Google DeepMind (United Kingdom)
+- Laboratoire d'Informatique de Paris-Nord
+- Max Planck Institute for Evolutionary Biology
+- Princeton University
+- Santa Fe Institute
+- Stanford University
+- Toronto Metropolitan University
+- University of Amsterdam
+- University of Bonn
+- University of California System
+- University of California, Berkeley
+- University of North Carolina at Chapel Hill
+- University of Oxford
+- University of Twente
+- Université Libre de Bruxelles
+- Vrije Universiteit Brussel
+is_open_access: true
+is_retracted: false

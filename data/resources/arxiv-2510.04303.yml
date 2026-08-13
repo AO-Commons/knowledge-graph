@@ -26,3 +26,25 @@ ingested_at: '2026-08-11'
 openalex_id: W4414971482
 description: Introduces ColludeBench-v0 — pricing duopoly, auctions, peer review.
 review_status: unreviewed
+abstract: 'Multi-agent deployments of large language models (LLMs) are increasingly embedded
+  in market, allocation, and governance workflows, yet covert coordination among agents can
+  silently erode trust and social welfare. Existing audits are dominated by heuristics that
+  lack theoretical guarantees, struggle to transfer across tasks, and seldom ship with the
+  infrastructure needed for independent replication. We introduce Audit the Whisper, a conference-grade
+  research artifact that spans theory, benchmark design, detection, and reproducibility. Our
+  contributions are: (i) a channel-capacity analysis showing how interventions such as paraphrase,
+  rate limiting, and role permutation impose quantifiable capacity penalties-operationalised
+  via paired-run Kullback--Leibler diagnostics-that tighten mutual-information thresholds
+  with finite-sample guarantees and full proofs; (ii) ColludeBench-v0, covering pricing, first-price
+  auctions, peer review, and hosted Gemini/Groq APIs with configurable covert schemes, deterministic
+  manifests, and reward instrumentation; and (iii) a calibrated auditing pipeline that fuses
+  cross-run mutual information, permutation invariance, watermark variance, and fairness-aware
+  acceptance bias, each tuned to a $10^{-3}$ false-positive budget and validated by 10k honest
+  runs plus an e-value martingale. Across ColludeBench and external suites including Secret
+  Collusion, CASE, Perfect Collusion Benchmark, and SentinelAgent, the union meta-test attains
+  state-of-the-art power at fixed FPR while ablations surface price-of-auditing trade-offs
+  and fairness-driven colluders invisible to MI alone. We release regeneration scripts, anonymized
+  manifests, and documentation so that external auditors can reproduce every figure, satisfy
+  double-blind requirements, and extend the framework with minimal effort.'
+is_open_access: true
+is_retracted: false

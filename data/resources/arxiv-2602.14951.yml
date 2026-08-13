@@ -25,3 +25,25 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7129535374
 review_status: unreviewed
+abstract: 'AI agents deployed on decentralized infrastructures are beginning to exhibit properties
+  that extend beyond autonomy toward what we describe as agentic sovereignty-the capacity
+  of an operational agent to persist, act, and control resources with non-overrideability
+  inherited from the infrastructures in which they are embedded. We propose infrastructural
+  sovereignty as an analytic lens for understanding how cryptographic self-custody, decentralized
+  execution environments, and protocol-mediated continuity scaffold agentic sovereignty. While
+  recent work on digital and network sovereignty has moved beyond state-centric and juridical
+  accounts, these frameworks largely examine how sovereignty is exercised through technical
+  systems by human collectives and remain less equipped to account for forms of sovereignty
+  that emerge as operational properties of decentralized infrastructures themselves, particularly
+  when instantiated in non-human sovereign agents. We argue that sovereignty in such systems
+  exists on a spectrum determined by infrastructural hardness-the degree to which underlying
+  technical systems resist intervention or collapse. While infrastructural sovereignty may
+  increase resilience, it also produces a profound accountability gap: responsibility diffuses
+  across designers, infrastructure providers, protocol governance, and economic participants,
+  undermining traditional oversight mechanisms such as human-in-the-loop control or platform
+  moderation. Drawing on examples like Trusted Execution Environments (TEEs), decentralized
+  physical infrastructure networks (DePIN), and agent key continuity protocols, we analyze
+  the governance challenges posed by non-terminable AI agents and outline infrastructure-aware
+  accountability strategies for emerging decentralized AI systems.'
+is_open_access: true
+is_retracted: false

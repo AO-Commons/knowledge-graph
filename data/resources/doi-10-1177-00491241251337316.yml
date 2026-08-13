@@ -20,3 +20,26 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4410942332
+abstract: 'Large language models (LLMs), through their exposure to massive collections of
+  online text, learn to reproduce the perspectives and linguistic styles of diverse social
+  and cultural groups. This capability suggests a powerful social scientific application—the
+  simulation of empirically realistic, culturally situated human subjects. Synthesizing recent
+  research in artificial intelligence and computational social science, we outline a methodological
+  foundation for simulating human subjects and their social interactions. We then identify
+  six characteristics of current models that are likely to impair the realistic simulation
+  of human subjects: bias, uniformity, atemporality, disembodiment, linguistic cultures, and
+  alien intelligence. For each of these areas, we discuss promising approaches for overcoming
+  their associated shortcomings. Given the rate of change of these models, we advocate for
+  an ongoing methodological program for the simulation of human subjects that keeps pace with
+  rapid technical progress, and caution that validation against human subjects data remains
+  essential to ensure simulation accuracy.'
+authors:
+- Austin C. Kozlowski
+- James A. Evans
+organizations:
+- Google (United States)
+- Santa Fe Institute
+- University of Chicago
+is_open_access: false
+is_retracted: false

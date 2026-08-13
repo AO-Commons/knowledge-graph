@@ -24,3 +24,24 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7152644697
 review_status: unreviewed
+abstract: 'Autonomous AI agents are beginning to operate across organizational boundaries
+  on the open internet -- discovering, transacting with, and delegating to agents owned by
+  other parties without centralized oversight. When agents from different human principals
+  collaborate at scale, the collective becomes opaque: no single human can observe, audit,
+  or govern the emergent behavior. We term this the Logic Monopoly -- the agent society''s
+  unchecked monopoly over the entire logic chain from planning through execution to evaluation.
+  We propose the Separation of Power (SoP) model, a constitutional governance architecture
+  deployed on public blockchain that breaks this monopoly through three structural separations:
+  agents legislate operational rules as smart contracts, deterministic software executes within
+  those contracts, and humans adjudicate through a complete ownership chain binding every
+  agent to a responsible principal. In this architecture, smart contracts are the law itself
+  -- the actual legislative output that agents produce and that governs their behavior. We
+  instantiate SoP in AgentCity on an EVM-compatible layer-2 blockchain (L2) with a three-tier
+  contract hierarchy (foundational, meta, and operational). The core thesis is alignment-through-accountability:
+  if each agent is aligned with its human owner through the accountability chain, then the
+  collective converges on behavior aligned with human intent -- without top-down rules. A
+  pre-registered experiment evaluates this thesis in a commons production economy -- where
+  agents share a finite resource pool and collaboratively produce value -- at 50-1,000 agent
+  scale.'
+is_open_access: true
+is_retracted: false

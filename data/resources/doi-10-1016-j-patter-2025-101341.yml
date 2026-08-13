@@ -19,3 +19,26 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 review_status: unreviewed
+openalex_id: W4412826853
+abstract: The study of complex adaptive systems, pioneered in physics, biology, and the social
+  sciences, offers important lessons for artificial intelligence (AI) governance. Contemporary
+  AI systems and the environments in which they operate exhibit many of the properties characteristic
+  of complex systems, including nonlinear growth patterns, emergent phenomena, and cascading
+  effects that can lead to catastrophic failures. Complex systems science can help illuminate
+  the features of AI that pose central challenges for policymakers, such as feedback loops
+  induced by training AI models on synthetic data and the interconnectedness between AI systems
+  and critical infrastructure. Drawing on insights from other domains shaped by complex systems,
+  including public health and climate change, we examine how efforts to govern AI are marked
+  by deep uncertainty. To contend with this challenge, we propose three desiderata for designing
+  a set of complexity-compatible AI governance principles comprised of early and scalable
+  intervention, adaptive institutional design, and risk thresholds calibrated to trigger timely
+  and effective regulatory responses.
+authors:
+- Noam Kolt
+- Michal Shur‐Ofry
+- Reuven Cohen
+organizations:
+- Bar-Ilan University
+- Hebrew University of Jerusalem
+is_open_access: true
+is_retracted: false

@@ -21,3 +21,27 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4417299035
+abstract: Sequential social dilemmas pose a significant challenge in the field of multi-agent
+  reinforcement learning (MARL), requiring environments that accurately reflect the tension
+  between individual and collective interests. Previous benchmarks and environments, such
+  as Melting Pot, provide an evaluation protocol that measures generalization to new social
+  partners in various test scenarios. However, running reinforcement learning algorithms in
+  traditional environments requires substantial computational resources. In this paper, we
+  introduce SocialJax, a suite of sequential social dilemma environments and algorithms implemented
+  in JAX. JAX is a high-performance numerical computing library for Python that enables significant
+  improvements in operational efficiency. Our experiments demonstrate that the SocialJax training
+  pipeline achieves at least 50\texttimes{} speed-up in real-time performance compared to
+  Melting Pot RLlib baselines. Additionally, we validate the effectiveness of baseline algorithms
+  within SocialJax environments. Finally, we use Schelling diagrams to verify the social dilemma
+  properties of these environments, ensuring that they accurately capture the dynamics of
+  social dilemmas.
+authors:
+- Zihao Guo
+- Shuqing Shi
+- Richard H. Willis
+- Tristan Tomilin
+- Joel Z. Leibo
+- Yali Du
+is_open_access: true
+is_retracted: false

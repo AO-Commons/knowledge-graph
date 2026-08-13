@@ -23,3 +23,27 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 description: 'Direct evidence for the 3.3.6 proposal: agents transacting with external counterparties,
   benchmarked for what goes wrong.'
+openalex_id: W4415249953
+abstract: 'AI agents are increasingly used in consumer-facing applications to assist with
+  tasks such as product search, negotiation, and transaction execution. In this paper, we
+  explore a future scenario where both consumers and merchants authorize AI agents to fully
+  automate negotiations and transactions. We aim to answer two key questions: (1) Do different
+  LLM agents vary in their ability to secure favorable deals for users? (2) What risks arise
+  from fully automating deal-making with AI agents in consumer markets? To address these questions,
+  we develop an experimental framework that evaluates the performance of various LLM agents
+  in real-world negotiation and transaction settings. Our findings reveal that AI-mediated
+  deal-making is an inherently imbalanced game -- different agents achieve significantly different
+  outcomes for their users. Moreover, behavioral anomalies in LLMs can result in financial
+  losses for both consumers and merchants, such as overspending or accepting unreasonable
+  deals. These results underscore that while automation can improve efficiency, it also introduces
+  substantial risks. Users should exercise caution when delegating business decisions to AI
+  agents.'
+authors:
+- S. S. Zhu
+- Jiao Jiao Sun
+- Yi Nian
+- Tobin South
+- Alex Pentland
+- Jiaxin Pei
+is_open_access: true
+is_retracted: false

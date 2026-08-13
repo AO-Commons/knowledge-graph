@@ -19,3 +19,21 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4406890368
+abstract: This paper introduces a novel method for estimating the self-interest level of Markov
+  social dilemmas. We extend the concept of self-interest level from normal-form games to
+  Markov games, providing a quantitative measure of the minimum reward exchange required to
+  align individual and collective interests. We demonstrate our method on three environments
+  from the Melting Pot suite, representing either common-pool resources or public goods. Our
+  results illustrate how reward exchange can enable agents to transition from selfish to collective
+  equilibria in a Markov social dilemma. This work contributes to multi-agent reinforcement
+  learning by providing a practical tool for analysing complex, multistep social dilemmas.
+  Our findings offer insights into how reward structures can promote or hinder cooperation,
+  with potential applications in areas such as mechanism design.
+authors:
+- Richard H. Willis
+- Yali Du
+- Joel Z. Leibo
+- G. Flucke
+is_open_access: true
+is_retracted: false

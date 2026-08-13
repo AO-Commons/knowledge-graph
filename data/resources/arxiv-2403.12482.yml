@@ -30,3 +30,18 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W4393027318
 review_status: unreviewed
+abstract: Large Language Models (LLMs) have emerged as integral tools for reasoning, planning,
+  and decision-making, drawing upon their extensive world knowledge and proficiency in language-related
+  tasks. LLMs thus hold tremendous potential for natural language interaction within multi-agent
+  systems to foster cooperation. However, LLM agents tend to over-report and comply with any
+  instruction, which may result in information redundancy and confusion in multi-agent cooperation.
+  Inspired by human organizations, this paper introduces a framework that imposes prompt-based
+  organization structures on LLM agents to mitigate these problems. Through a series of experiments
+  with embodied LLM agents and human-agent collaboration, our results highlight the impact
+  of designated leadership on team efficiency, shedding light on the leadership qualities
+  displayed by LLM agents and their spontaneous cooperative behaviors. Further, we harness
+  the potential of LLMs to propose enhanced organizational prompts, via a Criticize-Reflect
+  process, resulting in novel organization structures that reduce communication costs and
+  enhance team efficiency.
+is_open_access: true
+is_retracted: false

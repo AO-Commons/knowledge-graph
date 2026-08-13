@@ -26,3 +26,20 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7111187885
 review_status: unreviewed
+abstract: As AI agents built on large language models (LLMs) become increasingly embedded
+  in society, issues of coordination, control, delegation, and accountability are entangled
+  with concerns over their reliability. To design and implement LLM agents around reliable
+  operations, we should consider the task complexity in the application settings and reduce
+  their limitations while striving to minimize agent failures and optimize resource efficiency.
+  High-functioning human organizations have faced similar balancing issues, which led to evidence-based
+  theories that seek to understand their functioning strategies. We examine the parallels
+  between LLM agents and the compatible frameworks in organization science, focusing on what
+  the design, scaling, and management of organizations can inform agentic systems towards
+  improving reliability. We offer three preliminary accounts of organizational principles
+  for AI agent engineering to attain reliability and effectiveness, through balancing agency
+  and capabilities in agent design, resource constraints and performance benefits in agent
+  scaling, and internal and external mechanisms in agent management. Our work extends the
+  growing exchanges between the operational and governance principles of AI systems and social
+  systems to facilitate system integration.
+is_open_access: true
+is_retracted: false

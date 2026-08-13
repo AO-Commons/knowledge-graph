@@ -20,3 +20,26 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 description: Method paper on studying artificial organisational intelligence ethnographically
   — squarely section 16, which is thin.
+openalex_id: W7129065083
+abstract: 'Abstract We introduce Artificial Organisational Intelligence (AOI): the capacity
+  for organisations to make their knowledge (including routines, practices, rules, boundaries,
+  and tacit know‐how) legible and governable. AOI is not about replacing organisations with
+  AI, but about enabling them to talk to themselves and to each other through regulated feedback
+  loops. Our collaborative project with BlockScience and Metagov develops Knowledge Organisation
+  Infrastructure (KOI), a protocol for stitching together disparate systems and practices
+  without homogenisation, thereby allowing organisations to embed rules, permissions, and
+  context into machine‐readable forms. We describe how our ethnographic practice both informs
+  and is transformed by this work: from observing hidden practices to actively building the
+  loops that make organisational knowledge accessible and computable.'
+authors:
+- Ellie Rennie
+- Kelsie Nabben
+- Michael Zargham
+- Jason Potts
+- Brooke Ann Coco
+- Luke Miller
+- Matthew Green
+organizations:
+- Automated Precision (United States)
+is_open_access: true
+is_retracted: false

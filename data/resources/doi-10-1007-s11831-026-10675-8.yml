@@ -18,3 +18,39 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 review_status: unreviewed
+openalex_id: W7164841116
+abstract: Abstract Agentic Artificial Intelligence (Agentic AI), as a new generation of intelligent
+  systems, extends beyond mere text or image generation by incorporating components such as
+  multi step reasoning, persistent memory, multi agent interaction, and purposeful tool use.
+  These features enable autonomy and dynamic decision making in open and complex environments.
+  This paper provides an extensive review of the existing literature on Agentic AI. To this
+  end, the conceptual and historical distinctions between Agentic Artificial Intelligence,
+  classical agents, and general-purpose language models are first examined. Subsequently,
+  the proposed architectural framework encompassing perception, role adoption, memory, planning
+  and reflection, action and tool use, and online learning is elaborated. The discussion then
+  turns to key infrastructures, including state and memory management, orchestration and Machine
+  Learning Operations (MLOps), as well as agent safety. Evaluation metrics and protocols are
+  reviewed, ranging from interactive and long horizon testing to process level assessments.
+  Furthermore, applications of Agentic AI are introduced in areas such as scientific discovery,
+  intelligent education, finance, and robotics, followed by an analysis of core challenges
+  including emergent behaviors, multi agent security, accountability, and energy sustainability.
+  The findings of this review suggest that integrating methods such as Agentic Retrieval Augmented
+  Generation (Agentic RAG), agent chaining, and formal threat modeling can provide the foundation
+  for the next generation of trustworthy and scalable systems. Finally, research gaps and
+  future directions are identified, including the design of reproducible evaluation protocols,
+  multi agent safety frameworks, and the integration of online learning with long term memory,
+  which are presented as primary priorities for research and development in this field.
+authors:
+- Pejman Peykani
+- Sanly Ghanidel
+- Iman Javadi-Sisi
+- Václav Snåšel
+- Seyedali Mirjalili
+organizations:
+- Islamic Azad University, Science and Research Branch
+- Khatam University
+- Obuda University
+- Torrens University Australia
+- VSB - Technical University of Ostrava
+is_open_access: true
+is_retracted: false

@@ -24,3 +24,17 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W4415111841
 review_status: unreviewed
+abstract: 'Autonomy is a double-edged sword for AI agents, simultaneously unlocking transformative
+  possibilities and serious risks. How can agent developers calibrate the appropriate levels
+  of autonomy at which their agents should operate? We argue that an agent''s level of autonomy
+  can be treated as a deliberate design decision, separate from its capability and operational
+  environment. In this work, we define five levels of escalating agent autonomy, characterized
+  by the roles a user can take when interacting with an agent: operator, collaborator, consultant,
+  approver, and observer. Within each level, we describe the ways by which a user can exert
+  control over the agent and open questions for how to design the nature of user-agent interaction.
+  We then highlight a potential application of our framework towards AI autonomy certificates
+  to govern agent behavior in single- and multi-agent systems. We conclude by proposing early
+  ideas for evaluating agents'' autonomy. Our work aims to contribute meaningful, practical
+  steps towards responsibly deployed and useful AI agents in the real world.'
+is_open_access: true
+is_retracted: false

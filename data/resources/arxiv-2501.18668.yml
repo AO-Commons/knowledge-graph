@@ -19,3 +19,29 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4407092870
+abstract: We introduce Simulation Streams, a programming paradigm designed to efficiently
+  control and leverage Large Language Models (LLMs) for complex, dynamic simulations and agentic
+  workflows. Our primary goal is to create a minimally interfering framework that harnesses
+  the agentic abilities of LLMs while addressing their limitations in maintaining consistency,
+  selectively ignoring/including information, and enforcing strict world rules. Simulation
+  Streams achieves this through a state-based approach where variables are modified in sequential
+  steps by "operators," producing output on a recurring format and adhering to consistent
+  rules for state variables. This approach focus the LLMs on defined tasks, while aiming to
+  have the context stream remain "in-distribution". The approach incorporates an Entity-Component-System
+  (ECS) architecture to write programs in a more intuitive manner, facilitating reuse of workflows
+  across different components and entities. This ECS approach enhances the modularity of the
+  output stream, allowing for complex, multi-entity simulations while maintaining format consistency,
+  information control, and rule enforcement. It is supported by a custom editor that aids
+  in creating, running, and analyzing simulations. We demonstrate the versatility of simulation
+  streams through an illustrative example of an ongoing market economy simulation, a social
+  simulation of three characters playing a game of catch in a park and a suite of classical
+  reinforcement learning benchmark tasks. These examples showcase Simulation Streams' ability
+  to handle complex, evolving scenarios over 100s-1000s of iterations, facilitate comparisons
+  between different agent workflows and models, and maintain consistency and continued interesting
+  developments in LLM-driven simulations.
+authors:
+- Peter Sunehag
+- Joel Z. Leibo
+is_open_access: true
+is_retracted: false

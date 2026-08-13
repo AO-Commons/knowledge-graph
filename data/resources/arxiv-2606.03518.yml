@@ -21,3 +21,28 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7163327767
 review_status: unreviewed
+abstract: 'As AI systems evolve from passive models into autonomous active agents capable
+  of initiating actions, collaborating, and delegating tasks, the traditional boundaries of
+  software systems blur. Traditional authorization and delegation frameworks, built around
+  fixed principals, explicit requests, and static scopes, are insufficient to govern agentic
+  systems. Agentic AI demands richer authorization semantics: agents must inherit and delegate
+  permissions, act under time-limited authority, and coordinate through shared protocols.
+  Existing Identity and Access Management (IAM) systems fail to fully capture this notion
+  of agency, lacking mechanisms for recursive delegation, contextual boundaries, and dynamic
+  scoping as executable governance primitives. Unlike access delegation standards such as
+  OAuth 2.0, we treat delegation as a contractual term rather than merely a static token-based
+  consent credential. This paper proposes a compositional governance framework that introduces
+  primitives indispensable for agentic AI. We define types of delegation and their permissions
+  and accountability implications, and we introduce a notion of resource scope attenuation
+  to bound agentic access envelopes. These concepts are expressed as general relational definitions
+  that can be composed into existing authorization domains (e.g., financial systems). To operationalize
+  this composition, we define a compositional operator that overlays new agentic semantics,
+  such as recursive delegation chains, onto existing relational policies without rewriting
+  them. We substantiate this framework through formal proofs and empirical evaluation, showing
+  that it provides a formal yet practical foundation for accountable authorization in agentic
+  AI systems.'
+authors:
+- Amjad Ibrahim
+- Yong Li (15029)
+is_open_access: true
+is_retracted: false

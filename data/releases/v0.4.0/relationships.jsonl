@@ -1,3 +1,8 @@
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "CITES"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-1016-j-patter-2025-101341", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
 {"source_id": "topic:1", "target_id": "topic:1.1", "relation": "PARENT_OF"}
 {"source_id": "topic:1", "target_id": "topic:1.2", "relation": "PARENT_OF"}
 {"source_id": "topic:1", "target_id": "topic:1.3", "relation": "PARENT_OF"}

@@ -19,3 +19,22 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4406890353
+abstract: As autonomous agents become more prevalent, understanding their collective behaviour
+  in strategic interactions is crucial. This study investigates the emergent cooperative tendencies
+  of systems of Large Language Model (LLM) agents in a social dilemma. Unlike previous research
+  where LLMs output individual actions, we prompt state-of-the-art LLMs to generate complete
+  strategies for iterated Prisoner's Dilemma. Using evolutionary game theory, we simulate
+  populations of agents with different strategic dispositions (aggressive, cooperative, or
+  neutral) and observe their evolutionary dynamics. Our findings reveal that different LLMs
+  exhibit distinct biases affecting the relative success of aggressive versus cooperative
+  strategies. This research provides insights into the potential long-term behaviour of systems
+  of deployed LLM-based autonomous agents and highlights the importance of carefully considering
+  the strategic environments in which they operate.
+authors:
+- Richard H. Willis
+- Yali Du
+- Joel Z. Leibo
+- G. Flucke
+is_open_access: true
+is_retracted: false

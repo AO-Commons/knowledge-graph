@@ -18,3 +18,36 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4411336097
+abstract: Theories on group-bias often posit an internal preparedness to bias one's cognition
+  to favor the in-group (often envisioned as a product of evolution). In contrast, other theories
+  suggest that group-biases can emerge from nonspecialized cognitive processes. These perspectives
+  have historically been difficult to disambiguate given that observed behavior can often
+  be attributed to innate processes, even when groups are experimentally assigned. Here, we
+  use modern techniques from the field of AI that allow us to ask what group biases can be
+  expected from a learning agent that is a pure blank slate without any intrinsic social biases,
+  and whose lifetime of experiences can be tightly controlled. This is possible because deep
+  reinforcement-learning agents learn to convert raw sensory input (i.e. pixels) to reward-driven
+  action, a unique feature among cognitive models. We find that blank slate agents do develop
+  group biases based on arbitrary group differences (i.e. color). We show that the bias develops
+  as a result of familiarity of experience and depends on the visual patterns becoming associated
+  with reward through interaction. The bias artificial agents display is not a static reflection
+  of the bias in their stream of experiences. In this minimal environment, the bias can be
+  overcome given enough positive experiences, although unlearning the bias takes longer than
+  acquiring it. Further, we show how this style of tabula rasa group behavior model can be
+  used to test fine-grained predictions of psychological theories.
+authors:
+- Raphaël Koster
+- Edgar A. Duéñez‐Guzmán
+- William A. Cunningham
+- Joel Z. Leibo
+organizations:
+- Google (United Kingdom)
+- Google (United States)
+- Google DeepMind (United Kingdom)
+- Institute for Technology & Society
+- Schwartz/Reisman Emergency Medicine Institute
+- University of Toronto
+- Vector Institute
+is_open_access: true
+is_retracted: false

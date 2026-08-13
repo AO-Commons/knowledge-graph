@@ -21,3 +21,35 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 description: Cross-layer review; useful as an architecture-and-threat-model survey.
 review_status: unreviewed
+openalex_id: W4414133540
+abstract: <ns3:p>Agentic Artificial Intelligence systems, characterized by autonomous reasoning,
+  memory augmentation, and adaptive planning, are rapidly reshaping technological landscapes.
+  Unlike traditional AI or large language models, agentic AI integrates decision-making with
+  persistent execution, enabling complex interactions across dynamic environments. However,
+  this evolution introduces novel security risks, governance challenges, and ethical considerations
+  that current frameworks inadequately address. This survey provides a cross-layer review
+  of agentic AI, encompassing architectural paradigms, threat taxonomies, and governance strategies.
+  It consolidates findings from adjacent domains such as cybersecurity, AI safety, multi-agent
+  coordination, and ethics, offering a holistic understanding of vulnerabilities and mitigation
+  approaches. We integrate insights from recent advances in defense architectures and governance
+  innovations, highlighting the limitations of static policies in addressing dynamically evolving
+  threats. Real-world deployments from industrial automation to military and policy applications
+  reveal both successful integrations and notable failures, underscoring the urgency of resilient
+  oversight mechanisms. Furthermore, we identify critical research gaps in benchmarking, memory
+  integrity, adversarial defense, and normative embedding, emphasizing the need for interdisciplinary
+  collaboration to develop adaptive, accountable, and transparent systems. This review serves
+  as a narrative synthesis rather than a systematic literature review, aiming to bridge technical,
+  governance, and ethical perspectives. By integrating cross-disciplinary findings, it lays
+  the foundation for future research on securing, aligning, and governing agentic AI in real-world
+  contexts. Ultimately, this work calls for cooperative innovation to ensure that agentic
+  AI evolves as a trustworthy, accountable, and beneficial technology.</ns3:p>
+authors:
+- IBRAHIM ADABARA
+- Bashir Olaniyi Sadiq
+- Aliyu Nuhu Shuaibu
+- Yale Ibrahim Danjuma
+- Maninti Venkateswarlu
+organizations:
+- Kampala International University
+is_open_access: true
+is_retracted: false

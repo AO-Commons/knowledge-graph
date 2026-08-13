@@ -18,3 +18,15 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W7142127368
+authors:
+- Matija Franklin
+- Nenad Tomašev
+- Julian Jacobs
+- Joel Z. Leibo
+- Simon Osindero
+organizations:
+- Google (United States)
+- Google DeepMind (United Kingdom)
+is_open_access: true
+is_retracted: false

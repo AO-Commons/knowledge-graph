@@ -285,3 +285,28 @@ def test_the_filter_cannot_find_papers_relevant_by_argument():
         title="Institutions as cached computation for resource-rational negotiation",
     ))
     assert score < 3
+
+
+# --- Drift from the first live run -------------------------------------------
+# Seeding from borrowed multi-agent RL benchmarks returned these. Each scores
+# well on "agent" and "cooperation" and none of them changes how you run an
+# organization. Regression-locked because the pull toward adjacent fields is
+# constant, and section 15 says to point at them rather than ingest them.
+
+MARL_DRIFT = [
+    "Evaluating Inter-Operator Cooperation Scenarios to Save Radio Resources",
+    "Signalling and social learning in swarms of robots",
+    "Applying Deep Q-learning for Multi-agent Cooperative-Competitive Environments",
+]
+
+
+@pytest.mark.parametrize("title", MARL_DRIFT)
+def test_adjacent_field_drift_is_filtered(title):
+    assert scope_score(Work(openalex_id="W", title=title))[0] < 3, title
+
+
+def test_filtering_drift_does_not_cost_us_the_corpus():
+    """The AGAINST list is sharp enough to cut. Check it did not also cut the
+    multi-agent work that belongs here."""
+    for title in KEEP:
+        assert scope_score(Work(openalex_id="W", title=title))[0] >= 3, title

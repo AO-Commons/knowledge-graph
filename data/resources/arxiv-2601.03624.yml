@@ -23,3 +23,23 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7119525918
 review_status: unreviewed
+abstract: 'The rapid evolution of Large Language Models (LLM) and subsequent Agentic AI technologies
+  requires systematic architectural guidance for building sophisticated, production-grade
+  systems. This paper presents an approach for architecting such systems using design patterns
+  derived from enterprise distributed systems standards, formal methods, and industry practice.
+  We classify these patterns into three tiers: LLM Agents (task-specific automation), Agentic
+  AI (adaptive goal-seekers), and Agentic Communities (organizational frameworks where AI
+  agents and human participants coordinate through formal roles, protocols, and governance
+  structures). We focus on Agentic Communities - coordination frameworks encompassing LLM
+  Agents, Agentic AI entities, and humans - most relevant for enterprise and industrial applications.
+  Drawing on established coordination principles from distributed systems, we ground these
+  patterns in a formal framework that specifies collaboration agreements where AI agents and
+  humans fill roles within governed ecosystems. This approach provides both practical guidance
+  and formal verification capabilities, enabling expression of organizational, legal, and
+  ethical rules through accountability mechanisms that ensure operational and verifiable governance
+  of inter-agent communication, negotiation, and intent modeling. We validate this framework
+  through a clinical trial matching case study. Our goal is to provide actionable guidance
+  to practitioners while maintaining the formal rigor essential for enterprise deployment
+  in dynamic, multi-agent ecosystems.'
+is_open_access: true
+is_retracted: false

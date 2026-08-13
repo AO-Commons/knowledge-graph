@@ -5,10 +5,11 @@
     "topics": 567,
     "resources": 51,
     "entities": 0,
-    "relationships": 675,
+    "relationships": 680,
     "nodes": 618
   },
   "relation_counts": {
+    "CITES": 5,
     "PARENT_OF": 551,
     "TAGGED_WITH": 124
   },

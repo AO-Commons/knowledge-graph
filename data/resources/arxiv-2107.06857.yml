@@ -32,3 +32,18 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W3172330035
 review_status: unreviewed
+abstract: Existing evaluation suites for multi-agent reinforcement learning (MARL) do not
+  assess generalization to novel situations as their primary objective (unlike supervised-learning
+  benchmarks). Our contribution, Melting Pot, is a MARL evaluation suite that fills this gap,
+  and uses reinforcement learning to reduce the human labor required to create novel test
+  scenarios. This works because one agent's behavior constitutes (part of) another agent's
+  environment. To demonstrate scalability, we have created over 80 unique test scenarios covering
+  a broad range of research topics such as social dilemmas, reciprocity, resource sharing,
+  and task partitioning. We apply these test scenarios to standard MARL training algorithms,
+  and demonstrate how Melting Pot reveals weaknesses not apparent from training performance
+  alone.
+organizations:
+- Google (United States)
+- Google DeepMind (United Kingdom)
+is_open_access: true
+is_retracted: false

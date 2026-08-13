@@ -19,3 +19,33 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
   and not reviewed.
 ingested_at: '2026-08-11'
+openalex_id: W4417081342
+abstract: The development and evaluation of social capabilities in AI agents require complex
+  environments where competitive and cooperative behaviours naturally emerge. While game-theoretic
+  properties can explain why certain teams or agent populations outperform others, more abstract
+  behaviours, such as convention following, are harder to control in training and evaluation
+  settings. The Melting Pot contest is a social AI evaluation suite designed to assess the
+  cooperation capabilities of AI systems. In this paper, we apply a Bayesian approach known
+  as Measurement Layouts to infer the capability profiles of multi-agent systems in the Melting
+  Pot contest. We show that these capability profiles not only predict future performance
+  within the Melting Pot suite but also reveal the underlying prosocial abilities of agents.
+  Our analysis indicates that while higher prosocial capabilities sometimes correlate with
+  better performance, this is not a universal trend-some lower-scoring agents exhibit stronger
+  cooperation abilities. Furthermore, we find that top-performing contest submissions are
+  more likely to achieve high scores in scenarios where prosocial capabilities are not required.
+  These findings, together with reports that the contest winner used a hard-coded solution
+  tailored to specific environments, suggest that at least one top-performing team may have
+  optimised for conditions where cooperation was not necessary, potentially exploiting limitations
+  in the evaluation framework. We provide recommendations for improving the annotation of
+  cooperation demands and propose future research directions to account for biases introduced
+  by different testing environments. Our results demonstrate that Measurement Layouts offer
+  both strong predictive accuracy and actionable insights, contributing to a more transparent
+  and generalisable approach to evaluating AI systems in complex social settings.
+authors:
+- Marko Tešić
+- Zhao Yue
+- Joel Z. Leibo
+- Rakshit S. Trivedi
+- José Hernández‐Orallo
+is_open_access: true
+is_retracted: false

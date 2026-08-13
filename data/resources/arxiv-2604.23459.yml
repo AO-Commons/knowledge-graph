@@ -26,3 +26,21 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7157124873
 review_status: unreviewed
+abstract: 'Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents,
+  have become increasingly popular in production deployments, yet introduce security risks
+  that do not arise in single-agent settings. Even if individual agents exhibit robust security,
+  architectural decisions governing their coordination can create attack surfaces that have
+  not been systematically characterized. In this work, we present an empirical study of how
+  MAS design decisions shape the tradeoff between task performance and attack resistance.
+  Across three agentic environments (browser, desktop, and code) and 13 architectural configurations,
+  we use stagewise evaluations that distinguish planning refusal, execution-stage interception,
+  partial harmful execution, and successful attack completion to study three key design choices:
+  (i) agent roles, which determine how authority and responsibility are allocated; (ii) communication
+  topology, which shapes how and when agents interact; and (iii) memory, which determines
+  the context and state visibility accessible to each agent. We find that multi-agent architectures
+  are more vulnerable than standalone agents in the majority of configurations, with attack
+  success rates varying by up to 3.8x at comparable or higher benign accuracy, and that no
+  single design is universally safer. These results motivate the development of further evaluations
+  that move beyond the security properties of a single agent.'
+is_open_access: true
+is_retracted: false

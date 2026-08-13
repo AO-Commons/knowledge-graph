@@ -1,0 +1,235 @@
+generated_from: 10
+min_score: 3
+candidates:
+- openalex_id: W4293875048
+  title: Adherence Improves Cooperation in Sequential Social Dilemmas
+  doi: 10.3390/app12168004
+  date: '2022-08-10'
+  cited_by_count: 5
+  score: 8
+  found_via: cites W3172330035
+  authors:
+  - Yuyu Yuan
+  - Ting Guo
+  - Pengqian Zhao
+  - Hongpu Jiang
+  institutions:
+  - Beijing University of Posts and Telecommunications
+  - Shanghai Key Laboratory of Trustworthy Computing
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 coordination
+  - +1 evaluation
+- openalex_id: W4406924551
+  title: Signalling and social learning in swarms of robots
+  doi: 10.1098/rsta.2024.0148
+  date: '2025-01-29'
+  cited_by_count: 3
+  score: 7
+  found_via: cites W4389471395
+  authors:
+  - Léo Cazenille
+  - Maxime Toquebiau
+  - Nicolas Lobato‐Dauzier
+  - Alessia Loi
+  - Loona Macabre
+  - Nathanaël Aubert-Kato
+  - Anthony J. Genot
+  - Nicolas Bredèche
+  institutions:
+  - Centre National de la Recherche Scientifique
+  - Inspiration Innovation Synergy University
+  - Laboratoire Jean Perrin
+  - Laboratory for Integrated Micro-Mechatronic Systems
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 coordination
+- openalex_id: W4414464797
+  title: 'Artificial Utopia: Simulation and artificially intelligent agents for exploring Utopian and
+    democratized futures'
+  doi: 10.1016/j.futures.2025.103695
+  date: '2025-09-24'
+  cited_by_count: 1
+  score: 7
+  found_via: cites W4407806359
+  authors:
+  - Yannick Oswald
+  institutions:
+  - Institute for Sustainability
+  - Sustainability Institute
+  - University of Lausanne
+  reasons:
+  - +3 agent × economics
+  - +3 agent-based
+  - +1 institution
+- openalex_id: W4286507550
+  title: Evaluating Inter-Operator Cooperation Scenarios to Save Radio Access Network Energy
+  doi: 10.1109/6gnet54646.2022.9830283
+  date: '2022-07-06'
+  cited_by_count: 3
+  score: 6
+  found_via: cites W3172330035
+  authors:
+  - Xavier Marjou
+  - Tangui Le Gléau
+  - Vincent Messié
+  - Benoît Radier
+  - Tayeb Lemlouma
+  - Gaël Fromentoux
+  institutions:
+  - Centre Hospitalier Lannion Trestel
+  - Institut de Recherche en Informatique et Systèmes Aléatoires
+  - Orange (France)
+  reasons:
+  - +3 agent × negotiations
+  - +3 multi-agent
+- openalex_id: W3170791277
+  title: A learning agent that acquires social norms from public sanctions in decentralized multi-agent
+    settings
+  doi: 10.1177/26339137231162025
+  date: '2023-04-01'
+  cited_by_count: 24
+  score: 4
+  found_via: cites W3172330035
+  authors:
+  - Eugene Vinitsky
+  - Raphaël Koster
+  - John Agapiou
+  - Edgar A. Duéñez‐Guzmán
+  - Alexander Sasha Vezhnevets
+  - Joel Z. Leibo
+  institutions:
+  - Berkeley College
+  - Google DeepMind (United Kingdom)
+  - University of California, Berkeley
+  reasons:
+  - +3 multi-agent
+  - +1 coordination
+- openalex_id: W4220663626
+  title: Counterfactual-Based Action Evaluation Algorithm in Multi-Agent Reinforcement Learning
+  doi: 10.3390/app12073439
+  date: '2022-03-28'
+  cited_by_count: 4
+  score: 4
+  found_via: cites W3172330035
+  authors:
+  - Yuyu Yuan
+  - Pengqian Zhao
+  - Ting Guo
+  - Hongpu Jiang
+  institutions:
+  - Beijing University of Posts and Telecommunications
+  reasons:
+  - +3 multi-agent
+  - +1 evaluation
+- openalex_id: W4353101359
+  title: Research and applications of game intelligence
+  doi: 10.1360/ssi-2023-0010
+  date: '2023-03-22'
+  cited_by_count: 5
+  score: 3
+  found_via: cites W3172330035
+  authors:
+  - Jianye Hao
+  - Kun Shao
+  - Kai Li
+  - Dong Li
+  - Hangyu Mao
+  - Shuyue Hu
+  - Zhen Wang
+  institutions: []
+  reasons:
+  - +3 agent × organizations
+- openalex_id: W4411011575
+  title: 'Role play: Learning adaptive role-specific strategies in multi-agent interactions'
+  doi: 10.1016/j.knosys.2025.113811
+  date: '2025-06-04'
+  cited_by_count: 2
+  score: 3
+  found_via: cites W3172330035
+  authors:
+  - Weifan Long
+  - Wen Wen
+  - Peng Zhai
+  - Lihua Zhang
+  institutions:
+  - Fudan University
+  - Tianjin University
+  reasons:
+  - +3 multi-agent
+- openalex_id: W4411077654
+  title: Capturing Argument in Agent-Based Models
+  doi: 10.1007/s11245-025-10215-2
+  date: '2025-06-06'
+  cited_by_count: 2
+  score: 3
+  found_via: cites W4389471395
+  authors:
+  - Leon Assaad
+  - Rafael Fuchs
+  - Kirsty Phillips
+  - Klee Schöppl
+  - Ulrike Hahn
+  institutions:
+  - Bernstein Center for Computational Neuroscience Munich
+  - Birkbeck, University of London
+  - Ludwig-Maximilians-Universität München
+  - Munich School of Philosophy
+  reasons:
+  - +3 agent-based
+- openalex_id: W4304208868
+  title: Applying Deep Q-learning for Multi-agent Cooperative-Competitive Environments
+  doi: 10.1007/978-3-031-18050-7_61
+  date: '2022-10-11'
+  cited_by_count: 1
+  score: 3
+  found_via: cites W3172330035
+  authors:
+  - Anikó Kopacz
+  - Lehel Csató
+  - Camelia Chira
+  institutions:
+  - Babeș-Bolyai University
+  reasons:
+  - +3 multi-agent
+- openalex_id: W4404978912
+  title: Enhancing spatially-disaggregated simulations with large language models
+  doi: 10.1145/3686592.3686595
+  date: '2024-06-23'
+  cited_by_count: 1
+  score: 3
+  found_via: cites W4389471395
+  authors:
+  - Ilya Zaslavsky
+  - Jiaxi Lei
+  - Rishi Graham
+  - Mark S. Handcock
+  - Eliah Aronoff‐Spencer
+  institutions:
+  - San Diego Supercomputer Center
+  - University of California San Diego
+  - University of California, Los Angeles
+  reasons:
+  - +3 agent-based
+- openalex_id: W4386520081
+  title: 'Beyond the Matrix: Using Multi-Agent-Reinforcement Learning and Behavioral Experiments to Study
+    Social-Ecological Systems'
+  doi: 10.31219/osf.io/6fw42
+  date: '2023-09-06'
+  cited_by_count: 0
+  score: 3
+  found_via: cites W3172330035
+  authors:
+  - Uri Hertz
+  - Raphaël Koster
+  - Marco A. Janssen
+  - Joel Z. Leibo
+  institutions:
+  - Arizona State University
+  - Google (United Kingdom)
+  - Google DeepMind (United Kingdom)
+  - University of Haifa
+  reasons:
+  - +3 multi-agent

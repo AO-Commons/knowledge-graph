@@ -127,8 +127,16 @@ def cmd_resolve(args) -> int:
               f"{work.cited_by_count} citations")
 
     store.save()
+    with_refs = sum(1 for e in store.entries.values() if e.get("referenced_works"))
     print(f"\n{filled} resolved, {skipped} skipped, {failed} failed. "
-          f"{len(store.entries)} reference list(s) stored.")
+          f"{len(store.entries)} reference list(s) stored, {with_refs} non-empty.")
+    if with_refs < len(store.entries) / 2:
+        print(
+            "\nNote: OpenAlex holds no reference lists for arXiv preprints, which is\n"
+            "most of this corpus. Backward expansion (what a paper builds on) will\n"
+            "find little; forward expansion (what cites it) still works. Semantic\n"
+            "Scholar does carry arXiv references and is the fallback worth adding.",
+        )
     return 0
 
 
@@ -138,7 +146,30 @@ def cmd_expand(args) -> int:
     resources = load_resources()
     known = {r.openalex_id for r in resources if r.openalex_id}
 
-    seeds = args.seed or [r.openalex_id for r in resources if r.openalex_id]
+    if args.seed:
+        seeds = args.seed
+    else:
+        # Which seeds you pick decides what the corpus becomes.
+        #
+        # Borrowed-background records are excluded by default. They are in the
+        # library for transfer, and their citation neighbourhoods are the
+        # adjacent field section 15 says to point at rather than ingest —
+        # seeding from multi-agent RL benchmarks returns more multi-agent RL.
+        #
+        # Ranked by citations because only the forward direction works here:
+        # OpenAlex holds no reference lists for arXiv preprints, which is most
+        # of this corpus, so a seed with no citers yields nothing at all.
+        store = ReferenceStore.load(REFERENCES)
+        pool = [r for r in resources if r.openalex_id]
+        if not args.include_borrowed:
+            pool = [r for r in pool if not r.is_borrowed_background]
+        seeds = [
+            r.openalex_id for r in sorted(
+                pool,
+                key=lambda r: -(store.entries.get(r.openalex_id, {}).get("cited_by_count", 0)),
+            )
+        ]
+
     if not seeds:
         print("no seeds with an OpenAlex id — run `aokg resolve` first.", file=sys.stderr)
         return 1
@@ -230,6 +261,9 @@ def main(argv: list[str] | None = None) -> int:
     expand.add_argument("--min-score", type=int, default=3)
     expand.add_argument("--limit", type=int, default=60)
     expand.add_argument("--name", default="candidates")
+    expand.add_argument("--include-borrowed", action="store_true",
+                        help="also seed from borrowed-background records; their "
+                             "neighbourhoods are the adjacent fields section 15 excludes")
     expand.set_defaults(func=cmd_expand)
 
     args = parser.parse_args(argv)

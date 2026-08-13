@@ -178,10 +178,20 @@ SUPPORTING = (
     "benchmark", "evaluation", "failure", "audit", "permission", "autonomy",
 )
 # Terms that reliably indicate the other literature the scope test excludes.
+#
+# The second group was added after the first live expansion run. Seeding from
+# borrowed multi-agent RL benchmarks pulled in robot swarms, Q-learning
+# variants, and a telecoms paper about "inter-operator cooperation to save
+# radio resources" — all of which score well on "agent" and "cooperation" and
+# none of which change how you run an organization. Section 15 says to point
+# at adjacent fields rather than ingest them; this is that rule in code.
 AGAINST = (
     "randomized controlled trial", "clinical", "patient", "gene", "protein",
     "rheumatology", "endoscopy", "infant", "covid-19 transmission",
     "quantum", "superconduct", "graphblas", "packet", "wireless",
+    "robot swarm", "swarms of robots", "radio resource", "base station",
+    "q-learning", "traffic signal", "autonomous driving", "path planning",
+    "wireless sensor", "uav", "warehouse robot",
 )
 
 

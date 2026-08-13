@@ -24,3 +24,26 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 openalex_id: W7162450956
 review_status: unreviewed
+abstract: 'Every major framework for governing artificial intelligence presupposes an identifiable
+  entity -- a developer, deployer, or operator -- who can be held responsible and compelled
+  to comply. Decentralized AI (DeAI) dissolves this presupposition. We analyze DeAI as a six-layer
+  decentralizing stack -- model, training, compute, harness, identity, and ownership -- and
+  show how partial decentralization across layers compounds into what we call the \emph{governance
+  vacuum}: a condition in which AI systems are consequential enough to require governance
+  but lack the properties that existing frameworks presuppose in their targets. This vacuum
+  takes two analytically distinct forms: an \emph{accountability gap}, where no addressable
+  principal can be identified, and an \emph{incapacitation gap}, where even an identified
+  principal cannot alter the running system. We demonstrate that these failures are not merely
+  jurisdictional but defeat every presupposition of governance through normative address --
+  the communication of rules to a comprehending, responsive agent. Drawing on Lessig''s modalities
+  of regulation and Searle''s distinction between regulative and constitutive rules, we argue
+  for a shift in the locus of governance from policy to protocol, from normative address to
+  architectural constraint. Protocol-based constitutive governance does not address the agents
+  operating within a system but shapes the substrate that determines what kinds of actions
+  are possible within it. We identify four ethical conditions -- legitimacy, contestability,
+  transparency, and non-domination -- that such governance must satisfy to avoid degenerating
+  into unaccountable technocratic power, and we argue that the central political challenge
+  of governing AI in a decentralized world is reconstructing forms of democratic authorization
+  for architectural choices that persist after the ordinary chain of policy has broken down.'
+is_open_access: true
+is_retracted: false
