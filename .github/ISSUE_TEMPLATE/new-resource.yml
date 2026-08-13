@@ -1,0 +1,50 @@
+name: Add a paper to the library
+description: Propose research, a tool, or a deployment for the knowledge graph.
+title: "[Add] "
+labels: ["new-resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The site's **Add** tab fills this in for you, but writing it by hand is fine too.
+
+        A maintainer resolves the metadata against OpenAlex or Semantic Scholar and the
+        record joins the corpus for everyone to file.
+
+  - type: input
+    id: identifier
+    attributes:
+      label: DOI, arXiv id, or link
+      placeholder: "10.48550/arXiv.2502.14143   ·   2502.14143   ·   https://…"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Optional — it helps a reviewer recognize it at a glance.
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it belong?
+      description: |
+        The library is scoped to organizations where machine agents hold real operational
+        or decision authority. What would this change about how you design, operate,
+        oversee, or hold accountable one?
+
+        Excellent work about human collective governance that is unchanged by the presence
+        of agents does not belong, however good it is — that boundary is what keeps the
+        graph small enough to be worth querying.
+
+        If it is relevant by transfer rather than directly — the sort of thing section 15
+        points at — say so and it will be marked as borrowed background.
+    validations:
+      required: true
+
+  - type: input
+    id: topics
+    attributes:
+      label: Topics, if you already know them
+      placeholder: "2.2, 11.6"

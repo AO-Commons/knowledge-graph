@@ -76,7 +76,7 @@
   .brand { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; }
   .brand img { width: 26px; height: 26px; border-radius: 2px; display: block; }
   .wordmark { font-size: 14.5px; font-weight: 620; letter-spacing: -.01em; line-height: 1.25; }
-  .wordmark span { display: block; color: var(--muted); font-weight: 400; font-size: 12px; }
+  .wordmark { font-size: 15px; }
   .tools { display: flex; align-items: center; gap: 12px; justify-content: flex-end; padding-bottom: 12px; }
   .progress { height: 2px; background: var(--sunk); }
   .progress i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
@@ -142,11 +142,6 @@
   }
   .theme:hover { color: var(--ink); border-color: var(--accent); }
 
-  .who { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
-  .who input {
-    font: inherit; width: 108px; padding: 5px 9px; border-radius: 2px;
-    border: 1px solid var(--rule); background: var(--paper); color: var(--ink);
-  }
 
   main { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; align-items: start; }
   @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
@@ -239,6 +234,24 @@
   }
   .marked { background: var(--mark); padding: 0 3px; }
 
+  /* Native title tooltips: no JS, keyboard reachable, and they cannot end up
+     positioned off-screen the way a hand-rolled popover does. */
+  .info {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px; border: 1px solid var(--rule-hard); border-radius: 50%;
+    font-size: 9.5px; font-family: var(--mono); color: var(--muted);
+    margin-left: 5px; cursor: help; vertical-align: 1px;
+  }
+  .info:hover { border-color: var(--accent); color: var(--accent); }
+
+  .staged {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    border: 1px solid var(--accent); background: var(--accent-soft);
+    color: var(--accent); padding: 9px 13px; margin-top: 14px; font-size: 13px;
+  }
+  .staged strong { color: var(--ink); font-weight: 620; }
+  .staged .btn { margin-left: auto; }
+
   .more {
     border: 0; background: transparent; color: var(--accent); font-size: 12.5px;
     padding: 6px 2px; text-decoration: underline; text-underline-offset: 3px;
@@ -315,11 +328,12 @@
 <header class="masthead">
   <div class="brand">
     <img src="data:image/png;base64,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" alt="AO Commons">
-    <span class="wordmark">AO&nbsp;Commons<span>File the library</span></span>
+    <span class="wordmark">AO&nbsp;Commons</span>
   </div>
   <div class="modes" role="group" aria-label="Mode">
     <button id="mode-review" aria-pressed="true">Review</button>
     <button id="mode-explore" aria-pressed="false">Explore</button>
+    <button id="mode-add" aria-pressed="false">Add</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
   </div>
   <div class="tools">
@@ -327,7 +341,6 @@
       <input id="q" type="search" placeholder="Search topics, authors, titles…" autocomplete="off" aria-label="Search">
       <div class="search-out" id="q-out"></div>
     </div>
-    <label class="who">Filed by <input id="who" placeholder="your name" autocomplete="off"></label>
     <button class="theme" id="theme" aria-label="Switch between light and dark">Dark</button>
   </div>
 </header>
@@ -372,12 +385,12 @@
     open: new Set(),
     focusTopic: null,
     author: null,
+    viewing: null,
     showAll: false,
     unsure: false,
     note: "",
     noteOpen: false,
     decisions: {},
-    who: "",
   };
 
   // Work other people have already had merged. Fetched same-origin, so it
@@ -401,12 +414,11 @@
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
     state.decisions = saved.decisions || {};
-    state.who = saved.who || "";
   } catch (e) { /* corrupt or unavailable storage should not block filing */ }
 
   const save = () => {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions, who: state.who }));
+      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions }));
     } catch (e) { /* private browsing; the session still works, export still offered */ }
   };
 
@@ -422,6 +434,13 @@
     return node;
   };
   const samePerson = name => name.toLowerCase().replace(/[.'`-]/g, "").replace(/\s+/g, " ").trim();
+  const info = text => {
+    const mark = el("span", { className: "info" }, "i");
+    mark.title = text;
+    mark.setAttribute("role", "img");
+    mark.setAttribute("aria-label", text);
+    return mark;
+  };
   const trailOf = code => ancestors(code).map(c => TOPICS.get(c)?.title).filter(Boolean).join(" › ");
 
   // Counts combine what the corpus already claims with what you have filed,
@@ -540,7 +559,9 @@
       return;
     }
 
-    const record = pending[Math.min(state.cursor, pending.length - 1)];
+    const record = currentRecord();
+    if (!record) { advance(); return; }
+    const already = state.decisions[record.id];
     const kicker = el("div", { className: "kicker" }, [
       el("span", {}, record.type.replace(/-/g, " ")),
       el("span", {}, record.date || "undated"),
@@ -566,9 +587,11 @@
     // contributor can see where to act without reading first.
     const ask = el("div", { className: "ask" });
     ask.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, "your call"),
+      el("span", { className: "step" }, already ? "added" : "your call"),
       el("strong", {}, "Which topics does this belong under?"),
       el("span", { className: "sub" }, "Pick every one that applies — most papers sit under two or three."),
+      info("A topic is what the paper is about. Tag the most specific one that fits: "
+           + "tagging 2.2.2 already implies 2.2 and 2, so there is no need to add the parents."),
     ]));
 
     // Five, not fourteen. A wall of near-misses makes the choice harder, and
@@ -641,8 +664,11 @@
       unsureBox,
       el("label", { htmlFor: "unsure" }, [
         "I'm not certain about this one",
+        info("Recorded with your answer. An unsure call is not weighed the same as a "
+             + "confident one when the gold set is used to measure the classifier, and it "
+             + "tells a maintainer where a second opinion is worth having."),
         el("span", { className: "why" },
-           "Kept with the filing, so an unsure call is not weighed like a confident one."),
+           "Better than guessing quietly — say so and someone will look again."),
       ]),
     ]));
 
@@ -662,7 +688,9 @@
     extras.append(note);
     ask.append(extras);
 
-    const file = el("button", { className: "btn primary" }, `File under ${state.picked.size || "…"}`);
+    const file = el("button", { className: "btn primary" },
+      already ? `Update — ${state.picked.size} topic${state.picked.size === 1 ? "" : "s"}`
+              : `Add to submission — ${state.picked.size || "no"} topic${state.picked.size === 1 ? "" : "s"}`);
     file.disabled = state.picked.size === 0;
     file.addEventListener("click", () => commit(record, [...state.picked], "filed"));
 
@@ -671,17 +699,23 @@
     // taxonomy has a gap. The second is a proposal waiting to happen and the
     // first is an ingestion error, so they are worth telling apart.
     const outOfScope = el("button", { className: "btn" }, "Out of scope");
-    outOfScope.title = "Agents hold no organizational authority here — it should not be in the library.";
+    outOfScope.title = "This paper does not belong in the library at all. Use it when agents hold "
+      + "no real authority in whatever it describes — the scope test the taxonomy sets. "
+      + "It tells us the corpus is holding something it should not.";
     outOfScope.addEventListener("click", () => commit(record, [], "out-of-scope"));
 
     const noFit = el("button", { className: "btn" }, "Nothing fits");
-    noFit.title = "It belongs, but no topic covers it. That is a gap worth a proposal.";
+    noFit.title = "The paper belongs here, but no topic in the taxonomy covers it. "
+      + "That is a gap worth a proposal, and the most useful thing you can tell us — "
+      + "leave a note saying what was closest.";
     noFit.addEventListener("click", () => commit(record, [], "no-topic-fits"));
 
-    const skip = el("button", { className: "btn" }, "Skip");
+    const skip = el("button", { className: "btn" }, already ? "Next" : "Skip");
+    skip.title = already ? "Move on. Your decision is kept."
+                         : "No opinion on this one. Nothing is recorded and it stays in the queue.";
     skip.addEventListener("click", () => {
-      state.cursor = (state.cursor + 1) % pending.length;
-      state.picked.clear(); renderReview(); renderTree();
+      if (!already) state.cursor = (state.cursor + 1) % Math.max(1, pending.length);
+      advance();
     });
 
     ask.append(el("div", { className: "actions" }, [
@@ -689,6 +723,20 @@
       el("span", { className: "hint" }, `${reviewed()} filed by you`),
     ]));
     stage.append(ask);
+
+    if (already) {
+      const verdict = already.verdict === "out-of-scope" ? "marked out of scope"
+        : already.verdict === "no-topic-fits" ? "marked as fitting no topic"
+        : `added under ${already.topics.join(", ")}`;
+      const next = el("button", { className: "btn primary" }, "Next record");
+      next.addEventListener("click", () => { state.viewing = null; advance(); });
+      stage.append(el("div", { className: "staged" }, [
+        el("span", {}, [el("strong", {}, "In your submission — "), verdict,
+                        ". Change anything above and press Update."]),
+        next,
+      ]));
+    }
+
     stage.append(ledger());
   }
 
@@ -704,7 +752,7 @@
   // has already been covered instead of duplicating each other.
   function ledger() {
     const rows = [
-      ...Object.entries(state.decisions).map(([id, d]) => ({ id, ...d, by: state.who || "you" })),
+      ...Object.entries(state.decisions).map(([id, d]) => ({ id, ...d, by: "you" })),
       ...[...merged.entries()].map(([id, d]) => ({ id, ...d })),
     ].sort((a, b) => (b.on || "").localeCompare(a.on || ""));
 
@@ -723,8 +771,18 @@
     ]));
     rows.slice(0, 60).forEach(r => {
       const record = DATA.records.find(x => x.id === r.id);
+      const title = (record ? record.title : r.id).slice(0, 76);
+      let cell;
+      if (record && state.decisions[r.id]) {
+        const back = el("button", { className: "more" }, title);
+        back.title = "Open this again and change it";
+        back.addEventListener("click", () => { setMode("review"); openRecord(record); });
+        cell = el("td", {}, back);
+      } else {
+        cell = el("td", {}, title);
+      }
       table.append(el("tr", {}, [
-        el("td", {}, (record ? record.title : r.id).slice(0, 76)),
+        cell,
         r.topics.length
           ? el("td", { className: "codes" },
               r.topics.join("  ") + (r.unsure ? "  (unsure)" : ""))
@@ -745,10 +803,40 @@
     if (state.unsure) entry.unsure = true;
     if (state.note.trim()) entry.note = state.note.trim();
     state.decisions[record.id] = entry;
+    // Pin the view to this record. Adding removes it from the queue, so
+    // without this the page would slide to the next one — which is the
+    // auto-advance this flow exists to avoid.
+    state.viewing = record.id;
+    save(); renderReview(); renderTree();
+  }
 
+  // The queue holds unfiled records; `viewing` lets someone step back onto one
+  // they have already added, so a decision can be changed before it is sent.
+  function currentRecord() {
+    if (state.viewing) {
+      const found = DATA.records.find(r => r.id === state.viewing);
+      if (found) return found;
+    }
+    const pending = queue();
+    return pending.length ? pending[Math.min(state.cursor, pending.length - 1)] : null;
+  }
+
+  function openRecord(record) {
+    state.viewing = record.id;
+    const filed = state.decisions[record.id];
+    state.picked = new Set(filed ? filed.topics : []);
+    state.unsure = !!(filed && filed.unsure);
+    state.note = (filed && filed.note) || "";
+    state.noteOpen = !!state.note;
+    state.showAll = false;
+    renderReview(); renderTree();
+  }
+
+  function advance() {
+    state.viewing = null;
     state.picked.clear();
     state.note = ""; state.noteOpen = false; state.unsure = false; state.showAll = false;
-    save(); renderReview(); renderTree();
+    renderReview(); renderTree();
   }
 
   // ---- explore -----------------------------------------------------------
@@ -828,6 +916,87 @@
     });
   }
 
+  // ---- add a paper -------------------------------------------------------
+  // Proposing a paper is a different act from filing one, and it needs a
+  // different question answered: not "where does this go" but "why does this
+  // belong at all". The scope test is the whole of the library's discipline,
+  // so the form asks for it directly rather than hoping.
+  function renderAdd() {
+    const stage = document.getElementById("stage");
+    stage.textContent = "";
+
+    stage.append(
+      el("h1", { className: "record-title" }, "Add a paper to the library"),
+      el("p", { className: "abstract" },
+        "Something missing? Send it in. A maintainer resolves the metadata and it "
+        + "joins the corpus for everyone to file."),
+    );
+
+    const ask = el("div", { className: "ask" });
+    ask.append(el("div", { className: "prompt" }, [
+      el("span", { className: "step" }, "your call"),
+      el("strong", {}, "Does it belong here?"),
+      info("The library is scoped to organizations where machine agents hold real "
+           + "operational or decision authority. Excellent work about human collective "
+           + "governance, unchanged by the presence of agents, does not belong however "
+           + "good it is."),
+    ]));
+
+    const fields = {};
+    const field = (key, label, placeholder, hint, area) => {
+      const wrap = el("div", { className: "note", style: "margin-bottom:13px" });
+      wrap.append(el("p", { className: "section-label" }, label));
+      const input = area
+        ? el("textarea", { placeholder })
+        : el("input", { placeholder, type: "text" });
+      if (!area) {
+        input.style.cssText = "font:inherit;width:100%;padding:9px 11px;border-radius:2px;"
+          + "border:1px solid var(--rule-hard);background:var(--card);color:var(--ink)";
+      }
+      input.addEventListener("input", () => { fields[key] = input.value; });
+      wrap.append(input);
+      if (hint) wrap.append(el("span", { className: "why", style: "color:var(--faint);font-size:12px" }, hint));
+      ask.append(wrap);
+      return input;
+    };
+
+    field("id", "DOI, arXiv id, or link", "10.48550/arXiv.2502.14143   ·   2502.14143   ·   https://…",
+          "Any one of these is enough — the metadata is resolved from it.");
+    field("title", "Title", "If you have it to hand", "Optional, but it helps a reviewer recognize it.");
+    field("why", "Why does it belong?",
+          "What would change about how you design, operate, oversee, or hold accountable an "
+          + "organization where agents act with real authority?",
+          "This is the scope test, and it is the part a maintainer cannot answer for you.", true);
+    field("topics", "Topics, if you already know them",
+          "2.2, 11.6", "Optional. Codes from the tree on the left.", false);
+
+    const submit = el("a", { className: "btn primary", target: "_blank", rel: "noopener" },
+                      "Open an issue to add it");
+    const update = () => {
+      const body = [
+        `**Identifier:** ${fields.id || "—"}`,
+        `**Title:** ${fields.title || "—"}`,
+        "",
+        "**Why it belongs**",
+        "",
+        fields.why || "—",
+        "",
+        `**Suggested topics:** ${fields.topics || "—"}`,
+      ].join("\n");
+      submit.href = "https://github.com/AO-Commons/knowledge-graph/issues/new"
+        + "?labels=new-resource"
+        + "&title=" + encodeURIComponent(`[Add] ${fields.title || fields.id || "a paper"}`)
+        + "&body=" + encodeURIComponent(body.slice(0, 5200));
+    };
+    update();
+    ask.addEventListener("input", update);
+    ask.append(el("div", { className: "actions" }, [
+      submit,
+      el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
+    ]));
+    stage.append(ask);
+  }
+
   // ---- submit ------------------------------------------------------------
   function renderExport() {
     const stage = document.getElementById("stage");
@@ -841,7 +1010,7 @@
       return;
     }
 
-    const lines = [`# filed by: ${state.who || "anonymous"}`, "records:"];
+    const lines = ["records:"];
     entries.sort().forEach(([id, d]) => {
       lines.push(`  ${id}:`);
       // Quoted deliberately: unquoted, YAML reads 11.10 as the number 11.1,
@@ -874,7 +1043,7 @@
       className: "btn",
       href: "https://github.com/AO-Commons/knowledge-graph/issues/new"
         + "?template=filing.yml&labels=filing"
-        + "&title=" + encodeURIComponent(`[Filing] ${state.who || "a contributor"}`)
+        + "&title=" + encodeURIComponent(`[Filing] ${entries.length} record(s)`)
         + "&filing=" + encodeURIComponent(yaml.slice(0, 5200)),
       target: "_blank", rel: "noopener",
     }, "Open an issue");
@@ -992,16 +1161,17 @@
 
   // ---- wiring ------------------------------------------------------------
   function renderStage() {
-    ({ review: renderReview, explore: renderExplore, export: renderExport })[state.mode]();
+    ({ review: renderReview, explore: renderExplore, add: renderAdd, export: renderExport })[state.mode]();
   }
   function setMode(mode) {
     state.mode = mode;
-    ["review", "explore", "export"].forEach(m =>
+    ["review", "explore", "add", "export"].forEach(m =>
       document.getElementById("mode-" + m).setAttribute("aria-pressed", String(m === mode)));
     renderStage(); renderTree();
   }
   document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
   document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
+  document.getElementById("mode-add").addEventListener("click", () => setMode("add"));
   document.getElementById("mode-export").addEventListener("click", () => setMode("export"));
 
   const box = document.getElementById("q");
@@ -1011,9 +1181,6 @@
     if (!event.target.closest(".search")) document.getElementById("q-out").textContent = "";
   });
 
-  const who = document.getElementById("who");
-  who.value = state.who;
-  who.addEventListener("input", () => { state.who = who.value.trim(); save(); });
 
   applyTheme(theme);
   document.getElementById("theme").addEventListener("click", () => {
