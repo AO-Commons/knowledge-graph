@@ -1,0 +1,45 @@
+id: resource:arxiv:2511.03434
+resource_type: preprint
+title: 'Inter-Agent Trust Models: A Comparative Study of Brief, Claim, Proof, Stake, Reputation
+  and Constraint in Agentic Web Protocol Design-A2A, AP2, ERC-8004, and Beyond'
+abstract: 'As the "agentic web" takes shape-billions of AI agents (often LLM-powered) autonomously
+  transacting and collaborating-trust shifts from human oversight to protocol design. In 2025,
+  several inter-agent protocols crystallized this shift, including Google''s Agent-to-Agent
+  (A2A), Agent Payments Protocol (AP2), and Ethereum''s ERC-8004 "Trustless Agents," yet their
+  underlying trust assumptions remain under-examined. This paper presents a comparative study
+  of trust models in inter-agent protocol design: Brief (self- or third-party verifiable claims),
+  Claim (self-proclaimed capabilities and identity, e.g. AgentCard), Proof (cryptographic
+  verification, including zero-knowledge proofs and trusted execution environment attestations),
+  Stake (bonded collateral with slashing and insurance), Reputation (crowd feedback and graph-based
+  trust signals), and Constraint (sandboxing and capability bounding). For each, we analyze
+  assumptions, attack surfaces, and design trade-offs, with particular emphasis on LLM-specific
+  fragilities-prompt injection, sycophancy/nudge-susceptibility, hallucination, deception,
+  and misalignment-that render purely reputational or claim-only approaches brittle. Our findings
+  indicate no single mechanism suffices. We argue for trustless-by-default architectures anchored
+  in Proof and Stake to gate high-impact actions, augmented by Brief for identity and discovery
+  and Reputation overlays for flexibility and social signals. We comparatively evaluate A2A,
+  AP2, ERC-8004 and related historical variations in academic research under metrics spanning
+  security, privacy, latency/cost, and social robustness (Sybil/collusion/whitewashing resistance).
+  We conclude with hybrid trust model recommendations that mitigate reputation gaming and
+  misinformed LLM behavior, and we distill actionable design guidelines for safer, interoperable,
+  and scalable agent economies.'
+authors:
+- Bin Hu
+- Helena Rong
+published_at: '2025-11-05'
+url: https://arxiv.org/abs/2511.03434
+doi: 10.48550/arXiv.2511.03434
+arxiv_id: '2511.03434'
+openalex_id: W4416019908
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- 4.4.5
+- '5.3'
+- 5.3.1
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #2 by @ankeliu; identity and byline resolved
+  against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
+ingested_at: '2026-08-13'
