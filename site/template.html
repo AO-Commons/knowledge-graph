@@ -1,0 +1,614 @@
+<meta charset="utf-8">
+<title>AO Commons — File the Library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f6f5e'/%3E%3Cg stroke='%23fff' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M8 3v10'/%3E%3Cpath d='M8 6h4'/%3E%3Cpath d='M8 9.5h4'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="description" content="Collectively tag research on agentic organizations against the AO Commons taxonomy.">
+
+<style>
+  /* Light palette on bare :root, so the un-stamped "system" state resolves. */
+  :root {
+    --ground:  #f6f7f9;
+    --surface: #ffffff;
+    --sunk:    #eef1f5;
+    --ink:     #131820;
+    --muted:   #5a6472;
+    --faint:   #8892a0;
+    --rule:    #dce1e8;
+    --accent:  #2f6f5e;
+    --accent-soft: #e4efea;
+    --accent-ink:  #1d5546;
+    --on-accent:   #ffffff;
+    --signal:  #a9501e;
+    --signal-soft: #f7ece4;
+    --shadow: 0 1px 2px rgba(19, 24, 32, .06), 0 8px 24px rgba(19, 24, 32, .05);
+
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, "Iowan Old Style", Georgia, Cambria, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:  #0d1117;
+      --surface: #151b23;
+      --sunk:    #10151c;
+      --ink:     #e4e9f0;
+      --muted:   #8b95a5;
+      --faint:   #6b7686;
+      --rule:    #232b36;
+      --accent:  #57a48c;
+      --accent-soft: #16302a;
+      --accent-ink:  #7cc0aa;
+      --on-accent:   #08110e;
+      --signal:  #d0793c;
+      --signal-soft: #2c1d13;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:  #0d1117;
+    --surface: #151b23;
+    --sunk:    #10151c;
+    --ink:     #e4e9f0;
+    --muted:   #8b95a5;
+    --faint:   #6b7686;
+    --rule:    #232b36;
+    --accent:  #57a48c;
+    --accent-soft: #16302a;
+    --accent-ink:  #7cc0aa;
+    --on-accent:   #08110e;
+    --signal:  #d0793c;
+    --signal-soft: #2c1d13;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  /* ---------- shell ---------- */
+  .masthead {
+    display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+    padding: 16px 22px; border-bottom: 1px solid var(--rule);
+    background: var(--surface); position: sticky; top: 0; z-index: 20;
+  }
+  .wordmark { font-size: 15px; font-weight: 620; letter-spacing: -.01em; }
+  .wordmark span { color: var(--muted); font-weight: 400; }
+  .tagline { color: var(--muted); font-size: 13px; flex: 1; min-width: 200px; }
+
+  .modes { display: flex; gap: 2px; background: var(--sunk); padding: 3px; border-radius: 7px; }
+  .modes button {
+    border: 0; background: transparent; color: var(--muted);
+    padding: 5px 13px; border-radius: 5px; font-size: 13px; font-weight: 500;
+    transition: background .12s, color .12s;
+  }
+  .modes button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+  .who { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+  .who input {
+    font: inherit; width: 108px; padding: 5px 9px; border-radius: 6px;
+    border: 1px solid var(--rule); background: var(--ground); color: var(--ink);
+  }
+
+  main { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; align-items: start; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+
+  /* ---------- the tree ---------- */
+  .tree-pane {
+    border-right: 1px solid var(--rule); background: var(--surface);
+    height: calc(100vh - 61px); overflow-y: auto; position: sticky; top: 61px;
+  }
+  @media (max-width: 900px) { .tree-pane { height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--rule); } }
+
+  .tree-head {
+    padding: 15px 20px 11px; display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--surface);
+  }
+  .tree-head h2 { margin: 0; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+  .filled { font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .node {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px;
+    width: 100%; text-align: left; border: 0; background: transparent;
+    padding: 5px 20px 5px 0; border-bottom: 1px solid transparent;
+  }
+  .node:hover { background: var(--sunk); }
+  .node.lit { background: var(--accent-soft); }
+  .node.section { padding-top: 9px; padding-bottom: 9px; }
+  .node.section .label { font-weight: 600; }
+  .code {
+    font-family: var(--mono); font-size: 11.5px; color: var(--faint);
+    font-variant-numeric: tabular-nums; margin-right: 9px;
+  }
+  .node.lit .code, .node.lit .label { color: var(--accent-ink); }
+  .label { font-size: 13.5px; }
+  .count {
+    font-family: var(--mono); font-size: 11px; color: var(--faint);
+    font-variant-numeric: tabular-nums; min-width: 20px; text-align: right;
+  }
+  .count.has { color: var(--accent); font-weight: 600; }
+  .count.gap { color: var(--signal); }
+  .bar { height: 3px; border-radius: 2px; background: var(--accent); opacity: .28; }
+
+  /* ---------- record ---------- */
+  .stage { padding: 26px 30px 60px; max-width: 780px; }
+  @media (max-width: 700px) { .stage { padding: 20px 18px 50px; } }
+
+  .kicker {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--faint); display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .record-title {
+    font-family: var(--serif); font-size: 27px; line-height: 1.25; margin: 10px 0 8px;
+    text-wrap: balance; letter-spacing: -.008em;
+  }
+  .byline { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; }
+  .byline a { color: var(--accent); }
+  .abstract {
+    font-family: var(--serif); font-size: 16.5px; line-height: 1.62; color: var(--ink);
+    max-width: 66ch; margin: 0 0 22px; padding-left: 15px; border-left: 2px solid var(--rule);
+  }
+  .abstract.none { font-family: var(--sans); font-size: 14px; color: var(--signal); border-left-color: var(--signal); }
+
+  .section-label {
+    font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--faint); font-weight: 600; margin: 0 0 10px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+  .chip {
+    display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%;
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+    padding: 7px 12px; border-radius: 999px; font-size: 13px;
+    transition: border-color .12s, background .12s;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip .c { font-family: var(--mono); font-size: 11.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .chip .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .chip[aria-pressed="true"] .c { color: var(--on-accent); opacity: .72; }
+  .chip.was { border-style: dashed; }
+
+  .finder { position: relative; margin-bottom: 20px; }
+  .finder input {
+    font: inherit; width: 100%; padding: 10px 13px; border-radius: 8px;
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+  }
+  .finder input::placeholder { color: var(--faint); }
+  .results { margin-top: 7px; display: flex; flex-direction: column; gap: 2px; max-height: 240px; overflow-y: auto; }
+  .result {
+    display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline;
+    border: 0; background: transparent; text-align: left; padding: 7px 10px; border-radius: 6px;
+  }
+  .result:hover { background: var(--sunk); }
+  .result .trail { display: block; font-size: 11.5px; color: var(--faint); }
+
+  .actions { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; padding-top: 6px; border-top: 1px solid var(--rule); }
+  .btn {
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+    padding: 9px 15px; border-radius: 8px; font-size: 13.5px; font-weight: 500;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.primary:hover { filter: brightness(1.07); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .hint { color: var(--faint); font-size: 12px; margin-left: auto; font-family: var(--mono); }
+
+  /* ---------- progress + explore ---------- */
+  .meter { height: 3px; background: var(--sunk); border-radius: 2px; overflow: hidden; min-width: 120px; flex: 0 0 140px; }
+  .meter i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+
+  .explore-item { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+  .explore-item h4 { margin: 0 0 3px; font-family: var(--serif); font-size: 17px; font-weight: 500; }
+  .explore-item .meta { color: var(--muted); font-size: 12.5px; }
+  .empty { color: var(--muted); font-size: 14px; padding: 26px 0; }
+  .empty strong { color: var(--signal); }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 22px;
+  }
+  .panel h3 { margin: 0 0 8px; font-size: 15px; }
+  .panel p { margin: 0 0 10px; color: var(--muted); font-size: 13.5px; max-width: 62ch; }
+  textarea {
+    font-family: var(--mono); font-size: 12px; width: 100%; min-height: 190px;
+    border: 1px solid var(--rule); border-radius: 8px; padding: 12px;
+    background: var(--sunk); color: var(--ink); resize: vertical;
+  }
+  .done { color: var(--accent); font-size: 13px; }
+</style>
+
+<header class="masthead">
+  <div class="wordmark">AO&nbsp;Commons <span>· file the library</span></div>
+  <div class="tagline">Tag research against the taxonomy. Every branch you file lights up.</div>
+  <div class="meter" title="reviewed"><i id="meter"></i></div>
+  <div class="modes" role="group" aria-label="Mode">
+    <button id="mode-review" aria-pressed="true">Review</button>
+    <button id="mode-explore" aria-pressed="false">Explore</button>
+    <button id="mode-export" aria-pressed="false">Submit</button>
+  </div>
+  <label class="who">Filed by <input id="who" placeholder="your name" autocomplete="off"></label>
+</header>
+
+<main>
+  <aside class="tree-pane">
+    <div class="tree-head">
+      <h2>The taxonomy</h2>
+      <span class="filled" id="filled"></span>
+    </div>
+    <div id="tree"></div>
+  </aside>
+  <div class="stage" id="stage"></div>
+</main>
+
+<script type="application/json" id="graph">__GRAPH_DATA__</script>
+<script>
+(() => {
+  "use strict";
+  const DATA = JSON.parse(document.getElementById("graph").textContent);
+  const TOPICS = new Map(DATA.topics.map(t => [t.code, t]));
+  const KEY = "aocommons.filing.v1";
+
+  const state = {
+    mode: "review",
+    cursor: 0,
+    picked: new Set(),
+    open: new Set(),
+    focusTopic: null,
+    decisions: {},
+    who: "",
+  };
+
+  // ---- persistence -------------------------------------------------------
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+    state.decisions = saved.decisions || {};
+    state.who = saved.who || "";
+  } catch (e) { /* corrupt or unavailable storage should not block filing */ }
+
+  const save = () => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions, who: state.who }));
+    } catch (e) { /* private browsing; the session still works, export still offered */ }
+  };
+
+  // ---- helpers -----------------------------------------------------------
+  const ancestors = code => {
+    const parts = code.split(".");
+    return parts.slice(0, -1).map((_, i) => parts.slice(0, i + 1).join("."));
+  };
+  const el = (tag, props = {}, kids = []) => {
+    const node = Object.assign(document.createElement(tag), props);
+    (Array.isArray(kids) ? kids : [kids]).forEach(k =>
+      node.append(k instanceof Node ? k : document.createTextNode(k)));
+    return node;
+  };
+  const trailOf = code => ancestors(code).map(c => TOPICS.get(c)?.title).filter(Boolean).join(" › ");
+
+  // Counts combine what the corpus already claims with what you have filed,
+  // so the tree fills as you work rather than only after a rebuild.
+  const counts = () => {
+    const tally = new Map();
+    const bump = code => {
+      if (!TOPICS.has(code)) return;
+      tally.set(code, (tally.get(code) || 0) + 1);
+      ancestors(code).forEach(a => tally.set(a, (tally.get(a) || 0) + 1));
+    };
+    DATA.records.forEach(r => {
+      const filed = state.decisions[r.id];
+      (filed ? filed.topics : r.current).forEach(bump);
+    });
+    return tally;
+  };
+
+  const reviewed = () => Object.keys(state.decisions).length;
+
+  // ---- the tree ----------------------------------------------------------
+  function renderTree() {
+    const tally = counts();
+    const host = document.getElementById("tree");
+    host.textContent = "";
+
+    const lit = new Set();
+    state.picked.forEach(c => { lit.add(c); ancestors(c).forEach(a => lit.add(a)); });
+    if (state.focusTopic) { lit.add(state.focusTopic); ancestors(state.focusTopic).forEach(a => lit.add(a)); }
+
+    const max = Math.max(1, ...[...tally.values()]);
+
+    DATA.topics.forEach(topic => {
+      if (topic.depth > 0 && !state.open.has(topic.section)) return;
+      if (topic.depth > 1 && !state.open.has(topic.parent)) return;
+
+      const n = tally.get(topic.code) || 0;
+      const row = el("button", { className: "node" + (topic.depth === 0 ? " section" : "") + (lit.has(topic.code) ? " lit" : "") });
+      row.style.paddingLeft = (20 + topic.depth * 15) + "px";
+      row.title = topic.points.length ? topic.points.join(" · ") : topic.title;
+
+      const label = el("span", { className: "label" }, [
+        el("span", { className: "code" }, topic.code), topic.title,
+      ]);
+      const count = el("span", {
+        className: "count" + (n ? " has" : (topic.depth === 0 ? " gap" : "")),
+      }, n ? String(n) : (topic.depth === 0 ? "0" : ""));
+
+      row.append(label, count);
+      row.addEventListener("click", () => {
+        if (topic.depth < 2) {
+          state.open.has(topic.code) ? state.open.delete(topic.code) : state.open.add(topic.code);
+        }
+        if (state.mode === "explore") { state.focusTopic = topic.code; renderStage(); }
+        renderTree();
+      });
+      host.append(row);
+
+      if (n && topic.depth === 0) {
+        const bar = el("div", { className: "bar" });
+        bar.style.width = Math.max(6, (n / max) * 100) + "%";
+        bar.style.marginLeft = "20px";
+        host.append(bar);
+      }
+    });
+
+    const covered = DATA.topics.filter(t => (tally.get(t.code) || 0) > 0).length;
+    document.getElementById("filled").textContent = `${covered}/${DATA.topics.length} filed`;
+    const pct = (reviewed() / DATA.records.length) * 100;
+    document.getElementById("meter").style.width = pct + "%";
+  }
+
+  // ---- review ------------------------------------------------------------
+  function queue() {
+    return DATA.records.filter(r => !state.decisions[r.id]);
+  }
+
+  function renderReview() {
+    const stage = document.getElementById("stage");
+    stage.textContent = "";
+    const pending = queue();
+
+    if (!pending.length) {
+      stage.append(
+        el("h2", {}, "Everything here is filed."),
+        el("p", { className: "empty" }, `You have filed ${reviewed()} record${reviewed() === 1 ? "" : "s"}. Open Submit to send them in.`),
+      );
+      return;
+    }
+
+    const record = pending[Math.min(state.cursor, pending.length - 1)];
+    const kicker = el("div", { className: "kicker" }, [
+      el("span", {}, record.type.replace(/-/g, " ")),
+      el("span", {}, record.date || "undated"),
+      el("span", {}, `${pending.length} left`),
+    ]);
+
+    const title = el("h1", { className: "record-title" }, record.title);
+    const byline = el("p", { className: "byline" });
+    if (record.authors.length) byline.append(record.authors.join(", ") + (record.authors.length >= 5 ? " et al." : ""));
+    if (record.url) {
+      byline.append(byline.textContent ? " · " : "");
+      byline.append(el("a", { href: record.url, target: "_blank", rel: "noopener" }, "read the source"));
+    }
+
+    const abstract = record.abstract
+      ? el("p", { className: "abstract" }, record.abstract)
+      : el("p", { className: "abstract none" }, "No abstract available. Judge from the title and source, or skip — a guess here is worse than a gap.");
+
+    stage.append(kicker, title, byline, abstract);
+
+    // Suggestions, plus anything already picked that is not among them.
+    const shown = [...new Set([...record.suggested, ...state.picked])];
+    stage.append(el("p", { className: "section-label" }, "Which topics does this belong under?"));
+    const chips = el("div", { className: "chips" });
+    shown.forEach(code => {
+      const topic = TOPICS.get(code);
+      if (!topic) return;
+      const chip = el("button", { className: "chip" + (record.current.includes(code) ? " was" : "") });
+      chip.setAttribute("aria-pressed", state.picked.has(code) ? "true" : "false");
+      chip.title = trailOf(code) || topic.title;
+      chip.append(el("span", { className: "c" }, code), el("span", { className: "t" }, topic.title));
+      chip.addEventListener("click", () => {
+        state.picked.has(code) ? state.picked.delete(code) : state.picked.add(code);
+        renderReview(); renderTree();
+      });
+      chips.append(chip);
+    });
+    stage.append(chips);
+
+    // Free search over all 567.
+    const finder = el("div", { className: "finder" });
+    const input = el("input", { placeholder: "Nothing fits? Search all 567 topics — try “revocation”, “budget”, “incident”", type: "search" });
+    const results = el("div", { className: "results" });
+    input.addEventListener("input", () => {
+      results.textContent = "";
+      const q = input.value.trim().toLowerCase();
+      if (q.length < 2) return;
+      DATA.topics
+        .map(t => {
+          const hay = (t.title + " " + t.points.join(" ")).toLowerCase();
+          let score = hay.includes(q) ? 2 : 0;
+          if (t.title.toLowerCase().startsWith(q)) score += 2;
+          if (t.code.startsWith(q)) score += 3;
+          return { t, score };
+        })
+        .filter(x => x.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 12)
+        .forEach(({ t }) => {
+          const hit = el("button", { className: "result" }, [
+            el("span", { className: "code" }, t.code),
+            el("span", {}, [t.title, el("span", { className: "trail" }, trailOf(t.code))]),
+          ]);
+          hit.addEventListener("click", () => {
+            state.picked.add(t.code); input.value = ""; results.textContent = "";
+            renderReview(); renderTree();
+          });
+          results.append(hit);
+        });
+    });
+    finder.append(input, results);
+    stage.append(finder);
+
+    const file = el("button", { className: "btn primary" }, `File under ${state.picked.size || "…"}`);
+    file.disabled = state.picked.size === 0;
+    file.addEventListener("click", () => commit(record, [...state.picked]));
+
+    const none = el("button", { className: "btn" }, "None apply");
+    none.title = "Out of scope, or the taxonomy has a gap. Either is worth recording.";
+    none.addEventListener("click", () => commit(record, []));
+
+    const skip = el("button", { className: "btn" }, "Skip");
+    skip.addEventListener("click", () => {
+      state.cursor = (state.cursor + 1) % pending.length;
+      state.picked.clear(); renderReview(); renderTree();
+    });
+
+    stage.append(el("div", { className: "actions" }, [
+      file, none, skip, el("span", { className: "hint" }, `${reviewed()} filed`),
+    ]));
+  }
+
+  function commit(record, topics) {
+    state.decisions[record.id] = { topics, on: new Date().toISOString().slice(0, 10) };
+    state.picked.clear();
+    save(); renderReview(); renderTree();
+  }
+
+  // ---- explore -----------------------------------------------------------
+  function renderExplore() {
+    const stage = document.getElementById("stage");
+    stage.textContent = "";
+    const code = state.focusTopic;
+
+    if (!code) {
+      stage.append(
+        el("h1", { className: "record-title" }, "Browse the tree"),
+        el("p", { className: "empty" }, "Pick a topic on the left to see what the library holds under it — and where it holds nothing."),
+      );
+      return;
+    }
+
+    const topic = TOPICS.get(code);
+    stage.append(
+      el("div", { className: "kicker" }, [el("span", {}, code), el("span", {}, trailOf(code) || "top level")]),
+      el("h1", { className: "record-title" }, topic.title),
+    );
+    if (topic.points.length) {
+      stage.append(el("p", { className: "abstract" }, topic.points.join(" · ")));
+    }
+    if (topic.coding) {
+      stage.append(el("p", { className: "byline" },
+        "Part of the failure coding scheme — an incident normally carries several of these at once."));
+    }
+
+    const under = DATA.records.filter(r => {
+      const filed = state.decisions[r.id];
+      const tags = filed ? filed.topics : r.current;
+      return tags.some(t => t === code || t.startsWith(code + "."));
+    });
+
+    stage.append(el("p", { className: "section-label" }, `${under.length} record${under.length === 1 ? "" : "s"} here`));
+    if (!under.length) {
+      stage.append(el("p", { className: "empty" }, [
+        el("strong", {}, "Nothing filed here yet. "),
+        "That is a finding worth publishing, not a hole to fill — unless the library holds something that belongs and nobody has filed it.",
+      ]));
+      return;
+    }
+    under.forEach(r => {
+      const item = el("div", { className: "explore-item" });
+      const heading = r.url
+        ? el("h4", {}, el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title))
+        : el("h4", {}, r.title);
+      item.append(heading, el("div", { className: "meta" },
+        [r.authors.slice(0, 3).join(", "), r.date].filter(Boolean).join(" · ")));
+      stage.append(item);
+    });
+  }
+
+  // ---- submit ------------------------------------------------------------
+  function renderExport() {
+    const stage = document.getElementById("stage");
+    stage.textContent = "";
+    const entries = Object.entries(state.decisions);
+
+    stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
+
+    if (!entries.length) {
+      stage.append(el("p", { className: "empty" }, "Nothing filed yet. Head to Review."));
+      return;
+    }
+
+    const lines = [`# filed by: ${state.who || "anonymous"}`, "records:"];
+    entries.sort().forEach(([id, d]) => {
+      lines.push(`  ${id}:`);
+      lines.push(`    topics: [${d.topics.join(", ")}]`);
+      lines.push(`    reviewed_on: ${d.on}`);
+    });
+    const yaml = lines.join("\n");
+
+    const panel = el("div", { className: "panel" });
+    panel.append(
+      el("h3", {}, `${entries.length} record${entries.length === 1 ? "" : "s"} ready`),
+      el("p", {}, "Copy this and open an issue on the knowledge-graph repository. A maintainer merges it into the gold set — the thing every accuracy figure is measured against."),
+    );
+    const box = el("textarea", { readOnly: true, value: yaml });
+    panel.append(box);
+
+    const copy = el("button", { className: "btn primary" }, "Copy");
+    copy.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(yaml); }
+      catch (e) { box.select(); document.execCommand("copy"); }
+      copy.textContent = "Copied";
+      setTimeout(() => (copy.textContent = "Copy"), 1600);
+    });
+
+    const issue = el("a", {
+      className: "btn",
+      href: "https://github.com/AO-Commons/knowledge-graph/issues/new?title="
+        + encodeURIComponent(`Filed tags from ${state.who || "a contributor"}`)
+        + "&body=" + encodeURIComponent("```yaml\n" + yaml.slice(0, 5500) + "\n```"),
+      target: "_blank", rel: "noopener",
+    }, "Open an issue");
+
+    const reset = el("button", { className: "btn" }, "Clear mine");
+    reset.addEventListener("click", () => {
+      if (!confirm("Delete everything you filed in this browser? This cannot be undone.")) return;
+      state.decisions = {}; save(); renderExport(); renderTree();
+    });
+
+    panel.append(el("div", { className: "actions" }, [copy, issue, reset]));
+    stage.append(panel);
+
+    stage.append(el("p", { className: "empty" },
+      "Your filing lives only in this browser until you send it. Nothing is uploaded automatically."));
+  }
+
+  // ---- wiring ------------------------------------------------------------
+  function renderStage() {
+    ({ review: renderReview, explore: renderExplore, export: renderExport })[state.mode]();
+  }
+  function setMode(mode) {
+    state.mode = mode;
+    ["review", "explore", "export"].forEach(m =>
+      document.getElementById("mode-" + m).setAttribute("aria-pressed", String(m === mode)));
+    renderStage(); renderTree();
+  }
+  document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
+  document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
+  document.getElementById("mode-export").addEventListener("click", () => setMode("export"));
+
+  const who = document.getElementById("who");
+  who.value = state.who;
+  who.addEventListener("input", () => { state.who = who.value.trim(); save(); });
+
+  DATA.topics.filter(t => t.depth === 0).forEach(t => state.open.add(t.code));
+  renderTree(); renderStage();
+})();
+</script>

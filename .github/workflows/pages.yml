@@ -1,0 +1,47 @@
+# Publishes the filing site to GitHub Pages.
+#
+# INERT while the repository is private: Pages is unavailable on a private
+# repo under a free plan. Making knowledge-graph public turns this on with no
+# further change — the site is self-contained and needs no server.
+
+name: Publish the site
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "data/resources/**", "taxonomy/**", "src/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+
+      # Rebuilt rather than trusted: the committed index.html can fall behind
+      # the corpus, and a filing site showing yesterday's records would waste
+      # a contributor's time.
+      - run: python3 scripts/build_site.py
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
