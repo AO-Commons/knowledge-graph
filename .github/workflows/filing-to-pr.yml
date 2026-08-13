@@ -17,6 +17,12 @@ permissions:
   pull-requests: write
   issues: write
 
+# An opened issue that arrives with its label fires this twice, and both runs
+# race to push the same branch. One run per issue.
+concurrency:
+  group: filing-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   merge:
     if: contains(github.event.issue.labels.*.name, 'filing')
@@ -61,9 +67,16 @@ jobs:
         if: steps.merge.outcome == 'success'
         run: python3 scripts/build_site.py
 
+      # Opening the pull request needs "Allow GitHub Actions to create and
+      # approve pull requests", which this organization disables. The branch
+      # still pushes, so the contribution is never lost — a maintainer opens
+      # the pull request from the link in the comment below. If the setting is
+      # ever turned on, this step starts succeeding and the comment switches to
+      # the direct link with no other change.
       - name: Open the pull request
         if: steps.merge.outcome == 'success'
         id: pr
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
           branch: filing/issue-${{ github.event.issue.number }}
@@ -73,21 +86,48 @@ jobs:
           labels: filing
           delete-branch: true
 
-      - name: Link the pull request from the issue
+      - name: Report back on the issue
         if: steps.merge.outcome == 'success'
         uses: actions/github-script@v7
         env:
           PR: ${{ steps.pr.outputs.pull-request-url }}
-          NUMBER: ${{ github.event.issue.number }}
+          BRANCH: filing/issue-${{ github.event.issue.number }}
         with:
           script: |
             const fs = require('fs');
             const summary = fs.readFileSync('/tmp/summary.md', 'utf8');
             const url = process.env.PR;
+            const branch = process.env.BRANCH;
+            const { owner, repo } = context.repo;
+
+            // Did the branch actually land? If the filing changed nothing
+            // there is nothing to open, and saying "opened a PR" would be a
+            // lie the contributor cannot check.
+            let pushed = true;
+            try {
+              await github.rest.repos.getBranch({ owner, repo, branch });
+            } catch (error) {
+              pushed = false;
+            }
+
+            let tail;
+            if (url) {
+              tail = `Opened ${url} — a maintainer reviews and merges it. Thank you.`;
+            } else if (pushed) {
+              const compare = `https://github.com/${owner}/${repo}/compare/main...${branch}?expand=1`;
+              tail = [
+                `Your filing is saved on \`${branch}\`, and a maintainer opens the pull`,
+                `request from here: ${compare}`,
+                "",
+                "_(The bot cannot open it itself — this organization disables pull-request",
+                "creation by Actions. Nothing is lost either way.)_",
+              ].join("\n");
+            } else {
+              tail = "Nothing changed, so there was nothing to open. These decisions were "
+                + "already recorded the same way.";
+            }
+
             await github.rest.issues.createComment({
-              ...context.repo,
-              issue_number: context.issue.number,
-              body: url
-                ? `${summary}\n\nOpened ${url} — a maintainer reviews and merges it. Thank you.`
-                : `${summary}\n\nNothing changed, so no pull request was needed. These decisions were already recorded the same way.`,
+              ...context.repo, issue_number: context.issue.number,
+              body: `${summary}\n\n${tail}`,
             });
