@@ -16,6 +16,7 @@ from pathlib import Path
 from .export import write_release
 from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
+from .people import apply_index, build_index, duplicates
 import yaml
 
 from .classify import TopicIndex, classify_resource
@@ -109,6 +110,13 @@ def cmd_resolve(args) -> int:
     resources = load_resources()
     filled = skipped = failed = 0
 
+    # The corpus is the authority on how a person's name is spelled, so a
+    # newly fetched author list is folded onto what is already there rather
+    # than adding a second spelling of someone we already hold.
+    known_names = build_index(
+        [a for r in resources for a in (r.authors or [])]
+    )
+
     use_s2 = args.source in ("semanticscholar", "both")
     use_oa = args.source in ("openalex", "both")
     fetch_oa = http_fetcher() if use_oa else None
@@ -134,7 +142,8 @@ def cmd_resolve(args) -> int:
                 source_used = "openalex"
                 updates.update({
                     "openalex_id": work.openalex_id, "abstract": work.abstract,
-                    "authors": work.authors, "organizations": work.institutions,
+                    "authors": apply_index(work.authors, known_names),
+                    "organizations": work.institutions,
                     "is_open_access": work.is_open_access, "is_retracted": work.is_retracted,
                 })
             except OpenAlexError as error:
@@ -150,7 +159,7 @@ def cmd_resolve(args) -> int:
                 updates.setdefault("abstract", paper.abstract)
                 updates["semantic_scholar_id"] = paper.semantic_scholar_id
                 if not updates.get("authors"):
-                    updates["authors"] = paper.authors
+                    updates["authors"] = apply_index(paper.authors, known_names)
             except SemanticScholarError as error:
                 print(f"  {resource.id}: s2: {error}", file=sys.stderr)
 
@@ -370,6 +379,45 @@ def cmd_evaluate(args) -> int:
     return 0
 
 
+def cmd_people(args) -> int:
+    """Report, and optionally fix, one person appearing under two spellings."""
+    resources = load_resources()
+    names = [a for r in resources for a in (r.authors or [])]
+    found = duplicates(names)
+
+    distinct = len({a for a in names})
+    print(f"{len(names)} authorship(s), {distinct} distinct spelling(s), "
+          f"{len(found)} person/people split across spellings")
+    if not found:
+        return 0
+
+    for best, spellings in sorted(found.items()):
+        variants = "  |  ".join(
+            f"{name!r} ×{count}" for name, count in sorted(spellings.items(), key=lambda x: -x[1])
+        )
+        print(f"\n  keep {best!r}")
+        print(f"       {variants}")
+
+    if not args.fix:
+        print("\nRe-run with --fix to rewrite the records.")
+        return 0
+
+    index = build_index(names)
+    touched = 0
+    for resource in resources:
+        merged = apply_index(resource.authors or [], index)
+        if merged == (resource.authors or []):
+            continue
+        path = OUT_RESOURCES / (resource.id.removeprefix("resource:").replace(":", "-") + ".yml")
+        payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+        payload["authors"] = merged
+        path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=88),
+                        encoding="utf-8")
+        touched += 1
+    print(f"\nrewrote {touched} record(s).")
+    return 0
+
+
 def cmd_build(args) -> int:
     topics = load_taxonomy(args.taxonomy)
     codes = {topic.code for topic in topics}
@@ -455,6 +503,10 @@ def main(argv: list[str] | None = None) -> int:
     evaluate.add_argument("--limit", type=int, default=6)
     evaluate.add_argument("--min-score", type=float, default=4.0)
     evaluate.set_defaults(func=cmd_evaluate)
+
+    people = sub.add_parser("people", help="find one person spelled two ways")
+    people.add_argument("--fix", action="store_true", help="rewrite the records")
+    people.set_defaults(func=cmd_people)
 
     args = parser.parse_args(argv)
     try:
