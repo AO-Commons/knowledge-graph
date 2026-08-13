@@ -90,12 +90,15 @@
      reaches for, and with the shadows gone it had nothing left to distinguish
      the active one. */
   .modes { display: flex; gap: 22px; align-items: flex-end; justify-content: center; align-self: end; }
-  .modes button {
+  .modes a {
+    text-decoration: none; display: inline-flex; align-items: center;
+  }
+  .modes a, .modes button {
     border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: transparent;
     color: var(--muted); padding: 4px 1px 6px; font-size: 13px; font-weight: 500;
     transition: color .1s, border-color .1s;
   }
-  .modes button:hover { color: var(--ink); }
+  .modes a:hover, .modes button:hover { color: var(--ink); }
   .modes button[aria-pressed="true"] {
     color: var(--ink); border-bottom-color: var(--accent); font-weight: 620;
   }
@@ -409,6 +412,7 @@
     <button id="mode-review" aria-pressed="false">Review</button>
     <button id="mode-add" aria-pressed="false">Add</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
+    <a id="mode-graph" href="graph.html">Graph</a>
   </div>
   <div class="tools">
     <div class="search">

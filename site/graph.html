@@ -1,0 +1,448 @@
+<!doctype html>
+<!--
+  The graph, in three dimensions.
+
+  Rendered by 3d-force-graph (MIT), vendored under site/vendor/ rather than
+  pulled from a CDN: the rest of this site makes no third-party requests, works
+  offline, and cannot change underneath us, and a visualisation is not a good
+  enough reason to give that up.
+
+  A separate page rather than a fourth tab in index.html, because the library is
+  1.3 MB and the graph payload another 170 KB. Nobody filing papers on a laptop
+  should pay for a page they may never open.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AO Commons — The graph</title>
+<style>
+  :root {
+    --ink: #14171a; --muted: #4a5560; --faint: #7c8894;
+    --page: #fbfbf9; --card: #ffffff; --rule: #e6e4dd; --rule-hard: #cfccc2;
+    --accent: #1f5c46; --accent-soft: #e8f0ec; --mark: #f6e9a8;
+    --section: #1f5c46; --topic: #7fa393; --resource: #b8863b; --claim: #8a6fa8;
+    --void: #f4f3ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e8e6e1; --muted: #a8b0b8; --faint: #7b848d;
+      --page: #14171a; --card: #1b1f23; --rule: #2b3136; --rule-hard: #3d454c;
+      --accent: #6fbf9a; --accent-soft: #17302a; --mark: #4a4327;
+      --section: #6fbf9a; --topic: #4d7d68; --resource: #d6a35a; --claim: #a98cc7;
+      --void: #101315;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8e6e1; --muted: #a8b0b8; --faint: #7b848d;
+    --page: #14171a; --card: #1b1f23; --rule: #2b3136; --rule-hard: #3d454c;
+    --accent: #6fbf9a; --accent-soft: #17302a; --mark: #4a4327;
+    --section: #6fbf9a; --topic: #4d7d68; --resource: #d6a35a; --claim: #a98cc7;
+    --void: #101315;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--page); color: var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  a { color: var(--accent); }
+
+  header {
+    display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;
+    padding: 11px 20px; border-bottom: 1px solid var(--rule); background: var(--page);
+  }
+  header .wordmark { font-weight: 640; font-size: 14px; letter-spacing: -.01em; }
+  nav { display: flex; gap: 18px; }
+  nav a {
+    text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 3px 0;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: var(--ink); }
+  nav a[aria-current] { color: var(--ink); font-weight: 620; border-bottom-color: var(--accent); }
+  header .spacer { flex: 1; }
+  button.plain {
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--muted);
+    font: inherit; font-size: 12px; padding: 4px 9px; cursor: pointer; border-radius: 2px;
+  }
+  button.plain:hover { color: var(--ink); border-color: var(--accent); }
+
+  main { flex: 1; position: relative; min-height: 0; background: var(--void); }
+  #scene { position: absolute; inset: 0; }
+
+  .panel {
+    position: absolute; top: 14px; left: 14px; width: 268px; z-index: 5;
+    background: var(--card); border: 1px solid var(--rule-hard);
+    padding: 13px 14px; font-size: 12.5px; line-height: 1.5;
+    max-height: calc(100% - 28px); overflow-y: auto;
+  }
+  .panel h2 {
+    font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 9px; font-weight: 500;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .panel h2:not(:first-child) { margin-top: 16px; }
+  .row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+  .row input { margin: 0; accent-color: var(--accent); }
+  .row .swatch { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .row .bar { width: 14px; height: 2px; flex: none; }
+  .row .n {
+    margin-left: auto; color: var(--faint); font-size: 11px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .note { color: var(--faint); font-size: 11.5px; line-height: 1.45; margin: 10px 0 0; }
+
+  .detail {
+    position: absolute; right: 14px; top: 14px; width: 320px; z-index: 5;
+    background: var(--card); border: 1px solid var(--rule-hard); border-left: 2px solid var(--accent);
+    padding: 14px 15px; font-size: 13px; line-height: 1.55;
+    max-height: calc(100% - 28px); overflow-y: auto;
+  }
+  .detail .kind {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint);
+  }
+  .detail h3 { margin: 6px 0 8px; font-size: 15px; line-height: 1.35; }
+  .detail p { margin: 0 0 9px; color: var(--muted); }
+  .detail .actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
+  .detail .actions a, .detail .actions button {
+    font: inherit; font-size: 12.5px; padding: 5px 10px; cursor: pointer;
+    border: 1px solid var(--accent); background: var(--accent); color: var(--page);
+    text-decoration: none; border-radius: 2px;
+  }
+  .detail .actions .ghost { background: var(--card); color: var(--accent); }
+
+  .hint {
+    position: absolute; left: 50%; transform: translateX(-50%); bottom: 14px; z-index: 5;
+    color: var(--faint); font-size: 11.5px; background: var(--card);
+    border: 1px solid var(--rule); padding: 5px 11px; border-radius: 2px;
+  }
+  .loading {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    color: var(--faint); font-size: 13px;
+  }
+  @media (max-width: 820px) {
+    .panel, .detail { position: static; width: auto; max-height: none; margin: 10px; }
+    main { overflow: auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <span class="wordmark">AO Commons</span>
+  <nav>
+    <a href="index.html">Explore</a>
+    <a href="index.html">Review</a>
+    <a href="index.html">Add</a>
+    <a href="index.html">Submit</a>
+    <a href="graph.html" aria-current="page">Graph</a>
+  </nav>
+  <span class="spacer"></span>
+  <button class="plain" id="theme">Dark</button>
+</header>
+
+<main>
+  <div id="scene"></div>
+  <div class="loading" id="loading">Building the graph…</div>
+
+  <div class="panel">
+    <h2>What is drawn</h2>
+    <div id="kinds"></div>
+    <h2>How things connect</h2>
+    <div id="links"></div>
+    <h2>View</h2>
+    <label class="row"><input type="checkbox" id="all-topics"> <span>Every topic, including empty ones</span></label>
+    <p class="note" id="scope"></p>
+    <div class="actions" style="margin-top:12px">
+      <button class="plain" id="reset">Reset the camera</button>
+    </div>
+  </div>
+
+  <div class="detail" id="detail" hidden></div>
+  <p class="hint">Drag to turn · scroll to zoom · click a node</p>
+</main>
+
+<script src="vendor/3d-force-graph.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // The same rule as the filing site: follow the operating system unless
+  // someone has said otherwise here, and then keep obeying them.
+  const THEME_KEY = "aocommons.theme";
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let theme = prefersDark ? "dark" : "light";
+  try { theme = localStorage.getItem(THEME_KEY) || theme; } catch (e) { /* default holds */ }
+
+  const themeButton = document.getElementById("theme");
+  function applyTheme() {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeButton.textContent = theme === "dark" ? "Light" : "Dark";
+    if (graph) paint();
+  }
+  themeButton.addEventListener("click", () => {
+    theme = theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* fine */ }
+    applyTheme();
+  });
+
+  const token = name => getComputedStyle(document.documentElement)
+    .getPropertyValue(name).trim();
+
+  const NODE_KINDS = [
+    ["section", "Sections", "--section"],
+    ["topic", "Topics", "--topic"],
+    ["resource", "Papers and tools", "--resource"],
+    ["claim", "Statements", "--claim"],
+  ];
+
+  // Each edge type is a different kind of assertion, and saying so is the
+  // point. A citation is a fact printed in the paper; a similarity is a score
+  // this project computed; a statement is a machine's reading of a sentence.
+  // Drawing them alike would invite someone to read a resemblance as a fact.
+  const LINK_KINDS = [
+    ["parent", "Taxonomy branches", "--topic", "the tree itself"],
+    ["tagged", "Filed under", "--resource", "a record's place in the tree"],
+    ["cites", "Cites", "--section", "read from the paper's own reference list"],
+    ["similar", "Shares references", "--claim", "computed: bibliographic coupling, not a claim by either paper"],
+    ["claim", "States", "--claim", "a statement extracted from the paper"],
+    ["about", "Statement is about", "--topic", "inferred: which branch a statement concerns"],
+  ];
+
+  const state = {
+    nodes: new Set(NODE_KINDS.map(k => k[0])),
+    links: new Set(["parent", "tagged", "cites", "similar", "claim"]),
+    allTopics: false,
+    selected: null,
+  };
+
+  let data = null, graph = null;
+
+  fetch("graph.json")
+    .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
+    .then(payload => { data = payload; start(); })
+    .catch(() => {
+      document.getElementById("loading").textContent =
+        "graph.json could not be read. It is written by scripts/build_graph.py.";
+    });
+
+  function counts() {
+    const nodes = {}, links = {};
+    data.nodes.forEach(n => { nodes[n.kind] = (nodes[n.kind] || 0) + 1; });
+    data.links.forEach(l => { links[l.kind] = (links[l.kind] || 0) + 1; });
+    return { nodes, links };
+  }
+
+  // What to draw, given the switches. Topics with nothing filed under them are
+  // hidden by default: 465 of the 567 are empty leaves, and together they bury
+  // the 60 records this exists to show. Ancestors of a kept topic are kept too,
+  // so no branch is left floating with no path back to its section.
+  function visible() {
+    const keep = new Set();
+    const byId = new Map(data.nodes.map(n => [n.id, n]));
+
+    data.nodes.forEach(node => {
+      if (!state.nodes.has(node.kind)) return;
+      if (node.kind === "topic" && !state.allTopics && !node.held) return;
+      keep.add(node.id);
+    });
+
+    if (!state.allTopics) {
+      // Walk each kept topic back up its code — 11.6.2 implies 11.6 and 11.
+      [...keep].forEach(id => {
+        if (!id.startsWith("topic:")) return;
+        const parts = id.slice(6).split(".");
+        while (parts.length > 1) {
+          parts.pop();
+          const ancestor = "topic:" + parts.join(".");
+          if (byId.has(ancestor) && state.nodes.has(byId.get(ancestor).kind)) keep.add(ancestor);
+        }
+      });
+    }
+
+    const nodes = data.nodes.filter(n => keep.has(n.id));
+    const links = data.links.filter(l =>
+      state.links.has(l.kind) && keep.has(l.source.id || l.source) && keep.has(l.target.id || l.target));
+    return { nodes: nodes.map(n => ({ ...n })), links: links.map(l => ({ ...l })) };
+  }
+
+  function colourFor(node) {
+    return token("--" + node.kind);
+  }
+
+  function sizeFor(node) {
+    if (node.kind === "section") return 6;
+    if (node.kind === "resource") return 3.4 + Math.min(3, node.claims || 0) * 0.5;
+    if (node.kind === "topic") return 1.6 + Math.min(4, node.held || 0) * 0.5;
+    return 1.4;
+  }
+
+  function start() {
+    document.getElementById("loading").remove();
+    const tally = counts();
+
+    const kinds = document.getElementById("kinds");
+    NODE_KINDS.forEach(([key, label, colour]) => {
+      const row = document.createElement("label");
+      row.className = "row";
+      row.innerHTML = `<input type="checkbox" checked>
+        <span class="swatch" style="background:var(${colour})"></span>
+        <span>${label}</span><span class="n">${tally.nodes[key] || 0}</span>`;
+      row.querySelector("input").addEventListener("change", event => {
+        event.target.checked ? state.nodes.add(key) : state.nodes.delete(key);
+        refresh();
+      });
+      kinds.append(row);
+    });
+
+    const links = document.getElementById("links");
+    LINK_KINDS.forEach(([key, label, colour, why]) => {
+      const row = document.createElement("label");
+      row.className = "row";
+      row.title = why;
+      row.innerHTML = `<input type="checkbox"${state.links.has(key) ? " checked" : ""}>
+        <span class="bar" style="background:var(${colour})"></span>
+        <span>${label}</span><span class="n">${tally.links[key] || 0}</span>`;
+      row.querySelector("input").addEventListener("change", event => {
+        event.target.checked ? state.links.add(key) : state.links.delete(key);
+        refresh();
+      });
+      links.append(row);
+    });
+
+    document.getElementById("all-topics").addEventListener("change", event => {
+      state.allTopics = event.target.checked;
+      refresh();
+    });
+
+    graph = ForceGraph3D()(document.getElementById("scene"))
+      .backgroundColor(token("--void"))
+      .nodeLabel(node => `<div style="
+          background:${token("--card")};color:${token("--ink")};
+          border:1px solid ${token("--rule-hard")};padding:6px 9px;
+          font:12px/1.45 ui-sans-serif,system-ui;max-width:280px">${escape(node.label)}</div>`)
+      .nodeColor(colourFor)
+      .nodeVal(sizeFor)
+      .nodeOpacity(0.92)
+      .linkColor(link => token("--" + (LINK_KINDS.find(k => k[0] === link.kind) || [])[2]))
+      .linkOpacity(0.28)
+      .linkWidth(link => (link.kind === "parent" ? 0.4 : 0.9))
+      .warmupTicks(30)
+      .cooldownTime(6000)
+      .onNodeClick(select)
+      .onBackgroundClick(() => select(null));
+
+    // Links between distant sections should not drag the whole tree into a
+    // ball: the taxonomy's own edges are stiff, the computed ones are slack.
+    graph.d3Force("link").distance(link => (link.kind === "parent" ? 18 : 40));
+    graph.d3Force("charge").strength(-38);
+
+    refresh();
+    document.getElementById("reset").addEventListener("click", () => {
+      graph.zoomToFit(600, 60);
+    });
+    applyTheme();
+  }
+
+  function refresh() {
+    const shown = visible();
+    graph.graphData(shown);
+    document.getElementById("scope").textContent =
+      `${shown.nodes.length} nodes and ${shown.links.length} connections drawn.`
+      + (state.allTopics ? "" : " Empty topics are hidden.");
+    setTimeout(() => graph.zoomToFit(700, 60), 900);
+  }
+
+  function paint() {
+    if (!graph) return;
+    graph.backgroundColor(token("--void"))
+      .nodeColor(colourFor)
+      .linkColor(link => token("--" + (LINK_KINDS.find(k => k[0] === link.kind) || [])[2]));
+  }
+
+  const escape = text => String(text || "").replace(/[&<>"]/g,
+    c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function select(node) {
+    state.selected = node;
+    const detail = document.getElementById("detail");
+    if (!node) { detail.hidden = true; return; }
+
+    detail.hidden = false;
+    detail.textContent = "";
+
+    const kind = document.createElement("p");
+    kind.className = "kind";
+    kind.textContent = node.kind === "resource" ? (node.type || "record").replace(/-/g, " ")
+      : node.kind === "claim" ? `statement · ${node.type || ""}`
+      : node.kind === "section" ? "section" : "topic";
+    const title = document.createElement("h3");
+    title.textContent = node.label;
+    detail.append(kind, title);
+
+    if (node.kind === "resource") {
+      if (node.authors && node.authors.length) {
+        const by = document.createElement("p");
+        by.textContent = node.authors.join(", ") + (node.date ? ` · ${node.date}` : "");
+        detail.append(by);
+      }
+      const state_ = document.createElement("p");
+      state_.textContent = `${node.claims || 0} statement(s) extracted · ${node.reviewed}`;
+      detail.append(state_);
+    }
+    if (node.kind === "claim") {
+      const of = document.createElement("p");
+      of.textContent = "From " + node.of.replace("resource:", "");
+      detail.append(of);
+    }
+    if (node.kind === "topic" || node.kind === "section") {
+      const held = document.createElement("p");
+      held.textContent = node.held
+        ? `${node.held} record(s) filed directly under this code.`
+        : "Nothing filed directly under this code yet.";
+      detail.append(held);
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+    // Back into the filing site, at the thing that was clicked. A graph that
+    // cannot hand you to the work is an ornament.
+    if (node.kind === "resource" || node.kind === "claim") {
+      const open = document.createElement("a");
+      open.href = "index.html";
+      open.textContent = "Open in Review";
+      actions.append(open);
+    }
+    if (node.kind === "topic" || node.kind === "section") {
+      const open = document.createElement("a");
+      open.href = "index.html";
+      open.textContent = "Open in Explore";
+      actions.append(open);
+    }
+    if (node.url) {
+      const source = document.createElement("a");
+      source.className = "ghost";
+      source.href = node.url;
+      source.target = "_blank";
+      source.rel = "noopener";
+      source.textContent = "Read the source";
+      actions.append(source);
+    }
+    const focus = document.createElement("button");
+    focus.className = "ghost";
+    focus.textContent = "Fly to it";
+    focus.addEventListener("click", () => {
+      const distance = 90;
+      const ratio = 1 + distance / Math.hypot(node.x, node.y, node.z || 1);
+      graph.cameraPosition(
+        { x: node.x * ratio, y: node.y * ratio, z: (node.z || 0) * ratio }, node, 900);
+    });
+    actions.append(focus);
+    detail.append(actions);
+  }
+})();
+</script>
+</body>
+</html>

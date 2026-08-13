@@ -9,7 +9,7 @@ name: Publish the site
 on:
   push:
     branches: [main]
-    paths: ["site/**", "data/resources/**", "taxonomy/**", "src/**"]
+    paths: ["site/**", "data/resources/**", "data/claims/**", "taxonomy/**", "src/**"]
   workflow_dispatch:
 
 permissions:
@@ -45,6 +45,9 @@ jobs:
       # not. One unbalanced template literal takes the whole page down, and the
       # only symptom is a console message on a site nobody has opened yet.
       - run: python3 scripts/build_site.py
+      # The graph page reads this; it is derived from the same corpus and
+      # would otherwise go stale the moment a record is added.
+      - run: python3 scripts/build_graph.py
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
