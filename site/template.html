@@ -220,6 +220,27 @@
   .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
   .claim:first-of-type { border-top: none; }
   .claim-text { font-size: 15px; line-height: 1.5; color: var(--ink); margin: 2px 0 10px; max-width: 62ch; }
+  .ready { border-bottom: 1px solid var(--rule-hard); }
+  .ready:empty { border-bottom: none; }
+  .ready h2 { font-size: 12px; letter-spacing: .04em; margin: 0; }
+  .ready-row {
+    display: flex; align-items: baseline; gap: 8px; width: 100%; text-align: left;
+    background: none; border: 0; font: inherit; color: var(--ink);
+    padding: 7px 12px; cursor: pointer; border-top: 1px solid var(--rule);
+  }
+  .ready-row:hover { background: var(--mark); }
+  .ready-row .t { flex: 1; font-size: 12.5px; line-height: 1.35; }
+  .ready-row .s {
+    font-family: var(--mono); font-size: 10px; color: var(--faint); white-space: nowrap;
+  }
+  .ready-row.done .s { color: var(--accent); }
+  .claims-why {
+    font-size: 13px; line-height: 1.55; color: var(--muted); max-width: 64ch;
+    margin: -4px 0 16px; padding-left: 13px; border-left: 2px solid var(--mark);
+  }
+  .claim.mine { border-left: 2px solid var(--accent); padding-left: 12px; }
+  .claim-add { margin-top: 16px; }
+  .claim-add textarea { min-height: 62px; }
   .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
   .claim-where { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em;
                  text-transform: uppercase; color: var(--faint); margin: -6px 0 10px; }
@@ -241,11 +262,13 @@
     border: 1px solid var(--rule-hard); border-left: 4px solid var(--mark-edge);
     background: var(--card); padding: 16px 18px 18px; margin: 0 0 20px;
   }
-  .ask > .prompt {
-    display: flex; align-items: baseline; gap: 9px; margin: 0 0 13px;
+  /* Descendant, not child: the claims block sits inside .ask, so a child
+     selector skipped it and its heading ran straight into its subtitle. */
+  .ask .prompt {
+    display: flex; align-items: baseline; gap: 9px; margin: 0 0 13px; flex-wrap: wrap;
   }
-  .ask > .prompt strong { font-size: 15px; font-weight: 620; }
-  .ask > .prompt .sub { color: var(--muted); font-size: 13px; }
+  .ask .prompt strong { font-size: 15px; font-weight: 620; }
+  .ask .prompt .sub { color: var(--muted); font-size: 13px; }
   .ask .step {
     font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--ink); background: var(--mark);
@@ -384,6 +407,7 @@
 
 <main>
   <aside class="tree-pane">
+    <div class="ready" id="ready"></div>
     <div class="tree-head">
       <h2>The taxonomy</h2>
       <span class="filled" id="filled"></span>
@@ -432,6 +456,12 @@
     // through, because they answer a different question and are measured
     // against a different thing.
     claims: {},
+    // Statements a reviewer wrote themselves, keyed by record. Held apart from
+    // verdicts: one is a judgement on a machine's reading, the other is a new
+    // reading of the paper, and they enter the corpus by different doors.
+    newClaims: {},
+    addingTo: null,
+    draft: null,
     sent: [],
   };
 
@@ -514,13 +544,15 @@
     const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
     state.decisions = saved.decisions || {};
     state.claims = saved.claims || {};
+    state.newClaims = saved.newClaims || {};
     state.sent = Array.isArray(saved.sent) ? saved.sent : [];
   } catch (e) { /* corrupt or unavailable storage should not block filing */ }
 
   const save = () => {
     try {
       localStorage.setItem(KEY, JSON.stringify({
-        decisions: state.decisions, claims: state.claims, sent: state.sent,
+        decisions: state.decisions, claims: state.claims,
+        newClaims: state.newClaims, sent: state.sent,
       }));
     } catch (e) { /* private browsing; the session still works, export still offered */ }
   };
@@ -640,10 +672,62 @@
       }
     });
 
+    renderReady();
+
     const covered = DATA.topics.filter(t => (tally.get(t.code) || 0) > 0).length;
     document.getElementById("filled").textContent = `${covered}/${DATA.topics.length} filed`;
     document.getElementById("meter").style.width =
       ((reviewed() / DATA.records.length) * 100) + "%";
+  }
+
+  // Records that can take the whole exercise: they have statements to check as
+  // well as a place in the tree. Listed above the taxonomy because they are
+  // worth more than an untagged record — a reviewer's hour spent here produces
+  // two kinds of judgement instead of one, and the group should be steered
+  // toward them rather than left to find them by chance.
+  function renderReady() {
+    const host = document.getElementById("ready");
+    host.textContent = "";
+    const ready = DATA.records.filter(r => (r.claims || []).length);
+    if (!ready.length) return;
+
+    const progress = record => {
+      const claims = record.claims || [];
+      const checked = claims.filter(c => state.claims[c.id] || c.verdict).length;
+      return { checked, total: claims.length, tagged: !!state.decisions[record.id] };
+    };
+    // Unfinished first — a list whose top is work already done is a list
+    // nobody reads twice.
+    const ordered = [...ready].sort((a, a2) => {
+      const x = progress(a), y = progress(a2);
+      const doneX = x.tagged && x.checked === x.total, doneY = y.tagged && y.checked === y.total;
+      return (doneX - doneY) || (y.total - x.total);
+    });
+
+    const outstanding = ordered.filter(r => {
+      const p = progress(r);
+      return !(p.tagged && p.checked === p.total);
+    }).length;
+
+    host.append(el("div", { className: "tree-head" }, [
+      el("h2", {}, "Ready for complete review"),
+      el("span", { className: "filled" }, `${outstanding} of ${ready.length} open`),
+    ]));
+
+    ordered.forEach(record => {
+      const p = progress(record);
+      const complete = p.tagged && p.checked === p.total;
+      const row = el("button", { className: "ready-row" + (complete ? " done" : "") });
+      row.title = "Both questions can be answered for this one: where it belongs, and "
+        + "whether its statements are right.";
+      row.append(
+        el("span", { className: "t" }, record.title.slice(0, 72)),
+        el("span", { className: "s" },
+           complete ? "done" : `${p.tagged ? "tagged" : "—"} · ${p.checked}/${p.total}`),
+      );
+      row.addEventListener("click", () => { setMode("review"); openRecord(record); });
+      host.append(row);
+    });
   }
 
   // Selecting a branch narrows the queue. This is how a group divides the
@@ -974,19 +1058,30 @@
 
   function claimPanel(record) {
     const wrap = el("div", { className: "claims-block" });
-    const done = record.claims.filter(c => state.claims[c.id] || c.verdict).length;
+    const done = record.claims.filter(c => state.claims[c.id] || c.verdict).length
+      + mine(record).length;
 
+    const total = record.claims.length + mine(record).length;
     wrap.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, done === record.claims.length ? "checked" : "optional"),
-      el("strong", {}, "And does it actually say this?"),
+      el("span", { className: "step" }, `${done} of ${total}`),
+      el("strong", {}, "Context statements"),
       el("span", { className: "sub" },
-        `${record.claims.length} statement${record.claims.length === 1 ? "" : "s"} were read out of `
-        + "the abstract automatically. Each one shows the sentence it came from, so checking "
-        + "it is a read of one line rather than of the paper."),
-      info("These are what makes the library answer questions instead of returning "
-           + "documents. Until someone confirms one, it is a machine's reading and is "
-           + "marked as such everywhere it appears."),
+        `${record.claims.length} read out of the paper automatically — from the abstract and, `
+        + "where the full text was available, from its introduction, results and conclusion. "
+        + "Each shows the sentence it came from."),
+      info("Statements are checked against the quoted sentence, not against the paper. "
+           + "The quote is verified word-for-word against the source before it ever reaches "
+           + "you, so if the quote does not support the statement, the statement is wrong."),
     ]));
+
+    // Why this is worth a reviewer's minute. Without it the panel reads as
+    // busywork: a wall of sentences from a paper they just read.
+    wrap.append(el("p", { className: "claims-why" },
+      "This is the difference between a library that returns documents and one that answers "
+      + "questions. A confirmed statement carries its own source, so someone can later ask "
+      + "what reduces cascading failures and get the sentence behind the answer instead of "
+      + "five papers to read. A machine wrote these; until a person confirms one it stays "
+      + "marked as a machine's reading, everywhere it appears."));
 
     record.claims.forEach(claim => {
       const card = el("div", { className: "claim" });
@@ -1054,10 +1149,97 @@
       wrap.append(card);
     });
 
+    mine(record).forEach((entry, index) => {
+      const card = el("div", { className: "claim mine" });
+      card.append(el("div", { className: "kicker" }, [
+        el("span", {}, entry.type), el("span", {}, "yours, not yet sent"),
+      ]));
+      card.append(el("p", { className: "claim-text" }, entry.text));
+      card.append(el("blockquote", { className: "claim-quote" }, "“" + entry.quote + "”"));
+      const drop = el("button", { className: "more" }, "Remove this one");
+      drop.addEventListener("click", () => {
+        state.newClaims[record.id].splice(index, 1);
+        if (!state.newClaims[record.id].length) delete state.newClaims[record.id];
+        save(); renderReview(); renderTree();
+      });
+      card.append(drop);
+      wrap.append(card);
+    });
+
+    wrap.append(addStatement(record));
     wrap.append(el("p", { className: "hint" },
       done
-        ? `${done} of ${record.claims.length} checked — they travel with your filing.`
-        : "Skipping these is fine. They go in the same submission as your topics."));
+        ? `${done} of ${total} done — they travel with your filing.`
+        : "These go in the same submission as your topics."));
+    return wrap;
+  }
+
+  const mine = record => state.newClaims[record.id] || [];
+
+  // The extractor misses things, and the person who has just read the paper is
+  // the only one positioned to notice. Asking for the quote alongside the
+  // statement is not bureaucracy: it is the same standard the machine's
+  // statements are held to, and a statement without a source cannot be checked
+  // by anyone later.
+  function addStatement(record) {
+    const wrap = el("div", { className: "claim-add" });
+    if (!state.addingTo || state.addingTo !== record.id) {
+      const open = el("button", { className: "more" }, "Add a statement it missed");
+      open.addEventListener("click", () => { state.addingTo = record.id; renderReview(); });
+      wrap.append(open);
+      return wrap;
+    }
+
+    const draft = state.draft || { text: "", quote: "", type: "finding" };
+    state.draft = draft;
+
+    wrap.append(el("p", { className: "section-label" }, "The statement"));
+    const text = el("textarea", {
+      placeholder: "One assertion, in one sentence. Split \u201cX is faster and cheaper\u201d into two.",
+      value: draft.text,
+    });
+    text.addEventListener("input", () => { draft.text = text.value; refresh(); });
+
+    wrap.append(text, el("p", { className: "section-label", style: "margin-top:14px" },
+      "The sentence from the paper"));
+    const quote = el("textarea", {
+      placeholder: "Paste it word for word. A bot checks it against the source and rejects the "
+                   + "submission if it is not there.",
+      value: draft.quote,
+    });
+    quote.addEventListener("input", () => { draft.quote = quote.value; refresh(); });
+    wrap.append(quote);
+
+    wrap.append(el("p", { className: "section-label", style: "margin-top:14px" }, "What kind"));
+    const kinds = el("div", { className: "chips" });
+    Object.entries(CLAIM_KINDS).forEach(([value, [label, why]]) => {
+      const chip = el("button", { className: "chip" });
+      chip.setAttribute("aria-pressed", draft.type === value ? "true" : "false");
+      chip.title = why;
+      chip.append(el("span", { className: "t" }, label));
+      chip.addEventListener("click", () => { draft.type = value; renderReview(); });
+      kinds.append(chip);
+    });
+    wrap.append(kinds);
+
+    const add = el("button", { className: "btn primary" }, "Add it");
+    const cancel = el("button", { className: "btn" }, "Cancel");
+    const row = el("div", { className: "actions" }, [add, cancel]);
+    const refresh = () => {
+      add.disabled = draft.text.trim().length < 10 || draft.quote.trim().length < 15;
+    };
+    add.addEventListener("click", () => {
+      (state.newClaims[record.id] = state.newClaims[record.id] || []).push({
+        text: draft.text.trim(), quote: draft.quote.trim(), type: draft.type, on: today(),
+      });
+      state.draft = null; state.addingTo = null;
+      save(); renderReview(); renderTree();
+    });
+    cancel.addEventListener("click", () => {
+      state.draft = null; state.addingTo = null; renderReview();
+    });
+    wrap.append(row);
+    refresh();
     return wrap;
   }
 
@@ -1776,10 +1958,11 @@
     const all = Object.entries(state.decisions);
     const entries = all.filter(([id]) => !gone.has(id));
     const checked = Object.entries(state.claims).filter(([id]) => !gone.has(id));
+    const written = Object.entries(state.newClaims).filter(([id]) => !gone.has(id));
 
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
 
-    if (!entries.length && !checked.length) {
+    if (!entries.length && !checked.length && !written.length) {
       // The history is most wanted by someone who has filed nothing yet —
       // returning early here hid it from exactly that person.
       stage.append(el("p", { className: "empty" }, all.length
@@ -1817,13 +2000,28 @@
         lines.push(`    reviewed_on: ${c.on}`);
       });
     }
+    // Statements the reviewer wrote themselves. A third block because they are
+    // a third kind of thing: not a tag, not a verdict on someone else's
+    // reading, but a new reading with its own source to be checked.
+    if (written.length) {
+      lines.push("new_statements:");
+      written.sort().forEach(([id, list]) => {
+        lines.push(`  ${id}:`);
+        list.forEach(entry => {
+          lines.push(`    - type: ${entry.type}`);
+          lines.push(`      text: ${JSON.stringify(entry.text)}`);
+          lines.push(`      quote: ${JSON.stringify(entry.quote)}`);
+        });
+      });
+    }
     const yaml = lines.join("\n");
 
     const panel = el("div", { className: "panel" });
     panel.append(
       el("h3", {}, [
         `${entries.length} record${entries.length === 1 ? "" : "s"} ready`,
-        checked.length ? ` · ${checked.length} claim${checked.length === 1 ? "" : "s"} checked` : "",
+        checked.length ? ` · ${checked.length} statement${checked.length === 1 ? "" : "s"} checked` : "",
+        written.length ? ` · ${written.length} written` : "",
       ].join("")),
       el("p", {}, "Open an issue and a bot checks every code against the taxonomy and prepares "
         + "the change. You never touch git. If something is wrong it says which record, on your "
@@ -1835,7 +2033,8 @@
         + "not repeated here — only what is new goes in this one."));
     }
     const title = `[Filing] ${entries.length} record(s)`
-      + (checked.length ? ` and ${checked.length} claim(s)` : "");
+      + (checked.length ? ` and ${checked.length} statement(s)` : "")
+      + (written.length ? " with additions" : "");
     const waiting = sentFor(title);
     if (waiting) panel.append(sentNote(title));
     const box = el("textarea", { readOnly: true, value: yaml });
@@ -1862,7 +2061,7 @@
     const reset = el("button", { className: "btn" }, "Clear mine");
     reset.addEventListener("click", () => {
       if (!confirm("Delete everything you filed in this browser? This cannot be undone.")) return;
-      state.decisions = {}; state.claims = {}; save(); renderExport(); renderTree();
+      state.decisions = {}; state.claims = {}; state.newClaims = {}; save(); renderExport(); renderTree();
     });
 
     panel.append(el("div", { className: "actions" }, [copy, issue, reset]));

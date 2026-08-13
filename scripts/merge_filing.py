@@ -31,7 +31,9 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
-from ao_commons_kg.claims import load_claims  # noqa: E402
+from ao_commons_kg.claims import load_claims, save_claims  # noqa: E402
+from ao_commons_kg.fulltext import FullTextError, sections_for, verbatim  # noqa: E402
+from ao_commons_kg.models import Claim  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
@@ -42,6 +44,7 @@ TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 
 CLAIM_VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
+CLAIM_TYPES = frozenset({"finding", "method", "limitation", "position", "background"})
 
 # A filing that is only claim verdicts still needs a shape for the tag half,
 # so the summary reads "0 new decisions" rather than crashing on a missing key.
@@ -69,9 +72,9 @@ def extract(body: str) -> dict:
             payload = yaml.safe_load(candidate)
         except yaml.YAMLError:
             continue
-        if isinstance(payload, dict) and (
-            isinstance(payload.get("records"), dict)
-            or isinstance(payload.get("claims"), dict)
+        if isinstance(payload, dict) and any(
+            isinstance(payload.get(block), dict)
+            for block in ("records", "claims", "new_statements")
         ):
             return payload
     raise FilingError(
@@ -162,6 +165,123 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
         "flagged": [c for c, e in cleaned.items()
                     if e["verdict"] in ("overstated", "not-in-source")],
     }
+
+
+def validate_new_statements(payload: dict, *, known_records: set[str]) -> dict[str, list]:
+    """Check statements a reviewer wrote themselves.
+
+    Held to the same standard as the machine's: one assertion, and a quote that
+    is actually in the paper. The quote is verified against the source in
+    `merge_new_statements`, where the full text is available — a human writing
+    from memory misremembers a sentence just as readily as a model does, and a
+    statement nobody can check is the thing this layer exists to not have.
+    """
+    written = payload.get("new_statements") or {}
+    if not isinstance(written, dict):
+        raise FilingError("`new_statements:` should map record ids to lists of statements.")
+
+    problems: list[str] = []
+    cleaned: dict[str, list] = {}
+
+    for resource_id, entries in written.items():
+        if resource_id not in known_records:
+            problems.append(f"{resource_id}: not a record in this corpus")
+            continue
+        if not isinstance(entries, list):
+            problems.append(f"{resource_id}: expected a list of statements")
+            continue
+
+        for position, entry in enumerate(entries, start=1):
+            where = f"{resource_id} statement {position}"
+            if not isinstance(entry, dict):
+                problems.append(f"{where}: expected a statement with text and quote")
+                continue
+            text = str(entry.get("text") or "").strip()
+            quote = str(entry.get("quote") or "").strip()
+            kind = str(entry.get("type") or "finding").strip()
+            if len(text) < 10:
+                problems.append(f"{where}: no statement text")
+                continue
+            if len(quote) < 15:
+                problems.append(
+                    f"{where}: no quote. A statement with no sentence behind it cannot be "
+                    "checked by anyone later, which is the whole point of this layer."
+                )
+                continue
+            if kind not in CLAIM_TYPES:
+                problems.append(f"{where}: unknown type {kind!r}; "
+                                f"expected one of {sorted(CLAIM_TYPES)}")
+                continue
+            cleaned.setdefault(resource_id, []).append(
+                {"text": text, "quote": quote, "type": kind})
+
+    if problems:
+        raise FilingError(
+            "The new statements have problems that need fixing:\n  - " + "\n  - ".join(problems)
+        )
+    return cleaned
+
+
+def merge_new_statements(cleaned: dict[str, list], author: str, issue: int = 0) -> dict:
+    """Write reviewer-written statements into the claim files.
+
+    Verified against the paper's full text where we can reach it. A quote that
+    is not in the source stops the merge and says so, exactly as it does for
+    the machine's own extraction — the standard cannot depend on who wrote it.
+
+    They enter `unreviewed`, like everything else. Writing a statement is not
+    the same as a second person agreeing with it, and letting an author confirm
+    their own reading would put the one unchecked thing in the corpus behind
+    the label that means checked.
+    """
+    added, unverified, problems = [], [], []
+
+    for resource_id, entries in cleaned.items():
+        existing = [c for c in load_claims() if c.resource_id == resource_id]
+        arxiv = resource_id.removeprefix("resource:arxiv:") if ":arxiv:" in resource_id else None
+        sections = []
+        if arxiv:
+            try:
+                sections = sections_for(arxiv)
+            except FullTextError:
+                sections = []
+
+        fresh = list(existing)
+        start = len(existing)
+        for position, entry in enumerate(entries, start=1):
+            where = "by hand"
+            if sections:
+                found = verbatim(entry["quote"], sections)
+                if found is None:
+                    problems.append(
+                        f"{resource_id}: this quote is not in the paper — "
+                        f"\"{entry['quote'][:90]}…\""
+                    )
+                    continue
+                where = found
+            else:
+                unverified.append(resource_id)
+
+            fresh.append(Claim(
+                id=f"claim:{resource_id.removeprefix('resource:')}:{start + position}",
+                resource_id=resource_id,
+                text=entry["text"], quote=entry["quote"], claim_type=entry["type"],
+                extracted_from=where,
+                extraction_method=f"written by @{author}"
+                                  + (f" in issue #{issue}" if issue else ""),
+            ))
+            added.append(resource_id)
+
+        if fresh != existing:
+            save_claims(resource_id, fresh)
+
+    if problems:
+        raise FilingError(
+            "Some statements quote sentences the paper does not contain:\n  - "
+            + "\n  - ".join(problems)
+            + "\n\nPaste the sentence exactly as it appears in the source."
+        )
+    return {"added": added, "unverified": sorted(set(unverified))}
 
 
 def validate(payload: dict, *, known_records: set[str], known_topics: set[str],
@@ -307,6 +427,21 @@ def summarize_claims(result: dict) -> list[str]:
     return lines
 
 
+def summarize_new(result: dict) -> list[str]:
+    if not result or not result["added"]:
+        return []
+    lines = ["", "", "### Statements you added", "",
+             f"- {len(result['added'])} written by hand, each with its quote checked "
+             "against the paper"]
+    if result["unverified"]:
+        lines += ["", "The quote could not be checked for "
+                  + ", ".join(f"`{r}`" for r in result["unverified"])
+                  + " — no full text is available for it, so this one is taken on trust."]
+    lines += ["", "They enter `unreviewed`, like the machine's. Writing a statement is not "
+              "the same as someone else agreeing with it."]
+    return lines
+
+
 def summarize(result: dict, author: str) -> str:
     flagged = result.get("flagged") or {}
     lines = [
@@ -350,6 +485,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--body-file", required=True)
     parser.add_argument("--author", default="a contributor")
+    parser.add_argument("--issue", type=int, default=0)
     parser.add_argument("--summary-file", default="")
     args = parser.parse_args(argv)
 
@@ -363,10 +499,14 @@ def main(argv: list[str] | None = None) -> int:
         # records would refuse a reviewer who only checked claims — which is
         # exactly the reviewer this layer needs most.
         claim_verdicts = validate_claims(payload, known_claims=known_claims)
+        written = validate_new_statements(payload, known_records=known_records)
         cleaned = validate(payload, known_records=known_records, known_topics=known_topics,
-                           require=not claim_verdicts)
-        if not cleaned and not claim_verdicts:
+                           require=not (claim_verdicts or written))
+        if not cleaned and not claim_verdicts and not written:
             raise FilingError("The filing is empty — nothing to merge.")
+        # Before the gold set moves: an unverifiable quote should stop the whole
+        # filing, not leave half of it merged and half rejected.
+        new_result = merge_new_statements(written, args.author, args.issue) if written else {}
     except FilingError as error:
         message = f"This filing could not be merged.\n\n{error}"
         if args.summary_file:
@@ -376,7 +516,9 @@ def main(argv: list[str] | None = None) -> int:
 
     result = merge(cleaned, args.author) if cleaned else EMPTY_MERGE
     claim_result = merge_claims(claim_verdicts, args.author) if claim_verdicts else {}
-    summary = summarize(result, args.author) + "\n".join(summarize_claims(claim_result))
+    summary = (summarize(result, args.author)
+               + "\n".join(summarize_claims(claim_result))
+               + "\n".join(summarize_new(new_result)))
     if args.summary_file:
         Path(args.summary_file).write_text(summary, encoding="utf-8")
     print(summary)

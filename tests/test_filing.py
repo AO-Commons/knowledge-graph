@@ -24,6 +24,7 @@ from merge_filing import (  # noqa: E402
     summarize_claims,
     validate,
     validate_claims,
+    validate_new_statements,
 )
 
 KNOWN_RECORDS = {"resource:arxiv:2502.14143", "resource:tool:paperclip"}
@@ -291,3 +292,51 @@ class TestBothJudgements:
         merge_claims({"claim:arxiv:2502.14143:1": {"verdict": "accurate"}}, "anke", gold)
         result = merge_claims({"claim:arxiv:2502.14143:1": {"verdict": "overstated"}}, "sam", gold)
         assert result["changed"] == [("claim:arxiv:2502.14143:1", "accurate", "overstated", "anke")]
+
+
+class TestNewStatements:
+    """A reviewer who has just read the paper is the only one positioned to
+    notice what the extractor missed — held to the machine's standard, because
+    a standard that depends on who wrote the statement is not one."""
+
+    def test_a_statement_needs_a_quote(self):
+        payload = {"new_statements": {"resource:tool:paperclip": [
+            {"type": "finding", "text": "This tool caps agent spending."}]}}
+        with pytest.raises(FilingError, match="no quote"):
+            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+
+    def test_a_statement_needs_text(self):
+        payload = {"new_statements": {"resource:tool:paperclip": [
+            {"type": "finding", "quote": "Budgets auto-pause execution when limits are hit."}]}}
+        with pytest.raises(FilingError, match="no statement text"):
+            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+
+    def test_an_unknown_type_is_refused(self):
+        payload = {"new_statements": {"resource:tool:paperclip": [
+            {"type": "vibe", "text": "This tool caps agent spending.",
+             "quote": "Budgets auto-pause execution when limits are hit."}]}}
+        with pytest.raises(FilingError, match="unknown type"):
+            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+
+    def test_background_is_a_type_a_reviewer_can_use(self):
+        payload = {"new_statements": {"resource:tool:paperclip": [
+            {"type": "background", "text": "No accepted benchmark existed at the time.",
+             "quote": "There is no widely accepted benchmark for this class of system."}]}}
+        cleaned = validate_new_statements(payload, known_records=KNOWN_RECORDS)
+        assert cleaned["resource:tool:paperclip"][0]["type"] == "background"
+
+    def test_a_statement_against_an_unknown_record_is_refused(self):
+        payload = {"new_statements": {"resource:arxiv:0000.00000": [
+            {"type": "finding", "text": "Something about a paper we do not hold.",
+             "quote": "A sentence from a paper that is not in this corpus."}]}}
+        with pytest.raises(FilingError, match="not a record"):
+            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+
+    def test_no_new_statements_is_the_normal_case(self):
+        assert validate_new_statements({}, known_records=KNOWN_RECORDS) == {}
+
+    def test_a_filing_of_only_new_statements_is_allowed(self):
+        body = ('new_statements:\n  resource:tool:paperclip:\n    - type: finding\n'
+                '      text: "This tool caps agent spending."\n'
+                '      quote: "Budgets auto-pause execution when limits are hit."\n')
+        assert "resource:tool:paperclip" in extract(body)["new_statements"]
