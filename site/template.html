@@ -1628,6 +1628,58 @@
       });
   }
 
+  // DataCite holds arXiv's own DOI deposit, `10.48550/arXiv.<id>`, which is
+  // arXiv's metadata by another route — and unlike arXiv's own API it reflects
+  // the Origin header, so a page may read it. This is the reliable source for
+  // exactly the papers OpenAlex has not indexed yet, which is the case that
+  // sent people to a dead end.
+  function fromDataCite(id) {
+    const doi = id.doi || `10.48550/arXiv.${id.arxiv}`;
+    return fetch(`https://api.datacite.org/dois/${encodeURIComponent(doi)}`)
+      .then(response => (response.ok ? response.json() : null))
+      .then(payload => {
+        const work = payload && payload.data && payload.data.attributes;
+        if (!work || !work.titles || !work.titles.length) return null;
+        const abstract = (work.descriptions || [])
+          .filter(d => d.descriptionType === "Abstract")
+          .map(d => d.description)[0] || "";
+        return {
+          title: work.titles[0].title,
+          abstract,
+          // Given and family names are separate here; `name` arrives as
+          // "Papadopoulos, Vassilis", which would enter the corpus backwards.
+          authors: (work.creators || []).map(c =>
+            c.givenName && c.familyName
+              ? `${c.givenName} ${c.familyName}`
+              : (c.name || "").split(",").map(part => part.trim()).reverse().join(" ")
+          ).filter(Boolean),
+          source: "DataCite",
+        };
+      });
+  }
+
+  // Crossref registers the DOIs of published papers, as DataCite registers
+  // arXiv's. Between them they cover what a page is likely to be handed, and
+  // both allow cross-origin reads.
+  function fromCrossref(id) {
+    if (!id.doi) return Promise.resolve(null);
+    return fetch(`https://api.crossref.org/works/${encodeURIComponent(id.doi)}`
+                 + "?mailto=anke@stellar.org")
+      .then(response => (response.ok ? response.json() : null))
+      .then(payload => {
+        const work = payload && payload.message;
+        if (!work || !work.title || !work.title.length) return null;
+        return {
+          title: work.title[0],
+          // Crossref stores abstracts as JATS XML, tags and all.
+          abstract: (work.abstract || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
+          authors: (work.author || [])
+            .map(a => [a.given, a.family].filter(Boolean).join(" ")).filter(Boolean),
+          source: "Crossref",
+        };
+      });
+  }
+
   function fromSemanticScholar(id) {
     const key = id.arxiv ? `arXiv:${id.arxiv}` : `DOI:${id.doi}`;
     return fetch(`https://api.semanticscholar.org/graph/v1/paper/${key}`
@@ -1653,18 +1705,22 @@
       renderAdd();
     };
 
+    // Three sources, cheapest and broadest first. Each only runs if the one
+    // before it came back empty, so the common case is still a single request.
+    let unavailable = false;
+    const attempt = source => found =>
+      found || source(id).catch(() => { unavailable = true; return null; });
+
     fromOpenAlex(id)
       .catch(() => null)
-      .then(found => {
-        if (found) return settle(found);
-        // Semantic Scholar omits its CORS header on a 429, so a rate-limited
-        // answer reaches the page as a network failure rather than as a
-        // status. "Did not answer" and "does not have it" are different facts
-        // and the page should not claim the second when it saw the first.
-        return fromSemanticScholar(id)
-          .then(paper => settle(paper, paper ? "" : "missing"))
-          .catch(() => settle(null, "unavailable"));
-      })
+      .then(attempt(fromDataCite))
+      .then(attempt(fromCrossref))
+      // Semantic Scholar omits its CORS header on a 429, so a rate-limited
+      // answer reaches the page as a network failure rather than a status.
+      // "Did not answer" and "does not have it" are different facts, and the
+      // page should not claim the second when it saw the first.
+      .then(attempt(fromSemanticScholar))
+      .then(found => settle(found, unavailable ? "unavailable" : "missing"))
       .catch(() => settle(null, "unavailable"));
   }
 
@@ -1893,10 +1949,11 @@
                 ? "Looking it up…"
                 : [
                     state.add.why === "unavailable"
-                      ? "OpenAlex does not have it and Semantic Scholar did not answer — it "
-                        + "rate-limits anonymous requests hard, so this happens."
-                      : "Neither OpenAlex nor Semantic Scholar has indexed it yet, which is "
-                        + "normal for something posted in the last few weeks.",
+                      ? "OpenAlex, DataCite and Crossref do not have it, and Semantic Scholar "
+                        + "did not answer — it rate-limits anonymous requests hard, so this "
+                        + "happens."
+                      : "None of OpenAlex, DataCite, Crossref or Semantic Scholar has it "
+                        + "indexed.",
                     id.arxiv
                       ? " Add it anyway: the bot reads arXiv directly, which no page can, and "
                         + "fills in the title, authors and abstract when it runs."
