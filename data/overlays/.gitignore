@@ -1,0 +1,3 @@
+# Overlay data is never committed: this repo is public and overlays name people.
+*.yml
+!README.md
