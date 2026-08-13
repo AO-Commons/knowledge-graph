@@ -19,6 +19,25 @@ JavaScript would be a second thing to keep correct, and the two would drift.
 So `build_site.py` scores every record at build time and inlines the top
 fourteen topics per record.
 
+## Dividing the work
+
+Nobody needs to review everything. Click a branch in the tree and the queue
+narrows to records that branch plausibly covers, so two people can take
+section 11 and section 2 and not collide. The search box finds a topic, an
+author, or a paper by title.
+
+There is no server behind this page, so there is no live lock on a record.
+Coordination is social: agree who takes which sections, and the ledger shows
+what has already been filed.
+
+## The ledger
+
+Everything filed appears at the bottom of the review screen, newest first —
+what it was filed under, by whom, and when. Your own filings appear
+immediately. Work that has been merged appears once a maintainer writes
+ next to the page, which the site fetches same-origin on
+load; off Pages that request 404s and the ledger simply shows your own.
+
 ## What a contributor does
 
 Review a record, pick the topics that apply, file it. The tree on the left

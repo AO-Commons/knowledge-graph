@@ -93,6 +93,42 @@
   }
   .modes button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
 
+  .search { position: relative; flex: 0 1 260px; }
+  .search input {
+    font: inherit; width: 100%; padding: 6px 11px; border-radius: 7px;
+    border: 1px solid var(--rule); background: var(--ground); color: var(--ink); font-size: 13px;
+  }
+  .search-out {
+    position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 40;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 9px;
+    box-shadow: var(--shadow); max-height: 340px; overflow-y: auto; padding: 5px;
+  }
+  .search-out:empty { display: none; }
+  .search-out .head {
+    font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--faint); padding: 7px 9px 4px; font-weight: 600;
+  }
+
+  .branch-chip {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px;
+    background: var(--accent-soft); color: var(--accent-ink);
+    border: 1px solid transparent; padding: 5px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .branch-chip button { border: 0; background: transparent; color: inherit; padding: 0 2px; font-size: 14px; }
+
+  .ledger { border-top: 1px solid var(--rule); margin-top: 34px; padding-top: 18px; }
+  .ledger table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .ledger th {
+    text-align: left; font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--faint); font-weight: 600; padding: 0 10px 7px 0; white-space: nowrap;
+  }
+  .ledger td { padding: 6px 10px 6px 0; border-top: 1px solid var(--rule); vertical-align: top; }
+  .ledger td.codes { font-family: var(--mono); font-size: 11.5px; color: var(--accent); white-space: nowrap; }
+  .ledger td.when { font-family: var(--mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
+  .ledger td.by { color: var(--muted); white-space: nowrap; }
+  .ledger-wrap { overflow-x: auto; }
+  .ledger .none { color: var(--signal); }
+
   .who { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
   .who input {
     font: inherit; width: 108px; padding: 5px 9px; border-radius: 6px;
@@ -116,13 +152,20 @@
   .tree-head h2 { margin: 0; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
   .filled { font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
+  .row { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; }
+  .row:hover { background: var(--sunk); }
+  .row.lit { background: var(--accent-soft); }
+  .twist {
+    border: 0; background: transparent; color: var(--faint); padding: 4px 0;
+    font-size: 9px; line-height: 1; transition: transform .12s;
+  }
+  .twist[aria-expanded="true"] { transform: rotate(90deg); }
+  .twist.leaf { visibility: hidden; }
   .node {
     display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px;
     width: 100%; text-align: left; border: 0; background: transparent;
     padding: 5px 20px 5px 0; border-bottom: 1px solid transparent;
   }
-  .node:hover { background: var(--sunk); }
-  .node.lit { background: var(--accent-soft); }
   .node.section { padding-top: 9px; padding-bottom: 9px; }
   .node.section .label { font-weight: 600; }
   .code {
@@ -230,6 +273,10 @@
   <div class="wordmark">AO&nbsp;Commons <span>· file the library</span></div>
   <div class="tagline">Tag research against the taxonomy. Every branch you file lights up.</div>
   <div class="meter" title="reviewed"><i id="meter"></i></div>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search topics, authors, titles…" autocomplete="off" aria-label="Search">
+    <div class="search-out" id="q-out"></div>
+  </div>
   <div class="modes" role="group" aria-label="Mode">
     <button id="mode-review" aria-pressed="true">Review</button>
     <button id="mode-explore" aria-pressed="false">Explore</button>
@@ -263,9 +310,27 @@
     picked: new Set(),
     open: new Set(),
     focusTopic: null,
+    author: null,
     decisions: {},
     who: "",
   };
+
+  // Work other people have already had merged. Fetched same-origin, so it
+  // resolves on Pages and simply stays empty anywhere else — there is no
+  // shared server behind this page, and pretending otherwise would be worse
+  // than the gap.
+  const merged = new Map();
+  // A 404 here is the normal case and is caught below; browsers still log the
+  // failed request, which is noise rather than a fault.
+  fetch("gold.json")
+    .then(r => (r.ok ? r.json() : null))
+    .then(payload => {
+      if (!payload) return;
+      Object.entries(payload.records || {}).forEach(([id, d]) =>
+        merged.set(id, { topics: d.topics || [], on: d.reviewed_on || "", by: d.reviewer || "merged" }));
+      if (merged.size) { renderStage(); renderTree(); }
+    })
+    .catch(() => { /* absent is the normal case */ });
 
   // ---- persistence -------------------------------------------------------
   try {
@@ -291,6 +356,7 @@
       node.append(k instanceof Node ? k : document.createTextNode(k)));
     return node;
   };
+  const samePerson = name => name.toLowerCase().replace(/[.'`-]/g, "").replace(/\s+/g, " ").trim();
   const trailOf = code => ancestors(code).map(c => TOPICS.get(c)?.title).filter(Boolean).join(" › ");
 
   // Counts combine what the corpus already claims with what you have filed,
@@ -312,6 +378,10 @@
   const reviewed = () => Object.keys(state.decisions).length;
 
   // ---- the tree ----------------------------------------------------------
+  // Two separate affordances on one row: the chevron opens the branch, the
+  // label selects it. The first version had only the former, and a leaf did
+  // nothing at all when clicked — which is why the whole pane read as a
+  // static list rather than navigation.
   function renderTree() {
     const tally = counts();
     const host = document.getElementById("tree");
@@ -322,50 +392,74 @@
     if (state.focusTopic) { lit.add(state.focusTopic); ancestors(state.focusTopic).forEach(a => lit.add(a)); }
 
     const max = Math.max(1, ...[...tally.values()]);
+    const hasKids = code => DATA.topics.some(t => t.parent === code);
 
     DATA.topics.forEach(topic => {
       if (topic.depth > 0 && !state.open.has(topic.section)) return;
       if (topic.depth > 1 && !state.open.has(topic.parent)) return;
 
       const n = tally.get(topic.code) || 0;
-      const row = el("button", { className: "node" + (topic.depth === 0 ? " section" : "") + (lit.has(topic.code) ? " lit" : "") });
-      row.style.paddingLeft = (20 + topic.depth * 15) + "px";
-      row.title = topic.points.length ? topic.points.join(" · ") : topic.title;
+      const row = el("div", { className: "row" + (lit.has(topic.code) ? " lit" : "") });
+      row.style.paddingLeft = (10 + topic.depth * 14) + "px";
 
-      const label = el("span", { className: "label" }, [
-        el("span", { className: "code" }, topic.code), topic.title,
-      ]);
-      const count = el("span", {
-        className: "count" + (n ? " has" : (topic.depth === 0 ? " gap" : "")),
-      }, n ? String(n) : (topic.depth === 0 ? "0" : ""));
-
-      row.append(label, count);
-      row.addEventListener("click", () => {
-        if (topic.depth < 2) {
+      const expandable = hasKids(topic.code);
+      const twist = el("button", { className: "twist" + (expandable ? "" : " leaf") }, "▶");
+      twist.setAttribute("aria-expanded", String(state.open.has(topic.code)));
+      twist.setAttribute("aria-label", (state.open.has(topic.code) ? "Collapse " : "Expand ") + topic.code);
+      if (expandable) {
+        twist.addEventListener("click", event => {
+          event.stopPropagation();
           state.open.has(topic.code) ? state.open.delete(topic.code) : state.open.add(topic.code);
-        }
-        if (state.mode === "explore") { state.focusTopic = topic.code; renderStage(); }
-        renderTree();
-      });
+          renderTree();
+        });
+      }
+
+      const node = el("button", { className: "node" + (topic.depth === 0 ? " section" : "") });
+      node.title = topic.points.length ? topic.points.join(" · ") : topic.title;
+      node.append(
+        el("span", { className: "label" }, [el("span", { className: "code" }, topic.code), topic.title]),
+        el("span", { className: "count" + (n ? " has" : (topic.depth === 0 ? " gap" : "")) },
+           n ? String(n) : (topic.depth === 0 ? "0" : "")),
+      );
+      node.addEventListener("click", () => focusBranch(topic.code));
+
+      row.append(twist, node);
       host.append(row);
 
       if (n && topic.depth === 0) {
         const bar = el("div", { className: "bar" });
         bar.style.width = Math.max(6, (n / max) * 100) + "%";
-        bar.style.marginLeft = "20px";
+        bar.style.marginLeft = "28px";
         host.append(bar);
       }
     });
 
     const covered = DATA.topics.filter(t => (tally.get(t.code) || 0) > 0).length;
     document.getElementById("filled").textContent = `${covered}/${DATA.topics.length} filed`;
-    const pct = (reviewed() / DATA.records.length) * 100;
-    document.getElementById("meter").style.width = pct + "%";
+    document.getElementById("meter").style.width =
+      ((reviewed() / DATA.records.length) * 100) + "%";
+  }
+
+  // Selecting a branch narrows the queue. This is how a group divides the
+  // work without a server telling anyone what to do: take a section, and the
+  // records you see are the ones that branch plausibly covers.
+  function focusBranch(code) {
+    state.focusTopic = state.focusTopic === code ? null : code;
+    state.cursor = 0;
+    ancestors(code).forEach(a => state.open.add(a));
+    renderStage(); renderTree();
   }
 
   // ---- review ------------------------------------------------------------
+  function inBranch(record, code) {
+    const under = t => t === code || t.startsWith(code + ".");
+    return record.current.some(under) || record.suggested.some(under);
+  }
+
   function queue() {
-    return DATA.records.filter(r => !state.decisions[r.id]);
+    let pending = DATA.records.filter(r => !state.decisions[r.id] && !merged.has(r.id));
+    if (state.focusTopic) pending = pending.filter(r => inBranch(r, state.focusTopic));
+    return pending;
   }
 
   function renderReview() {
@@ -400,6 +494,7 @@
       ? el("p", { className: "abstract" }, record.abstract)
       : el("p", { className: "abstract none" }, "No abstract available. Judge from the title and source, or skip — a guess here is worse than a gap.");
 
+    if (state.focusTopic) stage.append(branchChip());
     stage.append(kicker, title, byline, abstract);
 
     // Suggestions, plus anything already picked that is not among them.
@@ -470,8 +565,54 @@
     });
 
     stage.append(el("div", { className: "actions" }, [
-      file, none, skip, el("span", { className: "hint" }, `${reviewed()} filed`),
+      file, none, skip, el("span", { className: "hint" }, `${reviewed()} filed by you`),
     ]));
+    stage.append(ledger());
+  }
+
+  function branchChip() {
+    const topic = TOPICS.get(state.focusTopic);
+    const clear = el("button", { title: "Show every record again" }, "×");
+    clear.addEventListener("click", () => focusBranch(state.focusTopic));
+    return el("div", { className: "branch-chip" },
+      [`Working through ${state.focusTopic} · ${topic ? topic.title : ""}`, clear]);
+  }
+
+  // The audit trail. Everything filed, newest first, so a group can see what
+  // has already been covered instead of duplicating each other.
+  function ledger() {
+    const rows = [
+      ...Object.entries(state.decisions).map(([id, d]) => ({ id, ...d, by: state.who || "you" })),
+      ...[...merged.entries()].map(([id, d]) => ({ id, ...d })),
+    ].sort((a, b) => (b.on || "").localeCompare(a.on || ""));
+
+    const wrap = el("div", { className: "ledger" });
+    wrap.append(el("p", { className: "section-label" },
+      `Filed so far — ${rows.length} record${rows.length === 1 ? "" : "s"}`));
+
+    if (!rows.length) {
+      wrap.append(el("p", { className: "empty" }, "Nothing filed yet. Yours will appear here as you go."));
+      return wrap;
+    }
+
+    const table = el("table");
+    table.append(el("tr", {}, [
+      el("th", {}, "Record"), el("th", {}, "Filed under"), el("th", {}, "By"), el("th", {}, "When"),
+    ]));
+    rows.slice(0, 60).forEach(r => {
+      const record = DATA.records.find(x => x.id === r.id);
+      table.append(el("tr", {}, [
+        el("td", {}, (record ? record.title : r.id).slice(0, 76)),
+        r.topics.length
+          ? el("td", { className: "codes" }, r.topics.join("  "))
+          : el("td", { className: "codes none" }, "none apply"),
+        el("td", { className: "by" }, r.by || "—"),
+        el("td", { className: "when" }, r.on || ""),
+      ]));
+    });
+    wrap.append(el("div", { className: "ledger-wrap" }, table));
+    if (rows.length > 60) wrap.append(el("p", { className: "empty" }, `…and ${rows.length - 60} more.`));
+    return wrap;
   }
 
   function commit(record, topics) {
@@ -485,6 +626,31 @@
     const stage = document.getElementById("stage");
     stage.textContent = "";
     const code = state.focusTopic;
+
+    if (state.author) {
+      const wanted = samePerson(state.author);
+      const theirs = DATA.records.filter(r =>
+        (r.authors || []).some(a => samePerson(a) === wanted));
+      stage.append(
+        el("div", { className: "kicker" }, [el("span", {}, "author")]),
+        el("h1", { className: "record-title" }, state.author),
+        el("p", { className: "section-label" },
+          `${theirs.length} record${theirs.length === 1 ? "" : "s"} in the library`),
+      );
+      theirs.forEach(r => {
+        const item = el("div", { className: "explore-item" });
+        item.append(
+          r.url ? el("h4", {}, el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title))
+                : el("h4", {}, r.title),
+          el("div", { className: "meta" }, [r.date, (r.current || []).join(", ")].filter(Boolean).join(" · ")),
+        );
+        stage.append(item);
+      });
+      const back = el("button", { className: "btn" }, "Clear author");
+      back.addEventListener("click", () => { state.author = null; renderStage(); });
+      stage.append(el("div", { className: "actions" }, back));
+      return;
+    }
 
     if (!code) {
       stage.append(
@@ -590,6 +756,104 @@
       "Your filing lives only in this browser until you send it. Nothing is uploaded automatically."));
   }
 
+  // ---- search ------------------------------------------------------------
+  // One box over three things people actually look for: a topic they have in
+  // mind, an author they follow, and a paper they remember the title of.
+  function runSearch(term) {
+    const out = document.getElementById("q-out");
+    out.textContent = "";
+    const q = term.trim().toLowerCase();
+    if (q.length < 2) return;
+
+    const topics = DATA.topics
+      .map(t => {
+        const hay = (t.title + " " + t.points.join(" ")).toLowerCase();
+        let score = hay.includes(q) ? 2 : 0;
+        if (t.title.toLowerCase().startsWith(q)) score += 3;
+        if (t.code.startsWith(q)) score += 5;
+        return { t, score };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 6);
+
+    const people = new Map();
+    DATA.records.forEach(r => (r.authors || []).forEach(a => {
+      if (!a.toLowerCase().includes(q)) return;
+      const key = samePerson(a);
+      const seen = people.get(key) || { label: a, n: 0 };
+      // Keep the fuller spelling: "Joel Z. Leibo" over "Joel Z Leibo".
+      if (a.length > seen.label.length) seen.label = a;
+      seen.n += 1;
+      people.set(key, seen);
+    }));
+
+    const papers = DATA.records
+      .filter(r => r.title.toLowerCase().includes(q))
+      .slice(0, 6);
+
+    if (topics.length) {
+      out.append(el("div", { className: "head" }, "Topics"));
+      topics.forEach(({ t }) => {
+        const hit = el("button", { className: "result" }, [
+          el("span", { className: "code" }, t.code),
+          el("span", {}, [t.title, el("span", { className: "trail" }, trailOf(t.code))]),
+        ]);
+        hit.addEventListener("click", () => { clearSearch(); focusBranch(t.code); });
+        out.append(hit);
+      });
+    }
+
+    if (people.size) {
+      out.append(el("div", { className: "head" }, "Authors"));
+      [...people.values()].sort((a, b) => b.n - a.n).slice(0, 5).forEach(({ label: name, n }) => {
+        const hit = el("button", { className: "result" }, [
+          el("span", { className: "code" }, String(n)),
+          el("span", {}, [name, el("span", { className: "trail" },
+            `${n} record${n === 1 ? "" : "s"} in the library`)]),
+        ]);
+        hit.addEventListener("click", () => { clearSearch(); showAuthor(name); });
+        out.append(hit);
+      });
+    }
+
+    if (papers.length) {
+      out.append(el("div", { className: "head" }, "Records"));
+      papers.forEach(r => {
+        const hit = el("button", { className: "result" }, [
+          el("span", { className: "code" }, state.decisions[r.id] || merged.has(r.id) ? "✓" : "·"),
+          el("span", {}, [r.title.slice(0, 68),
+            el("span", { className: "trail" }, (r.authors || []).slice(0, 3).join(", "))]),
+        ]);
+        hit.addEventListener("click", () => { clearSearch(); jumpTo(r); });
+        out.append(hit);
+      });
+    }
+
+    if (!out.childElementCount) {
+      out.append(el("div", { className: "head" }, "Nothing matched"));
+    }
+  }
+
+  function clearSearch() {
+    document.getElementById("q").value = "";
+    document.getElementById("q-out").textContent = "";
+  }
+
+  function jumpTo(record) {
+    state.focusTopic = null;
+    if (state.decisions[record.id]) delete state.decisions[record.id];
+    const pending = queue();
+    state.cursor = Math.max(0, pending.findIndex(r => r.id === record.id));
+    state.picked = new Set(record.current);
+    setMode("review");
+  }
+
+  function showAuthor(name) {
+    state.author = name;
+    setMode("explore");
+  }
+
   // ---- wiring ------------------------------------------------------------
   function renderStage() {
     ({ review: renderReview, explore: renderExplore, export: renderExport })[state.mode]();
@@ -603,6 +867,13 @@
   document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
   document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
   document.getElementById("mode-export").addEventListener("click", () => setMode("export"));
+
+  const box = document.getElementById("q");
+  box.addEventListener("input", () => runSearch(box.value));
+  box.addEventListener("keydown", event => { if (event.key === "Escape") clearSearch(); });
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".search")) document.getElementById("q-out").textContent = "";
+  });
 
   const who = document.getElementById("who");
   who.value = state.who;
