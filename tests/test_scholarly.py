@@ -331,3 +331,33 @@ def test_the_prefilter_does_not_claim_to_be_the_scope_test():
     from ao_commons_kg.scholarly import openalex
     assert "pre-filter" in openalex.scope_score.__doc__ or "pre-filter" in openalex.__doc__ \
         or "pre-filter" in open(openalex.__file__).read()
+
+
+# --- Structure beats vocabulary ----------------------------------------------
+
+def test_structural_signal_finds_what_keywords_cannot():
+    """The case that motivated the design: a paper squarely in scope whose
+    title contains no agent-ish vocabulary.
+
+    Keyword scoring puts it below the threshold. Being cited by two corpus
+    papers puts it near the top. The field's own citing behaviour is better
+    evidence of relevance than a word list, and this asserts the ranking
+    reflects that."""
+    from ao_commons_kg.graph import co_citation_counts
+
+    invisible = Work(
+        openalex_id="W_INVISIBLE",
+        title="Institutions as cached computation for resource-rational negotiation",
+    )
+    keyword_score, _ = scope_score(invisible)
+    assert keyword_score < 3, "vocabulary alone does not surface it"
+
+    references = {
+        "W_A": ["W_INVISIBLE", "W_OTHER"],
+        "W_B": ["W_INVISIBLE"],
+    }
+    counts = co_citation_counts(references)
+    assert counts["W_INVISIBLE"] == 2
+
+    structural_score = keyword_score + 3 * counts["W_INVISIBLE"]
+    assert structural_score >= 3, "structure surfaces it"

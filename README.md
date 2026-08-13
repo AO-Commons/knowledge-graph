@@ -15,7 +15,7 @@ Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports 
 | 1 — Taxonomy and data model | **Done** — 567 topics, 16 sections, JSONL export |
 | 2 — Scholarly corpus (OpenAlex) | **Pipeline built; awaiting a live run** |
 | 3 — Taxonomy classification | Not started |
-| 4 — Connected-Papers-style similarity | Not started |
+| 4 — Connected-Papers-style similarity | **Started** — bibliographic coupling and co-citation |
 | 5 — Query surfaces (CLI, REST, MCP) | Not started |
 | 6 — Optional enrichment | Deliberately deferred |
 
@@ -52,6 +52,13 @@ and citers — because they answer different questions. A corpus grown only
 forward drifts toward the recent; only backward, toward the foundational. It
 writes a scored review queue to `data/candidates/`, and nothing enters the
 corpus without a human promoting it.
+
+Candidates come from two instruments, and the structural one is the better of them:
+
+- **Structure** — works the corpus already cites, repeatedly. No keywords involved. A work several of our papers cite is part of this conversation by the field's own behaviour, whatever its title says.
+- **Vocabulary** — a keyword score, used to rank rather than to admit.
+
+The keyword score has a known ceiling and the code says so. *Institutions as cached computation for resource-rational negotiation* is squarely in scope, contains no agent-ish words, and scores 1; it would be found by co-citation and never by vocabulary. Domain applications ("agentic AI in smart manufacturing") are **flagged rather than penalized**, because no keyword can separate "agents run this business" from "agents schedule maintenance here" — the reviewer decides.
 
 The score is a **keyword pre-filter, not the scope test**. Calibrated against
 a hand pass over ~90 works it agrees on 11 of 12 title-only cases, and its one

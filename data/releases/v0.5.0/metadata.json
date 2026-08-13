@@ -5,12 +5,13 @@
     "topics": 567,
     "resources": 59,
     "entities": 0,
-    "relationships": 701,
+    "relationships": 709,
     "nodes": 626
   },
   "relation_counts": {
     "CITES": 5,
     "PARENT_OF": 551,
+    "SIMILAR_TO": 8,
     "TAGGED_WITH": 145
   },
   "confidence_counts": {

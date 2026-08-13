@@ -14,12 +14,15 @@ from collections import Counter
 from pathlib import Path
 
 from .export import write_release
+from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
 import yaml
 
 from .resources import ResourceError, load_resources, tagged_edges, unknown_tags
 from .scholarly import ReferenceStore, expand_neighborhood, resolve_work, scope_score
-from .scholarly.openalex import OpenAlexError, http_fetcher, short_id
+from .scholarly.openalex import (
+    Candidate, OpenAlexError, http_fetcher, short_id,
+)
 from .taxonomy import TaxonomyError, load_taxonomy
 
 REPO = Path(__file__).resolve().parent.parent.parent
@@ -74,10 +77,19 @@ def _citation_edges(resources) -> list[Relationship]:
     by_openalex = {
         r.openalex_id: r.id for r in resources if r.openalex_id
     }
-    return [
+    edges = [
         Relationship(by_openalex[source], by_openalex[target], RelationType.CITES)
         for source, target in store.citation_pairs(set(by_openalex))
     ]
+
+    # Bibliographic coupling: related because they cite the same work, which
+    # holds even when neither cites the other and neither shares vocabulary.
+    references = {
+        key: entry.get("referenced_works", [])
+        for key, entry in store.entries.items()
+    }
+    edges += similarity_edges(references, by_openalex, min_shared=2)
+    return edges
 
 
 def cmd_resolve(args) -> int:
@@ -184,8 +196,46 @@ def cmd_expand(args) -> int:
     store = ReferenceStore.load(REFERENCES)
     for work in resolved.values():
         store.put(work)
-    store.save()
 
+    # Structural candidates: works the corpus already cites, repeatedly.
+    #
+    # No keywords involved. A work several of our papers cite is part of this
+    # conversation by the field's own behaviour, whatever its title says —
+    # which is how "Institutions as cached computation" would be found, and
+    # keyword scoring never will.
+    if not args.no_structural:
+        references = {k: e.get("referenced_works", []) for k, e in store.entries.items()}
+        co_cited = co_citation_counts(references)
+        structural = [
+            (work_id, count) for work_id, count in co_cited.most_common()
+            if count >= args.min_co_cited and work_id not in known
+        ][: args.structural_limit]
+
+        if structural:
+            print(f"\nresolving {len(structural)} work(s) the corpus cites repeatedly")
+        for work_id, count in structural:
+            if any(c.openalex_id == work_id for c in candidates):
+                continue
+            try:
+                work = resolve_work(work_id, fetch)
+            except OpenAlexError:
+                continue
+            score, reasons = scope_score(work)
+            # Structural evidence outranks vocabulary. Cited by several of our
+            # own papers is a stronger claim than containing the word "agent".
+            candidates.append(Candidate(
+                openalex_id=work.openalex_id, title=work.title, doi=work.doi,
+                publication_date=work.publication_date,
+                cited_by_count=work.cited_by_count,
+                score=score + 3 * count,
+                reasons=[f"+{3 * count} co-cited by {count} corpus papers"] + reasons,
+                found_via=f"co-cited by {count} corpus papers",
+                authors=work.authors, institutions=work.institutions,
+            ))
+            print(f"  co-cited×{count}  {work.title[:58]}")
+
+    store.save()
+    candidates.sort(key=lambda c: (-c.score, -c.cited_by_count))
     candidates = candidates[: args.limit]
     CANDIDATES.mkdir(parents=True, exist_ok=True)
     out = CANDIDATES / f"{args.name}.yml"
@@ -261,6 +311,11 @@ def main(argv: list[str] | None = None) -> int:
     expand.add_argument("--min-score", type=int, default=3)
     expand.add_argument("--limit", type=int, default=60)
     expand.add_argument("--name", default="candidates")
+    expand.add_argument("--min-co-cited", type=int, default=2,
+                        help="propose works cited by at least this many corpus papers")
+    expand.add_argument("--structural-limit", type=int, default=40)
+    expand.add_argument("--no-structural", action="store_true",
+                        help="keyword expansion only, skipping the co-citation pass")
     expand.add_argument("--include-borrowed", action="store_true",
                         help="also seed from borrowed-background records; their "
                              "neighbourhoods are the adjacent fields section 15 excludes")
