@@ -1,0 +1,63 @@
+# A taxonomy proposal is answered, and then it waits for a person.
+#
+# Nothing here changes the taxonomy. That is the point: a new resource is one
+# file that changes no existing judgement, but renaming, splitting, or moving a
+# branch changes what every record already filed under it means, and every
+# accuracy number measured against those filings. That decision belongs to a
+# human who can look at what is filed underneath first.
+#
+# This exists so the proposal is not met with silence. A contributor who
+# submits into a void concludes the exercise is theatre, and they are not wrong
+# to — the bot on the other two paths answers in seconds.
+
+name: Acknowledge a taxonomy proposal
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: taxonomy-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  acknowledge:
+    if: contains(github.event.issue.labels.*.name, 'taxonomy')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            // Only on the first pass. An edited or re-labelled proposal should
+            // not collect a second copy of the same explanation.
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.issue.number, per_page: 100,
+            });
+            if (comments.some(c => c.user.type === 'Bot' && c.body.includes('waits for a person'))) {
+              return;
+            }
+
+            const body = [
+              `Thank you — this is recorded as issue #${context.issue.number}.`,
+              "",
+              "**This one waits for a person, and the wait is deliberate.**",
+              "",
+              "Papers you add go straight into the corpus, because a new record changes",
+              "nothing that is already filed. A taxonomy change is different: renaming,",
+              "splitting, or moving a branch changes what every record already filed under",
+              "it means, and every measurement taken against those filings. So a maintainer",
+              "looks at what is currently filed under the branch before deciding.",
+              "",
+              "What happens next: if it is accepted, the taxonomy version goes up, the",
+              "affected records are re-examined, and this issue is closed with the change.",
+              "If it is not, you will get the reasoning here rather than silence.",
+              "",
+              "Meanwhile, nothing is blocked — you can keep filing and adding.",
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number, body,
+            });

@@ -1,0 +1,141 @@
+# A new-resource issue becomes a record in the corpus, without waiting for a
+# maintainer.
+#
+#   site  →  prefilled issue  →  this workflow  →  data/resources/  →  the site
+#
+# This one commits to main where a filing opens a pull request, and the reason
+# is blast radius rather than trust. A new record is one file that changes no
+# existing judgement and no measured number; it lands `unreviewed`, which every
+# consumer already filters on, and `git revert` undoes it completely. A filing
+# edits the dataset every classifier number is measured against, and a taxonomy
+# change moves the branches everything else is filed under — both stay in front
+# of a human on purpose.
+#
+# Only the resource file is committed. The Pages workflow rebuilds the site
+# from the corpus on its own, so two of these running at once touch different
+# files and cannot collide over the built page.
+
+name: New resource to the corpus
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+# An opened issue that arrives with its label fires this twice, and both runs
+# would add the same record. One run per issue.
+concurrency:
+  group: new-resource-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  add:
+    if: contains(github.event.issue.labels.*.name, 'new-resource')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[scholarly]"
+
+      - name: Read the proposal
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/proposal.md
+
+      - name: Resolve it and write the record
+        id: add
+        continue-on-error: true
+        run: |
+          python3 scripts/add_resource.py \
+            --body-file /tmp/proposal.md \
+            --author "${{ github.event.issue.user.login }}" \
+            --issue ${{ github.event.issue.number }} \
+            --summary-file /tmp/summary.md
+
+      # A rejected proposal is answered on the issue rather than failing
+      # silently in a log the contributor will never look at. The issue stays
+      # open: editing the body re-runs this, so a fix is one edit away.
+      - name: Explain a rejection
+        if: steps.add.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.existsSync('/tmp/summary.md')
+              ? fs.readFileSync('/tmp/summary.md', 'utf8')
+              : 'The proposal could not be read. The site\'s **Add** tab fills this in correctly.';
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number, body,
+            });
+
+      - name: Commit it
+        id: commit
+        if: steps.add.outcome == 'success'
+        run: |
+          if [ -z "$(git status --porcelain data/resources)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/resources
+          git commit -m "Add a resource proposed in #${{ github.event.issue.number }}" \
+                     -m "Proposed by @${{ github.event.issue.user.login }}. Resolved and written by scripts/add_resource.py; unreviewed, like everything that has not been through the review queue."
+          # Another issue may have landed a record between checkout and here.
+          # The records are separate files, so a rebase resolves it outright.
+          pushed=false
+          for attempt in 1 2 3; do
+            if git push; then pushed=true; break; fi
+            git pull --rebase origin main || break
+          done
+          # Never report success on an unpushed commit: the issue would be
+          # closed saying the record is in the corpus when it is only in a
+          # runner that is about to be destroyed.
+          if [ "$pushed" != true ]; then
+            echo "could not push the record to main" >&2
+            exit 1
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Both outcomes are named on purpose. A custom `if` replaces the implicit
+      # success() check, so without the second clause a failed push would still
+      # close the issue saying the record is in the corpus.
+      - name: Report back on the issue
+        if: steps.add.outcome == 'success' && steps.commit.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          CHANGED: ${{ steps.commit.outputs.changed }}
+          SHA: ${{ steps.commit.outputs.sha }}
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('/tmp/summary.md', 'utf8');
+            const { owner, repo } = context.repo;
+            const added = process.env.CHANGED === 'true';
+
+            const tail = added
+              ? [`It is in the corpus as of ${process.env.SHA.slice(0, 7)}`
+                 + ` — https://github.com/${owner}/${repo}/commit/${process.env.SHA}`,
+                 "",
+                 "The site rebuilds from this within a couple of minutes, and the record",
+                 "then appears in **Review** for anyone to file. If it should not have been",
+                 "added, reverting that commit removes it and nothing else."].join("\n")
+              : "Nothing was written, so there is nothing to undo.";
+
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number,
+              body: `${summary}\n\n${tail}`,
+            });
+
+            // Closed because the work is done and the commit is the record of
+            // it. Anyone who disagrees reopens or reverts; leaving it open
+            // would make the issue list read like a queue of pending work.
+            await github.rest.issues.update({
+              ...context.repo, issue_number: context.issue.number, state: 'closed',
+            });

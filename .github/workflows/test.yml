@@ -33,6 +33,21 @@ jobs:
           # pinned version: the version bumps, the invariant does not.
           latest="$(ls -d data/releases/*/ | sort -V | tail -1)"
           echo "checked-in release: $latest"
-          for f in taxonomy.json nodes.jsonl relationships.jsonl; do
-            diff "/tmp/rel-a/check/$f" "$latest$f"
+
+          # The taxonomy is the hard one. Codes are referenced from filings,
+          # from the gold set, and from every record's tags, so the checked-in
+          # release drifting from a rebuild means those references now point at
+          # something else. That is a failure whatever caused it.
+          diff "/tmp/rel-a/check/taxonomy.json" "${latest}taxonomy.json"
+
+          # The corpus is the soft one, and deliberately so. Contributors add
+          # resources between releases — the bot commits them straight to main —
+          # so a release older than the corpus is the normal state, not a fault.
+          # Still reported, because silent drift is how a release quietly stops
+          # describing the thing it claims to.
+          for f in nodes.jsonl relationships.jsonl; do
+            if ! diff -q "/tmp/rel-a/check/$f" "$latest$f" > /dev/null; then
+              ahead=$(( $(wc -l < "/tmp/rel-a/check/$f") - $(wc -l < "$latest$f") ))
+              echo "::notice::$f has moved $ahead line(s) since $latest — cut a release when it matters"
+            fi
           done

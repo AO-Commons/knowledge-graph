@@ -8,8 +8,9 @@ body:
       value: |
         The site's **Add** tab fills this in for you, but writing it by hand is fine too.
 
-        A maintainer resolves the metadata against OpenAlex or Semantic Scholar and the
-        record joins the corpus for everyone to file.
+        A bot resolves the metadata against OpenAlex and Semantic Scholar, writes the
+        record, and answers here — usually within a minute. It joins the corpus
+        `unreviewed`, for everyone to file, and one revert undoes it.
 
   - type: input
     id: identifier
