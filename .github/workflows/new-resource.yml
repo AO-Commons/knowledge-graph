@@ -24,6 +24,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write        # to ask Pages to rebuild; see the dispatch step
 
 # An opened issue that arrives with its label fires this twice, and both runs
 # would add the same record. One run per issue.
@@ -102,6 +103,22 @@ jobs:
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # A push made with GITHUB_TOKEN deliberately does not trigger other
+      # workflows — GitHub's guard against a workflow that commits and so
+      # starts itself again. The effect here was that the record landed in the
+      # corpus and the site kept showing the corpus without it, which is the
+      # same "I submitted and nothing happened" this whole path exists to fix.
+      # Asking Pages to run is explicit for that reason.
+      - name: Rebuild the site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo, workflow_id: 'pages.yml', ref: 'main',
+            });
 
       # Both outcomes are named on purpose. A custom `if` replaces the implicit
       # success() check, so without the second clause a failed push would still
