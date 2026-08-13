@@ -61,6 +61,11 @@ def build_payload() -> dict:
             "date": str(resource.published_at or ""),
             "url": resource.url or "",
             "type": resource.resource_type,
+            # Carried so the Add form can tell a genuinely new paper from one
+            # the library already holds, without a network call.
+            "doi": (resource.doi or "").lower(),
+            "arxiv": (resource.arxiv_id or "").lower(),
+            "repo": resource.repository_url or "",
             "current": resource.taxonomy_topics or [],
             "suggested": [a.code for a in suggestions],
         })

@@ -386,6 +386,7 @@
     focusTopic: null,
     author: null,
     viewing: null,
+    add: { raw: "", id: null, fields: {} },
     showAll: false,
     unsure: false,
     note: "",
@@ -916,85 +917,236 @@
     });
   }
 
-  // ---- add a paper -------------------------------------------------------
-  // Proposing a paper is a different act from filing one, and it needs a
-  // different question answered: not "where does this go" but "why does this
-  // belong at all". The scope test is the whole of the library's discipline,
-  // so the form asks for it directly rather than hoping.
+  // ---- add something to the library -------------------------------------
+  // The identifier drives everything. Paste it and the form works out what it
+  // is looking at: something already held, a paper it can resolve, or a thing
+  // with no scholarly identity at all — a tool or a deployment — which needs a
+  // different set of questions. Nothing else opens until that is settled,
+  // because every later field depends on the answer.
+
+  const DOI = /^10\.\d{4,9}\/\S+$/;
+  const ARXIV = /^\d{4}\.\d{4,5}(v\d+)?$/;
+
+  function readIdentifier(raw) {
+    const value = (raw || "").trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+    if (!value) return { kind: "empty" };
+
+    const arxivInUrl = value.match(/arxiv\.org\/(?:abs|pdf|html)\/(\d{4}\.\d{4,5})/i);
+    if (arxivInUrl) return { kind: "paper", arxiv: arxivInUrl[1].toLowerCase(), label: arxivInUrl[1] };
+    if (ARXIV.test(value)) return { kind: "paper", arxiv: value.split("v")[0].toLowerCase(), label: value };
+    if (DOI.test(value)) return { kind: "paper", doi: value.toLowerCase(), label: value };
+
+    const doiInUrl = value.match(/(10\.\d{4,9}\/\S+)/);
+    if (doiInUrl) return { kind: "paper", doi: doiInUrl[1].toLowerCase(), label: doiInUrl[1] };
+
+    if (/^(https?:\/\/|www\.)/i.test(value) || /^[\w-]+\.[\w.-]+\/?/.test(value)) {
+      return { kind: "thing", url: value.startsWith("http") ? value : "https://" + value, label: value };
+    }
+    return { kind: "unclear", label: value };
+  }
+
+  function findExisting(id) {
+    return DATA.records.find(r =>
+      (id.doi && r.doi === id.doi)
+      || (id.arxiv && r.arxiv === id.arxiv)
+      || (id.url && (r.url === id.url || r.repo === id.url)));
+  }
+
   function renderAdd() {
     const stage = document.getElementById("stage");
     stage.textContent = "";
-
-    stage.append(
-      el("h1", { className: "record-title" }, "Add a paper to the library"),
-      el("p", { className: "abstract" },
-        "Something missing? Send it in. A maintainer resolves the metadata and it "
-        + "joins the corpus for everyone to file."),
-    );
+    stage.append(el("h1", { className: "record-title" }, "Add to the library"));
 
     const ask = el("div", { className: "ask" });
-    ask.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, "your call"),
-      el("strong", {}, "Does it belong here?"),
-      info("The library is scoped to organizations where machine agents hold real "
-           + "operational or decision authority. Excellent work about human collective "
-           + "governance, unchanged by the presence of agents, does not belong however "
-           + "good it is."),
-    ]));
+    const box = el("input", {
+      type: "text", value: state.add.raw,
+      placeholder: "Paste a DOI, an arXiv id, or a link — then press Enter",
+    });
+    box.style.cssText = "font:inherit;width:100%;padding:11px 13px;border-radius:2px;"
+      + "border:1px solid var(--rule-hard);background:var(--card);color:var(--ink)";
+    box.addEventListener("input", () => { state.add.raw = box.value; });
+    box.addEventListener("keydown", event => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      state.add.id = readIdentifier(box.value);
+      state.add.fields = {};
+      renderAdd();
+      const next = document.querySelector(".ask input:not([type=text]), .ask textarea, .ask .btn");
+      if (next && next.focus) next.focus();
+    });
+    ask.append(box);
+    ask.append(el("span", { className: "why", style: "color:var(--faint);font-size:12px" },
+      "A paper, a tool, a platform, a deployment — anything the library should hold."));
 
-    const fields = {};
-    const field = (key, label, placeholder, hint, area) => {
-      const wrap = el("div", { className: "note", style: "margin-bottom:13px" });
-      wrap.append(el("p", { className: "section-label" }, label));
-      const input = area
-        ? el("textarea", { placeholder })
-        : el("input", { placeholder, type: "text" });
-      if (!area) {
-        input.style.cssText = "font:inherit;width:100%;padding:9px 11px;border-radius:2px;"
-          + "border:1px solid var(--rule-hard);background:var(--card);color:var(--ink)";
-      }
-      input.addEventListener("input", () => { fields[key] = input.value; });
-      wrap.append(input);
-      if (hint) wrap.append(el("span", { className: "why", style: "color:var(--faint);font-size:12px" }, hint));
-      ask.append(wrap);
-      return input;
-    };
-
-    field("id", "DOI, arXiv id, or link", "10.48550/arXiv.2502.14143   ·   2502.14143   ·   https://…",
-          "Any one of these is enough — the metadata is resolved from it.");
-    field("title", "Title", "If you have it to hand", "Optional, but it helps a reviewer recognize it.");
-    field("why", "Why does it belong?",
-          "What would change about how you design, operate, oversee, or hold accountable an "
-          + "organization where agents act with real authority?",
-          "This is the scope test, and it is the part a maintainer cannot answer for you.", true);
-    field("topics", "Topics, if you already know them",
-          "2.2, 11.6", "Optional. Codes from the tree on the left.", false);
-
-    const submit = el("a", { className: "btn primary", target: "_blank", rel: "noopener" },
-                      "Open an issue to add it");
-    const update = () => {
-      const body = [
-        `**Identifier:** ${fields.id || "—"}`,
-        `**Title:** ${fields.title || "—"}`,
-        "",
-        "**Why it belongs**",
-        "",
-        fields.why || "—",
-        "",
-        `**Suggested topics:** ${fields.topics || "—"}`,
-      ].join("\n");
-      submit.href = "https://github.com/AO-Commons/knowledge-graph/issues/new"
-        + "?labels=new-resource"
-        + "&title=" + encodeURIComponent(`[Add] ${fields.title || fields.id || "a paper"}`)
-        + "&body=" + encodeURIComponent(body.slice(0, 5200));
-    };
-    update();
-    ask.addEventListener("input", update);
-    ask.append(el("div", { className: "actions" }, [
-      submit,
-      el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
-    ]));
+    const id = state.add.id;
+    if (id && id.kind !== "empty") ask.append(resolveStep(id));
     stage.append(ask);
+    box.focus();
+    box.setSelectionRange(box.value.length, box.value.length);
+  }
+
+  function fieldBlock(key, label, placeholder, hint, area) {
+    const wrap = el("div", { style: "margin-top:16px" });
+    wrap.dataset.field = key;
+    wrap.append(el("p", { className: "section-label" }, label));
+    const input = area ? el("textarea", { placeholder }) : el("input", { type: "text", placeholder });
+    input.value = state.add.fields[key] || "";
+    if (!area) {
+      input.style.cssText = "font:inherit;width:100%;padding:9px 11px;border-radius:2px;"
+        + "border:1px solid var(--rule-hard);background:var(--card);color:var(--ink)";
+    }
+    input.addEventListener("input", () => {
+      state.add.fields[key] = input.value;
+      gate();
+    });
+    wrap.append(input);
+    if (hint) wrap.append(el("span", { className: "why", style: "color:var(--faint);font-size:12px" }, hint));
+    return wrap;
+  }
+
+  // One place decides what is visible, so the rule for each step lives beside
+  // the others instead of being scattered through render calls.
+  let gate = () => {};
+
+  function reveal(container, steps) {
+    gate = () => {
+      let unlocked = true;
+      steps.forEach(step => {
+        const node = container.querySelector(`[data-field="${step.key}"]`)
+          || container.querySelector(`[data-step="${step.key}"]`);
+        if (!node) return;
+        const show = unlocked;
+        node.style.display = show ? "" : "none";
+        if (show && !step.satisfied()) unlocked = false;
+      });
+    };
+    gate();
+  }
+
+  function issueButton(label, title, body, labels) {
+    const link = el("a", { className: "btn primary", target: "_blank", rel: "noopener" }, label);
+    link.href = "https://github.com/AO-Commons/knowledge-graph/issues/new"
+      + `?labels=${labels}`
+      + "&title=" + encodeURIComponent(title)
+      + "&body=" + encodeURIComponent(body.slice(0, 5200));
+    return link;
+  }
+
+  function resolveStep(id) {
+    const held = findExisting(id);
+    const block = el("div", { style: "margin-top:18px" });
+
+    if (held) {
+      block.append(el("div", { className: "staged" }, [
+        el("span", {}, [el("strong", {}, "Already in the library — "), held.title]),
+      ]));
+      const open = el("button", { className: "btn primary", style: "margin-top:12px" },
+        state.decisions[held.id] ? "Open it — you have already filed this" : "Open it and file it");
+      open.addEventListener("click", () => { setMode("review"); openRecord(held); });
+      block.append(open);
+      return block;
+    }
+
+    if (id.kind === "unclear") {
+      block.append(el("p", { className: "empty" },
+        "That does not look like a DOI, an arXiv id, or a link. Paste one of those — "
+        + "or the address of the tool's site if it has no paper."));
+      return block;
+    }
+
+    const f = state.add.fields;
+
+    if (id.kind === "paper") {
+      block.append(el("div", { className: "staged" }, [
+        el("span", {}, [el("strong", {}, "New to the library. "),
+                        "The metadata resolves from ", id.label, " — so only the judgement is left."]),
+      ]));
+      block.append(fieldBlock("why", "Why does it belong?",
+        "What would this change about how you design, operate, oversee, or hold accountable "
+        + "an organization where agents act with real authority?",
+        "The scope test, and the one part a maintainer cannot answer for you.", true));
+      block.append(fieldBlock("topics", "Topics, if you already know them", "2.2, 11.6",
+        "Optional — codes from the tree on the left."));
+
+      const send = el("div", { className: "actions", style: "margin-top:16px" });
+      send.dataset.step = "send";
+      const rebuild = () => {
+        send.textContent = "";
+        send.append(
+          issueButton("Open an issue to add it", `[Add] ${id.label}`,
+            [`**Identifier:** ${id.label}`, "", "**Why it belongs**", "", f.why || "",
+             "", `**Suggested topics:** ${f.topics || "—"}`].join("\n"), "new-resource"),
+          el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
+        );
+      };
+      rebuild();
+      block.append(send);
+
+      reveal(block, [
+        { key: "why", satisfied: () => (f.why || "").trim().length > 15 },
+        { key: "topics", satisfied: () => true },
+        { key: "send", satisfied: () => true },
+      ]);
+      const previous = gate;
+      gate = () => { previous(); rebuild(); };
+      return block;
+    }
+
+    // A link with no scholarly identity: a tool, a platform, a deployment.
+    // None of it can be resolved, so the form has to ask — but only in the
+    // order a person would answer, one field opening the next.
+    block.append(el("div", { className: "staged" }, [
+      el("span", {}, [el("strong", {}, "No paper behind this one. "),
+                      "Tools and deployments are part of the library too — they just have to be described by hand."]),
+    ]));
+
+    block.append(
+      fieldBlock("name", "What is it called?", "Paperclip"),
+      fieldBlock("summary", "What does it do?",
+        "One or two neutral sentences. Descriptive rather than promotional — vendor copy is a source, not a summary.",
+        null, true),
+      fieldBlock("agents", "How do agents participate?",
+        "Managed workers a human assigns tasks to? Identity-holding peers with their own permissions? Orchestrated teams?",
+        "What shape of organization the tool makes possible — the reason this collection exists.", true),
+      fieldBlock("controls", "What oversight does it ship with?",
+        "Spending caps, approval gates, pause and terminate, permission scopes, audit trails.",
+        "If it ships none, say so. That is a finding, not a mark against it.", true),
+      fieldBlock("maintainer", "Who maintains it?", "Block, Inc.",
+        "The organization behind it — never an individual."),
+      fieldBlock("license", "License and source", "Apache-2.0 · github.com/block/buzz",
+        "If it is open source. Leave blank if it is not."),
+    );
+
+    const send = el("div", { className: "actions", style: "margin-top:16px" });
+    send.dataset.step = "send";
+    const rebuild = () => {
+      send.textContent = "";
+      send.append(
+        issueButton("Open an issue to add it", `[Add] ${f.name || id.label}`,
+          [`**Name:** ${f.name || "—"}`, `**Link:** ${id.url}`, "",
+           "**What it does**", "", f.summary || "", "",
+           "**How agents participate**", "", f.agents || "", "",
+           "**Oversight it ships**", "", f.controls || "", "",
+           `**Maintainer:** ${f.maintainer || "—"}`,
+           `**License and source:** ${f.license || "—"}`].join("\n"), "new-resource"),
+        el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
+      );
+    };
+    rebuild();
+    block.append(send);
+
+    reveal(block, [
+      { key: "name", satisfied: () => (f.name || "").trim().length > 1 },
+      { key: "summary", satisfied: () => (f.summary || "").trim().length > 20 },
+      { key: "agents", satisfied: () => (f.agents || "").trim().length > 15 },
+      { key: "controls", satisfied: () => (f.controls || "").trim().length > 10 },
+      { key: "maintainer", satisfied: () => true },
+      { key: "license", satisfied: () => true },
+      { key: "send", satisfied: () => true },
+    ]);
+    const previous = gate;
+    gate = () => { previous(); rebuild(); };
+    return block;
   }
 
   // ---- submit ------------------------------------------------------------
