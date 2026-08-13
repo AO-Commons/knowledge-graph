@@ -23,6 +23,10 @@ concurrency:
 
 jobs:
   publish:
+    # Skipped, not failed, while the repository is private. Pages is
+    # unavailable on a private repo under a free plan, and a job that goes red
+    # on every push teaches people to ignore red.
+    if: github.event.repository.private == false
     runs-on: ubuntu-latest
     environment:
       name: github-pages
