@@ -411,6 +411,7 @@
     note: "",
     noteOpen: false,
     decisions: {},
+    sent: [],
   };
 
   // Work other people have already had merged. Fetched same-origin, so it
@@ -423,33 +424,58 @@
   // issues are readable without a token and without anyone signing in —
   // which is why there is no login here: a login would gate something that
   // is already public, and make contributing feel like joining.
-  const submissions = { state: "loading", items: [] };
-  fetch("https://api.github.com/repos/AO-Commons/knowledge-graph/issues"
-        + "?state=all&per_page=60&sort=created&direction=desc",
-        { headers: { Accept: "application/vnd.github+json" } })
-    .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
-    .then(issues => {
-      submissions.state = "ready";
-      submissions.items = issues
-        .filter(issue => !issue.pull_request)
-        .map(issue => ({
-          number: issue.number,
-          title: issue.title,
-          who: issue.user && issue.user.login,
-          when: (issue.created_at || "").slice(0, 10),
-          open: issue.state === "open",
-          url: issue.html_url,
-          kind: (issue.labels || []).map(l => l.name)
-            .find(n => ["filing", "new-resource", "taxonomy"].includes(n)) || "other",
-        }));
-      if (state.mode === "export") renderStage();
-    })
-    .catch(() => {
-      // Unauthenticated GitHub allows 60 requests an hour per address. Being
-      // unable to show the history is not a reason to block filing.
-      submissions.state = "unavailable";
-      if (state.mode === "export") renderStage();
-    });
+  const submissions = { state: "loading", items: [], read: 0 };
+
+  function loadSubmissions(force) {
+    // Unauthenticated GitHub allows sixty reads an hour per address, and this
+    // runs again every time someone comes back from a GitHub tab. Throttled so
+    // that flicking between tabs cannot spend the hour's budget — the floor
+    // holds even when a check was asked for explicitly.
+    const now = Date.now();
+    if (now - submissions.read < (force ? 3000 : 20000)) return;
+    submissions.read = now;
+
+    fetch("https://api.github.com/repos/AO-Commons/knowledge-graph/issues"
+          + "?state=all&per_page=60&sort=created&direction=desc",
+          { headers: { Accept: "application/vnd.github+json" } })
+      .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
+      .then(issues => {
+        submissions.state = "ready";
+        submissions.items = issues
+          .filter(issue => !issue.pull_request)
+          .map(issue => ({
+            number: issue.number,
+            title: issue.title,
+            who: issue.user && issue.user.login,
+            createdAt: issue.created_at || "",
+            when: (issue.created_at || "").slice(0, 10),
+            open: issue.state === "open",
+            url: issue.html_url,
+            kind: (issue.labels || []).map(l => l.name)
+              .find(n => ["filing", "new-resource", "taxonomy"].includes(n)) || "other",
+          }));
+        if (confirmSends() || state.mode === "export") renderStage();
+      })
+      .catch(() => {
+        // Being unable to show the history is not a reason to block filing.
+        submissions.state = "unavailable";
+        if (state.mode === "export") renderStage();
+      });
+  }
+  loadSubmissions(true);
+
+  // Coming back from GitHub is the only signal this page gets that a trip
+  // happened at all, so it is the moment to look for the issue.
+  window.addEventListener("focus", () => {
+    if (!state.sent.some(entry => !entry.number)) return;
+    loadSubmissions(true);
+    // GitHub's list can lag the submit by a second or two, and the person is
+    // usually back here before it catches up. One follow-up covers that
+    // without turning this into a poller.
+    setTimeout(() => {
+      if (state.sent.some(entry => !entry.number)) loadSubmissions(true);
+    }, 6000);
+  });
   // A 404 here is the normal case and is caught below; browsers still log the
   // failed request, which is noise rather than a fault.
   fetch("gold.json")
@@ -466,11 +492,12 @@
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
     state.decisions = saved.decisions || {};
+    state.sent = Array.isArray(saved.sent) ? saved.sent : [];
   } catch (e) { /* corrupt or unavailable storage should not block filing */ }
 
   const save = () => {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions }));
+      localStorage.setItem(KEY, JSON.stringify({ decisions: state.decisions, sent: state.sent }));
     } catch (e) { /* private browsing; the session still works, export still offered */ }
   };
 
@@ -822,8 +849,15 @@
   // The audit trail. Everything filed, newest first, so a group can see what
   // has already been covered instead of duplicating each other.
   function ledger() {
+    // Whose work this is, and — for your own — whether it has left the browser.
+    // Someone filing for an hour deserves to see that from here rather than
+    // having to open Submit to find out.
+    const sent = new Set(state.sent
+      .filter(entry => entry.kind === "filing" && entry.number)
+      .flatMap(entry => entry.records || []));
     const rows = [
-      ...Object.entries(state.decisions).map(([id, d]) => ({ id, ...d, by: "you" })),
+      ...Object.entries(state.decisions).map(([id, d]) =>
+        ({ id, ...d, by: sent.has(id) ? "you · sent" : "you · not sent yet" })),
       ...[...merged.entries()].map(([id, d]) => ({ id, ...d })),
     ].sort((a, b) => (b.on || "").localeCompare(a.on || ""));
 
@@ -1084,17 +1118,16 @@
       send.style.display = ready ? "" : "none";
       if (!ready) return;
       const option = PROPOSALS.find(o => o.key === state_.kind);
-      send.textContent = "";
-      send.append(
-        issueButton("Open an issue with this proposal",
-          `[Taxonomy] ${topic.code} — ${option.key}`,
+      const title = `[Taxonomy] ${topic.code} — ${option.key}`;
+      fillSend(send, title, () => [
+        issueButton("Open an issue with this proposal", title,
           [`**Topic:** ${topic.code} ${topic.title}`,
            `**Kind of change:** ${option.label}`, "",
            `**${option.ask}**`, "", state_.detail, "",
            "_Proposed from the filing site while browsing this branch._"].join("\n"),
           "taxonomy"),
         el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
-      );
+      ]);
     };
     wrap.append(send);
     return wrap;
@@ -1289,12 +1322,108 @@
     gate();
   }
 
-  function issueButton(label, title, body, labels) {
+  // ---- the trip to GitHub ------------------------------------------------
+  // Opening an issue happens in a tab this page cannot see into, so on its own
+  // the hand-off leaves no trace here: someone submits, comes back, and finds
+  // the form exactly as they left it, with no way to tell whether it worked.
+  //
+  // So the hand-off is recorded on the way out and confirmed on the way back,
+  // by finding the issue in the public list. The two are deliberately not shown
+  // as the same thing. What this browser remembers is only that a link was
+  // clicked — the person may have closed the GitHub tab without submitting.
+  // The issue number is the proof, and nothing is treated as sent without it.
+
+  function markSent(title, kind, records) {
+    // A second attempt at the same thing replaces an unconfirmed first one;
+    // a confirmed send is history and stays.
+    state.sent = state.sent.filter(entry => entry.title !== title || entry.number);
+    state.sent.unshift({
+      title, kind, records: records || [], at: new Date().toISOString(),
+      number: null, url: null,
+    });
+    save();
+    // The next look at GitHub matters more than the last one did, so the
+    // throttle starts from here rather than from a read taken before the trip.
+    submissions.read = 0;
+    // Redrawn on a timeout so the click's own navigation is not disturbed by
+    // the button being replaced underneath it.
+    setTimeout(renderStage, 0);
+  }
+
+  function sentFor(title) {
+    return state.sent.find(entry => entry.title === title);
+  }
+
+  function confirmSends() {
+    let changed = false;
+    state.sent.forEach(pending => {
+      if (pending.number) return;
+      // Two minutes of slack: the browser's clock and GitHub's need not agree,
+      // and a send confirmed by a stopped clock would be worse than a pending one.
+      const since = Date.parse(pending.at) - 120000;
+      const after = submissions.items.filter(issue => Date.parse(issue.createdAt) >= since);
+      const sameKind = after.filter(issue => issue.kind === pending.kind);
+      // The title as sent, or — if they edited it on GitHub — the one issue of
+      // this kind that appeared since the click. Anything less certain than
+      // that stays pending rather than claiming someone else's issue.
+      const hit = after.find(issue => issue.title === pending.title)
+        || (sameKind.length === 1 ? sameKind[0] : null);
+      if (!hit) return;
+      pending.number = hit.number;
+      pending.url = hit.url;
+      changed = true;
+    });
+    if (changed) save();
+    return changed;
+  }
+
+  function sentNote(title) {
+    const entry = sentFor(title);
+    if (!entry) return null;
+
+    if (entry.number) {
+      return el("div", { className: "staged" }, [
+        el("span", {}, [
+          el("strong", {}, "Sent — "), "this is ",
+          el("a", { href: entry.url, target: "_blank", rel: "noopener" }, `issue #${entry.number}`),
+          ". A bot checks it and answers on the issue itself; you will be notified there.",
+        ]),
+      ]);
+    }
+
+    const wrap = el("div", {});
+    wrap.append(el("div", { className: "staged" }, [
+      el("span", {}, [
+        el("strong", {}, "Opened on GitHub — not seen yet. "),
+        "It appears here once GitHub lists it, usually within a few seconds of you "
+        + "pressing Submit there. If you closed that tab without submitting, nothing "
+        + "was recorded and the button below still works.",
+      ]),
+    ]));
+    const again = el("button", { className: "btn", style: "margin-top:12px" }, "Check again");
+    again.addEventListener("click", () => { loadSubmissions(true); again.textContent = "Checking…"; });
+    wrap.append(el("div", { className: "actions" }, again));
+    return wrap;
+  }
+
+  // Every place that hands off to GitHub draws the same way: the state of the
+  // last attempt first, and the button only while pressing it would still add
+  // something — once an issue exists, a second press just makes a duplicate.
+  function fillSend(container, title, build) {
+    container.textContent = "";
+    const entry = sentFor(title);
+    if (entry) container.append(sentNote(title));
+    if (entry && entry.number) return;
+    build().forEach(node => container.append(node));
+  }
+
+  function issueButton(label, title, body, labels, records) {
     const link = el("a", { className: "btn primary", target: "_blank", rel: "noopener" }, label);
     link.href = "https://github.com/AO-Commons/knowledge-graph/issues/new"
       + `?labels=${labels}`
       + "&title=" + encodeURIComponent(title)
       + "&body=" + encodeURIComponent(body.slice(0, 5200));
+    link.addEventListener("click", () => markSent(title, labels, records));
     return link;
   }
 
@@ -1393,16 +1522,15 @@
       const send = el("div", { className: "actions", style: "margin-top:16px" });
       send.dataset.step = "send";
       const rebuild = () => {
-        send.textContent = "";
-        send.append(
-          issueButton("Open an issue to add it",
-            `[Add] ${(state.add.resolved && state.add.resolved.title) || id.label}`,
+        const title = `[Add] ${(state.add.resolved && state.add.resolved.title) || id.label}`;
+        fillSend(send, title, () => [
+          issueButton("Open an issue to add it", title,
             [`**Identifier:** ${id.label}`,
              `**Title:** ${(state.add.resolved && state.add.resolved.title) || "—"}`, "",
              `**Topics the contributor confirmed:** ${f.topics || "—"}`, "",
              "**Notes**", "", f.why || "—"].join("\n"), "new-resource"),
           el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
-        );
+        ]);
       };
       rebuild();
       block.append(send);
@@ -1445,9 +1573,9 @@
     const send = el("div", { className: "actions", style: "margin-top:16px" });
     send.dataset.step = "send";
     const rebuild = () => {
-      send.textContent = "";
-      send.append(
-        issueButton("Open an issue to add it", `[Add] ${f.name || id.label}`,
+      const title = `[Add] ${f.name || id.label}`;
+      fillSend(send, title, () => [
+        issueButton("Open an issue to add it", title,
           [`**Name:** ${f.name || "—"}`, `**Link:** ${id.url}`, "",
            "**What it does**", "", f.summary || "", "",
            "**How agents participate**", "", f.agents || "", "",
@@ -1455,7 +1583,7 @@
            `**Maintainer:** ${f.maintainer || "—"}`,
            `**License and source:** ${f.license || "—"}`].join("\n"), "new-resource"),
         el("span", { className: "hint" }, "opens GitHub — you will be asked to sign in"),
-      );
+      ]);
     };
     rebuild();
     block.append(send);
@@ -1478,15 +1606,26 @@
   function renderExport() {
     const stage = document.getElementById("stage");
     stage.textContent = "";
-    const entries = Object.entries(state.decisions);
+
+    // Only a confirmed send takes records out of the outgoing list. A click
+    // this browser recorded but GitHub never showed might be an abandoned tab,
+    // and quietly retiring those records would lose the work.
+    const gone = new Set(state.sent
+      .filter(entry => entry.kind === "filing" && entry.number)
+      .flatMap(entry => entry.records || []));
+    const all = Object.entries(state.decisions);
+    const entries = all.filter(([id]) => !gone.has(id));
 
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
 
     if (!entries.length) {
       // The history is most wanted by someone who has filed nothing yet —
       // returning early here hid it from exactly that person.
-      stage.append(el("p", { className: "empty" },
-        "You have not filed anything yet. Review a record, or see what others have sent in below."));
+      stage.append(el("p", { className: "empty" }, all.length
+        ? `All ${all.length} of your filings are in. File more from Review, or see what `
+          + "the rest of the group has sent below."
+        : "You have not filed anything yet. Review a record, or see what others have sent in below."));
+      stage.append(yourSends());
       stage.append(submissionHistory());
       return;
     }
@@ -1511,6 +1650,14 @@
         + "the change. You never touch git. If something is wrong it says which record, on your "
         + "issue, and nothing is merged until it is fixed."),
     );
+    if (gone.size) {
+      panel.append(el("p", { className: "empty" },
+        `${gone.size} record${gone.size === 1 ? "" : "s"} you already sent ${gone.size === 1 ? "is" : "are"} `
+        + "not repeated here — only what is new goes in this one."));
+    }
+    const title = `[Filing] ${entries.length} record(s)`;
+    const waiting = sentFor(title);
+    if (waiting) panel.append(sentNote(title));
     const box = el("textarea", { readOnly: true, value: yaml });
     panel.append(box);
 
@@ -1526,10 +1673,11 @@
       className: "btn",
       href: "https://github.com/AO-Commons/knowledge-graph/issues/new"
         + "?template=filing.yml&labels=filing"
-        + "&title=" + encodeURIComponent(`[Filing] ${entries.length} record(s)`)
+        + "&title=" + encodeURIComponent(title)
         + "&filing=" + encodeURIComponent(yaml.slice(0, 5200)),
       target: "_blank", rel: "noopener",
-    }, "Open an issue");
+    }, waiting ? "Open it again" : "Open an issue");
+    issue.addEventListener("click", () => markSent(title, "filing", entries.map(([id]) => id)));
 
     const reset = el("button", { className: "btn" }, "Clear mine");
     reset.addEventListener("click", () => {
@@ -1542,7 +1690,45 @@
 
     stage.append(el("p", { className: "empty" },
       "Your filing lives only in this browser until you send it. Nothing is uploaded automatically."));
+    stage.append(yourSends());
     stage.append(submissionHistory());
+  }
+
+  // What this browser has handed off, and whether GitHub has it. Separate from
+  // the group's history below because it answers a different question: not
+  // "what is the group doing" but "did the thing I just did work".
+  function yourSends() {
+    const wrap = el("div", { className: "ledger" });
+    if (!state.sent.length) return wrap;
+
+    wrap.append(el("p", { className: "section-label" }, "What you have sent"));
+    const table = el("table");
+    table.append(el("tr", {}, [
+      el("th", {}, "Submission"), el("th", {}, "Kind"), el("th", {}, "When"), el("th", {}, "State"),
+    ]));
+    state.sent.slice(0, 20).forEach(entry => {
+      table.append(el("tr", {}, [
+        el("td", {}, entry.number
+          ? el("a", { href: entry.url, target: "_blank", rel: "noopener" },
+               `#${entry.number} ${entry.title}`.slice(0, 66))
+          : entry.title.slice(0, 66)),
+        el("td", { className: "codes" }, KINDS[entry.kind] || entry.kind),
+        el("td", { className: "when" }, (entry.at || "").slice(0, 10)),
+        el("td", { className: "by" }, entry.number ? "on GitHub" : "not seen yet"),
+      ]));
+    });
+    wrap.append(el("div", { className: "ledger-wrap" }, table));
+
+    if (state.sent.some(entry => !entry.number)) {
+      const again = el("button", { className: "btn" }, "Check GitHub again");
+      again.addEventListener("click", () => { loadSubmissions(true); again.textContent = "Checking…"; });
+      wrap.append(el("div", { className: "actions" }, again));
+      wrap.append(el("p", { className: "empty" },
+        "“Not seen yet” means this browser opened the form and GitHub has not "
+        + "listed the issue. Either it is a few seconds behind, or the tab was closed "
+        + "before submitting — in which case sending it again costs nothing."));
+    }
+    return wrap;
   }
 
   const KINDS = {
