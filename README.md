@@ -13,7 +13,7 @@ Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports 
 | Milestone | State |
 |---|---|
 | 1 — Taxonomy and data model | **Done** — 567 topics, 16 sections, JSONL export |
-| 2 — Scholarly corpus (~100 seed resources, OpenAlex) | Not started |
+| 2 — Scholarly corpus (OpenAlex) | **Pipeline built; awaiting a live run** |
 | 3 — Taxonomy classification | Not started |
 | 4 — Connected-Papers-style similarity | Not started |
 | 5 — Query surfaces (CLI, REST, MCP) | Not started |
@@ -40,10 +40,24 @@ Three structures live in that one file, and they are implemented differently on 
 ## Using the data
 
 ```bash
-pip install -e .
+pip install -e ".[scholarly]"
 aokg taxonomy --stats            # what loaded, per section
-aokg build --version v0.1.0      # write a portable release
+aokg resolve                     # fetch OpenAlex metadata + reference lists
+aokg expand --limit 40           # propose new records from the citation graph
+aokg build --version v0.4.0      # write a portable release
 ```
+
+`expand` walks one hop out from the corpus in **both** directions — references
+and citers — because they answer different questions. A corpus grown only
+forward drifts toward the recent; only backward, toward the foundational. It
+writes a scored review queue to `data/candidates/`, and nothing enters the
+corpus without a human promoting it.
+
+The score is a **keyword pre-filter, not the scope test**. Calibrated against
+a hand pass over ~90 works it agrees on 11 of 12 title-only cases, and its one
+known blind spot is recorded in the tests: it cannot find papers that are
+relevant by argument rather than by vocabulary. Author expansion finds those;
+the two instruments are complementary.
 
 Releases follow the layout below and are usable without running any of our code:
 
