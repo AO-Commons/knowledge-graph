@@ -1,0 +1,38 @@
+name: Submit filed tags
+description: Send in taxonomy tags you assigned on the filing site.
+title: "[Filing] "
+labels: ["filing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paste what the filing site's **Submit** screen gave you. A bot checks it
+        against the taxonomy and opens a pull request against the gold set — you
+        don't need git, and you don't need to touch the repository.
+
+        Every code is validated. If one is wrong the bot says which, on this
+        issue, and nothing is merged until it's fixed.
+
+  - type: textarea
+    id: filing
+    attributes:
+      label: Your filing
+      description: The whole block, including the `records:` line.
+      render: yaml
+      placeholder: |
+        records:
+          resource:arxiv:2502.14143:
+            topics: [11.1, 11.6]
+            reviewed_on: 2026-08-13
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything that gave you trouble
+      description: |
+        Records where nothing in the taxonomy fit, or where you were torn between
+        two branches. These are the most useful thing in the submission — a
+        repeated near-miss is usually a missing alias or a real gap, and both are
+        worth a proposal.

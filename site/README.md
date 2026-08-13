@@ -51,6 +51,33 @@ says so.
 A maintainer merges submissions into `evals/gold/tags.yml`, which is what every
 classification figure is measured against.
 
+## How a filing becomes a change
+
+    site  →  prefilled issue  →  Action  →  pull request  →  gold set  →  gold.json
+
+A contributor files, hits Submit, and opens an issue from a one-click link.
+`filing-to-pr.yml` validates every topic code and record id against this
+repository, merges the filing, and opens a pull request. The audit trail is
+the pull request list: every human judgement that entered the dataset, who
+made it, and what it changed.
+
+Nobody needs git, and no token exists beyond the one Actions already
+provides.
+
+A rejected filing gets a comment on its own issue naming the record and the
+problem — not a red X in a log a contributor will never open.
+
+**Disagreements are surfaced, not merged.** If someone files a record another
+person already filed differently, the pull request body carries a table of
+what changed and who decided it first. Two reviewers reading the same paper
+differently is the signal a gold set exists to capture; a union of both
+answers would destroy it.
+
+Once merged, the next site build writes `site/gold.json`, which the page
+fetches same-origin — so every contributor's ledger shows what has been
+accepted. That is as close to shared state as a page with no backend gets,
+and it updates on merge rather than on filing.
+
 ## Publishing
 
 `.github/workflows/pages.yml` deploys this on push. It is inert while the

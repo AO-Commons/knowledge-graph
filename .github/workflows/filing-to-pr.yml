@@ -1,0 +1,93 @@
+# A filing issue becomes a pull request against the gold set.
+#
+#   site  →  prefilled issue  →  this workflow  →  pull request  →  gold set
+#
+# The audit trail is the PR list: every human judgement that entered the
+# dataset, who made it, and what it changed. No backend, no tokens beyond the
+# one Actions already provides.
+
+name: Filing to pull request
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  merge:
+    if: contains(github.event.issue.labels.*.name, 'filing')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+
+      - name: Read the filing
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/filing.md
+
+      - name: Merge it into the gold set
+        id: merge
+        continue-on-error: true
+        run: |
+          python3 scripts/merge_filing.py \
+            --body-file /tmp/filing.md \
+            --author "${{ github.event.issue.user.login }}" \
+            --summary-file /tmp/summary.md
+
+      # A rejected filing is answered on the issue rather than failing
+      # silently in a log the contributor will never look at.
+      - name: Explain a rejection
+        if: steps.merge.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.existsSync('/tmp/summary.md')
+              ? fs.readFileSync('/tmp/summary.md', 'utf8')
+              : 'The filing could not be read. Paste the block from the Submit screen, including the `records:` line.';
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number, body,
+            });
+
+      - name: Rebuild the site's merged ledger
+        if: steps.merge.outcome == 'success'
+        run: python3 scripts/build_site.py
+
+      - name: Open the pull request
+        if: steps.merge.outcome == 'success'
+        id: pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: filing/issue-${{ github.event.issue.number }}
+          title: "Filing from ${{ github.event.issue.user.login }} (#${{ github.event.issue.number }})"
+          body-path: /tmp/summary.md
+          commit-message: "Filed tags from ${{ github.event.issue.user.login }} (#${{ github.event.issue.number }})"
+          labels: filing
+          delete-branch: true
+
+      - name: Link the pull request from the issue
+        if: steps.merge.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          PR: ${{ steps.pr.outputs.pull-request-url }}
+          NUMBER: ${{ github.event.issue.number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('/tmp/summary.md', 'utf8');
+            const url = process.env.PR;
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: url
+                ? `${summary}\n\nOpened ${url} — a maintainer reviews and merges it. Thank you.`
+                : `${summary}\n\nNothing changed, so no pull request was needed. These decisions were already recorded the same way.`,
+            });

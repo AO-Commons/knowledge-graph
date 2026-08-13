@@ -714,7 +714,9 @@
     const lines = [`# filed by: ${state.who || "anonymous"}`, "records:"];
     entries.sort().forEach(([id, d]) => {
       lines.push(`  ${id}:`);
-      lines.push(`    topics: [${d.topics.join(", ")}]`);
+      // Quoted deliberately: unquoted, YAML reads 11.10 as the number 11.1,
+      // which is a different topic in this taxonomy and nothing would catch it.
+      lines.push(`    topics: [${d.topics.map(t => `"${t}"`).join(", ")}]`);
       lines.push(`    reviewed_on: ${d.on}`);
     });
     const yaml = lines.join("\n");
@@ -722,7 +724,7 @@
     const panel = el("div", { className: "panel" });
     panel.append(
       el("h3", {}, `${entries.length} record${entries.length === 1 ? "" : "s"} ready`),
-      el("p", {}, "Copy this and open an issue on the knowledge-graph repository. A maintainer merges it into the gold set — the thing every accuracy figure is measured against."),
+      el("p", {}, "Open an issue and a bot checks every code against the taxonomy, then opens a pull request against the gold set. You never touch git. If something is wrong it says which record, on your issue, and nothing is merged until it is fixed."),
     );
     const box = el("textarea", { readOnly: true, value: yaml });
     panel.append(box);
@@ -737,9 +739,10 @@
 
     const issue = el("a", {
       className: "btn",
-      href: "https://github.com/AO-Commons/knowledge-graph/issues/new?title="
-        + encodeURIComponent(`Filed tags from ${state.who || "a contributor"}`)
-        + "&body=" + encodeURIComponent("```yaml\n" + yaml.slice(0, 5500) + "\n```"),
+      href: "https://github.com/AO-Commons/knowledge-graph/issues/new"
+        + "?template=filing.yml&labels=filing"
+        + "&title=" + encodeURIComponent(`[Filing] ${state.who || "a contributor"}`)
+        + "&filing=" + encodeURIComponent(yaml.slice(0, 5200)),
       target: "_blank", rel: "noopener",
     }, "Open an issue");
 

@@ -29,6 +29,8 @@ from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
 TEMPLATE = REPO / "site" / "template.html"
+GOLD = REPO / "evals" / "gold" / "tags.yml"
+GOLD_OUT = REPO / "site" / "gold.json"
 OUTPUT = REPO / "site" / "index.html"
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 ALIASES = REPO / "taxonomy" / "aliases.yaml"
@@ -94,6 +96,18 @@ def main() -> int:
         "</", "<\\/"
     )
     OUTPUT.write_text(template.replace("__GRAPH_DATA__", blob), encoding="utf-8")
+
+    # The merged ledger, published beside the page. The site fetches it
+    # same-origin so every contributor sees what has already been accepted,
+    # which is the closest a page with no backend gets to shared state.
+    merged = {}
+    if GOLD.exists():
+        merged = (yaml.safe_load(GOLD.read_text(encoding="utf-8")) or {}).get("records") or {}
+    GOLD_OUT.write_text(
+        json.dumps({"records": merged}, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    print(f"wrote {GOLD_OUT.relative_to(REPO)}  {len(merged)} merged filing(s)")
 
     size = OUTPUT.stat().st_size
     print(f"wrote {OUTPUT.relative_to(REPO)}  {size:,} bytes")
