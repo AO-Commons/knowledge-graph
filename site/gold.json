@@ -1,3 +1,11 @@
 {
-  "records": {}
+  "records": {
+    "resource:arxiv:2506.12469": {
+      "reviewed_on": "2026-08-13",
+      "reviewer": "ankeliu",
+      "topics": [
+        "1.1.2"
+      ]
+    }
+  }
 }
