@@ -11,6 +11,7 @@ from ao_commons_kg.people import (
     canonical,
     duplicates,
     fold,
+    same_person,
 )
 
 
@@ -94,3 +95,55 @@ def test_the_corpus_holds_no_split_people():
 
     names = [a for r in load_resources() for a in (r.authors or [])]
     assert duplicates(names) == {}
+
+
+class TestSamePerson:
+    """Looser than `fold`, on purpose. `fold` decides whether to merge two
+    spellings, where a wrong merge hides; this decides whether a byline has been
+    swapped for a different human being, where the costly mistake is the
+    opposite one."""
+
+    def test_a_middle_initial_is_the_same_person(self):
+        assert same_person("Michael E. Houle", "Michael Houle")
+
+    def test_an_initial_stands_for_the_name_it_begins(self):
+        assert same_person("S. S. Zhu", "Shenzhe Zhu")
+
+    def test_a_reversed_order_is_the_same_person(self):
+        """Sources disagree about which name is the surname for Chinese
+        bylines, and both orderings appear in this corpus."""
+        assert same_person("Zhao Yue", "Yue Zhao")
+
+    def test_the_eszett_folds_to_ss(self):
+        """NFKD leaves ß alone — it is a letter, not an accented s — so without
+        special handling Wolfram Barfuß and Wolfram Barfuss were two people."""
+        assert same_person("Wolfram Barfuß", "Wolfram Barfuss")
+        assert fold("Barfuß") == fold("Barfuss")
+
+    def test_two_people_sharing_a_surname_stay_apart(self):
+        """The case that started this: OpenAlex credited "Bin Hu" for a paper
+        by Botao 'Amber' Hu. Same surname, different person, and nothing in the
+        corpus could tell."""
+        assert not same_person("Bin Hu", "Botao 'Amber' Hu")
+
+    def test_a_different_first_name_is_a_different_person(self):
+        assert not same_person("Dhruv Tailor", "Om Tailor")
+        assert not same_person("Shuying Yu", "Sheldon Yu")
+
+    def test_a_different_surname_is_a_different_person(self):
+        assert not same_person("G. Flucke", "Michael Luck")
+
+    def test_an_empty_name_matches_nobody(self):
+        assert not same_person("", "Helena Rong")
+
+
+def test_the_corpus_credits_nobody_to_a_paper_they_did_not_write():
+    """A regression guard on the real data, using the arXiv byline stored at
+    the time of the fix. Attributing someone else's work to a person is the
+    worst error this project can make and the hardest to notice."""
+    from ao_commons_kg.resources import load_resources
+
+    known_wrong = {"Bin Hu", "Baoyu Hu", "G. Flucke", "Dhruv Tailor",
+                   "Shuying Yu", "Yong Li (15029)"}
+    credited = {a for r in load_resources() for a in (r.authors or [])}
+    assert not (credited & known_wrong)

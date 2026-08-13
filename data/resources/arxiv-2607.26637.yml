@@ -43,7 +43,7 @@ abstract: 'Deployed LLM agents increasingly keep their long-term memory as a fil
   an assumption into a design space for agent memory.'
 authors:
 - Sizhe Zhou
-- Shuying Yu
+- Sheldon Yu
 - Hui Wei
 - Junda Wu
 - Siru Ouyang

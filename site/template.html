@@ -234,10 +234,6 @@
     font-family: var(--mono); font-size: 10px; color: var(--faint); white-space: nowrap;
   }
   .ready-row.done .s { color: var(--accent); }
-  .claims-why {
-    font-size: 13px; line-height: 1.55; color: var(--muted); max-width: 64ch;
-    margin: -4px 0 16px; padding-left: 13px; border-left: 2px solid var(--mark);
-  }
   .claim.mine { border-left: 2px solid var(--accent); padding-left: 12px; }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
@@ -278,13 +274,32 @@
 
   /* Native title tooltips: no JS, keyboard reachable, and they cannot end up
      positioned off-screen the way a hand-rolled popover does. */
+  .info-wrap { position: relative; display: inline-block; }
   .info {
     display: inline-flex; align-items: center; justify-content: center;
     width: 14px; height: 14px; border: 1px solid var(--rule-hard); border-radius: 50%;
-    font-size: 9.5px; font-family: var(--mono); color: var(--muted);
-    margin-left: 5px; cursor: help; vertical-align: 1px;
+    font-size: 9.5px; font-family: var(--mono); color: var(--muted); background: none;
+    padding: 0; margin-left: 5px; cursor: help; vertical-align: 1px;
   }
-  .info:hover { border-color: var(--accent); color: var(--accent); }
+  .info:hover, .info-wrap.open .info { border-color: var(--accent); color: var(--accent); }
+  .tip {
+    position: absolute; z-index: 40; left: -8px; top: calc(100% + 8px);
+    width: max-content; max-width: min(46ch, 78vw);
+    display: flex; flex-direction: column; gap: 9px;
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--rule-hard); border-left: 2px solid var(--accent);
+    padding: 11px 13px; box-shadow: 0 8px 26px rgba(0, 0, 0, .13);
+    /* These sit inside uppercase mono labels and flex prompts, so every
+       inherited text property has to be said again or the explanation
+       arrives letter-spaced and shouting. */
+    font-family: var(--sans); font-size: 12.5px; font-weight: 400; line-height: 1.55;
+    text-transform: none; letter-spacing: 0; text-align: left; white-space: normal;
+    opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .12s ease;
+  }
+  .tip.flip { left: auto; right: -8px; }
+  .info-wrap:hover .tip, .info:focus-visible + .tip, .info-wrap.open .tip {
+    opacity: 1; visibility: visible; pointer-events: auto;
+  }
 
   .staged {
     display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
@@ -569,12 +584,38 @@
     return node;
   };
   const samePerson = name => name.toLowerCase().replace(/[.'`-]/g, "").replace(/\s+/g, " ").trim();
-  const info = text => {
-    const mark = el("span", { className: "info" }, "i");
-    mark.title = text;
-    mark.setAttribute("role", "img");
-    mark.setAttribute("aria-label", text);
-    return mark;
+  // A real popover rather than the browser's `title`. The native one waits a
+  // second, cannot be styled, and truncates anything the length of an
+  // explanation — which meant every one of these read as decoration that did
+  // nothing. Takes a string or several, so an explanation can have paragraphs.
+  let tipCount = 0;
+  const info = (...parts) => {
+    const wrap = el("span", { className: "info-wrap" });
+    const mark = el("button", { className: "info", type: "button" }, "i");
+    const tip = el("span", { className: "tip" });
+    parts.flat().forEach(part => tip.append(el("span", { className: "tip-p" }, part)));
+
+    tip.id = "tip-" + (++tipCount);
+    tip.setAttribute("role", "tooltip");
+    mark.setAttribute("aria-label", "What this means");
+    mark.setAttribute("aria-describedby", tip.id);
+
+    // Flip when it would run off the right edge — measured on open rather
+    // than guessed, because these sit at every width in the layout.
+    const place = () => {
+      tip.classList.remove("flip");
+      if (tip.getBoundingClientRect().right > window.innerWidth - 14) tip.classList.add("flip");
+    };
+    mark.addEventListener("mouseenter", place);
+    mark.addEventListener("focus", place);
+    // Tapping works too: on a touch screen there is no hover at all.
+    mark.addEventListener("click", event => {
+      event.preventDefault();
+      wrap.classList.toggle("open");
+      place();
+    });
+    wrap.append(mark, tip);
+    return wrap;
   };
   const trailOf = code => ancestors(code).map(c => TOPICS.get(c)?.title).filter(Boolean).join(" › ");
 
@@ -1078,19 +1119,17 @@
         `${record.claims.length} read out of the paper automatically — from the abstract and, `
         + "where the full text was available, from its introduction, results and conclusion. "
         + "Each shows the sentence it came from."),
-      info("Statements are checked against the quoted sentence, not against the paper. "
-           + "The quote is verified word-for-word against the source before it ever reaches "
-           + "you, so if the quote does not support the statement, the statement is wrong."),
+      info(
+        "Why it is worth a minute: a confirmed statement carries its own source, so the "
+        + "library can answer a question with the sentence behind it rather than handing "
+        + "someone five papers to read.",
+        "How to judge one: against the quoted sentence, not against the paper. Every quote "
+        + "is checked word-for-word against the source before it reaches you, so if the "
+        + "quote does not support the statement, the statement is wrong.",
+        "A machine wrote these. Until a person confirms one, it stays marked as a machine's "
+        + "reading everywhere it appears.",
+      ),
     ]));
-
-    // Why this is worth a reviewer's minute. Without it the panel reads as
-    // busywork: a wall of sentences from a paper they just read.
-    wrap.append(el("p", { className: "claims-why" },
-      "This is the difference between a library that returns documents and one that answers "
-      + "questions. A confirmed statement carries its own source, so someone can later ask "
-      + "what reduces cascading failures and get the sentence behind the answer instead of "
-      + "five papers to read. A machine wrote these; until a person confirms one it stays "
-      + "marked as a machine's reading, everywhere it appears."));
 
     record.claims.forEach(claim => {
       const card = el("div", { className: "claim" });

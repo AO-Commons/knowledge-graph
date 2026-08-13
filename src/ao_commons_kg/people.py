@@ -30,10 +30,47 @@ def fold(name: str) -> str:
     """The key two spellings of one person share.
 
     Accents and punctuation come off; word order and initials do not change.
+
+    ß is expanded to ss before the accent pass, because NFKD leaves it alone —
+    it is a letter, not an accented s. Without this, "Wolfram Barfuß" and
+    "Wolfram Barfuss" are two people.
     """
-    decomposed = unicodedata.normalize("NFKD", name or "")
+    decomposed = unicodedata.normalize("NFKD", (name or "").replace("ß", "ss"))
     without_accents = "".join(c for c in decomposed if not unicodedata.combining(c))
     return SPACES.sub(" ", PUNCTUATION.sub("", without_accents)).strip().lower()
+
+
+def same_person(a: str, b: str) -> bool:
+    """Whether two bylines name the same person, allowing for how bylines vary.
+
+    Looser than `fold`, and deliberately so: `fold` is used to decide whether to
+    *merge* two spellings, where a wrong merge is hard to notice, so it refuses
+    to expand initials. This answers a different question — whether a byline
+    from one source has been substituted for a different human being — where the
+    expensive mistake is the opposite one. Calling "Michael E. Houle" and
+    "Michael Houle" different people would send someone to correct a record that
+    is already right.
+
+    Same surname plus a compatible first name, in either order. It will not
+    reconcile "Bin Hu" with "Botao 'Amber' Hu", which is the case this exists
+    to catch.
+    """
+    left, right = fold(a).split(), fold(b).split()
+    if not left or not right:
+        return False
+    if left == right or sorted(left) == sorted(right):
+        return True  # the same tokens, sometimes in the order the other source chose
+    if left[-1] != right[-1]:
+        return False  # different surname
+
+    first_left, first_right = left[0], right[0]
+    if first_left == first_right:
+        return True
+    # An initial stands for the name it begins. "S. S. Zhu" is "Shenzhe Zhu";
+    # "Bin Hu" is not "Botao Hu", because neither is an abbreviation of the other.
+    if len(first_left) == 1 or len(first_right) == 1:
+        return first_left[0] == first_right[0]
+    return False
 
 
 def _richness(name: str) -> tuple[int, int, int]:

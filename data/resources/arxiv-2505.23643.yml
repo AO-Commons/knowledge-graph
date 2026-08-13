@@ -34,7 +34,7 @@ abstract: As AI agents become increasingly autonomous and capable, ensuring thei
   A tutorial to walk readers through the the concepts introduced in the paper can be found
   at https://github.com/microsoft/fides
 authors:
-- Manuel F. M. Costa
+- Manuel Costa
 - Boris Köpf
 - Aashish Kolluri
 - Andrew Paverd

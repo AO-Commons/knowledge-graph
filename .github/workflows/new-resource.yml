@@ -74,6 +74,14 @@ jobs:
               ...context.repo, issue_number: context.issue.number, body,
             });
 
+      # A new byline can arrive spelled differently from the same person
+      # already in the corpus — arXiv writes "Botao Amber Hu" on one paper and
+      # "Botao 'Amber' Hu" on another. Folding here keeps one person one node.
+      - name: Fold author spellings
+        if: steps.add.outcome == 'success'
+        continue-on-error: true
+        run: aokg people --fix
+
       - name: Commit it
         id: commit
         if: steps.add.outcome == 'success'

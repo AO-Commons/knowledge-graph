@@ -2,7 +2,7 @@ id: resource:arxiv:2510.04303
 resource_type: preprint
 title: 'Audit the Whisper: Detecting Steganographic Collusion in Multi-Agent LLMs'
 authors:
-- Dhruv Tailor
+- Om Tailor
 published_at: '2025-10-05'
 url: https://arxiv.org/abs/2510.04303
 arxiv_id: '2510.04303'

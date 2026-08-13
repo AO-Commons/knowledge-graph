@@ -31,10 +31,10 @@ abstract: This paper introduces a novel method for estimating the self-interest 
   Our findings offer insights into how reward structures can promote or hinder cooperation,
   with potential applications in areas such as mechanism design.
 authors:
-- Richard H. Willis
+- Richard Willis
 - Yali Du
 - Joel Z. Leibo
-- G. Flucke
+- Michael Luck
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: a1e6e72d57715460b92d87ff44495c6b868f5ccd

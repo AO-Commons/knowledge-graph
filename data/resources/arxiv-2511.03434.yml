@@ -24,7 +24,7 @@ abstract: 'As the "agentic web" takes shape-billions of AI agents (often LLM-pow
   misinformed LLM behavior, and we distill actionable design guidelines for safer, interoperable,
   and scalable agent economies.'
 authors:
-- Bin Hu
+- Botao 'Amber' Hu
 - Helena Rong
 published_at: '2025-11-05'
 url: https://arxiv.org/abs/2511.03434

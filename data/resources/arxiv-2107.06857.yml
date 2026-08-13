@@ -3,9 +3,9 @@ resource_type: preprint
 title: Scalable Evaluation of Multi-Agent Reinforcement Learning with Melting Pot
 authors:
 - Joel Z. Leibo
-- Edgar A. Duéñez-Guzmán
+- Edgar Duéñez-Guzmán
 - Alexander Sasha Vezhnevets
-- John Agapiou
+- John P. Agapiou
 - Peter Sunehag
 - Raphaël Koster
 - Jayd Matyas

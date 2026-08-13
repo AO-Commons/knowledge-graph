@@ -341,3 +341,60 @@ def test_the_record_lands_where_the_loader_will_find_it(tmp_path, monkeypatch):
 
     assert path.name == "tool-buzz.yml"
     assert [r.id for r in load_resources(tmp_path)] == ["resource:tool:buzz"]
+
+
+class TestBylines:
+    """OpenAlex disambiguates authors by machine, and when it is wrong it names
+    a real, plausible, different person. It credited this corpus's Botao
+    'Amber' Hu paper to "Bin Hu" — invisible to anyone who does not know the
+    field, and the worst error the project can make."""
+
+    def _build(self, byline, **kwargs):
+        import add_resource
+
+        fields = read_issue(FROM_SITE)
+        return paper_record(
+            identify(fields["identifier"]), fields, topics=[], author="ankeliu", issue=7,
+            fetch_openalex=lambda url: {},
+            fetch_byline=lambda arxiv_id: byline, **kwargs,
+        )
+
+    def test_arxiv_outranks_openalex(self, monkeypatch):
+        import add_resource
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
+        payload, _ = self._build(["Botao 'Amber' Hu", "Helena Rong"])
+        assert payload["authors"] == ["Botao 'Amber' Hu", "Helena Rong"]
+
+    def test_the_substitution_is_reported_not_silently_corrected(self, monkeypatch):
+        """A maintainer should see that the resolver got a person wrong, not
+        just a quietly different byline."""
+        import add_resource
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
+        _, gaps = self._build(["Botao 'Amber' Hu", "Helena Rong"])
+        assert any("Joel Z Leibo" in gap and "arXiv does not list" in gap for gap in gaps)
+
+    def test_a_spelling_difference_is_not_reported_as_a_substitution(self, monkeypatch):
+        import add_resource
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
+        _, gaps = self._build(["Joel Z. Leibo", "Helena Rong"])
+        assert not any("does not list" in gap for gap in gaps)
+
+    def test_an_unreachable_arxiv_never_blocks_the_add(self, monkeypatch):
+        """A byline check is a nicety. Losing a contribution to it would be a
+        poor trade."""
+        import add_resource
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
+        fields = read_issue(FROM_SITE)
+
+        def boom(arxiv_id):
+            raise RuntimeError("arXiv is down")
+
+        payload, _ = paper_record(
+            identify(fields["identifier"]), fields, topics=[], author="a", issue=1,
+            fetch_openalex=lambda url: {}, fetch_byline=boom,
+        )
+        assert payload["authors"]

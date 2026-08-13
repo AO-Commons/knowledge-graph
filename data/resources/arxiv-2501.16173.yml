@@ -32,10 +32,10 @@ abstract: As autonomous agents become more prevalent, understanding their collec
   of deployed LLM-based autonomous agents and highlights the importance of carefully considering
   the strategic environments in which they operate.
 authors:
-- Richard H. Willis
+- Richard Willis
 - Yali Du
 - Joel Z. Leibo
-- G. Flucke
+- Michael Luck
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: 2fd38639841e8d4baf7393d56d6fa51c5aba4e52
