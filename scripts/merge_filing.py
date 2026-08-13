@@ -103,10 +103,28 @@ def validate(payload: dict, *, known_records: set[str], known_topics: set[str]) 
             problems.append(f"{resource_id}: not taxonomy codes: {', '.join(unknown)}")
             continue
 
-        cleaned[resource_id] = {
+        record = {
             "topics": sorted(set(topics), key=lambda c: [int(p) for p in c.split(".")]),
             "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat()),
         }
+
+        # A reviewer's judgement about the record is worth as much as their
+        # tags. "Out of scope" says the corpus should not hold this;
+        # "nothing fits" says the taxonomy has a gap; an unsure call should
+        # not be weighed like a confident one; and a note is usually the
+        # sentence that explains a disagreement later.
+        verdict = entry.get("verdict")
+        if verdict in ("out-of-scope", "no-topic-fits"):
+            record["verdict"] = verdict
+        elif verdict not in (None, "filed"):
+            problems.append(f"{resource_id}: unknown verdict {verdict!r}")
+            continue
+        if entry.get("unsure"):
+            record["unsure"] = True
+        if note := entry.get("note"):
+            record["note"] = str(note).strip()
+
+        cleaned[resource_id] = record
 
     if problems:
         raise FilingError(
@@ -150,10 +168,17 @@ def merge(cleaned: dict[str, dict], author: str, gold_path: Path = GOLD) -> dict
         ),
         encoding="utf-8",
     )
-    return {"added": added, "changed": changed, "unchanged": unchanged, "total": len(existing)}
+    flagged = {
+        "out-of-scope": [r for r, e in cleaned.items() if e.get("verdict") == "out-of-scope"],
+        "no-topic-fits": [r for r, e in cleaned.items() if e.get("verdict") == "no-topic-fits"],
+        "notes": [(r, e["note"]) for r, e in cleaned.items() if e.get("note")],
+    }
+    return {"added": added, "changed": changed, "unchanged": unchanged,
+            "total": len(existing), "flagged": flagged}
 
 
 def summarize(result: dict, author: str) -> str:
+    flagged = result.get("flagged") or {}
     lines = [
         f"Filing from **{author}**.",
         "",
@@ -162,6 +187,16 @@ def summarize(result: dict, author: str) -> str:
         f"- {len(result['unchanged'])} already recorded the same way",
         f"- {result['total']} record(s) in the gold set after this",
     ]
+    if flagged.get("out-of-scope"):
+        lines += ["", "**Flagged as out of scope** — these should probably leave the corpus:", ""]
+        lines += [f"- `{r}`" for r in flagged["out-of-scope"]]
+    if flagged.get("no-topic-fits"):
+        lines += ["", "**Nothing in the taxonomy fitted** — each is a candidate for an alias "
+                      "or a new topic:", ""]
+        lines += [f"- `{r}`" for r in flagged["no-topic-fits"]]
+    if flagged.get("notes"):
+        lines += ["", "### Notes from the reviewer", ""]
+        lines += [f"- `{r}` — {n}" for r, n in flagged["notes"]]
     if result["changed"]:
         lines += [
             "",

@@ -155,3 +155,56 @@ class TestMerge:
         result = merge({"resource:tool:paperclip": {"topics": ["4.1"], "reviewed_on": "d"}}, "sam", gold)
         text = summarize(result, "sam")
         assert "Disagreements" in text and "anke" in text and "4.1" in text
+
+
+class TestJudgements:
+    """A reviewer's read of the record is worth as much as their codes."""
+
+    def test_out_of_scope_and_no_fit_are_kept_apart(self):
+        """They were one button and one meaning before. Out of scope is an
+        ingestion error; nothing fits is a taxonomy gap and a proposal waiting
+        to happen."""
+        payload = {"records": {
+            "resource:tool:paperclip": {"topics": [], "verdict": "out-of-scope"},
+            "resource:arxiv:2502.14143": {"topics": [], "verdict": "no-topic-fits"},
+        }}
+        cleaned = validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS)
+        assert cleaned["resource:tool:paperclip"]["verdict"] == "out-of-scope"
+        assert cleaned["resource:arxiv:2502.14143"]["verdict"] == "no-topic-fits"
+
+    def test_an_unknown_verdict_is_refused(self):
+        payload = {"records": {"resource:tool:paperclip": {"topics": [], "verdict": "maybe"}}}
+        with pytest.raises(FilingError, match="unknown verdict"):
+            validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS)
+
+    def test_filed_is_the_default_and_is_not_stored(self):
+        """Storing the common case would put a redundant field on every row."""
+        payload = {"records": {"resource:tool:paperclip": {"topics": ["2.2"], "verdict": "filed"}}}
+        cleaned = validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS)
+        assert "verdict" not in cleaned["resource:tool:paperclip"]
+
+    def test_uncertainty_survives(self):
+        payload = {"records": {"resource:tool:paperclip": {"topics": ["2.2"], "unsure": True}}}
+        cleaned = validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS)
+        assert cleaned["resource:tool:paperclip"]["unsure"] is True
+
+    def test_a_note_survives(self):
+        payload = {"records": {"resource:tool:paperclip": {
+            "topics": ["2.2"], "note": "  torn between 2.2 and 3.1  "}}}
+        cleaned = validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS)
+        assert cleaned["resource:tool:paperclip"]["note"] == "torn between 2.2 and 3.1"
+
+    def test_the_summary_surfaces_gaps_and_notes(self, tmp_path):
+        gold = tmp_path / "tags.yml"
+        result = merge({
+            "resource:tool:paperclip": {
+                "topics": [], "reviewed_on": "d", "verdict": "no-topic-fits",
+                "note": "execution control, not permissions",
+            },
+            "resource:arxiv:2502.14143": {
+                "topics": [], "reviewed_on": "d", "verdict": "out-of-scope"},
+        }, "anke", gold)
+        text = summarize(result, "anke")
+        assert "Nothing in the taxonomy fitted" in text
+        assert "out of scope" in text.lower()
+        assert "execution control" in text
