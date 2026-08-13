@@ -215,6 +215,8 @@
   /* A claim and the sentence it came from. The quote is set apart and in the
      serif so the eye can tell the source from our paraphrase at a glance —
      confusing the two is the one mistake this panel cannot afford. */
+  .claims-block { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--rule-hard); }
+  .kicker .flag { color: var(--accent); font-weight: 600; }
   .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
   .claim:first-of-type { border-top: none; }
   .claim-text { font-size: 15px; line-height: 1.5; color: var(--ink); margin: 2px 0 10px; max-width: 62ch; }
@@ -679,10 +681,15 @@
     const record = currentRecord();
     if (!record) { advance(); return; }
     const already = state.decisions[record.id];
+    const claimCount = (record.claims || []).length;
     const kicker = el("div", { className: "kicker" }, [
       el("span", {}, record.type.replace(/-/g, " ")),
       el("span", {}, record.date || "undated"),
       el("span", {}, `${pending.length} left`),
+      ...(claimCount
+        ? [el("span", { className: "flag" },
+             `${claimCount} statement${claimCount === 1 ? "" : "s"} to check`)]
+        : []),
     ]);
 
     const title = el("h1", { className: "record-title" }, record.title);
@@ -835,18 +842,23 @@
       advance();
     });
 
+    // The second question, asked while the paper is still in your head — and
+    // asked *before* the buttons. It sat after them once, which put it a full
+    // screen below the fold and below the control that ends the task: a
+    // reviewer tagged, clicked, and never saw it. Optional work still has to be
+    // in the path of the eye, or it may as well not be built.
+    if (record.claims && record.claims.length) {
+      ask.append(claimPanel(record));
+    } else {
+      ask.append(el("p", { className: "hint", style: "margin-top:18px" },
+        "Nothing has been extracted from this one yet, so topics are the whole job here."));
+    }
+
     ask.append(el("div", { className: "actions" }, [
       file, outOfScope, noFit, skip,
       el("span", { className: "hint" }, `${reviewed()} filed by you`),
     ]));
     stage.append(ask);
-
-    // The second question, asked while the paper is still in your head. It
-    // comes after the filing buttons and never blocks them: placing where the
-    // record belongs is quick and reads off the abstract, while checking a
-    // sentence is slower, and a reviewer who only wants to tag should not have
-    // to scroll past work they did not sign up for.
-    if (record.claims && record.claims.length) stage.append(claimPanel(record));
 
     if (already) {
       const verdict = already.verdict === "out-of-scope" ? "marked out of scope"
@@ -958,7 +970,7 @@
   };
 
   function claimPanel(record) {
-    const wrap = el("div", { className: "ask", style: "margin-top:22px" });
+    const wrap = el("div", { className: "claims-block" });
     const done = record.claims.filter(c => state.claims[c.id] || c.verdict).length;
 
     wrap.append(el("div", { className: "prompt" }, [
