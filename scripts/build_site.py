@@ -55,7 +55,12 @@ def build_payload() -> dict:
         by_resource.setdefault(claim.resource_id, []).append({
             "id": claim.id,
             "text": claim.text,
+            "standalone": claim.standalone or "",
             "quote": claim.quote,
+            # Which section it was read from. A claim from a results section
+            # is not on the reviewer's screen the way an abstract one is, so
+            # they need to be told where to look.
+            "where": claim.extracted_from,
             "type": claim.claim_type.value,
             "topics": claim.topic_codes,
             # A verdict already merged is shown rather than asked for again.

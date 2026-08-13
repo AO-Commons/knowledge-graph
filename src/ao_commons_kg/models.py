@@ -338,6 +338,15 @@ class ClaimType(str, Enum):
     downstream reader is most likely to drop."""
     POSITION = "position"
     """An argument or recommendation, offered without evidence in this work."""
+    BACKGROUND = "background"
+    """An assertion about the state of the field or about prior work, rather
+    than about this work's own contribution — "no accepted benchmark exists",
+    "this has impeded progress". Added after reading full texts rather than
+    abstracts, where they turn out to be everywhere and to be load-bearing:
+    they are what a paper's contribution is justified against, they are
+    routinely asserted without evidence, and they date badly. "Which claims
+    about this field has nobody actually measured" is a question worth being
+    able to ask."""
 
 
 @dataclass
@@ -363,7 +372,16 @@ class Claim:
     id: str
     resource_id: str
     text: str
+    """The claim, atomic: one assertion about one thing. SciFact's criteria,
+    because they are the ones a verification dataset was actually built to —
+    fluent, atomic, decontextualized, faithful to the source."""
     quote: str
+    standalone: str | None = None
+    """The same claim with enough context to be checked by someone who has not
+    read the paper. Decomposition strips context and decontextualization puts
+    it back; DnDScore measures 10-28 points of verification accuracy in keeping
+    both rather than choosing. `text` is what to verify, this is what to
+    verify it against."""
     claim_type: ClaimType = ClaimType.FINDING
     entity_ids: list[str] = field(default_factory=list)
     topic_codes: list[str] = field(default_factory=list)

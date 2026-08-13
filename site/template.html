@@ -220,6 +220,9 @@
   .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
   .claim:first-of-type { border-top: none; }
   .claim-text { font-size: 15px; line-height: 1.5; color: var(--ink); margin: 2px 0 10px; max-width: 62ch; }
+  .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
+  .claim-where { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--faint); margin: -6px 0 10px; }
   .claim-quote {
     font-family: var(--serif); font-size: 14.5px; line-height: 1.6; color: var(--faint);
     margin: 0 0 12px; padding-left: 13px; border-left: 2px solid var(--rule-hard);
@@ -993,7 +996,20 @@
         ...(kind[1] ? [info(kind[1])] : []),
       ]));
       card.append(el("p", { className: "claim-text" }, claim.text));
+      // The claim is deliberately stripped to one assertion, which can leave it
+      // unjudgeable on its own — "it reveals weaknesses" reveals nothing about
+      // what "it" is. The standalone form puts back exactly enough context to
+      // decide, without putting back the sentence we are asking about.
+      if (claim.standalone && claim.standalone !== claim.text) {
+        card.append(el("p", { className: "claim-context" }, claim.standalone));
+      }
       card.append(el("blockquote", { className: "claim-quote" }, "“" + claim.quote + "”"));
+      if (claim.where) {
+        card.append(el("p", { className: "claim-where" },
+          claim.where === "abstract"
+            ? "from the abstract, above"
+            : `from the ${claim.where} — not shown above, so judge it on the quote`));
+      }
 
       // Already merged means somebody else settled it. Shown rather than
       // asked again — re-deciding a merged verdict belongs in a disagreement,
