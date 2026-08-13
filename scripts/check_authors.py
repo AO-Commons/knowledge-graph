@@ -28,10 +28,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import html
-import re
 import sys
-import urllib.request
 from pathlib import Path
 
 import yaml
@@ -41,29 +38,14 @@ sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.people import canonical, fold, same_person  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
+from ao_commons_kg.scholarly import arxiv  # noqa: E402
 
 RESOURCES = REPO / "data" / "resources"
-API = "http://export.arxiv.org/api/query"
-CONTACT = "anke@stellar.org"
 
 
 def arxiv_bylines(arxiv_ids: list[str]) -> dict[str, list[str]]:
     """The author list arXiv itself publishes, per id."""
-    if not arxiv_ids:
-        return {}
-    url = f"{API}?id_list={','.join(arxiv_ids)}&max_results={len(arxiv_ids)}"
-    request = urllib.request.Request(url, headers={"User-Agent": f"ao-commons-kg ({CONTACT})"})
-    with urllib.request.urlopen(request, timeout=60) as response:
-        payload = response.read().decode("utf-8", "ignore")
-
-    bylines: dict[str, list[str]] = {}
-    for entry in re.findall(r"<entry>(.*?)</entry>", payload, re.S):
-        found = re.search(r"<id>http://arxiv\.org/abs/([0-9.]+)v?\d*</id>", entry)
-        if not found:
-            continue
-        names = [html.unescape(n).strip() for n in re.findall(r"<name>(.*?)</name>", entry)]
-        bylines[found.group(1)] = names
-    return bylines
+    return {aid: p.authors for aid, p in arxiv.resolve_many(arxiv_ids).items()}
 
 
 def reconcile(ours: list[str], theirs: list[str]) -> tuple[list[str], list[str]]:

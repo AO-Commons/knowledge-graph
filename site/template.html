@@ -1593,39 +1593,79 @@
     return { kind: "unclear", label: value };
   }
 
-  function lookUp(id) {
-    const key = id.doi ? `https://doi.org/${id.doi}` : `https://doi.org/10.48550/arXiv.${id.arxiv}`;
-    const url = `https://api.openalex.org/works/${key}`
-      + "?select=title,abstract_inverted_index,authorships,publication_date"
-      + "&mailto=anke@stellar.org";
+  // Two sources, in order, because one is not enough. OpenAlex does not hold
+  // recent preprints — a paper posted this month answers 404, which the page
+  // used to report as "could not reach OpenAlex", describing a network fault
+  // that had not happened. Semantic Scholar has them and sends
+  // `Access-Control-Allow-Origin: *`, so a page can ask it.
+  //
+  // arXiv itself would be better still and cannot be used here: it sends no
+  // CORS header at all. The intake bot reads it server-side, which is why a
+  // paper this form cannot resolve is still added correctly.
 
-    fetch(url)
+  function fromOpenAlex(id) {
+    const key = id.doi ? `https://doi.org/${id.doi}` : `https://doi.org/10.48550/arXiv.${id.arxiv}`;
+    return fetch(`https://api.openalex.org/works/${key}`
+                 + "?select=title,abstract_inverted_index,authorships,publication_date"
+                 + "&mailto=anke@stellar.org")
       .then(response => (response.ok ? response.json() : null))
       .then(work => {
-        if (state.add.id !== id) return;               // a newer paste won
-        state.add.looking = false;
-        if (work) {
-          const inverted = work.abstract_inverted_index;
-          let abstract = "";
-          if (inverted) {
-            const words = [];
-            Object.entries(inverted).forEach(([word, spots]) =>
-              spots.forEach(spot => { words[spot] = word; }));
-            abstract = words.filter(Boolean).join(" ");
-          }
-          state.add.resolved = {
-            title: work.title || "",
-            abstract,
-            authors: (work.authorships || []).map(a => a.author && a.author.display_name).filter(Boolean),
-          };
+        if (!work || !work.title) return null;
+        let abstract = "";
+        if (work.abstract_inverted_index) {
+          const words = [];
+          Object.entries(work.abstract_inverted_index).forEach(([word, spots]) =>
+            spots.forEach(spot => { words[spot] = word; }));
+          abstract = words.filter(Boolean).join(" ");
         }
-        renderAdd();
-      })
-      .catch(() => {
-        if (state.add.id !== id) return;
-        state.add.looking = false;
-        renderAdd();
+        return {
+          title: work.title,
+          abstract,
+          authors: (work.authorships || [])
+            .map(a => a.author && a.author.display_name).filter(Boolean),
+          source: "OpenAlex",
+        };
       });
+  }
+
+  function fromSemanticScholar(id) {
+    const key = id.arxiv ? `arXiv:${id.arxiv}` : `DOI:${id.doi}`;
+    return fetch(`https://api.semanticscholar.org/graph/v1/paper/${key}`
+                 + "?fields=title,abstract,authors,publicationDate")
+      .then(response => (response.ok ? response.json() : null))
+      .then(paper => {
+        if (!paper || !paper.title) return null;
+        return {
+          title: paper.title,
+          abstract: paper.abstract || "",
+          authors: (paper.authors || []).map(a => a.name).filter(Boolean),
+          source: "Semantic Scholar",
+        };
+      });
+  }
+
+  function lookUp(id) {
+    const settle = (found, why) => {
+      if (state.add.id !== id) return;                 // a newer paste won
+      state.add.looking = false;
+      state.add.resolved = found || null;
+      state.add.why = found ? "" : why;
+      renderAdd();
+    };
+
+    fromOpenAlex(id)
+      .catch(() => null)
+      .then(found => {
+        if (found) return settle(found);
+        // Semantic Scholar omits its CORS header on a 429, so a rate-limited
+        // answer reaches the page as a network failure rather than as a
+        // status. "Did not answer" and "does not have it" are different facts
+        // and the page should not claim the second when it saw the first.
+        return fromSemanticScholar(id)
+          .then(paper => settle(paper, paper ? "" : "missing"))
+          .catch(() => settle(null, "unavailable"));
+      })
+      .catch(() => settle(null, "unavailable"));
   }
 
   function findExisting(id) {
@@ -1845,10 +1885,24 @@
       const found = state.add.resolved;
       block.append(el("div", { className: "staged" }, [
         found
-          ? el("span", {}, [el("strong", {}, "Found — "), found.title])
-          : el("span", {}, [el("strong", {}, "New to the library. "),
-                            state.add.looking ? "Looking it up…"
-                              : "Could not reach OpenAlex, so describe it below."]),
+          ? el("span", {}, [el("strong", {}, "Found — "), found.title,
+                            el("span", { className: "hint" }, ` via ${found.source}`)])
+          : el("span", {}, [
+              el("strong", {}, "New to the library. "),
+              state.add.looking
+                ? "Looking it up…"
+                : [
+                    state.add.why === "unavailable"
+                      ? "OpenAlex does not have it and Semantic Scholar did not answer — it "
+                        + "rate-limits anonymous requests hard, so this happens."
+                      : "Neither OpenAlex nor Semantic Scholar has indexed it yet, which is "
+                        + "normal for something posted in the last few weeks.",
+                    id.arxiv
+                      ? " Add it anyway: the bot reads arXiv directly, which no page can, and "
+                        + "fills in the title, authors and abstract when it runs."
+                      : " Give it a title below and a maintainer will sort out the rest.",
+                  ].join(""),
+            ]),
       ]));
 
       if (found && found.abstract) {

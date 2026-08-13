@@ -38,17 +38,9 @@ sys.path.insert(0, str(REPO / "src"))
 from ao_commons_kg.models import Resource  # noqa: E402
 from ao_commons_kg.people import apply_index, build_index, same_person  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
-from ao_commons_kg.scholarly import openalex, semanticscholar  # noqa: E402
+from ao_commons_kg.scholarly import arxiv, openalex, semanticscholar  # noqa: E402
 from ao_commons_kg.scholarly.keys import canonical_key, key_for_resource  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
-
-sys.path.insert(0, str(REPO / "scripts"))
-from check_authors import arxiv_bylines  # noqa: E402
-
-
-def arxiv_byline(arxiv_id: str) -> list[str]:
-    """The byline arXiv publishes for one id."""
-    return arxiv_bylines([arxiv_id]).get(arxiv_id, [])
 
 RESOURCES = REPO / "data" / "resources"
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
@@ -228,7 +220,7 @@ def path_for(resource_id: str) -> Path:
 
 
 def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, issue: int,
-                 fetch_openalex=None, fetch_s2=None, fetch_byline=None,
+                 fetch_openalex=None, fetch_s2=None, fetch_arxiv=None,
                  known_names=None) -> tuple[dict, list[str]]:
     """Resolve a paper and build its record. Also returns what could not be filled."""
     work = None
@@ -242,13 +234,6 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
             gaps.append(f"OpenAlex could not resolve it ({error})")
 
     title = (work.title if work else "") or fields.get("title") or ""
-    if not title:
-        raise ProposalError(
-            "No title. OpenAlex does not have this identifier and the issue does "
-            "not give one, so there is nothing to file it under. Add a Title and "
-            "this runs again."
-        )
-
     abstract = work.abstract if work else None
     authors = list(work.authors) if work else []
     # Semantic Scholar carries abstracts for preprints that OpenAlex does not,
@@ -264,24 +249,41 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
     if not abstract:
         gaps.append("no abstract, so the topic matcher has only the title to work from")
 
-    # arXiv's own byline outranks OpenAlex's. OpenAlex disambiguates authors by
-    # machine, and when it is wrong it substitutes a real, plausible, different
-    # person — it credited this corpus's Botao 'Amber' Hu paper to "Bin Hu",
-    # which nothing but a reader who knew the field would ever catch.
-    if ident.get("arxiv") and fetch_byline is not None:
+    # arXiv last, and decisive. It has recent preprints the indexes have not
+    # caught up with, and for a preprint its byline is the submission itself
+    # rather than a machine's guess at who the authors are.
+    preprint = None
+    if ident.get("arxiv") and fetch_arxiv is not None:
         try:
-            official = fetch_byline(ident["arxiv"])
-        except Exception:  # noqa: BLE001 — a byline check must never block an add
-            official = []
-        if official:
-            wrong = [a for a in authors if not any(same_person(a, o) for o in official)]
+            preprint = arxiv.resolve(ident["arxiv"], fetch_arxiv)
+        except Exception:  # noqa: BLE001 — a third source must never block an add
+            preprint = None
+
+    if preprint:
+        if preprint.authors:
+            wrong = [a for a in authors if not any(same_person(a, o) for o in preprint.authors)]
             if wrong:
                 gaps.append(
                     "OpenAlex credited "
                     + ", ".join(repr(name) for name in wrong)
                     + ", who arXiv does not list as an author — arXiv's byline was used"
                 )
-            authors = official
+            authors = preprint.authors
+        if not title:
+            title = preprint.title
+        if not abstract:
+            abstract = preprint.abstract
+            gaps = [g for g in gaps if "no abstract" not in g]
+
+    # Checked only once every source has been asked. Moving this earlier let a
+    # paper through with an empty title whenever OpenAlex missed it and arXiv
+    # was unreachable — a record filed under nothing at all.
+    if not title:
+        raise ProposalError(
+            "No title. None of OpenAlex, Semantic Scholar or arXiv has this "
+            "identifier, and the issue does not give a title, so there is nothing "
+            "to file it under. Add a Title and this runs again."
+        )
 
     kind = "preprint" if ident.get("arxiv") else TYPES.get(work.type if work else "", "peer-reviewed-paper")
     if ident.get("arxiv"):
@@ -413,7 +415,7 @@ def write_record(payload: dict) -> Path:
 # ---- the whole job ---------------------------------------------------------
 
 def process(body: str, *, author: str, issue: int, resources: list, known_topics: set[str],
-            fetch_openalex=None, fetch_s2=None, fetch_byline=None) -> tuple[str, dict | None]:
+            fetch_openalex=None, fetch_s2=None, fetch_arxiv=None) -> tuple[str, dict | None]:
     """Read an issue and produce the record it asks for.
 
     Returns the summary to post and the record written, if any. A duplicate is
@@ -444,7 +446,7 @@ def process(body: str, *, author: str, issue: int, resources: list, known_topics
     if ident["kind"] == "paper":
         payload, gaps = paper_record(
             ident, fields, topics=topics, author=author, issue=issue,
-            fetch_openalex=fetch_openalex, fetch_s2=fetch_s2, fetch_byline=fetch_byline,
+            fetch_openalex=fetch_openalex, fetch_s2=fetch_s2, fetch_arxiv=fetch_arxiv,
             known_names=known_names,
         )
     else:
@@ -510,7 +512,7 @@ def main(argv: list[str] | None = None) -> int:
             resources=resources, known_topics=known_topics,
             fetch_openalex=None if args.offline else openalex.http_fetcher(),
             fetch_s2=None if args.offline else semanticscholar.http_fetcher(),
-            fetch_byline=None if args.offline else arxiv_byline,
+            fetch_arxiv=None if args.offline else arxiv.http_fetcher(),
         )
     except ProposalError as error:
         message = f"This could not be added.\n\n{error}"

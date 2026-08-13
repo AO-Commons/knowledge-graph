@@ -244,7 +244,10 @@ class TestPaperRecord:
         assert payload["title"] == "Governable Agent Organizations"
         assert any("OpenAlex" in gap for gap in gaps)
 
-    def test_no_title_and_no_lookup_is_refused(self, monkeypatch):
+    def test_no_title_from_any_source_is_refused(self, monkeypatch):
+        """Checked after every source has been asked, not before. Checking it
+        early let a paper through with an empty title whenever OpenAlex missed
+        and arXiv was unreachable — filed under nothing at all."""
         import add_resource
 
         def fail(identifier, fetch):
@@ -253,6 +256,25 @@ class TestPaperRecord:
         monkeypatch.setattr(add_resource.openalex, "resolve_work", fail)
         with pytest.raises(ProposalError, match="No title"):
             self._build(body=FORM)
+
+    def test_arxiv_supplies_the_title_openalex_could_not(self, monkeypatch):
+        """A paper posted this month is not in OpenAlex at all, and that is the
+        common case for anything worth adding quickly."""
+        import add_resource
+
+        def fail(identifier, fetch):
+            raise add_resource.openalex.OpenAlexError("404")
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", fail)
+        payload, _ = self._build(
+            body=FORM,
+            fetch_arxiv=lambda url: (
+                "<feed><entry><id>http://arxiv.org/abs/2502.14143v1</id>"
+                "<title>Mind Viruses</title><summary>An abstract.</summary>"
+                "<author><name>Helena Rong</name></author></entry></feed>"),
+        )
+        assert payload["title"] == "Mind Viruses"
+        assert payload["abstract"] == "An abstract."
 
     def test_provenance_says_the_tags_are_unreviewed(self, monkeypatch):
         import add_resource
@@ -349,14 +371,19 @@ class TestBylines:
     'Amber' Hu paper to "Bin Hu" — invisible to anyone who does not know the
     field, and the worst error the project can make."""
 
-    def _build(self, byline, **kwargs):
-        import add_resource
+    @staticmethod
+    def _feed(names):
+        authors = "".join(f"<author><name>{n}</name></author>" for n in names)
+        return ("<feed><entry><id>http://arxiv.org/abs/2502.14143v1</id>"
+                "<title>Governable Agent Organizations</title>"
+                f"<summary>An abstract.</summary>{authors}</entry></feed>")
 
+    def _build(self, byline, **kwargs):
         fields = read_issue(FROM_SITE)
         return paper_record(
             identify(fields["identifier"]), fields, topics=[], author="ankeliu", issue=7,
             fetch_openalex=lambda url: {},
-            fetch_byline=lambda arxiv_id: byline, **kwargs,
+            fetch_arxiv=lambda url: self._feed(byline), **kwargs,
         )
 
     def test_arxiv_outranks_openalex(self, monkeypatch):
@@ -395,6 +422,6 @@ class TestBylines:
 
         payload, _ = paper_record(
             identify(fields["identifier"]), fields, topics=[], author="a", issue=1,
-            fetch_openalex=lambda url: {}, fetch_byline=boom,
+            fetch_openalex=lambda url: {}, fetch_arxiv=boom,
         )
         assert payload["authors"]
