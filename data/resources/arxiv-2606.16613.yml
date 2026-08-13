@@ -47,3 +47,4 @@ abstract: 'As LLM agents become capable of increasingly long-horizon tasks, eval
   assessments and plans. We release our code and agent trajectories to support future research.'
 is_open_access: true
 is_retracted: false
+semantic_scholar_id: c214dd972cedd0220943bb16001397ef7a1c3c0a

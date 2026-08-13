@@ -18,7 +18,9 @@ from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
 import yaml
 
+from .classify import TopicIndex, classify_resource
 from .resources import ResourceError, load_resources, tagged_edges, unknown_tags
+from .review import GoldSet, agreement, parse_decision, present, search_topics, select_for_review
 from .scholarly import (
     ReferenceStore, SemanticScholarError, expand_neighborhood, key_for_resource,
     resolve_paper, resolve_work, scope_score,
@@ -35,6 +37,8 @@ OUT_RESOURCES = REPO / "data" / "resources"
 DEFAULT_RELEASES = REPO / "data" / "releases"
 REFERENCES = REPO / "data" / "scholarly" / "references.jsonl"
 CANDIDATES = REPO / "data" / "candidates"
+GOLD = REPO / "evals" / "gold" / "tags.yml"
+ALIASES = REPO / "taxonomy" / "aliases.yaml"
 
 
 def _parent_edges(topics) -> list[Relationship]:
@@ -277,6 +281,95 @@ def cmd_expand(args) -> int:
     return 0
 
 
+def _index() -> TopicIndex:
+    aliases = yaml.safe_load(ALIASES.read_text(encoding="utf-8")) if ALIASES.exists() else {}
+    return TopicIndex(load_taxonomy(DEFAULT_TAXONOMY), aliases or {})
+
+
+def cmd_review(args) -> int:
+    """Walk records one at a time, picking topics from a shortlist.
+
+    Resumable: anything already in the gold file is skipped, so this can be
+    done in several sittings without losing place.
+    """
+    index = _index()
+    gold = GoldSet.load(args.gold)
+    if args.reviewer:
+        gold.reviewer = args.reviewer
+
+    queue = select_for_review(load_resources(), gold, limit=args.limit)
+    if not queue:
+        print(f"Nothing left to review. {len(gold.entries)} record(s) in {args.gold}.")
+        return 0
+
+    print(f"{len(queue)} record(s) queued, {len(gold.entries)} already reviewed.")
+    print("Sampled across taxonomy sections so the set resembles the corpus.")
+
+    reviewed = 0
+    for position, resource in enumerate(queue, 1):
+        candidates = classify_resource(index, resource, limit=args.suggestions, min_score=0.5)
+        while True:
+            print(present(resource, candidates, index))
+            print(f"  [{position}/{len(queue)}]")
+            decision = parse_decision(input("  > "), candidates)
+
+            if decision.action == "search":
+                found = search_topics(index, decision.query)
+                if not found:
+                    print("  nothing matched.")
+                    continue
+                candidates = found
+                continue
+            if decision.action == "quit":
+                gold.save()
+                print(f"\nSaved {len(gold.entries)} record(s) to {args.gold}.")
+                return 0
+            if decision.action == "skip":
+                break
+            if decision.action == "keep":
+                gold.record(resource.id, resource.taxonomy_topics, reviewer=gold.reviewer)
+                reviewed += 1
+                break
+            gold.record(resource.id, decision.topics, reviewer=gold.reviewer)
+            reviewed += 1
+            break
+
+        if reviewed and reviewed % 5 == 0:
+            gold.save()
+
+    gold.save()
+    print(f"\nReviewed {reviewed}. {len(gold.entries)} record(s) in {args.gold}.")
+    return 0
+
+
+def cmd_evaluate(args) -> int:
+    """Score the classifier against reviewed tags."""
+    gold = GoldSet.load(args.gold)
+    if not gold.entries:
+        print(f"No gold set at {args.gold}. Build one with `aokg review`.", file=sys.stderr)
+        return 1
+
+    index = _index()
+    resources = {r.id: r for r in load_resources()}
+    predictions = {
+        resource_id: [a.code for a in classify_resource(
+            index, resources[resource_id], limit=args.limit, min_score=args.min_score)]
+        for resource_id in gold.entries if resource_id in resources
+    }
+
+    scores = agreement(gold, predictions)
+    print(f"against {scores['reviewed_records']} reviewed record(s)")
+    print(f"  gold tags recovered   {scores['recovered']}/{scores['gold_tags']} "
+          f"= {scores['recall']:.0%}")
+    print(f"  exact code matches    {scores['exact']}")
+    print(f"  records with a hit    {scores['records_with_a_hit']}/{scores['reviewed_records']} "
+          f"= {scores['record_hit_rate']:.0%}")
+    if scores["reviewed_records"] < 30:
+        print("\nFewer than 30 reviewed records — treat these as indicative, not as a"
+              "\nbaseline to tune against.")
+    return 0
+
+
 def cmd_build(args) -> int:
     topics = load_taxonomy(args.taxonomy)
     codes = {topic.code for topic in topics}
@@ -349,6 +442,19 @@ def main(argv: list[str] | None = None) -> int:
                         help="also seed from borrowed-background records; their "
                              "neighbourhoods are the adjacent fields section 15 excludes")
     expand.set_defaults(func=cmd_expand)
+
+    review = sub.add_parser("review", help="assign topics by hand, to build a gold set")
+    review.add_argument("--gold", default=str(GOLD))
+    review.add_argument("--limit", type=int, default=50)
+    review.add_argument("--suggestions", type=int, default=12)
+    review.add_argument("--reviewer", default="", help="recorded on each decision")
+    review.set_defaults(func=cmd_review)
+
+    evaluate = sub.add_parser("evaluate", help="score the classifier against reviewed tags")
+    evaluate.add_argument("--gold", default=str(GOLD))
+    evaluate.add_argument("--limit", type=int, default=6)
+    evaluate.add_argument("--min-score", type=float, default=4.0)
+    evaluate.set_defaults(func=cmd_evaluate)
 
     args = parser.parse_args(argv)
     try:

@@ -22,3 +22,12 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
 ingested_at: '2026-08-11'
 description: Most-cited candidate in the queue at 35. Trust, risk and security management
   framed for agentic systems rather than for models.
+semantic_scholar_id: 53df5edae004e6d86c69fcc9dd013e1f192a7338
+authors:
+- Qisai Liu
+- Zhanhong Jiang
+- Md Zahid Hasan
+- Joshua R. Waite
+- Chao Liu
+- Aditya Balu
+- Soumik Sarkar

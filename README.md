@@ -14,7 +14,7 @@ Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports 
 |---|---|
 | 1 — Taxonomy and data model | **Done** — 567 topics, 16 sections, JSONL export |
 | 2 — Scholarly corpus (OpenAlex) | **Pipeline built; awaiting a live run** |
-| 3 — Taxonomy classification | Not started |
+| 3 — Taxonomy classification | **Started** — BM25 baseline, review tooling, measured |
 | 4 — Connected-Papers-style similarity | **Started** — bibliographic coupling and co-citation |
 | 5 — Query surfaces (CLI, REST, MCP) | Not started |
 | 6 — Optional enrichment | Deliberately deferred |
@@ -45,6 +45,13 @@ aokg taxonomy --stats            # what loaded, per section
 aokg resolve                     # fetch OpenAlex metadata + reference lists
 aokg expand --limit 40           # propose new records from the citation graph
 aokg build --version v0.4.0      # write a portable release
+```
+
+Building the gold set that every classification figure is measured against:
+
+```bash
+aokg review --reviewer your-name   # assign topics from a shortlist
+aokg evaluate                      # score the classifier against them
 ```
 
 `expand` walks one hop out from the corpus in **both** directions — references
