@@ -394,3 +394,64 @@ round3:
     date: 2025-06-02
     topics: ["14.5", "16.4"]
     borrowed: true
+
+# --- Round 4: promoted from the first citation-expansion queue ---
+# Reviewed by hand from data/candidates/candidates-v2.yml. Of 45 candidates,
+# these are the ones that pass the scope test — agents holding organizational
+# authority, rather than agents applied to a domain task. The rest were
+# "agentic AI in <healthcare|manufacturing|hydrology|recruiting>", which score
+# well and change nothing about how an organization runs, plus the pre-2010
+# distributed-AI classics that section 15 points at rather than ingests.
+round4:
+  - doi: 10.1016/j.inffus.2025.103601
+    openalex: W4408364157
+    title: "TRiSM for Agentic AI: A review of Trust, Risk, and Security Management in LLM-based agentic multi-agent systems"
+    date: 2026-01-01
+    topics: ["9.4", "10.5", "2.2"]
+    note: >-
+      Most-cited candidate in the queue at 35. Trust, risk and security
+      management framed for agentic systems rather than for models.
+
+  - doi: 10.48550/arxiv.1903.09376
+    title: "Multiparty Dynamics and Failure Modes for Machine Learning and Artificial Intelligence"
+    date: 2019-04-01
+    topics: ["11.6", "11.13", "5.2"]
+    note: >-
+      Early and still-cited taxonomy of multiparty failure modes. Worth
+      reconciling against section 11 alongside Multi-Agent Risks.
+
+  - doi: 10.1057/s41599-026-05412-9
+    title: "Who acts when the machine decides? Intentional action and agentive responsibility in AI systems"
+    date: 2026-06-01
+    topics: ["1.4", "12.1"]
+    note: Lands on 12.1, the accountable-party problem, which is nearly empty.
+
+  - doi: 10.1007/s10462-026-11284-2
+    title: "Towards trustworthy agentic AI: a comprehensive survey of safety, alignment and governance"
+    date: 2026-04-01
+    topics: ["4.1", "9.4", "14.2"]
+
+  - doi: 10.1111/1468-5914.12489
+    title: "Trusted but not trustworthy: a conceptual analysis of AI agent reliance"
+    date: 2026-05-01
+    topics: ["5.3", "12.1"]
+    note: Max Planck Institute for Legal work; pairs with the reputation-grounding papers.
+
+  - doi: 10.1145/3770291.3770333
+    title: "An Agent Execution Control Layer for Organizational Multi-Agent Systems"
+    date: 2026-04-01
+    topics: ["2.2", "3.1", "4.1"]
+    note: Execution control as an architectural layer — directly 2.2 and 4.1.
+
+  - doi: 10.1007/s44163-026-00521-4
+    title: "Autonomous Agents in a Zero-Trust World: Architecting Secure, Auditable Agent Systems"
+    date: 2025-11-01
+    topics: ["2.2", "9.2", "15.4"]
+
+  - doi: 10.1002/aaai.70041
+    title: "Multi-Agent Ethnography: Post-Conventional Anthropological Practice for Agentic Systems"
+    date: 2026-02-01
+    topics: ["16.1", "16.4"]
+    note: >-
+      Method work for section 16, which is thin. Pairs with Rennie's
+      ethnography paper.

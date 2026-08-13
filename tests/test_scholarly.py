@@ -310,3 +310,24 @@ def test_filtering_drift_does_not_cost_us_the_corpus():
     multi-agent work that belongs here."""
     for title in KEEP:
         assert scope_score(Work(openalex_id="W", title=title))[0] >= 3, title
+
+
+def test_domain_applications_are_flagged_not_penalized():
+    """A keyword cannot tell "agents run this manufacturing business" from
+    "agents schedule maintenance here". Subtracting would hide the first to
+    suppress the second, so the reviewer is shown the suspicion instead."""
+    applied = Work(
+        openalex_id="W",
+        title="Hybrid agentic AI and multi-agent systems in smart manufacturing",
+    )
+    score, reasons = scope_score(applied)
+    assert score >= 3, "still surfaces — the reviewer decides, not the filter"
+    assert any(r.startswith("??") for r in reasons), "and is flagged as suspect"
+
+
+def test_the_prefilter_does_not_claim_to_be_the_scope_test():
+    """Recorded as a property, because the temptation to auto-merge on a
+    score grows with every run that looks clean."""
+    from ao_commons_kg.scholarly import openalex
+    assert "pre-filter" in openalex.scope_score.__doc__ or "pre-filter" in openalex.__doc__ \
+        or "pre-filter" in open(openalex.__file__).read()

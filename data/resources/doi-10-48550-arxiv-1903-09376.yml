@@ -1,0 +1,23 @@
+id: resource:doi:10-48550-arxiv-1903-09376
+resource_type: peer-reviewed-paper
+title: Multiparty Dynamics and Failure Modes for Machine Learning and Artificial Intelligence
+published_at: '2019-04-01'
+doi: 10.48550/arxiv.1903.09376
+url: https://doi.org/10.48550/arxiv.1903.09376
+taxonomy_topics:
+- '11.6'
+- '11.13'
+- '5.2'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Early and still-cited taxonomy of multiparty failure modes. Worth reconciling
+  against section 11 alongside Multi-Agent Risks.

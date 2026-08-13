@@ -141,6 +141,10 @@ def main(argv: list[str] | None = None) -> int:
         paper_record(e) if e.get("arxiv") else doi_record(e)
         for e in manifest.get("round3", [])
     ]
+    entries += [
+        paper_record(e) if e.get("arxiv") else doi_record(e)
+        for e in manifest.get("round4", [])
+    ]
 
     for payload in entries:
         payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "", False)}

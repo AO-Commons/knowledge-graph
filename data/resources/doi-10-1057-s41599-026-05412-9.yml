@@ -1,0 +1,22 @@
+id: resource:doi:10-1057-s41599-026-05412-9
+resource_type: peer-reviewed-paper
+title: Who acts when the machine decides? Intentional action and agentive responsibility in
+  AI systems
+published_at: '2026-06-01'
+doi: 10.1057/s41599-026-05412-9
+url: https://doi.org/10.1057/s41599-026-05412-9
+taxonomy_topics:
+- '1.4'
+- '12.1'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Lands on 12.1, the accountable-party problem, which is nearly empty.

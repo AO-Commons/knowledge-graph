@@ -1,0 +1,22 @@
+id: resource:doi:10-1145-3770291-3770333
+resource_type: peer-reviewed-paper
+title: An Agent Execution Control Layer for Organizational Multi-Agent Systems
+published_at: '2026-04-01'
+doi: 10.1145/3770291.3770333
+url: https://doi.org/10.1145/3770291.3770333
+taxonomy_topics:
+- '2.2'
+- '3.1'
+- '4.1'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Execution control as an architectural layer — directly 2.2 and 4.1.

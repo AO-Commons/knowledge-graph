@@ -194,6 +194,31 @@ AGAINST = (
     "wireless sensor", "uav", "warehouse robot",
 )
 
+# Domain applications: agents used as a tool for a task, rather than holding
+# authority in an organization. The dominant noise in the second live run —
+# "agentic AI in smart manufacturing", "for hydrologic modeling", "home energy
+# management", "plant phenotyping", "in recruiting". They score well because
+# they genuinely are about AI agents; they fail the scope test because nothing
+# about how you run an organization changes.
+#
+# These FLAG rather than penalize. A paper about agents running a
+# manufacturing *business* would be in scope, and a keyword cannot tell it
+# from one that uses agents to schedule maintenance. Subtracting would hide
+# the first to suppress the second; flagging shows the reviewer why the
+# candidate is suspicious and lets them decide.
+#
+# This is the ceiling of keyword scoring, and worth stating plainly: the
+# scope test asks whether agents hold organizational authority, which is a
+# semantic judgement. The pre-filter ranks; it does not decide.
+DOMAIN = (
+    "smart manufacturing", "preventive maintenance", "healthcare", "clinical",
+    "hydrologic", "energy management", "phenotyping", "agriculture", "crop",
+    "recruiting", "recruitment", "construction", "retail", "supply chain optimization",
+    "medical imaging", "drug discovery", "materials discovery", "education",
+    "e-learning", "tutoring", "customer service", "network intrusion",
+    "sandbox for dynamic behavioral analysis", "classification pipeline",
+)
+
 
 AGENT = re.compile(r"\bagents?\b")
 ORGANIZATIONAL = re.compile(
@@ -236,6 +261,9 @@ def scope_score(work: Work) -> tuple[int, list[str]]:
         if term in haystack:
             score -= 4
             reasons.append(f"-4 {term}")
+    for term in DOMAIN:
+        if term in haystack:
+            reasons.append(f"?? domain application: {term}")
 
     return score, reasons
 

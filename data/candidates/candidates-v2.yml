@@ -1,0 +1,863 @@
+generated_from: 10
+min_score: 3
+candidates:
+- openalex_id: W7133236347
+  title: 'TRiSM for Agentic AI: A review of Trust, Risk, and Security Management in LLM-based Agentic
+    Multi-Agent Systems'
+  doi: 10.1016/j.aiopen.2026.02.006
+  date: '2026-01-01'
+  cited_by_count: 35
+  score: 17
+  found_via: cites W4413427262
+  authors:
+  - Shaina Raza
+  - Ranjan Sapkota
+  - Manoj Karkee
+  - Christos Emmanouilidis
+  institutions:
+  - Cornell University
+  - University of Groningen
+  - Vector Institute
+  reasons:
+  - +3 agent × governance
+  - +3 multi-agent
+  - +3 agentic ai
+  - +3 ai agent
+  - +1 governance
+  - +1 accountability
+  - +1 coordination
+  - +1 failure
+  - +1 autonomy
+- openalex_id: W7122443558
+  title: 'From the logic of coordination to goal-directed reasoning: the agentic turn in artificial intelligence'
+  doi: 10.3389/frai.2025.1728738
+  date: '2026-01-12'
+  cited_by_count: 2
+  score: 15
+  found_via: cites W4413427262
+  authors:
+  - Tsehaye Haidemariam
+  institutions:
+  - BI Norwegian Business School
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +3 agentic ai
+  - +3 autonomous agent
+  - +3 agent-based
+  - +1 delegation
+  - +1 coordination
+  - +1 institution
+  - +1 evaluation
+  - -4 gene
+- openalex_id: W7130708008
+  title: 'Agentic AI for autonomous preventive maintenance policy governance: a multi-agent framework
+    for dynamic industrial environments'
+  doi: 10.1016/j.eswa.2026.131767
+  date: '2026-02-20'
+  cited_by_count: 2
+  score: 13
+  found_via: cites W4413427262
+  authors:
+  - Adolfo Crespo Márquez
+  - Juan F. Gómez Fernández
+  institutions:
+  - Universidad de Sevilla
+  reasons:
+  - +3 agent × governance
+  - +3 multi-agent
+  - +3 agentic ai
+  - +1 governance
+  - +1 evaluation
+  - +1 failure
+  - +1 audit
+- openalex_id: W7128165235
+  title: Multi-agent AI
+  doi: 10.1007/s12525-025-00862-z
+  date: '2026-02-06'
+  cited_by_count: 12
+  score: 11
+  found_via: cites W4413427262
+  authors:
+  - Simeon Allmendinger
+  - Lukas Bonenberger
+  - Kathrin Endres
+  - Dominik Fetzer
+  - Henner Gimpel
+  - Niklas Kühl
+  institutions:
+  - Fraunhofer Institute for Applied Information Technology
+  - IQM (Germany)
+  - University of Bayreuth
+  - University of Hohenheim
+  reasons:
+  - +3 agent × organizational
+  - +3 multi-agent
+  - +3 agent-based
+  - +1 accountability
+  - +1 coordination
+- openalex_id: W7164649468
+  title: Who acts when the machine decides? Intentional action and agentic AI
+  doi: 10.1080/0020174x.2026.2685308
+  date: '2026-06-13'
+  cited_by_count: 0
+  score: 11
+  found_via: cites W4415111841
+  authors:
+  - J. Adam Carter
+  institutions:
+  - University of Glasgow
+  reasons:
+  - +3 agent × delegation
+  - +3 agentic ai
+  - +3 ai agent
+  - +1 delegation
+  - +1 governance
+- openalex_id: W2954016141
+  title: Collaboration of AI Agents via Cooperative Multi-Agent Deep Reinforcement Learning
+  doi: 10.48550/arxiv.1907.00327
+  date: '2019-06-30'
+  cited_by_count: 8
+  score: 9
+  found_via: cited by W4414133540
+  authors:
+  - Niranjan Balachandar
+  - Justin Dieter
+  - Govardana Sachithanandam Ramachandran
+  institutions: []
+  reasons:
+  - +3 agent × team
+  - +3 multi-agent
+  - +3 ai agent
+- openalex_id: W7150912933
+  title: Hybrid agentic AI and multi-agent systems in smart manufacturing
+  doi: 10.1016/j.jmsy.2026.04.002
+  date: '2026-04-07'
+  cited_by_count: 7
+  score: 9
+  found_via: cites W4413427262
+  authors:
+  - Mojtaba A. Farahani
+  - Irfan Khan
+  - Thorsten Wuest
+  institutions:
+  - University of South Carolina
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +3 agentic ai
+  - +1 oversight
+  - +1 coordination
+  - +1 audit
+  - +1 autonomy
+  - -4 gene
+- openalex_id: W7140217868
+  title: Ethical perspectives on AI Agents and Agentic AI
+  doi: 10.1007/s43681-026-01027-0
+  date: '2026-03-25'
+  cited_by_count: 4
+  score: 9
+  found_via: cites W4413427262
+  authors:
+  - Michael Hahn
+  - Max Tretter
+  - Peter Dabrock
+  institutions:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+  reasons:
+  - +3 agentic ai
+  - +3 ai agent
+  - +1 accountability
+  - +1 evaluation
+  - +1 autonomy
+- openalex_id: W2918981486
+  title: Multiparty Dynamics and Failure Modes for Machine Learning and Artificial Intelligence
+  doi: 10.3390/bdcc3020021
+  date: '2019-04-05'
+  cited_by_count: 44
+  score: 8
+  found_via: cited by W4414133540
+  authors:
+  - David Manheim
+  institutions: []
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 coordination
+  - +1 failure
+- openalex_id: W7131100134
+  title: Architectural Resilience in AI-Driven Decision Systems under Adversarial Conditions
+  doi: 10.1109/icaic67076.2026.11395749
+  date: '2026-02-18'
+  cited_by_count: 0
+  score: 8
+  found_via: cites W4414133540
+  authors:
+  - Viswapriyan Ragupathy
+  institutions: []
+  reasons:
+  - +3 multi-agent
+  - +3 agentic ai
+  - +1 failure
+  - +1 autonomy
+- openalex_id: W2155050349
+  title: Reflections on the Nature of Multi-Agent Coordination and Its Implications for an Agent Architecture
+  doi: 10.1023/a:1010046623013
+  date: '1998-03-01'
+  cited_by_count: 174
+  score: 7
+  found_via: cited by W4414133540
+  authors:
+  - Victor Lesser
+  institutions:
+  - University of Massachusetts Amherst
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 coordination
+- openalex_id: W2966053459
+  title: AI in Recruiting. Multi-agent Systems Architecture for Ethical and Legal Auditing
+  doi: 10.24963/ijcai.2019/903
+  date: '2019-07-28'
+  cited_by_count: 14
+  score: 7
+  found_via: cited by W4414133540
+  authors:
+  - María del Carmen Fernández Martínez
+  - Alberto Fernández
+  institutions:
+  - Universidad Rey Juan Carlos
+  reasons:
+  - +3 agent × market
+  - +3 multi-agent
+  - +1 audit
+- openalex_id: W7159965625
+  title: 'Towards trustworthy agentic AI: a comprehensive survey of safety, robustness, privacy, and system
+    security'
+  doi: 10.20935/acadai8260
+  date: '2026-04-29'
+  cited_by_count: 2
+  score: 7
+  found_via: cites W4413427262
+  authors:
+  - Jinhu Qi
+  - Muzhi Li
+  - Jiahong Liu
+  - Yuqin Shu
+  - D S F Yu
+  - Shicheng Ma
+  - Wenqian Cui
+  - Yiyang Zhao
+  institutions:
+  - Chinese University of Hong Kong
+  - Fudan University
+  - Shanghai Academy of Environmental Sciences
+  - Shanghai Academy of Social Sciences
+  reasons:
+  - +3 agentic ai
+  - +1 accountability
+  - +1 benchmark
+  - +1 evaluation
+  - +1 failure
+- openalex_id: W2901019425
+  title: Agents and Multi-agent Coordination
+  doi: 10.1007/978-981-10-8642-7_2
+  date: '2018-01-01'
+  cited_by_count: 2
+  score: 7
+  found_via: cited by W4414133540
+  authors:
+  - Pratyusha Rakshit
+  - Amit Konar
+  institutions:
+  - Jadavpur University
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 coordination
+- openalex_id: W4414464797
+  title: 'Artificial Utopia: Simulation and artificially intelligent agents for exploring Utopian and
+    democratized futures'
+  doi: 10.1016/j.futures.2025.103695
+  date: '2025-09-24'
+  cited_by_count: 1
+  score: 7
+  found_via: cites W4407806359
+  authors:
+  - Yannick Oswald
+  institutions:
+  - Institute for Sustainability
+  - Sustainability Institute
+  - University of Lausanne
+  reasons:
+  - +3 agent × economics
+  - +3 agent-based
+  - +1 institution
+- openalex_id: W7163569892
+  title: 'The Agentic AI Framework (AAIF): a policy-enforced architecture for accountable and high-performance
+    intrusion detection'
+  doi: 10.3389/frai.2026.1755696
+  date: '2026-06-04'
+  cited_by_count: 0
+  score: 7
+  found_via: cites W4414133540
+  authors:
+  - IBRAHIM ADABARA
+  - Bashir Olaniyi Sadiq
+  - Aliyu Nuhu Shuaibu
+  - Yale Ibrahim Danjuma
+  - Venkateswarlu Maninti
+  - Mutebi Joe
+  institutions:
+  - International Telecommunication Union
+  - Kampala International University
+  - Kampala International University in Tanzania
+  reasons:
+  - +3 agentic ai
+  - +1 governance
+  - +1 accountability
+  - +1 audit
+  - +1 autonomy
+- openalex_id: W7162009858
+  title: 'Agentic AI systems: A systematic survey of multi-agent architectures, cognitive foundations,
+    interaction, explainability, security, and performance evaluation'
+  doi: 10.1016/j.neucom.2026.134049
+  date: '2026-05-21'
+  cited_by_count: 0
+  score: 7
+  found_via: cites W4414133540
+  authors:
+  - Smita Khapre
+  - Melkamu Abay Mersha
+  - Zainab Olalekan
+  - Hassan Shakil
+  - Samer Iskander
+  - Asser Moustafa
+  - Jugal Kalita
+  institutions:
+  - Regent University
+  - University of Colorado Colorado Springs
+  reasons:
+  - +3 multi-agent
+  - +3 agentic ai
+  - +1 evaluation
+- openalex_id: W7125952321
+  title: 'Autonomous Agents in a Zero-Trust World: Architecting Secure, Auditable AI Workflows'
+  doi: 10.1109/itt69610.2025.11352936
+  date: '2025-11-06'
+  cited_by_count: 0
+  score: 7
+  found_via: cites W4414133540
+  authors:
+  - Shadi Nashwan
+  - Issam Jebreen
+  - Ahmad Al-Qerem
+  - Ammar Almomani
+  - Mohammed Saleh
+  - Amjad Aldweesh
+  institutions:
+  - Higher Colleges of Technology
+  - Middle East University
+  - Shaqra University
+  - Zarqa University
+  reasons:
+  - +3 agentic ai
+  - +3 autonomous agent
+  - +1 audit
+- openalex_id: W7163744952
+  title: 'AEPP-AI: AGENTIC, EXPLAINABLE, AND PRIVACY-PRESERVING AI FRAMEWORK FOR AUTONOMOUS CYBER DEFENSE
+    IN CREATIVE DIGITAL ECOSYSTEMS: A SYNTHESIS OF RECENT ADVANCES'
+  doi: 10.29121/shodhkosh.v7.i15s.2026.8420
+  date: '2026-06-06'
+  cited_by_count: 0
+  score: 7
+  found_via: cites W4414133540
+  authors:
+  - Rupa Rani
+  - Sachin Jain
+  - Harnit Saini
+  - Anuj Kumar
+  institutions:
+  - Dehradun Institute of Technology University
+  - Institute of Management Technology
+  reasons:
+  - +3 multi-agent
+  - +3 agentic ai
+  - +1 audit
+- openalex_id: W7167355651
+  title: 'AI Agent for Hydrologic Modeling: Definition, Development, and Application'
+  doi: 10.1029/2025gl119814
+  date: '2026-07-04'
+  cited_by_count: 0
+  score: 7
+  found_via: cites W4415111841
+  authors:
+  - Songkun Yan
+  - Mengye Chen
+  - Zhi Li
+  - Yixin Wen
+  - Siyu Zhu
+  - Mofan Zhang
+  - D. Liu
+  - Jie Cao
+  institutions:
+  - Institute of Arctic and Alpine Research
+  - Stanford University
+  - University of Colorado Boulder
+  - University of Florida
+  reasons:
+  - +3 agent × oversight
+  - +3 ai agent
+  - +3 human oversight
+  - +1 oversight
+  - +1 autonomy
+  - -4 gene
+- openalex_id: W2947998121
+  title: Modeling Theory of Mind in Multi-Agent Games Using Adaptive Feedback Control
+  doi: 10.48550/arxiv.1905.13225
+  date: '2019-05-29'
+  cited_by_count: 9
+  score: 6
+  found_via: cited by W4414133540
+  authors:
+  - Ismael T. Freire
+  - Xerxes D. Arsiwalla
+  - Jordi-Ysard Puigbò
+  - Paul F. M. J. Verschure
+  institutions: []
+  reasons:
+  - +3 multi-agent
+  - +3 autonomous agent
+- openalex_id: W1996995792
+  title: Layered security architecture for threat management using multi-agent system
+  doi: 10.1145/2020976.2020984
+  date: '2011-09-30'
+  cited_by_count: 8
+  score: 6
+  found_via: cited by W4414133540
+  authors:
+  - Vandana Gandotra
+  - Archana Singhal
+  - Punam Bedi
+  institutions:
+  - University of Delhi
+  reasons:
+  - +3 multi-agent
+  - +3 autonomous agent
+- openalex_id: W7128402581
+  title: 'Multi-Agent Ethnography: Post-Conventional Anthropological Practice Through Human−AI Collaboration'
+  doi: 10.1080/00664677.2026.2614501
+  date: '2026-02-08'
+  cited_by_count: 5
+  score: 6
+  found_via: cites W4413427262
+  authors:
+  - Matt Artz
+  institutions:
+  - Azimuth (United States)
+  reasons:
+  - +3 agent × team
+  - +3 multi-agent
+  - +3 ai agent
+  - +1 coordination
+  - -4 gene
+- openalex_id: W7133305395
+  title: Evaluating routing stability and coordination in swarm-based multi-agent task-oriented dialogue
+    systems
+  doi: 10.1038/s41598-026-42158-y
+  date: '2026-03-03'
+  cited_by_count: 4
+  score: 6
+  found_via: cites W4413427262
+  authors:
+  - Abuzar Khan
+  - Fahad Masood
+  - Abid Iqbal
+  - Ahmad Junaid
+  - Saad Arif
+  - Mohammed Al-Naeem
+  - Ghassan Husnain
+  - Ali Saeed Alzahrani
+  institutions:
+  - CECOS University
+  - King Faisal University
+  reasons:
+  - +3 agent × coordination
+  - +3 multi-agent
+  - +1 delegation
+  - +1 coordination
+  - +1 evaluation
+  - +1 failure
+  - -4 gene
+- openalex_id: W7167571057
+  title: An Agent Execution Control Layer for Organizational Multi-Agent Systems
+  doi: 10.1109/icietsd68684.2026.11584699
+  date: '2026-04-09'
+  cited_by_count: 0
+  score: 6
+  found_via: cites W4414133540
+  authors:
+  - Soham Dalal
+  - Radha Krishna Rambola
+  institutions:
+  - Narsee Monjee Institute of Management Studies
+  reasons:
+  - +3 agent × organizational
+  - +3 multi-agent
+- openalex_id: W4304195432
+  title: 'Distributing Accountability, Not Capability: Phase Separation and the LLM Workflow Quadrant
+    in Autonomous AI Agent Architectures'
+  doi: 10.48550/arxiv.2210.03629
+  date: '2022-10-06'
+  cited_by_count: 574
+  score: 5
+  found_via: cited by W7164841116
+  authors:
+  - Yao, Shunyu
+  - Jeffrey Zhao
+  - Dian Yu
+  - Nan Du
+  - Izhak Shafran
+  - Karthik Narasimhan
+  - Yuan Cao
+  institutions:
+  - Thapar Institute of Engineering & Technology
+  reasons:
+  - +3 ai agent
+  - +1 accountability
+  - +1 failure
+- openalex_id: W16082858
+  title: Autonomous artificial intelligent agents
+  doi: null
+  date: '2003-01-01'
+  cited_by_count: 24
+  score: 5
+  found_via: cited by W4413427262
+  authors:
+  - Vladimir Florian
+  institutions: []
+  reasons:
+  - +3 agent × coordination
+  - +3 autonomous agent
+  - +1 coordination
+  - +1 evaluation
+  - +1 autonomy
+  - -4 gene
+- openalex_id: W7133344656
+  title: 'Agentic AI home energy management system: A large language model framework for residential load
+    scheduling'
+  doi: 10.1016/j.rineng.2026.109857
+  date: '2026-03-01'
+  cited_by_count: 5
+  score: 5
+  found_via: cites W4413427262
+  authors:
+  - Reda El Makroum
+  - Sebastian Zwickl-Bernhard
+  - Lukas Kranzl
+  institutions: []
+  reasons:
+  - +3 agent × coordination
+  - +3 agentic ai
+  - +1 coordination
+  - +1 benchmark
+  - +1 evaluation
+  - -4 gene
+- openalex_id: W7126037005
+  title: An LLM-Powered Agent for Real-Time Analysis of the Vietnamese IT Job Market
+  doi: 10.1109/acompa69200.2025.00011
+  date: '2025-11-27'
+  cited_by_count: 2
+  score: 5
+  found_via: cites W4413427262
+  authors:
+  - Minh-Thuan Nguyen
+  - Thien Vo-Thanh
+  - Thai-Duy Dinh
+  - Xuan-Hieu Phan
+  - Tan-Ha Mai
+  - Lam-Son Lê
+  institutions:
+  - FPT University
+  - Foreign Trade University
+  - National Taiwan University
+  - Vietnamese-German University
+  reasons:
+  - +3 agent × market
+  - +3 agentic ai
+  - +3 ai agent
+  - -4 gene
+- openalex_id: W7165637830
+  title: 'Governance Challenges and Ethical Risks of Agentic AI in Education: Accountability, Hallucination,
+    Bias Amplification, and Control Mechanisms'
+  doi: 10.1109/issatk69667.2026.11566843
+  date: '2026-04-25'
+  cited_by_count: 0
+  score: 5
+  found_via: cites W4414133540
+  authors:
+  - Marwa Khairallah
+  institutions:
+  - University of Sfax
+  reasons:
+  - +3 agentic ai
+  - +1 governance
+  - +1 accountability
+- openalex_id: W7125926542
+  title: 'Exploring Agentic AI in Healthcare: A Study on Its Working Mechanism'
+  doi: 10.3389/fmed.2025.1753443
+  date: '2026-01-28'
+  cited_by_count: 15
+  score: 4
+  found_via: cites W4413427262
+  authors:
+  - Parvathaneni Naga Srinivasu
+  - Gorli L. Aruna Kumari
+  - Shakeel Ahmed
+  - Abdulaziz Alhumam
+  institutions:
+  - Amrita Vishwa Vidyapeetham
+  - GITAM University
+  - King Faisal University
+  - Taylor's University
+  reasons:
+  - +3 agent × coordination
+  - +3 agentic ai
+  - +1 governance
+  - +1 coordination
+  - -4 gene
+- openalex_id: W2911264826
+  title: Agent-based Vs Agent-less Sandbox for Dynamic Behavioral Analysis
+  doi: 10.1109/giis.2018.8635598
+  date: '2018-10-01'
+  cited_by_count: 12
+  score: 4
+  found_via: cited by W7164841116
+  authors:
+  - Muhammad Ali
+  - Stavros Shiaeles
+  - Maria Papadaki
+  - Bogdan V Ghita
+  institutions:
+  - University of Plymouth
+  reasons:
+  - +3 agent-based
+  - +1 benchmark
+- openalex_id: W2952190653
+  title: Inclusive AI in Recruiting. Multi-agent Systems Architecture for Ethical and Legal Auditing
+  doi: 10.1007/978-3-030-24299-2_30
+  date: '2019-01-01'
+  cited_by_count: 8
+  score: 4
+  found_via: cited by W4414133540
+  authors:
+  - Carmen Fernández
+  - Alberto Fernández
+  institutions:
+  - Universidad Rey Juan Carlos
+  reasons:
+  - +3 multi-agent
+  - +1 audit
+- openalex_id: W7148630335
+  title: A conversational multi-agent AI system for automated plant phenotyping
+  doi: 10.1038/s41467-026-71090-y
+  date: '2026-04-03'
+  cited_by_count: 3
+  score: 4
+  found_via: cites W4413427262
+  authors:
+  - Feng Chen
+  - Ilias Stogiannidis
+  - Andrew Wood
+  - Danilo Bueno
+  - Dominic Williams
+  - Fraser Macfarlane
+  - Bruce Grieve
+  - Darren M. Wells
+  institutions:
+  - Carnegie Department of Plant Biology
+  - Dignity Health
+  - James Hutton Institute
+  - Rothamsted Research
+  reasons:
+  - +3 multi-agent
+  - +1 evaluation
+- openalex_id: W7138914019
+  title: 'Toward Sustainable Agentic <scp>AI</scp> Systems: A Survey of Architectures and Methodologies'
+  doi: 10.1002/sd.70942
+  date: '2026-03-19'
+  cited_by_count: 0
+  score: 4
+  found_via: cites W4414133540
+  authors:
+  - Yubeen Lee
+  - Eunil Park
+  institutions:
+  - Sungkyunkwan University
+  - Universitat Jaume I
+  reasons:
+  - +3 agentic ai
+  - +1 autonomy
+- openalex_id: W7161643304
+  title: 'Trusted but not trustworthy: a conceptual analysis of AI agent risks in the metaverse and EU
+    policy responses'
+  doi: 10.3389/frvir.2026.1813331
+  date: '2026-05-19'
+  cited_by_count: 0
+  score: 4
+  found_via: cites W7142127368
+  authors:
+  - Anselm Küsters
+  institutions:
+  - Max Planck Institute for Legal History and Legal Theory
+  reasons:
+  - +3 agent × economic
+  - +3 ai agent
+  - +1 oversight
+  - +1 collusion
+  - -4 gene
+- openalex_id: W1964839117
+  title: 'Multi-Agent Systems: An Introduction to Distributed Artificial Intelligence'
+  doi: null
+  date: '1999-02-01'
+  cited_by_count: 2647
+  score: 3
+  found_via: cited by W4413427262
+  authors:
+  - Jacques Ferber
+  institutions: []
+  reasons:
+  - +3 multi-agent
+- openalex_id: W2145467192
+  title: Modelling social action for AI agents
+  doi: 10.1016/s0004-3702(98)00056-3
+  date: '1998-08-01'
+  cited_by_count: 540
+  score: 3
+  found_via: cited by W4413427262
+  authors:
+  - Cristiano Castelfranchi
+  institutions:
+  - National Research Council
+  reasons:
+  - +3 ai agent
+- openalex_id: W2052642746
+  title: 'Industrial deployment of multi-agent technologies: review and selected case studies'
+  doi: 10.1007/s10458-008-9050-0
+  date: '2008-05-12'
+  cited_by_count: 241
+  score: 3
+  found_via: cited by W4414133540
+  authors:
+  - Michal Pěchouček
+  - Vladimı́r Mařı́k
+  institutions:
+  - Czech Technical University in Prague
+  reasons:
+  - +3 multi-agent
+- openalex_id: W2022374372
+  title: 'Multi-agent systems: which research for which applications'
+  doi: 10.1016/s0921-8890(98)00085-2
+  date: '1999-04-01'
+  cited_by_count: 139
+  score: 3
+  found_via: cited by W4413427262
+  authors:
+  - Eugénio Oliveira
+  - Klaus Fischer
+  - Olga Štěpánková
+  institutions:
+  - Czech Technical University in Prague
+  - German Research Centre for Artificial Intelligence
+  - Universidade do Porto
+  reasons:
+  - +3 multi-agent
+- openalex_id: W1971610652
+  title: Multi-agent systems in construction–state of the art and prospects
+  doi: 10.1016/j.autcon.2003.12.002
+  date: '2004-02-28'
+  cited_by_count: 108
+  score: 3
+  found_via: cited by W4413427262
+  authors:
+  - Z. Ren
+  - Dilly Anumba
+  institutions:
+  - Loughborough University
+  reasons:
+  - +3 multi-agent
+- openalex_id: W71768770
+  title: Learning in BDI Multi-agent Systems
+  doi: 10.1007/978-3-540-30200-1_12
+  date: '2004-01-01'
+  cited_by_count: 93
+  score: 3
+  found_via: cited by W7164841116
+  authors:
+  - Alejandro Guerra‐Hernández
+  - Amal El Fallah-Seghrouchni
+  - Henry Soldano
+  institutions:
+  - Centre National de la Recherche Scientifique
+  - LIP6
+  - Laboratoire d'Informatique de Paris-Nord
+  - Sorbonne Université
+  reasons:
+  - +3 multi-agent
+- openalex_id: W7128315298
+  title: 'Agentic AI With Orchestrator-Agent Trust: A Modular Visual Classification Framework With Trust-Aware
+    Orchestration and RAG-Based Reasoning'
+  doi: 10.1109/access.2026.3662282
+  date: '2026-01-01'
+  cited_by_count: 6
+  score: 3
+  found_via: cites W4413427262
+  authors:
+  - Konstantinos I. Roumeliotis
+  - Ranjan Kumar Sapkota
+  - Manoj Karkee
+  - Nikolaos D. Tselikas
+  institutions:
+  - Cornell University
+  - University of Peloponnese
+  reasons:
+  - +3 agentic ai
+- openalex_id: W4411077654
+  title: Capturing Argument in Agent-Based Models
+  doi: 10.1007/s11245-025-10215-2
+  date: '2025-06-06'
+  cited_by_count: 2
+  score: 3
+  found_via: cites W4389471395
+  authors:
+  - Leon Assaad
+  - Rafael Fuchs
+  - Kirsty Phillips
+  - Klee Schöppl
+  - Ulrike Hahn
+  institutions:
+  - Bernstein Center for Computational Neuroscience Munich
+  - Birkbeck, University of London
+  - Ludwig-Maximilians-Universität München
+  - Munich School of Philosophy
+  reasons:
+  - +3 agent-based
+- openalex_id: W4404978912
+  title: Enhancing spatially-disaggregated simulations with large language models
+  doi: 10.1145/3686592.3686595
+  date: '2024-06-23'
+  cited_by_count: 1
+  score: 3
+  found_via: cites W4389471395
+  authors:
+  - Ilya Zaslavsky
+  - Jiaxi Lei
+  - Rishi Graham
+  - Mark S. Handcock
+  - Eliah Aronoff‐Spencer
+  institutions:
+  - San Diego Supercomputer Center
+  - University of California San Diego
+  - University of California, Los Angeles
+  reasons:
+  - +3 agent-based

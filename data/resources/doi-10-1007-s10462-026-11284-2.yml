@@ -1,0 +1,21 @@
+id: resource:doi:10-1007-s10462-026-11284-2
+resource_type: peer-reviewed-paper
+title: 'Towards trustworthy agentic AI: a comprehensive survey of safety, alignment and governance'
+published_at: '2026-04-01'
+doi: 10.1007/s10462-026-11284-2
+url: https://doi.org/10.1007/s10462-026-11284-2
+taxonomy_topics:
+- '4.1'
+- '9.4'
+- '14.2'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'

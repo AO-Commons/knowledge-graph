@@ -1,0 +1,21 @@
+id: resource:doi:10-1111-1468-5914-12489
+resource_type: peer-reviewed-paper
+title: 'Trusted but not trustworthy: a conceptual analysis of AI agent reliance'
+published_at: '2026-05-01'
+doi: 10.1111/1468-5914.12489
+url: https://doi.org/10.1111/1468-5914.12489
+taxonomy_topics:
+- '5.3'
+- '12.1'
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+review_status: unreviewed
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
+  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
+  and not reviewed.
+ingested_at: '2026-08-11'
+description: Max Planck Institute for Legal work; pairs with the reputation-grounding papers.
