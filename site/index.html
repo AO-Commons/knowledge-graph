@@ -5,66 +5,55 @@
 <meta name="description" content="Collectively tag research on agentic organizations against the AO Commons taxonomy.">
 
 <style>
-  /* Light palette on bare :root, so the un-stamped "system" state resolves. */
+  /* Light is the default and is stamped explicitly, so the page does not
+     change under someone whose laptop is set to dark. The toggle writes the
+     stamp; prefers-color-scheme only supplies the first guess for people who
+     have never chosen. */
   :root {
-    --ground:  #f6f7f9;
-    --surface: #ffffff;
-    --sunk:    #eef1f5;
-    --ink:     #131820;
-    --muted:   #5a6472;
-    --faint:   #8892a0;
-    --rule:    #dce1e8;
-    --accent:  #2f6f5e;
-    --accent-soft: #e4efea;
-    --accent-ink:  #1d5546;
-    --on-accent:   #ffffff;
-    --signal:  #a9501e;
-    --signal-soft: #f7ece4;
-    --shadow: 0 1px 2px rgba(19, 24, 32, .06), 0 8px 24px rgba(19, 24, 32, .05);
+    --paper:   #fbfbf8;
+    --card:    #ffffff;
+    --sunk:    #f1f1ec;
+    --ink:     #16191c;
+    --muted:   #55595e;
+    --faint:   #8b8f93;
+    --rule:    #d8d8d0;
+    --rule-hard: #b9b9ae;
+    --accent:  #0b5e52;
+    --accent-soft: #dfece9;
+    --on-accent: #ffffff;
+    --mark:    #ffe89c;
+    --mark-edge: #e0b93a;
+    --signal:  #9c3a10;
+    --signal-soft: #f6e7de;
+  }
+  :root[data-theme="dark"] {
+    --paper:   #15171a;
+    --card:    #1c1f23;
+    --sunk:    #111316;
+    --ink:     #e9e9e3;
+    --muted:   #9aa0a6;
+    --faint:   #6f757b;
+    --rule:    #2b2f35;
+    --rule-hard: #3d434a;
+    --accent:  #4fb6a0;
+    --accent-soft: #14332d;
+    --on-accent: #08110e;
+    --mark:    #4a3f14;
+    --mark-edge: #8a7325;
+    --signal:  #d9873f;
+    --signal-soft: #2e1e12;
+  }
 
+  :root {
     --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --serif: ui-serif, "Iowan Old Style", Georgia, Cambria, serif;
     --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground:  #0d1117;
-      --surface: #151b23;
-      --sunk:    #10151c;
-      --ink:     #e4e9f0;
-      --muted:   #8b95a5;
-      --faint:   #6b7686;
-      --rule:    #232b36;
-      --accent:  #57a48c;
-      --accent-soft: #16302a;
-      --accent-ink:  #7cc0aa;
-      --on-accent:   #08110e;
-      --signal:  #d0793c;
-      --signal-soft: #2c1d13;
-      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground:  #0d1117;
-    --surface: #151b23;
-    --sunk:    #10151c;
-    --ink:     #e4e9f0;
-    --muted:   #8b95a5;
-    --faint:   #6b7686;
-    --rule:    #232b36;
-    --accent:  #57a48c;
-    --accent-soft: #16302a;
-    --accent-ink:  #7cc0aa;
-    --on-accent:   #08110e;
-    --signal:  #d0793c;
-    --signal-soft: #2c1d13;
-    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
   }
 
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    background: var(--ground);
+    background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
     font-size: 15px;
@@ -72,36 +61,42 @@
     -webkit-font-smoothing: antialiased;
   }
   button { font: inherit; color: inherit; cursor: pointer; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 0; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
   /* ---------- shell ---------- */
   .masthead {
     display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
     padding: 16px 22px; border-bottom: 1px solid var(--rule);
-    background: var(--surface); position: sticky; top: 0; z-index: 20;
+    background: var(--card); position: sticky; top: 0; z-index: 20;
   }
   .wordmark { font-size: 15px; font-weight: 620; letter-spacing: -.01em; }
   .wordmark span { color: var(--muted); font-weight: 400; }
   .tagline { color: var(--muted); font-size: 13px; flex: 1; min-width: 200px; }
 
-  .modes { display: flex; gap: 2px; background: var(--sunk); padding: 3px; border-radius: 7px; }
+  /* Ruled tabs rather than a segmented pill. The pill is the shape every app
+     reaches for, and with the shadows gone it had nothing left to distinguish
+     the active one. */
+  .modes { display: flex; gap: 20px; align-self: stretch; align-items: flex-end; }
   .modes button {
-    border: 0; background: transparent; color: var(--muted);
-    padding: 5px 13px; border-radius: 5px; font-size: 13px; font-weight: 500;
-    transition: background .12s, color .12s;
+    border: 0; border-bottom: 2px solid transparent; background: transparent;
+    color: var(--muted); padding: 4px 1px 6px; font-size: 13px; font-weight: 500;
+    transition: color .1s, border-color .1s;
   }
-  .modes button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+  .modes button:hover { color: var(--ink); }
+  .modes button[aria-pressed="true"] {
+    color: var(--ink); border-bottom-color: var(--accent); font-weight: 620;
+  }
 
   .search { position: relative; flex: 0 1 260px; }
   .search input {
-    font: inherit; width: 100%; padding: 6px 11px; border-radius: 7px;
-    border: 1px solid var(--rule); background: var(--ground); color: var(--ink); font-size: 13px;
+    font: inherit; width: 100%; padding: 6px 11px; border-radius: 2px;
+    border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-size: 13px;
   }
   .search-out {
     position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 40;
-    background: var(--surface); border: 1px solid var(--rule); border-radius: 9px;
-    box-shadow: var(--shadow); max-height: 340px; overflow-y: auto; padding: 5px;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
+     max-height: 340px; overflow-y: auto; padding: 5px;
   }
   .search-out:empty { display: none; }
   .search-out .head {
@@ -112,7 +107,7 @@
   .branch-chip {
     display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px;
     background: var(--accent-soft); color: var(--accent-ink);
-    border: 1px solid transparent; padding: 5px 10px; border-radius: 999px; margin-bottom: 14px;
+    border: 1px solid transparent; padding: 5px 10px; border-radius: 2px; margin-bottom: 14px;
   }
   .branch-chip button { border: 0; background: transparent; color: inherit; padding: 0 2px; font-size: 14px; }
 
@@ -129,10 +124,17 @@
   .ledger-wrap { overflow-x: auto; }
   .ledger .none { color: var(--signal); }
 
+  .theme {
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--muted);
+    padding: 5px 10px; border-radius: 2px; font-family: var(--mono);
+    font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .theme:hover { color: var(--ink); border-color: var(--accent); }
+
   .who { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
   .who input {
-    font: inherit; width: 108px; padding: 5px 9px; border-radius: 6px;
-    border: 1px solid var(--rule); background: var(--ground); color: var(--ink);
+    font: inherit; width: 108px; padding: 5px 9px; border-radius: 2px;
+    border: 1px solid var(--rule); background: var(--paper); color: var(--ink);
   }
 
   main { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; align-items: start; }
@@ -140,14 +142,14 @@
 
   /* ---------- the tree ---------- */
   .tree-pane {
-    border-right: 1px solid var(--rule); background: var(--surface);
+    border-right: 1px solid var(--rule); background: var(--card);
     height: calc(100vh - 61px); overflow-y: auto; position: sticky; top: 61px;
   }
   @media (max-width: 900px) { .tree-pane { height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--rule); } }
 
   .tree-head {
     padding: 15px 20px 11px; display: flex; align-items: baseline; justify-content: space-between;
-    gap: 10px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--surface);
+    gap: 10px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--card);
   }
   .tree-head h2 { margin: 0; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
   .filled { font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -203,17 +205,36 @@
   .abstract.none { font-family: var(--sans); font-size: 14px; color: var(--signal); border-left-color: var(--signal); }
 
   .section-label {
-    font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
-    color: var(--faint); font-weight: 600; margin: 0 0 10px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint); font-weight: 500; margin: 0 0 10px;
   }
+
+  /* The one part of the page that wants something from you. Marked the way
+     you would mark a paper form: a highlighter stripe down the edge and a
+     tinted ground, so where to act is obvious before anything is read. */
+  .ask {
+    border: 1px solid var(--rule-hard); border-left: 4px solid var(--mark-edge);
+    background: var(--card); padding: 16px 18px 18px; margin: 0 0 20px;
+  }
+  .ask > .prompt {
+    display: flex; align-items: baseline; gap: 9px; margin: 0 0 13px;
+  }
+  .ask > .prompt strong { font-size: 15px; font-weight: 620; }
+  .ask > .prompt .sub { color: var(--muted); font-size: 13px; }
+  .ask .step {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink); background: var(--mark);
+    padding: 3px 7px; white-space: nowrap;
+  }
+  .marked { background: var(--mark); padding: 0 3px; }
   .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
   .chip {
     display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%;
-    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
-    padding: 7px 12px; border-radius: 999px; font-size: 13px;
-    transition: border-color .12s, background .12s;
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--ink);
+    padding: 7px 11px; border-radius: 2px; font-size: 13px;
+    transition: border-color .1s, background .1s;
   }
-  .chip:hover { border-color: var(--accent); }
+  .chip:hover { border-color: var(--accent); background: var(--accent-soft); }
   .chip .c { font-family: var(--mono); font-size: 11.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
   .chip .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
@@ -222,24 +243,24 @@
 
   .finder { position: relative; margin-bottom: 20px; }
   .finder input {
-    font: inherit; width: 100%; padding: 10px 13px; border-radius: 8px;
-    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+    font: inherit; width: 100%; padding: 10px 13px; border-radius: 2px;
+    border: 1px solid var(--rule); background: var(--card); color: var(--ink);
   }
   .finder input::placeholder { color: var(--faint); }
   .results { margin-top: 7px; display: flex; flex-direction: column; gap: 2px; max-height: 240px; overflow-y: auto; }
   .result {
     display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline;
-    border: 0; background: transparent; text-align: left; padding: 7px 10px; border-radius: 6px;
+    border: 0; background: transparent; text-align: left; padding: 7px 10px; border-radius: 2px;
   }
   .result:hover { background: var(--sunk); }
   .result .trail { display: block; font-size: 11.5px; color: var(--faint); }
 
   .actions { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; padding-top: 6px; border-top: 1px solid var(--rule); }
   .btn {
-    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
-    padding: 9px 15px; border-radius: 8px; font-size: 13.5px; font-weight: 500;
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--ink);
+    padding: 9px 16px; border-radius: 2px; font-size: 13.5px; font-weight: 500;
   }
-  .btn:hover { border-color: var(--accent); }
+  .btn:hover { border-color: var(--accent); background: var(--accent-soft); }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
   .btn.primary:hover { filter: brightness(1.07); }
   .btn:disabled { opacity: .45; cursor: not-allowed; }
@@ -256,14 +277,14 @@
   .empty strong { color: var(--signal); }
 
   .panel {
-    background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
     padding: 18px 20px; margin-bottom: 22px;
   }
   .panel h3 { margin: 0 0 8px; font-size: 15px; }
   .panel p { margin: 0 0 10px; color: var(--muted); font-size: 13.5px; max-width: 62ch; }
   textarea {
     font-family: var(--mono); font-size: 12px; width: 100%; min-height: 190px;
-    border: 1px solid var(--rule); border-radius: 8px; padding: 12px;
+    border: 1px solid var(--rule); border-radius: 2px; padding: 12px;
     background: var(--sunk); color: var(--ink); resize: vertical;
   }
   .done { color: var(--accent); font-size: 13px; }
@@ -271,7 +292,7 @@
 
 <header class="masthead">
   <div class="wordmark">AO&nbsp;Commons <span>· file the library</span></div>
-  <div class="tagline">Tag research against the taxonomy. Every branch you file lights up.</div>
+  <div class="tagline">Read a paper, pick the topics it belongs under, file it. The branch you choose lights up.</div>
   <div class="meter" title="reviewed"><i id="meter"></i></div>
   <div class="search">
     <input id="q" type="search" placeholder="Search topics, authors, titles…" autocomplete="off" aria-label="Search">
@@ -282,6 +303,7 @@
     <button id="mode-explore" aria-pressed="false">Explore</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
   </div>
+  <button class="theme" id="theme" aria-label="Switch between light and dark">Dark</button>
   <label class="who">Filed by <input id="who" placeholder="your name" autocomplete="off"></label>
 </header>
 
@@ -303,6 +325,16 @@
   const DATA = JSON.parse(document.getElementById("graph").textContent);
   const TOPICS = new Map(DATA.topics.map(t => [t.code, t]));
   const KEY = "aocommons.filing.v1";
+
+  const THEME_KEY = "aocommons.theme";
+  function applyTheme(mode) {
+    document.documentElement.setAttribute("data-theme", mode);
+    const button = document.getElementById("theme");
+    if (button) button.textContent = mode === "dark" ? "Light" : "Dark";
+    try { localStorage.setItem(THEME_KEY, mode); } catch (e) { /* private browsing */ }
+  }
+  let theme = "light";
+  try { theme = localStorage.getItem(THEME_KEY) || "light"; } catch (e) { /* default holds */ }
 
   const state = {
     mode: "review",
@@ -497,9 +529,16 @@
     if (state.focusTopic) stage.append(branchChip());
     stage.append(kicker, title, byline, abstract);
 
-    // Suggestions, plus anything already picked that is not among them.
+    // Everything that wants a decision lives in one marked block, so a
+    // contributor can see where to act without reading first.
+    const ask = el("div", { className: "ask" });
+    ask.append(el("div", { className: "prompt" }, [
+      el("span", { className: "step" }, "your call"),
+      el("strong", {}, "Which topics does this belong under?"),
+      el("span", { className: "sub" }, "Pick every one that applies — most papers sit under two or three."),
+    ]));
+
     const shown = [...new Set([...record.suggested, ...state.picked])];
-    stage.append(el("p", { className: "section-label" }, "Which topics does this belong under?"));
     const chips = el("div", { className: "chips" });
     shown.forEach(code => {
       const topic = TOPICS.get(code);
@@ -514,7 +553,7 @@
       });
       chips.append(chip);
     });
-    stage.append(chips);
+    ask.append(chips);
 
     // Free search over all 567.
     const finder = el("div", { className: "finder" });
@@ -548,7 +587,7 @@
         });
     });
     finder.append(input, results);
-    stage.append(finder);
+    ask.append(finder);
 
     const file = el("button", { className: "btn primary" }, `File under ${state.picked.size || "…"}`);
     file.disabled = state.picked.size === 0;
@@ -564,9 +603,10 @@
       state.picked.clear(); renderReview(); renderTree();
     });
 
-    stage.append(el("div", { className: "actions" }, [
+    ask.append(el("div", { className: "actions" }, [
       file, none, skip, el("span", { className: "hint" }, `${reviewed()} filed by you`),
     ]));
+    stage.append(ask);
     stage.append(ledger());
   }
 
@@ -881,6 +921,12 @@
   const who = document.getElementById("who");
   who.value = state.who;
   who.addEventListener("input", () => { state.who = who.value.trim(); save(); });
+
+  applyTheme(theme);
+  document.getElementById("theme").addEventListener("click", () => {
+    theme = theme === "dark" ? "light" : "dark";
+    applyTheme(theme);
+  });
 
   DATA.topics.filter(t => t.depth === 0).forEach(t => state.open.add(t.code));
   renderTree(); renderStage();
