@@ -13,6 +13,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from .claims import claim_edges, load_claims
 from .export import write_release
 from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
@@ -430,16 +431,24 @@ def cmd_build(args) -> int:
         for resource_id, bad in sorted(orphaned.items()):
             print(f"warning: {resource_id} tagged to unknown topics {bad}", file=sys.stderr)
 
+    # Claims are nodes of their own. Folding them into the resource that makes
+    # them would put them back inside the container they exist to be
+    # addressable outside of.
+    claims = load_claims()
+
     out = write_release(
         args.out,
         version=args.version,
         topics=topics,
         resources=resources,
+        claims=claims,
         relationships=(_parent_edges(topics) + tagged_edges(resources, codes)
-                       + _scholarly_edges(resources)),
+                       + _scholarly_edges(resources)
+                       + claim_edges(claims, topic_codes=codes)),
         built_at=args.built_at,
     )
-    print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources)")
+    print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
+          f"{len(claims)} claims)")
     for path in sorted(out.iterdir()):
         print(f"  {path.name:<22} {path.stat().st_size:>9,} bytes")
     return 0

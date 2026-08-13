@@ -19,8 +19,11 @@ from merge_filing import (  # noqa: E402
     FilingError,
     extract,
     merge,
+    merge_claims,
     summarize,
+    summarize_claims,
     validate,
+    validate_claims,
 )
 
 KNOWN_RECORDS = {"resource:arxiv:2502.14143", "resource:tool:paperclip"}
@@ -208,3 +211,83 @@ class TestJudgements:
         assert "Nothing in the taxonomy fitted" in text
         assert "out of scope" in text.lower()
         assert "execution control" in text
+
+
+KNOWN_CLAIMS = {"claim:arxiv:2502.14143:1", "claim:arxiv:2502.14143:2"}
+
+BOTH = """```yaml
+records:
+  resource:arxiv:2502.14143:
+    topics: ["11.1"]
+claims:
+  claim:arxiv:2502.14143:1:
+    verdict: accurate
+  claim:arxiv:2502.14143:2:
+    verdict: overstated
+    note: the source says "in some runs", the paraphrase says "reliably"
+```
+"""
+
+
+class TestBothJudgements:
+    """One reviewer, one sitting, two judgements. The expensive part is reading
+    the paper, and it should be paid once — but the two land in different files
+    because they measure different things."""
+
+    def test_a_filing_can_carry_both(self):
+        payload = extract(BOTH)
+        assert "resource:arxiv:2502.14143" in payload["records"]
+        assert "claim:arxiv:2502.14143:1" in payload["claims"]
+
+    def test_claim_verdicts_are_validated_against_the_corpus(self):
+        cleaned = validate_claims(extract(BOTH), known_claims=KNOWN_CLAIMS)
+        assert cleaned["claim:arxiv:2502.14143:2"]["verdict"] == "overstated"
+        assert "reliably" in cleaned["claim:arxiv:2502.14143:2"]["note"]
+
+    def test_a_verdict_on_a_claim_that_does_not_exist_is_refused(self):
+        """Otherwise the review is silently discarded, and the reviewer only
+        finds out much later that their time bought nothing."""
+        payload = {"claims": {"claim:nope:1": {"verdict": "accurate"}}}
+        with pytest.raises(FilingError, match="not a claim"):
+            validate_claims(payload, known_claims=KNOWN_CLAIMS)
+
+    def test_an_unknown_verdict_is_refused(self):
+        payload = {"claims": {"claim:arxiv:2502.14143:1": {"verdict": "seems right"}}}
+        with pytest.raises(FilingError, match="unknown verdict"):
+            validate_claims(payload, known_claims=KNOWN_CLAIMS)
+
+    def test_a_bare_string_verdict_is_accepted(self):
+        payload = {"claims": {"claim:arxiv:2502.14143:1": "accurate"}}
+        cleaned = validate_claims(payload, known_claims=KNOWN_CLAIMS)
+        assert cleaned["claim:arxiv:2502.14143:1"]["verdict"] == "accurate"
+
+    def test_claims_only_filings_are_allowed(self):
+        """A reviewer who checked claims and no tags has done real work, and it
+        is the work this layer needs most."""
+        payload = extract("claims:\n  claim:arxiv:2502.14143:1:\n    verdict: accurate\n")
+        assert validate(payload, known_records=KNOWN_RECORDS, known_topics=KNOWN_TOPICS,
+                        require=False) == {}
+
+    def test_verdicts_go_to_their_own_file(self, tmp_path):
+        gold = tmp_path / "claims.yml"
+        cleaned = validate_claims(extract(BOTH), known_claims=KNOWN_CLAIMS)
+        result = merge_claims(cleaned, "anke", gold)
+        assert result["total"] == 2
+        stored = yaml.safe_load(gold.read_text())["claims"]
+        assert stored["claim:arxiv:2502.14143:1"]["reviewer"] == "anke"
+
+    def test_extraction_failures_are_surfaced_not_buried(self, tmp_path):
+        """`overstated` and `not-in-source` are feedback on the extractor, and
+        a summary that only counted verdicts would waste them."""
+        gold = tmp_path / "claims.yml"
+        cleaned = validate_claims(extract(BOTH), known_claims=KNOWN_CLAIMS)
+        text = "\n".join(summarize_claims(merge_claims(cleaned, "anke", gold)))
+        assert "Extraction got these wrong" in text
+        assert "claim:arxiv:2502.14143:2" in text
+        assert "claim:arxiv:2502.14143:1" not in text
+
+    def test_disagreement_on_a_claim_is_surfaced(self, tmp_path):
+        gold = tmp_path / "claims.yml"
+        merge_claims({"claim:arxiv:2502.14143:1": {"verdict": "accurate"}}, "anke", gold)
+        result = merge_claims({"claim:arxiv:2502.14143:1": {"verdict": "overstated"}}, "sam", gold)
+        assert result["changed"] == [("claim:arxiv:2502.14143:1", "accurate", "overstated", "anke")]

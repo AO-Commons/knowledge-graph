@@ -31,13 +31,21 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
+from ao_commons_kg.claims import load_claims  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
 GOLD = REPO / "evals" / "gold" / "tags.yml"
+CLAIM_GOLD = REPO / "evals" / "gold" / "claims.yml"
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 
 FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
+
+CLAIM_VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
+
+# A filing that is only claim verdicts still needs a shape for the tag half,
+# so the summary reads "0 new decisions" rather than crashing on a missing key.
+EMPTY_MERGE = {"added": [], "changed": [], "unchanged": [], "total": 0, "flagged": {}}
 
 
 class FilingError(ValueError):
@@ -50,13 +58,21 @@ def extract(body: str) -> dict:
     Contributors paste a fenced block from the site. Some will paste it bare,
     so a body that parses as YAML on its own is accepted too — being fussy
     here would reject good work for a formatting detail.
+
+    A filing may carry `records:` (where a record belongs), `claims:` (whether
+    a sentence was read correctly), or both — one reviewer, one sitting, two
+    judgements, because the expensive part is reading the paper and it should
+    be paid once.
     """
     for candidate in [m.group(1) for m in FENCE.finditer(body or "")] + [body or ""]:
         try:
             payload = yaml.safe_load(candidate)
         except yaml.YAMLError:
             continue
-        if isinstance(payload, dict) and isinstance(payload.get("records"), dict):
+        if isinstance(payload, dict) and (
+            isinstance(payload.get("records"), dict)
+            or isinstance(payload.get("claims"), dict)
+        ):
             return payload
     raise FilingError(
         "No filing found. Paste the block the site's Submit screen produces, "
@@ -64,10 +80,97 @@ def extract(body: str) -> dict:
     )
 
 
-def validate(payload: dict, *, known_records: set[str], known_topics: set[str]) -> dict:
+def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]:
+    """Check the claim verdicts in a filing.
+
+    Held to the same standard as the topic codes and for the same reason: a
+    verdict against a claim id that does not exist is a judgement that will
+    never be applied to anything, and finding that out later means the review
+    was wasted.
+    """
+    verdicts = payload.get("claims") or {}
+    if not isinstance(verdicts, dict):
+        raise FilingError("`claims:` should map claim ids to verdicts.")
+
+    problems: list[str] = []
+    cleaned: dict[str, dict] = {}
+
+    for claim_id, entry in verdicts.items():
+        if claim_id not in known_claims:
+            problems.append(f"{claim_id}: not a claim in this corpus")
+            continue
+        if isinstance(entry, str):
+            entry = {"verdict": entry}
+        if not isinstance(entry, dict):
+            problems.append(f"{claim_id}: expected a verdict")
+            continue
+
+        verdict = entry.get("verdict")
+        if verdict not in CLAIM_VERDICTS:
+            problems.append(
+                f"{claim_id}: unknown verdict {verdict!r}; "
+                f"expected one of {sorted(CLAIM_VERDICTS)}"
+            )
+            continue
+
+        record = {"verdict": verdict,
+                  "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat())}
+        if note := entry.get("note"):
+            record["note"] = str(note).strip()
+        cleaned[claim_id] = record
+
+    if problems:
+        raise FilingError(
+            "The claim verdicts have problems that need fixing:\n  - "
+            + "\n  - ".join(problems)
+        )
+    return cleaned
+
+
+def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_GOLD) -> dict:
+    """Write claim verdicts to their own gold file.
+
+    Separate from the tag gold set on purpose. Tags are what classifier
+    accuracy is measured against; a claim verdict measures whether extraction
+    read a sentence correctly. One file holding both would give a number that
+    answers neither question.
+    """
+    existing = {}
+    if gold_path.exists():
+        payload = yaml.safe_load(gold_path.read_text(encoding="utf-8")) or {}
+        existing = payload.get("claims") or {}
+
+    added, changed = [], []
+    for claim_id, entry in cleaned.items():
+        entry = {**entry, "reviewer": author}
+        previous = existing.get(claim_id)
+        if previous is None:
+            added.append(claim_id)
+        elif previous.get("verdict") != entry["verdict"]:
+            changed.append((claim_id, previous.get("verdict"), entry["verdict"],
+                            previous.get("reviewer", "unknown")))
+        existing[claim_id] = entry
+
+    gold_path.parent.mkdir(parents=True, exist_ok=True)
+    gold_path.write_text(
+        yaml.safe_dump({"claims": dict(sorted(existing.items()))},
+                       sort_keys=False, allow_unicode=True, width=88),
+        encoding="utf-8",
+    )
+    return {
+        "added": added, "changed": changed, "total": len(existing),
+        "flagged": [c for c, e in cleaned.items()
+                    if e["verdict"] in ("overstated", "not-in-source")],
+    }
+
+
+def validate(payload: dict, *, known_records: set[str], known_topics: set[str],
+             require: bool = True) -> dict:
     """Check every id and code, and report all problems at once."""
     records = payload.get("records") or {}
     if not records:
+        if not require:
+            return {}
         raise FilingError("The filing is empty — no records to merge.")
 
     problems: list[str] = []
@@ -177,6 +280,33 @@ def merge(cleaned: dict[str, dict], author: str, gold_path: Path = GOLD) -> dict
             "total": len(existing), "flagged": flagged}
 
 
+def summarize_claims(result: dict) -> list[str]:
+    """The claim half of a filing, said in the reviewer's terms."""
+    if not result:
+        return []
+    lines = [
+        "",
+        "",
+        "### Claims checked",
+        "",
+        f"- {len(result['added'])} new verdict(s)",
+        f"- {result['total']} claim verdict(s) recorded after this",
+    ]
+    if result["flagged"]:
+        lines += [
+            "",
+            "**Extraction got these wrong** — the paraphrase says more than the source, "
+            "or is not in it. Worth a look at the extractor, not just the claim:",
+            "",
+        ]
+        lines += [f"- `{claim_id}`" for claim_id in result["flagged"]]
+    if result["changed"]:
+        lines += ["", "| Claim | Was | Now | Previously by |", "|---|---|---|---|"]
+        for claim_id, before, after, who in result["changed"]:
+            lines.append(f"| `{claim_id}` | {before or '—'} | {after} | {who} |")
+    return lines
+
+
 def summarize(result: dict, author: str) -> str:
     flagged = result.get("flagged") or {}
     lines = [
@@ -225,10 +355,18 @@ def main(argv: list[str] | None = None) -> int:
 
     known_topics = {t.code for t in load_taxonomy(TAXONOMY)}
     known_records = {r.id for r in load_resources()}
+    known_claims = {c.id for c in load_claims()}
 
     try:
         payload = extract(Path(args.body_file).read_text(encoding="utf-8"))
-        cleaned = validate(payload, known_records=known_records, known_topics=known_topics)
+        # A filing may be all tags, all claim verdicts, or both. Requiring
+        # records would refuse a reviewer who only checked claims — which is
+        # exactly the reviewer this layer needs most.
+        claim_verdicts = validate_claims(payload, known_claims=known_claims)
+        cleaned = validate(payload, known_records=known_records, known_topics=known_topics,
+                           require=not claim_verdicts)
+        if not cleaned and not claim_verdicts:
+            raise FilingError("The filing is empty — nothing to merge.")
     except FilingError as error:
         message = f"This filing could not be merged.\n\n{error}"
         if args.summary_file:
@@ -236,8 +374,9 @@ def main(argv: list[str] | None = None) -> int:
         print(message, file=sys.stderr)
         return 1
 
-    result = merge(cleaned, args.author)
-    summary = summarize(result, args.author)
+    result = merge(cleaned, args.author) if cleaned else EMPTY_MERGE
+    claim_result = merge_claims(claim_verdicts, args.author) if claim_verdicts else {}
+    summary = summarize(result, args.author) + "\n".join(summarize_claims(claim_result))
     if args.summary_file:
         Path(args.summary_file).write_text(summary, encoding="utf-8")
     print(summary)

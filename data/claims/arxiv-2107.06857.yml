@@ -1,0 +1,37 @@
+resource_id: resource:arxiv:2107.06857
+claims:
+- id: claim:arxiv:2107.06857:1
+  text: Melting Pot is a multi-agent RL evaluation suite that generates novel test scenarios
+    with reinforcement learning rather than by hand.
+  quote: Our contribution, Melting Pot, is a MARL evaluation suite that fills this gap, and
+    uses reinforcement learning to reduce the human labor required to create novel test scenarios.
+  claim_type: method
+  topic_codes:
+  - '14.1'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2107.06857:2
+  text: Standard MARL training algorithms have weaknesses that training performance does not
+    show and held-out scenarios do.
+  quote: We apply these test scenarios to standard MARL training algorithms, and demonstrate
+    how Melting Pot reveals weaknesses not apparent from training performance alone.
+  claim_type: finding
+  topic_codes:
+  - 14.1.3
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2107.06857:3
+  text: Test scenarios can be generated automatically because one agent's behaviour forms
+    part of another agent's environment.
+  quote: This works because one agent's behavior constitutes (part of) another agent's environment.
+  claim_type: method
+  topic_codes:
+  - '14.5'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed

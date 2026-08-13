@@ -1,0 +1,38 @@
+resource_id: resource:arxiv:2312.03664
+claims:
+- id: claim:arxiv:2312.03664:1
+  text: Concordia simulates an environment with a Game Master agent that adjudicates what
+    agents' natural-language actions actually do.
+  quote: A special agent called the Game Master (GM), which was inspired by tabletop role-playing
+    games, is responsible for simulating the environment where the agents interact.
+  claim_type: method
+  topic_codes:
+  - 14.5.1
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2312.03664:2
+  text: Concordia agents act through a component system mediating between LLM calls and associative
+    memory retrieval.
+  quote: 'Concordia agents produce their behavior using a flexible component system which
+    mediates between two fundamental operations: LLM calls and associative memory retrieval.'
+  claim_type: method
+  topic_codes:
+  - 14.5.1
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2312.03664:3
+  text: Generative agent-based models differ in kind from classic agent-based models, rather
+    than being ABMs whose agents happen to talk.
+  quote: Generative Agent-Based Models (GABM) are not just classic Agent-Based Models (ABM)s
+    where the agents talk to one another.
+  claim_type: position
+  topic_codes:
+  - '14.5'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed

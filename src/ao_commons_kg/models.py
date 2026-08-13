@@ -87,6 +87,13 @@ class RelationType(str, Enum):
     # Computed, with a named method and a score.
     SIMILAR_TO = "SIMILAR_TO"
     # Extracted or inferred; always carries provenance.
+    MAKES_CLAIM = "MAKES_CLAIM"
+    """A resource to something it says. Added with the extraction that
+    populates it — the relation types below have sat here unpopulated since the
+    first release, and a vocabulary that promises edges the graph does not have
+    is worse than a smaller one."""
+    ABOUT = "ABOUT"
+    """A claim to the entity or topic it concerns."""
     DISCUSSES = "DISCUSSES"
     PROPOSES = "PROPOSES"
     EVALUATES = "EVALUATES"
@@ -306,6 +313,116 @@ class Resource:
             payload["tool"] = self.tool.to_dict()
         # Always emitted, even at its default: a consumer must never have to
         # infer that an absent field means unreviewed.
+        payload["review_status"] = self.review_status.value
+        return _drop_empty(payload)
+
+
+class ClaimType(str, Enum):
+    """What kind of statement this is.
+
+    The distinction that earns its keep is FINDING versus POSITION. "Agents
+    with budget caps overspent less in our trials" and "agents should have
+    budget caps" look alike in an abstract and answer different questions —
+    one is evidence, the other is advocacy. A graph that flattens them will
+    confidently report that something has been shown when it has only been
+    argued.
+    """
+
+    FINDING = "finding"
+    """Something the work reports as observed or measured."""
+    METHOD = "method"
+    """A technique, architecture, or mechanism the work introduces."""
+    LIMITATION = "limitation"
+    """A boundary the authors themselves put on their result. Rare in
+    abstracts and disproportionately useful, because it is the part a
+    downstream reader is most likely to drop."""
+    POSITION = "position"
+    """An argument or recommendation, offered without evidence in this work."""
+
+
+@dataclass
+class Claim:
+    """Something a resource says, addressable on its own.
+
+    The unit the graph is missing while a paper is its smallest node. Papers
+    are containers; the answerable things are inside them, and a question like
+    "what reduces cascading failures" is a question about claims, not about
+    documents.
+
+    Two fields carry the weight. `quote` is verbatim source text and is what
+    makes a claim checkable in seconds rather than by re-reading the paper —
+    without it, review costs as much as extraction and nobody does it. `text`
+    is our paraphrase, which is where distortion enters, so the pair is always
+    stored together and shown together.
+
+    A claim is never promoted by the extraction that produced it. It arrives
+    `unreviewed` exactly like a first-pass tag, for the same reason: a machine
+    reading of a sentence is a navigational aid until a person has checked it.
+    """
+
+    id: str
+    resource_id: str
+    text: str
+    quote: str
+    claim_type: ClaimType = ClaimType.FINDING
+    entity_ids: list[str] = field(default_factory=list)
+    topic_codes: list[str] = field(default_factory=list)
+    """Where this claim suggests the record belongs. A suggestion and nothing
+    more — the record's own `taxonomy_topics` are only ever written by a human
+    filing it, so a claim can inform that judgement without becoming it."""
+    confidence_class: ConfidenceClass = ConfidenceClass.EXTRACTED
+    extracted_from: str = "abstract"
+    """Which text this was read out of. An abstract states conclusions and
+    omits the evidence for them, so a claim drawn from one supports a weaker
+    reading than the same claim drawn from a results section — and a consumer
+    cannot tell the difference unless it is recorded."""
+    extraction_method: str | None = None
+    review_status: ReviewStatus = ReviewStatus.UNREVIEWED
+    reviewed_by: str | None = None
+    verdict: str | None = None
+    """How review landed. `overstated` is the one worth having: the claim is
+    in the paper but the paraphrase says more than the source does, which is
+    the characteristic failure of extraction and is invisible in a yes/no."""
+    note: str | None = None
+
+    VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
+
+    def __post_init__(self) -> None:
+        if isinstance(self.claim_type, str):
+            self.claim_type = ClaimType(self.claim_type)
+        if isinstance(self.confidence_class, str):
+            self.confidence_class = ConfidenceClass(self.confidence_class)
+        if isinstance(self.review_status, str):
+            self.review_status = ReviewStatus(self.review_status)
+
+        if not self.quote or not self.quote.strip():
+            raise ValueError(
+                f"claim {self.id}: no quote. A claim with no source text cannot be "
+                "checked without re-reading the paper, which is the cost this "
+                "layer exists to avoid"
+            )
+        if self.verdict is not None and self.verdict not in self.VERDICTS:
+            raise ValueError(
+                f"claim {self.id}: unknown verdict {self.verdict!r}; "
+                f"expected one of {sorted(self.VERDICTS)}"
+            )
+        if self.reviewed_by and self.review_status is ReviewStatus.UNREVIEWED:
+            raise ValueError(
+                f"claim {self.id}: reviewed_by is set but review_status is "
+                "unreviewed — a reviewer without a review is a contradiction"
+            )
+        for code in self.topic_codes:
+            if not TOPIC_CODE.match(code):
+                raise ValueError(
+                    f"claim {self.id}: topic code {code!r} is not a topic code"
+                )
+
+    def to_dict(self) -> dict[str, Any]:
+        payload = asdict(self)
+        payload["claim_type"] = self.claim_type.value
+        payload["confidence_class"] = self.confidence_class.value
+        # Always emitted, as on Resource: an absent field must never have to be
+        # read as "unreviewed".
         payload["review_status"] = self.review_status.value
         return _drop_empty(payload)
 

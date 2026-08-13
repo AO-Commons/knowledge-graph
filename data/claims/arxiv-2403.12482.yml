@@ -1,0 +1,42 @@
+resource_id: resource:arxiv:2403.12482
+claims:
+- id: claim:arxiv:2403.12482:1
+  text: LLM agents over-report and comply with any instruction, causing information redundancy
+    and confusion in multi-agent cooperation.
+  quote: However, LLM agents tend to over-report and comply with any instruction, which may
+    result in information redundancy and confusion in multi-agent cooperation.
+  claim_type: finding
+  topic_codes:
+  - '5.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2403.12482:2
+  text: Designated leadership in a prompt-imposed organizational structure affects team efficiency
+    for embodied LLM agents and human-agent teams.
+  quote: Through a series of experiments with embodied LLM agents and human-agent collaboration,
+    our results highlight the impact of designated leadership on team efficiency, shedding
+    light on the leadership qualities displayed by LLM agents and their spontaneous cooperative
+    behaviors.
+  claim_type: finding
+  topic_codes:
+  - 3.1.1
+  - 3.1.3
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2403.12482:3
+  text: A Criticize-Reflect process has LLMs propose organizational prompts, yielding structures
+    that lower communication cost and raise team efficiency.
+  quote: we harness the potential of LLMs to propose enhanced organizational prompts, via
+    a Criticize-Reflect process, resulting in novel organization structures that reduce communication
+    costs and enhance team efficiency.
+  claim_type: method
+  topic_codes:
+  - '3.1'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed

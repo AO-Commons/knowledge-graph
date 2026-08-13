@@ -60,7 +60,7 @@ def test_nodes_are_sorted_and_typed(tmp_path):
 def test_metadata_counts_edges_by_kind(tmp_path):
     meta = json.loads((build(tmp_path) / "metadata.json").read_text())
     assert meta["counts"] == {"topics": 2, "resources": 2, "entities": 1,
-                              "relationships": 3, "nodes": 5}
+                              "claims": 0, "relationships": 3, "nodes": 5}
     assert meta["relation_counts"] == {"CITES": 1, "SIMILAR_TO": 1, "TAGGED_WITH": 1}
     assert meta["confidence_counts"] == {"INFERRED": 1}
     assert meta["license"] == "CC-BY-4.0"

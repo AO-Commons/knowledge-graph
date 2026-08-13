@@ -1,0 +1,29 @@
+resource_id: resource:arxiv:2501.16138
+claims:
+- id: claim:arxiv:2501.16138:1
+  text: The self-interest level — the minimum reward exchange that aligns individual with
+    collective interest — is extended from normal-form games to Markov games.
+  quote: We extend the concept of self-interest level from normal-form games to Markov games,
+    providing a quantitative measure of the minimum reward exchange required to align individual
+    and collective interests.
+  claim_type: method
+  topic_codes:
+  - 13.2.1
+  - '5.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2501.16138:2
+  text: In three Melting Pot environments, reward exchange moved agents from selfish to collective
+    equilibria.
+  quote: Our results illustrate how reward exchange can enable agents to transition from selfish
+    to collective equilibria in a Markov social dilemma.
+  claim_type: finding
+  topic_codes:
+  - '13.2'
+  - 5.2.4
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed

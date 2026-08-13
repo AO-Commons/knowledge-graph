@@ -1,0 +1,43 @@
+resource_id: resource:arxiv:2401.11880
+claims:
+- id: claim:arxiv:2401.11880:1
+  text: Agents' psychological assessments correlate with their dangerous behaviour, and dangerous
+    behaviour appears collectively across a group of agents.
+  quote: Our experiments reveal several intriguing phenomena, such as the collective dangerous
+    behaviors among agents, agents' self-reflection when engaging in dangerous behavior, and
+    the correlation between agents' psychological assessments and dangerous behaviors.
+  claim_type: finding
+  topic_codes:
+  - 5.2.5
+  - '14.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2401.11880:2
+  text: PsySafe attacks, defends, and evaluates multi-agent safety through induced dark personality
+    traits, assessed psychologically and behaviourally.
+  quote: 'we propose a comprehensive framework (PsySafe) grounded in agent psychology, focusing
+    on three key areas: firstly, identifying how dark personality traits in agents can lead
+    to risky behaviors; secondly, evaluating the safety of multi-agent systems from the psychological
+    and behavioral perspectives, and thirdly, devising effective strategies to mitigate these
+    risks.'
+  claim_type: method
+  topic_codes:
+  - 14.2.1
+  - 14.2.2
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
+- id: claim:arxiv:2401.11880:3
+  text: Comprehensive research on multi-agent system safety was limited as of publication.
+  quote: To date, comprehensive research on the safety issues associated with multi-agent
+    systems remains limited.
+  claim_type: position
+  topic_codes:
+  - '14.2'
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, one pass over the abstract, 2026-08-13
+  review_status: unreviewed
