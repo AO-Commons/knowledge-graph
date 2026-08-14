@@ -836,7 +836,10 @@
 
     const title = el("h1", { className: "record-title" }, record.title);
     const byline = el("p", { className: "byline" });
-    if (record.authors.length) byline.append(record.authors.join(", ") + (record.authors.length >= 5 ? " et al." : ""));
+    if (record.authors.length) {
+      byline.append(record.authors.slice(0, 5).join(", ")
+        + (record.authors.length > 5 ? ` and ${record.authors.length - 5} more` : ""));
+    }
     if (record.url) {
       byline.append(byline.textContent ? " · " : "");
       byline.append(el("a", { href: record.url, target: "_blank", rel: "noopener" }, "read the source"));
@@ -2472,6 +2475,36 @@
   });
 
   DATA.topics.filter(t => t.depth === 0).forEach(t => state.open.add(t.code));
-  setMode("explore");
+
+  // The graph links back here at a person, a branch or a record. Without this
+  // every one of those links landed on the front page and left the reader to
+  // find again what they had just clicked.
+  function openFromHash() {
+    const hash = decodeURIComponent(location.hash.replace(/^#/, ""));
+    const [key, value] = [hash.slice(0, hash.indexOf("=")), hash.slice(hash.indexOf("=") + 1)];
+    // Whatever the previous link set has to go, or the views stack and a topic
+    // link lands on the author page it was supposed to replace.
+    state.author = null;
+    state.focusTopic = null;
+    state.viewing = null;
+    if (!value) { setMode("explore"); return; }
+
+    if (key === "author") {
+      state.author = value;
+      setMode("explore");
+    } else if (key === "topic" && TOPICS.has(value)) {
+      setMode("explore");
+      focusBranch(value);
+    } else if (key === "record") {
+      const record = DATA.records.find(r => r.id === value);
+      if (record) { setMode("review"); openRecord(record); return; }
+      setMode("explore");
+    } else {
+      setMode("explore");
+    }
+  }
+
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 })();
 </script>

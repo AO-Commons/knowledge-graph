@@ -82,7 +82,11 @@ def build_payload() -> dict:
             "id": resource.id,
             "title": resource.title,
             "abstract": abstract,
-            "authors": (resource.authors or [])[:5],
+            # All of them, not the first five. Truncating here made an author
+            # page under-report its own author: Joel Z. Leibo showed 10 records
+            # against the 13 he is on, because three list him sixth or later.
+            # The display truncates instead, which is where truncation belongs.
+            "authors": resource.authors or [],
             "date": str(resource.published_at or ""),
             "url": resource.url or "",
             "type": resource.resource_type,

@@ -42,6 +42,7 @@
     --n-topic:   #7ba79b;
     --n-resource:#9c3a10;
     --n-claim:   #6c4f9c;
+    --n-author:  #d1d5db;
     --void:      #07080b;
   }
   :root[data-theme="dark"] {
@@ -64,6 +65,7 @@
     --n-topic:   #3f7a6c;
     --n-resource:#d9873f;
     --n-claim:   #a98cc7;
+    --n-author:  #cbd5e1;
     --void:      #07080b;
   }
   :root {
@@ -161,6 +163,7 @@
   .row .dot.topic    { width: 7px;  height: 7px;  margin: 0 2px; }
   .row .dot.resource { width: 9px;  height: 9px;  margin: 0 1px; }
   .row .dot.claim    { width: 5px;  height: 5px;  margin: 0 3px; }
+  .row .dot.author   { width: 8px;  height: 8px;  margin: 0 1px; border-radius: 2px; }
   #sections { display: flex; flex-direction: column; gap: 1px; }
   .section-row {
     display: flex; align-items: center; gap: 8px; width: 100%; text-align: left;
@@ -245,6 +248,7 @@
     <div id="links"></div>
     <h2>View</h2>
     <label class="row"><input type="checkbox" id="all-topics"> <span>Every topic, including empty ones</span></label>
+    <label class="row"><input type="checkbox" id="all-people"> <span>Everyone, not only repeat authors</span></label>
     <label class="row"><input type="checkbox" id="flow" checked> <span>Show the flow along edges</span></label>
     <p class="note" id="scope"></p>
     <div style="margin-top:12px"><button class="plain" id="reset">Reset the camera</button></div>
@@ -292,6 +296,9 @@
     "#facc15", "#f87171", "#c084fc", "#34d399",
   ];
   const hueFor = node => {
+    // A person who has written nothing filed yet belongs to no section, and
+    // guessing one would put them in a part of the field at random.
+    if (node.kind === "author" && !node.section) return token("--n-author");
     const section = String(node.section || node.id.replace("topic:", "")).split(".")[0];
     const index = parseInt(section, 10);
     return SECTION_HUES[(Number.isFinite(index) ? index - 1 : 0) % SECTION_HUES.length]
@@ -302,6 +309,7 @@
     ["section", "Sections", "--n-section"],
     ["topic", "Topics", "--n-topic"],
     ["resource", "Papers and tools", "--n-resource"],
+    ["author", "People", "--n-author"],
     ["claim", "Statements", "--n-claim"],
   ];
 
@@ -316,18 +324,24 @@
     ["similar", "Shares references", "--mark-edge", "computed: bibliographic coupling, not a claim by either paper"],
     ["claim", "States", "--n-claim", "a statement extracted from the paper"],
     ["about", "Statement is about", "--n-topic", "inferred: which branch a statement concerns"],
+    ["wrote", "Wrote", "--n-author", "the byline, taken from arXiv rather than from a resolver"],
   ];
 
   // How many particles ride each kind of edge, and how fast. The taxonomy is
   // structure and stays still; the edges that assert something move, and the
   // ones read from a paper move faster than the ones we computed.
-  const PARTICLES = { cites: 3, claim: 2, tagged: 1, similar: 2, about: 1, parent: 0 };
-  const SPEED = { cites: 0.010, claim: 0.006, tagged: 0.004, similar: 0.003, about: 0.003 };
+  const PARTICLES = { cites: 3, claim: 2, tagged: 1, similar: 2, about: 1, wrote: 2, parent: 0 };
+  const SPEED = { cites: 0.010, claim: 0.006, tagged: 0.004, similar: 0.003,
+                  about: 0.003, wrote: 0.005 };
 
   const state = {
     nodes: new Set(NODE_KINDS.map(k => k[0])),
-    links: new Set(["parent", "tagged", "cites", "similar", "claim"]),
+    links: new Set(["parent", "tagged", "cites", "similar", "claim", "wrote"]),
     allTopics: false,
+    // 251 people, but only 25 are on more than one paper. The rest hang off a
+    // single record, adding a spoke and no structure — so the default shows
+    // the people who actually connect the corpus together.
+    allPeople: false,
     flow: true,
   };
 
@@ -379,6 +393,7 @@
     data.nodes.forEach(node => {
       if (!state.nodes.has(node.kind)) return;
       if (node.kind === "topic" && !state.allTopics && !node.held) return;
+      if (node.kind === "author" && !state.allPeople && (node.wrote || 0) < 2) return;
       keep.add(node.id);
     });
 
@@ -403,7 +418,8 @@
   }
 
   const sizeFor = node =>
-    node.kind === "section" ? 6
+    node.kind === "author" ? 1.8 + Math.min(5, (node.wrote || 1) - 1) * 0.7
+      : node.kind === "section" ? 6
       : node.kind === "resource" ? 3.4 + Math.min(3, node.claims || 0) * 0.5
       : node.kind === "topic" ? 1.6 + Math.min(4, node.held || 0) * 0.5
       : 1.4;
@@ -446,6 +462,10 @@
 
     document.getElementById("all-topics").addEventListener("change", event => {
       state.allTopics = event.target.checked;
+      refresh();
+    });
+    document.getElementById("all-people").addEventListener("change", event => {
+      state.allPeople = event.target.checked;
       refresh();
     });
     document.getElementById("flow").addEventListener("change", event => {
@@ -667,7 +687,8 @@
 
     const kind = document.createElement("p");
     kind.className = "kind";
-    kind.textContent = node.kind === "resource" ? (node.type || "record").replace(/-/g, " ")
+    kind.textContent = node.kind === "author" ? "person"
+      : node.kind === "resource" ? (node.type || "record").replace(/-/g, " ")
       : node.kind === "claim" ? `statement · ${node.type || ""}`
       : node.kind === "section" ? "section" : "topic";
     const title = document.createElement("h3");
@@ -683,6 +704,12 @@
       const status = document.createElement("p");
       status.textContent = `${node.claims || 0} statement(s) extracted · ${node.reviewed}`;
       detail.append(status);
+    }
+    if (node.kind === "author") {
+      const wrote = document.createElement("p");
+      wrote.textContent = `${node.wrote} record${node.wrote === 1 ? "" : "s"} in the library`
+        + (node.section ? ` · mostly section ${node.section}` : "");
+      detail.append(wrote);
     }
     if (node.kind === "claim") {
       const of = document.createElement("p");
@@ -713,9 +740,21 @@
     // Back into the filing site. A graph that cannot hand you to the work is
     // an ornament.
     const open = document.createElement("a");
-    open.href = "index.html";
-    open.textContent = node.kind === "resource" || node.kind === "claim"
-      ? "Open in Review" : "Open in Explore";
+    // Deep links, so the filing site opens at the thing that was clicked
+    // rather than at its front page.
+    if (node.kind === "author") {
+      open.href = "index.html#author=" + encodeURIComponent(node.label);
+      open.textContent = "See their work";
+    } else if (node.kind === "resource") {
+      open.href = "index.html#record=" + encodeURIComponent(node.id);
+      open.textContent = "Open in Review";
+    } else if (node.kind === "claim") {
+      open.href = "index.html#record=" + encodeURIComponent(node.of);
+      open.textContent = "Open the paper in Review";
+    } else {
+      open.href = "index.html#topic=" + encodeURIComponent(node.code || "");
+      open.textContent = "Open in Explore";
+    }
     actions.append(open);
 
     if (node.url) {

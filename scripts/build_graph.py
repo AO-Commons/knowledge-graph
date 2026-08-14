@@ -82,6 +82,41 @@ def build() -> dict:
         }
         for r in resources
     ]
+    # People. 251 of them across 297 bylines, but only 25 appear on more than
+    # one paper — the rest hang off a single record and add no structure. Both
+    # are shipped and the page decides; `wrote` says how many, so it can.
+    by_author: dict[str, list] = {}
+    for resource in resources:
+        for name in resource.authors or []:
+            by_author.setdefault(name, []).append(resource)
+
+    def dominant_section(written: list) -> str:
+        """Which part of the field this person mostly works in.
+
+        Their colour, so a co-authorship cluster shows the areas it spans. Ties
+        break on the lowest section number rather than on dict order, because a
+        person's colour changing between builds would be a diff nobody could
+        explain.
+        """
+        tally: dict[str, int] = {}
+        for resource in written:
+            for code in resource.taxonomy_topics or []:
+                section = code.split(".")[0]
+                tally[section] = tally.get(section, 0) + 1
+        if not tally:
+            return ""
+        return min(sorted(tally), key=lambda section: (-tally[section], int(section)))
+
+    nodes += [
+        {
+            "id": f"person:{name}",
+            "kind": "author",
+            "label": name,
+            "section": dominant_section(written),
+            "wrote": len(written),
+        }
+        for name, written in sorted(by_author.items())
+    ]
     nodes += [
         {
             "id": c.id,
@@ -102,6 +137,12 @@ def build() -> dict:
     edges += [
         {"source": e.source_id, "target": e.target_id, "kind": "tagged"}
         for e in tagged_edges(resources, codes)
+    ]
+
+    edges += [
+        {"source": f"person:{name}", "target": resource.id, "kind": "wrote"}
+        for name, written in sorted(by_author.items())
+        for resource in written
     ]
 
     store = ReferenceStore.load(REFERENCES)
