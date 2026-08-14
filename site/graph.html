@@ -348,8 +348,23 @@
   let data = null, graph = null;
   // What is lit when something is selected. Held as ids rather than objects
   // because the force layout replaces node objects on every graphData call.
-  const focus = { node: null, nodes: new Set(), links: new Set() };
+  const focus = { node: null, near: new Set(), nodes: new Set(), links: new Set(),
+                  depth: new Map(), linkDepth: new Map() };
   let neighbours = new Map();
+
+  // A lamp rather than a switch. Lighting only the direct neighbours told you
+  // what touches the thing you clicked and nothing about where that sits — the
+  // second ring, which is usually the interesting part, was as dark as the far
+  // side of the graph. Brightness now falls off by hop, so the neighbourhood
+  // reads as a neighbourhood.
+  const HOPS = 4;
+  // Steeper than linear, because a lamp is. At an even falloff half the graph
+  // sat in the middle bands and the result read as the whole picture being
+  // dimmed rather than one part of it being lit.
+  const NODE_FALLOFF = [1, 1, 0.40, 0.15, 0.07];
+  const LINK_FALLOFF = [0.95, 0.95, 0.28, 0.10, 0.045];
+  const DARK = 0.035;
+  const at = (table, hop) => (hop === undefined || hop >= table.length ? DARK : table[hop]);
 
   const endId = end => (end && end.id !== undefined ? end.id : end);
   const linkKey = link => `${endId(link.source)}\u0000${endId(link.target)}\u0000${link.kind}`;
@@ -368,7 +383,7 @@
   function colourOfNode(node) {
     if (!focus.node) return hueFor(node);
     if (node.id === focus.node) return "#ffffff";
-    return focus.nodes.has(node.id) ? hueFor(node) : fade(hueFor(node), 0.07);
+    return fade(hueFor(node), at(NODE_FALLOFF, focus.depth.get(node.id)));
   }
 
   // Revalidated rather than served from cache: the corpus changes whenever a
@@ -569,20 +584,25 @@
       .linkColor(link => {
         const hue = hueFor({ id: endId(link.source), section: (link.source || {}).section });
         if (!focus.node) return fade(hue, 0.22);
-        return focus.links.has(linkKey(link)) ? fade(hue, 0.95) : fade(hue, 0.02);
+        return fade(hue, at(LINK_FALLOFF, focus.linkDepth.get(linkKey(link))));
       })
       .linkOpacity(1)
       .linkWidth(link => {
         const base = link.kind === "parent" ? 0.3 : 0.8;
-        return focus.node && focus.links.has(linkKey(link)) ? base * 3 : base;
+        if (!focus.node) return base;
+        const hop = focus.linkDepth.get(linkKey(link));
+        return base * (hop <= 1 ? 3 : hop === 2 ? 1.8 : 1);
       })
       // The movement. Particles travel from source to target, so an edge shows
       // its direction as well as its existence — a citation runs one way, and
       // a shared-references score does not.
       .linkDirectionalParticles(link => {
         if (!state.flow) return 0;
-        if (focus.node) return focus.links.has(linkKey(link)) ? 4 : 0;
-        return PARTICLES[link.kind] || 0;
+        if (!focus.node) return PARTICLES[link.kind] || 0;
+        // Flow marks the ring you selected and thins immediately after, so the
+        // eye is not asked to follow motion four hops away.
+        const hop = focus.linkDepth.get(linkKey(link));
+        return hop <= 1 ? 4 : hop === 2 ? 1 : 0;
       })
       .linkDirectionalParticleWidth(1.4)
       .linkDirectionalParticleSpeed(link => SPEED[link.kind] || 0.004)
@@ -654,10 +674,34 @@
 
   function light(id) {
     focus.node = id;
-    focus.nodes = new Set([id, ...(neighbours.get(id) || [])]);
+
+    // Breadth-first out to HOPS. 203 nodes and 392 links, so the cost of doing
+    // this on every click is not worth caching.
+    const depth = new Map([[id, 0]]);
+    let frontier = [id];
+    for (let hop = 1; hop <= HOPS && frontier.length; hop++) {
+      const next = [];
+      frontier.forEach(current => (neighbours.get(current) || []).forEach(other => {
+        if (!depth.has(other)) { depth.set(other, hop); next.push(other); }
+      }));
+      frontier = next;
+    }
+
+    focus.depth = depth;
+    focus.nodes = new Set(depth.keys());
+    // The immediate ring, kept separately: it is what the camera frames and
+    // what the panel counts. Framing four hops would zoom back out to the
+    // whole graph, which is where we started.
+    focus.near = new Set([id, ...(neighbours.get(id) || [])]);
+
+    focus.linkDepth = new Map();
     focus.links = new Set();
     graph.graphData().links.forEach(link => {
-      if (endId(link.source) === id || endId(link.target) === id) focus.links.add(linkKey(link));
+      const a = depth.get(endId(link.source)), b = depth.get(endId(link.target));
+      if (a === undefined || b === undefined) return;
+      const hop = Math.max(a, b);
+      focus.linkDepth.set(linkKey(link), hop);
+      if (hop <= 1) focus.links.add(linkKey(link));
     });
     repaint();
   }
@@ -665,7 +709,10 @@
   function unlight() {
     focus.node = null;
     focus.nodes.clear();
+    focus.near.clear();
     focus.links.clear();
+    focus.depth.clear();
+    focus.linkDepth.clear();
     repaint();
   }
 
@@ -674,7 +721,7 @@
   // the one place you cannot see a cluster from. zoomToFit takes a filter, so
   // the library does the arithmetic and the result is a branch in view.
   function frame(id) {
-    const lit = focus.nodes.size > 1 ? focus.nodes : null;
+    const lit = focus.near.size > 1 ? focus.near : null;
     if (!lit) {
       // Nothing connects to it here, so there is no branch to frame; approach
       // it instead, from far enough out to keep its surroundings.
@@ -791,9 +838,10 @@
       const lit = document.createElement("p");
       lit.className = "kind";
       lit.style.marginBottom = "2px";
-      const n = Math.max(0, focus.nodes.size - 1);
-      lit.textContent = n
-        ? `${n} direct connection${n === 1 ? "" : "s"} lit · everything else dimmed`
+      const near = Math.max(0, focus.near.size - 1);
+      const reached = Math.max(0, focus.nodes.size - focus.near.size);
+      lit.textContent = near
+        ? `${near} direct · ${reached} more within ${HOPS} steps, fading with distance`
         : "nothing connects to this one in the current view";
       detail.append(lit);
     }
