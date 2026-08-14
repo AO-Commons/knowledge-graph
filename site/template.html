@@ -494,7 +494,7 @@
   // issues are readable without a token and without anyone signing in —
   // which is why there is no login here: a login would gate something that
   // is already public, and make contributing feel like joining.
-  const submissions = { state: "loading", items: [], read: 0 };
+  const submissions = { state: "idle", items: [], read: 0 };
 
   function loadSubmissions(force) {
     // Unauthenticated GitHub allows sixty reads an hour per address, and this
@@ -504,6 +504,7 @@
     const now = Date.now();
     if (now - submissions.read < (force ? 3000 : 20000)) return;
     submissions.read = now;
+    submissions.state = submissions.state === "idle" ? "loading" : submissions.state;
 
     fetch("https://api.github.com/repos/AO-Commons/knowledge-graph/issues"
           + "?state=all&per_page=60&sort=created&direction=desc",
@@ -532,13 +533,13 @@
         if (state.mode === "export") renderStage();
       });
   }
-  loadSubmissions(true);
+
 
   // Coming back from GitHub is the only signal this page gets that a trip
   // happened at all, so it is the moment to look for the issue.
   window.addEventListener("focus", () => {
     if (!state.sent.some(entry => !entry.number)) return;
-    loadSubmissions(true);
+  
     // GitHub's list can lag the submit by a second or two, and the person is
     // usually back here before it catches up. One follow-up covers that
     // without turning this into a poller.
@@ -1537,8 +1538,23 @@
   // Mirrors ao_commons_kg.classify over the index baked in above. Only ever
   // used to suggest topics for a paper the corpus does not hold yet, and the
   // person adding it confirms or changes every one.
-  const IX = DATA.index;
-  const TERM_ID = new Map(IX.terms.map((t, i) => [t, i]));
+  // Fetched the first time the Add tab is opened, not on arrival. Everyone
+  // else was parsing a search index they would never use.
+  let IX = null, TERM_ID = null, indexWanted = false;
+
+  function loadIndex() {
+    if (indexWanted) return;
+    indexWanted = true;
+    fetch("classifier.json")
+      .then(response => (response.ok ? response.json() : null))
+      .then(payload => {
+        if (!payload) return;
+        IX = payload;
+        TERM_ID = new Map(IX.terms.map((term, i) => [term, i]));
+        if (state.mode === "add") renderAdd();
+      })
+      .catch(() => { /* the form still works; it just cannot suggest */ });
+  }
   const STOP = new Set(("a an and are as at be by for from has in is it its of on or that the to with "
     + "these those their they this which while when where what who whom how why "
     + "agent agents agentic ai artificial intelligence machine system systems").split(" "));
@@ -1549,6 +1565,7 @@
   }
 
   function suggestTopics(text, limit) {
+    if (!IX) return [];
     const query = [...new Set(tokens(text).map(w => TERM_ID.get(w)).filter(id => id !== undefined))];
     if (!query.length) return [];
     const K1 = 1.2, B = 0.6;
@@ -2284,7 +2301,7 @@
     const wrap = el("div", { className: "ledger" });
     wrap.append(el("p", { className: "section-label" }, "What the group has sent in"));
 
-    if (submissions.state === "loading") {
+    if (submissions.state === "idle" || submissions.state === "loading") {
       wrap.append(el("p", { className: "empty" }, "Reading the repository…"));
       return wrap;
     }
@@ -2434,8 +2451,11 @@
   }
   document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
   document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
-  document.getElementById("mode-add").addEventListener("click", () => setMode("add"));
-  document.getElementById("mode-export").addEventListener("click", () => setMode("export"));
+  document.getElementById("mode-add").addEventListener("click", () => { loadIndex(); setMode("add"); });
+  document.getElementById("mode-export").addEventListener("click", () => {
+    loadSubmissions(false);
+    setMode("export");
+  });
 
   const box = document.getElementById("q");
   box.addEventListener("input", () => runSearch(box.value));

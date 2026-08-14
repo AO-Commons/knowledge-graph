@@ -33,6 +33,7 @@ from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 TEMPLATE = REPO / "site" / "template.html"
 GOLD = REPO / "evals" / "gold" / "tags.yml"
 GOLD_OUT = REPO / "site" / "gold.json"
+INDEX_OUT = REPO / "site" / "classifier.json"
 OUTPUT = REPO / "site" / "index.html"
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 ALIASES = REPO / "taxonomy" / "aliases.yaml"
@@ -113,15 +114,19 @@ def build_payload() -> dict:
         topic_tokens.append(ids)
     idf = [round(index.idf.get(term, 0.0), 3) for term in terms]
 
+    # Written beside the page rather than into it. It is 17% of the payload and
+    # only the Add tab ever reads it, so everyone who came to file papers was
+    # parsing a search index they would never touch.
+    INDEX_OUT.write_text(json.dumps({
+        "terms": list(terms),
+        "idf": idf,
+        "topics": topic_tokens,
+        "lengths": [len(index.documents[t.code]) for t in topics],
+        "averageLength": round(index.average_length, 2),
+    }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+
     return {
         "generated_for": "AO Commons knowledge graph",
-        "index": {
-            "terms": list(terms),
-            "idf": idf,
-            "topics": topic_tokens,
-            "lengths": [len(index.documents[t.code]) for t in topics],
-            "averageLength": round(index.average_length, 2),
-        },
         "taxonomy_version": "v3",
         "topics": [
             {
@@ -203,6 +208,8 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"wrote {GOLD_OUT.relative_to(REPO)}  {len(merged)} merged filing(s)")
+    print(f"wrote {INDEX_OUT.relative_to(REPO)}  {INDEX_OUT.stat().st_size:,} bytes "
+          "(fetched only by the Add tab)")
 
     check_script(OUTPUT)
 

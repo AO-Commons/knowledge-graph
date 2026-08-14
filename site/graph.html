@@ -466,7 +466,7 @@
           <span class="t">${escape(node.label.replace(/^\d+\s/, ""))}</span>`;
         row.addEventListener("click", () => {
           const live = graph.graphData().nodes.find(n => n.id === node.id);
-          if (live) { flyTo(live); light(live.id); select(live); }
+          if (live) { light(live.id); frame(live.id); select(live); }
         });
         sections.append(row);
       });
@@ -512,7 +512,7 @@
         hueFor({ id: endId(link.source), section: (link.source || {}).section }))
       .warmupTicks(30)
       .cooldownTime(6000)
-      .onNodeClick(node => { flyTo(node); light(node.id); select(node); })
+      .onNodeClick(node => { light(node.id); frame(node.id); select(node); })
       .onBackgroundClick(() => { unlight(); select(null); });
 
     // The wheel moved the camera a hair at a time, which on a graph this deep
@@ -586,13 +586,25 @@
     repaint();
   }
 
-  function flyTo(node) {
-    const distance = node.kind === "section" ? 150 : node.kind === "claim" ? 55 : 85;
-    const reach = Math.hypot(node.x || 0, node.y || 0, node.z || 0) || 1;
-    const ratio = 1 + distance / reach;
-    graph.cameraPosition(
-      { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio },
-      node, 1100);
+  // Frame the whole neighbourhood rather than approach the node. A fixed
+  // stand-off put the camera inside the cluster it was meant to show, which is
+  // the one place you cannot see a cluster from. zoomToFit takes a filter, so
+  // the library does the arithmetic and the result is a branch in view.
+  function frame(id) {
+    const lit = focus.nodes.size > 1 ? focus.nodes : null;
+    if (!lit) {
+      // Nothing connects to it here, so there is no branch to frame; approach
+      // it instead, from far enough out to keep its surroundings.
+      const node = graph.graphData().nodes.find(n => n.id === id);
+      if (!node) return;
+      const reach = Math.hypot(node.x || 0, node.y || 0, node.z || 0) || 1;
+      const ratio = 1 + 130 / reach;
+      graph.cameraPosition(
+        { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio },
+        node, 1000);
+      return;
+    }
+    graph.zoomToFit(1000, 90, node => lit.has(node.id));
   }
 
   // The same box as on the filing site, doing the thing it can do here: find a
@@ -628,11 +640,11 @@
             refresh();
             setTimeout(() => {
               const found = graph.graphData().nodes.find(n => n.id === node.id);
-              if (found) { flyTo(found); light(found.id); select(found); }
+              if (found) { light(found.id); frame(found.id); select(found); }
             }, 1200);
           } else {
-            flyTo(live);
             light(live.id);
+            frame(live.id);
             select(live);
           }
           box.value = "";
