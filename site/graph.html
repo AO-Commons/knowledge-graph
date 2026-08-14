@@ -130,6 +130,40 @@
     font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
   }
   .theme:hover { color: var(--ink); border-color: var(--accent); }
+
+  /* ---------- the property switcher, as on the filing site ---------- */
+  /* The tabs above are navigation within this property; this is navigation
+     between properties. Copied verbatim from template.html for the same
+     reason the masthead is — these pages must work from a file:// URL, so
+     they cannot share a stylesheet with anything. */
+  .switcher { position: relative; }
+  .switch-button {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--ink);
+    padding: 5px 10px; border-radius: 2px; font-size: 13px; font-weight: 500;
+    white-space: nowrap; cursor: pointer;
+  }
+  .switch-button:hover, .switch-button[aria-expanded="true"] { border-color: var(--accent); }
+  .switch-button .caret { width: 9px; height: 9px; flex: none; color: var(--faint); transition: transform .12s; }
+  .switch-button[aria-expanded="true"] .caret { transform: rotate(180deg); }
+  .switch-menu {
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
+    margin: 0; padding: 5px; list-style: none; width: max(100%, 300px);
+    background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .09);
+  }
+  :root[data-theme="dark"] .switch-menu { box-shadow: 0 6px 20px rgba(0, 0, 0, .45); }
+  .switch-menu[hidden] { display: none; }
+  .switch-menu a {
+    display: grid; grid-template-columns: 14px 1fr; gap: 2px 8px;
+    padding: 7px 9px; text-decoration: none; color: var(--ink);
+  }
+  .switch-menu a:hover, .switch-menu a:focus-visible { background: var(--sunk); outline-offset: -2px; }
+  .switch-menu .tick { grid-row: 1; color: var(--accent); font-size: 12px; line-height: 1.5; }
+  .switch-menu .name { grid-column: 2; font-size: 13px; font-weight: 550; }
+  .switch-menu .note { grid-column: 2; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+  .switch-menu a[aria-current] .name { color: var(--accent); }
+
   @media (max-width: 900px) {
     .masthead { grid-template-columns: 1fr; gap: 0; }
     .tools { justify-content: flex-start; flex-wrap: wrap; }
@@ -232,6 +266,21 @@
       <input id="q" type="search" placeholder="Search the graph — a topic, a paper, an author…" autocomplete="off" aria-label="Search">
       <div class="search-out" id="q-out"></div>
     </div>
+    <div class="switcher">
+      <button class="switch-button" id="switcher" aria-haspopup="true" aria-expanded="false" aria-controls="switcher-menu">
+        <span>Knowledge graph</span>
+        <svg class="caret" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <!-- Absolute rather than root-relative, because this page is meant to
+           survive being dropped anywhere. From a file:// URL "/evaluators/"
+           resolves against the filesystem root and goes nowhere. -->
+      <ul class="switch-menu" id="switcher-menu" hidden>
+        <li><a href="https://ao-commons.github.io/"><span class="tick"></span><span class="name">Overview</span><span class="note">What AO Commons is, and what it publishes</span></a></li>
+        <li><a href="index.html" aria-current="page"><span class="tick">✓</span><span class="name">Knowledge graph</span><span class="note">The research map — taxonomy, corpus, and the graph</span></a></li>
+        <li><a href="https://ao-commons.github.io/evaluators/"><span class="tick"></span><span class="name">Evaluators</span><span class="note">Measuring claims against the evidence base</span></a></li>
+        <li><a href="https://ao-commons.github.io/skills/"><span class="tick"></span><span class="name">Skills</span><span class="note">Working with AO Commons data from an agent</span></a></li>
+      </ul>
+    </div>
     <button class="theme" id="theme" aria-label="Switch between light and dark">Dark</button>
   </div>
 </header>
@@ -282,6 +331,56 @@
     try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* fine */ }
     applyTheme();
   });
+
+  // The property switcher, copied from template.html for the same reason the
+  // masthead is. Keep the two in step, along with assets/site.js in
+  // AO-Commons/ao-commons.github.io.
+  {
+    const switchButton = document.getElementById("switcher");
+    const switchMenu = document.getElementById("switcher-menu");
+    const switchItems = [...switchMenu.querySelectorAll("a")];
+
+    const openSwitch = index => {
+      switchMenu.hidden = false;
+      switchButton.setAttribute("aria-expanded", "true");
+      if (typeof index === "number" && switchItems[index]) switchItems[index].focus();
+    };
+    const closeSwitch = returnFocus => {
+      switchMenu.hidden = true;
+      switchButton.setAttribute("aria-expanded", "false");
+      if (returnFocus) switchButton.focus();
+    };
+
+    switchButton.addEventListener("click", () => { switchMenu.hidden ? openSwitch() : closeSwitch(); });
+    switchButton.addEventListener("keydown", event => {
+      if (event.key === "ArrowDown") { event.preventDefault(); openSwitch(0); }
+      else if (event.key === "ArrowUp") { event.preventDefault(); openSwitch(switchItems.length - 1); }
+    });
+    switchMenu.addEventListener("keydown", event => {
+      const here = switchItems.indexOf(document.activeElement);
+      const last = switchItems.length - 1;
+      if (event.key === "ArrowDown") { event.preventDefault(); switchItems[(here + 1) % switchItems.length].focus(); }
+      else if (event.key === "ArrowUp") { event.preventDefault(); switchItems[(here - 1 + switchItems.length) % switchItems.length].focus(); }
+      else if (event.key === "Home") { event.preventDefault(); switchItems[0].focus(); }
+      else if (event.key === "End") { event.preventDefault(); switchItems[last].focus(); }
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !switchMenu.hidden) { event.preventDefault(); closeSwitch(true); }
+    });
+    // pointerdown rather than click: the scene below swallows clicks to
+    // rotate the graph, and a menu that will not close over the canvas is
+    // worse than one that never opened.
+    document.addEventListener("pointerdown", event => {
+      if (!switchMenu.hidden && !switchMenu.contains(event.target) && !switchButton.contains(event.target)) {
+        closeSwitch(false);
+      }
+    });
+    document.addEventListener("focusin", event => {
+      if (!switchMenu.hidden && !switchMenu.contains(event.target) && event.target !== switchButton) {
+        closeSwitch(false);
+      }
+    });
+  }
 
   const token = name => getComputedStyle(document.documentElement)
     .getPropertyValue(name).trim();

@@ -147,6 +147,47 @@
   }
   .theme:hover { color: var(--ink); border-color: var(--accent); }
 
+  /* ---------- the property switcher ---------- */
+  /* Moves between AO Commons' surfaces. The tabs above are navigation *within*
+     this page; this is navigation *between* properties, which is why it sits
+     with the controls rather than alongside them — a reader who has finished
+     filing papers and wants the evaluators is not switching mode.
+
+     A menu rather than a native <select>: each option carries a line of
+     description, which a <select> cannot show, and choosing one is a
+     navigation rather than a form value.
+
+     Its twin lives in assets/site.css in AO-Commons/ao-commons.github.io.
+     These pages are self-contained by design — they work from a file:// URL
+     with no server — so they carry their own copy rather than link to it.
+     Keep the two in step. */
+  .switcher { position: relative; }
+  .switch-button {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--ink);
+    padding: 5px 10px; border-radius: 2px; font-size: 13px; font-weight: 500;
+    white-space: nowrap;
+  }
+  .switch-button:hover, .switch-button[aria-expanded="true"] { border-color: var(--accent); }
+  .switch-button .caret { width: 9px; height: 9px; flex: none; color: var(--faint); transition: transform .12s; }
+  .switch-button[aria-expanded="true"] .caret { transform: rotate(180deg); }
+  .switch-menu {
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
+    margin: 0; padding: 5px; list-style: none; width: max(100%, 300px);
+    background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .09);
+  }
+  :root[data-theme="dark"] .switch-menu { box-shadow: 0 6px 20px rgba(0, 0, 0, .45); }
+  .switch-menu[hidden] { display: none; }
+  .switch-menu a {
+    display: grid; grid-template-columns: 14px 1fr; gap: 2px 8px;
+    padding: 7px 9px; text-decoration: none; color: var(--ink);
+  }
+  .switch-menu a:hover, .switch-menu a:focus-visible { background: var(--sunk); outline-offset: -2px; }
+  .switch-menu .tick { grid-row: 1; color: var(--accent); font-size: 12px; line-height: 1.5; }
+  .switch-menu .name { grid-column: 2; font-size: 13px; font-weight: 550; }
+  .switch-menu .note { grid-column: 2; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+  .switch-menu a[aria-current] .name { color: var(--accent); }
 
   main { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; align-items: start; }
   @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
@@ -412,12 +453,27 @@
     <button id="mode-review" aria-pressed="false">Review</button>
     <button id="mode-add" aria-pressed="false">Add</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
-    <a id="mode-graph" href="graph.html?v=732e2e3f">Graph</a>
+    <a id="mode-graph" href="graph.html?v=57ebc885">Graph</a>
   </div>
   <div class="tools">
     <div class="search">
       <input id="q" type="search" placeholder="Search topics, authors, titles…" autocomplete="off" aria-label="Search">
       <div class="search-out" id="q-out"></div>
+    </div>
+    <div class="switcher">
+      <button class="switch-button" id="switcher" aria-haspopup="true" aria-expanded="false" aria-controls="switcher-menu">
+        <span>Knowledge graph</span>
+        <svg class="caret" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <!-- Absolute rather than root-relative, because this page is meant to
+           survive being dropped anywhere. From a file:// URL "/evaluators/"
+           resolves against the filesystem root and goes nowhere. -->
+      <ul class="switch-menu" id="switcher-menu" hidden>
+        <li><a href="https://ao-commons.github.io/"><span class="tick"></span><span class="name">Overview</span><span class="note">What AO Commons is, and what it publishes</span></a></li>
+        <li><a href="index.html" aria-current="page"><span class="tick">✓</span><span class="name">Knowledge graph</span><span class="note">The research map — taxonomy, corpus, and the graph</span></a></li>
+        <li><a href="https://ao-commons.github.io/evaluators/"><span class="tick"></span><span class="name">Evaluators</span><span class="note">Measuring claims against the evidence base</span></a></li>
+        <li><a href="https://ao-commons.github.io/skills/"><span class="tick"></span><span class="name">Skills</span><span class="note">Working with AO Commons data from an agent</span></a></li>
+      </ul>
     </div>
     <button class="theme" id="theme" aria-label="Switch between light and dark">Dark</button>
   </div>
@@ -456,6 +512,54 @@
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   let theme = prefersDark ? "dark" : "light";
   try { theme = localStorage.getItem(THEME_KEY) || theme; } catch (e) { /* default holds */ }
+
+  // The property switcher. Its twin is assets/site.js in
+  // AO-Commons/ao-commons.github.io; these pages are self-contained by design
+  // and so carry their own copy. Keep the two in step.
+  function setUpSwitcher() {
+    const button = document.getElementById("switcher");
+    const menu = document.getElementById("switcher-menu");
+    if (!button || !menu) return;
+    const items = [...menu.querySelectorAll("a")];
+
+    const open = index => {
+      menu.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      if (typeof index === "number" && items[index]) items[index].focus();
+    };
+    const close = returnFocus => {
+      menu.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+      if (returnFocus) button.focus();
+    };
+
+    button.addEventListener("click", () => { menu.hidden ? open() : close(); });
+    button.addEventListener("keydown", event => {
+      if (event.key === "ArrowDown") { event.preventDefault(); open(0); }
+      else if (event.key === "ArrowUp") { event.preventDefault(); open(items.length - 1); }
+    });
+    menu.addEventListener("keydown", event => {
+      const here = items.indexOf(document.activeElement);
+      if (event.key === "ArrowDown") { event.preventDefault(); items[(here + 1) % items.length].focus(); }
+      else if (event.key === "ArrowUp") { event.preventDefault(); items[(here - 1 + items.length) % items.length].focus(); }
+      else if (event.key === "Home") { event.preventDefault(); items[0].focus(); }
+      else if (event.key === "End") { event.preventDefault(); items[items.length - 1].focus(); }
+    });
+    // Escape closes from anywhere inside, which is where a keyboard user will
+    // be when they change their mind. Guarded on the menu being open so it
+    // does not eat the Escape that clears the search box.
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !menu.hidden) { event.preventDefault(); close(true); }
+    });
+    document.addEventListener("pointerdown", event => {
+      if (!menu.hidden && !menu.contains(event.target) && !button.contains(event.target)) close(false);
+    });
+    // Tabbing out closes it. Without this the menu hangs open behind whatever
+    // the user moved on to.
+    document.addEventListener("focusin", event => {
+      if (!menu.hidden && !menu.contains(event.target) && event.target !== button) close(false);
+    });
+  }
 
   const state = {
     mode: "explore",
@@ -2473,6 +2577,7 @@
     theme = theme === "dark" ? "light" : "dark";
     applyTheme(theme);
   });
+  setUpSwitcher();
 
   DATA.topics.filter(t => t.depth === 0).forEach(t => state.open.add(t.code));
 
