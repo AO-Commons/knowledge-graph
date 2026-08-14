@@ -3,11 +3,11 @@
   "taxonomy_version": "v3",
   "counts": {
     "topics": 568,
-    "resources": 60,
+    "resources": 61,
     "entities": 0,
     "claims": 45,
-    "relationships": 886,
-    "nodes": 673
+    "relationships": 887,
+    "nodes": 674
   },
   "relation_counts": {
     "ABOUT": 70,
@@ -15,10 +15,10 @@
     "MAKES_CLAIM": 45,
     "PARENT_OF": 552,
     "SIMILAR_TO": 55,
-    "TAGGED_WITH": 148
+    "TAGGED_WITH": 149
   },
   "confidence_counts": {
-    "EXTRACTED": 193,
+    "EXTRACTED": 194,
     "INFERRED": 70
   },
   "license": "CC-BY-4.0",
