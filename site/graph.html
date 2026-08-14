@@ -365,6 +365,12 @@
   }
   const colourOf = kind => token((LINK_KINDS.find(k => k[0] === kind) || [0, 0, "--faint"])[2]);
 
+  function colourOfNode(node) {
+    if (!focus.node) return hueFor(node);
+    if (node.id === focus.node) return "#ffffff";
+    return focus.nodes.has(node.id) ? hueFor(node) : fade(hueFor(node), 0.07);
+  }
+
   // Revalidated rather than served from cache: the corpus changes whenever a
   // record is added, and a ten-minute-old graph looks like a broken one.
   fetch("graph.json", { cache: "no-cache" })
@@ -415,6 +421,60 @@
       links: data.links.filter(l => state.links.has(l.kind) && has(l.source) && has(l.target))
         .map(l => ({ ...l })),
     };
+  }
+
+  // People as cubes, so a person is identifiable at a glance instead of being
+  // a sphere of a slightly different colour among six hundred spheres.
+  //
+  // The bundle does not expose THREE, so the classes are harvested from a mesh
+  // the library has already made: the geometry's grandparent prototype is
+  // BufferGeometry, its position attribute's constructor is BufferAttribute,
+  // and the mesh and material give up their own. Obscure, and the alternative
+  // was vendoring a second copy of Three.js for one shape.
+  let parts = null;
+
+  function harvestClasses() {
+    let mesh = null;
+    graph.scene().traverse(obj => { if (!mesh && obj.type === "Mesh" && obj.geometry) mesh = obj; });
+    if (!mesh) return null;
+    const geometry = mesh.geometry;
+    return {
+      Geometry: Object.getPrototypeOf(Object.getPrototypeOf(geometry)).constructor,
+      Attribute: geometry.attributes.position.constructor,
+      Mesh: mesh.constructor,
+      Material: mesh.material.constructor,
+    };
+  }
+
+  // Six faces, each with its own vertices. Sharing corners would average the
+  // normals and light it like a ball, which is the whole thing being avoided.
+  function cube(size) {
+    const h = size / 2;
+    const corner = [[-h,-h,h],[h,-h,h],[h,h,h],[-h,h,h],[-h,-h,-h],[-h,h,-h],[h,h,-h],[h,-h,-h]];
+    const faces = [[0,1,2,3],[7,4,5,6],[3,2,6,5],[4,7,1,0],[1,7,6,2],[4,0,3,5]];
+    const positions = [];
+    faces.forEach(([a, b, c, d]) => {
+      [a, b, c, a, c, d].forEach(i => positions.push(...corner[i]));
+    });
+    const geometry = new parts.Geometry();
+    geometry.setAttribute("position", new parts.Attribute(new Float32Array(positions), 3));
+    geometry.computeVertexNormals();
+    return geometry;
+  }
+
+  function personCube(node) {
+    if (node.kind !== "author" || !parts) return null;
+    // Matched to the sphere radius the library would have drawn, so people sit
+    // among the papers rather than looming over them.
+    const side = 2 * Math.cbrt(sizeFor(node)) * 4 * 0.8;
+    const colour = colourOfNode(node);
+    const material = new parts.Material({ color: 0xffffff, transparent: true });
+    material.color.set(colour.startsWith("rgba") ? colour.replace(/rgba?\(([^)]+),[^,)]+\)/, "rgb($1)") : colour);
+    material.opacity = colour.startsWith("rgba")
+      ? parseFloat(colour.slice(colour.lastIndexOf(",") + 1)) : 0.95;
+    const mesh = new parts.Mesh(cube(side), material);
+    mesh.rotation.set(0.5, 0.6, 0);   // a corner toward the viewer reads as a cube
+    return mesh;
   }
 
   const sizeFor = node =>
@@ -497,11 +557,9 @@
           background:${token("--card")};color:${token("--ink")};
           border:1px solid ${token("--rule-hard")};padding:6px 9px;
           font:12px/1.45 ui-sans-serif,system-ui;max-width:280px">${escape(node.label)}</div>`)
-      .nodeColor(node => {
-        if (!focus.node) return hueFor(node);
-        if (node.id === focus.node) return "#ffffff";
-        return focus.nodes.has(node.id) ? hueFor(node) : fade(hueFor(node), 0.07);
-      })
+      .nodeColor(colourOfNode)
+      .nodeThreeObject(personCube)
+      .nodeThreeObjectExtend(false)
       .nodeVal(sizeFor)
       .nodeOpacity(0.95)
       .nodeResolution(12)
@@ -549,6 +607,10 @@
     graph.d3Force("charge").strength(-38);
 
     refresh();
+    setTimeout(() => {
+      parts = harvestClasses();
+      if (parts) graph.nodeThreeObject(personCube);
+    }, 400);
     document.getElementById("reset").addEventListener("click", () => graph.zoomToFit(600, 60));
     wireSearch();
     applyTheme();
@@ -584,6 +646,7 @@
   // one place instead of duplicating them into a manual material walk.
   function repaint() {
     graph.nodeColor(graph.nodeColor())
+      .nodeThreeObject(graph.nodeThreeObject())
       .linkColor(graph.linkColor())
       .linkWidth(graph.linkWidth())
       .linkDirectionalParticles(graph.linkDirectionalParticles());
