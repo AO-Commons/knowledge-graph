@@ -251,7 +251,7 @@
   </div>
 
   <div class="detail" id="detail" hidden></div>
-  <p class="hint">Drag to turn · scroll to zoom · click a node</p>
+  <p class="hint">Drag to turn · scroll to zoom · click a node to fly to it and light its connections</p>
 </main>
 
 <script src="vendor/3d-force-graph.min.js"></script>
@@ -332,6 +332,23 @@
   };
 
   let data = null, graph = null;
+  // What is lit when something is selected. Held as ids rather than objects
+  // because the force layout replaces node objects on every graphData call.
+  const focus = { node: null, nodes: new Set(), links: new Set() };
+  let neighbours = new Map();
+
+  const endId = end => (end && end.id !== undefined ? end.id : end);
+  const linkKey = link => `${endId(link.source)}\u0000${endId(link.target)}\u0000${link.kind}`;
+
+  // Dimming has to keep the hue and lose the presence: a grey graph with one
+  // coloured thread reads as broken, while the same graph at low alpha reads
+  // as depth. rgba is honoured by the renderer, which sets material opacity.
+  function fade(hex, alpha) {
+    const value = String(hex || "#888888").replace("#", "");
+    const n = parseInt(value.length === 3
+      ? value.split("").map(c => c + c).join("") : value, 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
+  }
   const colourOf = kind => token((LINK_KINDS.find(k => k[0] === kind) || [0, 0, "--faint"])[2]);
 
   // Revalidated rather than served from cache: the corpus changes whenever a
@@ -449,7 +466,7 @@
           <span class="t">${escape(node.label.replace(/^\d+\s/, ""))}</span>`;
         row.addEventListener("click", () => {
           const live = graph.graphData().nodes.find(n => n.id === node.id);
-          if (live) { flyTo(live); select(live); }
+          if (live) { flyTo(live); light(live.id); select(live); }
         });
         sections.append(row);
       });
@@ -460,27 +477,43 @@
           background:${token("--card")};color:${token("--ink")};
           border:1px solid ${token("--rule-hard")};padding:6px 9px;
           font:12px/1.45 ui-sans-serif,system-ui;max-width:280px">${escape(node.label)}</div>`)
-      .nodeColor(hueFor)
+      .nodeColor(node => {
+        if (!focus.node) return hueFor(node);
+        if (node.id === focus.node) return "#ffffff";
+        return focus.nodes.has(node.id) ? hueFor(node) : fade(hueFor(node), 0.07);
+      })
       .nodeVal(sizeFor)
       .nodeOpacity(0.95)
       .nodeResolution(12)
       // Curved rather than straight, so parallel edges between the same two
       // clusters read as a bundle instead of overprinting into one line.
       .linkCurvature(0.22)
-      .linkColor(link => hueFor(link.source.id ? link.source : { id: link.source }))
-      .linkOpacity(0.22)
-      .linkWidth(link => (link.kind === "parent" ? 0.3 : 0.8))
+      .linkColor(link => {
+        const hue = hueFor({ id: endId(link.source), section: (link.source || {}).section });
+        if (!focus.node) return fade(hue, 0.22);
+        return focus.links.has(linkKey(link)) ? fade(hue, 0.95) : fade(hue, 0.02);
+      })
+      .linkOpacity(1)
+      .linkWidth(link => {
+        const base = link.kind === "parent" ? 0.3 : 0.8;
+        return focus.node && focus.links.has(linkKey(link)) ? base * 3 : base;
+      })
       // The movement. Particles travel from source to target, so an edge shows
       // its direction as well as its existence — a citation runs one way, and
       // a shared-references score does not.
-      .linkDirectionalParticles(link => (state.flow ? PARTICLES[link.kind] || 0 : 0))
+      .linkDirectionalParticles(link => {
+        if (!state.flow) return 0;
+        if (focus.node) return focus.links.has(linkKey(link)) ? 4 : 0;
+        return PARTICLES[link.kind] || 0;
+      })
       .linkDirectionalParticleWidth(1.4)
       .linkDirectionalParticleSpeed(link => SPEED[link.kind] || 0.004)
-      .linkDirectionalParticleColor(link => hueFor(link.source.id ? link.source : { id: link.source }))
+      .linkDirectionalParticleColor(link =>
+        hueFor({ id: endId(link.source), section: (link.source || {}).section }))
       .warmupTicks(30)
       .cooldownTime(6000)
-      .onNodeClick(select)
-      .onBackgroundClick(() => select(null));
+      .onNodeClick(node => { flyTo(node); light(node.id); select(node); })
+      .onBackgroundClick(() => { unlight(); select(null); });
 
     // The wheel moved the camera a hair at a time, which on a graph this deep
     // means a lot of scrolling to get anywhere. Trackball controls default to
@@ -504,6 +537,17 @@
   function refresh() {
     const shown = visible();
     graph.graphData(shown);
+
+    neighbours = new Map();
+    shown.links.forEach(link => {
+      const a = endId(link.source), b = endId(link.target);
+      if (!neighbours.has(a)) neighbours.set(a, new Set());
+      if (!neighbours.has(b)) neighbours.set(b, new Set());
+      neighbours.get(a).add(b);
+      neighbours.get(b).add(a);
+    });
+    // A selection that survives a filter change should still be lit.
+    if (focus.node) light(focus.node);
     document.getElementById("scope").textContent =
       `${shown.nodes.length} nodes and ${shown.links.length} connections drawn.`
       + (state.allTopics ? "" : " Empty topics are hidden.");
@@ -515,11 +559,40 @@
     graph.backgroundColor(token("--void"));
   }
 
+  // Setting an accessor again is how this library is told to re-read it; there
+  // is no repaint call. Cheap at this size, and it keeps the colour rules in
+  // one place instead of duplicating them into a manual material walk.
+  function repaint() {
+    graph.nodeColor(graph.nodeColor())
+      .linkColor(graph.linkColor())
+      .linkWidth(graph.linkWidth())
+      .linkDirectionalParticles(graph.linkDirectionalParticles());
+  }
+
+  function light(id) {
+    focus.node = id;
+    focus.nodes = new Set([id, ...(neighbours.get(id) || [])]);
+    focus.links = new Set();
+    graph.graphData().links.forEach(link => {
+      if (endId(link.source) === id || endId(link.target) === id) focus.links.add(linkKey(link));
+    });
+    repaint();
+  }
+
+  function unlight() {
+    focus.node = null;
+    focus.nodes.clear();
+    focus.links.clear();
+    repaint();
+  }
+
   function flyTo(node) {
-    const distance = 90;
-    const ratio = 1 + distance / Math.hypot(node.x || 1, node.y || 1, node.z || 1);
+    const distance = node.kind === "section" ? 150 : node.kind === "claim" ? 55 : 85;
+    const reach = Math.hypot(node.x || 0, node.y || 0, node.z || 0) || 1;
+    const ratio = 1 + distance / reach;
     graph.cameraPosition(
-      { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio }, node, 900);
+      { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio },
+      node, 1100);
   }
 
   // The same box as on the filing site, doing the thing it can do here: find a
@@ -555,10 +628,11 @@
             refresh();
             setTimeout(() => {
               const found = graph.graphData().nodes.find(n => n.id === node.id);
-              if (found) { flyTo(found); select(found); }
+              if (found) { flyTo(found); light(found.id); select(found); }
             }, 1200);
           } else {
             flyTo(live);
+            light(live.id);
             select(live);
           }
           box.value = "";
@@ -611,6 +685,17 @@
       detail.append(held);
     }
 
+    if (focus.node === node.id) {
+      const lit = document.createElement("p");
+      lit.className = "kind";
+      lit.style.marginBottom = "2px";
+      const n = Math.max(0, focus.nodes.size - 1);
+      lit.textContent = n
+        ? `${n} direct connection${n === 1 ? "" : "s"} lit · everything else dimmed`
+        : "nothing connects to this one in the current view";
+      detail.append(lit);
+    }
+
     const actions = document.createElement("div");
     actions.className = "actions";
     // Back into the filing site. A graph that cannot hand you to the work is
@@ -630,11 +715,11 @@
       source.textContent = "Read the source";
       actions.append(source);
     }
-    const focus = document.createElement("button");
-    focus.className = "ghost";
-    focus.textContent = "Fly to it";
-    focus.addEventListener("click", () => flyTo(node));
-    actions.append(focus);
+    const clear = document.createElement("button");
+    clear.className = "ghost";
+    clear.textContent = "Show everything again";
+    clear.addEventListener("click", () => { unlight(); select(null); });
+    actions.append(clear);
     detail.append(actions);
   }
 })();
