@@ -141,6 +141,10 @@ def build_payload() -> dict:
                 "depth": t.depth,
                 "coding": t.usage_mode.value == "coding_scheme",
                 "points": t.subpoints[:4],
+                # Aliases fed the classifier but never the search box, so a
+                # topic could be the top machine suggestion for a paper and
+                # still be unfindable by the word a person would type for it.
+                "aka": (aliases or {}).get(t.code, []),
             }
             for t in topics
         ],

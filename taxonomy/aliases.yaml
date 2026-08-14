@@ -43,3 +43,14 @@
   - information-flow control
   - taint tracking
   - data labelling
+
+# Multi-agent reinforcement learning. Added with 14.5.5 rather than instead of
+# it: 14.5 held seven records while all four of its children held none, which
+# is a subsection missing a shelf rather than one that is hard to search.
+"14.5.5":
+  - MARL
+  - multi-agent reinforcement learning
+  - multi agent reinforcement learning
+  - social dilemma benchmark
+  - melting pot
+  - cooperative AI benchmark

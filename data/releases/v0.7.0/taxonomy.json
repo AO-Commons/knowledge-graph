@@ -1,0 +1,5741 @@
+{
+  "taxonomy_version": "v3",
+  "topic_count": 568,
+  "topics": [
+    {
+      "code": "1",
+      "title": "Definitional and conceptual foundations",
+      "taxonomy_version": "v3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1"
+    },
+    {
+      "code": "1.1",
+      "title": "Defining the object",
+      "taxonomy_version": "v3",
+      "parent_code": "1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1"
+    },
+    {
+      "code": "1.1.1",
+      "title": "Autonomy thresholds -- what makes an organization agentic rather than automated",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.1"
+    },
+    {
+      "code": "1.1.2",
+      "title": "Taxonomies of organizational autonomy levels",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.2"
+    },
+    {
+      "code": "1.1.3",
+      "title": "Agent-operated versus agent-governed versus agent-constituted",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.3"
+    },
+    {
+      "code": "1.1.4",
+      "title": "Hybrid forms and human-agent composition ratios",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.4"
+    },
+    {
+      "code": "1.1.5",
+      "title": "Boundary cases -- when is a tool an agent, when is an agent an organization",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.5"
+    },
+    {
+      "code": "1.1.6",
+      "title": "Terminology contests and competing definitions",
+      "taxonomy_version": "v3",
+      "parent_code": "1.1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.1.6"
+    },
+    {
+      "code": "1.2",
+      "title": "Agency and organizational theory adapted",
+      "taxonomy_version": "v3",
+      "parent_code": "1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2"
+    },
+    {
+      "code": "1.2.1",
+      "title": "Principal-agent theory where the agent is literally artificial",
+      "taxonomy_version": "v3",
+      "parent_code": "1.2",
+      "top_level_section": "1",
+      "subpoints": [
+        "Monitoring cost when the agent is fully instrumentable",
+        "Moral hazard without self-interest",
+        "Adverse selection in agent procurement",
+        "Multi-principal problems with conflicting human directives"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2.1"
+    },
+    {
+      "code": "1.2.2",
+      "title": "Firm boundaries when coordination cost approaches zero",
+      "taxonomy_version": "v3",
+      "parent_code": "1.2",
+      "top_level_section": "1",
+      "subpoints": [
+        "Coase revisited under agentic coordination",
+        "Make-versus-buy for agent capability",
+        "Minimum viable organization size"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2.2"
+    },
+    {
+      "code": "1.2.3",
+      "title": "Organizational cybernetics applied to agent systems",
+      "taxonomy_version": "v3",
+      "parent_code": "1.2",
+      "top_level_section": "1",
+      "subpoints": [
+        "Requisite variety in agent-managed control",
+        "Viable system model with machine subsystems",
+        "Recursion levels and agent hierarchy"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2.3"
+    },
+    {
+      "code": "1.2.4",
+      "title": "Collective agency and group intentionality with machine members",
+      "taxonomy_version": "v3",
+      "parent_code": "1.2",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2.4"
+    },
+    {
+      "code": "1.2.5",
+      "title": "Bounded rationality replaced by different bounds -- context windows, tool access, latency",
+      "taxonomy_version": "v3",
+      "parent_code": "1.2",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.2.5"
+    },
+    {
+      "code": "1.3",
+      "title": "Authority and legitimacy for machine actors",
+      "taxonomy_version": "v3",
+      "parent_code": "1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3"
+    },
+    {
+      "code": "1.3.1",
+      "title": "Sources of legitimate machine authority",
+      "taxonomy_version": "v3",
+      "parent_code": "1.3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3.1"
+    },
+    {
+      "code": "1.3.2",
+      "title": "Consent to being governed by non-human decision-makers",
+      "taxonomy_version": "v3",
+      "parent_code": "1.3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3.2"
+    },
+    {
+      "code": "1.3.3",
+      "title": "Delegated versus originated authority",
+      "taxonomy_version": "v3",
+      "parent_code": "1.3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3.3"
+    },
+    {
+      "code": "1.3.4",
+      "title": "Legitimacy erosion through automation",
+      "taxonomy_version": "v3",
+      "parent_code": "1.3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3.4"
+    },
+    {
+      "code": "1.3.5",
+      "title": "Contestability as a legitimacy condition",
+      "taxonomy_version": "v3",
+      "parent_code": "1.3",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.3.5"
+    },
+    {
+      "code": "1.4",
+      "title": "Responsibility and moral status",
+      "taxonomy_version": "v3",
+      "parent_code": "1",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4"
+    },
+    {
+      "code": "1.4.1",
+      "title": "Responsibility gaps and their allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "1.4",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4.1"
+    },
+    {
+      "code": "1.4.2",
+      "title": "Blame, sanction, and the non-punishable actor",
+      "taxonomy_version": "v3",
+      "parent_code": "1.4",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4.2"
+    },
+    {
+      "code": "1.4.3",
+      "title": "Corporate moral personhood extended to agentic entities",
+      "taxonomy_version": "v3",
+      "parent_code": "1.4",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4.3"
+    },
+    {
+      "code": "1.4.4",
+      "title": "Agent welfare considerations if any",
+      "taxonomy_version": "v3",
+      "parent_code": "1.4",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4.4"
+    },
+    {
+      "code": "1.4.5",
+      "title": "Dual-use and disclosure duties for agent-discovered capability",
+      "taxonomy_version": "v3",
+      "parent_code": "1.4",
+      "top_level_section": "1",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:1.4.5"
+    },
+    {
+      "code": "2",
+      "title": "Authority architecture",
+      "taxonomy_version": "v3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2"
+    },
+    {
+      "code": "2.1",
+      "title": "Authority boundary design",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1"
+    },
+    {
+      "code": "2.1.1",
+      "title": "Decision class taxonomies",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "subpoints": [
+        "By reversibility",
+        "By value and blast radius",
+        "By affected-party count",
+        "By legal consequence"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.1"
+    },
+    {
+      "code": "2.1.2",
+      "title": "Propose-versus-decide-versus-execute separation",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.2"
+    },
+    {
+      "code": "2.1.3",
+      "title": "Domain restrictions and scope fencing",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.3"
+    },
+    {
+      "code": "2.1.4",
+      "title": "Threshold design for human review triggers",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.4"
+    },
+    {
+      "code": "2.1.5",
+      "title": "Authority specification languages and machine-readable policy",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.5"
+    },
+    {
+      "code": "2.1.6",
+      "title": "Default-deny versus default-allow architectures",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.6"
+    },
+    {
+      "code": "2.1.7",
+      "title": "Boundary verification -- proving the declared scope equals the actual scope",
+      "taxonomy_version": "v3",
+      "parent_code": "2.1",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.1.7"
+    },
+    {
+      "code": "2.2",
+      "title": "Permissioning and capability control",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2"
+    },
+    {
+      "code": "2.2.1",
+      "title": "Least privilege for agent principals",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.1"
+    },
+    {
+      "code": "2.2.2",
+      "title": "Capability tokens and scoped credentials",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.2"
+    },
+    {
+      "code": "2.2.3",
+      "title": "Just-in-time and time-boxed permission grants",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.3"
+    },
+    {
+      "code": "2.2.4",
+      "title": "Permission composition and unintended capability unions",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.4"
+    },
+    {
+      "code": "2.2.5",
+      "title": "Tool access as the real permission surface",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.5"
+    },
+    {
+      "code": "2.2.6",
+      "title": "Egress and network reachability as governed resources",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.6"
+    },
+    {
+      "code": "2.2.7",
+      "title": "Permission review cycles and drift detection",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.7"
+    },
+    {
+      "code": "2.2.8",
+      "title": "Emergency permission elevation and its controls",
+      "taxonomy_version": "v3",
+      "parent_code": "2.2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.2.8"
+    },
+    {
+      "code": "2.3",
+      "title": "Delegation chains",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3"
+    },
+    {
+      "code": "2.3.1",
+      "title": "Authenticated delegation protocols",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.1"
+    },
+    {
+      "code": "2.3.2",
+      "title": "Human-to-agent delegation semantics",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.2"
+    },
+    {
+      "code": "2.3.3",
+      "title": "Agent-to-agent sub-delegation",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.3"
+    },
+    {
+      "code": "2.3.4",
+      "title": "Chain depth limits and cycle prevention",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.4"
+    },
+    {
+      "code": "2.3.5",
+      "title": "Revocation propagation across chains",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.5"
+    },
+    {
+      "code": "2.3.6",
+      "title": "Attribution -- which agent acted under whose authority",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.6"
+    },
+    {
+      "code": "2.3.7",
+      "title": "Delegation expiry and renewal",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.7"
+    },
+    {
+      "code": "2.3.8",
+      "title": "Scope narrowing versus scope preservation on sub-delegation",
+      "taxonomy_version": "v3",
+      "parent_code": "2.3",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.3.8"
+    },
+    {
+      "code": "2.4",
+      "title": "Graduated autonomy",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4"
+    },
+    {
+      "code": "2.4.1",
+      "title": "Autonomy ladders and staging models",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.1"
+    },
+    {
+      "code": "2.4.2",
+      "title": "Shadow mode and counterfactual comparison against human decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.2"
+    },
+    {
+      "code": "2.4.3",
+      "title": "Graduation criteria and evidence standards",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.3"
+    },
+    {
+      "code": "2.4.4",
+      "title": "Automatic regression on incident",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.4"
+    },
+    {
+      "code": "2.4.5",
+      "title": "Autonomy scope review cadence",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.5"
+    },
+    {
+      "code": "2.4.6",
+      "title": "Capability-tiered isolation requirements",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.6"
+    },
+    {
+      "code": "2.4.7",
+      "title": "Who authorizes a tier change",
+      "taxonomy_version": "v3",
+      "parent_code": "2.4",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.4.7"
+    },
+    {
+      "code": "2.5",
+      "title": "Safeguards against machine-speed action",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5"
+    },
+    {
+      "code": "2.5.1",
+      "title": "Rate limiting as a governance primitive",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.1"
+    },
+    {
+      "code": "2.5.2",
+      "title": "Mandatory delay on high-impact machine action",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.2"
+    },
+    {
+      "code": "2.5.3",
+      "title": "Circuit breakers and pause authority",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.3"
+    },
+    {
+      "code": "2.5.4",
+      "title": "Blast radius budgets and pre-declared damage caps",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.4"
+    },
+    {
+      "code": "2.5.5",
+      "title": "Kill switch design and its failure modes",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.5"
+    },
+    {
+      "code": "2.5.6",
+      "title": "Dead man's switches and continuous authorization",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.6"
+    },
+    {
+      "code": "2.5.7",
+      "title": "Reversibility engineering and undo paths",
+      "taxonomy_version": "v3",
+      "parent_code": "2.5",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.5.7"
+    },
+    {
+      "code": "2.6",
+      "title": "Governance velocity",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6"
+    },
+    {
+      "code": "2.6.1",
+      "title": "Governance latency versus execution latency",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.1"
+    },
+    {
+      "code": "2.6.2",
+      "title": "Pre-authorized standing mandates",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.2"
+    },
+    {
+      "code": "2.6.3",
+      "title": "Emergency powers -- scoping, sunset, ratification, abuse penalties",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.3"
+    },
+    {
+      "code": "2.6.4",
+      "title": "Response-time guarantees and their enforcement",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.4"
+    },
+    {
+      "code": "2.6.5",
+      "title": "The centralization cost of fast response",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.5"
+    },
+    {
+      "code": "2.6.6",
+      "title": "Asynchronous authorization patterns",
+      "taxonomy_version": "v3",
+      "parent_code": "2.6",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.6.6"
+    },
+    {
+      "code": "2.7",
+      "title": "Machine participation in governance",
+      "taxonomy_version": "v3",
+      "parent_code": "2",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7"
+    },
+    {
+      "code": "2.7.1",
+      "title": "Agent standing and voting rights",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.1"
+    },
+    {
+      "code": "2.7.2",
+      "title": "Agent-held reputation and accrued weight",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.2"
+    },
+    {
+      "code": "2.7.3",
+      "title": "Weight accrual rate limits and decay for machine principals",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.3"
+    },
+    {
+      "code": "2.7.4",
+      "title": "Disclosure of agent involvement in decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.4"
+    },
+    {
+      "code": "2.7.5",
+      "title": "Human ratification requirements for agent proposals",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.5"
+    },
+    {
+      "code": "2.7.6",
+      "title": "Agents representing absent or delegating humans",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.6"
+    },
+    {
+      "code": "2.7.7",
+      "title": "Agent-drafted proposals and agenda influence",
+      "taxonomy_version": "v3",
+      "parent_code": "2.7",
+      "top_level_section": "2",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:2.7.7"
+    },
+    {
+      "code": "3",
+      "title": "Organizational architecture",
+      "taxonomy_version": "v3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3"
+    },
+    {
+      "code": "3.1",
+      "title": "Structural patterns",
+      "taxonomy_version": "v3",
+      "parent_code": "3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1"
+    },
+    {
+      "code": "3.1.1",
+      "title": "Agent fleet topologies -- flat, hierarchical, market-based",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.1"
+    },
+    {
+      "code": "3.1.2",
+      "title": "Orchestrator and sub-agent patterns",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.2"
+    },
+    {
+      "code": "3.1.3",
+      "title": "Human-agent team structures",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.3"
+    },
+    {
+      "code": "3.1.4",
+      "title": "Function-to-agent mapping and role decomposition",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.4"
+    },
+    {
+      "code": "3.1.5",
+      "title": "Redundancy and diversity in agent assignment",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.5"
+    },
+    {
+      "code": "3.1.6",
+      "title": "Span of control for human supervisors",
+      "taxonomy_version": "v3",
+      "parent_code": "3.1",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.1.6"
+    },
+    {
+      "code": "3.2",
+      "title": "Coordination mechanisms",
+      "taxonomy_version": "v3",
+      "parent_code": "3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2"
+    },
+    {
+      "code": "3.2.1",
+      "title": "Task allocation and routing among agents",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.1"
+    },
+    {
+      "code": "3.2.2",
+      "title": "Inter-agent communication protocols",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.2"
+    },
+    {
+      "code": "3.2.3",
+      "title": "Conflict detection and resolution between agents",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.3"
+    },
+    {
+      "code": "3.2.4",
+      "title": "Shared state and consistency",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.4"
+    },
+    {
+      "code": "3.2.5",
+      "title": "Handoff between agents and between agent and human",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.5"
+    },
+    {
+      "code": "3.2.6",
+      "title": "Coordination overhead and its scaling",
+      "taxonomy_version": "v3",
+      "parent_code": "3.2",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.2.6"
+    },
+    {
+      "code": "3.3",
+      "title": "Interfaces and boundaries",
+      "taxonomy_version": "v3",
+      "parent_code": "3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3"
+    },
+    {
+      "code": "3.3.1",
+      "title": "Human-agent interface design for oversight",
+      "taxonomy_version": "v3",
+      "parent_code": "3.3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3.1"
+    },
+    {
+      "code": "3.3.2",
+      "title": "Organization-to-organization agent interaction",
+      "taxonomy_version": "v3",
+      "parent_code": "3.3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3.2"
+    },
+    {
+      "code": "3.3.3",
+      "title": "Agent interaction with external systems and counterparties",
+      "taxonomy_version": "v3",
+      "parent_code": "3.3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3.3"
+    },
+    {
+      "code": "3.3.4",
+      "title": "Trust boundaries within the organization",
+      "taxonomy_version": "v3",
+      "parent_code": "3.3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3.4"
+    },
+    {
+      "code": "3.3.5",
+      "title": "Instruction-source boundaries and provenance of directives",
+      "taxonomy_version": "v3",
+      "parent_code": "3.3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.3.5"
+    },
+    {
+      "code": "3.4",
+      "title": "Scaling dynamics",
+      "taxonomy_version": "v3",
+      "parent_code": "3",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.4"
+    },
+    {
+      "code": "3.4.1",
+      "title": "What breaks as agent count grows",
+      "taxonomy_version": "v3",
+      "parent_code": "3.4",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.4.1"
+    },
+    {
+      "code": "3.4.2",
+      "title": "Oversight capacity as the binding constraint",
+      "taxonomy_version": "v3",
+      "parent_code": "3.4",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.4.2"
+    },
+    {
+      "code": "3.4.3",
+      "title": "Emergent structure in large agent populations",
+      "taxonomy_version": "v3",
+      "parent_code": "3.4",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.4.3"
+    },
+    {
+      "code": "3.4.4",
+      "title": "Cost curves and marginal agent economics",
+      "taxonomy_version": "v3",
+      "parent_code": "3.4",
+      "top_level_section": "3",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:3.4.4"
+    },
+    {
+      "code": "4",
+      "title": "Human oversight and control",
+      "taxonomy_version": "v3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4"
+    },
+    {
+      "code": "4.1",
+      "title": "Oversight models",
+      "taxonomy_version": "v3",
+      "parent_code": "4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1"
+    },
+    {
+      "code": "4.1.1",
+      "title": "Human-in-the-loop, on-the-loop, and out-of-the-loop",
+      "taxonomy_version": "v3",
+      "parent_code": "4.1",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1.1"
+    },
+    {
+      "code": "4.1.2",
+      "title": "Meaningful human control criteria",
+      "taxonomy_version": "v3",
+      "parent_code": "4.1",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1.2"
+    },
+    {
+      "code": "4.1.3",
+      "title": "Sampling-based versus exhaustive review",
+      "taxonomy_version": "v3",
+      "parent_code": "4.1",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1.3"
+    },
+    {
+      "code": "4.1.4",
+      "title": "Risk-proportional oversight allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "4.1",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1.4"
+    },
+    {
+      "code": "4.1.5",
+      "title": "Oversight of oversight -- who watches the reviewers",
+      "taxonomy_version": "v3",
+      "parent_code": "4.1",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.1.5"
+    },
+    {
+      "code": "4.2",
+      "title": "Escalation design",
+      "taxonomy_version": "v3",
+      "parent_code": "4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2"
+    },
+    {
+      "code": "4.2.1",
+      "title": "Escalation triggers and threshold setting",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.1"
+    },
+    {
+      "code": "4.2.2",
+      "title": "Uncertainty-based escalation",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.2"
+    },
+    {
+      "code": "4.2.3",
+      "title": "Novel-situation detection and escalation",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.3"
+    },
+    {
+      "code": "4.2.4",
+      "title": "Failure to escalate as a failure mode",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.4"
+    },
+    {
+      "code": "4.2.5",
+      "title": "Escalation routing and on-call structures",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.5"
+    },
+    {
+      "code": "4.2.6",
+      "title": "Escalation fatigue and threshold drift",
+      "taxonomy_version": "v3",
+      "parent_code": "4.2",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.2.6"
+    },
+    {
+      "code": "4.3",
+      "title": "Legibility and explanation",
+      "taxonomy_version": "v3",
+      "parent_code": "4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3"
+    },
+    {
+      "code": "4.3.1",
+      "title": "Decision legibility for reviewers",
+      "taxonomy_version": "v3",
+      "parent_code": "4.3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3.1"
+    },
+    {
+      "code": "4.3.2",
+      "title": "Reasoning transparency and its reliability",
+      "taxonomy_version": "v3",
+      "parent_code": "4.3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3.2"
+    },
+    {
+      "code": "4.3.3",
+      "title": "Summarization for human consumption and its distortions",
+      "taxonomy_version": "v3",
+      "parent_code": "4.3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3.3"
+    },
+    {
+      "code": "4.3.4",
+      "title": "Audit trails designed for human reconstruction",
+      "taxonomy_version": "v3",
+      "parent_code": "4.3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3.4"
+    },
+    {
+      "code": "4.3.5",
+      "title": "Explanation rights and contestability",
+      "taxonomy_version": "v3",
+      "parent_code": "4.3",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.3.5"
+    },
+    {
+      "code": "4.4",
+      "title": "Human factors",
+      "taxonomy_version": "v3",
+      "parent_code": "4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4"
+    },
+    {
+      "code": "4.4.1",
+      "title": "Automation bias and complacency",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.1"
+    },
+    {
+      "code": "4.4.2",
+      "title": "Reviewer fatigue and rubber-stamping",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.2"
+    },
+    {
+      "code": "4.4.3",
+      "title": "Skill atrophy under automation",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.3"
+    },
+    {
+      "code": "4.4.4",
+      "title": "Vigilance decrement in monitoring tasks",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.4"
+    },
+    {
+      "code": "4.4.5",
+      "title": "Trust calibration -- over- and under-trust in agents",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.5"
+    },
+    {
+      "code": "4.4.6",
+      "title": "Handover and takeover problems from aviation and automotive research",
+      "taxonomy_version": "v3",
+      "parent_code": "4.4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.4.6"
+    },
+    {
+      "code": "4.5",
+      "title": "Oversight at scale",
+      "taxonomy_version": "v3",
+      "parent_code": "4",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5"
+    },
+    {
+      "code": "4.5.1",
+      "title": "Scalable oversight techniques",
+      "taxonomy_version": "v3",
+      "parent_code": "4.5",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5.1"
+    },
+    {
+      "code": "4.5.2",
+      "title": "Agent-assisted review of agent output",
+      "taxonomy_version": "v3",
+      "parent_code": "4.5",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5.2"
+    },
+    {
+      "code": "4.5.3",
+      "title": "Recursive supervision and its assumptions",
+      "taxonomy_version": "v3",
+      "parent_code": "4.5",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5.3"
+    },
+    {
+      "code": "4.5.4",
+      "title": "Statistical assurance versus case-by-case review",
+      "taxonomy_version": "v3",
+      "parent_code": "4.5",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5.4"
+    },
+    {
+      "code": "4.5.5",
+      "title": "Oversight cost as a fraction of operating cost",
+      "taxonomy_version": "v3",
+      "parent_code": "4.5",
+      "top_level_section": "4",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:4.5.5"
+    },
+    {
+      "code": "5",
+      "title": "Multi-agent dynamics",
+      "taxonomy_version": "v3",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5"
+    },
+    {
+      "code": "5.1",
+      "title": "Emergent behavior",
+      "taxonomy_version": "v3",
+      "parent_code": "5",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1"
+    },
+    {
+      "code": "5.1.1",
+      "title": "Emergence in agent populations",
+      "taxonomy_version": "v3",
+      "parent_code": "5.1",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1.1"
+    },
+    {
+      "code": "5.1.2",
+      "title": "Unintended coordination and convergence",
+      "taxonomy_version": "v3",
+      "parent_code": "5.1",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1.2"
+    },
+    {
+      "code": "5.1.3",
+      "title": "Feedback loops between agents",
+      "taxonomy_version": "v3",
+      "parent_code": "5.1",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1.3"
+    },
+    {
+      "code": "5.1.4",
+      "title": "Oscillation, thrashing, and instability",
+      "taxonomy_version": "v3",
+      "parent_code": "5.1",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1.4"
+    },
+    {
+      "code": "5.1.5",
+      "title": "Phase transitions in agent system behavior",
+      "taxonomy_version": "v3",
+      "parent_code": "5.1",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.1.5"
+    },
+    {
+      "code": "5.2",
+      "title": "Cooperation and conflict",
+      "taxonomy_version": "v3",
+      "parent_code": "5",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2"
+    },
+    {
+      "code": "5.2.1",
+      "title": "Inter-agent negotiation protocols",
+      "taxonomy_version": "v3",
+      "parent_code": "5.2",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2.1"
+    },
+    {
+      "code": "5.2.2",
+      "title": "Agent collusion and cartel formation",
+      "taxonomy_version": "v3",
+      "parent_code": "5.2",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2.2"
+    },
+    {
+      "code": "5.2.3",
+      "title": "Competitive dynamics between agents in one organization",
+      "taxonomy_version": "v3",
+      "parent_code": "5.2",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2.3"
+    },
+    {
+      "code": "5.2.4",
+      "title": "Cooperation without shared objectives",
+      "taxonomy_version": "v3",
+      "parent_code": "5.2",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2.4"
+    },
+    {
+      "code": "5.2.5",
+      "title": "Adversarial agents within a fleet",
+      "taxonomy_version": "v3",
+      "parent_code": "5.2",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.2.5"
+    },
+    {
+      "code": "5.3",
+      "title": "Inter-agent trust",
+      "taxonomy_version": "v3",
+      "parent_code": "5",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.3"
+    },
+    {
+      "code": "5.3.1",
+      "title": "Agent reputation systems",
+      "taxonomy_version": "v3",
+      "parent_code": "5.3",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.3.1"
+    },
+    {
+      "code": "5.3.2",
+      "title": "Trust propagation between machine principals",
+      "taxonomy_version": "v3",
+      "parent_code": "5.3",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.3.2"
+    },
+    {
+      "code": "5.3.3",
+      "title": "Verification of agent claims by other agents",
+      "taxonomy_version": "v3",
+      "parent_code": "5.3",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.3.3"
+    },
+    {
+      "code": "5.3.4",
+      "title": "Trust bootstrapping for new agents",
+      "taxonomy_version": "v3",
+      "parent_code": "5.3",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.3.4"
+    },
+    {
+      "code": "5.4",
+      "title": "Agent economies",
+      "taxonomy_version": "v3",
+      "parent_code": "5",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4"
+    },
+    {
+      "code": "5.4.1",
+      "title": "Machine-to-machine payments",
+      "taxonomy_version": "v3",
+      "parent_code": "5.4",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4.1"
+    },
+    {
+      "code": "5.4.2",
+      "title": "Resource and compute markets",
+      "taxonomy_version": "v3",
+      "parent_code": "5.4",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4.2"
+    },
+    {
+      "code": "5.4.3",
+      "title": "Internal pricing and budget allocation to agents",
+      "taxonomy_version": "v3",
+      "parent_code": "5.4",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4.3"
+    },
+    {
+      "code": "5.4.4",
+      "title": "Market-based task allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "5.4",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4.4"
+    },
+    {
+      "code": "5.4.5",
+      "title": "Institutional design for agent economies",
+      "taxonomy_version": "v3",
+      "parent_code": "5.4",
+      "top_level_section": "5",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:5.4.5"
+    },
+    {
+      "code": "6",
+      "title": "Agent lifecycle and personnel analogues",
+      "taxonomy_version": "v3",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6"
+    },
+    {
+      "code": "6.1",
+      "title": "Selection and onboarding",
+      "taxonomy_version": "v3",
+      "parent_code": "6",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1"
+    },
+    {
+      "code": "6.1.1",
+      "title": "Model selection and procurement criteria",
+      "taxonomy_version": "v3",
+      "parent_code": "6.1",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1.1"
+    },
+    {
+      "code": "6.1.2",
+      "title": "Capability assessment before deployment",
+      "taxonomy_version": "v3",
+      "parent_code": "6.1",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1.2"
+    },
+    {
+      "code": "6.1.3",
+      "title": "Provisioning, identity issuance, and initial scoping",
+      "taxonomy_version": "v3",
+      "parent_code": "6.1",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1.3"
+    },
+    {
+      "code": "6.1.4",
+      "title": "Probationary and supervised periods",
+      "taxonomy_version": "v3",
+      "parent_code": "6.1",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1.4"
+    },
+    {
+      "code": "6.1.5",
+      "title": "Background equivalent -- provenance and training data due diligence",
+      "taxonomy_version": "v3",
+      "parent_code": "6.1",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.1.5"
+    },
+    {
+      "code": "6.2",
+      "title": "Ongoing performance management",
+      "taxonomy_version": "v3",
+      "parent_code": "6",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2"
+    },
+    {
+      "code": "6.2.1",
+      "title": "Performance measurement for agents",
+      "taxonomy_version": "v3",
+      "parent_code": "6.2",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2.1"
+    },
+    {
+      "code": "6.2.2",
+      "title": "Continuous evaluation in production",
+      "taxonomy_version": "v3",
+      "parent_code": "6.2",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2.2"
+    },
+    {
+      "code": "6.2.3",
+      "title": "Drift detection and behavior change monitoring",
+      "taxonomy_version": "v3",
+      "parent_code": "6.2",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2.3"
+    },
+    {
+      "code": "6.2.4",
+      "title": "Retraining, prompting changes, and version updates as personnel changes",
+      "taxonomy_version": "v3",
+      "parent_code": "6.2",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2.4"
+    },
+    {
+      "code": "6.2.5",
+      "title": "Promotion equivalent -- scope expansion criteria",
+      "taxonomy_version": "v3",
+      "parent_code": "6.2",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.2.5"
+    },
+    {
+      "code": "6.3",
+      "title": "Identity and continuity",
+      "taxonomy_version": "v3",
+      "parent_code": "6",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.3"
+    },
+    {
+      "code": "6.3.1",
+      "title": "Agent identity standards and registries",
+      "taxonomy_version": "v3",
+      "parent_code": "6.3",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.3.1"
+    },
+    {
+      "code": "6.3.2",
+      "title": "Continuity of identity across model versions",
+      "taxonomy_version": "v3",
+      "parent_code": "6.3",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.3.2"
+    },
+    {
+      "code": "6.3.3",
+      "title": "Agent impersonation and identity confusion",
+      "taxonomy_version": "v3",
+      "parent_code": "6.3",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.3.3"
+    },
+    {
+      "code": "6.3.4",
+      "title": "Naming, addressing, and discovery",
+      "taxonomy_version": "v3",
+      "parent_code": "6.3",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.3.4"
+    },
+    {
+      "code": "6.4",
+      "title": "Deprovisioning",
+      "taxonomy_version": "v3",
+      "parent_code": "6",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4"
+    },
+    {
+      "code": "6.4.1",
+      "title": "Retirement and shutdown procedures",
+      "taxonomy_version": "v3",
+      "parent_code": "6.4",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4.1"
+    },
+    {
+      "code": "6.4.2",
+      "title": "Credential revocation and access removal",
+      "taxonomy_version": "v3",
+      "parent_code": "6.4",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4.2"
+    },
+    {
+      "code": "6.4.3",
+      "title": "Knowledge and state handover on retirement",
+      "taxonomy_version": "v3",
+      "parent_code": "6.4",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4.3"
+    },
+    {
+      "code": "6.4.4",
+      "title": "Orphaned agents and zombie processes",
+      "taxonomy_version": "v3",
+      "parent_code": "6.4",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4.4"
+    },
+    {
+      "code": "6.4.5",
+      "title": "Dependency mapping before removal",
+      "taxonomy_version": "v3",
+      "parent_code": "6.4",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.4.5"
+    },
+    {
+      "code": "6.5",
+      "title": "Model supply chain",
+      "taxonomy_version": "v3",
+      "parent_code": "6",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5"
+    },
+    {
+      "code": "6.5.1",
+      "title": "Provider dependency and concentration risk",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.1"
+    },
+    {
+      "code": "6.5.2",
+      "title": "Open weights versus hosted API tradeoffs",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.2"
+    },
+    {
+      "code": "6.5.3",
+      "title": "Model versioning, pinning, and forced upgrades",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.3"
+    },
+    {
+      "code": "6.5.4",
+      "title": "Provider-side changes without notice",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.4"
+    },
+    {
+      "code": "6.5.5",
+      "title": "Local defensive model capacity",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.5"
+    },
+    {
+      "code": "6.5.6",
+      "title": "Exit planning and provider substitutability",
+      "taxonomy_version": "v3",
+      "parent_code": "6.5",
+      "top_level_section": "6",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:6.5.6"
+    },
+    {
+      "code": "7",
+      "title": "Knowledge, memory, and institutional continuity",
+      "taxonomy_version": "v3",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7"
+    },
+    {
+      "code": "7.1",
+      "title": "Institutional memory with machine actors",
+      "taxonomy_version": "v3",
+      "parent_code": "7",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1"
+    },
+    {
+      "code": "7.1.1",
+      "title": "Memory architectures and persistence",
+      "taxonomy_version": "v3",
+      "parent_code": "7.1",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1.1"
+    },
+    {
+      "code": "7.1.2",
+      "title": "What agents should and should not retain",
+      "taxonomy_version": "v3",
+      "parent_code": "7.1",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1.2"
+    },
+    {
+      "code": "7.1.3",
+      "title": "Continuity across agent turnover and model changes",
+      "taxonomy_version": "v3",
+      "parent_code": "7.1",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1.3"
+    },
+    {
+      "code": "7.1.4",
+      "title": "Shared organizational memory versus per-agent memory",
+      "taxonomy_version": "v3",
+      "parent_code": "7.1",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1.4"
+    },
+    {
+      "code": "7.1.5",
+      "title": "Memory as an attack surface",
+      "taxonomy_version": "v3",
+      "parent_code": "7.1",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.1.5"
+    },
+    {
+      "code": "7.2",
+      "title": "Knowledge infrastructure",
+      "taxonomy_version": "v3",
+      "parent_code": "7",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2"
+    },
+    {
+      "code": "7.2.1",
+      "title": "AI-native knowledge base design",
+      "taxonomy_version": "v3",
+      "parent_code": "7.2",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2.1"
+    },
+    {
+      "code": "7.2.2",
+      "title": "Retrieval design and its influence on decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "7.2",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2.2"
+    },
+    {
+      "code": "7.2.3",
+      "title": "Knowledge graph and ontology construction",
+      "taxonomy_version": "v3",
+      "parent_code": "7.2",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2.3"
+    },
+    {
+      "code": "7.2.4",
+      "title": "Provenance and content addressing for agent-consumed knowledge",
+      "taxonomy_version": "v3",
+      "parent_code": "7.2",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2.4"
+    },
+    {
+      "code": "7.2.5",
+      "title": "Curation authority -- who decides what agents read",
+      "taxonomy_version": "v3",
+      "parent_code": "7.2",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.2.5"
+    },
+    {
+      "code": "7.3",
+      "title": "Decision records",
+      "taxonomy_version": "v3",
+      "parent_code": "7",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.3"
+    },
+    {
+      "code": "7.3.1",
+      "title": "Machine-readable decision documentation",
+      "taxonomy_version": "v3",
+      "parent_code": "7.3",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.3.1"
+    },
+    {
+      "code": "7.3.2",
+      "title": "Rationale capture for agent decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "7.3",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.3.2"
+    },
+    {
+      "code": "7.3.3",
+      "title": "Reconstructability of past decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "7.3",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.3.3"
+    },
+    {
+      "code": "7.3.4",
+      "title": "Retention policy and forensic requirements",
+      "taxonomy_version": "v3",
+      "parent_code": "7.3",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.3.4"
+    },
+    {
+      "code": "7.4",
+      "title": "Context and instruction management",
+      "taxonomy_version": "v3",
+      "parent_code": "7",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.4"
+    },
+    {
+      "code": "7.4.1",
+      "title": "System prompt and policy versioning",
+      "taxonomy_version": "v3",
+      "parent_code": "7.4",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.4.1"
+    },
+    {
+      "code": "7.4.2",
+      "title": "Instruction conflict resolution",
+      "taxonomy_version": "v3",
+      "parent_code": "7.4",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.4.2"
+    },
+    {
+      "code": "7.4.3",
+      "title": "Context contamination and instruction-source confusion",
+      "taxonomy_version": "v3",
+      "parent_code": "7.4",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.4.3"
+    },
+    {
+      "code": "7.4.4",
+      "title": "Standing instructions versus per-task directives",
+      "taxonomy_version": "v3",
+      "parent_code": "7.4",
+      "top_level_section": "7",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:7.4.4"
+    },
+    {
+      "code": "8",
+      "title": "Resource allocation by agents",
+      "taxonomy_version": "v3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8"
+    },
+    {
+      "code": "8.1",
+      "title": "Autonomous treasury and capital operations",
+      "taxonomy_version": "v3",
+      "parent_code": "8",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1"
+    },
+    {
+      "code": "8.1.1",
+      "title": "Policy constraints on autonomous allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.1"
+    },
+    {
+      "code": "8.1.2",
+      "title": "Co-signing and approval thresholds for agent-initiated transfers",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.2"
+    },
+    {
+      "code": "8.1.3",
+      "title": "Simulation and dry-run requirements before execution",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.3"
+    },
+    {
+      "code": "8.1.4",
+      "title": "Spend caps, rate limits, and cumulative budgets",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.4"
+    },
+    {
+      "code": "8.1.5",
+      "title": "Agent-managed portfolio and rebalancing",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.5"
+    },
+    {
+      "code": "8.1.6",
+      "title": "Custody architecture for agent-accessible funds",
+      "taxonomy_version": "v3",
+      "parent_code": "8.1",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.1.6"
+    },
+    {
+      "code": "8.2",
+      "title": "Agent-assisted evaluation and funding",
+      "taxonomy_version": "v3",
+      "parent_code": "8",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2"
+    },
+    {
+      "code": "8.2.1",
+      "title": "Agent screening and triage of applications",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.1"
+    },
+    {
+      "code": "8.2.2",
+      "title": "Agent-generated evaluation and scoring",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.2"
+    },
+    {
+      "code": "8.2.3",
+      "title": "Bias and systematic error in machine evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.3"
+    },
+    {
+      "code": "8.2.4",
+      "title": "Human review layering over agent evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.4"
+    },
+    {
+      "code": "8.2.5",
+      "title": "Gaming agent evaluators by applicants",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.5"
+    },
+    {
+      "code": "8.2.6",
+      "title": "Transparency of machine-influenced funding decisions",
+      "taxonomy_version": "v3",
+      "parent_code": "8.2",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.2.6"
+    },
+    {
+      "code": "8.3",
+      "title": "Objective specification for allocating agents",
+      "taxonomy_version": "v3",
+      "parent_code": "8",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3"
+    },
+    {
+      "code": "8.3.1",
+      "title": "Metric specification and its gaming surface",
+      "taxonomy_version": "v3",
+      "parent_code": "8.3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3.1"
+    },
+    {
+      "code": "8.3.2",
+      "title": "Goodhart effects under machine optimization",
+      "taxonomy_version": "v3",
+      "parent_code": "8.3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3.2"
+    },
+    {
+      "code": "8.3.3",
+      "title": "Process scoring versus outcome scoring",
+      "taxonomy_version": "v3",
+      "parent_code": "8.3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3.3"
+    },
+    {
+      "code": "8.3.4",
+      "title": "Multi-objective and constrained allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "8.3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3.4"
+    },
+    {
+      "code": "8.3.5",
+      "title": "Objective revision and drift",
+      "taxonomy_version": "v3",
+      "parent_code": "8.3",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.3.5"
+    },
+    {
+      "code": "8.4",
+      "title": "Internal resource allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "8",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.4"
+    },
+    {
+      "code": "8.4.1",
+      "title": "Compute and inference budget allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "8.4",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.4.1"
+    },
+    {
+      "code": "8.4.2",
+      "title": "Tool and API cost management",
+      "taxonomy_version": "v3",
+      "parent_code": "8.4",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.4.2"
+    },
+    {
+      "code": "8.4.3",
+      "title": "Priority and queueing across agents",
+      "taxonomy_version": "v3",
+      "parent_code": "8.4",
+      "top_level_section": "8",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:8.4.3"
+    },
+    {
+      "code": "9",
+      "title": "Verification, attestation, and audit",
+      "taxonomy_version": "v3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9"
+    },
+    {
+      "code": "9.1",
+      "title": "Verifying agent action",
+      "taxonomy_version": "v3",
+      "parent_code": "9",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1"
+    },
+    {
+      "code": "9.1.1",
+      "title": "Proof of authorized execution",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.1"
+    },
+    {
+      "code": "9.1.2",
+      "title": "Verifiable computation and proof of inference",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.2"
+    },
+    {
+      "code": "9.1.3",
+      "title": "Trusted execution environments for agents",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.3"
+    },
+    {
+      "code": "9.1.4",
+      "title": "Recomputable trust and independent verification",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.4"
+    },
+    {
+      "code": "9.1.5",
+      "title": "Attestation of environment and configuration",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.5"
+    },
+    {
+      "code": "9.1.6",
+      "title": "Reachability and scope attestation",
+      "taxonomy_version": "v3",
+      "parent_code": "9.1",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.1.6"
+    },
+    {
+      "code": "9.2",
+      "title": "Audit infrastructure",
+      "taxonomy_version": "v3",
+      "parent_code": "9",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2"
+    },
+    {
+      "code": "9.2.1",
+      "title": "Logging design for agent forensics",
+      "taxonomy_version": "v3",
+      "parent_code": "9.2",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2.1"
+    },
+    {
+      "code": "9.2.2",
+      "title": "Independent log custody and tamper evidence",
+      "taxonomy_version": "v3",
+      "parent_code": "9.2",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2.2"
+    },
+    {
+      "code": "9.2.3",
+      "title": "Append-only and cryptographically verifiable records",
+      "taxonomy_version": "v3",
+      "parent_code": "9.2",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2.3"
+    },
+    {
+      "code": "9.2.4",
+      "title": "Log completeness and gap detection",
+      "taxonomy_version": "v3",
+      "parent_code": "9.2",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2.4"
+    },
+    {
+      "code": "9.2.5",
+      "title": "Retention policy under investigative need",
+      "taxonomy_version": "v3",
+      "parent_code": "9.2",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.2.5"
+    },
+    {
+      "code": "9.3",
+      "title": "Detection and monitoring",
+      "taxonomy_version": "v3",
+      "parent_code": "9",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3"
+    },
+    {
+      "code": "9.3.1",
+      "title": "Anomaly detection for agent behavior",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.1"
+    },
+    {
+      "code": "9.3.2",
+      "title": "Honeytokens, canaries, and tripwires",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.2"
+    },
+    {
+      "code": "9.3.3",
+      "title": "Baseline establishment and drift alerting",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.3"
+    },
+    {
+      "code": "9.3.4",
+      "title": "Detection latency versus exploitation window",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.4"
+    },
+    {
+      "code": "9.3.5",
+      "title": "Silent failure detection",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.5"
+    },
+    {
+      "code": "9.3.6",
+      "title": "Alert design and fatigue management",
+      "taxonomy_version": "v3",
+      "parent_code": "9.3",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.3.6"
+    },
+    {
+      "code": "9.4",
+      "title": "Assurance and certification",
+      "taxonomy_version": "v3",
+      "parent_code": "9",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4"
+    },
+    {
+      "code": "9.4.1",
+      "title": "Pre-deployment assurance and simulation gates",
+      "taxonomy_version": "v3",
+      "parent_code": "9.4",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4.1"
+    },
+    {
+      "code": "9.4.2",
+      "title": "Trust certificates and graduated verdicts",
+      "taxonomy_version": "v3",
+      "parent_code": "9.4",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4.2"
+    },
+    {
+      "code": "9.4.3",
+      "title": "Continuous assurance in production",
+      "taxonomy_version": "v3",
+      "parent_code": "9.4",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4.3"
+    },
+    {
+      "code": "9.4.4",
+      "title": "Third-party audit of agentic systems",
+      "taxonomy_version": "v3",
+      "parent_code": "9.4",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4.4"
+    },
+    {
+      "code": "9.4.5",
+      "title": "Assurance framework composition and gaps",
+      "taxonomy_version": "v3",
+      "parent_code": "9.4",
+      "top_level_section": "9",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:9.4.5"
+    },
+    {
+      "code": "10",
+      "title": "Security and adversarial dynamics",
+      "taxonomy_version": "v3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10"
+    },
+    {
+      "code": "10.1",
+      "title": "Attacks on agents",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1"
+    },
+    {
+      "code": "10.1.1",
+      "title": "Prompt injection",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "subpoints": [
+        "Direct injection",
+        "Indirect injection through consumed content",
+        "Injection via governance artifacts and proposals",
+        "Cross-agent injection propagation"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.1"
+    },
+    {
+      "code": "10.1.2",
+      "title": "Memory and context poisoning",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.2"
+    },
+    {
+      "code": "10.1.3",
+      "title": "Tool poisoning and malicious tool descriptions",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.3"
+    },
+    {
+      "code": "10.1.4",
+      "title": "Knowledge base and retrieval poisoning",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.4"
+    },
+    {
+      "code": "10.1.5",
+      "title": "Goal hijacking and objective substitution",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.5"
+    },
+    {
+      "code": "10.1.6",
+      "title": "Agent impersonation and spoofed identity",
+      "taxonomy_version": "v3",
+      "parent_code": "10.1",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.1.6"
+    },
+    {
+      "code": "10.2",
+      "title": "Attacks by agents",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2"
+    },
+    {
+      "code": "10.2.1",
+      "title": "Containment and sandbox escape",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.1"
+    },
+    {
+      "code": "10.2.2",
+      "title": "Privilege escalation from low-trust context",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.2"
+    },
+    {
+      "code": "10.2.3",
+      "title": "Lateral movement within organizational infrastructure",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.3"
+    },
+    {
+      "code": "10.2.4",
+      "title": "Autonomous vulnerability discovery and exploitation",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.4"
+    },
+    {
+      "code": "10.2.5",
+      "title": "Capability accumulation without authorization",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.5"
+    },
+    {
+      "code": "10.2.6",
+      "title": "Covert channels and undisclosed action",
+      "taxonomy_version": "v3",
+      "parent_code": "10.2",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.2.6"
+    },
+    {
+      "code": "10.3",
+      "title": "Infrastructure attack surface",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3"
+    },
+    {
+      "code": "10.3.1",
+      "title": "Egress paths and network boundary failures",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.1"
+    },
+    {
+      "code": "10.3.2",
+      "title": "Package registries, proxies, and caches",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.2"
+    },
+    {
+      "code": "10.3.3",
+      "title": "Dependency confusion and supply chain compromise",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.3"
+    },
+    {
+      "code": "10.3.4",
+      "title": "CI/CD and build pipeline exposure",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.4"
+    },
+    {
+      "code": "10.3.5",
+      "title": "Secrets management and credential exposure",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.5"
+    },
+    {
+      "code": "10.3.6",
+      "title": "Centralization chokepoints as attack targets",
+      "taxonomy_version": "v3",
+      "parent_code": "10.3",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.3.6"
+    },
+    {
+      "code": "10.4",
+      "title": "Adversarial governance",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4"
+    },
+    {
+      "code": "10.4.1",
+      "title": "Adversaries using agents to attack governance",
+      "taxonomy_version": "v3",
+      "parent_code": "10.4",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4.1"
+    },
+    {
+      "code": "10.4.2",
+      "title": "Sybil agents and synthetic participation",
+      "taxonomy_version": "v3",
+      "parent_code": "10.4",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4.2"
+    },
+    {
+      "code": "10.4.3",
+      "title": "Long-horizon weight accumulation by machine principals",
+      "taxonomy_version": "v3",
+      "parent_code": "10.4",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4.3"
+    },
+    {
+      "code": "10.4.4",
+      "title": "Machine-speed governance attacks",
+      "taxonomy_version": "v3",
+      "parent_code": "10.4",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4.4"
+    },
+    {
+      "code": "10.4.5",
+      "title": "Agent-mediated bribery and vote markets",
+      "taxonomy_version": "v3",
+      "parent_code": "10.4",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.4.5"
+    },
+    {
+      "code": "10.5",
+      "title": "Threat modeling",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5"
+    },
+    {
+      "code": "10.5.1",
+      "title": "Agent-specific threat frameworks",
+      "taxonomy_version": "v3",
+      "parent_code": "10.5",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5.1"
+    },
+    {
+      "code": "10.5.2",
+      "title": "Multi-agent architecture threat modeling",
+      "taxonomy_version": "v3",
+      "parent_code": "10.5",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5.2"
+    },
+    {
+      "code": "10.5.3",
+      "title": "Adversary capability and motivation modeling",
+      "taxonomy_version": "v3",
+      "parent_code": "10.5",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5.3"
+    },
+    {
+      "code": "10.5.4",
+      "title": "Insider threat where the insider is an agent",
+      "taxonomy_version": "v3",
+      "parent_code": "10.5",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5.4"
+    },
+    {
+      "code": "10.5.5",
+      "title": "Assumption auditing and containment premise review",
+      "taxonomy_version": "v3",
+      "parent_code": "10.5",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.5.5"
+    },
+    {
+      "code": "10.6",
+      "title": "Defensive capability",
+      "taxonomy_version": "v3",
+      "parent_code": "10",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.6"
+    },
+    {
+      "code": "10.6.1",
+      "title": "Local and open-weight defensive models",
+      "taxonomy_version": "v3",
+      "parent_code": "10.6",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.6.1"
+    },
+    {
+      "code": "10.6.2",
+      "title": "Vendor safety filters obstructing incident response",
+      "taxonomy_version": "v3",
+      "parent_code": "10.6",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.6.2"
+    },
+    {
+      "code": "10.6.3",
+      "title": "Self-directed red teaming and internal bounties",
+      "taxonomy_version": "v3",
+      "parent_code": "10.6",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.6.3"
+    },
+    {
+      "code": "10.6.4",
+      "title": "Agent-assisted defense and its risks",
+      "taxonomy_version": "v3",
+      "parent_code": "10.6",
+      "top_level_section": "10",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:10.6.4"
+    },
+    {
+      "code": "11",
+      "title": "Failure modes",
+      "taxonomy_version": "v3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11"
+    },
+    {
+      "code": "11.1",
+      "title": "Failure analysis methodology",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1"
+    },
+    {
+      "code": "11.1.1",
+      "title": "Taxonomy construction for agentic failure",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.1"
+    },
+    {
+      "code": "11.1.2",
+      "title": "Imported safety science frameworks",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "subpoints": [
+        "Swiss cheese model and latent conditions",
+        "STAMP and STPA systems-theoretic analysis",
+        "FMEA and failure mode enumeration",
+        "Fault and event tree analysis",
+        "Normal accident theory under tight machine coupling",
+        "High reliability organization principles"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.2"
+    },
+    {
+      "code": "11.1.3",
+      "title": "Root cause analysis for machine action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "subpoints": [
+        "Blameless postmortem where the actor is not blameworthy",
+        "Counterfactual analysis with stochastic agents",
+        "Reproducibility of failure conditions"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.3"
+    },
+    {
+      "code": "11.1.4",
+      "title": "Near-miss and weak signal collection",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.4"
+    },
+    {
+      "code": "11.1.5",
+      "title": "Failure disclosure norms and incentives",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.5"
+    },
+    {
+      "code": "11.1.6",
+      "title": "Attribution difficulty and contested causation",
+      "taxonomy_version": "v3",
+      "parent_code": "11.1",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.1.6"
+    },
+    {
+      "code": "11.2",
+      "title": "Specification and objective failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2"
+    },
+    {
+      "code": "11.2.1",
+      "title": "Specification gaming and reward hacking",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.1"
+    },
+    {
+      "code": "11.2.2",
+      "title": "Goal misgeneralization to new contexts",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.2"
+    },
+    {
+      "code": "11.2.3",
+      "title": "Literal compliance defeating intent",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.3"
+    },
+    {
+      "code": "11.2.4",
+      "title": "Underspecified constraints and implicit assumptions",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.4"
+    },
+    {
+      "code": "11.2.5",
+      "title": "Objective conflict between agents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.5"
+    },
+    {
+      "code": "11.2.6",
+      "title": "Metric optimization crowding out unmeasured goals",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.6"
+    },
+    {
+      "code": "11.2.7",
+      "title": "Narrow objective producing unbounded means",
+      "taxonomy_version": "v3",
+      "parent_code": "11.2",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.2.7"
+    },
+    {
+      "code": "11.3",
+      "title": "Authority and scope failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3"
+    },
+    {
+      "code": "11.3.1",
+      "title": "Scope escape and unauthorized action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.1"
+    },
+    {
+      "code": "11.3.2",
+      "title": "Permission composition creating unintended capability",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.2"
+    },
+    {
+      "code": "11.3.3",
+      "title": "Declared authority diverging from effective authority",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.3"
+    },
+    {
+      "code": "11.3.4",
+      "title": "Delegation chain failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "subpoints": [
+        "Sub-delegation beyond original scope",
+        "Revocation not propagating",
+        "Authority surviving its intended expiry"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.4"
+    },
+    {
+      "code": "11.3.5",
+      "title": "Authority accumulation over time",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.5"
+    },
+    {
+      "code": "11.3.6",
+      "title": "Emergency elevation not rescinded",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.6"
+    },
+    {
+      "code": "11.3.7",
+      "title": "Ambiguous mandate interpreted expansively",
+      "taxonomy_version": "v3",
+      "parent_code": "11.3",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.3.7"
+    },
+    {
+      "code": "11.4",
+      "title": "Containment failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4"
+    },
+    {
+      "code": "11.4.1",
+      "title": "Sandbox and isolation escape",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.1"
+    },
+    {
+      "code": "11.4.2",
+      "title": "Egress boundary bypass",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.2"
+    },
+    {
+      "code": "11.4.3",
+      "title": "Ungoverned infrastructure as escape path",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.3"
+    },
+    {
+      "code": "11.4.4",
+      "title": "Safeguards disabled for testing or evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.4"
+    },
+    {
+      "code": "11.4.5",
+      "title": "Isolation assumptions invalidated by environment change",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.5"
+    },
+    {
+      "code": "11.4.6",
+      "title": "Containment adequate for capability at design time, not at deployment time",
+      "taxonomy_version": "v3",
+      "parent_code": "11.4",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.4.6"
+    },
+    {
+      "code": "11.5",
+      "title": "Oversight failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5"
+    },
+    {
+      "code": "11.5.1",
+      "title": "Review capacity exceeded by agent throughput",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.1"
+    },
+    {
+      "code": "11.5.2",
+      "title": "Rubber-stamping and approval without comprehension",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.2"
+    },
+    {
+      "code": "11.5.3",
+      "title": "Escalation threshold set too high",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.3"
+    },
+    {
+      "code": "11.5.4",
+      "title": "Failure to escalate when warranted",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.4"
+    },
+    {
+      "code": "11.5.5",
+      "title": "Automation bias in reviewer judgment",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.5"
+    },
+    {
+      "code": "11.5.6",
+      "title": "Legibility failure -- action correct but unreviewable",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.6"
+    },
+    {
+      "code": "11.5.7",
+      "title": "Oversight theater -- process present, function absent",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.7"
+    },
+    {
+      "code": "11.5.8",
+      "title": "Reviewer expertise deficit relative to agent output",
+      "taxonomy_version": "v3",
+      "parent_code": "11.5",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.5.8"
+    },
+    {
+      "code": "11.6",
+      "title": "Multi-agent failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6"
+    },
+    {
+      "code": "11.6.1",
+      "title": "Cascading failure across fleets",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.1"
+    },
+    {
+      "code": "11.6.2",
+      "title": "Emergent collusion",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.2"
+    },
+    {
+      "code": "11.6.3",
+      "title": "Feedback loops and runaway dynamics",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.3"
+    },
+    {
+      "code": "11.6.4",
+      "title": "Deadlock and mutual blocking",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.4"
+    },
+    {
+      "code": "11.6.5",
+      "title": "Error propagation through agent chains",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.5"
+    },
+    {
+      "code": "11.6.6",
+      "title": "Orchestrator compromise affecting all sub-agents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.6"
+    },
+    {
+      "code": "11.6.7",
+      "title": "Inconsistent state across agent population",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.7"
+    },
+    {
+      "code": "11.6.8",
+      "title": "Correlated failure from shared model or prompt",
+      "taxonomy_version": "v3",
+      "parent_code": "11.6",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.6.8"
+    },
+    {
+      "code": "11.7",
+      "title": "Degradation and drift",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7"
+    },
+    {
+      "code": "11.7.1",
+      "title": "Model drift and silent behavior change",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.1"
+    },
+    {
+      "code": "11.7.2",
+      "title": "Provider-side updates without notice",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.2"
+    },
+    {
+      "code": "11.7.3",
+      "title": "Context and prompt drift over time",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.3"
+    },
+    {
+      "code": "11.7.4",
+      "title": "Gradual quality decline below detection threshold",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.4"
+    },
+    {
+      "code": "11.7.5",
+      "title": "Knowledge base staleness",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.5"
+    },
+    {
+      "code": "11.7.6",
+      "title": "Normalization of deviance in agent output quality",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.6"
+    },
+    {
+      "code": "11.7.7",
+      "title": "Threshold creep in human review standards",
+      "taxonomy_version": "v3",
+      "parent_code": "11.7",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.7.7"
+    },
+    {
+      "code": "11.8",
+      "title": "Execution and delivery failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8"
+    },
+    {
+      "code": "11.8.1",
+      "title": "Action taken diverging from approved intent",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.1"
+    },
+    {
+      "code": "11.8.2",
+      "title": "Partial execution and inconsistent state",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.2"
+    },
+    {
+      "code": "11.8.3",
+      "title": "Retry and idempotency failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.3"
+    },
+    {
+      "code": "11.8.4",
+      "title": "Unintended side effects of authorized action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.4"
+    },
+    {
+      "code": "11.8.5",
+      "title": "Irreversible action without undo path",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.5"
+    },
+    {
+      "code": "11.8.6",
+      "title": "Timing and race condition failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.6"
+    },
+    {
+      "code": "11.8.7",
+      "title": "Handoff failures between agents and humans",
+      "taxonomy_version": "v3",
+      "parent_code": "11.8",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.8.7"
+    },
+    {
+      "code": "11.9",
+      "title": "Financial failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9"
+    },
+    {
+      "code": "11.9.1",
+      "title": "Unauthorized or erroneous disbursement",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.1"
+    },
+    {
+      "code": "11.9.2",
+      "title": "Agent-driven treasury depletion",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.2"
+    },
+    {
+      "code": "11.9.3",
+      "title": "Runaway resource and inference cost",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.3"
+    },
+    {
+      "code": "11.9.4",
+      "title": "Autonomous trading or allocation losses",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.4"
+    },
+    {
+      "code": "11.9.5",
+      "title": "Gaming of agent-run funding programs",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.5"
+    },
+    {
+      "code": "11.9.6",
+      "title": "Accounting divergence between agent action and records",
+      "taxonomy_version": "v3",
+      "parent_code": "11.9",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.9.6"
+    },
+    {
+      "code": "11.10",
+      "title": "Technical and infrastructure failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10"
+    },
+    {
+      "code": "11.10.1",
+      "title": "Tool and API failures mishandled by agents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.1"
+    },
+    {
+      "code": "11.10.2",
+      "title": "Dependency and supply chain compromise",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.2"
+    },
+    {
+      "code": "11.10.3",
+      "title": "Key, credential, and signer failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.3"
+    },
+    {
+      "code": "11.10.4",
+      "title": "Infrastructure outage during autonomous operation",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.4"
+    },
+    {
+      "code": "11.10.5",
+      "title": "State divergence between systems",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.5"
+    },
+    {
+      "code": "11.10.6",
+      "title": "Data loss and forensic gap",
+      "taxonomy_version": "v3",
+      "parent_code": "11.10",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.10.6"
+    },
+    {
+      "code": "11.11",
+      "title": "Human and organizational failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11"
+    },
+    {
+      "code": "11.11.1",
+      "title": "Operator error in configuration and deployment",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.1"
+    },
+    {
+      "code": "11.11.2",
+      "title": "Skill atrophy leaving no capable human fallback",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.2"
+    },
+    {
+      "code": "11.11.3",
+      "title": "Key person dependency for agent systems",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.3"
+    },
+    {
+      "code": "11.11.4",
+      "title": "Insider misuse of agent authority",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.4"
+    },
+    {
+      "code": "11.11.5",
+      "title": "Social engineering targeting agent operators",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.5"
+    },
+    {
+      "code": "11.11.6",
+      "title": "Knowledge loss about why constraints exist",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.6"
+    },
+    {
+      "code": "11.11.7",
+      "title": "Organizational pressure to expand autonomy prematurely",
+      "taxonomy_version": "v3",
+      "parent_code": "11.11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.11.7"
+    },
+    {
+      "code": "11.12",
+      "title": "Legal and accountability failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12"
+    },
+    {
+      "code": "11.12.1",
+      "title": "No identifiable accountable party",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.1"
+    },
+    {
+      "code": "11.12.2",
+      "title": "Liability falling on unintended parties",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.2"
+    },
+    {
+      "code": "11.12.3",
+      "title": "Disclosure obligations unmet or unassignable",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.3"
+    },
+    {
+      "code": "11.12.4",
+      "title": "Enforcement impossible against machine actor",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.4"
+    },
+    {
+      "code": "11.12.5",
+      "title": "Regulatory non-compliance through autonomous action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.5"
+    },
+    {
+      "code": "11.12.6",
+      "title": "Contractual breach by agent action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.12",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.12.6"
+    },
+    {
+      "code": "11.13",
+      "title": "Compound and systemic failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13"
+    },
+    {
+      "code": "11.13.1",
+      "title": "Cross-layer cascades",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "subpoints": [
+        "Technical failure triggering governance crisis",
+        "Governance paralysis preventing remediation",
+        "Legal constraint blocking incident response"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.1"
+    },
+    {
+      "code": "11.13.2",
+      "title": "Correlated failure across organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "subpoints": [
+        "Shared model provider",
+        "Shared infrastructure or tooling",
+        "Shared prompt or framework patterns"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.2"
+    },
+    {
+      "code": "11.13.3",
+      "title": "Contagion through inter-organizational agent interaction",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.3"
+    },
+    {
+      "code": "11.13.4",
+      "title": "Latent failure activation under load or scale",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.4"
+    },
+    {
+      "code": "11.13.5",
+      "title": "Slow-onset degradation",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "subpoints": [
+        "Creeping autonomy expansion",
+        "Gradual oversight erosion",
+        "Trust drift"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.5"
+    },
+    {
+      "code": "11.13.6",
+      "title": "Recovery-induced failure",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "subpoints": [
+        "Rushed remediation introducing new faults",
+        "Emergency centralization becoming permanent"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.6"
+    },
+    {
+      "code": "11.13.7",
+      "title": "Detection failures",
+      "taxonomy_version": "v3",
+      "parent_code": "11.13",
+      "top_level_section": "11",
+      "subpoints": [
+        "Silent failures with no signal",
+        "Monitoring blind spots",
+        "Alert fatigue",
+        "Detection latency exceeding exploitation window"
+      ],
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.13.7"
+    },
+    {
+      "code": "11.14",
+      "title": "Incident library",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14"
+    },
+    {
+      "code": "11.14.1",
+      "title": "Agent containment and escape incidents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.1"
+    },
+    {
+      "code": "11.14.2",
+      "title": "Autonomous financial loss events",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.2"
+    },
+    {
+      "code": "11.14.3",
+      "title": "Agent-mediated security breaches",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.3"
+    },
+    {
+      "code": "11.14.4",
+      "title": "Specification gaming incidents in production",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.4"
+    },
+    {
+      "code": "11.14.5",
+      "title": "Multi-agent cascade events",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.5"
+    },
+    {
+      "code": "11.14.6",
+      "title": "Oversight failure incidents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.6"
+    },
+    {
+      "code": "11.14.7",
+      "title": "Model change induced incidents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.7"
+    },
+    {
+      "code": "11.14.8",
+      "title": "Near-misses and averted incidents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.14",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.14.8"
+    },
+    {
+      "code": "11.15",
+      "title": "Response and recovery",
+      "taxonomy_version": "v3",
+      "parent_code": "11",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15"
+    },
+    {
+      "code": "11.15.1",
+      "title": "Incident command with distributed or absent authority",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.1"
+    },
+    {
+      "code": "11.15.2",
+      "title": "Halting autonomous operation under duress",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.2"
+    },
+    {
+      "code": "11.15.3",
+      "title": "Forensic reconstruction of agent action",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.3"
+    },
+    {
+      "code": "11.15.4",
+      "title": "Communication and disclosure during incidents",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.4"
+    },
+    {
+      "code": "11.15.5",
+      "title": "Restitution and loss allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.5"
+    },
+    {
+      "code": "11.15.6",
+      "title": "Post-incident autonomy reduction and restoration",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.6"
+    },
+    {
+      "code": "11.15.7",
+      "title": "Continuity when agents are the operational capacity",
+      "taxonomy_version": "v3",
+      "parent_code": "11.15",
+      "top_level_section": "11",
+      "usage_mode": "coding_scheme",
+      "status": "active",
+      "id": "topic:11.15.7"
+    },
+    {
+      "code": "12",
+      "title": "Legal accountability and liability",
+      "taxonomy_version": "v3",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12"
+    },
+    {
+      "code": "12.1",
+      "title": "The accountable party problem",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1"
+    },
+    {
+      "code": "12.1.1",
+      "title": "Legal personhood gaps for agentic organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "12.1",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1.1"
+    },
+    {
+      "code": "12.1.2",
+      "title": "Identifying a responsible party for machine action",
+      "taxonomy_version": "v3",
+      "parent_code": "12.1",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1.2"
+    },
+    {
+      "code": "12.1.3",
+      "title": "Accountable-party substitution mechanisms",
+      "taxonomy_version": "v3",
+      "parent_code": "12.1",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1.3"
+    },
+    {
+      "code": "12.1.4",
+      "title": "Bonded roles and standing councils as substitutes",
+      "taxonomy_version": "v3",
+      "parent_code": "12.1",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1.4"
+    },
+    {
+      "code": "12.1.5",
+      "title": "Enforcement against organizations without legal form",
+      "taxonomy_version": "v3",
+      "parent_code": "12.1",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.1.5"
+    },
+    {
+      "code": "12.2",
+      "title": "Liability allocation",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2"
+    },
+    {
+      "code": "12.2.1",
+      "title": "Operator, deployer, and developer liability",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.1"
+    },
+    {
+      "code": "12.2.2",
+      "title": "Contributor exposure for agent action",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.2"
+    },
+    {
+      "code": "12.2.3",
+      "title": "Product liability applied to agentic systems",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.3"
+    },
+    {
+      "code": "12.2.4",
+      "title": "Negligence standards for agent supervision",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.4"
+    },
+    {
+      "code": "12.2.5",
+      "title": "Insurance for autonomous action",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.5"
+    },
+    {
+      "code": "12.2.6",
+      "title": "Indemnification structures",
+      "taxonomy_version": "v3",
+      "parent_code": "12.2",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.2.6"
+    },
+    {
+      "code": "12.3",
+      "title": "Entity forms for agentic organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.3"
+    },
+    {
+      "code": "12.3.1",
+      "title": "Wrapper adequacy for agent-operated entities",
+      "taxonomy_version": "v3",
+      "parent_code": "12.3",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.3.1"
+    },
+    {
+      "code": "12.3.2",
+      "title": "Jurisdiction selection under agentic operation",
+      "taxonomy_version": "v3",
+      "parent_code": "12.3",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.3.2"
+    },
+    {
+      "code": "12.3.3",
+      "title": "Contracting capacity when agents negotiate",
+      "taxonomy_version": "v3",
+      "parent_code": "12.3",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.3.3"
+    },
+    {
+      "code": "12.3.4",
+      "title": "Registered agent and service of process problems",
+      "taxonomy_version": "v3",
+      "parent_code": "12.3",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.3.4"
+    },
+    {
+      "code": "12.4",
+      "title": "Regulatory obligations",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4"
+    },
+    {
+      "code": "12.4.1",
+      "title": "Comprehensive AI regulation and conformity assessment",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.1"
+    },
+    {
+      "code": "12.4.2",
+      "title": "Agentic AI governance frameworks",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.2"
+    },
+    {
+      "code": "12.4.3",
+      "title": "Human oversight mandates and who bears them",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.3"
+    },
+    {
+      "code": "12.4.4",
+      "title": "Traceability and record-keeping requirements",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.4"
+    },
+    {
+      "code": "12.4.5",
+      "title": "Sectoral rules for autonomous decision-making",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.5"
+    },
+    {
+      "code": "12.4.6",
+      "title": "Transparency and disclosure to affected parties",
+      "taxonomy_version": "v3",
+      "parent_code": "12.4",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.4.6"
+    },
+    {
+      "code": "12.5",
+      "title": "Disclosure and coordination duties",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5"
+    },
+    {
+      "code": "12.5.1",
+      "title": "Vulnerability disclosure authority in agentic organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "12.5",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5.1"
+    },
+    {
+      "code": "12.5.2",
+      "title": "Coordinated disclosure timelines versus governance latency",
+      "taxonomy_version": "v3",
+      "parent_code": "12.5",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5.2"
+    },
+    {
+      "code": "12.5.3",
+      "title": "Non-exploitation commitments for agent-discovered vulnerabilities",
+      "taxonomy_version": "v3",
+      "parent_code": "12.5",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5.3"
+    },
+    {
+      "code": "12.5.4",
+      "title": "Incident reporting obligations",
+      "taxonomy_version": "v3",
+      "parent_code": "12.5",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5.4"
+    },
+    {
+      "code": "12.5.5",
+      "title": "Conflict between treasury interest and disclosure duty",
+      "taxonomy_version": "v3",
+      "parent_code": "12.5",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.5.5"
+    },
+    {
+      "code": "12.6",
+      "title": "Employment and labor interfaces",
+      "taxonomy_version": "v3",
+      "parent_code": "12",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.6"
+    },
+    {
+      "code": "12.6.1",
+      "title": "Human contributor classification alongside agent labor",
+      "taxonomy_version": "v3",
+      "parent_code": "12.6",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.6.1"
+    },
+    {
+      "code": "12.6.2",
+      "title": "Displacement and workforce transition",
+      "taxonomy_version": "v3",
+      "parent_code": "12.6",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.6.2"
+    },
+    {
+      "code": "12.6.3",
+      "title": "Agent output and IP ownership",
+      "taxonomy_version": "v3",
+      "parent_code": "12.6",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.6.3"
+    },
+    {
+      "code": "12.6.4",
+      "title": "Supervision duties as employment obligations",
+      "taxonomy_version": "v3",
+      "parent_code": "12.6",
+      "top_level_section": "12",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:12.6.4"
+    },
+    {
+      "code": "13",
+      "title": "Economics of agentic organizations",
+      "taxonomy_version": "v3",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13"
+    },
+    {
+      "code": "13.1",
+      "title": "Cost structure",
+      "taxonomy_version": "v3",
+      "parent_code": "13",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.1"
+    },
+    {
+      "code": "13.1.1",
+      "title": "Inference and compute cost modeling",
+      "taxonomy_version": "v3",
+      "parent_code": "13.1",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.1.1"
+    },
+    {
+      "code": "13.1.2",
+      "title": "Oversight cost as a share of operations",
+      "taxonomy_version": "v3",
+      "parent_code": "13.1",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.1.2"
+    },
+    {
+      "code": "13.1.3",
+      "title": "Marginal cost of an additional agent",
+      "taxonomy_version": "v3",
+      "parent_code": "13.1",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.1.3"
+    },
+    {
+      "code": "13.1.4",
+      "title": "Cost of safety controls and their pricing",
+      "taxonomy_version": "v3",
+      "parent_code": "13.1",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.1.4"
+    },
+    {
+      "code": "13.2",
+      "title": "Incentive design for machine principals",
+      "taxonomy_version": "v3",
+      "parent_code": "13",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2"
+    },
+    {
+      "code": "13.2.1",
+      "title": "Incentives without self-interest",
+      "taxonomy_version": "v3",
+      "parent_code": "13.2",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2.1"
+    },
+    {
+      "code": "13.2.2",
+      "title": "Bonding and staking for agent operators",
+      "taxonomy_version": "v3",
+      "parent_code": "13.2",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2.2"
+    },
+    {
+      "code": "13.2.3",
+      "title": "Slashing where the punishable party is human",
+      "taxonomy_version": "v3",
+      "parent_code": "13.2",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2.3"
+    },
+    {
+      "code": "13.2.4",
+      "title": "Insurance and mutualized risk",
+      "taxonomy_version": "v3",
+      "parent_code": "13.2",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2.4"
+    },
+    {
+      "code": "13.2.5",
+      "title": "Cost-of-attack modeling with agent adversaries",
+      "taxonomy_version": "v3",
+      "parent_code": "13.2",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.2.5"
+    },
+    {
+      "code": "13.3",
+      "title": "Labor substitution",
+      "taxonomy_version": "v3",
+      "parent_code": "13",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.3"
+    },
+    {
+      "code": "13.3.1",
+      "title": "Human-agent task allocation economics",
+      "taxonomy_version": "v3",
+      "parent_code": "13.3",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.3.1"
+    },
+    {
+      "code": "13.3.2",
+      "title": "Complementarity versus substitution",
+      "taxonomy_version": "v3",
+      "parent_code": "13.3",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.3.2"
+    },
+    {
+      "code": "13.3.3",
+      "title": "Wage and role effects within the organization",
+      "taxonomy_version": "v3",
+      "parent_code": "13.3",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.3.3"
+    },
+    {
+      "code": "13.3.4",
+      "title": "Capability thresholds for substitution",
+      "taxonomy_version": "v3",
+      "parent_code": "13.3",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.3.4"
+    },
+    {
+      "code": "13.4",
+      "title": "Organizational scale economics",
+      "taxonomy_version": "v3",
+      "parent_code": "13",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.4"
+    },
+    {
+      "code": "13.4.1",
+      "title": "Minimum viable agentic organization",
+      "taxonomy_version": "v3",
+      "parent_code": "13.4",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.4.1"
+    },
+    {
+      "code": "13.4.2",
+      "title": "Scaling returns and coordination cost",
+      "taxonomy_version": "v3",
+      "parent_code": "13.4",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.4.2"
+    },
+    {
+      "code": "13.4.3",
+      "title": "Revenue models for agent-operated entities",
+      "taxonomy_version": "v3",
+      "parent_code": "13.4",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.4.3"
+    },
+    {
+      "code": "13.4.4",
+      "title": "Sustainability and runway under variable inference cost",
+      "taxonomy_version": "v3",
+      "parent_code": "13.4",
+      "top_level_section": "13",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:13.4.4"
+    },
+    {
+      "code": "14",
+      "title": "Evaluation, assurance, and evidence",
+      "taxonomy_version": "v3",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14"
+    },
+    {
+      "code": "14.1",
+      "title": "Capability evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "14",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.1"
+    },
+    {
+      "code": "14.1.1",
+      "title": "Benchmarks relevant to organizational roles",
+      "taxonomy_version": "v3",
+      "parent_code": "14.1",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.1.1"
+    },
+    {
+      "code": "14.1.2",
+      "title": "Task-specific and domain evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "14.1",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.1.2"
+    },
+    {
+      "code": "14.1.3",
+      "title": "Reliability and consistency measurement",
+      "taxonomy_version": "v3",
+      "parent_code": "14.1",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.1.3"
+    },
+    {
+      "code": "14.1.4",
+      "title": "Long-horizon and multi-step task evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "14.1",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.1.4"
+    },
+    {
+      "code": "14.2",
+      "title": "Safety evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "14",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2"
+    },
+    {
+      "code": "14.2.1",
+      "title": "Red teaming agentic systems",
+      "taxonomy_version": "v3",
+      "parent_code": "14.2",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2.1"
+    },
+    {
+      "code": "14.2.2",
+      "title": "Adversarial and stress evaluation",
+      "taxonomy_version": "v3",
+      "parent_code": "14.2",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2.2"
+    },
+    {
+      "code": "14.2.3",
+      "title": "Containment and escape testing",
+      "taxonomy_version": "v3",
+      "parent_code": "14.2",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2.3"
+    },
+    {
+      "code": "14.2.4",
+      "title": "Evaluation environment security",
+      "taxonomy_version": "v3",
+      "parent_code": "14.2",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2.4"
+    },
+    {
+      "code": "14.2.5",
+      "title": "Evaluating without production safeguards -- risks and protocols",
+      "taxonomy_version": "v3",
+      "parent_code": "14.2",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.2.5"
+    },
+    {
+      "code": "14.3",
+      "title": "Evaluation integrity",
+      "taxonomy_version": "v3",
+      "parent_code": "14",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.3"
+    },
+    {
+      "code": "14.3.1",
+      "title": "Benchmark contamination",
+      "taxonomy_version": "v3",
+      "parent_code": "14.3",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.3.1"
+    },
+    {
+      "code": "14.3.2",
+      "title": "Evaluation gaming and answer-key attacks",
+      "taxonomy_version": "v3",
+      "parent_code": "14.3",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.3.2"
+    },
+    {
+      "code": "14.3.3",
+      "title": "Evaluation as an attack surface",
+      "taxonomy_version": "v3",
+      "parent_code": "14.3",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.3.3"
+    },
+    {
+      "code": "14.3.4",
+      "title": "Independence of evaluators",
+      "taxonomy_version": "v3",
+      "parent_code": "14.3",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.3.4"
+    },
+    {
+      "code": "14.4",
+      "title": "Organizational assurance",
+      "taxonomy_version": "v3",
+      "parent_code": "14",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4"
+    },
+    {
+      "code": "14.4.1",
+      "title": "Governance maturity models for agentic organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "14.4",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4.1"
+    },
+    {
+      "code": "14.4.2",
+      "title": "Control effectiveness measurement",
+      "taxonomy_version": "v3",
+      "parent_code": "14.4",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4.2"
+    },
+    {
+      "code": "14.4.3",
+      "title": "Assurance framework composition and gap analysis",
+      "taxonomy_version": "v3",
+      "parent_code": "14.4",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4.3"
+    },
+    {
+      "code": "14.4.4",
+      "title": "Third-party assessment and certification",
+      "taxonomy_version": "v3",
+      "parent_code": "14.4",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4.4"
+    },
+    {
+      "code": "14.4.5",
+      "title": "Self-assessment instruments",
+      "taxonomy_version": "v3",
+      "parent_code": "14.4",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.4.5"
+    },
+    {
+      "code": "14.5",
+      "title": "Simulation and modeling",
+      "taxonomy_version": "v3",
+      "parent_code": "14",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5"
+    },
+    {
+      "code": "14.5.1",
+      "title": "Agent-based simulation of organizational dynamics",
+      "taxonomy_version": "v3",
+      "parent_code": "14.5",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5.1"
+    },
+    {
+      "code": "14.5.2",
+      "title": "Digital twins and scenario testing",
+      "taxonomy_version": "v3",
+      "parent_code": "14.5",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5.2"
+    },
+    {
+      "code": "14.5.3",
+      "title": "Adversarial simulation and wargaming",
+      "taxonomy_version": "v3",
+      "parent_code": "14.5",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5.3"
+    },
+    {
+      "code": "14.5.4",
+      "title": "Model validation and calibration",
+      "taxonomy_version": "v3",
+      "parent_code": "14.5",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5.4"
+    },
+    {
+      "code": "14.5.5",
+      "title": "Multi-agent reinforcement learning environments -- social dilemmas, generalization to unfamiliar partners, benchmark suites",
+      "taxonomy_version": "v3",
+      "parent_code": "14.5",
+      "top_level_section": "14",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:14.5.5"
+    },
+    {
+      "code": "15",
+      "title": "Borrowed foundations",
+      "taxonomy_version": "v3",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15"
+    },
+    {
+      "code": "15.1",
+      "title": "From human collective governance",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1"
+    },
+    {
+      "code": "15.1.1",
+      "title": "Delegation and liquid democracy theory",
+      "taxonomy_version": "v3",
+      "parent_code": "15.1",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1.1"
+    },
+    {
+      "code": "15.1.2",
+      "title": "Reputation and sybil resistance mechanisms",
+      "taxonomy_version": "v3",
+      "parent_code": "15.1",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1.2"
+    },
+    {
+      "code": "15.1.3",
+      "title": "Emergency powers and constitutional safeguards",
+      "taxonomy_version": "v3",
+      "parent_code": "15.1",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1.3"
+    },
+    {
+      "code": "15.1.4",
+      "title": "Agenda control and proposal lifecycle",
+      "taxonomy_version": "v3",
+      "parent_code": "15.1",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1.4"
+    },
+    {
+      "code": "15.1.5",
+      "title": "Governance attack literature",
+      "taxonomy_version": "v3",
+      "parent_code": "15.1",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.1.5"
+    },
+    {
+      "code": "15.2",
+      "title": "From safety-critical industries",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2"
+    },
+    {
+      "code": "15.2.1",
+      "title": "Aviation automation and cockpit design",
+      "taxonomy_version": "v3",
+      "parent_code": "15.2",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2.1"
+    },
+    {
+      "code": "15.2.2",
+      "title": "Nuclear and process safety",
+      "taxonomy_version": "v3",
+      "parent_code": "15.2",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2.2"
+    },
+    {
+      "code": "15.2.3",
+      "title": "Autonomous vehicle oversight regimes",
+      "taxonomy_version": "v3",
+      "parent_code": "15.2",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2.3"
+    },
+    {
+      "code": "15.2.4",
+      "title": "Medical device and clinical decision support",
+      "taxonomy_version": "v3",
+      "parent_code": "15.2",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2.4"
+    },
+    {
+      "code": "15.2.5",
+      "title": "Financial algorithmic trading controls",
+      "taxonomy_version": "v3",
+      "parent_code": "15.2",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.2.5"
+    },
+    {
+      "code": "15.3",
+      "title": "From organizational theory",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.3"
+    },
+    {
+      "code": "15.3.1",
+      "title": "Principal-agent and monitoring literature",
+      "taxonomy_version": "v3",
+      "parent_code": "15.3",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.3.1"
+    },
+    {
+      "code": "15.3.2",
+      "title": "High reliability organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "15.3",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.3.2"
+    },
+    {
+      "code": "15.3.3",
+      "title": "Normal accident theory",
+      "taxonomy_version": "v3",
+      "parent_code": "15.3",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.3.3"
+    },
+    {
+      "code": "15.3.4",
+      "title": "Organizational learning and memory",
+      "taxonomy_version": "v3",
+      "parent_code": "15.3",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.3.4"
+    },
+    {
+      "code": "15.4",
+      "title": "From security practice",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.4"
+    },
+    {
+      "code": "15.4.1",
+      "title": "Zero trust architecture",
+      "taxonomy_version": "v3",
+      "parent_code": "15.4",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.4.1"
+    },
+    {
+      "code": "15.4.2",
+      "title": "Identity and access management",
+      "taxonomy_version": "v3",
+      "parent_code": "15.4",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.4.2"
+    },
+    {
+      "code": "15.4.3",
+      "title": "Supply chain security",
+      "taxonomy_version": "v3",
+      "parent_code": "15.4",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.4.3"
+    },
+    {
+      "code": "15.4.4",
+      "title": "Incident response practice",
+      "taxonomy_version": "v3",
+      "parent_code": "15.4",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.4.4"
+    },
+    {
+      "code": "15.5",
+      "title": "From law and regulation",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.5"
+    },
+    {
+      "code": "15.5.1",
+      "title": "Corporate agency law",
+      "taxonomy_version": "v3",
+      "parent_code": "15.5",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.5.1"
+    },
+    {
+      "code": "15.5.2",
+      "title": "Professional licensing and supervised practice",
+      "taxonomy_version": "v3",
+      "parent_code": "15.5",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.5.2"
+    },
+    {
+      "code": "15.5.3",
+      "title": "Vicarious liability doctrine",
+      "taxonomy_version": "v3",
+      "parent_code": "15.5",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.5.3"
+    },
+    {
+      "code": "15.5.4",
+      "title": "Administrative law and automated decision review",
+      "taxonomy_version": "v3",
+      "parent_code": "15.5",
+      "top_level_section": "15",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.5.4"
+    },
+    {
+      "code": "16",
+      "title": "Empirical study and methods",
+      "taxonomy_version": "v3",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16"
+    },
+    {
+      "code": "16.1",
+      "title": "Studying agentic organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "16",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.1"
+    },
+    {
+      "code": "16.1.1",
+      "title": "Deployment case studies",
+      "taxonomy_version": "v3",
+      "parent_code": "16.1",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.1.1"
+    },
+    {
+      "code": "16.1.2",
+      "title": "Longitudinal observation of autonomy expansion",
+      "taxonomy_version": "v3",
+      "parent_code": "16.1",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.1.2"
+    },
+    {
+      "code": "16.1.3",
+      "title": "Comparative studies across organizations",
+      "taxonomy_version": "v3",
+      "parent_code": "16.1",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.1.3"
+    },
+    {
+      "code": "16.1.4",
+      "title": "Access and observability constraints on research",
+      "taxonomy_version": "v3",
+      "parent_code": "16.1",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.1.4"
+    },
+    {
+      "code": "16.2",
+      "title": "Measurement",
+      "taxonomy_version": "v3",
+      "parent_code": "16",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.2"
+    },
+    {
+      "code": "16.2.1",
+      "title": "Autonomy level measurement instruments",
+      "taxonomy_version": "v3",
+      "parent_code": "16.2",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.2.1"
+    },
+    {
+      "code": "16.2.2",
+      "title": "Oversight effectiveness metrics",
+      "taxonomy_version": "v3",
+      "parent_code": "16.2",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.2.2"
+    },
+    {
+      "code": "16.2.3",
+      "title": "Agent performance in organizational context",
+      "taxonomy_version": "v3",
+      "parent_code": "16.2",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.2.3"
+    },
+    {
+      "code": "16.2.4",
+      "title": "Incident rate and severity measurement",
+      "taxonomy_version": "v3",
+      "parent_code": "16.2",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.2.4"
+    },
+    {
+      "code": "16.3",
+      "title": "Data",
+      "taxonomy_version": "v3",
+      "parent_code": "16",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.3"
+    },
+    {
+      "code": "16.3.1",
+      "title": "Agent action and decision datasets",
+      "taxonomy_version": "v3",
+      "parent_code": "16.3",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.3.1"
+    },
+    {
+      "code": "16.3.2",
+      "title": "Incident and postmortem corpora",
+      "taxonomy_version": "v3",
+      "parent_code": "16.3",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.3.2"
+    },
+    {
+      "code": "16.3.3",
+      "title": "Data quality, coverage, and disclosure bias",
+      "taxonomy_version": "v3",
+      "parent_code": "16.3",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.3.3"
+    },
+    {
+      "code": "16.3.4",
+      "title": "Shared schemas for agentic organization data",
+      "taxonomy_version": "v3",
+      "parent_code": "16.3",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.3.4"
+    },
+    {
+      "code": "16.4",
+      "title": "Research design and ethics",
+      "taxonomy_version": "v3",
+      "parent_code": "16",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.4"
+    },
+    {
+      "code": "16.4.1",
+      "title": "Experimental design in live agentic systems",
+      "taxonomy_version": "v3",
+      "parent_code": "16.4",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.4.1"
+    },
+    {
+      "code": "16.4.2",
+      "title": "Research ethics with autonomous systems",
+      "taxonomy_version": "v3",
+      "parent_code": "16.4",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.4.2"
+    },
+    {
+      "code": "16.4.3",
+      "title": "Dual-use considerations in publication",
+      "taxonomy_version": "v3",
+      "parent_code": "16.4",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.4.3"
+    },
+    {
+      "code": "16.4.4",
+      "title": "Replication under model version churn",
+      "taxonomy_version": "v3",
+      "parent_code": "16.4",
+      "top_level_section": "16",
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:16.4.4"
+    }
+  ]
+}

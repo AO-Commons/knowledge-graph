@@ -47,7 +47,7 @@ def build() -> dict:
         claims_by_resource[claim.resource_id] = claims_by_resource.get(claim.resource_id, 0) + 1
 
     # Which topics actually hold something. The default view hides the rest:
-    # 465 of the 567 topics are empty leaves, and drawn together they bury the
+    # 466 of the 568 topics are empty leaves, and drawn together they bury the
     # 60 records the graph exists to show.
     filed: dict[str, int] = {}
     for resource in resources:

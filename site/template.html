@@ -891,9 +891,12 @@
       ask.append(more);
     }
 
-    // Free search over all 567.
+    // Free search over all 568.
     const finder = el("div", { className: "finder" });
-    const input = el("input", { placeholder: "Nothing fits? Search all 567 topics — try “revocation”, “budget”, “incident”", type: "search" });
+    const input = el("input", {
+      placeholder: `Nothing fits? Search all ${DATA.topics.length} topics — try “revocation”, “budget”, “incident”`,
+      type: "search",
+    });
     const results = el("div", { className: "results" });
     input.addEventListener("input", () => {
       results.textContent = "";
@@ -901,9 +904,10 @@
       if (q.length < 2) return;
       DATA.topics
         .map(t => {
-          const hay = (t.title + " " + t.points.join(" ")).toLowerCase();
+          const hay = (t.title + " " + t.points.join(" ") + " " + (t.aka || []).join(" ")).toLowerCase();
           let score = hay.includes(q) ? 2 : 0;
           if (t.title.toLowerCase().startsWith(q)) score += 2;
+          if ((t.aka || []).some(name => name.toLowerCase() === q)) score += 4;
           if (t.code.startsWith(q)) score += 3;
           return { t, score };
         })
@@ -2355,9 +2359,13 @@
 
     const topics = DATA.topics
       .map(t => {
-        const hay = (t.title + " " + t.points.join(" ")).toLowerCase();
+        // Aliases are searched too. They fed the classifier from the start
+        // but never this box, so a topic could be the top machine suggestion
+        // for a paper and still be unfindable by the word a person types.
+        const hay = (t.title + " " + t.points.join(" ") + " " + (t.aka || []).join(" ")).toLowerCase();
         let score = hay.includes(q) ? 2 : 0;
         if (t.title.toLowerCase().startsWith(q)) score += 3;
+        if ((t.aka || []).some(name => name.toLowerCase() === q)) score += 6;
         if (t.code.startsWith(q)) score += 5;
         return { t, score };
       })

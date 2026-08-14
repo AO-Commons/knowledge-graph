@@ -12,7 +12,7 @@ Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports 
 
 | Milestone | State |
 |---|---|
-| 1 — Taxonomy and data model | **Done** — 567 topics, 16 sections, JSONL export |
+| 1 — Taxonomy and data model | **Done** — 568 topics, 16 sections, JSONL export |
 | 2 — Scholarly corpus (OpenAlex) | **Pipeline built; awaiting a live run** |
 | 3 — Taxonomy classification | **Started** — BM25 baseline, review tooling, measured |
 | 4 — Connected-Papers-style similarity | **Started** — bibliographic coupling and co-citation |
@@ -24,7 +24,7 @@ Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports 
 [`taxonomy/agentic-org-research-library-taxonomy-v3.md`](taxonomy/agentic-org-research-library-taxonomy-v3.md) is the source of truth. Everything else is derived from it.
 
 ```
-567 topics · 16 sections · 86 subsections · 465 leaves
+568 topics · 16 sections · 86 subsections · 466 leaves
 ```
 
 Its scope test is enforced rather than decorative:
