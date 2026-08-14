@@ -15,6 +15,7 @@ Usage:  python3 scripts/build_site.py
 
 from __future__ import annotations
 
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -178,7 +179,18 @@ def main() -> int:
     blob = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace(
         "</", "<\\/"
     )
-    OUTPUT.write_text(template.replace("__GRAPH_DATA__", blob), encoding="utf-8")
+    page = template.replace("__GRAPH_DATA__", blob)
+
+    # GitHub Pages serves HTML with `cache-control: max-age=600`, so for ten
+    # minutes after a deploy a returning visitor gets the previous graph page
+    # and concludes nothing shipped. Stamping the link with a hash of the page
+    # makes a changed page a changed URL, which no cache can answer from.
+    graph_page = REPO / "site" / "graph.html"
+    if graph_page.exists():
+        stamp = hashlib.sha256(graph_page.read_bytes()).hexdigest()[:8]
+        page = page.replace('href="graph.html"', f'href="graph.html?v={stamp}"')
+
+    OUTPUT.write_text(page, encoding="utf-8")
 
     # The merged ledger, published beside the page. The site fetches it
     # same-origin so every contributor sees what has already been accepted,

@@ -334,7 +334,9 @@
   let data = null, graph = null;
   const colourOf = kind => token((LINK_KINDS.find(k => k[0] === kind) || [0, 0, "--faint"])[2]);
 
-  fetch("graph.json")
+  // Revalidated rather than served from cache: the corpus changes whenever a
+  // record is added, and a ten-minute-old graph looks like a broken one.
+  fetch("graph.json", { cache: "no-cache" })
     .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
     .then(payload => { data = payload; start(); })
     .catch(() => {
