@@ -37,7 +37,29 @@ def test_node_ids_are_unique(graph):
 
 def test_each_kind_of_thing_is_present(graph):
     kinds = {node["kind"] for node in graph["nodes"]}
-    assert kinds == {"section", "topic", "resource", "claim"}
+    assert kinds == {"section", "topic", "resource", "claim", "author"}
+
+
+def test_people_carry_how_much_they_wrote(graph):
+    """Drives their size and the default view, which shows only the people who
+    appear on more than one paper — the rest add a spoke and no structure."""
+    people = [node for node in graph["nodes"] if node["kind"] == "author"]
+    assert people and all("wrote" in node for node in people)
+    assert any(node["wrote"] > 1 for node in people)
+
+
+def test_a_byline_edge_exists_for_every_authorship(graph):
+    """A person drawn with no edge to their work is just a floating name."""
+    people = {node["id"] for node in graph["nodes"] if node["kind"] == "author"}
+    wrote = [link for link in graph["links"] if link["kind"] == "wrote"]
+    assert {link["source"] for link in wrote} == people
+
+
+def test_someone_with_nothing_filed_gets_no_section(graph):
+    """Assigning one would put them in a part of the field at random, and the
+    colour would then assert something nobody decided."""
+    people = [node for node in graph["nodes"] if node["kind"] == "author"]
+    assert all(node["section"] == "" or node["section"].isdigit() for node in people)
 
 
 def test_the_edge_kinds_stay_distinguishable(graph):
