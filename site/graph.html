@@ -7,9 +7,11 @@
   offline, and cannot change underneath us, and a visualisation is not a good
   enough reason to give that up.
 
-  A separate page rather than a fourth tab in index.html, because the library is
+  A separate page rather than a fifth tab in index.html, because the library is
   1.3 MB and the graph payload another 170 KB. Nobody filing papers on a laptop
-  should pay for a page they may never open.
+  should pay for a page they may never open. The masthead is copied from the
+  filing site verbatim — same tokens, same icon, same tabs — so crossing
+  between them does not feel like leaving.
 -->
 <html lang="en">
 <head>
@@ -17,82 +19,164 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AO Commons — The graph</title>
 <style>
+  /* Lifted from the filing site so the two cannot drift apart. */
   :root {
-    --ink: #14171a; --muted: #4a5560; --faint: #7c8894;
-    --page: #fbfbf9; --card: #ffffff; --rule: #e6e4dd; --rule-hard: #cfccc2;
-    --accent: #1f5c46; --accent-soft: #e8f0ec; --mark: #f6e9a8;
-    --section: #1f5c46; --topic: #7fa393; --resource: #b8863b; --claim: #8a6fa8;
-    --void: #f4f3ef;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ink: #e8e6e1; --muted: #a8b0b8; --faint: #7b848d;
-      --page: #14171a; --card: #1b1f23; --rule: #2b3136; --rule-hard: #3d454c;
-      --accent: #6fbf9a; --accent-soft: #17302a; --mark: #4a4327;
-      --section: #6fbf9a; --topic: #4d7d68; --resource: #d6a35a; --claim: #a98cc7;
-      --void: #101315;
-    }
+    --paper:   #fbfbf8;
+    --card:    #ffffff;
+    --sunk:    #f1f1ec;
+    --ink:     #16191c;
+    --muted:   #55595e;
+    --faint:   #8b8f93;
+    --rule:    #d8d8d0;
+    --rule-hard: #b9b9ae;
+    --accent:  #0b5e52;
+    --accent-soft: #dfece9;
+    --on-accent: #ffffff;
+    --mark:    #ffe89c;
+    --mark-edge: #e0b93a;
+    --signal:  #9c3a10;
+    --signal-soft: #f6e7de;
+    /* The four kinds of node. Distinct in hue rather than only in lightness,
+       so they stay apart for a viewer who cannot separate red from green. */
+    --n-section: #0b5e52;
+    --n-topic:   #7ba79b;
+    --n-resource:#9c3a10;
+    --n-claim:   #6c4f9c;
+    --void:      #07080b;
   }
   :root[data-theme="dark"] {
-    --ink: #e8e6e1; --muted: #a8b0b8; --faint: #7b848d;
-    --page: #14171a; --card: #1b1f23; --rule: #2b3136; --rule-hard: #3d454c;
-    --accent: #6fbf9a; --accent-soft: #17302a; --mark: #4a4327;
-    --section: #6fbf9a; --topic: #4d7d68; --resource: #d6a35a; --claim: #a98cc7;
-    --void: #101315;
+    --paper:   #15171a;
+    --card:    #1c1f23;
+    --sunk:    #111316;
+    --ink:     #e9e9e3;
+    --muted:   #9aa0a6;
+    --faint:   #6f757b;
+    --rule:    #2b2f35;
+    --rule-hard: #3d434a;
+    --accent:  #4fb6a0;
+    --accent-soft: #14332d;
+    --on-accent: #08110e;
+    --mark:    #4a3f14;
+    --mark-edge: #8a7325;
+    --signal:  #d9873f;
+    --signal-soft: #2e1e12;
+    --n-section: #4fb6a0;
+    --n-topic:   #3f7a6c;
+    --n-resource:#d9873f;
+    --n-claim:   #a98cc7;
+    --void:      #07080b;
+  }
+  :root {
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, "Iowan Old Style", Georgia, Cambria, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   }
 
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
   body {
-    background: var(--page); color: var(--ink);
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper); color: var(--ink); font-family: var(--sans);
     display: flex; flex-direction: column; overflow: hidden;
   }
   a { color: var(--accent); }
 
-  header {
-    display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;
-    padding: 11px 20px; border-bottom: 1px solid var(--rule); background: var(--page);
+  /* ---------- the masthead, as on the filing site ---------- */
+  .masthead {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    gap: 20px; padding: 12px 22px 0; border-bottom: 1px solid var(--rule);
+    background: var(--card); position: sticky; top: 0; z-index: 20;
   }
-  header .wordmark { font-weight: 640; font-size: 14px; letter-spacing: -.01em; }
-  nav { display: flex; gap: 18px; }
-  nav a {
-    text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 3px 0;
-    border-bottom: 2px solid transparent;
+  .brand { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; }
+  .brand img { width: 26px; height: 26px; border-radius: 2px; display: block; }
+  .wordmark { font-weight: 640; font-size: 14px; letter-spacing: -.01em; }
+  .tools {
+    display: flex; align-items: center; gap: 12px; justify-content: flex-end;
+    padding-bottom: 12px; min-width: 0;
   }
-  nav a:hover { color: var(--ink); }
-  nav a[aria-current] { color: var(--ink); font-weight: 620; border-bottom-color: var(--accent); }
-  header .spacer { flex: 1; }
-  button.plain {
+  .modes { display: flex; gap: 22px; align-items: flex-end; justify-content: center; align-self: end; }
+  .modes a {
+    text-decoration: none; display: inline-flex; align-items: center;
+    border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; background: transparent;
+    color: var(--muted); padding: 4px 1px 6px; font-size: 13px; font-weight: 500;
+    transition: color .1s, border-color .1s;
+  }
+  .modes a:hover { color: var(--ink); }
+  .modes a[aria-current] {
+    color: var(--ink); border-bottom-color: var(--accent); font-weight: 620;
+  }
+  .search { position: relative; flex: 1 1 340px; min-width: 220px; max-width: 460px; }
+  .search input {
+    font: inherit; width: 100%; padding: 6px 11px; border-radius: 2px;
+    border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-size: 13px;
+  }
+  .search-out {
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
+    width: max(100%, 520px);
+    background: var(--card); border: 1px solid var(--rule); border-radius: 2px;
+    max-height: 420px; overflow-y: auto; padding: 5px;
+  }
+  .search-out:empty { display: none; }
+  .search-out button {
+    display: flex; gap: 9px; width: 100%; text-align: left; border: 0; background: none;
+    font: inherit; font-size: 12.5px; color: var(--ink); padding: 6px 9px; cursor: pointer;
+  }
+  .search-out button:hover { background: var(--sunk); }
+  .search-out .swatch { width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: 5px; }
+  .theme {
     border: 1px solid var(--rule-hard); background: var(--card); color: var(--muted);
-    font: inherit; font-size: 12px; padding: 4px 9px; cursor: pointer; border-radius: 2px;
+    padding: 5px 10px; border-radius: 2px; font-family: var(--mono);
+    font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
   }
-  button.plain:hover { color: var(--ink); border-color: var(--accent); }
+  .theme:hover { color: var(--ink); border-color: var(--accent); }
+  @media (max-width: 900px) {
+    .masthead { grid-template-columns: 1fr; gap: 0; }
+    .tools { justify-content: flex-start; flex-wrap: wrap; }
+  }
 
+  /* ---------- the scene ---------- */
   main { flex: 1; position: relative; min-height: 0; background: var(--void); }
   #scene { position: absolute; inset: 0; }
 
   .panel {
-    position: absolute; top: 14px; left: 14px; width: 268px; z-index: 5;
+    position: absolute; top: 14px; left: 14px; width: 262px; z-index: 5;
     background: var(--card); border: 1px solid var(--rule-hard);
     padding: 13px 14px; font-size: 12.5px; line-height: 1.5;
     max-height: calc(100% - 28px); overflow-y: auto;
   }
   .panel h2 {
     font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 9px; font-weight: 500;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--faint); margin: 0 0 9px; font-weight: 500; font-family: var(--mono);
   }
   .panel h2:not(:first-child) { margin-top: 16px; }
   .row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
   .row input { margin: 0; accent-color: var(--accent); }
   .row .swatch { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-  .row .bar { width: 14px; height: 2px; flex: none; }
-  .row .n {
-    margin-left: auto; color: var(--faint); font-size: 11px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  .row .bar { width: 14px; height: 2px; flex: none; background: var(--rule-hard); }
+  .row .bar.flows {
+    background: linear-gradient(90deg, var(--faint) 0 40%, var(--ink) 50%, var(--faint) 60% 100%);
   }
+  /* Size, not colour, is what tells the node kinds apart now. */
+  .row .dot { flex: none; border-radius: 50%; background: var(--muted); }
+  .row .dot.section  { width: 11px; height: 11px; }
+  .row .dot.topic    { width: 7px;  height: 7px;  margin: 0 2px; }
+  .row .dot.resource { width: 9px;  height: 9px;  margin: 0 1px; }
+  .row .dot.claim    { width: 5px;  height: 5px;  margin: 0 3px; }
+  #sections { display: flex; flex-direction: column; gap: 1px; }
+  .section-row {
+    display: flex; align-items: center; gap: 8px; width: 100%; text-align: left;
+    border: 0; background: none; font: inherit; font-size: 11.5px; color: var(--muted);
+    padding: 2px 0; cursor: pointer;
+  }
+  .section-row:hover { color: var(--ink); }
+  .section-row .swatch { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+  .section-row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .n { margin-left: auto; color: var(--faint); font-size: 11px; font-family: var(--mono); }
   .note { color: var(--faint); font-size: 11.5px; line-height: 1.45; margin: 10px 0 0; }
+  .panel button.plain, .hint button {
+    border: 1px solid var(--rule-hard); background: var(--card); color: var(--muted);
+    font: inherit; font-size: 12px; padding: 4px 9px; cursor: pointer; border-radius: 2px;
+  }
+  .panel button.plain:hover { color: var(--ink); border-color: var(--accent); }
 
   .detail {
     position: absolute; right: 14px; top: 14px; width: 320px; z-index: 5;
@@ -101,15 +185,15 @@
     max-height: calc(100% - 28px); overflow-y: auto;
   }
   .detail .kind {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--faint); margin: 0;
   }
   .detail h3 { margin: 6px 0 8px; font-size: 15px; line-height: 1.35; }
   .detail p { margin: 0 0 9px; color: var(--muted); }
   .detail .actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
   .detail .actions a, .detail .actions button {
     font: inherit; font-size: 12.5px; padding: 5px 10px; cursor: pointer;
-    border: 1px solid var(--accent); background: var(--accent); color: var(--page);
+    border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent);
     text-decoration: none; border-radius: 2px;
   }
   .detail .actions .ghost { background: var(--card); color: var(--accent); }
@@ -119,10 +203,8 @@
     color: var(--faint); font-size: 11.5px; background: var(--card);
     border: 1px solid var(--rule); padding: 5px 11px; border-radius: 2px;
   }
-  .loading {
-    position: absolute; inset: 0; display: grid; place-items: center;
-    color: var(--faint); font-size: 13px;
-  }
+  .loading { position: absolute; inset: 0; display: grid; place-items: center;
+             color: var(--faint); font-size: 13px; }
   @media (max-width: 820px) {
     .panel, .detail { position: static; width: auto; max-height: none; margin: 10px; }
     main { overflow: auto; }
@@ -130,19 +212,26 @@
 </style>
 </head>
 <body>
-<header>
-  <span class="wordmark">AO Commons</span>
-  <nav>
+<header class="masthead">
+  <div class="brand">
+    <img src="data:image/png;base64,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" alt="AO Commons">
+    <span class="wordmark">AO&nbsp;Commons</span>
+  </div>
+  <div class="modes" role="group" aria-label="Mode">
     <a href="index.html">Explore</a>
     <a href="index.html">Review</a>
     <a href="index.html">Add</a>
     <a href="index.html">Submit</a>
-    <a href="graph.html" aria-current="page">Graph</a>
-  </nav>
-  <span class="spacer"></span>
-  <button class="plain" id="theme">Dark</button>
+    <a id="mode-graph" href="graph.html" aria-current="page">Graph</a>
+  </div>
+  <div class="tools">
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the graph — a topic, a paper, an author…" autocomplete="off" aria-label="Search">
+      <div class="search-out" id="q-out"></div>
+    </div>
+    <button class="theme" id="theme" aria-label="Switch between light and dark">Dark</button>
+  </div>
 </header>
-
 <main>
   <div id="scene"></div>
   <div class="loading" id="loading">Building the graph…</div>
@@ -150,14 +239,15 @@
   <div class="panel">
     <h2>What is drawn</h2>
     <div id="kinds"></div>
+    <h2>Colour is the section</h2>
+    <div id="sections"></div>
     <h2>How things connect</h2>
     <div id="links"></div>
     <h2>View</h2>
     <label class="row"><input type="checkbox" id="all-topics"> <span>Every topic, including empty ones</span></label>
+    <label class="row"><input type="checkbox" id="flow" checked> <span>Show the flow along edges</span></label>
     <p class="note" id="scope"></p>
-    <div class="actions" style="margin-top:12px">
-      <button class="plain" id="reset">Reset the camera</button>
-    </div>
+    <div style="margin-top:12px"><button class="plain" id="reset">Reset the camera</button></div>
   </div>
 
   <div class="detail" id="detail" hidden></div>
@@ -169,8 +259,9 @@
 (function () {
   "use strict";
 
-  // The same rule as the filing site: follow the operating system unless
-  // someone has said otherwise here, and then keep obeying them.
+  // Same rule as the filing site, and the same key, so a choice made on one
+  // page is honoured on the other: follow the operating system unless someone
+  // has said otherwise, then keep obeying them.
   const THEME_KEY = "aocommons.theme";
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   let theme = prefersDark ? "dark" : "light";
@@ -180,7 +271,7 @@
   function applyTheme() {
     document.documentElement.setAttribute("data-theme", theme);
     themeButton.textContent = theme === "dark" ? "Light" : "Dark";
-    if (graph) paint();
+    paint();
   }
   themeButton.addEventListener("click", () => {
     theme = theme === "dark" ? "light" : "dark";
@@ -191,34 +282,57 @@
   const token = name => getComputedStyle(document.documentElement)
     .getPropertyValue(name).trim();
 
+  // Sixteen hues for sixteen sections, walked around the wheel in a stride
+  // that never lands two neighbours next to each other. Colour carries the
+  // section rather than the node type: the type is already in the size and the
+  // filters, and section is the thing you actually want to see clustering.
+  const SECTION_HUES = [
+    "#4f9dff", "#ffd23f", "#ff6b4a", "#3ddc97", "#b57bff", "#ff9f1c",
+    "#22d3ee", "#f472b6", "#a3e635", "#8b93ff", "#fb923c", "#2dd4bf",
+    "#facc15", "#f87171", "#c084fc", "#34d399",
+  ];
+  const hueFor = node => {
+    const section = String(node.section || node.id.replace("topic:", "")).split(".")[0];
+    const index = parseInt(section, 10);
+    return SECTION_HUES[(Number.isFinite(index) ? index - 1 : 0) % SECTION_HUES.length]
+      || SECTION_HUES[0];
+  };
+
   const NODE_KINDS = [
-    ["section", "Sections", "--section"],
-    ["topic", "Topics", "--topic"],
-    ["resource", "Papers and tools", "--resource"],
-    ["claim", "Statements", "--claim"],
+    ["section", "Sections", "--n-section"],
+    ["topic", "Topics", "--n-topic"],
+    ["resource", "Papers and tools", "--n-resource"],
+    ["claim", "Statements", "--n-claim"],
   ];
 
   // Each edge type is a different kind of assertion, and saying so is the
-  // point. A citation is a fact printed in the paper; a similarity is a score
-  // this project computed; a statement is a machine's reading of a sentence.
+  // point. A citation is printed in the paper; a similarity is a score this
+  // project computed; a statement is a machine's reading of a sentence.
   // Drawing them alike would invite someone to read a resemblance as a fact.
   const LINK_KINDS = [
-    ["parent", "Taxonomy branches", "--topic", "the tree itself"],
-    ["tagged", "Filed under", "--resource", "a record's place in the tree"],
-    ["cites", "Cites", "--section", "read from the paper's own reference list"],
-    ["similar", "Shares references", "--claim", "computed: bibliographic coupling, not a claim by either paper"],
-    ["claim", "States", "--claim", "a statement extracted from the paper"],
-    ["about", "Statement is about", "--topic", "inferred: which branch a statement concerns"],
+    ["parent", "Taxonomy branches", "--n-topic", "the tree itself"],
+    ["tagged", "Filed under", "--n-resource", "a record's place in the tree"],
+    ["cites", "Cites", "--n-section", "read from the paper's own reference list"],
+    ["similar", "Shares references", "--mark-edge", "computed: bibliographic coupling, not a claim by either paper"],
+    ["claim", "States", "--n-claim", "a statement extracted from the paper"],
+    ["about", "Statement is about", "--n-topic", "inferred: which branch a statement concerns"],
   ];
+
+  // How many particles ride each kind of edge, and how fast. The taxonomy is
+  // structure and stays still; the edges that assert something move, and the
+  // ones read from a paper move faster than the ones we computed.
+  const PARTICLES = { cites: 3, claim: 2, tagged: 1, similar: 2, about: 1, parent: 0 };
+  const SPEED = { cites: 0.010, claim: 0.006, tagged: 0.004, similar: 0.003, about: 0.003 };
 
   const state = {
     nodes: new Set(NODE_KINDS.map(k => k[0])),
     links: new Set(["parent", "tagged", "cites", "similar", "claim"]),
     allTopics: false,
-    selected: null,
+    flow: true,
   };
 
   let data = null, graph = null;
+  const colourOf = kind => token((LINK_KINDS.find(k => k[0] === kind) || [0, 0, "--faint"])[2]);
 
   fetch("graph.json")
     .then(response => (response.ok ? response.json() : Promise.reject(response.status)))
@@ -235,10 +349,10 @@
     return { nodes, links };
   }
 
-  // What to draw, given the switches. Topics with nothing filed under them are
-  // hidden by default: 465 of the 567 are empty leaves, and together they bury
-  // the 60 records this exists to show. Ancestors of a kept topic are kept too,
-  // so no branch is left floating with no path back to its section.
+  // Topics with nothing filed under them are hidden by default: 465 of the 567
+  // are empty leaves, and together they bury the 60 records this exists to
+  // show. Ancestors of a kept topic are kept, so no branch floats with no path
+  // back to its section.
   function visible() {
     const keep = new Set();
     const byId = new Map(data.nodes.map(n => [n.id, n]));
@@ -250,7 +364,6 @@
     });
 
     if (!state.allTopics) {
-      // Walk each kept topic back up its code — 11.6.2 implies 11.6 and 11.
       [...keep].forEach(id => {
         if (!id.startsWith("topic:")) return;
         const parts = id.slice(6).split(".");
@@ -262,22 +375,22 @@
       });
     }
 
-    const nodes = data.nodes.filter(n => keep.has(n.id));
-    const links = data.links.filter(l =>
-      state.links.has(l.kind) && keep.has(l.source.id || l.source) && keep.has(l.target.id || l.target));
-    return { nodes: nodes.map(n => ({ ...n })), links: links.map(l => ({ ...l })) };
+    const has = end => keep.has(end.id || end);
+    return {
+      nodes: data.nodes.filter(n => keep.has(n.id)).map(n => ({ ...n })),
+      links: data.links.filter(l => state.links.has(l.kind) && has(l.source) && has(l.target))
+        .map(l => ({ ...l })),
+    };
   }
 
-  function colourFor(node) {
-    return token("--" + node.kind);
-  }
+  const sizeFor = node =>
+    node.kind === "section" ? 6
+      : node.kind === "resource" ? 3.4 + Math.min(3, node.claims || 0) * 0.5
+      : node.kind === "topic" ? 1.6 + Math.min(4, node.held || 0) * 0.5
+      : 1.4;
 
-  function sizeFor(node) {
-    if (node.kind === "section") return 6;
-    if (node.kind === "resource") return 3.4 + Math.min(3, node.claims || 0) * 0.5;
-    if (node.kind === "topic") return 1.6 + Math.min(4, node.held || 0) * 0.5;
-    return 1.4;
-  }
+  const escape = text => String(text || "").replace(/[&<>"]/g,
+    c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   function start() {
     document.getElementById("loading").remove();
@@ -288,7 +401,7 @@
       const row = document.createElement("label");
       row.className = "row";
       row.innerHTML = `<input type="checkbox" checked>
-        <span class="swatch" style="background:var(${colour})"></span>
+        <span class="dot ${key}"></span>
         <span>${label}</span><span class="n">${tally.nodes[key] || 0}</span>`;
       row.querySelector("input").addEventListener("change", event => {
         event.target.checked ? state.nodes.add(key) : state.nodes.delete(key);
@@ -303,7 +416,7 @@
       row.className = "row";
       row.title = why;
       row.innerHTML = `<input type="checkbox"${state.links.has(key) ? " checked" : ""}>
-        <span class="bar" style="background:var(${colour})"></span>
+        <span class="bar${PARTICLES[key] ? " flows" : ""}"></span>
         <span>${label}</span><span class="n">${tally.links[key] || 0}</span>`;
       row.querySelector("input").addEventListener("change", event => {
         event.target.checked ? state.links.add(key) : state.links.delete(key);
@@ -316,23 +429,64 @@
       state.allTopics = event.target.checked;
       refresh();
     });
+    document.getElementById("flow").addEventListener("change", event => {
+      state.flow = event.target.checked;
+      graph.linkDirectionalParticles(link => (state.flow ? PARTICLES[link.kind] || 0 : 0));
+    });
 
-    graph = ForceGraph3D()(document.getElementById("scene"))
+    // The sixteen sections, in the order the taxonomy numbers them, so the
+    // colours in the scene can be read back to a branch.
+    const sections = document.getElementById("sections");
+    data.nodes.filter(n => n.kind === "section")
+      .sort((a, b) => parseInt(a.code, 10) - parseInt(b.code, 10))
+      .forEach(node => {
+        const row = document.createElement("button");
+        row.className = "section-row";
+        row.title = node.label;
+        row.innerHTML = `<span class="swatch" style="background:${hueFor(node)}"></span>
+          <span class="t">${escape(node.label.replace(/^\d+\s/, ""))}</span>`;
+        row.addEventListener("click", () => {
+          const live = graph.graphData().nodes.find(n => n.id === node.id);
+          if (live) { flyTo(live); select(live); }
+        });
+        sections.append(row);
+      });
+
+    graph = window.__graph = ForceGraph3D()(document.getElementById("scene"))
       .backgroundColor(token("--void"))
       .nodeLabel(node => `<div style="
           background:${token("--card")};color:${token("--ink")};
           border:1px solid ${token("--rule-hard")};padding:6px 9px;
           font:12px/1.45 ui-sans-serif,system-ui;max-width:280px">${escape(node.label)}</div>`)
-      .nodeColor(colourFor)
+      .nodeColor(hueFor)
       .nodeVal(sizeFor)
-      .nodeOpacity(0.92)
-      .linkColor(link => token("--" + (LINK_KINDS.find(k => k[0] === link.kind) || [])[2]))
-      .linkOpacity(0.28)
-      .linkWidth(link => (link.kind === "parent" ? 0.4 : 0.9))
+      .nodeOpacity(0.95)
+      .nodeResolution(12)
+      // Curved rather than straight, so parallel edges between the same two
+      // clusters read as a bundle instead of overprinting into one line.
+      .linkCurvature(0.22)
+      .linkColor(link => hueFor(link.source.id ? link.source : { id: link.source }))
+      .linkOpacity(0.22)
+      .linkWidth(link => (link.kind === "parent" ? 0.3 : 0.8))
+      // The movement. Particles travel from source to target, so an edge shows
+      // its direction as well as its existence — a citation runs one way, and
+      // a shared-references score does not.
+      .linkDirectionalParticles(link => (state.flow ? PARTICLES[link.kind] || 0 : 0))
+      .linkDirectionalParticleWidth(1.4)
+      .linkDirectionalParticleSpeed(link => SPEED[link.kind] || 0.004)
+      .linkDirectionalParticleColor(link => hueFor(link.source.id ? link.source : { id: link.source }))
       .warmupTicks(30)
       .cooldownTime(6000)
       .onNodeClick(select)
       .onBackgroundClick(() => select(null));
+
+    // The wheel moved the camera a hair at a time, which on a graph this deep
+    // means a lot of scrolling to get anywhere. Trackball controls default to
+    // 1.2; this is the knob, and it wants to be well above it.
+    const controls = graph.controls();
+    controls.zoomSpeed = 4.2;
+    controls.panSpeed = 1.1;
+    controls.rotateSpeed = 1.4;
 
     // Links between distant sections should not drag the whole tree into a
     // ball: the taxonomy's own edges are stiff, the computed ones are slack.
@@ -340,9 +494,8 @@
     graph.d3Force("charge").strength(-38);
 
     refresh();
-    document.getElementById("reset").addEventListener("click", () => {
-      graph.zoomToFit(600, 60);
-    });
+    document.getElementById("reset").addEventListener("click", () => graph.zoomToFit(600, 60));
+    wireSearch();
     applyTheme();
   }
 
@@ -357,16 +510,67 @@
 
   function paint() {
     if (!graph) return;
-    graph.backgroundColor(token("--void"))
-      .nodeColor(colourFor)
-      .linkColor(link => token("--" + (LINK_KINDS.find(k => k[0] === link.kind) || [])[2]));
+    graph.backgroundColor(token("--void"));
   }
 
-  const escape = text => String(text || "").replace(/[&<>"]/g,
-    c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function flyTo(node) {
+    const distance = 90;
+    const ratio = 1 + distance / Math.hypot(node.x || 1, node.y || 1, node.z || 1);
+    graph.cameraPosition(
+      { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio }, node, 900);
+  }
+
+  // The same box as on the filing site, doing the thing it can do here: find a
+  // node and take you to it. A search that only looked correct would be worse
+  // than none at all.
+  function wireSearch() {
+    const box = document.getElementById("q");
+    const out = document.getElementById("q-out");
+
+    box.addEventListener("input", () => {
+      out.textContent = "";
+      const query = box.value.trim().toLowerCase();
+      if (query.length < 2) return;
+
+      const shown = new Map(graph.graphData().nodes.map(n => [n.id, n]));
+      const hits = data.nodes
+        .filter(n => (n.label || "").toLowerCase().includes(query)
+                  || (n.authors || []).join(" ").toLowerCase().includes(query))
+        .sort((a, b) => (a.label || "").length - (b.label || "").length)
+        .slice(0, 12);
+
+      hits.forEach(node => {
+        const hit = document.createElement("button");
+        hit.innerHTML = `<span class="swatch" style="background:var(--n-${node.kind})"></span>
+          <span>${escape(node.label.slice(0, 90))}</span>`;
+        hit.addEventListener("click", () => {
+          const live = shown.get(node.id);
+          if (!live) {
+            // It exists but is filtered out — turning the filter on is more
+            // useful than reporting that nothing was found.
+            state.allTopics = true;
+            document.getElementById("all-topics").checked = true;
+            refresh();
+            setTimeout(() => {
+              const found = graph.graphData().nodes.find(n => n.id === node.id);
+              if (found) { flyTo(found); select(found); }
+            }, 1200);
+          } else {
+            flyTo(live);
+            select(live);
+          }
+          box.value = "";
+          out.textContent = "";
+        });
+        out.append(hit);
+      });
+    });
+    document.addEventListener("click", event => {
+      if (!event.target.closest(".search")) out.textContent = "";
+    });
+  }
 
   function select(node) {
-    state.selected = node;
     const detail = document.getElementById("detail");
     if (!node) { detail.hidden = true; return; }
 
@@ -388,9 +592,9 @@
         by.textContent = node.authors.join(", ") + (node.date ? ` · ${node.date}` : "");
         detail.append(by);
       }
-      const state_ = document.createElement("p");
-      state_.textContent = `${node.claims || 0} statement(s) extracted · ${node.reviewed}`;
-      detail.append(state_);
+      const status = document.createElement("p");
+      status.textContent = `${node.claims || 0} statement(s) extracted · ${node.reviewed}`;
+      detail.append(status);
     }
     if (node.kind === "claim") {
       const of = document.createElement("p");
@@ -407,20 +611,14 @@
 
     const actions = document.createElement("div");
     actions.className = "actions";
-    // Back into the filing site, at the thing that was clicked. A graph that
-    // cannot hand you to the work is an ornament.
-    if (node.kind === "resource" || node.kind === "claim") {
-      const open = document.createElement("a");
-      open.href = "index.html";
-      open.textContent = "Open in Review";
-      actions.append(open);
-    }
-    if (node.kind === "topic" || node.kind === "section") {
-      const open = document.createElement("a");
-      open.href = "index.html";
-      open.textContent = "Open in Explore";
-      actions.append(open);
-    }
+    // Back into the filing site. A graph that cannot hand you to the work is
+    // an ornament.
+    const open = document.createElement("a");
+    open.href = "index.html";
+    open.textContent = node.kind === "resource" || node.kind === "claim"
+      ? "Open in Review" : "Open in Explore";
+    actions.append(open);
+
     if (node.url) {
       const source = document.createElement("a");
       source.className = "ghost";
@@ -433,12 +631,7 @@
     const focus = document.createElement("button");
     focus.className = "ghost";
     focus.textContent = "Fly to it";
-    focus.addEventListener("click", () => {
-      const distance = 90;
-      const ratio = 1 + distance / Math.hypot(node.x, node.y, node.z || 1);
-      graph.cameraPosition(
-        { x: node.x * ratio, y: node.y * ratio, z: (node.z || 0) * ratio }, node, 900);
-    });
+    focus.addEventListener("click", () => flyTo(node));
     actions.append(focus);
     detail.append(actions);
   }
