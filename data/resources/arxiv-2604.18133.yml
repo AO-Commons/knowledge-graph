@@ -1,0 +1,38 @@
+id: resource:arxiv:2604.18133
+resource_type: preprint
+title: 'Multi-Agent Systems: From Classical Paradigms to Large Foundation Model-Enabled Futures'
+abstract: 'With the rapid advancement of artificial intelligence, multi-agent systems (MASs)
+  are evolving from classical paradigms toward architectures built upon large foundation models
+  (LFMs). This survey provides a systematic review and comparative analysis of classical MASs
+  (CMASs) and LFM-based MASs (LMASs). First, within a closed-loop coordination framework,
+  CMASs are reviewed across four fundamental dimensions: perception, communication, decision-making,
+  and control. Beyond this framework, LMASs integrate LFMs to lift collaboration from low-level
+  state exchanges to semantic-level reasoning, enabling more flexible coordination and improved
+  adaptability across diverse scenarios. Then, a comparative analysis is conducted to contrast
+  CMASs and LMASs across architecture, operating mechanism, adaptability, and application.
+  Finally, future perspectives on MASs are presented, summarizing open challenges and potential
+  research opportunities.'
+authors:
+- Zixiang Wang
+- Mengjia Gong
+- Qiyu Sun
+- Jing Xu
+- Shuai Mao
+- Xin Jin
+- Qing-Long Han
+- Yang Tang
+published_at: '2026-04-20'
+url: https://arxiv.org/abs/2604.18133
+doi: 10.48550/arXiv.2604.18133
+arxiv_id: '2604.18133'
+openalex_id: W7155100766
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- 16.1.3
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #4 by @ankeliu; identity and byline resolved
+  against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
+ingested_at: '2026-08-14'
