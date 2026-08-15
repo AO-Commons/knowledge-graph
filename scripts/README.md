@@ -5,6 +5,11 @@
 | [ingest_seeds.py](ingest_seeds.py) | Expands a seed manifest into `data/resources/`. Idempotent |
 | [airtable.py](airtable.py) | `setup` · `push` · `check` · `sync` — the Airtable curation surface |
 | [airtable_schema.py](airtable_schema.py) | The Resources table definition and its mapping to `Resource` |
+| [add_resource.py](add_resource.py) | Turns a new-resource issue into a record; run by the intake bot |
+| [merge_filing.py](merge_filing.py) | Merges a filing issue into the gold set |
+| [check_authors.py](check_authors.py) | Reconciles bylines against arXiv |
+| [build_site.py](build_site.py) · [build_graph.py](build_graph.py) | The review site and the 3D graph |
+| [mcp_server.py](mcp_server.py) | Read-only MCP server over the corpus |
 
 ## Where records come from
 
@@ -66,3 +71,31 @@ populating a field, and that is worse.
 in CI: options equal the model's vocabulary, single-valued facets are
 single-selects, every mapped field exists and maps to a real attribute, and
 internal fields are never mapped.
+
+## `mcp_server.py` — the read-only query server
+
+An MCP server over the corpus, for pointing an agent at the library during
+review. Read-only by design: filings and claim verdicts enter through the site
+and a pull request, where they are attributable to a person.
+
+```bash
+pip install -e '.[mcp]'
+claude mcp add ao-commons -- python3 "$(pwd)/scripts/mcp_server.py"
+```
+
+Eight tools: `coverage`, `search_topics`, `get_topic`, `search_records`,
+`get_record`, `get_claims`, `get_author`, `related_records`.
+
+Every response says how much has been checked. Records carry `review_status`,
+claims carry the verbatim sentence they were read from and whether anyone has
+verified them, and computed edges say they were computed. That is deliberate:
+at the time of writing none of the 61 records has been reviewed and none of
+the 45 claims verified, and an agent has no way to detect that unless the
+answers say so.
+
+The corpus is read once at start-up. Rebuild the data and restart the server —
+a cache with invalidation here would let it disagree with the site silently.
+
+The questions it will not answer are the synthesising ones. "What reduces
+cascading failures" needs claims across the corpus, verified; that is what the
+review is for.

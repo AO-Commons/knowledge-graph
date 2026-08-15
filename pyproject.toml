@@ -25,6 +25,7 @@ dependencies = ["pyyaml>=6.0"]
 # so `pip install .[scholarly]` gave you an unusable ingestion path.
 scholarly = ["requests>=2.31"]   # OpenAlex and Semantic Scholar ingestion
 airtable = ["requests>=2.31"]    # the curation-surface sync
+mcp = ["mcp>=2.0"]                # the read-only query server
 dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [project.scripts]
