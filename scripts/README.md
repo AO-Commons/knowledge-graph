@@ -9,7 +9,7 @@
 | [merge_filing.py](merge_filing.py) | Merges a filing issue into the gold set |
 | [check_authors.py](check_authors.py) | Reconciles bylines against arXiv |
 | [build_site.py](build_site.py) · [build_graph.py](build_graph.py) | The review site and the 3D graph |
-| [mcp_server.py](mcp_server.py) | Read-only MCP server over the corpus |
+| [mcp_server.py](mcp_server.py) | Shim; the server itself is `ao_commons_kg.mcp_server`, run as `aokg-mcp` |
 
 ## Where records come from
 
@@ -79,9 +79,12 @@ review. Read-only by design: filings and claim verdicts enter through the site
 and a pull request, where they are attributable to a person.
 
 ```bash
-pip install -e '.[mcp]'
-claude mcp add ao-commons -- python3 "$(pwd)/scripts/mcp_server.py"
+python3 -m pip install -e '.[mcp]'
+claude mcp add ao-commons -- aokg-mcp
 ```
+
+See [docs/mcp.md](../docs/mcp.md) for Claude Desktop and for what it will not
+answer while the corpus is unreviewed.
 
 Eight tools: `coverage`, `search_topics`, `get_topic`, `search_records`,
 `get_record`, `get_claims`, `get_author`, `related_records`.

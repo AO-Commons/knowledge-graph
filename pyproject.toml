@@ -30,6 +30,10 @@ dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [project.scripts]
 aokg = "ao_commons_kg.cli:main"
+# So a client can launch the server by name rather than by absolute path,
+# which is the difference between instructions someone can follow and
+# instructions they have to edit first.
+aokg-mcp = "ao_commons_kg.mcp_server:main"
 
 [project.urls]
 Homepage = "https://github.com/AO-Commons/knowledge-graph"

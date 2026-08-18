@@ -37,10 +37,24 @@ Three structures live in that one file, and they are implemented differently on 
 - **Section 11 (Failure modes)** is a coding scheme, not a set of shelves. An incident normally carries several codes at once, and its 119 topics are marked `usage_mode: coding_scheme` so the query layer treats multi-tagging as the default.
 - **F1–F12** are facets — flat controlled vocabularies on a resource, never a second tree. The taxonomy says what a resource is *about*; the facets say what kind of evidence it is and when it applies.
 
+## Asking it questions from Claude
+
+A read-only MCP server ships with the repository, so Claude can search the
+taxonomy, look up people and records, and read extracted claims with the
+sentence each came from.
+
+```bash
+python3 -m pip install -e '.[mcp]'
+claude mcp add ao-commons -- aokg-mcp
+```
+
+[docs/mcp.md](docs/mcp.md) covers Claude Desktop, what it answers well, and
+what it deliberately will not tell you while the corpus is unreviewed.
+
 ## Using the data
 
 ```bash
-pip install -e ".[scholarly]"
+python3 -m pip install -e ".[scholarly]"
 aokg taxonomy --stats            # what loaded, per section
 aokg resolve                     # fetch OpenAlex metadata + reference lists
 aokg expand --limit 40           # propose new records from the citation graph
