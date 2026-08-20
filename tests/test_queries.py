@@ -32,14 +32,14 @@ def corpus():
 
 class TestTopics:
     def test_an_alias_finds_a_topic_whose_title_lacks_the_word(self, corpus):
-        """"MARL" is nowhere in 14.5.5's title. A researcher types it anyway."""
-        assert [t["code"] for t in search_topics(corpus, "MARL")][:1] == ["14.5.5"]
+        """"MARL" is nowhere in 15.6's title. A researcher types it anyway."""
+        assert [t["code"] for t in search_topics(corpus, "MARL")][:1] == ["15.6"]
 
     def test_a_code_finds_its_own_topic(self, corpus):
-        assert search_topics(corpus, "14.5.5")[0]["code"] == "14.5.5"
+        assert search_topics(corpus, "15.6")[0]["code"] == "15.6"
 
     def test_a_topic_carries_its_aliases_so_a_caller_can_see_why_it_matched(self, corpus):
-        assert "MARL" in get_topic(corpus, "14.5.5")["also_known_as"]
+        assert "MARL" in get_topic(corpus, "15.6")["also_known_as"]
 
     def test_filed_here_and_filed_below_are_separated(self, corpus):
         """"Nothing here" and "nothing under here" are different facts about a

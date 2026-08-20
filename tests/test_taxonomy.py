@@ -36,7 +36,7 @@ def test_real_taxonomy_loads_without_problems(topics):
     # this, so the shape is asserted rather than just the count.
     assert len(topics) > 90, "a small parse means a format miss"
     assert sum(1 for t in topics if t.depth == 0) == 16
-    assert sum(1 for t in topics if t.depth == 1) == 86
+    assert sum(1 for t in topics if t.depth == 1) == 87
 
 
 def test_all_sixteen_sections_present(topics):
@@ -94,11 +94,19 @@ def test_reference_sections_are_not_parsed_as_topics(topics):
 
 
 def test_ancestors_roll_up(topics):
-    leaf = next(t for t in topics if t.depth == 2)
-    assert leaf.ancestor_codes() == [
-        leaf.code.split(".")[0],
-        leaf.code.rsplit(".", 1)[0],
-    ]
+    """Checked on the tree as it is, and on a code shaped like the leaves it no
+    longer has — the roll-up has to keep working if a third level ever earns
+    its way back in, and there is nothing in the file to exercise that now."""
+    subsection = next(t for t in topics if t.depth == 1)
+    assert subsection.ancestor_codes() == [subsection.code.split(".")[0]]
+
+    from ao_commons_kg.models import Topic
+
+    # depth is derived from the code, not passed in.
+    leaf = Topic(code="5.1.2", title="A leaf, hypothetically",
+                 taxonomy_version="v3", parent_code="5.1", top_level_section="5")
+    assert leaf.depth == 2
+    assert leaf.ancestor_codes() == ["5", "5.1"]
 
 
 def test_ids_are_stable_and_database_independent(topics):
@@ -138,3 +146,19 @@ def test_a_bad_parse_refuses_to_load(tmp_path):
 def test_orphan_is_reported():
     orphaned = parse_taxonomy("- 4.7.2 A leaf with no parent anywhere\n")
     assert any("no parent 4.7" in problem for problem in validate_topics(orphaned))
+
+
+def test_every_alias_points_at_a_live_code(topics):
+    """An alias on a code that no longer exists is silent: retrieval ignores it
+    and the search box never offers it, so the words a researcher would type
+    stop working with nothing to show that they have.
+
+    This caught `14.5.5` still keyed after the topic moved to `15.6`.
+    """
+    import yaml
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parent.parent / "taxonomy" / "aliases.yaml"
+    aliases = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    codes = {t.code for t in topics}
+    assert not [code for code in aliases if code not in codes]

@@ -1525,16 +1525,6 @@
       "id": "topic:14.5"
     },
     {
-      "code": "14.5.5",
-      "title": "Multi-agent reinforcement learning environments -- social dilemmas, generalization to unfamiliar partners, benchmark suites",
-      "taxonomy_version": "v3",
-      "parent_code": "14.5",
-      "top_level_section": "14",
-      "usage_mode": "navigation",
-      "status": "active",
-      "id": "topic:14.5.5"
-    },
-    {
       "code": "15",
       "title": "Borrowed foundations",
       "taxonomy_version": "v3",
@@ -1624,6 +1614,22 @@
       "usage_mode": "navigation",
       "status": "active",
       "id": "topic:15.5"
+    },
+    {
+      "code": "15.6",
+      "title": "From reinforcement learning",
+      "taxonomy_version": "v3",
+      "parent_code": "15",
+      "top_level_section": "15",
+      "subpoints": [
+        "Multi-agent reinforcement learning -- social dilemmas, cooperation, and competition between trained agents",
+        "Generalization to unfamiliar partners and novel social situations",
+        "Evaluation environments and benchmark suites",
+        "Reward design, and what optimising a proxy does to a population"
+      ],
+      "usage_mode": "navigation",
+      "status": "active",
+      "id": "topic:15.6"
     },
     {
       "code": "16",

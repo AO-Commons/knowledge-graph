@@ -695,7 +695,6 @@ The deepest section, and deliberately so. Most entries will be single postmortem
   - Digital twins and scenario testing
   - Adversarial simulation and wargaming
   - Model validation and calibration
-- 14.5.5 Multi-agent reinforcement learning environments -- social dilemmas, generalization to unfamiliar partners, benchmark suites
 
 ---
 
@@ -734,6 +733,12 @@ Compressed pointers, not shelves. Material from adjacent fields that informs des
   - Professional licensing and supervised practice
   - Vicarious liability doctrine
   - Administrative law and automated decision review
+
+### 15.6 From reinforcement learning
+  - Multi-agent reinforcement learning -- social dilemmas, cooperation, and competition between trained agents
+  - Generalization to unfamiliar partners and novel social situations
+  - Evaluation environments and benchmark suites
+  - Reward design, and what optimising a proxy does to a population
 
 ---
 

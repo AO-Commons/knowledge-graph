@@ -1,7 +1,7 @@
 # Collapsing the leaf layer
 
 **2026-08-20.** The taxonomy went from 568 codes to 103: the leaf layer was
-demoted to notes on its subsection. Every word survives; 465 codes do not.
+demoted to notes on its subsection, leaving 16 sections and 87 subsections. Every word survives; 465 codes do not.
 
 ## Why
 
@@ -33,9 +33,12 @@ already supported and the classifier index already reads. So the vocabulary is
 intact for retrieval and for the hover text on the site; what is gone is the
 obligation to choose between five phrasings of one idea.
 
-`14.5.5` was kept. It was added days earlier by explicit request and ranks
-first for two records; demoting it would have reversed a decision rather than
-simplified one.
+`14.5.5` was kept at first, which left one numbered leaf in an otherwise
+two-level tree. It has since moved to `15.6 From reinforcement learning`, a
+subsection of Borrowed foundations — where the siblings are all "From
+\<field\>" and the brief is compressed pointers rather than shelves. MARL now
+sits under the field it is a branch of, the tree is uniformly two levels, and
+`15.6` still ranks first for both Melting Pot and SocialJax.
 
 43 references were repointed to surviving codes — 23 record tags, 17 claim
 suggestions and 3 alias keys.

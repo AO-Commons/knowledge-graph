@@ -167,12 +167,12 @@
 {"source_id": "topic:14", "target_id": "topic:14.3", "relation": "PARENT_OF"}
 {"source_id": "topic:14", "target_id": "topic:14.4", "relation": "PARENT_OF"}
 {"source_id": "topic:14", "target_id": "topic:14.5", "relation": "PARENT_OF"}
-{"source_id": "topic:14.5", "target_id": "topic:14.5.5", "relation": "PARENT_OF"}
 {"source_id": "topic:15", "target_id": "topic:15.1", "relation": "PARENT_OF"}
 {"source_id": "topic:15", "target_id": "topic:15.2", "relation": "PARENT_OF"}
 {"source_id": "topic:15", "target_id": "topic:15.3", "relation": "PARENT_OF"}
 {"source_id": "topic:15", "target_id": "topic:15.4", "relation": "PARENT_OF"}
 {"source_id": "topic:15", "target_id": "topic:15.5", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.6", "relation": "PARENT_OF"}
 {"source_id": "topic:16", "target_id": "topic:16.1", "relation": "PARENT_OF"}
 {"source_id": "topic:16", "target_id": "topic:16.2", "relation": "PARENT_OF"}
 {"source_id": "topic:16", "target_id": "topic:16.3", "relation": "PARENT_OF"}
