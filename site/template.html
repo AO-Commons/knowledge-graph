@@ -218,6 +218,21 @@
   /* A claim and the sentence it came from. The quote is set apart and in the
      serif so the eye can tell the source from our paraphrase at a glance —
      confusing the two is the one mistake this panel cannot afford. */
+  .tool-card {
+    border: 1px solid var(--rule); border-left: 2px solid var(--accent);
+    padding: 15px 17px; margin-top: 14px; background: var(--card);
+  }
+  .tool-head h3 { margin: 0 0 3px; font-family: var(--serif); font-size: 18px; font-weight: 500; }
+  .tool-head .byline { margin: 0 0 10px; font-size: 12.5px; color: var(--faint); }
+  .profile { display: flex; flex-direction: column; gap: 10px; }
+  .profile-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: baseline; }
+  .profile-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  .profile-value { font-size: 13.5px; line-height: 1.55; color: var(--ink); max-width: 62ch; }
+  @media (max-width: 700px) { .profile-row { grid-template-columns: 1fr; gap: 3px; } }
+
   .claims-block { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--rule-hard); }
   .kicker .flag { color: var(--accent); font-weight: 600; }
   .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
@@ -424,6 +439,7 @@
     <button id="mode-explore" aria-pressed="true">Explore</button>
     <button id="mode-review" aria-pressed="false">Review</button>
     <button id="mode-add" aria-pressed="false">Add</button>
+    <button id="mode-tools" aria-pressed="false">Tools</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
     <a id="mode-graph" href="graph.html">Graph</a>
   </div>
@@ -2144,6 +2160,195 @@
     return block;
   }
 
+
+  // ---- tools ---------------------------------------------------------------
+  // Two things on one page, and keeping them apart is the point. The profiled
+  // tools are this library's own work: what a tool lets agents do, what stops
+  // them, and the document each of those came from. The mirror below is
+  // somebody else's list, carried whole and credited, and it is a wider net
+  // than this library is scoped to hold.
+
+  let tooling = null, toolingWanted = false;
+
+  function loadTooling() {
+    if (toolingWanted) return;
+    toolingWanted = true;
+    fetch("tooling.json", { cache: "no-cache" })
+      .then(response => (response.ok ? response.json() : null))
+      .then(payload => {
+        tooling = payload;
+        if (state.mode === "tools") renderTools();
+      })
+      .catch(() => { if (state.mode === "tools") renderTools(); });
+  }
+
+  const TRISTATE = { yes: "yes", no: "no", partial: "partly", unknown: "not checked" };
+
+  function profileRow(label, value, why) {
+    if (!value) return null;
+    const row = el("div", { className: "profile-row" });
+    row.append(el("span", { className: "profile-label" }, [label, ...(why ? [info(why)] : [])]));
+    row.append(el("span", { className: "profile-value" }, value));
+    return row;
+  }
+
+  function toolCard(record) {
+    const t = record.tool || {};
+    const card = el("div", { className: "tool-card" });
+
+    const head = el("div", { className: "tool-head" });
+    head.append(el("h3", {}, record.url
+      ? el("a", { href: record.url, target: "_blank", rel: "noopener" }, record.title)
+      : record.title));
+    const facts = [
+      t.maintainer,
+      t.open_source && t.open_source !== "unknown" ? `open source: ${TRISTATE[t.open_source]}` : null,
+      t.self_hostable && t.self_hostable !== "unknown" ? `self-hostable: ${TRISTATE[t.self_hostable]}` : null,
+      t.model_agnostic && t.model_agnostic !== "unknown" ? `model-agnostic: ${TRISTATE[t.model_agnostic]}` : null,
+    ].filter(Boolean);
+    if (facts.length) head.append(el("p", { className: "byline" }, facts.join(" · ")));
+    card.append(head);
+
+    const rows = el("div", { className: "profile" });
+    [
+      profileRow("What agents may do", t.agent_model,
+        "The shape of organization the tool makes possible — whether agents hold "
+        + "authority and budget, or are workers a human assigns tasks to. This is the "
+        + "question the collection exists to answer."),
+      profileRow("What stops them", t.human_controls,
+        "The oversight it actually ships: approval gates, spend caps, pause and "
+        + "terminate, audit trails. A tool that ships none is a finding, not a "
+        + "mark against it."),
+    ].filter(Boolean).forEach(row => rows.append(row));
+
+    if (!t.agent_model && !t.human_controls) {
+      rows.append(el("p", { className: "hint" },
+        "Held as a record but not profiled yet — nobody has read its documentation "
+        + "and written down what oversight it ships."));
+    }
+    card.append(rows);
+
+    if (record.current && record.current.length) {
+      const codes = el("div", { className: "chips", style: "margin-top:10px" });
+      record.current.forEach(code => {
+        const topic = TOPICS.get(code);
+        if (!topic) return;
+        const chip = el("button", { className: "chip" });
+        chip.title = "Where this sits in the taxonomy — the same shelf as the research";
+        chip.append(el("span", { className: "c" }, code), el("span", { className: "t" }, topic.title));
+        chip.addEventListener("click", () => { setMode("explore"); focusBranch(code); });
+        codes.append(chip);
+      });
+      card.append(codes);
+    }
+
+    if (record.sources && record.sources.length) {
+      const sources = el("p", { className: "hint", style: "margin-top:10px" });
+      sources.append("Read from: ");
+      record.sources.forEach((src, i) => {
+        if (i) sources.append(" · ");
+        sources.append(el("a", { href: src.url, target: "_blank", rel: "noopener" },
+                          src.title || src.url));
+        if (src.accessed) sources.append(` (${src.accessed})`);
+      });
+      card.append(sources);
+    }
+    return card;
+  }
+
+  function renderTools() {
+    const stage = document.getElementById("stage");
+    stage.textContent = "";
+    stage.append(el("h1", { className: "record-title" }, "Tools for building"));
+
+    const held = DATA.records.filter(r =>
+      ["code-tool", "platform", "framework", "repository"].includes(r.type));
+    const profiled = held.filter(r => r.tool && (r.tool.agent_model || r.tool.human_controls));
+
+    stage.append(el("p", { className: "abstract" },
+      "A list can tell you a tool exists. This tries to answer the two questions that "
+      + "decide whether you can run an organization on it: what it lets agents do, and "
+      + "what stops them — with the document each answer came from."));
+
+    stage.append(el("p", { className: "section-label", style: "margin-top:24px" },
+      `Profiled here — ${profiled.length} of ${held.length} held`));
+    profiled.forEach(r => stage.append(toolCard(r)));
+
+    const unprofiled = held.filter(r => !profiled.includes(r));
+    if (unprofiled.length) {
+      stage.append(el("p", { className: "section-label", style: "margin-top:26px" },
+        `Held but not profiled — ${unprofiled.length}`));
+      stage.append(el("p", { className: "hint" },
+        "In the library and filed against the taxonomy, but nobody has read the "
+        + "documentation and written down what oversight ships. That is the work."));
+      const list = el("div", { className: "ledger-wrap" });
+      const table = el("table");
+      unprofiled.forEach(r => table.append(el("tr", {}, [
+        el("td", {}, r.url
+          ? el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title)
+          : r.title),
+        el("td", { className: "codes" }, (r.current || []).join("  ")),
+      ])));
+      list.append(table);
+      stage.append(list);
+    }
+
+    stage.append(mirrorSection());
+  }
+
+  function mirrorSection() {
+    const wrap = el("div", { style: "margin-top:34px" });
+    wrap.append(el("p", { className: "section-label" }, "The wider list"));
+
+    if (!tooling) {
+      wrap.append(el("p", { className: "empty" }, "Reading the mirrored index…"));
+      return wrap;
+    }
+    const src = tooling.source || {};
+    const credit = el("p", { className: "hint" }, [
+      "Mirrored from ",
+      el("a", { href: src.repository || "#", target: "_blank", rel: "noopener" },
+         src.name || "awesome-builder-tools"),
+      ` — ${src.maintainer || "Framework Zero"}, ${src.license || "MIT"}`,
+      src.commit ? `, at ${src.commit}` : "",
+      src.synced_at ? `, read ${src.synced_at}` : "",
+      ". Descriptions are theirs. It is a wider net than this library holds: much of "
+      + "it is what a company buys rather than what gives an agent authority, so an "
+      + "entry crosses over only when somebody has profiled it.",
+    ]);
+    wrap.append(credit);
+
+    const waiting = new Set(tooling.candidates || []);
+    const bySection = new Map();
+    (tooling.entries || []).forEach(e => {
+      const key = e.subsection || e.section;
+      if (!bySection.has(key)) bySection.set(key, []);
+      bySection.get(key).push(e);
+    });
+
+    if (waiting.size) {
+      wrap.append(el("p", { className: "hint", style: "margin-top:12px" },
+        `${waiting.size} of them are described in terms of what agents may do or what `
+        + "constrains them, and have not been profiled here. Those are marked."));
+    }
+
+    bySection.forEach((entries, section) => {
+      wrap.append(el("p", { className: "section-label", style: "margin-top:18px" }, section));
+      const table = el("table");
+      entries.forEach(e => {
+        const marks = [];
+        if (e.promoted_to) marks.push("profiled here");
+        else if (waiting.has(e.url)) marks.push("worth profiling");
+        table.append(el("tr", {}, [
+          el("td", {}, el("a", { href: e.url, target: "_blank", rel: "noopener" }, e.name)),
+          el("td", { className: "by" }, marks.join("")),
+        ]));
+      });
+      wrap.append(el("div", { className: "ledger-wrap" }, table));
+    });
+    return wrap;
+  }
+
   // ---- submit ------------------------------------------------------------
   function renderExport() {
     const stage = document.getElementById("stage");
@@ -2465,17 +2670,22 @@
 
   // ---- wiring ------------------------------------------------------------
   function renderStage() {
-    ({ review: renderReview, explore: renderExplore, add: renderAdd, export: renderExport })[state.mode]();
+    ({ review: renderReview, explore: renderExplore, add: renderAdd,
+       tools: renderTools, export: renderExport })[state.mode]();
   }
   function setMode(mode) {
     state.mode = mode;
-    ["review", "explore", "add", "export"].forEach(m =>
+    ["review", "explore", "add", "tools", "export"].forEach(m =>
       document.getElementById("mode-" + m).setAttribute("aria-pressed", String(m === mode)));
     renderStage(); renderTree();
   }
   document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
   document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
   document.getElementById("mode-add").addEventListener("click", () => { loadIndex(); setMode("add"); });
+  document.getElementById("mode-tools").addEventListener("click", () => {
+    loadTooling();
+    setMode("tools");
+  });
   document.getElementById("mode-export").addEventListener("click", () => {
     loadSubmissions(false);
     setMode("export");

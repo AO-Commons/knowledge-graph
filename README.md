@@ -47,6 +47,10 @@ does a tool let agents do, and what stops them*. An entry crosses over when
 somebody has read the tool's own documentation and can say what oversight it
 ships — see [ATTRIBUTION.md](ATTRIBUTION.md).
 
+The **Tools** tab on [the site](https://ao-commons.github.io/knowledge-graph/)
+shows the profiled tools — what agents may do, what stops them, and the
+document each answer came from — above the mirrored list.
+
 ```bash
 python3 scripts/sync_tooling.py           # what moved upstream, and what is worth profiling
 python3 scripts/sync_tooling.py --write   # update the mirror
