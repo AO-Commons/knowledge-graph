@@ -1,0 +1,71 @@
+# Watch awesome-builder-tools and say when it moves.
+#
+# An upstream edit is somebody else's editorial judgement — a tool added, a
+# caveat sharpened, a project marked unmaintained. That is worth reading, not
+# worth committing silently, so this opens an issue and leaves the decision to
+# a person.
+#
+# The mirror is updated in the same run, because the point of a mirror is to
+# be current; what waits for a human is promotion into the corpus.
+
+name: Sync builder tooling
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"        # Monday morning
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: tooling-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+
+      - name: Read the list
+        id: sync
+        run: |
+          python3 scripts/sync_tooling.py --write --report-file /tmp/report.md
+          if [ -n "$(git status --porcelain data/tooling)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit the mirror
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tooling
+          git commit -m "Sync the builder-tooling mirror" \
+                     -m "Upstream: https://github.com/framework-zero/awesome-builder-tools (MIT)"
+          for attempt in 1 2 3; do
+            git push && break
+            git pull --rebase origin main || break
+          done
+
+      - name: Say what moved
+        if: steps.sync.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/report.md', 'utf8');
+            await github.rest.issues.create({
+              ...context.repo,
+              title: `Builder tooling: upstream moved (${new Date().toISOString().slice(0, 10)})`,
+              labels: ['tooling'],
+              body,
+            });

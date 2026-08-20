@@ -37,6 +37,21 @@ Three structures live in that one file, and they are implemented differently on 
 - **Section 11 (Failure modes)** is a coding scheme, not a set of shelves. An incident normally carries several codes at once, and its 119 topics are marked `usage_mode: coding_scheme` so the query layer treats multi-tagging as the default.
 - **F1–F12** are facets — flat controlled vocabularies on a resource, never a second tree. The taxonomy says what a resource is *about*; the facets say what kind of evidence it is and when it applies.
 
+## Builder tooling
+
+`data/tooling/awesome-builder-tools.yml` mirrors
+[framework-zero/awesome-builder-tools](https://github.com/framework-zero/awesome-builder-tools)
+(Framework Zero, MIT), re-read weekly and pinned to the upstream commit it came
+from. Their list answers *what should I build with*; this library answers *what
+does a tool let agents do, and what stops them*. An entry crosses over when
+somebody has read the tool's own documentation and can say what oversight it
+ships — see [ATTRIBUTION.md](ATTRIBUTION.md).
+
+```bash
+python3 scripts/sync_tooling.py           # what moved upstream, and what is worth profiling
+python3 scripts/sync_tooling.py --write   # update the mirror
+```
+
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the
