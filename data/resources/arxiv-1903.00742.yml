@@ -1,0 +1,34 @@
+id: resource:arxiv:1903.00742
+resource_type: preprint
+title: 'Autocurricula and the Emergence of Innovation from Social Interaction: A Manifesto
+  for Multi-Agent Intelligence Research'
+abstract: Evolution has produced a multi-scale mosaic of interacting adaptive units. Innovations
+  arise when perturbations push parts of the system away from stable equilibria into new regimes
+  where previously well-adapted solutions no longer work. Here we explore the hypothesis that
+  multi-agent systems sometimes display intrinsic dynamics arising from competition and cooperation
+  that provide a naturally emergent curriculum, which we term an autocurriculum. The solution
+  of one social task often begets new social tasks, continually generating novel challenges,
+  and thereby promoting innovation. Under certain conditions these challenges may become increasingly
+  complex over time, demanding that agents accumulate ever more innovations.
+authors:
+- Joel Z. Leibo
+- Edward Hughes
+- Marc Lanctot
+- Thore Graepel
+organizations:
+- Google (United States)
+published_at: '2019-03-02'
+url: https://arxiv.org/abs/1903.00742
+doi: 10.48550/arXiv.1903.00742
+arxiv_id: '1903.00742'
+openalex_id: W2920700222
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- 5.1.1
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #7 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
+ingested_at: '2026-08-20'
