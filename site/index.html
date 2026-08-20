@@ -312,6 +312,14 @@
   .staged strong { color: var(--ink); font-weight: 620; }
   .staged .btn { margin-left: auto; }
 
+  /* No anchor rule existed, so every bare link rendered in the browser's
+     default blue, and purple once visited — unreadable on the dark theme and
+     only accidentally tolerable on the light one. `visited` has to be said
+     explicitly or it keeps the default. */
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:visited { color: var(--accent); }
+  a:hover { color: var(--ink); text-decoration-color: var(--accent); }
+
   .more {
     border: 0; background: transparent; color: var(--accent); font-size: 12.5px;
     padding: 6px 2px; text-decoration: underline; text-underline-offset: 3px;
@@ -372,6 +380,11 @@
     padding: 14px 0; border-bottom: 1px solid var(--rule);
   }
   .explore-item h4 { margin: 0 0 3px; font-family: var(--serif); font-size: 17px; font-weight: 500; }
+  .explore-item h4 a, .explore-item h4 a:visited {
+    color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule-hard);
+    text-underline-offset: 3px;
+  }
+  .explore-item h4 a:hover { text-decoration-color: var(--accent); color: var(--accent); }
   .explore-item .meta { color: var(--muted); font-size: 12.5px; }
   .reviews {
     display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right;
@@ -412,7 +425,7 @@
     <button id="mode-review" aria-pressed="false">Review</button>
     <button id="mode-add" aria-pressed="false">Add</button>
     <button id="mode-export" aria-pressed="false">Submit</button>
-    <a id="mode-graph" href="graph.html?v=88e65a33">Graph</a>
+    <a id="mode-graph" href="graph.html?v=597c1873">Graph</a>
   </div>
   <div class="tools">
     <div class="search">

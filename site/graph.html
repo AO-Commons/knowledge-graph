@@ -80,7 +80,8 @@
     background: var(--paper); color: var(--ink); font-family: var(--sans);
     display: flex; flex-direction: column; overflow: hidden;
   }
-  a { color: var(--accent); }
+  a, a:visited { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: var(--ink); text-decoration-color: var(--accent); }
 
   /* ---------- the masthead, as on the filing site ---------- */
   .masthead {
