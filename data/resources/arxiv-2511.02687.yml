@@ -1,0 +1,44 @@
+id: resource:arxiv:2511.02687
+resource_type: preprint
+title: 'The Collaboration Gap: Exploration and Benchmarking of Open-World Agentic Cooperation'
+abstract: 'The trajectory of AI development suggests that we will increasingly rely on agent-based
+  systems powered by language models, composed of independently developed agents with different
+  information, privileges, and tools. The success of these systems will depend critically
+  on effective collaboration among these heterogeneous agents, even under partial observability.
+  Despite intense interest, the literature lacks empirical studies evaluating agentic collaboration
+  without relying on fixed communication protocols, limiting insights for open-world deployments.
+  We propose an illustrative collaborative maze-solving benchmark that (i) isolates collaborative
+  capabilities, (ii) modulates problem complexity, (iii) enables scalable automated grading,
+  and (iv) imposes no output-format constraints, benchmarking unguided, natural communication.
+  Using this benchmark, we evaluate 32 leading open- and closed-source models in solo, homogeneous,
+  and heterogeneous pairings. Our results reveal a surprising collaboration gap: models that
+  perform well solo often degrade substantially when required to collaborate. We identify
+  mitigations that show remarkable influence. For example, a small nudge via a relay inference
+  approach, where a stronger agent leads before handing off to a weaker one, closes much of
+  the gap. Our findings argue for (1) collaboration-aware evaluation, (2) training strategies
+  to enhance collaborative capabilities, and (3) deliberate interaction design to elicit agents''
+  collaboration skills, principles relevant to AI-AI and human-AI settings where agents must
+  establish common ground.'
+authors:
+- Tim R. Davidson
+- Adam Fourney
+- Saleema Amershi
+- Robert West
+- Eric Horvitz
+- Ece Kamar
+published_at: '2025-11-04'
+url: https://arxiv.org/abs/2511.02687
+doi: 10.48550/arXiv.2511.02687
+arxiv_id: '2511.02687'
+openalex_id: W7104028931
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- 3.2.2
+- 14.2.5
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #6 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
+ingested_at: '2026-08-20'
