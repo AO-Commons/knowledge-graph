@@ -1,0 +1,41 @@
+id: resource:arxiv:2606.31046
+resource_type: preprint
+title: 'OpenLife: Toward Open-World Artificial Life with Autonomous LLM Agents'
+abstract: 'Artificial life has explored life-like behavior on many computational substrates,
+  but mostly in researcher-designed closed worlds. We argue that large language model (LLM)
+  agents, with persistent memory, tool use, network access, and payment, now make it possible
+  to move artificial life into the open social, technical, and economic world, a paradigm
+  we call open-world Artificial Life (open-world ALIFE). Our proof-of-concept, OpenLife, surrounds
+  a stateless LLM not with a single "smart agent" but with a society of asynchronous processes:
+  memory, perception, evaluation, and a budget-based metabolism that makes persistence normative.
+  With no fixed objective available, experience is appraised by open-vocabulary LLM judgment
+  rather than scalar reward, and memory is rewired by meaning rather than frequency. Running
+  six such agents in the open world for about twelve weeks and counting, we report the life-like
+  dynamics that emerge: a shift from reactive to spontaneous activity, individuation into
+  distinct agents, emergent social structure, and a first self-earned external income. We
+  do not claim OpenLife has realized artificial life, but that open-world ALIFE is now a viable
+  experimental paradigm and a concrete platform for studying what might cautiously be called
+  living AI.'
+authors:
+- Atsushi Masumori
+- Itsuki Doi
+- Norihiro Maruyama
+- Ryosuke Takata
+- Takashi Ikegami
+published_at: '2026-06-30'
+url: https://arxiv.org/abs/2606.31046
+doi: 10.48550/arXiv.2606.31046
+arxiv_id: '2606.31046'
+openalex_id: W7166811347
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- 3.4.3
+- 5.1.1
+- 7.1.1
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #8 by @ankeliu; identity and byline resolved
+  against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
+ingested_at: '2026-08-20'
