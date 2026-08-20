@@ -29,8 +29,8 @@ claims:
     hallucination, deception and misalignment.
   claim_type: background
   topic_codes:
-  - 10.1.1
-  - 4.4.5
+  - '10.1'
+  - '4.4'
   confidence_class: EXTRACTED
   extracted_from: introduction
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -62,7 +62,6 @@ claims:
   claim_type: method
   topic_codes:
   - '5.3'
-  - 5.3.1
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -90,8 +89,8 @@ claims:
     and reputation added only as an overlay.
   claim_type: position
   topic_codes:
-  - 5.3.1
-  - 13.2.2
+  - '5.3'
+  - '13.2'
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -108,7 +107,7 @@ claims:
     and demanding relentless verification where stakes are high.
   claim_type: position
   topic_codes:
-  - 2.1.6
+  - '2.1'
   - '5.3'
   confidence_class: EXTRACTED
   extracted_from: conclusion

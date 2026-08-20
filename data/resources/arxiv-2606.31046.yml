@@ -30,9 +30,9 @@ openalex_id: W7166811347
 is_open_access: true
 is_retracted: false
 taxonomy_topics:
-- 3.4.3
-- 5.1.1
-- 7.1.1
+- '3.4'
+- '5.1'
+- '7.1'
 facets:
   artifact_type: preprint
 review_status: unreviewed

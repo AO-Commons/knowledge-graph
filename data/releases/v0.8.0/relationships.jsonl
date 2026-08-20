@@ -1,0 +1,422 @@
+{"source_id": "claim:arxiv:2107.06857:1", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:10", "target_id": "topic:16.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:11", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:12", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:13", "target_id": "topic:5.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:13", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:14", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:2", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:3", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:4", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:5", "target_id": "topic:14.5", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:6", "target_id": "topic:14.5", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:7", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:8", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:9", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2107.06857:9", "target_id": "topic:16.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:1", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:1", "target_id": "topic:16.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:2", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:3", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:3", "target_id": "topic:5.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:4", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:5", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:6", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:7", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2509.14485:7", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:1", "target_id": "topic:2.7", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:1", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:2", "target_id": "topic:10.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:2", "target_id": "topic:4.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:3", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:4", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:5", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:6", "target_id": "topic:13.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:6", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:7", "target_id": "topic:2.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2511.03434:7", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:1", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:2", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:2", "target_id": "topic:6.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:3", "target_id": "topic:4.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:3", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:4", "target_id": "topic:4.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:4", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:5", "target_id": "topic:2.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:5", "target_id": "topic:5.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:6", "target_id": "topic:2.7", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2605.30169:6", "target_id": "topic:6.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:1", "target_id": "topic:1.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:1", "target_id": "topic:5.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:2", "target_id": "topic:1.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:3", "target_id": "topic:11.6", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:3", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:4", "target_id": "topic:11.6", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:4", "target_id": "topic:5.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:5", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:5", "target_id": "topic:14.5", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:6", "target_id": "topic:14.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:6", "target_id": "topic:14.3", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:7", "target_id": "topic:1.2", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:arxiv:2606.03237:7", "target_id": "topic:2.7", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:1", "target_id": "topic:16.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:1", "target_id": "topic:2.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:2", "target_id": "topic:16.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:3", "target_id": "topic:16.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:3", "target_id": "topic:2.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:4", "target_id": "topic:16.1", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "claim:doi:10-1111-epic-70009:4", "target_id": "topic:16.4", "relation": "ABOUT", "confidence_class": "INFERRED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:arxiv:2312.03664", "relation": "CITES"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "resource:arxiv:2412.14161", "relation": "CITES"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:arxiv:2506.00073", "relation": "CITES"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:doi:10-1073-pnas-2319947121", "relation": "CITES"}
+{"source_id": "resource:arxiv:2601.03624", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "CITES"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "resource:arxiv:2502.15840", "relation": "CITES"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "resource:arxiv:2312.03664", "relation": "CITES"}
+{"source_id": "resource:arxiv:2606.16613", "target_id": "resource:arxiv:2502.15840", "relation": "CITES"}
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "CITES"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-1016-j-patter-2025-101341", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "resource:arxiv:2502.14143", "relation": "CITES"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "CITES"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:10", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:11", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:12", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:13", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "conclusion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:14", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "conclusion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:5", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:6", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:7", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:8", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "claim:arxiv:2107.06857:9", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:5", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "discussion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:6", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "discussion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "claim:arxiv:2509.14485:7", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "source_location": "discussion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:5", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:6", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "claim:arxiv:2511.03434:7", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "source_location": "conclusion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "conclusion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:5", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "claim:arxiv:2605.30169:6", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "source_location": "conclusion", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "introduction", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:5", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:6", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "results", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "claim:arxiv:2606.03237:7", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over arXiv full text, 2026-08-13"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "claim:doi:10-1111-epic-70009:1", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "claim:doi:10-1111-epic-70009:2", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "claim:doi:10-1111-epic-70009:3", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "claim:doi:10-1111-epic-70009:4", "relation": "MAKES_CLAIM", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "source_location": "abstract", "extraction_method": "claude-opus-5, three-pass over the abstract (no full text available), 2026-08-13"}
+{"source_id": "topic:1", "target_id": "topic:1.1", "relation": "PARENT_OF"}
+{"source_id": "topic:1", "target_id": "topic:1.2", "relation": "PARENT_OF"}
+{"source_id": "topic:1", "target_id": "topic:1.3", "relation": "PARENT_OF"}
+{"source_id": "topic:1", "target_id": "topic:1.4", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.1", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.2", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.3", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.4", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.5", "relation": "PARENT_OF"}
+{"source_id": "topic:10", "target_id": "topic:10.6", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.1", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.10", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.11", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.12", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.13", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.14", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.15", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.2", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.3", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.4", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.5", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.6", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.7", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.8", "relation": "PARENT_OF"}
+{"source_id": "topic:11", "target_id": "topic:11.9", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.1", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.2", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.3", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.4", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.5", "relation": "PARENT_OF"}
+{"source_id": "topic:12", "target_id": "topic:12.6", "relation": "PARENT_OF"}
+{"source_id": "topic:13", "target_id": "topic:13.1", "relation": "PARENT_OF"}
+{"source_id": "topic:13", "target_id": "topic:13.2", "relation": "PARENT_OF"}
+{"source_id": "topic:13", "target_id": "topic:13.3", "relation": "PARENT_OF"}
+{"source_id": "topic:13", "target_id": "topic:13.4", "relation": "PARENT_OF"}
+{"source_id": "topic:14", "target_id": "topic:14.1", "relation": "PARENT_OF"}
+{"source_id": "topic:14", "target_id": "topic:14.2", "relation": "PARENT_OF"}
+{"source_id": "topic:14", "target_id": "topic:14.3", "relation": "PARENT_OF"}
+{"source_id": "topic:14", "target_id": "topic:14.4", "relation": "PARENT_OF"}
+{"source_id": "topic:14", "target_id": "topic:14.5", "relation": "PARENT_OF"}
+{"source_id": "topic:14.5", "target_id": "topic:14.5.5", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.1", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.2", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.3", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.4", "relation": "PARENT_OF"}
+{"source_id": "topic:15", "target_id": "topic:15.5", "relation": "PARENT_OF"}
+{"source_id": "topic:16", "target_id": "topic:16.1", "relation": "PARENT_OF"}
+{"source_id": "topic:16", "target_id": "topic:16.2", "relation": "PARENT_OF"}
+{"source_id": "topic:16", "target_id": "topic:16.3", "relation": "PARENT_OF"}
+{"source_id": "topic:16", "target_id": "topic:16.4", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.1", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.2", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.3", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.4", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.5", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.6", "relation": "PARENT_OF"}
+{"source_id": "topic:2", "target_id": "topic:2.7", "relation": "PARENT_OF"}
+{"source_id": "topic:3", "target_id": "topic:3.1", "relation": "PARENT_OF"}
+{"source_id": "topic:3", "target_id": "topic:3.2", "relation": "PARENT_OF"}
+{"source_id": "topic:3", "target_id": "topic:3.3", "relation": "PARENT_OF"}
+{"source_id": "topic:3", "target_id": "topic:3.4", "relation": "PARENT_OF"}
+{"source_id": "topic:4", "target_id": "topic:4.1", "relation": "PARENT_OF"}
+{"source_id": "topic:4", "target_id": "topic:4.2", "relation": "PARENT_OF"}
+{"source_id": "topic:4", "target_id": "topic:4.3", "relation": "PARENT_OF"}
+{"source_id": "topic:4", "target_id": "topic:4.4", "relation": "PARENT_OF"}
+{"source_id": "topic:4", "target_id": "topic:4.5", "relation": "PARENT_OF"}
+{"source_id": "topic:5", "target_id": "topic:5.1", "relation": "PARENT_OF"}
+{"source_id": "topic:5", "target_id": "topic:5.2", "relation": "PARENT_OF"}
+{"source_id": "topic:5", "target_id": "topic:5.3", "relation": "PARENT_OF"}
+{"source_id": "topic:5", "target_id": "topic:5.4", "relation": "PARENT_OF"}
+{"source_id": "topic:6", "target_id": "topic:6.1", "relation": "PARENT_OF"}
+{"source_id": "topic:6", "target_id": "topic:6.2", "relation": "PARENT_OF"}
+{"source_id": "topic:6", "target_id": "topic:6.3", "relation": "PARENT_OF"}
+{"source_id": "topic:6", "target_id": "topic:6.4", "relation": "PARENT_OF"}
+{"source_id": "topic:6", "target_id": "topic:6.5", "relation": "PARENT_OF"}
+{"source_id": "topic:7", "target_id": "topic:7.1", "relation": "PARENT_OF"}
+{"source_id": "topic:7", "target_id": "topic:7.2", "relation": "PARENT_OF"}
+{"source_id": "topic:7", "target_id": "topic:7.3", "relation": "PARENT_OF"}
+{"source_id": "topic:7", "target_id": "topic:7.4", "relation": "PARENT_OF"}
+{"source_id": "topic:8", "target_id": "topic:8.1", "relation": "PARENT_OF"}
+{"source_id": "topic:8", "target_id": "topic:8.2", "relation": "PARENT_OF"}
+{"source_id": "topic:8", "target_id": "topic:8.3", "relation": "PARENT_OF"}
+{"source_id": "topic:8", "target_id": "topic:8.4", "relation": "PARENT_OF"}
+{"source_id": "topic:9", "target_id": "topic:9.1", "relation": "PARENT_OF"}
+{"source_id": "topic:9", "target_id": "topic:9.2", "relation": "PARENT_OF"}
+{"source_id": "topic:9", "target_id": "topic:9.3", "relation": "PARENT_OF"}
+{"source_id": "topic:9", "target_id": "topic:9.4", "relation": "PARENT_OF"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2401.11880", "relation": "SIMILAR_TO", "score": 0.0214, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2501.16138", "relation": "SIMILAR_TO", "score": 0.0148, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2501.16173", "relation": "SIMILAR_TO", "score": 0.0276, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2503.14576", "relation": "SIMILAR_TO", "score": 0.0154, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2509.10147", "relation": "SIMILAR_TO", "score": 0.0175, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2605.17698", "relation": "SIMILAR_TO", "score": 0.0161, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:arxiv:2606.03237", "relation": "SIMILAR_TO", "score": 0.0258, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0187, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0073, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2401.11880", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0154, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2412.14161", "target_id": "resource:arxiv:2506.12469", "relation": "SIMILAR_TO", "score": 0.0303, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2412.14161", "target_id": "resource:arxiv:2512.07665", "relation": "SIMILAR_TO", "score": 0.0166, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2412.14161", "target_id": "resource:arxiv:2606.16613", "relation": "SIMILAR_TO", "score": 0.0806, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16138", "target_id": "resource:arxiv:2503.14576", "relation": "SIMILAR_TO", "score": 0.1053, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16138", "target_id": "resource:arxiv:2509.10147", "relation": "SIMILAR_TO", "score": 0.0072, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:arxiv:2601.03624", "relation": "SIMILAR_TO", "score": 0.0274, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:arxiv:2606.03237", "relation": "SIMILAR_TO", "score": 0.0225, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:doi:10-1007-s11831-026-10675-8", "relation": "SIMILAR_TO", "score": 0.0235, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0113, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "resource:doi:10-1073-pnas-2319948121", "relation": "SIMILAR_TO", "score": 0.0174, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2503.14576", "target_id": "resource:arxiv:2509.10147", "relation": "SIMILAR_TO", "score": 0.0073, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2503.14576", "target_id": "resource:arxiv:2509.14485", "relation": "SIMILAR_TO", "score": 0.0408, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "resource:arxiv:2601.03624", "relation": "SIMILAR_TO", "score": 0.0517, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0159, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "resource:doi:10-12688-f1000research-169927-1", "relation": "SIMILAR_TO", "score": 0.0094, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "resource:arxiv:2512.07665", "relation": "SIMILAR_TO", "score": 0.011, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "resource:arxiv:2606.16613", "relation": "SIMILAR_TO", "score": 0.0635, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0198, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0197, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:arxiv:2512.07665", "relation": "SIMILAR_TO", "score": 0.0076, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:arxiv:2605.24538", "relation": "SIMILAR_TO", "score": 0.0061, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:arxiv:2606.03237", "relation": "SIMILAR_TO", "score": 0.0214, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0086, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0072, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "resource:doi:10-12688-f1000research-169927-1", "relation": "SIMILAR_TO", "score": 0.0071, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "resource:arxiv:2604.23459", "relation": "SIMILAR_TO", "score": 0.0108, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "resource:arxiv:2606.16613", "relation": "SIMILAR_TO", "score": 0.011, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0108, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0062, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2601.03624", "target_id": "resource:doi:10-1007-s11831-026-10675-8", "relation": "SIMILAR_TO", "score": 0.0294, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2601.03624", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0161, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2602.14951", "target_id": "resource:arxiv:2605.24538", "relation": "SIMILAR_TO", "score": 0.053, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0077, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "resource:doi:10-12688-f1000research-169927-1", "relation": "SIMILAR_TO", "score": 0.0138, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "resource:arxiv:2606.03237", "relation": "SIMILAR_TO", "score": 0.0258, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "resource:arxiv:2606.16613", "relation": "SIMILAR_TO", "score": 0.037, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0082, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "resource:arxiv:2606.03237", "relation": "SIMILAR_TO", "score": 0.0138, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0198, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0131, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "resource:doi:10-1073-pnas-2319948121", "relation": "SIMILAR_TO", "score": 0.0147, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:2606.16613", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0079, "method": "bibliographic-coupling"}
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "resource:doi:10-1016-j-inffus-2025-103599", "relation": "SIMILAR_TO", "score": 0.0154, "method": "bibliographic-coupling"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "resource:doi:10-1016-j-patter-2025-101341", "relation": "SIMILAR_TO", "score": 0.0102, "method": "bibliographic-coupling"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "resource:doi:10-12688-f1000research-169927-1", "relation": "SIMILAR_TO", "score": 0.0075, "method": "bibliographic-coupling"}
+{"source_id": "resource:arxiv:1903.00742", "target_id": "topic:5.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:1903.00742", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2107.06857", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2107.06857", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2312.03664", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2312.03664", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2312.03664", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2401.11880", "target_id": "topic:10.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2401.11880", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2401.11880", "target_id": "topic:14.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2401.11880", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2403.12482", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2403.12482", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2403.12482", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2403.12482", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2412.14161", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2412.14161", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2412.14161", "target_id": "topic:16.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2412.14161", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2501.16138", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2501.16138", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2501.16173", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2501.16173", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2501.16173", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2501.18668", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2501.18668", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.14143", "target_id": "topic:11.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.14143", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.14143", "target_id": "topic:11.13", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.14143", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.14143", "target_id": "topic:11.6", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.14143", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.15840", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.15840", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.15840", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.15840", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2502.15840", "target_id": "topic:8.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2502.15840", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2503.14576", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2503.14576", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2503.14576", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2503.14576", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "topic:10.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2505.23643", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "topic:10.6", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2505.23643", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2505.23643", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2505.23643", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2506.00073", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2506.00073", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2506.00073", "target_id": "topic:3.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2506.00073", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2506.00073", "target_id": "topic:5.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2506.00073", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "topic:1.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2506.12469", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2506.12469", "target_id": "topic:2.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2506.12469", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.08200", "target_id": "topic:10.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.08200", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.08200", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.08200", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "topic:13.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.10147", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "topic:2.7", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.10147", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.10147", "target_id": "topic:5.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.10147", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2509.14485", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2509.14485", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2510.04303", "target_id": "topic:10.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2510.04303", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2510.04303", "target_id": "topic:11.6", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2510.04303", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2510.04303", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2510.04303", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2510.04303", "target_id": "topic:9.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2510.04303", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2511.02687", "target_id": "topic:14.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.02687", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2511.02687", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.02687", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "topic:4.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2511.03434", "target_id": "topic:5.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2511.03434", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "topic:15.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2512.07665", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2512.07665", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2512.07665", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2601.03624", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2601.03624", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2601.03624", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2601.03624", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2602.14951", "target_id": "topic:1.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2602.14951", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2602.14951", "target_id": "topic:12.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2602.14951", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2602.14951", "target_id": "topic:12.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2602.14951", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2603.18916", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2603.18916", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2603.18916", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2603.18916", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.07007", "target_id": "topic:2.7", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.07007", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.07007", "target_id": "topic:5.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.07007", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.18133", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.18133", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "topic:10.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.23459", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "topic:14.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.23459", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2604.23459", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2604.23459", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.06738", "target_id": "topic:5.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.06738", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.06738", "target_id": "topic:9.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.06738", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.07062", "target_id": "topic:2.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.07062", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.07062", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.07062", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "topic:13.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.17698", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.17698", "target_id": "topic:5.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.17698", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "topic:1.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.24538", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "topic:2.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.24538", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.24538", "target_id": "topic:2.7", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.24538", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "topic:5.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2605.30169", "target_id": "topic:6.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2605.30169", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "topic:1.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "topic:15.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.03237", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03237", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.03518", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03518", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.03518", "target_id": "topic:2.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.03518", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.16613", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.16613", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.16613", "target_id": "topic:5.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.16613", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.31046", "target_id": "topic:3.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.31046", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.31046", "target_id": "topic:5.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.31046", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2606.31046", "target_id": "topic:7.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2606.31046", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2607.26637", "target_id": "topic:7.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2607.26637", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2607.26637", "target_id": "topic:7.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2607.26637", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2607.27415", "target_id": "topic:7.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2607.27415", "extraction_method": "curated"}
+{"source_id": "resource:arxiv:2607.27415", "target_id": "topic:7.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:arxiv:2607.27415", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1002-aaai-70041", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1002-aaai-70041", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1002-aaai-70041", "target_id": "topic:16.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1002-aaai-70041", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s10462-026-11284-2", "target_id": "topic:14.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s10462-026-11284-2", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s10462-026-11284-2", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s10462-026-11284-2", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s10462-026-11284-2", "target_id": "topic:9.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s10462-026-11284-2", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s11831-026-10675-8", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s11831-026-10675-8", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s11831-026-10675-8", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s44163-026-00521-4", "target_id": "topic:15.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s44163-026-00521-4", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s44163-026-00521-4", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s44163-026-00521-4", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1007-s44163-026-00521-4", "target_id": "topic:9.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1007-s44163-026-00521-4", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "topic:1.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-inffus-2025-103599", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103599", "target_id": "topic:1.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-inffus-2025-103599", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103601", "target_id": "topic:10.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-inffus-2025-103601", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103601", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-inffus-2025-103601", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-inffus-2025-103601", "target_id": "topic:9.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-inffus-2025-103601", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-patter-2025-101341", "target_id": "topic:15.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-patter-2025-101341", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1016-j-patter-2025-101341", "target_id": "topic:3.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1016-j-patter-2025-101341", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1017-s0140525x2510174x", "target_id": "topic:1.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1017-s0140525x2510174x", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1017-s0140525x2510174x", "target_id": "topic:15.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1017-s0140525x2510174x", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1017-s0140525x2510174x", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1017-s0140525x2510174x", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1057-s41599-026-05412-9", "target_id": "topic:1.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1057-s41599-026-05412-9", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1057-s41599-026-05412-9", "target_id": "topic:12.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1057-s41599-026-05412-9", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1073-pnas-2319947121", "target_id": "topic:5.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1073-pnas-2319947121", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1073-pnas-2319948121", "target_id": "topic:15.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1073-pnas-2319948121", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1073-pnas-2319948121", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1073-pnas-2319948121", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1111-1468-5914-12489", "target_id": "topic:12.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-1468-5914-12489", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1111-1468-5914-12489", "target_id": "topic:5.3", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-1468-5914-12489", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1111-epic-70009", "target_id": "topic:16.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1111-epic-70009", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1145-3770291-3770333", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1145-3770291-3770333", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1145-3770291-3770333", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1145-3770291-3770333", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1145-3770291-3770333", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1145-3770291-3770333", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1177-00491241251337316", "target_id": "topic:14.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1177-00491241251337316", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-1177-00491241251337316", "target_id": "topic:16.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-1177-00491241251337316", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "topic:10.5", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-12688-f1000research-169927-1", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-12688-f1000research-169927-1", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-12688-f1000research-169927-1", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-12688-f1000research-169927-1", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-2139-ssrn-6372438", "target_id": "topic:11.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-2139-ssrn-6372438", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-2139-ssrn-6372438", "target_id": "topic:11.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-2139-ssrn-6372438", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-48550-arxiv-1903-09376", "target_id": "topic:11.13", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-48550-arxiv-1903-09376", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-48550-arxiv-1903-09376", "target_id": "topic:11.6", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-48550-arxiv-1903-09376", "extraction_method": "curated"}
+{"source_id": "resource:doi:10-48550-arxiv-1903-09376", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:doi:10-48550-arxiv-1903-09376", "extraction_method": "curated"}
+{"source_id": "resource:platform:ai-village", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:ai-village", "extraction_method": "curated"}
+{"source_id": "resource:platform:ai-village", "target_id": "topic:3.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:ai-village", "extraction_method": "curated"}
+{"source_id": "resource:platform:andon-labs", "target_id": "topic:13.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:andon-labs", "extraction_method": "curated"}
+{"source_id": "resource:platform:andon-labs", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:andon-labs", "extraction_method": "curated"}
+{"source_id": "resource:platform:andon-labs", "target_id": "topic:8.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:andon-labs", "extraction_method": "curated"}
+{"source_id": "resource:platform:aria-scaling-trust-arena", "target_id": "topic:10.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:aria-scaling-trust-arena", "extraction_method": "curated"}
+{"source_id": "resource:platform:aria-scaling-trust-arena", "target_id": "topic:14.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:aria-scaling-trust-arena", "extraction_method": "curated"}
+{"source_id": "resource:platform:raft", "target_id": "topic:16.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:raft", "extraction_method": "curated"}
+{"source_id": "resource:platform:raft", "target_id": "topic:3.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:raft", "extraction_method": "curated"}
+{"source_id": "resource:platform:vending-bench-arena", "target_id": "topic:10.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:vending-bench-arena", "extraction_method": "curated"}
+{"source_id": "resource:platform:vending-bench-arena", "target_id": "topic:11.6", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:vending-bench-arena", "extraction_method": "curated"}
+{"source_id": "resource:platform:vending-bench-arena", "target_id": "topic:14.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:vending-bench-arena", "extraction_method": "curated"}
+{"source_id": "resource:platform:vending-bench-arena", "target_id": "topic:5.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:platform:vending-bench-arena", "extraction_method": "curated"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:2.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:buzz", "target_id": "topic:9.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:buzz", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:2.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:3.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:3.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:4.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:8.1", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:8.4", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}
+{"source_id": "resource:tool:paperclip", "target_id": "topic:9.2", "relation": "TAGGED_WITH", "confidence_class": "EXTRACTED", "source_resource_id": "resource:tool:paperclip", "extraction_method": "curated"}

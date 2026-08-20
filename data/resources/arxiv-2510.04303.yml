@@ -8,10 +8,9 @@ url: https://arxiv.org/abs/2510.04303
 arxiv_id: '2510.04303'
 doi: 10.48550/arXiv.2510.04303
 taxonomy_topics:
-- 5.2.2
+- '5.2'
 - '9.3'
 - '10.2'
-- 10.2.6
 - '11.6'
 facets:
   artifact_type: preprint

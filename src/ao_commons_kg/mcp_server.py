@@ -95,7 +95,7 @@ def coverage() -> str:
 
 @server.tool()
 def search_topics(term: str, limit: int = 10) -> str:
-    """Find topics in the 568-code taxonomy by word, including known aliases.
+    """Find topics in the 103-code taxonomy by word, including known aliases.
 
     Aliases matter here: "MARL" finds the multi-agent reinforcement learning
     topic even though those words are not in its title.

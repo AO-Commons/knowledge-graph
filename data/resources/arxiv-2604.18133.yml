@@ -29,7 +29,7 @@ openalex_id: W7155100766
 is_open_access: true
 is_retracted: false
 taxonomy_topics:
-- 16.1.3
+- '16.1'
 facets:
   artifact_type: preprint
 review_status: unreviewed

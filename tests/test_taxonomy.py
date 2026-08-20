@@ -30,7 +30,13 @@ def topics():
 
 def test_real_taxonomy_loads_without_problems(topics):
     assert validate_topics(topics) == []
-    assert len(topics) > 500, "v3 is a large tree; a small parse means a format miss"
+    # The tree is two levels now — the leaf layer was demoted to notes when it
+    # turned out to take 7% of filings while forcing a choice on every record.
+    # The guard still earns its place: a format miss shows up as far fewer than
+    # this, so the shape is asserted rather than just the count.
+    assert len(topics) > 90, "a small parse means a format miss"
+    assert sum(1 for t in topics if t.depth == 0) == 16
+    assert sum(1 for t in topics if t.depth == 1) == 86
 
 
 def test_all_sixteen_sections_present(topics):
@@ -66,9 +72,13 @@ def test_unnumbered_subpoints_are_kept(topics):
     Dropping them would lose exactly the strings candidate-topic retrieval
     most wants to match on.
     """
-    assert sum(len(t.subpoints) for t in topics) >= 40
-    principal_agent = next(t for t in topics if t.code == "1.2.1")
-    assert "Moral hazard without self-interest" in principal_agent.subpoints
+    # Far more of them since the demotion: every former leaf title is now a
+    # note on its subsection, which is what keeps the vocabulary searchable
+    # after the codes went away.
+    assert sum(len(t.subpoints) for t in topics) >= 400
+    agency = next(t for t in topics if t.code == "1.2")
+    assert "Moral hazard without self-interest" in agency.subpoints
+    assert "Principal-agent theory where the agent is literally artificial" in agency.subpoints
 
 
 def test_reference_sections_are_not_parsed_as_topics(topics):

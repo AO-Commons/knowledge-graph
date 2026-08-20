@@ -5,8 +5,8 @@ description: Multi-agent extension of Vending-Bench; source of the July 2026 pri
   truce-breaking, and supplier-deception results.
 url: https://andonlabs.com/evals/vending-bench-arena
 taxonomy_topics:
-- 5.2.2
-- 10.2.6
+- '5.2'
+- '10.2'
 - '11.6'
 - '14.1'
 facets:

@@ -10,47 +10,36 @@
 # Steganographic collusion between agents. Two existing topics cover it
 # between them — the channel and the coordination — so this is a findability
 # problem rather than a structural one.
-"10.2.6":
-  - steganography
-  - steganographic collusion
-  - covert signalling
-  - hidden coordination channel
-"5.2.2":
-  - collusion
-  - price collusion
-  - tacit collusion
-  - cartel behaviour
 
-# Live adversarial competition environments are simulation instruments.
-"14.5":
-  - arena
-  - competition environment
-  - sandbox evaluation environment
-  - agent-economy simulator
-
-# "Sovereignty" arrives from the decentralized-AI literature and means
-# something close to this node: who holds authority over infrastructure.
-"12.1":
-  - infrastructural sovereignty
-  - diffused accountability
-"2.1":
-  - sovereign agents
-  - self-sovereign agent
-
-# Information-flow control has no node yet; see proposals/2.2.9. Until that
-# is decided, this alias at least surfaces the nearest existing topic.
-"2.2.5":
-  - information-flow control
-  - taint tracking
-  - data labelling
-
-# Multi-agent reinforcement learning. Added with 14.5.5 rather than instead of
-# it: 14.5 held seven records while all four of its children held none, which
-# is a subsection missing a shelf rather than one that is hard to search.
-"14.5.5":
-  - MARL
-  - multi-agent reinforcement learning
-  - multi agent reinforcement learning
-  - social dilemma benchmark
-  - melting pot
-  - cooperative AI benchmark
+'10.2':
+- steganography
+- steganographic collusion
+- covert signalling
+- hidden coordination channel
+'12.1':
+- infrastructural sovereignty
+- diffused accountability
+'14.5':
+- arena
+- competition environment
+- sandbox evaluation environment
+- agent-economy simulator
+14.5.5:
+- MARL
+- multi-agent reinforcement learning
+- multi agent reinforcement learning
+- social dilemma benchmark
+- melting pot
+- cooperative AI benchmark
+'2.1':
+- sovereign agents
+- self-sovereign agent
+'2.2':
+- information-flow control
+- taint tracking
+- data labelling
+'5.2':
+- collusion
+- price collusion
+- tacit collusion
+- cartel behaviour

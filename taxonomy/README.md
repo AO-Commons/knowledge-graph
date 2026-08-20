@@ -9,7 +9,7 @@
 
 ## What the parser takes from the file
 
-568 topics across the 16 numbered sections. Everything after them — *Facet axes*, *Exclusion register*, *Notes on use* — is reference material, not taxonomy, and the codes quoted inside those sections are cross-references rather than definitions.
+103 topics across the 16 numbered sections. Everything after them — *Facet axes*, *Exclusion register*, *Notes on use* — is reference material, not taxonomy, and the codes quoted inside those sections are cross-references rather than definitions.
 
 **The code is the hierarchy.** `2.2.1` is a child of `2.2` because of its code, not because of how the file indents it. That means reformatting the markdown cannot silently restructure the graph, and a mis-indented line is a cosmetic problem rather than a data one.
 

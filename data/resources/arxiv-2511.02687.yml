@@ -34,8 +34,8 @@ openalex_id: W7104028931
 is_open_access: true
 is_retracted: false
 taxonomy_topics:
-- 3.2.2
-- 14.2.5
+- '3.2'
+- '14.2'
 facets:
   artifact_type: preprint
 review_status: unreviewed

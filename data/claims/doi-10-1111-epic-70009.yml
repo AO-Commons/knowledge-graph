@@ -64,7 +64,7 @@ claims:
     the feedback loops that render organisational knowledge accessible and computable.'
   claim_type: position
   topic_codes:
-  - 16.1.4
+  - '16.1'
   - '16.4'
   confidence_class: EXTRACTED
   extracted_from: abstract

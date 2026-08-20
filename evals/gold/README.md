@@ -9,7 +9,7 @@ aokg review --reviewer your-name
 
 Walks records one at a time, showing title, abstract, current tags, and about
 a dozen suggested topics with their place in the tree. Type the numbers that
-apply. `/text` searches all 568 topics when nothing suggested fits, `c 2.2,9.1`
+apply. `/text` searches all 103 topics when nothing suggested fits, `c 2.2,9.1`
 enters codes directly, `n` records that none apply, `s` skips, `q` saves and
 quits.
 

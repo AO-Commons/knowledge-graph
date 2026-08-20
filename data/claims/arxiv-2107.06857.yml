@@ -24,7 +24,7 @@ claims:
     learning research.
   claim_type: background
   topic_codes:
-  - 14.1.1
+  - '14.1'
   confidence_class: EXTRACTED
   extracted_from: introduction
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -93,7 +93,7 @@ claims:
     social dilemmas, reciprocity, resource sharing and task partitioning.
   claim_type: finding
   topic_codes:
-  - 14.1.1
+  - '14.1'
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -108,7 +108,7 @@ claims:
     their training performance.
   claim_type: finding
   topic_codes:
-  - 14.1.3
+  - '14.1'
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -122,7 +122,7 @@ claims:
   claim_type: method
   topic_codes:
   - '14.1'
-  - 16.2.3
+  - '16.2'
   confidence_class: EXTRACTED
   extracted_from: results
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -137,7 +137,7 @@ claims:
     population — the suite's analogue of negative externalities.
   claim_type: method
   topic_codes:
-  - 16.2.2
+  - '16.2'
   confidence_class: EXTRACTED
   extracted_from: results
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -163,7 +163,7 @@ claims:
     performance on that scenario.
   claim_type: method
   topic_codes:
-  - 14.1.3
+  - '14.1'
   confidence_class: EXTRACTED
   extracted_from: results
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
@@ -195,7 +195,7 @@ claims:
     can be reincorporated into new background populations.
   claim_type: position
   topic_codes:
-  - 14.3.1
+  - '14.3'
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13

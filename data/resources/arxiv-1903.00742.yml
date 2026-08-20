@@ -25,7 +25,7 @@ openalex_id: W2920700222
 is_open_access: true
 is_retracted: false
 taxonomy_topics:
-- 5.1.1
+- '5.1'
 facets:
   artifact_type: preprint
 review_status: unreviewed

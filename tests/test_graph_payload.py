@@ -84,7 +84,7 @@ def test_claims_know_which_record_makes_them(graph):
 
 def test_topics_carry_how_much_is_filed_under_them(graph):
     """Drives both the drawn size and the default view, which hides the empty
-    ones — 466 of 568 leaves are empty and together they bury the records."""
+    ones — most subsections hold nothing yet and together they bury the records."""
     topics = [node for node in graph["nodes"] if node["kind"] in ("topic", "section")]
     assert all("held" in node for node in topics)
     assert any(node["held"] for node in topics)

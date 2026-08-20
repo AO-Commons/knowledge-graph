@@ -1,0 +1,26 @@
+{
+  "version": "v0.8.0",
+  "taxonomy_version": "v3",
+  "counts": {
+    "topics": 103,
+    "resources": 64,
+    "entities": 0,
+    "claims": 45,
+    "relationships": 422,
+    "nodes": 212
+  },
+  "relation_counts": {
+    "ABOUT": 68,
+    "CITES": 16,
+    "MAKES_CLAIM": 45,
+    "PARENT_OF": 87,
+    "SIMILAR_TO": 55,
+    "TAGGED_WITH": 151
+  },
+  "confidence_counts": {
+    "EXTRACTED": 196,
+    "INFERRED": 68
+  },
+  "license": "CC-BY-4.0",
+  "attribution": "AO Commons — https://github.com/AO-Commons/knowledge-graph"
+}
