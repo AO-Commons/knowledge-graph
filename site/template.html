@@ -900,9 +900,14 @@
     // Five, not fourteen. A wall of near-misses makes the choice harder, and
     // retrieval puts a right answer in the top five often enough that the
     // rest are better as a deliberate second look than as noise.
-    const TOP = 5;
-    const ranked = [...new Set([...record.suggested, ...state.picked])];
-    const shown = state.showAll ? ranked : [...new Set([...ranked.slice(0, TOP), ...state.picked])];
+    // How many are offered now depends on how close the scores were, decided
+    // at build time where the scores live. A flat ranking offers more, a
+    // decisive one offers fewer, and the tail is behind the button.
+    const ranked = [...new Set([...record.suggested, ...(record.suggested_more || []),
+                                ...state.picked])];
+    const shown = state.showAll
+      ? ranked
+      : [...new Set([...record.suggested, ...state.picked])];
     const chips = el("div", { className: "chips" });
     shown.forEach(code => {
       const topic = TOPICS.get(code);
@@ -919,8 +924,9 @@
     });
     ask.append(chips);
 
-    if (!state.showAll && ranked.length > TOP) {
-      const more = el("button", { className: "more" }, `Show ${ranked.length - TOP} more suggestions`);
+    if (!state.showAll && ranked.length > shown.length) {
+      const more = el("button", { className: "more" },
+        `Show ${ranked.length - shown.length} more suggestions`);
       more.addEventListener("click", () => { state.showAll = true; renderReview(); });
       ask.append(more);
     }
@@ -1603,9 +1609,27 @@
     + "these those their they this which while when where what who whom how why "
     + "agent agents agentic ai artificial intelligence machine system systems").split(" "));
 
+  // Must match ao_commons_kg.classify.stem and with_phrases exactly. The index
+  // shipped above is built with both; a query built without them scores
+  // against terms that are no longer there, and the failure is silent.
+  const SUFFIXES = ["ations", "ation", "ising", "izing", "ments", "ment", "ing", "ness",
+                    "ence", "ance", "ies", "ed", "es", "s", "ity", "al"];
+
+  function stem(word) {
+    for (const suffix of SUFFIXES) {
+      if (word.endsWith(suffix) && word.length - suffix.length >= 4) {
+        return word.slice(0, -suffix.length);
+      }
+    }
+    return word;
+  }
+
   function tokens(text) {
-    return (String(text || "").toLowerCase().match(/[a-z0-9]+/g) || [])
-      .filter(w => w.length > 2 && !STOP.has(w));
+    const words = (String(text || "").toLowerCase().match(/[a-z0-9]+/g) || [])
+      .filter(w => w.length > 2 && !STOP.has(w))
+      .map(stem);
+    const pairs = words.slice(0, -1).map((w, i) => `${w}_${words[i + 1]}`);
+    return words.concat(pairs);
   }
 
   function suggestTopics(text, limit) {
