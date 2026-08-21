@@ -1850,6 +1850,19 @@
     ask.append(el("span", { className: "why", style: "color:var(--faint);font-size:12px" },
       "A paper, a tool, a platform, a deployment — anything the library should hold."));
 
+    // The one-at-a-time form is the wrong shape for a reading list, and
+    // someone with twenty papers will otherwise either paste for an hour or
+    // give up. The instructions are written for an agent to follow.
+    ask.append(el("p", { className: "hint", style: "margin-top:10px" }, [
+      "Have a lot of them? Point your agent at ",
+      el("a", {
+        href: "https://github.com/AO-Commons/knowledge-graph/blob/main/docs/bulk-add.md",
+        target: "_blank", rel: "noopener",
+      }, "docs/bulk-add.md"),
+      " and it can add them in bulk as a pull request. Duplicates are skipped "
+      + "and the original kept, the same as here.",
+    ]));
+
     const id = state.add.id;
     if (id && id.kind !== "empty") ask.append(resolveStep(id));
     stage.append(ask);

@@ -37,6 +37,19 @@ Three structures live in that one file, and they are implemented differently on 
 - **Section 11 (Failure modes)** is a coding scheme, not a set of shelves. An incident normally carries several codes at once, and its 119 topics are marked `usage_mode: coding_scheme` so the query layer treats multi-tagging as the default.
 - **F1–F12** are facets — flat controlled vocabularies on a resource, never a second tree. The taxonomy says what a resource is *about*; the facets say what kind of evidence it is and when it applies.
 
+## Adding a lot at once
+
+The site's **Add** tab is quickest for one or two. For a reading list, point an
+agent at [docs/bulk-add.md](docs/bulk-add.md):
+
+```bash
+python3 scripts/bulk_add.py papers.txt            # says what it would do
+python3 scripts/bulk_add.py papers.txt --write    # writes the records
+```
+
+Duplicates keep the original — across identifier forms, and inside the file
+itself — and are reported rather than passed over.
+
 ## Builder tooling
 
 `data/tooling/awesome-builder-tools.yml` mirrors

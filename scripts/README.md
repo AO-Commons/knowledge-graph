@@ -9,6 +9,7 @@
 | [merge_filing.py](merge_filing.py) | Merges a filing issue into the gold set |
 | [check_authors.py](check_authors.py) | Reconciles bylines against arXiv |
 | [build_site.py](build_site.py) · [build_graph.py](build_graph.py) | The review site and the 3D graph |
+| [bulk_add.py](bulk_add.py) | Adds a list of identifiers at once; see [docs/bulk-add.md](../docs/bulk-add.md) |
 | [sync_tooling.py](sync_tooling.py) | Re-reads awesome-builder-tools, reports what moved and what is worth profiling |
 | [mcp_server.py](mcp_server.py) | Shim; the server itself is `ao_commons_kg.mcp_server`, run as `aokg-mcp` |
 
