@@ -22,6 +22,7 @@ from ao_commons_kg.queries import (
     related_records,
     search_records,
     search_topics,
+    tools_for,
 )
 
 
@@ -150,3 +151,41 @@ class TestCoverage:
 
     def test_it_tells_a_caller_how_to_weigh_the_rest(self, corpus):
         assert "first pass" in coverage(corpus)["what_this_means"]
+
+
+class TestToolsFor:
+    """The question a builder actually asks, resolved through the taxonomy."""
+
+    def test_a_builders_phrasing_finds_the_branch(self, corpus):
+        """"Stop an agent overspending" and "Spend caps, rate limits, and
+        cumulative budgets" are the same shelf and share no word. Aliases are
+        the bridge, and this fails if one is removed."""
+        answer = tools_for(corpus, "stop an agent overspending")
+        assert "8.1" in [t["code"] for t in answer["topics"]]
+
+    def test_it_returns_tools_and_the_research_on_the_same_branch(self, corpus):
+        """The paper describing how a control fails is part of the answer to
+        which control to adopt, so both come back."""
+        answer = tools_for(corpus, "audit what an agent did")
+        assert answer["tools_in_the_library"]
+        assert answer["research_on_the_same_branches"]
+
+    def test_a_tool_comes_back_with_what_oversight_it_ships(self, corpus):
+        answer = tools_for(corpus, "human approval before an agent acts")
+        profiled = [t for t in answer["tools_in_the_library"] if t.get("profile")]
+        assert profiled and profiled[0]["profile"]["human_controls"]
+
+    def test_it_refuses_to_recommend(self, corpus):
+        """Nothing here is reviewed. A ranked answer would be confident about
+        unchecked parts, and a caller cannot tell the difference."""
+        answer = tools_for(corpus, "audit what an agent did")
+        assert "is a recommendation" in answer["how_to_read_this"]
+        assert "no record in this corpus has been reviewed" in answer["how_to_read_this"]
+
+    def test_nonsense_says_no_branch_matched_and_why(self, corpus):
+        answer = tools_for(corpus, "zzzz qqqq")
+        assert answer["topics"] == [] and "taxonomy would use" in answer["note"]
+
+    def test_unassessed_entries_are_labelled_as_upstreams_words(self, corpus):
+        answer = tools_for(corpus, "audit what an agent did")
+        assert "never checked here" in answer["how_to_read_this"]

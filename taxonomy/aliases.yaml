@@ -43,3 +43,35 @@
 - price collusion
 - tacit collusion
 - cartel behaviour
+
+# Builder vocabulary. A builder asks "how do I stop an agent overspending",
+# and the taxonomy says "Spend caps, rate limits, and cumulative budgets" —
+# the shelf exists and the words do not meet. Verified against the classifier
+# rather than guessed: each of these was checked to land on the branch below.
+'8.1':
+  - overspending
+  - overspend
+  - spend cap
+  - budget cap
+  - rate limit
+  - cost control
+'2.5':
+  - kill switch
+  - pause an agent
+  - halt
+  - emergency stop
+  - circuit breaker
+'4.1':
+  - approval gate
+  - human approval
+  - sign-off
+  - human in the loop
+'9.2':
+  - audit trail
+  - audit log
+  - traceability
+'2.2':
+  - permission scope
+  - least privilege
+  - capability bounding
+  - scoped credentials

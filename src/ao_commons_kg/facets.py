@@ -33,6 +33,12 @@ FACETS: tuple[Facet, ...] = (
             "dataset", "code-tool", "essay", "governance-proposal",
             "postmortem", "incident-report", "audit-report", "legal-opinion",
             "talk-interview",
+            # Added when four records turned out to be filed as code-tool
+            # because F1 had no word for what they are. The absence of
+            # `deployment` was the odd one: a live organization where agents
+            # hold authority is the object this whole library is about, and it
+            # could only be described as a tool.
+            "deployment", "evaluation-suite", "research-programme",
         ),
         multi=False,
     ),

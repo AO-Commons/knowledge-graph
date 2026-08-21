@@ -28,6 +28,7 @@ from pathlib import Path
 
 import yaml
 
+from .classify import TopicIndex
 from .claims import claim_edges, load_claims  # noqa: F401
 from .claims import coverage as claim_coverage
 from .graph import similarity_edges
@@ -35,6 +36,7 @@ from .people import same_person
 from .resources import load_resources
 from .scholarly.store import ReferenceStore
 from .taxonomy import load_taxonomy
+from . import tooling as _tooling
 
 REPO = Path(__file__).resolve().parent.parent.parent
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
@@ -63,6 +65,11 @@ class Corpus:
         self.claims_by_resource: dict[str, list] = {}
         for claim in self.claims:
             self.claims_by_resource.setdefault(claim.resource_id, []).append(claim)
+
+        # Built here so a phrase can be turned into branches. `search_topics`
+        # matches substrings, which is right for "MARL" and useless for "stop
+        # an agent overspending".
+        self.index = TopicIndex(self.topics, self.aliases)
 
         store = ReferenceStore.load(references)
         held = set(self.by_id)
@@ -309,6 +316,69 @@ def claims_caveat(corpus: Corpus) -> str:
         f"records; {stats['reviewed']} have been checked by a person. Every claim is a "
         "machine's reading of the quoted sentence until then — check the quote."
     )
+
+
+def tools_for(corpus: Corpus, need: str, limit: int = 8) -> dict:
+    """What the library holds that bears on a builder's problem.
+
+    The question a builder actually asks is "what should I use to stop an agent
+    overspending", which is a question about a branch of the taxonomy, not
+    about a product category. So it resolves through the taxonomy: find the
+    branches the words point at, then return what is filed there — the tools
+    with what oversight they ship, and the research on the same shelf, because
+    the paper describing how a control fails is part of the answer to which
+    control to adopt.
+
+    Deliberately not a recommendation. Nothing here is reviewed yet, most tools
+    are unprofiled, and a ranked "use this one" would be a confident answer
+    assembled from unchecked parts.
+    """
+    matched = corpus.index.classify(need, limit=4, min_score=0.5)
+    if not matched:
+        return {"need": need, "topics": [],
+                "note": "no branch of the taxonomy matched that. Try the words the "
+                        "taxonomy would use — budget, approval, permission, audit."}
+
+    codes = [a.code for a in matched]
+    topics = [topic_brief(corpus, code) for code in codes]
+    tools, papers = [], []
+    for resource in corpus.resources:
+        filed = set(resource.taxonomy_topics or [])
+        if not filed & set(codes):
+            continue
+        entry = record_brief(corpus, resource)
+        if resource.tool is not None or resource.resource_type in TOOL_LIKE:
+            entry["profile"] = resource.tool.to_dict() if resource.tool else None
+            tools.append(entry)
+        else:
+            papers.append(entry)
+
+    mirrored = [
+        {"name": e.name, "url": e.url, "listed_under": e.subsection or e.section,
+         "described_by_upstream": e.description[:240]}
+        for e in _tooling.load().entries
+        if any(word in (e.description or "").lower() or word in e.name.lower()
+               for word in [w for w in need.lower().split() if len(w) > 3])
+    ][:limit]
+
+    return {
+        "need": need,
+        "topics": topics,
+        "tools_in_the_library": tools[:limit],
+        "research_on_the_same_branches": papers[:limit],
+        "unassessed_from_the_mirrored_list": mirrored,
+        "how_to_read_this": (
+            "Tools are matched through the taxonomy branch, not by product category. "
+            "A profile says what oversight the tool ships and cites where that was read; "
+            "an entry under `unassessed_from_the_mirrored_list` is somebody else's "
+            "one-line description, carried from awesome-builder-tools (Framework Zero, "
+            "MIT) and never checked here. Nothing in this answer is a recommendation — "
+            "no record in this corpus has been reviewed yet."
+        ),
+    }
+
+
+TOOL_LIKE = frozenset({"code-tool", "platform", "framework", "repository"})
 
 
 def coverage(corpus: Corpus) -> dict:

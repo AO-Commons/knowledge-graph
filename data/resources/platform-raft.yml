@@ -1,5 +1,5 @@
 id: resource:platform:raft
-resource_type: code-tool
+resource_type: platform
 title: Raft
 description: Multi-agent platform, observational at roughly 45,000 agents.
 url: https://raft.build/

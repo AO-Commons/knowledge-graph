@@ -25,7 +25,6 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
-from ao_commons_kg import tooling  # noqa: E402
 from ao_commons_kg.claims import load_claims  # noqa: E402
 from ao_commons_kg.classify import TopicIndex, classify_resource  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
@@ -35,7 +34,6 @@ TEMPLATE = REPO / "site" / "template.html"
 GOLD = REPO / "evals" / "gold" / "tags.yml"
 GOLD_OUT = REPO / "site" / "gold.json"
 INDEX_OUT = REPO / "site" / "classifier.json"
-TOOLING_OUT = REPO / "site" / "tooling.json"
 OUTPUT = REPO / "site" / "index.html"
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 ALIASES = REPO / "taxonomy" / "aliases.yaml"
@@ -223,16 +221,6 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"wrote {GOLD_OUT.relative_to(REPO)}  {len(merged)} merged filing(s)")
-    # The mirrored index, fetched when the Tools tab is opened rather than
-    # inlined: sixty descriptions is 30 KB that most visitors never look at.
-    index = tooling.load()
-    TOOLING_OUT.write_text(json.dumps({
-        "source": index.source,
-        "entries": [vars(e) for e in index.entries],
-        "candidates": [e.url for e in tooling.candidates(index)],
-    }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"wrote {TOOLING_OUT.relative_to(REPO)}  {len(index.entries)} mirrored entries")
-
     print(f"wrote {INDEX_OUT.relative_to(REPO)}  {INDEX_OUT.stat().st_size:,} bytes "
           "(fetched only by the Add tab)")
 

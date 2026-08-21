@@ -144,6 +144,24 @@ def get_claims(record: str = "", claim_type: str = "", only_unverified: bool = F
 
 
 @server.tool()
+def tools_for(need: str, limit: int = 8) -> str:
+    """What the library holds that bears on a builder's problem.
+
+    Ask it in the builder's words — "stop an agent overspending", "approve an
+    action before it runs", "audit what an agent did". It resolves through the
+    taxonomy rather than by product category, and returns the tools filed on
+    those branches with what oversight each ships, the research on the same
+    branches, and anything from the mirrored builder-tooling list that nobody
+    here has assessed.
+
+    It does not recommend. Nothing in this corpus has been reviewed yet, and
+    most tools are unprofiled; a ranked answer would be confident about
+    unchecked parts.
+    """
+    return as_text(queries.tools_for(corpus(), need, limit))
+
+
+@server.tool()
 def get_author(name: str) -> str:
     """A person, what the library holds by them, and who they wrote it with.
 
