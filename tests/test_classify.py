@@ -79,16 +79,10 @@ class TestClassify:
     def test_nonsense_matches_nothing(self, index):
         assert index.classify("zzzz qqqq wwww", limit=5, min_score=0.5) == []
 
-    def test_the_browser_copy_of_the_stemmer_still_agrees(self):
-        """The page scores queries in JavaScript against the index built here,
-        so the suffix list exists twice. If they drift, the query is built from
-        terms the index no longer holds and suggestions quietly get worse with
-        nothing failing."""
-        import re
+    def test_the_page_scores_with_the_same_rules(self):
+        """Kept as a pointer. The real check is tests/test_scoring_parity.py,
+        which runs the page's own tokenizer under Node and compares it string
+        for string — a suffix list matching was never proof the two agreed."""
+        from pathlib import Path
 
-        from ao_commons_kg.classify import _SUFFIXES
-
-        template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
-        block = re.search(r"const SUFFIXES = \[(.*?)\];", template, re.S)
-        assert block, "the page should carry a matching stemmer"
-        assert tuple(re.findall(r'"([a-z]+)"', block.group(1))) == _SUFFIXES
+        assert (ROOT / "tests" / "test_scoring_parity.py").exists()

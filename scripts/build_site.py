@@ -26,7 +26,12 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.claims import load_claims  # noqa: E402
-from ao_commons_kg.classify import TopicIndex, classify_resource  # noqa: E402
+from ao_commons_kg.classify import (  # noqa: E402
+    _SUFFIXES,
+    STOP,
+    TopicIndex,
+    classify_resource,
+)
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
@@ -147,6 +152,16 @@ def build_payload() -> dict:
 
     return {
         "generated_for": "AO Commons knowledge graph",
+        # Injected rather than copied. The page scores queries against the
+        # index built here, so every one of these existing twice was a way for
+        # the two to drift apart in silence.
+        "scoring": {
+            "stop": sorted(STOP),
+            "suffixes": list(_SUFFIXES),
+            "k1": TopicIndex.K1,
+            "b": TopicIndex.B,
+            "word": "[a-z0-9]+",
+        },
         "taxonomy_version": "v3",
         "topics": [
             {

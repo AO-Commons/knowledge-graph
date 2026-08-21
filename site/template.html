@@ -1605,18 +1605,17 @@
       })
       .catch(() => { /* the form still works; it just cannot suggest */ });
   }
-  const STOP = new Set(("a an and are as at be by for from has in is it its of on or that the to with "
-    + "these those their they this which while when where what who whom how why "
-    + "agent agents agentic ai artificial intelligence machine system systems").split(" "));
-
-  // Must match ao_commons_kg.classify.stem and with_phrases exactly. The index
-  // shipped above is built with both; a query built without them scores
-  // against terms that are no longer there, and the failure is silent.
-  const SUFFIXES = ["ations", "ation", "ising", "izing", "ments", "ment", "ing", "ness",
-                    "ence", "ance", "ies", "ed", "es", "s", "ity", "al"];
+  // Every constant here comes from ao_commons_kg.classify, injected at build
+  // time. The scoring formula is still written twice, and has to be: this
+  // scores a paper that is not in the corpus yet, which is the one thing the
+  // server cannot precompute. What is no longer written twice is anything a
+  // person could quietly change on one side only.
+  const SCORING = DATA.scoring;
+  const STOP = new Set(SCORING.stop);
+  const WORD = new RegExp(SCORING.word, "g");
 
   function stem(word) {
-    for (const suffix of SUFFIXES) {
+    for (const suffix of SCORING.suffixes) {
       if (word.endsWith(suffix) && word.length - suffix.length >= 4) {
         return word.slice(0, -suffix.length);
       }
@@ -1625,18 +1624,17 @@
   }
 
   function tokens(text) {
-    const words = (String(text || "").toLowerCase().match(/[a-z0-9]+/g) || [])
+    const words = (String(text || "").toLowerCase().match(WORD) || [])
       .filter(w => w.length > 2 && !STOP.has(w))
       .map(stem);
-    const pairs = words.slice(0, -1).map((w, i) => `${w}_${words[i + 1]}`);
-    return words.concat(pairs);
+    return words.concat(words.slice(0, -1).map((w, i) => `${w}_${words[i + 1]}`));
   }
 
   function suggestTopics(text, limit) {
     if (!IX) return [];
     const query = [...new Set(tokens(text).map(w => TERM_ID.get(w)).filter(id => id !== undefined))];
     if (!query.length) return [];
-    const K1 = 1.2, B = 0.6;
+    const K1 = SCORING.k1, B = SCORING.b;
 
     const scored = IX.topics.map((doc, i) => {
       const counts = new Map();
