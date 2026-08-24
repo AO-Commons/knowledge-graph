@@ -75,20 +75,26 @@ class ReferenceStore:
             if entry.get("referenced_works")
         }
 
-    def citation_pairs(self) -> list[tuple[str, str]]:
+    def citation_pairs(self, by_key: dict[str, str]) -> list[tuple[str, str]]:
         """Citations where both ends are records we hold.
 
         Everything a paper cites is not a graph anyone can use; the subgraph
         among things we actually hold is.
+
+        `by_key` maps a canonical key to the record holding it and comes from
+        the corpus — `keys_for_corpus()` builds it. It used to be derived from
+        this store instead, which quietly meant something narrower: a record
+        could be a citation source only once resolved, and a citation *target*
+        never, because an unresolved record has no entry here and so no key to
+        match against. Half the edges in the graph were dropped that way, and
+        nothing showed it, because a missing citation looks exactly like a
+        paper nobody cited.
         """
-        by_key = {
-            entry["key"]: resource_id
-            for resource_id, entry in self.entries.items()
-            if entry.get("key")
-        }
+        held = set(by_key.values())
         pairs = [
             (resource_id, by_key[cited])
             for resource_id, cited_keys in self.references().items()
+            if resource_id in held
             for cited in cited_keys
             if cited in by_key and by_key[cited] != resource_id
         ]

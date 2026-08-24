@@ -34,6 +34,7 @@ from .claims import coverage as claim_coverage
 from .graph import similarity_edges
 from .people import same_person
 from .resources import load_resources
+from .scholarly.keys import keys_for_corpus
 from .scholarly.store import ReferenceStore
 from .taxonomy import load_taxonomy
 from . import tooling as _tooling
@@ -73,7 +74,7 @@ class Corpus:
 
         store = ReferenceStore.load(references)
         held = set(self.by_id)
-        self.citations = [(a, b) for a, b in store.citation_pairs() if a in held and b in held]
+        self.citations = store.citation_pairs(keys_for_corpus(self.resources))
         self.similar = similarity_edges(
             {k: v for k, v in store.references().items() if k in held}, min_shared=2
         )

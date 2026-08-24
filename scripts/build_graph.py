@@ -28,6 +28,7 @@ from ao_commons_kg.claims import claim_edges, load_claims  # noqa: E402
 from ao_commons_kg.graph import similarity_edges  # noqa: E402
 from ao_commons_kg.models import RelationType  # noqa: E402
 from ao_commons_kg.resources import load_resources, tagged_edges  # noqa: E402
+from ao_commons_kg.scholarly.keys import keys_for_corpus  # noqa: E402
 from ao_commons_kg.scholarly.store import ReferenceStore  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
@@ -149,8 +150,7 @@ def build() -> dict:
     held = {r.id for r in resources}
     edges += [
         {"source": source, "target": target, "kind": "cites"}
-        for source, target in store.citation_pairs()
-        if source in held and target in held
+        for source, target in store.citation_pairs(keys_for_corpus(resources))
     ]
     references = {k: v for k, v in store.references().items() if k in held}
     edges += [

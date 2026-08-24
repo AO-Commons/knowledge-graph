@@ -6,7 +6,7 @@ OpenAlex is the identity and citation backbone, Semantic Scholar fills the
 arXiv references and abstracts it does not carry.
 """
 
-from .keys import canonical_key, key_for_resource
+from .keys import canonical_key, key_for_resource, keys_for_corpus
 from .openalex import OpenAlexError, expand_neighborhood, resolve_work, scope_score
 from .semanticscholar import SemanticScholarError, resolve_paper
 from .store import ReferenceStore
@@ -18,6 +18,7 @@ __all__ = [
     "canonical_key",
     "expand_neighborhood",
     "key_for_resource",
+    "keys_for_corpus",
     "resolve_paper",
     "resolve_work",
     "scope_score",

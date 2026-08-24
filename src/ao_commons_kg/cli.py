@@ -25,6 +25,7 @@ from .resources import ResourceError, load_resources, tagged_edges, unknown_tags
 from .review import GoldSet, agreement, parse_decision, present, search_topics, select_for_review
 from .scholarly import (
     ReferenceStore, SemanticScholarError, expand_neighborhood, key_for_resource,
+    keys_for_corpus,
     resolve_paper, resolve_work, scope_score,
 )
 from .scholarly import semanticscholar
@@ -87,8 +88,7 @@ def _scholarly_edges(resources) -> list[Relationship]:
 
     edges = [
         Relationship(source, target, RelationType.CITES)
-        for source, target in store.citation_pairs()
-        if source in held and target in held
+        for source, target in store.citation_pairs(keys_for_corpus(resources))
     ]
     references = {k: v for k, v in store.references().items() if k in held}
     edges += similarity_edges(references, min_shared=2)

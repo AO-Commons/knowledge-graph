@@ -9,6 +9,7 @@ import json
 
 import pytest
 
+from ao_commons_kg.scholarly.keys import keys_for_corpus
 from ao_commons_kg.scholarly.store import ReferenceStore
 from ao_commons_kg.scholarly.openalex import (
     OpenAlexError,
@@ -170,8 +171,30 @@ class TestReferenceStore:
         store = ReferenceStore.load(tmp_path / "refs.jsonl")
         store.put("resource:a", key="arxiv:1", source="s2",
                   referenced_keys=["arxiv:2", "doi:10.1/unheld"])
-        store.put("resource:b", key="arxiv:2", source="s2", referenced_keys=[])
-        assert store.citation_pairs() == [("resource:a", "resource:b")]
+        corpus = {"arxiv:1": "resource:a", "arxiv:2": "resource:b"}
+        assert store.citation_pairs(corpus) == [("resource:a", "resource:b")]
+
+    def test_an_unresolved_record_can_still_be_cited(self, tmp_path):
+        """The bug this signature exists to prevent.
+
+        `resource:b` is in the corpus and nobody has fetched its references.
+        It has no store entry, so deriving the key lookup from the store made
+        it uncitable — and the old version of the test above hid that by
+        giving it an entry with an empty reference list, which is not a state
+        the resolver produces for a record it has never seen.
+        """
+        store = ReferenceStore.load(tmp_path / "refs.jsonl")
+        store.put("resource:a", key="arxiv:1", source="s2", referenced_keys=["arxiv:2"])
+        assert "resource:b" not in store.entries
+        corpus = {"arxiv:1": "resource:a", "arxiv:2": "resource:b"}
+        assert store.citation_pairs(corpus) == [("resource:a", "resource:b")]
+
+    def test_a_source_we_no_longer_hold_is_not_an_edge(self, tmp_path):
+        """A record can leave the corpus while its reference list stays in the
+        store. Its citations go with it."""
+        store = ReferenceStore.load(tmp_path / "refs.jsonl")
+        store.put("resource:gone", key="arxiv:9", source="s2", referenced_keys=["arxiv:2"])
+        assert store.citation_pairs({"arxiv:2": "resource:b"}) == []
 
     def test_a_source_with_no_references_does_not_erase_another(self, tmp_path):
         """OpenAlex carries no references for preprints. Letting it overwrite
@@ -186,7 +209,7 @@ class TestReferenceStore:
     def test_self_citation_is_not_an_edge(self, tmp_path):
         store = ReferenceStore.load(tmp_path / "refs.jsonl")
         store.put("resource:a", key="arxiv:1", source="s2", referenced_keys=["arxiv:1"])
-        assert store.citation_pairs() == []
+        assert store.citation_pairs({"arxiv:1": "resource:a"}) == []
 
     def test_output_is_deterministic(self, tmp_path):
         for name in ("a", "b"):
@@ -404,6 +427,19 @@ S2_PAPER = {
 }
 
 
+class _Stub:
+    """The four identifier attributes `key_for_resource` reads, and nothing
+    else. A real Resource would work; it would also make the test about model
+    construction rather than about the index."""
+
+    def __init__(self, id, doi=None, arxiv_id=None, openalex_id=None, semantic_scholar_id=None):
+        self.id = id
+        self.doi = doi
+        self.arxiv_id = arxiv_id
+        self.openalex_id = openalex_id
+        self.semantic_scholar_id = semantic_scholar_id
+
+
 class TestCanonicalKeys:
     def test_the_same_paper_gets_one_key_from_either_source(self):
         """The failure this prevents is silent: two namespaces never
@@ -426,6 +462,30 @@ class TestCanonicalKeys:
 
     def test_nothing_identifiable_is_none(self):
         assert canonical_key({}) is None and canonical_key(None) is None
+
+    def test_the_corpus_index_covers_every_record_with_an_identifier(self):
+        """Not every record that has been resolved — every record. This is the
+        lookup a citation uses to find its target, and a paper we hold is
+        citeable whether or not anyone has fetched its bibliography."""
+        held = [
+            _Stub("resource:arxiv:2107.06857", arxiv_id="2107.06857"),
+            _Stub("resource:doi:10-1038-x", doi="10.1038/X"),
+            _Stub("resource:platform:andon-labs"),        # no identifier at all
+        ]
+        assert keys_for_corpus(held) == {
+            "arxiv:2107.06857": "resource:arxiv:2107.06857",
+            "doi:10.1038/x": "resource:doi:10-1038-x",
+        }
+
+    def test_a_collision_resolves_the_same_way_every_build(self):
+        """Two records sharing a key are one paper filed twice, which is a
+        duplicate to fix rather than a case to handle. But the winner must not
+        depend on load order, or the duplicate shows up as an unexplainable
+        diff between builds instead of a visible one."""
+        pair = [_Stub("resource:b", arxiv_id="2107.06857"),
+                _Stub("resource:a", arxiv_id="2107.06857")]
+        assert keys_for_corpus(pair) == keys_for_corpus(list(reversed(pair)))
+        assert keys_for_corpus(pair)["arxiv:2107.06857"] == "resource:a"
 
 
 class TestSemanticScholar:

@@ -64,3 +64,24 @@ def key_for_resource(resource) -> str | None:
         "openalex": resource.openalex_id,
         "semanticscholar": resource.semantic_scholar_id,
     })
+
+
+def keys_for_corpus(resources) -> dict[str, str]:
+    """Canonical key -> the id of the record holding it, across the corpus.
+
+    The lookup a citation needs to find its target. Built from the records
+    themselves rather than from whatever the reference store happens to have
+    resolved, because a paper we hold is citeable whether or not anyone has
+    fetched its own bibliography yet.
+
+    First id wins on a collision, in sorted order, so the map does not depend
+    on the order the corpus loaded. A collision should not happen — two
+    records sharing a canonical key are the same paper filed twice — but
+    silently picking a different winner between builds would turn that
+    duplicate into an unexplainable diff rather than a visible one.
+    """
+    index: dict[str, str] = {}
+    for resource in sorted(resources, key=lambda r: r.id):
+        if key := key_for_resource(resource):
+            index.setdefault(key, resource.id)
+    return index
