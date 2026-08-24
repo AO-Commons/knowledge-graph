@@ -1,0 +1,45 @@
+id: resource:arxiv:2012.08630
+resource_type: preprint
+title: Open Problems in Cooperative AI
+abstract: Problems of cooperation--in which agents seek ways to jointly improve their welfare--are
+  ubiquitous and important. They can be found at scales ranging from our daily routines--such
+  as driving on highways, scheduling meetings, and working collaboratively--to our global
+  challenges--such as peace, commerce, and pandemic preparedness. Arguably, the success of
+  the human species is rooted in our ability to cooperate. Since machines powered by artificial
+  intelligence are playing an ever greater role in our lives, it will be important to equip
+  them with the capabilities necessary to cooperate and to foster cooperation. We see an opportunity
+  for the field of artificial intelligence to explicitly focus effort on this class of problems,
+  which we term Cooperative AI. The objective of this research would be to study the many
+  aspects of the problems of cooperation and to innovate in AI to contribute to solving these
+  problems. Central goals include building machine agents with the capabilities needed for
+  cooperation, building tools to foster cooperation in populations of (machine and/or human)
+  agents, and otherwise conducting AI research for insight relevant to problems of cooperation.
+  This research integrates ongoing work on multi-agent systems, game theory and social choice,
+  human-machine interaction and alignment, natural-language processing, and the construction
+  of social tools and platforms. However, Cooperative AI is not the union of these existing
+  areas, but rather an independent bet about the productivity of specific kinds of conversations
+  that involve these and other areas. We see opportunity to more explicitly focus on the problem
+  of cooperation, to construct unified theory and vocabulary, and to build bridges with adjacent
+  communities working on cooperation, including in the natural, social, and behavioural sciences.
+authors:
+- Allan Dafoe
+- Edward Hughes
+- Yoram Bachrach
+- Tantum Collins
+- Kevin R. McKee
+- Joel Z. Leibo
+- Kate Larson
+- Thore Graepel
+published_at: '2020-12-15'
+url: https://arxiv.org/abs/2012.08630
+doi: 10.48550/arXiv.2012.08630
+arxiv_id: '2012.08630'
+openalex_id: W3110959560
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

@@ -1,0 +1,40 @@
+id: resource:doi:10-1145-3706598-3713423
+resource_type: peer-reviewed-paper
+title: 'Towards Human-AI Deliberation: Design and Evaluation of LLM-Empowered Deliberative
+  AI for AI-Assisted Decision-Making'
+abstract: Traditional AI-assisted decision-making systems often provide fixed recommendations
+  that users must either accept or reject entirely, limiting meaningful interaction - especially
+  in cases of disagreement. To address this, we introduce Human-AI Deliberation, an approach
+  inspired by human deliberation theories that enables dimension-level opinion elicitation,
+  iterative decision updates, and structured discussions between humans and AI. At the core
+  of this approach is Deliberative AI, an assistant powered by large language models (LLMs)
+  that facilitates flexible, conversational interactions and precise information exchange
+  with domain-specific models. Through a mixed-methods user study, we found that Deliberative
+  AI outperforms traditional explainable AI (XAI) systems by fostering appropriate human reliance
+  and improving task performance. By analyzing participant perceptions, user experience, and
+  open-ended feedback, we highlight key findings, discuss potential concerns, and explore
+  the broader applicability of this approach for future AI-assisted decision-making systems.
+authors:
+- Shuai Ma
+- Qiaoyi Chen
+- Xinru Wang
+- Chengbo Zheng
+- Zhenhui Peng
+- Ming Yin
+- Xiaojuan Ma
+organizations:
+- Hong Kong University of Science and Technology
+- Purdue University West Lafayette
+- Sun Yat-sen University
+published_at: '2025-04-23'
+url: https://doi.org/10.1145/3706598.3713423
+doi: 10.1145/3706598.3713423
+openalex_id: W4409736269
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

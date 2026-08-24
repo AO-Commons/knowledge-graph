@@ -1,0 +1,45 @@
+id: resource:doi:10-1126-science-adq2852
+resource_type: peer-reviewed-paper
+title: AI can help humans find common ground in democratic deliberation
+abstract: Finding agreement through a free exchange of views is often difficult. Collective
+  deliberation can be slow, difficult to scale, and unequally attentive to different voices.
+  In this study, we trained an artificial intelligence (AI) to mediate human deliberation.
+  Using participants’ personal opinions and critiques, the AI mediator iteratively generates
+  and refines statements that express common ground among the group on social or political
+  issues. Participants ( N = 5734) preferred AI-generated statements to those written by human
+  mediators, rating them as more informative, clear, and unbiased. Discussants often updated
+  their views after the deliberation, converging on a shared perspective. Text embeddings
+  revealed that successful group statements incorporated dissenting voices while respecting
+  the majority position. These findings were replicated in a virtual citizens’ assembly involving
+  a demographically representative sample of the UK population.
+authors:
+- Michael Henry Tessler
+- Michiel A. Bakker
+- Daniel Jarrett
+- Hannah Sheahan
+- Martin J. Chadwick
+- Raphaël Koster
+- Geoff Evans
+- Lucy Campbell-Gillingham
+- Tantum Collins
+- David C. Parkes
+- Matthew Botvinick
+- Christopher Summerfield
+organizations:
+- Google (United Kingdom)
+- Google DeepMind (United Kingdom)
+- Harvard University
+- University of Oxford
+- Yale University
+published_at: '2024-10-17'
+url: https://doi.org/10.1126/science.adq2852
+doi: 10.1126/science.adq2852
+openalex_id: W4403511027
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

@@ -1,0 +1,31 @@
+id: resource:arxiv:2504.21848
+resource_type: preprint
+title: Characterizing AI Agents for Alignment and Governance
+abstract: 'The creation of effective governance mechanisms for AI agents requires a deeper
+  understanding of their core properties and how these properties relate to questions surrounding
+  the deployment and operation of agents in the world. This paper provides a characterization
+  of AI agents that focuses on four dimensions: autonomy, efficacy, goal complexity, and generality.
+  We propose different gradations for each dimension, and argue that each dimension raises
+  unique questions about the design, operation, and governance of these systems. Moreover,
+  we draw upon this framework to construct "agentic profiles" for different kinds of AI agents.
+  These profiles help to illuminate cross-cutting technical and non-technical governance challenges
+  posed by different classes of AI agents, ranging from narrow task-specific assistants to
+  highly autonomous general-purpose systems. By mapping out key axes of variation and continuity,
+  this framework provides developers, policymakers, and members of the public with the opportunity
+  to develop governance approaches that better align with collective societal goals.'
+authors:
+- Atoosa Kasirzadeh
+- Iason Gabriel
+published_at: '2025-04-30'
+url: https://arxiv.org/abs/2504.21848
+doi: 10.48550/arXiv.2504.21848
+arxiv_id: '2504.21848'
+openalex_id: W4417525761
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

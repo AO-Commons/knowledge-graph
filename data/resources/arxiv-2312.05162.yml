@@ -1,0 +1,32 @@
+id: resource:arxiv:2312.05162
+resource_type: preprint
+title: A Review of Cooperation in Multi-agent Learning
+abstract: Cooperation in multi-agent learning (MAL) is a topic at the intersection of numerous
+  disciplines, including game theory, economics, social sciences, and evolutionary biology.
+  Research in this area aims to understand both how agents can coordinate effectively when
+  goals are aligned and how they may cooperate in settings where gains from working together
+  are possible but possibilities for conflict abound. In this paper we provide an overview
+  of the fundamental concepts, problem settings and algorithms of multi-agent learning. This
+  encompasses reinforcement learning, multi-agent sequential decision-making, challenges associated
+  with multi-agent cooperation, and a comprehensive review of recent progress, along with
+  an evaluation of relevant metrics. Finally we discuss open challenges in the field with
+  the aim of inspiring new avenues for research.
+authors:
+- Yali Du
+- Joel Z. Leibo
+- Usman Islam
+- Richard Willis
+- Peter Sunehag
+published_at: '2023-12-08'
+url: https://arxiv.org/abs/2312.05162
+doi: 10.48550/arXiv.2312.05162
+arxiv_id: '2312.05162'
+openalex_id: W4389600282
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

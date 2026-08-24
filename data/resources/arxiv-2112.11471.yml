@@ -1,0 +1,41 @@
+id: resource:arxiv:2112.11471
+resource_type: preprint
+title: 'Towards a Science of Human-AI Decision Making: A Survey of Empirical Studies'
+abstract: 'As AI systems demonstrate increasingly strong predictive performance, their adoption
+  has grown in numerous domains. However, in high-stakes domains such as criminal justice
+  and healthcare, full automation is often not desirable due to safety, ethical, and legal
+  concerns, yet fully manual approaches can be inaccurate and time consuming. As a result,
+  there is growing interest in the research community to augment human decision making with
+  AI assistance. Besides developing AI technologies for this purpose, the emerging field of
+  human-AI decision making must embrace empirical approaches to form a foundational understanding
+  of how humans interact and work with AI to make decisions. To invite and help structure
+  research efforts towards a science of understanding and improving human-AI decision making,
+  we survey recent literature of empirical human-subject studies on this topic. We summarize
+  the study design choices made in over 100 papers in three important aspects: (1) decision
+  tasks, (2) AI models and AI assistance elements, and (3) evaluation metrics. For each aspect,
+  we summarize current trends, discuss gaps in current practices of the field, and make a
+  list of recommendations for future research. Our survey highlights the need to develop common
+  frameworks to account for the design and research spaces of human-AI decision making, so
+  that researchers can make rigorous choices in study design, and the research community can
+  build on each other''s work and produce generalizable scientific knowledge. We also hope
+  this survey will serve as a bridge for HCI and AI communities to work together to mutually
+  shape the empirical science and computational technologies for human-AI decision making.'
+authors:
+- Vivian Lai
+- Chacha Chen
+- Q. Vera Liao
+- Alison Smith-Renner
+- Chenhao Tan
+published_at: '2021-12-21'
+url: https://arxiv.org/abs/2112.11471
+doi: 10.48550/arXiv.2112.11471
+arxiv_id: '2112.11471'
+openalex_id: W4226139013
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

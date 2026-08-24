@@ -1,0 +1,43 @@
+id: resource:doi:10-1038-s41562-022-01383-x
+resource_type: peer-reviewed-paper
+title: Human-centred mechanism design with Democratic AI
+abstract: Building artificial intelligence (AI) that aligns with human values is an unsolved
+  problem. Here we developed a human-in-the-loop research pipeline called Democratic AI, in
+  which reinforcement learning is used to design a social mechanism that humans prefer by
+  majority. A large group of humans played an online investment game that involved deciding
+  whether to keep a monetary endowment or to share it with others for collective benefit.
+  Shared revenue was returned to players under two different redistribution mechanisms, one
+  designed by the AI and the other by humans. The AI discovered a mechanism that redressed
+  initial wealth imbalance, sanctioned free riders and successfully won the majority vote.
+  By optimizing for human preferences, Democratic AI offers a proof of concept for value-aligned
+  policy innovation.
+authors:
+- Raphaël Koster
+- Jan Balaguer
+- Andrea Tacchetti
+- Ari Weinstein
+- Tina Zhu
+- Oliver Hauser
+- Duncan Williams
+- Lucy Campbell-Gillingham
+- Phoebe Thacker
+- Matthew Botvinick
+- Christopher Summerfield
+organizations:
+- Gatsby Computational Neuroscience Unit
+- Google DeepMind (United Kingdom)
+- University College London
+- University of Exeter
+- University of Oxford
+published_at: '2022-07-04'
+url: https://doi.org/10.1038/s41562-022-01383-x
+doi: 10.1038/s41562-022-01383-x
+openalex_id: W4283789234
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

@@ -1,0 +1,34 @@
+id: resource:arxiv:2510.21117
+resource_type: preprint
+title: 'DAO-AI: Evaluating Collective Decision-Making through Agentic AI in Decentralized
+  Governance'
+abstract: This paper presents a first empirical study of agentic AI as autonomous decision-makers
+  in decentralized governance. Using more than 3K proposals from major protocols, we build
+  an agentic AI voter that interprets proposal contexts, retrieves historical deliberation
+  data, and independently determines its voting position. The agent operates within a realistic
+  financial simulation environment grounded in verifiable blockchain data, implemented through
+  a modular composable program (MCP) workflow that defines data flow and tool usage via Agentics
+  framework. We evaluate how closely the agent's decisions align with the human and token-weighted
+  outcomes, uncovering strong alignments measured by carefully designed evaluation metrics.
+  Our findings demonstrate that agentic AI can augment collective decision-making by producing
+  interpretable, auditable, and empirically grounded signals in realistic DAO governance settings.
+  The study contributes to the design of explainable and economically rigorous AI agents for
+  decentralized financial systems.
+authors:
+- Agostino Capponi
+- Alfio Gliozzo
+- Chunghyun Han
+- Junkyu Lee
+published_at: '2025-10-24'
+url: https://arxiv.org/abs/2510.21117
+doi: 10.48550/arXiv.2510.21117
+arxiv_id: '2510.21117'
+openalex_id: W4417324118
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

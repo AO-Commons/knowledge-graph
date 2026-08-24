@@ -1,0 +1,42 @@
+id: resource:arxiv:2411.09222
+resource_type: preprint
+title: Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work
+abstract: 'This position paper argues that effectively "democratizing AI" requires democratic
+  governance and alignment of AI, and that this is particularly valuable for decisions with
+  systemic societal impacts. Initial steps -- such as Meta''s Community Forums and Anthropic''s
+  Collective Constitutional AI -- have illustrated a promising direction, where democratic
+  processes could be used to meaningfully improve public involvement and trust in critical
+  decisions. To more concretely explore what increasingly democratic AI might look like, we
+  provide a "Democracy Levels" framework and associated tools that: (i) define milestones
+  toward meaningfully democratic AI, which is also crucial for substantively pluralistic,
+  human-centered, participatory, and public-interest AI, (ii) can help guide organizations
+  seeking to increase the legitimacy of their decisions on difficult AI governance and alignment
+  questions, and (iii) support the evaluation of such efforts.'
+authors:
+- Aviv Ovadya
+- Kyle Redman
+- Luke Thorburn
+- Quan Ze Chen
+- Oliver Smith
+- Flynn Devine
+- Andrew Konya
+- Smitha Milli
+- Manon Revel
+- K. J. Kevin Feng
+- Amy X. Zhang
+- Bilva Chandra
+- Michiel A. Bakker
+- Atoosa Kasirzadeh
+published_at: '2024-11-14'
+url: https://arxiv.org/abs/2411.09222
+doi: 10.48550/arXiv.2411.09222
+arxiv_id: '2411.09222'
+openalex_id: W4404450546
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'
