@@ -1,0 +1,46 @@
+id: resource:arxiv:2402.04559
+resource_type: preprint
+title: Can Large Language Model Agents Simulate Human Trust Behavior?
+abstract: 'Large Language Model (LLM) agents have been increasingly adopted as simulation
+  tools to model humans in social science and role-playing applications. However, one fundamental
+  question remains: can LLM agents really simulate human behavior? In this paper, we focus
+  on one critical and elemental behavior in human interactions, trust, and investigate whether
+  LLM agents can simulate human trust behavior. We first find that LLM agents generally exhibit
+  trust behavior, referred to as agent trust, under the framework of Trust Games, which are
+  widely recognized in behavioral economics. Then, we discover that GPT-4 agents manifest
+  high behavioral alignment with humans in terms of trust behavior, indicating the feasibility
+  of simulating human trust behavior with LLM agents. In addition, we probe the biases of
+  agent trust and differences in agent trust towards other LLM agents and humans. We also
+  explore the intrinsic properties of agent trust under conditions including external manipulations
+  and advanced reasoning strategies. Our study provides new insights into the behaviors of
+  LLM agents and the fundamental analogy between LLMs and humans beyond value alignment. We
+  further illustrate broader implications of our discoveries for applications where trust
+  is paramount.'
+authors:
+- Chengxing Xie
+- Canyu Chen
+- Feiran Jia
+- Ziyu Ye
+- Shiyang Lai
+- Kai Shu
+- Jindong Gu
+- Adel Bibi
+- Ziniu Hu
+- David Jurgens
+- James Evans
+- Philip Torr
+- Bernard Ghanem
+- Guohao Li
+published_at: '2024-02-07'
+url: https://arxiv.org/abs/2402.04559
+doi: 10.48550/arXiv.2402.04559
+arxiv_id: '2402.04559'
+openalex_id: W4391673229
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

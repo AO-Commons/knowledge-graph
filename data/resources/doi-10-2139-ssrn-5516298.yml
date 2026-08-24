@@ -1,0 +1,30 @@
+id: resource:doi:10-2139-ssrn-5516298
+resource_type: preprint
+title: 'Building the Loop: The Role of Ethnography in Artificial Organisational Intelligence'
+authors:
+- Ellie Rennie
+- Kelsie Nabben
+- Michael Zargham
+- Jason Potts
+- Brooke Ann Coco
+- Luke E. Miller
+- Matthew James Green
+organizations:
+- ARC Centre of Excellence for Environmental Decisions
+- Alfaisal University
+- European University Institute
+- InterScience (United States)
+- RMIT Europe
+- RMIT University
+published_at: '2025-01-01'
+url: https://doi.org/10.2139/ssrn.5516298
+doi: 10.2139/ssrn.5516298
+openalex_id: W4414870242
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

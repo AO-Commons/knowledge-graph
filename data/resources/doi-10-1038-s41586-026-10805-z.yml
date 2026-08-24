@@ -1,0 +1,21 @@
+id: resource:doi:10-1038-s41586-026-10805-z
+resource_type: peer-reviewed-paper
+title: Agentic profiles for effective AI governance
+authors:
+- Atoosa Kasirzadeh
+- Iason Gabriel
+organizations:
+- Carnegie Mellon University
+- Google (United Kingdom)
+published_at: '2026-08-12'
+url: https://doi.org/10.1038/s41586-026-10805-z
+doi: 10.1038/s41586-026-10805-z
+openalex_id: W7202301340
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

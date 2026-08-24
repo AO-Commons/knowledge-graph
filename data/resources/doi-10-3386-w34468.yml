@@ -1,0 +1,38 @@
+id: resource:doi:10-3386-w34468
+resource_type: technical-report
+title: The Coasean Singularity? Demand, Supply, and Market Design with AI Agents
+abstract: 'AI agents-autonomous systems that perceive, reason, and act on behalf of human
+  principals-are poised to transform digital markets by dramatically reducing transaction
+  costs.This chapter evaluates the economic implications of this transition, adopting a consumer-oriented
+  view of agents as market participants that can search, negotiate, and transact directly.From
+  the demand side, agent adoption reflects derived demand: users trade off decision quality
+  against effort reduction, with outcomes mediated by agent capability and task context.On
+  the supply side, firms will design, integrate, and monetize agents, with outcomes hinging
+  on whether agents operate within or across platforms.At the market level, agents create
+  efficiency gains from lower search, communication, and contracting costs, but also introduce
+  frictions such as congestion and price obfuscation.By lowering the costs of preference elicitation,
+  contract enforcement, and identity verification, agents expand the feasible set of market
+  designs but also raise novel regulatory challenges.While the net welfare effects remain
+  an empirical question, the rapid onset of AI-mediated transactions presents a unique opportunity
+  for economic research to inform real-world policy and market design.'
+authors:
+- Peyman Shahidi
+- Gili Rusak
+- Benjamin Manning
+- Andrey Fradkin
+- John Horton
+organizations:
+- Harvard University Press
+- Massachusetts Institute of Technology
+published_at: '2025-11-01'
+url: https://doi.org/10.3386/w34468
+doi: 10.3386/w34468
+openalex_id: W4416085266
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: technical-report
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'

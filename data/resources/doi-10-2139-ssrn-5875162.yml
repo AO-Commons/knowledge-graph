@@ -1,0 +1,24 @@
+id: resource:doi:10-2139-ssrn-5875162
+resource_type: preprint
+title: Agentic Interactions
+authors:
+- Alex Imas
+- Kevin Lee
+- Sanjog Misra
+organizations:
+- Ross School
+- University of Chicago
+- University of Michigan
+- Woodlawn School
+published_at: '2025-01-01'
+url: https://doi.org/10.2139/ssrn.5875162
+doi: 10.2139/ssrn.5875162
+openalex_id: W4417127952
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-08-24'
