@@ -53,9 +53,8 @@ authors:
 - Fernando P. Santos
 organizations:
 - Département d'Informatique
-- Google (United Kingdom)
-- Google (United States)
-- Google DeepMind (United Kingdom)
+- Google
+- Google DeepMind
 - Laboratoire d'Informatique de Paris-Nord
 - Max Planck Institute for Evolutionary Biology
 - Princeton University
@@ -74,3 +73,40 @@ organizations:
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: cafd994bed0b99248058c1655a6e57464db158b4
+affiliations:
+  Wolfram Barfuss:
+  - University of Bonn
+  Jessica C. Flack:
+  - Santa Fe Institute
+  Chaitanya S. Gokhale:
+  - Max Planck Institute for Evolutionary Biology
+  Lewis Hammond:
+  - University of Oxford
+  Christian Hilbe:
+  - Max Planck Institute for Evolutionary Biology
+  Edward Hughes:
+  - Google
+  - Google DeepMind
+  Joel Z. Leibo:
+  - Google
+  - Google DeepMind
+  Tom Lenaerts:
+  - Université Libre de Bruxelles
+  - Vrije Universiteit Brussel
+  - University of California System
+  - Laboratoire d'Informatique de Paris-Nord
+  - Département d'Informatique
+  - University of California, Berkeley
+  Naomi Ehrich Leonard:
+  - Princeton University
+  Simon A. Levin:
+  - Princeton University
+  Udari Madhushani:
+  - Stanford University
+  Alex McAvoy:
+  - University of North Carolina at Chapel Hill
+  - Toronto Metropolitan University
+  Janusz M Meylahn:
+  - University of Twente
+  Fernando P. Santos:
+  - University of Amsterdam

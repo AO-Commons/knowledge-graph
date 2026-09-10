@@ -40,7 +40,18 @@ authors:
 - Luke Miller
 - Matthew Green
 organizations:
-- Automated Precision (United States)
+- Automated Precision
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: 1eda0d82fe7c6d5e928b1fa26cf62c44b978b4e5
+affiliations:
+  Ellie Rennie:
+  - Automated Precision
+  Kelsie Nabben:
+  - Automated Precision
+  Jason Potts:
+  - Automated Precision
+  Brooke Ann Coco:
+  - Automated Precision
+  Matthew Green:
+  - Automated Precision

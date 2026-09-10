@@ -26,8 +26,8 @@ authors:
 - Matthew Botvinick
 - Christopher Summerfield
 organizations:
-- Google (United Kingdom)
-- Google DeepMind (United Kingdom)
+- Google
+- Google DeepMind
 - Harvard University
 - University of Oxford
 - Yale University
@@ -44,3 +44,43 @@ source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identi
   resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
 ingested_at: '2026-08-24'
 semantic_scholar_id: 5456e833710dba2bb3ae92621fa89c27733b1db0
+affiliations:
+  Michael Henry Tessler:
+  - Google DeepMind
+  - Google
+  Michiel A. Bakker:
+  - Google DeepMind
+  - Google
+  Daniel Jarrett:
+  - Google DeepMind
+  - Google
+  Hannah Sheahan:
+  - Google DeepMind
+  - Google
+  Martin J. Chadwick:
+  - Google DeepMind
+  - Google
+  Raphaël Koster:
+  - Google DeepMind
+  - Google
+  Geoff Evans:
+  - Google DeepMind
+  - Google
+  Lucy Campbell-Gillingham:
+  - Google DeepMind
+  - Google
+  Tantum Collins:
+  - Google DeepMind
+  - Google
+  David C. Parkes:
+  - Harvard University
+  - Google DeepMind
+  - Google
+  Matthew Botvinick:
+  - Yale University
+  - Google DeepMind
+  - Google
+  Christopher Summerfield:
+  - University of Oxford
+  - Google DeepMind
+  - Google

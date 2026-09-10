@@ -6,7 +6,7 @@ authors:
 - Iason Gabriel
 organizations:
 - Carnegie Mellon University
-- Google (United Kingdom)
+- Google
 published_at: '2026-08-12'
 url: https://doi.org/10.1038/s41586-026-10805-z
 doi: 10.1038/s41586-026-10805-z
@@ -20,3 +20,9 @@ source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identi
   resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
 ingested_at: '2026-08-24'
 semantic_scholar_id: 8ced0f78d766ff861300f62846d025cd28fe7579
+affiliations:
+  Atoosa Kasirzadeh:
+  - Google
+  - Carnegie Mellon University
+  Iason Gabriel:
+  - Google

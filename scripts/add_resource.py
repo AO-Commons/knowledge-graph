@@ -297,6 +297,32 @@ TYPES = {
 }
 
 
+def _fold_orgs(names: list[str]) -> list[str]:
+    """Country-suffix variants collapsed; genuinely different places kept."""
+    from ao_commons_kg.organizations import apply_index, build_index, load_registry
+    registry = load_registry()
+    return apply_index(names, build_index(names, registry))
+
+
+def _affiliations(work) -> dict:
+    """Author -> their own organizations, from the paired authorships.
+
+    Empty when the source did not report any, rather than a key with an
+    empty list: OpenAlex omits affiliation often, and "unaffiliated" is a
+    claim we would be making up.
+    """
+    if not work or not getattr(work, "authorships", None):
+        return {}
+    from ao_commons_kg.organizations import apply_index, build_index, load_registry
+    registry = load_registry()
+    everything = [i for a in work.authorships for i in a.institutions]
+    index = build_index(everything, registry)
+    return {
+        a.name: apply_index(list(a.institutions), index)
+        for a in work.authorships if a.institutions
+    }
+
+
 def _slug(text: str) -> str:
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", text.lower())).strip("-")
 
@@ -430,7 +456,8 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
         # freshly fetched byline is folded onto the spellings already held
         # rather than introducing a second one.
         "authors": apply_index(authors, known_names or {}),
-        "organizations": list(work.institutions) if work else [],
+        "organizations": _fold_orgs(list(work.institutions) if work else []),
+        "affiliations": _affiliations(work),
         "published_at": (work.publication_date if work else None) or None,
         "url": url,
         "doi": doi,

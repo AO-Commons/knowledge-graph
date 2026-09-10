@@ -82,3 +82,48 @@ source_provenance: 'admitted automatically at generation 1 by citation expansion
   as machine-resolved, so the scope judgement here is a model''s until a person confirms it.'
 ingested_at: '2026-09-10'
 expansion_generation: 1
+affiliations:
+  Alan Chan:
+  - Université de Montréal
+  Rebecca Salganik:
+  - Université de Montréal
+  Alva Markelius:
+  - University of Cambridge
+  Chris Pang:
+  - University of Cambridge
+  Nitarshan Rajkumar:
+  - University of Cambridge
+  Dmitrii Krasheninnikov:
+  - University of Cambridge
+  Lauro Langosco:
+  - University of Cambridge
+  Zhonghao He:
+  - University of Cambridge
+  Yawen Duan:
+  - University of Cambridge
+  Micah Carroll:
+  - University of California, Berkeley
+  Michelle Lin:
+  - McGill University
+  Alex Mayhew:
+  - Western University
+  Katherine M. Collins:
+  - University of Cambridge
+  Maryam Molamohammadi:
+  - Mila - Quebec Artificial Intelligence Institute
+  John Burden:
+  - University of Cambridge
+  Wanru Zhao:
+  - University of Cambridge
+  Shalaleh Rismani:
+  - McGill University
+  Konstantinos Voudouris:
+  - University of Cambridge
+  Umang Bhatt:
+  - University of Cambridge
+  Adrian Weller:
+  - University of Cambridge
+  David Krueger:
+  - University of Cambridge
+  Tegan Maharaj:
+  - University of Toronto

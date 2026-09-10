@@ -16,7 +16,7 @@ authors:
 - Marc Lanctot
 - Thore Graepel
 organizations:
-- Google (United States)
+- Google
 published_at: '2019-03-02'
 url: https://arxiv.org/abs/1903.00742
 doi: 10.48550/arXiv.1903.00742
@@ -32,3 +32,6 @@ review_status: unreviewed
 source_provenance: 'added automatically from issue #7 by @sam-mccarthy07; identity and byline
   resolved against OpenAlex. topic tags are the contributor''s own, confirmed but unreviewed.'
 ingested_at: '2026-08-20'
+affiliations:
+  Joel Z. Leibo:
+  - Google

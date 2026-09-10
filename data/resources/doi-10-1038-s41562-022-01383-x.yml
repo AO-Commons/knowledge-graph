@@ -25,7 +25,7 @@ authors:
 - Christopher Summerfield
 organizations:
 - Gatsby Computational Neuroscience Unit
-- Google DeepMind (United Kingdom)
+- Google DeepMind
 - University College London
 - University of Exeter
 - University of Oxford
@@ -42,3 +42,29 @@ source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identi
   resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
 ingested_at: '2026-08-24'
 semantic_scholar_id: 7c6df3796b42a171b2958d7d493bd90ae550e222
+affiliations:
+  Raphaël Koster:
+  - Google DeepMind
+  Jan Balaguer:
+  - Google DeepMind
+  Andrea Tacchetti:
+  - Google DeepMind
+  Ari Weinstein:
+  - Google DeepMind
+  Tina Zhu:
+  - Google DeepMind
+  Oliver Hauser:
+  - University of Exeter
+  Duncan Williams:
+  - Google DeepMind
+  Lucy Campbell-Gillingham:
+  - Google DeepMind
+  Phoebe Thacker:
+  - Google DeepMind
+  Matthew Botvinick:
+  - Google DeepMind
+  - Gatsby Computational Neuroscience Unit
+  - University College London
+  Christopher Summerfield:
+  - University of Oxford
+  - Google DeepMind

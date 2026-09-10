@@ -38,9 +38,16 @@ authors:
 - Austin C. Kozlowski
 - James A. Evans
 organizations:
-- Google (United States)
+- Google
 - Santa Fe Institute
 - University of Chicago
 is_open_access: false
 is_retracted: false
 semantic_scholar_id: 41d839d4a5e49d8738d82faacfee39186c438b30
+affiliations:
+  Austin C. Kozlowski:
+  - University of Chicago
+  James A. Evans:
+  - Google
+  - Santa Fe Institute
+  - University of Chicago

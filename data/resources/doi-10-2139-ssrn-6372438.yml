@@ -26,7 +26,23 @@ authors:
 - Joel Z. Leibo
 - Simon Osindero
 organizations:
-- Google (United States)
-- Google DeepMind (United Kingdom)
+- Google
+- Google DeepMind
 is_open_access: true
 is_retracted: false
+affiliations:
+  Matija Franklin:
+  - Google
+  - Google DeepMind
+  Nenad Tomašev:
+  - Google
+  - Google DeepMind
+  Julian Jacobs:
+  - Google
+  - Google DeepMind
+  Joel Z. Leibo:
+  - Google
+  - Google DeepMind
+  Simon Osindero:
+  - Google
+  - Google DeepMind

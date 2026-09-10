@@ -300,6 +300,19 @@ class Resource:
     Carried through from curation rather than recomputed: a tool entry
     asserting that agents cannot exceed a budget needs the document that
     shows it, and that citation should survive the trip into the graph."""
+    affiliations: dict[str, list[str]] = field(default_factory=dict)
+    """Author name -> the organizations credited to that author.
+
+    `organizations` is the flattened view and stays, because most callers
+    want "which places touched this paper". This is the one that has not
+    lost the pairing, and it is what makes "who works on inter-agent trust,
+    and where" answerable.
+
+    Keys are bylines as the record spells them, so they join to `authors`
+    and to the people graph without a second identity scheme. An author
+    with no institution reported is absent rather than present-and-empty —
+    OpenAlex omits affiliation often enough that an empty list would read
+    as "unaffiliated" when it means "not recorded"."""
     source_provenance: str | None = None
     ingested_at: str | None = None
     expansion_generation: int = 0

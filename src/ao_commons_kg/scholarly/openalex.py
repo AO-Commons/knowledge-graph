@@ -96,6 +96,27 @@ class Work:
     is_retracted: bool | None = None
     referenced_works: list[str] = field(default_factory=list)
     type: str | None = None
+    authorships: list[Authorship] = field(default_factory=list)
+    """Bylines with their own institutions. `authors` and `institutions`
+    stay as the flattened views because plenty of callers only want a list
+    of names, but this is the one that has not lost anything."""
+
+
+@dataclass(frozen=True)
+class Authorship:
+    """One byline and the institutions credited to *that* author.
+
+    The pairing is the point. OpenAlex reports institutions per authorship
+    and this parser used to append names to one list and institutions to
+    another, so a paper with a DeepMind author and a Berkeley author came
+    out as two names and two places with nothing joining them. "Who works
+    on inter-agent trust, and where" was unanswerable from data we had
+    already fetched.
+    """
+
+    name: str
+    institutions: tuple[str, ...] = ()
+    is_corresponding: bool = False
 
 
 def _abstract(inverted: dict | None) -> str | None:
@@ -119,13 +140,23 @@ def parse_work(payload: dict) -> Work:
     if doi and doi.lower().startswith("10.48550/arxiv."):
         arxiv_id = doi.split(".", 2)[-1]
 
-    authors, institutions = [], []
-    for authorship in payload.get("authorships") or []:
-        if name := (authorship.get("author") or {}).get("display_name"):
+    authors, institutions, authorships = [], [], []
+    for entry in payload.get("authorships") or []:
+        name = (entry.get("author") or {}).get("display_name")
+        places = tuple(
+            display for institution in entry.get("institutions") or []
+            if (display := institution.get("display_name"))
+        )
+        if name:
             authors.append(name)
-        for institution in authorship.get("institutions") or []:
-            if display := institution.get("display_name"):
-                institutions.append(display)
+            authorships.append(Authorship(
+                name=name, institutions=places,
+                is_corresponding=bool(entry.get("is_corresponding")),
+            ))
+        institutions.extend(places)
+    # De-duplicated but order-preserving: the flattened view should not
+    # repeat a place once per author who works there.
+    institutions = list(dict.fromkeys(institutions))
 
     return Work(
         openalex_id=short_id(payload.get("id")) or "",
@@ -141,6 +172,7 @@ def parse_work(payload: dict) -> Work:
         is_retracted=payload.get("is_retracted"),
         referenced_works=[short_id(w) for w in payload.get("referenced_works") or [] if w],
         type=payload.get("type"),
+        authorships=authorships,
     )
 
 

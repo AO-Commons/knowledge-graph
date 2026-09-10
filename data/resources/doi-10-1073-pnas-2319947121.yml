@@ -42,9 +42,8 @@ authors:
 - William A. Cunningham
 - Joel Z. Leibo
 organizations:
-- Google (United Kingdom)
-- Google (United States)
-- Google DeepMind (United Kingdom)
+- Google
+- Google DeepMind
 - Institute for Technology & Society
 - Schwartz/Reisman Emergency Medicine Institute
 - University of Toronto
@@ -52,3 +51,18 @@ organizations:
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: 2c74e712000a2ebb82f7d8be3e108977063aa3ec
+affiliations:
+  Raphaël Koster:
+  - Google
+  - Google DeepMind
+  Edgar A. Duéñez-Guzmán:
+  - Google
+  - Google DeepMind
+  William A. Cunningham:
+  - University of Toronto
+  - Vector Institute
+  - Institute for Technology & Society
+  - Schwartz/Reisman Emergency Medicine Institute
+  Joel Z. Leibo:
+  - Google
+  - Google DeepMind

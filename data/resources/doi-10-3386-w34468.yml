@@ -37,3 +37,12 @@ source_provenance: 'added automatically from issue #0 by @sam-mccarthy07; identi
   resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
 ingested_at: '2026-08-24'
 semantic_scholar_id: 3d1af2b568befffd15616d38291dafc5d92c8c94
+affiliations:
+  Peyman Shahidi:
+  - Massachusetts Institute of Technology
+  Gili Rusak:
+  - Harvard University Press
+  Benjamin Manning:
+  - Massachusetts Institute of Technology
+  John Horton:
+  - Massachusetts Institute of Technology

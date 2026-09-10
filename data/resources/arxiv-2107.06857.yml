@@ -43,7 +43,26 @@ abstract: Existing evaluation suites for multi-agent reinforcement learning (MAR
   and demonstrate how Melting Pot reveals weaknesses not apparent from training performance
   alone.
 organizations:
-- Google (United States)
-- Google DeepMind (United Kingdom)
+- Google
+- Google DeepMind
 is_open_access: true
 is_retracted: false
+affiliations:
+  Joel Z. Leibo:
+  - Google DeepMind
+  Edgar Duéñez-Guzmán:
+  - Google DeepMind
+  Alexander Sasha Vezhnevets:
+  - Google DeepMind
+  John P. Agapiou:
+  - Google DeepMind
+  Raphaël Koster:
+  - Google DeepMind
+  Jayd Matyas:
+  - Google DeepMind
+  Charles Beattie:
+  - Google DeepMind
+  Igor Mordatch:
+  - Google
+  Thore Graepel:
+  - Google DeepMind

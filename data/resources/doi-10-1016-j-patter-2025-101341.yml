@@ -43,3 +43,10 @@ organizations:
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: c14c3c7481f42165a6ef8814d547babfe8cb5ae7
+affiliations:
+  Noam Kolt:
+  - Hebrew University of Jerusalem
+  Michal Shur‐Ofry:
+  - Hebrew University of Jerusalem
+  Reuven Cohen:
+  - Bar-Ilan University
