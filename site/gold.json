@@ -1,3 +1,12 @@
 {
-  "records": {}
+  "records": {
+    "resource:arxiv:2506.12469": {
+      "note": "filed as 1.1.2 in issue #1 on 2026-08-13, before the 20 August collapse demoted the leaf layer. Remapped to its surviving parent: 1.1.2 was 'Taxonomies of organizational autonomy levels', which is now a note under 1.1 rather than a code, and 1.1 is where that judgement belongs.",
+      "reviewed_on": "2026-08-13",
+      "reviewer": "ankeliu",
+      "topics": [
+        "1.1"
+      ]
+    }
+  }
 }
