@@ -72,6 +72,19 @@ THE SCOPE TEST
 THE EXCLUSION REGISTER — these were deliberately removed and must stay out:
 {_exclusion_register()}
 
+HOW THE REGISTER'S DELIBERATIVE-DEMOCRACY LINE IS READ (settled 2026-09-10)
+That line excludes human collective decision-making that would be the same
+without machines. It does **not** exclude human-AI hybrid decision-making, where
+a machine drafts, mediates, advises, or designs the mechanism and humans decide.
+The first generation of agentic organizations is overwhelmingly hybrid, so how
+authority is shared between people and machines is the live design question
+rather than an adjacent one.
+
+The test is whether removing the machine would leave the finding intact. A study
+of deliberation quality that happens to use software is out. A study of what
+changes when an AI drafts the group's position, or designs the rule people then
+ratify, is in.
+
 THE CANDIDATE
 Title: {metadata.get('title') or '(unknown)'}
 Venue/date: {metadata.get('venue') or '?'} {metadata.get('date') or ''}

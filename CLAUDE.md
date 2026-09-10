@@ -20,6 +20,23 @@ Three structures, implemented differently:
 
 When the corpus reveals a gap: try aliases, then multi-tagging across existing topics, then a cross-link, and only then propose a new topic. **Never expand the taxonomy because a model invented a concept.**
 
+## Scoping precedents
+
+Decisions about the boundary, recorded so they are not re-litigated and so the
+automatic scope scan enforces the same line a person drew.
+
+**Human-AI hybrid decision-making is in scope** (2026-09-10, issue #15). The
+exclusion register removes "political theory, social choice, deliberative
+democracy" as human collective decision theory. That covers work unchanged by
+the presence of machines. It does not cover work where a machine drafts,
+mediates, advises, or designs the mechanism people then ratify. The first
+generation of agentic organizations is overwhelmingly hybrid, so how authority
+is shared between people and machines is the live design question.
+
+The test: would removing the machine leave the finding intact? A study of
+deliberation quality that happens to use software is out. A study of what
+changes when an AI drafts the group's position is in.
+
 ## Enforce the scope test
 
 > An item belongs if it would change how you design, operate, oversee, or hold accountable an organization where agents act with real authority.
