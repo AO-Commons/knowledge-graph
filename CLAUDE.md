@@ -42,7 +42,11 @@ If you cannot say where an edge came from, do not add the edge.
 
 Three node families: Resource, Topic, Entity. One generic Entity with an `entity_type`, not a node family per concept. A dozen relationship types, not fifty. SQLite or Postgres, not a graph database. No vector store unless measurement shows it improves retrieval.
 
-Do not build in V1: a universal ontology, claim/warrant graphs, reputation systems, a custom graph or vector database, a general research agent, or full-text ingestion of whole corpora.
+Do not build in V1: a universal ontology, reputation systems, a custom graph or vector database, a general research agent, or full-text ingestion of whole corpora.
+
+**Claim-to-claim relations are now in scope, narrowly.** This line used to rule out claim/warrant graphs outright. Two researchers independently asked for the same thing — find who has already argued X, and show where the corpus disagrees with itself — and neither is answerable while claims connect only to their own paper and to topics. What is built is four relations named after CiTO (`SUPPORTS`, `DISAGREES_WITH`, `QUALIFIES`, `EXTENDS_CLAIM`), asserted by a person, each carrying a confidence class and its reasoning. What is still ruled out is the rest of Toulmin: no warrants, no backing, no rebuttal nodes, and no scheme that needs a node family of its own.
+
+Concepts are a vocabulary, not a fourth node family. A concept tag says what a claim argues about; the taxonomy still says where a record is filed. The concept layer grows bottom-up from claims and the taxonomy stays top-down and stable, which is what lets a specific term be cheap and a topic code stay expensive.
 
 Prefer deleting complexity over preserving an elegant architecture.
 

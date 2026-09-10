@@ -1,0 +1,148 @@
+# How claims relate to each other.
+#
+# Kept in one file rather than inside each paper's claims, because a relation
+# belongs to neither end. Filing it under the source would make the corpus
+# read differently depending on which paper you opened.
+#
+# Every relation here is an INFERRED edge. No source says "claim A disagrees
+# with claim B" — a person read both and decided. So each carries a
+# confidence class and its reasoning in `because`, exactly as an extraction
+# carries its quote. An edge here that looked deterministic would be
+# asserting a judgement nobody made.
+#
+# Relation names follow CiTO (Shotton, 2010) so they mean what a reader
+# outside this project expects:
+#
+#   SUPPORTS        the source is evidence for the target
+#   DISAGREES_WITH  the two cannot both hold as stated
+#   QUALIFIES       the source narrows or conditions the target, not denying it
+#   EXTENDS_CLAIM   the source takes the target further, or generalises it
+#
+# Direction is source -> target and it matters: A supports B is not B
+# supports A.
+
+relations:
+
+  # ---------------------------------------------------------------------
+  # Thread A — is Melting Pot's evaluation valid?
+  #
+  # Three papers, one argument, escalating from an empirical observation
+  # about one competition to a claim about a whole class of evaluation.
+  # This is the thread that shows the layer is worth having: none of these
+  # papers cites a shared conclusion, and no keyword search puts them
+  # together.
+  # ---------------------------------------------------------------------
+
+  - source: claim:arxiv:2509.14485:5
+    target: claim:arxiv:2107.06857:14
+    relation: DISAGREES_WITH
+    confidence_class: INFERRED
+    because: >-
+      Melting Pot's authors expect the suite to get harder as better agents
+      are folded into its background populations. Beyond the High Score finds
+      that leading submissions exploited a weakness in the framework instead.
+      A suite that can be gamed does not get harder by absorbing stronger
+      agents; it absorbs stronger exploitation.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2509.14485:4
+    target: claim:arxiv:2107.06857:8
+    relation: QUALIFIES
+    confidence_class: INFERRED
+    because: >-
+      Melting Pot claims to reveal weaknesses that training performance alone
+      does not show. That holds, but Beyond the High Score finds top
+      submissions scored highest precisely where prosocial capability was not
+      required — so what the suite reveals is not uniformly what it was built
+      to reveal. A narrowing, not a contradiction.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2509.14485:5
+    target: claim:arxiv:2509.14485:4
+    relation: SUPPORTS
+    confidence_class: INFERRED
+    because: >-
+      Within one paper: the finding that submissions exploited a framework
+      weakness is the mechanism explaining why they scored highest where
+      prosocial capability was not demanded.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2606.03237:6
+    target: claim:arxiv:2509.14485:5
+    relation: EXTENDS_CLAIM
+    confidence_class: INFERRED
+    because: >-
+      Beyond the High Score reports gaming in one competition. Solipsistic
+      Superintelligence argues no existing evaluation approach meets the
+      requirements for valid dynamic evaluation at all — the same failure,
+      generalised from an instance to the class.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2606.03237:3
+    target: claim:arxiv:2606.03237:6
+    relation: SUPPORTS
+    confidence_class: INFERRED
+    because: >-
+      Within one paper: deployment inducing endogenous non-stationarity is
+      the premise from which the insufficiency of current evaluation follows.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  # ---------------------------------------------------------------------
+  # Thread B — is reputation usable for machine agents?
+  #
+  # Two papers that reach compatible recommendations from incompatible
+  # premises. One treats reputation as the weakest of six available tools;
+  # the other argues its precondition does not exist for LM agents at all.
+  # ---------------------------------------------------------------------
+
+  - source: claim:arxiv:2605.30169:4
+    target: claim:arxiv:2511.03434:6
+    relation: EXTENDS_CLAIM
+    confidence_class: INFERRED
+    because: >-
+      Inter-Agent Trust Models demotes reputation: gate high-impact actions
+      by Proof and Stake instead. Dissociative Identity goes further — for
+      agents without persistent identity, reputation signals are actively
+      harmful rather than merely weak. Same direction, stronger claim.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2605.30169:1
+    target: claim:arxiv:2605.30169:4
+    relation: SUPPORTS
+    confidence_class: INFERRED
+    because: >-
+      Within one paper: reputation presupposing persistent identity, sanction
+      sensitivity and costly non-fungibility is the premise; harm from
+      reputation signals for dissociative agents is what follows when the
+      presupposition fails.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2605.30169:5
+    target: claim:arxiv:2511.03434:7
+    relation: QUALIFIES
+    confidence_class: INFERRED
+    because: >-
+      Tiering verification to stakes assumes there is a principal to verify
+      and to sanction. Dissociative Identity argues identity-based ex post
+      governance is structurally inapplicable to LM agents, which conditions
+      where the tiering recommendation can apply rather than refuting it.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"
+
+  - source: claim:arxiv:2605.30169:2
+    target: claim:arxiv:2605.30169:3
+    relation: SUPPORTS
+    confidence_class: INFERRED
+    because: >-
+      Within one paper: agents being assemblages of mutable modules is the
+      observation; the loss of grounding for identifiability, predictability,
+      credibility and rehabilitability is the consequence drawn from it.
+    asserted_by: ankeliu
+    asserted_on: "2026-09-10"

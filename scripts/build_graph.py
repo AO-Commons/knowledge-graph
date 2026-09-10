@@ -24,7 +24,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
-from ao_commons_kg.claims import claim_edges, load_claims  # noqa: E402
+from ao_commons_kg.claims import (  # noqa: E402
+    claim_edges, load_claim_relations, load_claims,
+)
 from ao_commons_kg.graph import similarity_edges  # noqa: E402
 from ao_commons_kg.models import RelationType  # noqa: E402
 from ao_commons_kg.resources import load_resources, tagged_edges  # noqa: E402
@@ -162,6 +164,15 @@ def build() -> dict:
         {"source": e.source_id, "target": e.target_id,
          "kind": "claim" if e.relation is RelationType.MAKES_CLAIM else "about"}
         for e in claim_edges(claims, topic_codes=codes)
+    ]
+    # Claim to claim. Drawn apart from everything else because it is the only
+    # edge here that is nobody's observation — a person read two statements
+    # and decided they conflict. `because` rides along so the page can show
+    # the reasoning rather than a bare line between two nodes.
+    edges += [
+        {"source": e.source_id, "target": e.target_id, "kind": "relates",
+         "relation": e.relation.value, "because": e.source_location or ""}
+        for e in load_claim_relations(claims=claims)
     ]
 
     # An edge to a node that is not in the graph makes the layout throw rather

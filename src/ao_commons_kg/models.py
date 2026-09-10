@@ -102,6 +102,30 @@ class RelationType(str, Enum):
     BELONGS_TO_TOPIC = "BELONGS_TO_TOPIC"
     RELATED_TO = "RELATED_TO"
     EXTENDS = "EXTENDS"
+    # Claim to claim. Named after CiTO (Shotton, 2010) rather than invented,
+    # so the edges mean what a reader outside this project expects and the
+    # edge cases were argued about by somebody else first. Four, not CiTO's
+    # forty — "a dozen relationship types, not fifty".
+    SUPPORTS = "SUPPORTS"
+    """cito:supports — this claim is evidence for that one."""
+    DISAGREES_WITH = "DISAGREES_WITH"
+    """cito:disagreesWith — the two cannot both hold as stated."""
+    QUALIFIES = "QUALIFIES"
+    """cito:qualifies — narrows or conditions the other, without denying it."""
+    EXTENDS_CLAIM = "EXTENDS_CLAIM"
+    """cito:extends — takes the other further, or generalises it."""
+
+
+CLAIM_RELATIONS = frozenset({
+    RelationType.SUPPORTS,
+    RelationType.DISAGREES_WITH,
+    RelationType.QUALIFIES,
+    RelationType.EXTENDS_CLAIM,
+})
+"""Relations that hold between two claims. Every one is an inference — no
+source states "claim A disagrees with claim B" — so each must carry a
+confidence class and its reasoning, exactly like an extraction. An edge here
+that looked deterministic would be asserting a judgement nobody made."""
 
 
 DETERMINISTIC_RELATIONS = frozenset(
@@ -317,6 +341,29 @@ class Resource:
         return _drop_empty(payload)
 
 
+class Attribution(str, Enum):
+    """Whose claim this is: the paper's own, or one it reports from elsewhere.
+
+    Argumentative Zoning's OWN/OTHER distinction (Teufel & Moens, 2002), and
+    it is load-bearing rather than tidy. "State-of-the-art agent frameworks
+    exhibit prompt injection, sycophancy and deception" is a sentence in
+    2511.03434, but it is not that paper's finding — it is that paper
+    reporting prior work. Without this field, "who has already said X" returns
+    whoever most recently repeated X, which is the wrong author and the wrong
+    date.
+
+    BACKGROUND claims are where this concentrates: a paper justifies its
+    contribution against the state of the field, and most of that state is
+    somebody else's result.
+    """
+
+    OWN = "own"
+    """The paper asserts this on its own account."""
+    OTHER = "other"
+    """The paper reports this from prior work. `attributed_to` should say
+    whose, when the source names it."""
+
+
 class ClaimType(str, Enum):
     """What kind of statement this is.
 
@@ -388,6 +435,26 @@ class Claim:
     """Where this claim suggests the record belongs. A suggestion and nothing
     more — the record's own `taxonomy_topics` are only ever written by a human
     filing it, so a claim can inform that judgement without becoming it."""
+    concept_tags: list[str] = field(default_factory=list)
+    """Fine-grained concepts this claim argues about, from the concept
+    vocabulary rather than from the taxonomy.
+
+    Two layers on purpose. A topic code says what a claim is *about* and is
+    coarse by design — fifteen of the first forty-five claims sit on 14.1,
+    which tells you they concern capability evaluation and nothing more. A
+    concept tag says what is actually at stake — "evaluation gaming",
+    "sanction sensitivity" — and is what makes two claims from different
+    papers findable as candidates for a relation.
+
+    The vocabulary grows bottom-up from claims, where the taxonomy is
+    top-down and stable. That is the whole point: a new concept is cheap and
+    reversible, a new topic code is neither."""
+    attribution: Attribution = Attribution.OWN
+    """Whose claim this is. See `Attribution` — the OWN/OTHER axis is what
+    keeps attribution honest when a paper reports prior work."""
+    attributed_to: str | None = None
+    """For an OTHER claim, whose it is, when the source says. Free text: this
+    is a pointer for a reader, not a resolved identity."""
     confidence_class: ConfidenceClass = ConfidenceClass.EXTRACTED
     extracted_from: str = "abstract"
     """Which text this was read out of. An abstract states conclusions and
@@ -412,7 +479,14 @@ class Claim:
             self.confidence_class = ConfidenceClass(self.confidence_class)
         if isinstance(self.review_status, str):
             self.review_status = ReviewStatus(self.review_status)
+        if isinstance(self.attribution, str):
+            self.attribution = Attribution(self.attribution)
 
+        if self.attributed_to and self.attribution is Attribution.OWN:
+            raise ValueError(
+                f"claim {self.id}: attributed_to is set but attribution is own — "
+                "a claim cannot be the paper's own and someone else's at once"
+            )
         if not self.quote or not self.quote.strip():
             raise ValueError(
                 f"claim {self.id}: no quote. A claim with no source text cannot be "
@@ -438,6 +512,7 @@ class Claim:
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
         payload["claim_type"] = self.claim_type.value
+        payload["attribution"] = self.attribution.value
         payload["confidence_class"] = self.confidence_class.value
         # Always emitted, as on Resource: an absent field must never have to be
         # read as "unreviewed".

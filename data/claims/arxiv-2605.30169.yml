@@ -3,12 +3,12 @@ claims:
 - id: claim:arxiv:2605.30169:1
   text: Reputation mechanisms presume a persistent identity with behavioural continuity, sanction
     sensitivity and costly non-fungibility.
-  quote: Reputation mechanisms function both as social signals and as corrective feedback
-    that sustain an equilibrium of trustworthy behavior, presuming a persistent identity associated
-    with behavioral continuity, sanction sensitivity, and costly non-fungibility.
+  quote: Reputation mechanisms function both as social signals and as corrective feedback that sustain
+    an equilibrium of trustworthy behavior, presuming a persistent identity associated with behavioral
+    continuity, sanction sensitivity, and costly non-fungibility.
   standalone: The paper's premise is that reputation works as both social signal and corrective
-    feedback only where an identity persists, behaves continuously, is sensitive to sanction,
-    and cannot be cheaply discarded.
+    feedback only where an identity persists, behaves continuously, is sensitive to sanction, and
+    cannot be cheaply discarded.
   claim_type: background
   topic_codes:
   - '5.3'
@@ -16,17 +16,22 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - agent-reputation-systems
+  - sanction-sensitivity
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'
 - id: claim:arxiv:2605.30169:2
-  text: Language model agents are assemblages of mutable modules, any of which may change
-    their behaviour.
-  quote: 'Yet language model agents are ontologically dissociative: they are essentially an
-    assemblage of mutable modules—foundation models, system prompts, tool-access policies,
-    external memory, and, in some cases, a multi-agent system as a whole—any of which may
-    change agent behavior—with a fluid persona that is also vulnerable to adversarial attack
-    and may not internalize sanctions.'
-  standalone: 'The paper characterises LM agents as ontologically dissociative: assemblages
-    of foundation model, system prompt, tool-access policy, external memory and sometimes
-    a whole multi-agent system, any component of which may change the agent''s behaviour.'
+  text: Language model agents are assemblages of mutable modules, any of which may change their
+    behaviour.
+  quote: 'Yet language model agents are ontologically dissociative: they are essentially an assemblage
+    of mutable modules—foundation models, system prompts, tool-access policies, external memory,
+    and, in some cases, a multi-agent system as a whole—any of which may change agent behavior—with
+    a fluid persona that is also vulnerable to adversarial attack and may not internalize sanctions.'
+  standalone: 'The paper characterises LM agents as ontologically dissociative: assemblages of foundation
+    model, system prompt, tool-access policy, external memory and sometimes a whole multi-agent
+    system, any component of which may change the agent''s behaviour.'
   claim_type: finding
   topic_codes:
   - '5.3'
@@ -35,15 +40,20 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - dissociative-agent-identity
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'
 - id: claim:arxiv:2605.30169:3
-  text: Dissociativity leaves agents without grounding for identifiability, predictability,
-    credibility and rehabilitability.
+  text: Dissociativity leaves agents without grounding for identifiability, predictability, credibility
+    and rehabilitability.
   quote: this dissociativity leaves agents without grounding for identifiability, predictability,
-    credibility, and rehabilitability—the very properties that reputation mechanisms aim to
-    sustain—thereby collapsing trust.
-  standalone: Drawing on dissociative identity disorder jurisprudence, the paper argues that
-    the modularity of LM agents removes exactly the four properties reputation mechanisms
-    exist to sustain, collapsing trust.
+    credibility, and rehabilitability—the very properties that reputation mechanisms aim to sustain—thereby
+    collapsing trust.
+  standalone: Drawing on dissociative identity disorder jurisprudence, the paper argues that the
+    modularity of LM agents removes exactly the four properties reputation mechanisms exist to sustain,
+    collapsing trust.
   claim_type: finding
   topic_codes:
   - '5.3'
@@ -52,15 +62,20 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - dissociative-agent-identity
+  - agent-reputation-systems
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'
 - id: claim:arxiv:2605.30169:4
-  text: Reputation signals for dissociative agents become actively harmful rather than merely
-    uninformative.
+  text: Reputation signals for dissociative agents become actively harmful rather than merely uninformative.
   quote: Dissociativity breaks the loop, decoupling credibility from trustworthiness and producing
-    the credibility trap, in which reputation signals become not merely uninformative but
-    actively harmful.
-  standalone: 'The paper names this the credibility trap: because dissociativity decouples
-    credibility from trustworthiness, a reputation signal attached to an LM agent misleads
-    rather than simply failing to inform.'
+    the credibility trap, in which reputation signals become not merely uninformative but actively
+    harmful.
+  standalone: 'The paper names this the credibility trap: because dissociativity decouples credibility
+    from trustworthiness, a reputation signal attached to an LM agent misleads rather than simply
+    failing to inform.'
   claim_type: finding
   topic_codes:
   - '5.3'
@@ -69,15 +84,21 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - agent-reputation-systems
+  - dissociative-agent-identity
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'
 - id: claim:arxiv:2605.30169:5
-  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to
-    language model agents.
-  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such
-    as reputation, is structurally inapplicable to dissociative agents, and we suggest a shift
-    to observability-based, ex ante, constitutive, protocol-based behavioral harnesses.
-  standalone: The paper argues that reputation-style governance — identity-based, applied
-    after the fact, working through sanction — cannot in principle apply to dissociative agents,
-    and that governance should move to observability-based, ex ante, protocol-based harnesses.
+  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to language
+    model agents.
+  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such as reputation,
+    is structurally inapplicable to dissociative agents, and we suggest a shift to observability-based,
+    ex ante, constitutive, protocol-based behavioral harnesses.
+  standalone: The paper argues that reputation-style governance — identity-based, applied after
+    the fact, working through sanction — cannot in principle apply to dissociative agents, and that
+    governance should move to observability-based, ex ante, protocol-based harnesses.
   claim_type: position
   topic_codes:
   - '2.1'
@@ -86,14 +107,19 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - sanction-sensitivity
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'
 - id: claim:arxiv:2605.30169:6
   text: Governance should target the operator and the protocol rather than the agent.
-  quote: Governance must therefore shift from ex post reputation, which rates and punishes
-    after the fact, to ex ante protocol-based harnesses, which constrain and monitor in real
-    time and which target the operator and the protocol rather than the agent.
-  standalone: The paper's conclusion is that governance must shift from rating and punishing
-    agents after the fact to constraining and monitoring in real time, aimed at the operator
-    and the protocol rather than at the agent itself.
+  quote: Governance must therefore shift from ex post reputation, which rates and punishes after
+    the fact, to ex ante protocol-based harnesses, which constrain and monitor in real time and
+    which target the operator and the protocol rather than the agent.
+  standalone: The paper's conclusion is that governance must shift from rating and punishing agents
+    after the fact to constraining and monitoring in real time, aimed at the operator and the protocol
+    rather than at the agent itself.
   claim_type: position
   topic_codes:
   - '2.7'
@@ -102,3 +128,8 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
   review_status: unreviewed
+  attribution: own
+  concept_tags:
+  - sanction-sensitivity
+  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
+    claims cut'

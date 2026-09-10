@@ -1,0 +1,106 @@
+# Concepts the corpus argues about that the taxonomy has no subpoint for.
+#
+# The taxonomy's own 514 subpoints are the bulk of the concept vocabulary and
+# are read straight from the taxonomy file — they are not repeated here. This
+# file holds only what claims needed and the taxonomy did not have.
+#
+# Adding one is meant to be cheap. A concept is not a filing target, nothing
+# is tagged with it by obligation, and removing it later breaks nothing but
+# the claims that used it. That is the opposite of a topic code, which is a
+# stable identifier that other people's filings point at.
+#
+# `topics` says where a concept is reachable from, for navigation only.
+#
+# Watch this file. A concept layer drifting a long way from the taxonomy is
+# evidence about the taxonomy, and the right response is eventually a topic
+# proposal rather than a longer list here.
+
+concepts:
+  - id: dissociative-agent-identity
+    label: Dissociative agent identity
+    topics: ["5.3", "6.3"]
+    origin: claim
+    note: >-
+      An LLM agent is an assemblage of swappable modules, so the persistent
+      identity reputation presumes may not exist. 5.3 covers reputation
+      systems and 6.1 covers identity issuance; neither names the case where
+      identity fails to persist at all.
+    added: "2026-09-10"
+
+  - id: sanction-sensitivity
+    label: Sanction sensitivity
+    topics: ["5.3", "2.7"]
+    origin: claim
+    note: >-
+      Whether a principal can be made worse off by a penalty. A precondition
+      for every ex post governance mechanism, and the thing that is missing
+      when the agent is cheap to replace.
+    added: "2026-09-10"
+
+  - id: endogenous-non-stationarity
+    label: Endogenous non-stationarity
+    topics: ["5.2", "14.3"]
+    origin: claim
+    note: >-
+      Deployment changes the environment the system was evaluated against,
+      because other actors respond. Distinct from ordinary distribution
+      shift: the system's own action is the cause.
+    added: "2026-09-10"
+
+  - id: train-test-deploy-gap
+    label: Train-test-deploy gap
+    topics: ["14.3"]
+    origin: claim
+    note: >-
+      The third term is the new one. Held-out test data still comes from the
+      pre-deployment world.
+    added: "2026-09-10"
+
+  - id: dynamic-evaluation
+    label: Dynamic evaluation
+    topics: ["14.1", "14.3"]
+    origin: claim
+    note: >-
+      Evaluation whose test distribution depends on the policy being
+      evaluated. The proposed answer to endogenous non-stationarity, and
+      what 2606.03237 argues no current suite achieves.
+    added: "2026-09-10"
+
+  - id: prosocial-capability
+    label: Prosocial capability
+    topics: ["5.2", "14.1"]
+    origin: claim
+    note: >-
+      Cooperation, reciprocity and restraint measured as a capability in its
+      own right, separately from task score. The distinction 2509.14485 shows
+      a leaderboard collapses.
+    added: "2026-09-10"
+
+  - id: capability-profiling
+    label: Capability profiling
+    topics: ["14.1"]
+    origin: claim
+    note: >-
+      Inferring a per-ability profile rather than a single score, so that
+      future performance can be predicted per scenario.
+    added: "2026-09-10"
+
+  - id: stake-based-trust
+    label: Stake-based trust
+    topics: ["5.3"]
+    origin: claim
+    note: >-
+      Trust backed by something forfeitable. Sits alongside the reputation
+      systems already at 5.3 and is the mechanism 2511.03434 recommends in
+      their place for high-impact actions.
+    added: "2026-09-10"
+
+  - id: organisational-knowledge-legibility
+    label: Organisational knowledge legibility
+    topics: ["16.1", "2.4"]
+    origin: claim
+    note: >-
+      Making an organisation's routines, rules and tacit know-how
+      machine-readable so they can be governed. The core construct of the
+      Artificial Organisational Intelligence work.
+    added: "2026-09-10"

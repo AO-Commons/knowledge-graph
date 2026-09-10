@@ -27,7 +27,10 @@ from typing import Iterable
 
 import yaml
 
-from .models import Claim, ConfidenceClass, RelationType, Relationship, ReviewStatus
+from .models import (
+    CLAIM_RELATIONS, Claim, ConfidenceClass, RelationType, Relationship,
+    ReviewStatus,
+)
 
 REPO = Path(__file__).resolve().parent.parent.parent
 DEFAULT_DIR = REPO / "data" / "claims"
@@ -189,3 +192,66 @@ def coverage(claims: Iterable[Claim]) -> dict:
         "overstated": len([c for c in reviewed if c.verdict == "overstated"]),
         "not_in_source": len([c for c in reviewed if c.verdict == "not-in-source"]),
     }
+
+
+DEFAULT_RELATIONS = Path(__file__).resolve().parent.parent.parent / "data" / "claim-relations.yml"
+
+
+def load_claim_relations(path: str | Path = DEFAULT_RELATIONS,
+                         claims: Iterable[Claim] | None = None) -> list[Relationship]:
+    """Read the claim-to-claim relations, refusing any that dangle.
+
+    Both endpoints must be claims we actually hold. A relation pointing at a
+    claim id that no longer exists is not a small problem here: the editorial
+    pass cuts claims, and a cut claim leaving a live edge behind would mean
+    the graph asserts a disagreement between a statement and nothing.
+
+    Every relation is inferred, so `because` is required. The reasoning is
+    the provenance — without it, a reader meeting one of these edges has no
+    way to tell a considered judgement from a model's guess, which is the
+    distinction this repository exists to keep.
+    """
+    path = Path(path)
+    if not path.exists():
+        return []
+
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    entries = payload.get("relations") or []
+    known = {c.id for c in claims} if claims is not None else None
+
+    relations: list[Relationship] = []
+    for position, entry in enumerate(entries, start=1):
+        where = f"{path.name} entry {position}"
+        for required in ("source", "target", "relation", "because"):
+            if not entry.get(required):
+                raise ClaimError(f"{where}: missing `{required}`")
+
+        try:
+            relation = RelationType(entry["relation"])
+        except ValueError as error:
+            raise ClaimError(f"{where}: unknown relation {entry['relation']!r}") from error
+        if relation not in CLAIM_RELATIONS:
+            raise ClaimError(
+                f"{where}: {relation.value} is not a claim-to-claim relation; "
+                f"expected one of {sorted(r.value for r in CLAIM_RELATIONS)}")
+
+        if entry["source"] == entry["target"]:
+            raise ClaimError(f"{where}: a claim cannot relate to itself")
+        if known is not None:
+            for end in ("source", "target"):
+                if entry[end] not in known:
+                    raise ClaimError(
+                        f"{where}: {end} {entry[end]!r} is not a claim we hold — "
+                        "it was cut, renamed, or never extracted")
+
+        relations.append(Relationship(
+            source_id=entry["source"],
+            target_id=entry["target"],
+            relation=relation,
+            confidence_class=ConfidenceClass(entry.get("confidence_class", "INFERRED")),
+            source_location=entry["because"],
+            extraction_method=(
+                f"asserted by {entry.get('asserted_by', 'unattributed')}"
+                f" on {entry.get('asserted_on', 'an unrecorded date')}"),
+        ))
+    return relations
