@@ -56,6 +56,11 @@ jobs:
             git pull --rebase origin main || break
           done
 
+      # One standing issue, updated — not a new one every Monday. The
+      # report is a snapshot of what is currently unprofiled, so a second
+      # copy of it is not new information, it is the same backlog again
+      # under a fresh number. Three had accumulated saying the same seven
+      # tools before this was noticed.
       - name: Say what moved
         if: steps.sync.outputs.changed == 'true'
         uses: actions/github-script@v7
@@ -63,9 +68,28 @@ jobs:
           script: |
             const fs = require('fs');
             const body = fs.readFileSync('/tmp/report.md', 'utf8');
-            await github.rest.issues.create({
-              ...context.repo,
-              title: `Builder tooling: upstream moved (${new Date().toISOString().slice(0, 10)})`,
-              labels: ['tooling'],
-              body,
+            const today = new Date().toISOString().slice(0, 10);
+            const { owner, repo } = context.repo;
+
+            const open = await github.rest.issues.listForRepo({
+              owner, repo, labels: 'tooling', state: 'open', per_page: 100,
             });
+            const standing = open.data.find(i => i.title.startsWith('Builder tooling:'));
+
+            if (standing) {
+              await github.rest.issues.update({
+                owner, repo, issue_number: standing.number,
+                title: `Builder tooling: unprofiled upstream entries (as of ${today})`,
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: standing.number,
+                body: `Upstream moved again on ${today}; the list above is refreshed.`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner, repo, labels: ['tooling'],
+                title: `Builder tooling: unprofiled upstream entries (as of ${today})`,
+                body,
+              });
+            }

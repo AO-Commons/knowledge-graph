@@ -1,0 +1,42 @@
+id: resource:arxiv:1810.10862
+resource_type: peer-reviewed-paper
+title: Multiparty Dynamics and Failure Modes for Machine Learning and Artificial Intelligence
+authors:
+- David Manheim
+published_at: '2018-10-16'
+url: https://arxiv.org/abs/1810.10862
+arxiv_id: '1810.10862'
+doi: 10.48550/arXiv.1810.10862
+abstract: 'An important challenge for safety in machine learning and artificial intelligence
+  systems is a~set of related failures involving specification gaming, reward hacking, fragility
+  to distributional shifts, and Goodhart''s or Campbell''s law. This paper presents additional
+  failure modes for interactions within multi-agent systems that are closely related. These
+  multi-agent failure modes are more complex, more problematic, and less well understood than
+  the single-agent case, and are also already occurring, largely unnoticed. After motivating
+  the discussion with examples from poker-playing artificial intelligence (AI), the paper
+  explains why these failure modes are in some senses unavoidable. Following this, the paper
+  categorizes failure modes, provides definitions, and cites examples for each of the modes:
+  accidental steering, coordination failures, adversarial misalignment, input spoofing and
+  filtering, and goal co-option or direct hacking. The paper then discusses how extant literature
+  on multi-agent AI fails to address these failure modes, and identifies work which may be
+  useful for the mitigation of these failure modes.'
+taxonomy_topics:
+- '11.6'
+- '11.13'
+- '5.2'
+description: Early and still-cited taxonomy of multiparty failure modes. Worth reconciling
+  against section 11 alongside Multi-Agent Risks.
+facets:
+  artifact_type: peer-reviewed-paper
+  evidence_strength: empirical-single-study
+  source_independence: independent-academic
+  temporal_relevance: current
+  applicability: background
+is_borrowed_background: false
+review_status: unreviewed
+source_provenance: 'seed corpus v1, curated by hand. Re-filed 2026-09-10: the record was under
+  10.48550/arXiv.1903.09376, which is a different paper entirely (Deep Fictitious Play for
+  Stochastic Differential Games). The taxonomy tags and description are the original curator''s
+  and are carried over; identity and byline are resolved against arXiv 1810.10862, which is
+  this paper. See issue #23.'
+ingested_at: '2026-08-11'
