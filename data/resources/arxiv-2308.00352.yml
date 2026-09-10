@@ -15,8 +15,8 @@ abstract: Remarkable progress has been made on automated problem solving through
   chat-based multi-agent systems. Our project can be found at https://github.com/geekan/MetaGPT
 authors:
 - Sirui Hong
-- Zhuge, Mingchen
-- Chen, Jiaqi
+- Mingchen Zhuge
+- Jiaqi Chen
 - Xiawu Zheng
 - Yuheng Cheng
 - Ceyao Zhang
@@ -28,7 +28,7 @@ authors:
 - Chenyu Ran
 - Lingfeng Xiao
 - Chenglin Wu
-- Schmidhuber, Jürgen
+- Jürgen Schmidhuber
 published_at: '2023-08-01'
 url: https://arxiv.org/abs/2308.00352
 doi: 10.48550/arXiv.2308.00352

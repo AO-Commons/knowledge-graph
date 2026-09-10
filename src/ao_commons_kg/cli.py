@@ -467,9 +467,12 @@ def cmd_grow(args) -> int:
     from datetime import date as _date
 
     _sys.path.insert(0, str(REPO / "scripts"))
-    from add_resource import identify, paper_record, write_record, write_references
+    from add_resource import (
+        identify, likely_same_work, paper_record, write_record, write_references,
+    )
 
     from .expansion import find_candidates, provenance, select
+    from .scholarly import arxiv
     from .scholarly.keys import keys_for_corpus
     from .scholarly.store import ReferenceStore
 
@@ -508,16 +511,37 @@ def cmd_grow(args) -> int:
             print(f"  would consider {candidate.support}x {candidate.key}")
         return 0
 
-    written = 0
+    written = skipped = 0
     for candidate, verdict in selection.admitted:
         try:
             ident = identify(candidate.key.split(":", 1)[1])
             payload, _ = paper_record(
                 ident, {}, topics=[], author="citation-expansion", issue=0,
                 fetch_openalex=fetch_oa, fetch_s2=semanticscholar.http_fetcher(),
-                fetch_arxiv=None)
+                # arXiv last and decisive, exactly as the human paths do it.
+                # Passing None here was a mistake that reintroduced the
+                # comma-byline bug this pipeline already fixed once: OpenAlex
+                # writes "Yao, Shunyu" and only the submission itself gives
+                # "Shunyu Yao". Three of the first eight auto-admitted
+                # records came in wrong, and the Airtable round-trip test —
+                # which splits authors on commas — is what caught it.
+                fetch_arxiv=arxiv.http_fetcher())
         except Exception as error:  # noqa: BLE001 — one bad candidate must not end the run
             print(f"  could not resolve {candidate.key}: {error}")
+            continue
+        # The duplicate check the two human paths run. It is *stricter*
+        # here, and has to be: on those paths the warning goes to a person
+        # who decides, and on this one there is nobody to warn. So a likely
+        # duplicate is skipped rather than written with a note nobody reads.
+        #
+        # The first live run needed this. It admitted the ACM version of
+        # Generative Agents while the corpus already held the arXiv
+        # preprint — different DOIs, so `already_held` could not see it,
+        # and this path was not calling the check that could.
+        if twins := likely_same_work(payload, resources):
+            twin, why = twins[0]
+            print(f"  skipped {payload['title'][:52]}: looks like {twin.id} ({why})")
+            skipped += 1
             continue
         payload["expansion_generation"] = candidate.generation
         payload["source_provenance"] = provenance(candidate, verdict, titles)
@@ -528,7 +552,8 @@ def cmd_grow(args) -> int:
         written += 1
         print(f"  + gen{candidate.generation} {payload['title'][:64]}")
 
-    print(f"\n{written} record(s) {'would be ' if args.dry_run else ''}added.")
+    print(f"\n{written} record(s) {'would be ' if args.dry_run else ''}added"
+          + (f", {skipped} skipped as likely duplicates." if skipped else "."))
     return 0
 
 

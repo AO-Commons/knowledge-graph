@@ -24,7 +24,7 @@ abstract: 'For a long time, humanity has pursued artificial intelligence (AI) eq
   A repository for the related papers at https://github.com/WooooDyy/LLM-Agent-Paper-List.'
 authors:
 - Zhiheng Xi
-- Wen-Xiang Chen
+- Wenxiang Chen
 - Xin Guo
 - Wei He
 - Yiwen Ding
@@ -50,7 +50,7 @@ authors:
 - Wenjuan Qin
 - Yongyan Zheng
 - Xipeng Qiu
-- Huang, Xuanjing
+- Xuanjing Huang
 - Tao Gui
 published_at: '2023-09-14'
 url: https://arxiv.org/abs/2309.07864
