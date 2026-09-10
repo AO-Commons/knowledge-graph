@@ -193,6 +193,10 @@ class FakeWork:
     is_open_access = True
     is_retracted = False
     type = "preprint"
+    # Mirrors the real Work. A stub missing a field the production path
+    # reads is a test that passes on a shape the code never meets.
+    referenced_works = ["arxiv:2107.06857", "doi:10.1038/s41586-026-10805-z"]
+    cited_by_count = 12
 
 
 class TestPaperRecord:
@@ -210,8 +214,36 @@ class TestPaperRecord:
 
         monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
         payload, _ = self._build()
-        payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "")}
+        payload = {k: v for k, v in payload.items()
+                   if not k.startswith("_") and v not in (None, [], {}, "")}
         assert Resource(**payload).id == "resource:arxiv:2502.14143"
+
+    def test_resolution_by_products_are_underscored_and_never_reach_the_record(
+            self, monkeypatch):
+        """`paper_record` returns the record plus what resolution turned up
+        on the way — a reference list, which belongs in the store rather than
+        inlined into a YAML somebody hand-corrects. The underscore is the
+        contract, and the model rejecting anything else is what enforces it."""
+        import add_resource
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: FakeWork())
+        payload, _ = self._build()
+        assert payload["_references"]["keys"] == sorted(FakeWork.referenced_works)
+        with pytest.raises(TypeError):
+            Resource(**{k: v for k, v in payload.items() if v not in (None, [], {}, "")})
+
+    def test_a_paper_with_no_reference_list_says_so(self, monkeypatch):
+        """The gap that mattered: a record entering the citation graph with
+        no outgoing edges used to be silent, and 51 of 80 papers are in that
+        state because nothing ever said it."""
+        import add_resource
+
+        class NoReferences(FakeWork):
+            referenced_works = []
+
+        monkeypatch.setattr(add_resource.openalex, "resolve_work", lambda i, f: NoReferences())
+        _, gaps = self._build()
+        assert any("no reference list" in g for g in gaps)
 
     def test_the_bylines_spelling_follows_the_corpus(self, monkeypatch):
         """OpenAlex writes "Joel Z Leibo"; the corpus writes "Joel Z. Leibo".

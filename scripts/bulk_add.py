@@ -40,6 +40,7 @@ from add_resource import (  # noqa: E402
     read_topics,
     thing_record,
     write_record,
+    write_references,
 )
 from ao_commons_kg.people import build_index  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
@@ -158,6 +159,7 @@ def main(argv: list[str] | None = None) -> int:
 
         added.append((raw, payload["id"], payload["title"]))
         if args.write:
+            write_references(payload)
             write_record(payload)
             written = load_resources()
         else:
@@ -165,7 +167,8 @@ def main(argv: list[str] | None = None) -> int:
             # duplicate that a later line in the same file would create.
             from ao_commons_kg.models import Resource
             written = written + [Resource(**{k: v for k, v in payload.items()
-                                             if v not in (None, [], {}, "")})]
+                                             if k != "_references"
+                                             and v not in (None, [], {}, "")})]
 
         if fetchers and position < len(entries):
             time.sleep(args.pause)

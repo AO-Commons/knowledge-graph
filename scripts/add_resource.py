@@ -40,6 +40,7 @@ from ao_commons_kg.people import apply_index, build_index, same_person  # noqa: 
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.scholarly import arxiv, openalex, semanticscholar  # noqa: E402
 from ao_commons_kg.scholarly.keys import canonical_key, key_for_resource  # noqa: E402
+from ao_commons_kg.scholarly.store import ReferenceStore  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
 RESOURCES = REPO / "data" / "resources"
@@ -222,7 +223,14 @@ def path_for(resource_id: str) -> Path:
 def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, issue: int,
                  fetch_openalex=None, fetch_s2=None, fetch_arxiv=None,
                  known_names=None) -> tuple[dict, list[str]]:
-    """Resolve a paper and build its record. Also returns what could not be filled."""
+    """Resolve a paper and build its record. Also returns what could not be filled.
+
+    The payload carries a `_references` key that is not part of the record:
+    the caller writes it to the reference store and pops it before the YAML
+    is saved. Reference lists are large and machine-generated, and inlining
+    a hundred identifiers into a file a person is expected to correct by
+    hand would be a poor trade — the store exists for exactly that reason.
+    """
     work = None
     gaps: list[str] = []
     identifier = ident.get("doi") or ident.get("arxiv")
@@ -238,13 +246,25 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
     authors = list(work.authors) if work else []
     # Semantic Scholar carries abstracts for preprints that OpenAlex does not,
     # which is the gap that kept most arXiv records text-free.
-    if fetch_s2 is not None and not abstract:
+    #
+    # Asked even when we already have an abstract, which is a change: it is
+    # also the only source of reference lists for preprints, and OpenAlex
+    # carries none for them. Skipping it when the abstract happened to
+    # arrive was how every preprint entered the corpus with no citations.
+    references: list[str] = list(work.referenced_works) if work else []
+    citation_count = work.cited_by_count if work else 0
+    if fetch_s2 is not None:
         try:
             paper = semanticscholar.resolve_paper(identifier, fetch_s2)
-            abstract = paper.abstract
+            abstract = abstract or paper.abstract
             authors = authors or list(paper.authors)
+            references = references or list(paper.referenced_keys)
+            citation_count = max(citation_count, paper.citation_count)
         except semanticscholar.SemanticScholarError as error:
-            gaps.append(f"no abstract from Semantic Scholar either ({error})")
+            if not abstract:
+                gaps.append(f"no abstract from Semantic Scholar either ({error})")
+            else:
+                gaps.append(f"no reference list from Semantic Scholar ({error})")
 
     if not abstract:
         gaps.append("no abstract, so the topic matcher has only the title to work from")
@@ -317,7 +337,15 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
         "review_status": "unreviewed",
         "source_provenance": provenance(author, issue, resolved=work is not None, topics=topics),
         "ingested_at": date.today().isoformat(),
+        "_references": {"keys": sorted(set(references)),
+                        "cited_by_count": citation_count,
+                        "source": "openalex" if (work and work.referenced_works)
+                                  else ("semanticscholar" if references else "none")},
     }
+    if not references:
+        gaps.append(
+            "no reference list, so this record joins the citation graph with no "
+            "outgoing edges and cannot contribute to expansion until resolved")
     return payload, gaps
 
 
@@ -396,8 +424,40 @@ def provenance(author: str, issue: int, *, resolved: bool, topics: list[str],
     return f"{where}; {how}. {tags}."
 
 
+REFERENCES = REPO / "data" / "scholarly" / "references.jsonl"
+
+
+def write_references(payload: dict) -> int:
+    """Persist a new record's reference list, if it came with one.
+
+    Split out from `write_record` because the two write to different places
+    and either can be useful alone. Called by every path that adds a paper —
+    the site's Add tab and the bulk reading-list path both — so that a record
+    never enters the corpus as a citation isolate. It used to: `paper_record`
+    fetched the reference list from OpenAlex and discarded it, and every
+    paper added since August joined the graph with no citation edges at all.
+    """
+    details = payload.get("_references") or {}
+    keys = details.get("keys") or []
+    if not keys:
+        return 0
+    store = ReferenceStore.load(REFERENCES)
+    store.put(payload["id"],
+              key=canonical_key({"doi": payload.get("doi"),
+                                 "arxiv": payload.get("arxiv_id")}),
+              source=details.get("source", "unknown"),
+              referenced_keys=keys,
+              cited_by_count=details.get("cited_by_count", 0))
+    store.save()
+    return len(keys)
+
+
 def write_record(payload: dict) -> Path:
     """Write the record, having first made the model accept it."""
+    # Not part of the record. It goes to the reference store, and leaving it
+    # in the payload would both break the model and inline a hundred
+    # identifiers into a file a person is meant to hand-correct.
+    payload = {k: v for k, v in payload.items() if k != "_references"}
     payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "")}
     # Constructed before writing so a record the model rejects fails here,
     # loudly, rather than at release time in someone else's build.
@@ -522,7 +582,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     if payload is not None:
+        stored = write_references(payload)
         print(f"wrote {write_record(payload).relative_to(REPO)}")
+        if stored:
+            print(f"  {stored} references stored — it joins the citation graph")
     if args.summary_file:
         Path(args.summary_file).write_text(summary, encoding="utf-8")
     print(summary)

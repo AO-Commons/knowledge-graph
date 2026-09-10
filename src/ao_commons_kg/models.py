@@ -302,6 +302,23 @@ class Resource:
     shows it, and that citation should survive the trip into the graph."""
     source_provenance: str | None = None
     ingested_at: str | None = None
+    expansion_generation: int = 0
+    """How many citation hops from a record a person chose.
+
+    0 for the seed corpus, anything added through the site, and anything a
+    contributor put in a reading list — a human decided it belonged. 1 for a
+    record admitted because generation-0 papers cited it, 2 for one admitted
+    because generation-1 papers did, and so on.
+
+    This is what bounds automatic expansion. The admission threshold rises
+    with the generation, so a work three hops out has to be cited by more of
+    the corpus than one hop out did. Without it, every admitted paper brings
+    its own references, those cross the same fixed bar, and the crawl has no
+    edge — projected at roughly 4,900 records from the first pass alone.
+
+    It is also the honest answer to "how did this get here". A generation-3
+    record is three inferences from anybody's judgement, and a reader is
+    entitled to weigh it accordingly."""
 
     TOOL_TYPES = frozenset({"code-tool", "repository", "framework", "platform"})
 
