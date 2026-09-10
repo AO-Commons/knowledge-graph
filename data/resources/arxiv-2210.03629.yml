@@ -1,0 +1,67 @@
+id: resource:arxiv:2210.03629
+resource_type: preprint
+title: 'Distributing Accountability, Not Capability: Phase Separation and the LLM Workflow
+  Quadrant in Autonomous AI Agent Architectures'
+abstract: 'Autonomous AI agents in business deployments exhibit a recurring failure mode:
+  when an incident occurs, responsibility cannot be redirected to a separable contributor.
+  The dominant discourse treats this as a single phenomenon, addressed by sandboxing, human-in-the-loop
+  overload, or what Elish (2019) named the moral crumple zone. This paper argues the phenomenon
+  is two architecturally distinct failure modes that have been conflated, and that the conflation
+  is sustained by a missing positive name and a missing time-axis. The paper introduces two
+  contributions. First, a four-quadrant decomposition of business AI work — along the axes
+  of deterministic vs semantic-judgment and pre-defined vs exploratory — yields a positive
+  name for the cell most current LLM applications occupy: the LLM Workflow Quadrant. The quadrant
+  is defined by a single load-bearing property: the path is decided in advance by humans or
+  by code, and the LLM is called as a single bounded step within that path; the property divides
+  naturally into a conversational sub-form (specialized chat agents) and a batch sub-form
+  (single-purpose LLM functions inside deterministic pipelines). The decomposition distinguishes
+  principled from artificial redirect impossibility: the former intrinsic to autonomous loops,
+  the latter the product of routing workflow work through autonomous-loop architecture by
+  elimination, with four downstream symptoms (the RPA exception-handling bottleneck, the sandbox-strength
+  demand, the structural distortion of human-in-the-loop, and the dissolution of the accountability
+  chain at postmortem). Second, a Phase Separation axis (design vs operation), independent
+  of Quadrant, surfaces a Phase-crossing decision — recorded at deployment time, in one sentence
+  — required when an autonomous-loop component is placed in the operation phase. The Phase
+  axis descends recursively to skill-design granularity, where the Quadrant 3 ↔ Quadrant 4
+  boundary is a continuous gradient on which model capability is downstream of phase, not
+  the primary lever. The consequence is procedural rather than architectural: deployments
+  make the Phase-crossing decision explicit, designate a pre-named gap-bearer for principled-impossibility
+  placements, and route artificial-impossibility cases to re-architecture. The framework complements
+  existing AI risk-management and management-system standards by recording the judgment layer
+  they presuppose. Both rules are stated as experimental; the open questions are the research
+  agenda.'
+authors:
+- Yao, Shunyu
+- Jeffrey Zhao
+- Dian Yu
+- Nan Du
+- Izhak Shafran
+- Karthik Narasimhan
+- Yuan Cao
+published_at: '2022-10-06'
+url: https://arxiv.org/abs/2210.03629
+doi: 10.48550/arXiv.2210.03629
+arxiv_id: '2210.03629'
+openalex_id: W4304195432
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Architecting Agentic
+  Communities using Design Patterns; CoffeeBench: Benchmarking Long-Horizon LLM Agents in
+  Heterog; Securing AI Agents with Information-Flow Control. Scope scan by claude-opus-5:
+  This is squarely about accountability structure for machine agents holding operational authority
+  — the distinction between principled and artificial redirect impossibility and the phase-crossing
+  record are agent-specific design artifacts, not general collective-decision material. No
+  exclusion-register line applies; it is not voting design, commons governance, token design,
+  or DAO empirics. What changes because agents hold authority: It gives a deployment-time
+  procedure for deciding when an autonomous-loop agent may be placed in the operation phase
+  and requires naming an accountable gap-bearer for cases where responsibility cannot be redirected,
+  directly shaping how agent-authority deployments are architected and held accountable. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgement here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

@@ -1,0 +1,61 @@
+id: resource:arxiv:2308.00352
+resource_type: preprint
+title: 'MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework'
+abstract: Remarkable progress has been made on automated problem solving through societies
+  of agents based on large language models (LLMs). Existing LLM-based multi-agent systems
+  can already solve simple dialogue tasks. Solutions to more complex tasks, however, are complicated
+  through logic inconsistencies due to cascading hallucinations caused by naively chaining
+  LLMs. Here we introduce MetaGPT, an innovative meta-programming framework incorporating
+  efficient human workflows into LLM-based multi-agent collaborations. MetaGPT encodes Standardized
+  Operating Procedures (SOPs) into prompt sequences for more streamlined workflows, thus allowing
+  agents with human-like domain expertise to verify intermediate results and reduce errors.
+  MetaGPT utilizes an assembly line paradigm to assign diverse roles to various agents, efficiently
+  breaking down complex tasks into subtasks involving many agents working together. On collaborative
+  software engineering benchmarks, MetaGPT generates more coherent solutions than previous
+  chat-based multi-agent systems. Our project can be found at https://github.com/geekan/MetaGPT
+authors:
+- Sirui Hong
+- Zhuge, Mingchen
+- Chen, Jiaqi
+- Xiawu Zheng
+- Yuheng Cheng
+- Ceyao Zhang
+- Jinlin Wang
+- Zili Wang
+- Steven Ka Shing Yau
+- Zijuan Lin
+- Liyang Zhou
+- Chenyu Ran
+- Lingfeng Xiao
+- Chenglin Wu
+- Schmidhuber, Jürgen
+published_at: '2023-08-01'
+url: https://arxiv.org/abs/2308.00352
+doi: 10.48550/arXiv.2308.00352
+arxiv_id: '2308.00352'
+openalex_id: W4385963839
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  8 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agent Bazaar: Enabling
+  Economic Alignment in Multi-Agent Mar; Architecture Matters for Multi-Agent Security; Generative
+  agent-based modeling with actions grounded in phy; Intelligent AI Delegation; Large Language
+  Model based Multi-Agents: A Survey of Progres; PsySafe: A Comprehensive Framework for Psychological-based
+  A; The Collaboration Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5:
+  This is not generic optimization or human collective decision-making — it is an explicit
+  organizational blueprint (division of labor, SOPs, assembly-line workflow, verification
+  checkpoints) for systems in which agents hold operational authority over task execution.
+  No exclusion-register line applies; it is agent-specific organizational architecture rather
+  than adjacent institutional or voting-mechanism material. What changes because agents hold
+  authority: It shows that giving machine agents defined roles, standardized operating procedures,
+  and structured artifact handoffs with peer verification materially changes error propagation,
+  making role specification and intermediate-output review a core design lever for organizations
+  where agents execute work without human intervention at each step. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgement here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

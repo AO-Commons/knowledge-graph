@@ -1,0 +1,84 @@
+id: resource:doi:10-1145-3593013-3594033
+resource_type: peer-reviewed-paper
+title: Harms from Increasingly Agentic Algorithmic Systems
+abstract: 'Research in Fairness, Accountability, Transparency, and Ethics (FATE)1 has established
+  many sources and forms of algorithmic harm, in domains as diverse as health care, finance,
+  policing, and recommendations. Much work remains to be done to mitigate the serious harms
+  of these systems, particularly those disproportionately affecting marginalized communities.
+  Despite these ongoing harms, new systems are being developed and deployed, typically without
+  strong regulatory barriers, threatening the perpetuation of the same harms and the creation
+  of novel ones. In response, the FATE community has emphasized the importance of anticipating
+  harms, rather than just responding to them. Anticipation of harms is especially important
+  given the rapid pace of developments in machine learning (ML). Our work focuses on the anticipation
+  of harms from increasingly agentic systems. Rather than providing a definition of agency
+  as a binary property, we identify 4 key characteristics which, particularly in combination,
+  tend to increase the agency of a given algorithmic system: underspecification, directness
+  of impact, goal-directedness, and long-term planning. We also discuss important harms which
+  arise from increasing agency – notably, these include systemic and/or long-range impacts,
+  often on marginalized or unconsidered stakeholders. We emphasize that recognizing agency
+  of algorithmic systems does not absolve or shift the human responsibility for algorithmic
+  harms. Rather, we use the term agency to highlight the increasingly evident fact that ML
+  systems are not fully under human control. Our work explores increasingly agentic algorithmic
+  systems in three parts. First, we explain the notion of an increase in agency for algorithmic
+  systems in the context of diverse perspectives on agency across disciplines. Second, we
+  argue for the need to anticipate harms from increasingly agentic systems. Third, we discuss
+  important harms from increasingly agentic systems and ways forward for addressing them.
+  We conclude by reflecting on implications of our work for anticipating algorithmic harms
+  from emerging systems.'
+authors:
+- Alan Chan
+- Rebecca Salganik
+- Alva Markelius
+- Chris Pang
+- Nitarshan Rajkumar
+- Dmitrii Krasheninnikov
+- Lauro Langosco
+- Zhonghao He
+- Yawen Duan
+- Micah Carroll
+- Michelle Lin
+- Alex Mayhew
+- Katherine M. Collins
+- Maryam Molamohammadi
+- John Burden
+- Wanru Zhao
+- Shalaleh Rismani
+- Konstantinos Voudouris
+- Umang Bhatt
+- Adrian Weller
+- David Krueger
+- Tegan Maharaj
+organizations:
+- McGill University
+- Mila - Quebec Artificial Intelligence Institute
+- University of California, Berkeley
+- University of Cambridge
+- University of Toronto
+- Université de Montréal
+- Western University
+published_at: '2023-06-12'
+url: https://doi.org/10.1145/3593013.3594033
+doi: 10.1145/3593013.3594033
+openalex_id: W4376632242
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Intelligent AI Delegation;
+  Lessons from complex systems science for AI governance; Levels of Autonomy for AI Agents;
+  Multi-Agent Collaboration Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: The
+  paper is about the properties that make algorithmic systems agentic and the accountability
+  consequences of that agency, which is squarely the scope test rather than any excluded category
+  of human collective decision-making. No exclusion-register line applies; it is FATE-adjacent
+  but explicitly agent-specific, and it underpins the autonomy-level and delegation work already
+  in the library. What changes because agents hold authority: It supplies a graded characterization
+  of machine agency (underspecification, directness of impact, goal-directedness, long-term
+  planning) and an anticipatory harm framework, letting designers calibrate how much oversight
+  and residual human accountability an agent''s delegated authority requires. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgement here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

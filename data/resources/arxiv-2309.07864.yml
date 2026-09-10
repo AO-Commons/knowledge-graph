@@ -1,0 +1,84 @@
+id: resource:arxiv:2309.07864
+resource_type: preprint
+title: 'The Rise and Potential of Large Language Model Based Agents: A Survey'
+abstract: 'For a long time, humanity has pursued artificial intelligence (AI) equivalent to
+  or surpassing the human level, with AI agents considered a promising vehicle for this pursuit.
+  AI agents are artificial entities that sense their environment, make decisions, and take
+  actions. Many efforts have been made to develop intelligent agents, but they mainly focus
+  on advancement in algorithms or training strategies to enhance specific capabilities or
+  performance on particular tasks. Actually, what the community lacks is a general and powerful
+  model to serve as a starting point for designing AI agents that can adapt to diverse scenarios.
+  Due to the versatile capabilities they demonstrate, large language models (LLMs) are regarded
+  as potential sparks for Artificial General Intelligence (AGI), offering hope for building
+  general AI agents. Many researchers have leveraged LLMs as the foundation to build AI agents
+  and have achieved significant progress. In this paper, we perform a comprehensive survey
+  on LLM-based agents. We start by tracing the concept of agents from its philosophical origins
+  to its development in AI, and explain why LLMs are suitable foundations for agents. Building
+  upon this, we present a general framework for LLM-based agents, comprising three main components:
+  brain, perception, and action, and the framework can be tailored for different applications.
+  Subsequently, we explore the extensive applications of LLM-based agents in three aspects:
+  single-agent scenarios, multi-agent scenarios, and human-agent cooperation. Following this,
+  we delve into agent societies, exploring the behavior and personality of LLM-based agents,
+  the social phenomena that emerge from an agent society, and the insights they offer for
+  human society. Finally, we discuss several key topics and open problems within the field.
+  A repository for the related papers at https://github.com/WooooDyy/LLM-Agent-Paper-List.'
+authors:
+- Zhiheng Xi
+- Wen-Xiang Chen
+- Xin Guo
+- Wei He
+- Yiwen Ding
+- Boyang Hong
+- Ming Zhang
+- Junzhe Wang
+- Senjie Jin
+- Enyu Zhou
+- Rui Zheng
+- Xiaoran Fan
+- Xiao Wang
+- Limao Xiong
+- Yuhao Zhou
+- Weiran Wang
+- Changhao Jiang
+- Yicheng Zou
+- Xiangyang Liu
+- Zhangyue Yin
+- Shihan Dou
+- Rongxiang Weng
+- Wensen Cheng
+- Qi Zhang
+- Wenjuan Qin
+- Yongyan Zheng
+- Xipeng Qiu
+- Huang, Xuanjing
+- Tao Gui
+published_at: '2023-09-14'
+url: https://arxiv.org/abs/2309.07864
+doi: 10.48550/arXiv.2309.07864
+arxiv_id: '2309.07864'
+openalex_id: W4386794445
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  8 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: Architecting Agentic Communities using Design Patterns; Bridging Inference-Time
+  Scaling and Episodic Memory with Act; Intelligent AI Delegation; Large Language Model based
+  Multi-Agents: A Survey of Progres; Multi-Agent Collaboration Mechanisms: A Survey of LLMs;
+  Overlaying Governance: A Compositional Authorization Framewo; PsySafe: A Comprehensive Framework
+  for Psychological-based A; Virtual Agent Economies. Scope scan by claude-opus-5: No exclusion-register
+  line applies: this is agent-specific capability and multi-agent-society material, not human
+  collective decision-making, token design, or DAO empirics. It is a general survey rather
+  than a governance design work, so it is admitted as the foundational reference layer that
+  the library''s multi-agent collaboration and delegation papers build on, not as an oversight
+  contribution in itself. What changes because agents hold authority: It supplies the canonical
+  decomposition of an autonomous agent (planning/memory/reasoning, perception, tool-mediated
+  action) plus its treatment of multi-agent societies and human-agent cooperation modes, which
+  sets the concrete boundaries of what operational authority can actually be delegated to
+  and monitored in a machine agent. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgement
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

@@ -1,0 +1,51 @@
+id: resource:arxiv:2303.17760
+resource_type: preprint
+title: 'CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society'
+abstract: 'The rapid advancement of chat-based language models has led to remarkable progress
+  in complex task-solving. However, their success heavily relies on human input to guide the
+  conversation, which can be challenging and time-consuming. This paper explores the potential
+  of building scalable techniques to facilitate autonomous cooperation among communicative
+  agents, and provides insight into their "cognitive" processes. To address the challenges
+  of achieving autonomous cooperation, we propose a novel communicative agent framework named
+  role-playing. Our approach involves using inception prompting to guide chat agents toward
+  task completion while maintaining consistency with human intentions. We showcase how role-playing
+  can be used to generate conversational data for studying the behaviors and capabilities
+  of a society of agents, providing a valuable resource for investigating conversational language
+  models. In particular, we conduct comprehensive studies on instruction-following cooperation
+  in multi-agent settings. Our contributions include introducing a novel communicative agent
+  framework, offering a scalable approach for studying the cooperative behaviors and capabilities
+  of multi-agent systems, and open-sourcing our library to support research on communicative
+  agents and beyond: https://github.com/camel-ai/camel.'
+authors:
+- Guohao Li
+- Hasan Abed Al Kader Hammoud
+- Hani Itani
+- Dmitrii Khizbullin
+- Bernard Ghanem
+published_at: '2023-03-31'
+url: https://arxiv.org/abs/2303.17760
+doi: 10.48550/arXiv.2303.17760
+arxiv_id: '2303.17760'
+openalex_id: W4362508448
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Generative agent-based
+  modeling with actions grounded in phy; Large Language Model based Multi-Agents: A Survey
+  of Progres; PsySafe: A Comprehensive Framework for Psychological-based A. Scope scan by
+  claude-opus-5: This is a foundational role-based delegation framework for autonomous agent-to-agent
+  task execution, not general ML machinery, so it directly informs how operational authority
+  is structured and bounded among machine agents. No exclusion-register line applies; it is
+  agent-specific architecture rather than human collective decision-making. What changes because
+  agents hold authority: It shows that task authority can be delegated to agents entirely
+  without per-turn human input by fixing roles and inception prompts, and documents the failure
+  modes of that arrangement (role flipping, instruction loops, non-termination) that any agent-authority
+  organization must design controls against. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgement here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

@@ -1,0 +1,55 @@
+id: resource:arxiv:1707.06600
+resource_type: preprint
+title: A multi-agent reinforcement learning model of common-pool resource appropriation
+abstract: 'Humanity faces numerous problems of common-pool resource appropriation. This class
+  of multi-agent social dilemma includes the problems of ensuring sustainable use of fresh
+  water, common fisheries, grazing pastures, and irrigation systems. Abstract models of common-pool
+  resource appropriation based on non-cooperative game theory predict that self-interested
+  agents will generally fail to find socially positive equilibria---a phenomenon called the
+  tragedy of the commons. However, in reality, human societies are sometimes able to discover
+  and implement stable cooperative solutions. Decades of behavioral game theory research have
+  sought to uncover aspects of human behavior that make this possible. Most of that work was
+  based on laboratory experiments where participants only make a single choice: how much to
+  appropriate. Recognizing the importance of spatial and temporal resource dynamics, a recent
+  trend has been toward experiments in more complex real-time video game-like environments.
+  However, standard methods of non-cooperative game theory can no longer be used to generate
+  predictions for this case. Here we show that deep reinforcement learning can be used instead.
+  To that end, we study the emergent behavior of groups of independently learning agents in
+  a partially observed Markov game modeling common-pool resource appropriation. Our experiments
+  highlight the importance of trial-and-error learning in common-pool resource appropriation
+  and shed light on the relationship between exclusion, sustainability, and inequality.'
+authors:
+- Julien Pérolat
+- Joel Z. Leibo
+- Vinícius Zambaldi
+- Charles Beattie
+- Karl Tuyls
+- Thore Graepel
+published_at: '2017-07-20'
+url: https://arxiv.org/abs/1707.06600
+doi: 10.48550/arXiv.1707.06600
+arxiv_id: '1707.06600'
+openalex_id: W2739364177
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: A Review of Cooperation in Multi-agent Learning; Generative agent-based modeling
+  with actions grounded in phy; Solipsistic Superintelligence is Unlikely to be Cooperative;
+  Virtual Agent Economies. Scope scan by claude-opus-5: The commons-governance exclusion covers
+  human institutional economics, but this is a study of emergent behavior among machine agents
+  themselves, which is precisely the agent-specific case the register carved out. It is a
+  load-bearing empirical precedent for the multi-agent cooperation and agent-economy work
+  already in the library, not a generic RL method paper. What changes because agents hold
+  authority: It shows that independently learning machine agents given operational authority
+  over a shared resource can converge on depletion, and can emergently develop exclusion tactics
+  that produce inequality — so an agentic organization sharing any rivalrous resource needs
+  designed appropriation rules and monitoring rather than trusting agent-level learning to
+  find sustainable equilibria. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgement here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1

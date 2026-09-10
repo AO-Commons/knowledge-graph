@@ -1,0 +1,56 @@
+id: resource:arxiv:1910.05789
+resource_type: preprint
+title: On the Utility of Learning about Humans for Human-AI Coordination
+abstract: While we would like agents that can coordinate with humans, current algorithms such
+  as self-play and population-based training create agents that can coordinate with themselves.
+  Agents that assume their partner to be optimal or similar to them can converge to coordination
+  protocols that fail to understand and be understood by humans. To demonstrate this, we introduce
+  a simple environment that requires challenging coordination, based on the popular game Overcooked,
+  and learn a simple model that mimics human play. We evaluate the performance of agents trained
+  via self-play and population-based training. These agents perform very well when paired
+  with themselves, but when paired with our human model, they are significantly worse than
+  agents designed to play with the human model. An experiment with a planning algorithm yields
+  the same conclusion, though only when the human-aware planner is given the exact human model
+  that it is playing with. A user study with real humans shows this pattern as well, though
+  less strongly. Qualitatively, we find that the gains come from having the agent adapt to
+  the human's gameplay. Given this result, we suggest several approaches for designing agents
+  that learn about humans in order to better coordinate with them. Code is available at https://github.com/HumanCompatibleAI/overcooked_ai.
+authors:
+- Micah Carroll
+- Rohin Shah
+- Mark K. Ho
+- Thomas L. Griffiths
+- Sanjit A. Seshia
+- Pieter Abbeel
+- Anca D. Dragan
+organizations:
+- Princeton University
+- University of California, Berkeley
+published_at: '2019-10-13'
+url: https://arxiv.org/abs/1910.05789
+doi: 10.48550/arXiv.1910.05789
+arxiv_id: '1910.05789'
+openalex_id: W2970894611
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Citing
+  records: A Review of Cooperation in Multi-agent Learning; Human-centred mechanism design
+  with Democratic AI; The Collaboration Gap: Exploration and Benchmarking of Open-; Virtual
+  Agent Economies. Scope scan by claude-opus-5: No exclusion-register line applies: this is
+  not human collective decision theory but a demonstrated failure mode of machine agents acting
+  jointly with humans, which directly constrains how mixed human-agent authority is designed
+  and evaluated. It is load-bearing rather than generic ML because the finding is about legibility
+  and adaptation to human partners, the same property that makes agent authority overseeable.
+  What changes because agents hold authority: It shows that agents optimized without an explicit
+  model of their human counterparts converge on internally coherent but human-illegible coordination
+  protocols, so any organization delegating operational authority to agents that must act
+  alongside humans has to require human-modelling in training and evaluate agents on human-paired
+  rather than self-paired performance. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgement
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-10'
+expansion_generation: 1
