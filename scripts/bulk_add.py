@@ -34,6 +34,8 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 from add_resource import (  # noqa: E402
     ProposalError,
+    RateLimited,
+    likely_same_work,
     already_held,
     identify,
     paper_record,
@@ -95,8 +97,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--write", action="store_true", help="write the records")
     parser.add_argument("--author", default="a contributor")
     parser.add_argument("--offline", action="store_true", help="skip lookups; for testing the parse")
-    parser.add_argument("--pause", type=float, default=1.0,
-                        help="seconds between lookups; be kind to the free APIs")
+    parser.add_argument("--pause", type=float, default=6.0,
+                        help="seconds between lookups. The default is set by what "
+                             "Semantic Scholar actually tolerates unauthenticated: "
+                             "at 1.0 nine of twenty-nine identifiers came back as "
+                             "not-found when they were throttled. Lower it only if "
+                             "you enjoy re-running batches")
     args = parser.parse_args(argv)
 
     entries = read_list(Path(args.list).read_text(encoding="utf-8"))
@@ -114,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
         "fetch_arxiv": arxiv.http_fetcher(),
     }
 
-    added, held, repeated, failed = [], [], [], []
+    added, held, repeated, failed, throttled = [], [], [], [], []
     seen: dict[str, str] = {}          # canonical identity -> the line that claimed it
     written: list = list(resources)    # grows, so a batch cannot duplicate itself
 
@@ -143,13 +149,19 @@ def main(argv: list[str] | None = None) -> int:
 
         try:
             if ident["kind"] == "paper":
-                payload, _ = paper_record(
+                payload, gaps = paper_record(
                     ident, {}, topics=read_topics(topics, known_topics),
                     author=args.author, issue=0, known_names=known_names, **fetchers)
             else:
-                payload, _ = thing_record(
+                payload, gaps = thing_record(
                     ident, {"name": raw}, topics=read_topics(topics, known_topics),
                     author=args.author, issue=0)
+        except RateLimited as error:
+            # Not a failure of the paper. Reported apart so a run that was
+            # simply too fast does not read as twenty missing papers, and so
+            # nobody follows the old advice and hand-types a title.
+            throttled.append((raw, str(error)))
+            continue
         except ProposalError as error:
             failed.append((raw, str(error)))
             continue
@@ -157,7 +169,9 @@ def main(argv: list[str] | None = None) -> int:
             failed.append((raw, f"{type(error).__name__}: {error}"))
             continue
 
-        added.append((raw, payload["id"], payload["title"]))
+        for twin, why in likely_same_work(payload, written):
+            gaps = gaps + [f"possibly the same work as {twin.id} ({why})"]
+        added.append((raw, payload["id"], payload["title"], gaps))
         if args.write:
             write_references(payload)
             write_record(payload)
@@ -176,8 +190,12 @@ def main(argv: list[str] | None = None) -> int:
     print(f"read {len(entries)} identifier(s)\n")
     if added:
         print(f"{len(added)} to add:")
-        for raw, rid, title in added:
+        for raw, rid, title, gaps in added:
             print(f"  + {title[:66]}\n      {rid}")
+            # What could not be filled. Silently dropping these is how a
+            # record enters claiming a provenance it does not have.
+            for gap in gaps:
+                print(f"        ! {gap}")
     if held:
         print(f"\n{len(held)} already in the library, kept as they are:")
         for raw, rid, title in held:
@@ -186,6 +204,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"\n{len(repeated)} repeated inside the file, first one kept:")
         for raw, first in repeated:
             print(f"  = {raw}  (already listed as {first})")
+    if throttled:
+        print(f"\n{len(throttled)} were rate-limited, not missing — re-run these:")
+        for raw, why in throttled:
+            print(f"  ~ {raw}\n      {why}")
     if failed:
         print(f"\n{len(failed)} could not be added:")
         for raw, why in failed:
@@ -196,7 +218,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         print(f"\nWrote {len(added)} record(s) to data/resources/.")
 
-    return 1 if failed and not added else 0
+    return 1 if (failed or throttled) and not added else 0
 
 
 if __name__ == "__main__":

@@ -38,6 +38,26 @@ Every non-deterministic edge records how it was made. `CITES` from scholarly met
 
 If you cannot say where an edge came from, do not add the edge.
 
+## Machines admit, humans judge
+
+The corpus grows from its own citations without a person promoting each
+record. That rule was retired deliberately: human promotion does not scale,
+and the queue it produced was not being read.
+
+What replaces it is not nothing. A work must be cited by enough records we
+already hold — a threshold that rises with each hop from anybody's judgement
+— and then pass a scope scan that reads it against the scope test and the
+exclusion register. Every admitted record carries its generation, the papers
+that cited it, and the scan's reasoning, so a bad rule is legible afterwards
+rather than invisible.
+
+The division is meant to hold as trust moves. Machines resolve, deduplicate,
+propose and now admit. People decide what a record is *about*, whether a
+claim is accurately extracted, and what the taxonomy is — the judgements
+where being wrong is expensive and quiet. Reviewing auto-admitted records is
+how the scan earns a looser threshold; until that evidence exists the
+settings stay conservative.
+
 ## Keep it small
 
 Three node families: Resource, Topic, Entity. One generic Entity with an `entity_type`, not a node family per concept. A dozen relationship types, not fifty. SQLite or Postgres, not a graph database. No vector store unless measurement shows it improves retrieval.

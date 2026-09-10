@@ -73,18 +73,40 @@ def parse(payload: str) -> dict[str, Preprint]:
     return found
 
 
+class ArxivTransportError(ArxivError):
+    """The request never completed: TLS, DNS, timeout, connection refused.
+
+    Separated from "arXiv does not have this paper", because the two call
+    for opposite responses and were indistinguishable. A missing paper is
+    information; an unreachable host means the byline in the record came
+    from whichever index answered, and arXiv — the source this pipeline
+    treats as decisive for preprints — was never consulted.
+    """
+
+
 def http_fetcher():
-    """The real one, over the standard library — no dependency for one GET."""
+    """The real one, over `requests`, like OpenAlex and Semantic Scholar.
+
+    It used to use `urllib` while the other two used `requests`, which
+    bundles its own CA store. On a virtualenv with no system CA bundle
+    configured that made *every* arXiv lookup raise a TLS error while the
+    other two worked — and `paper_record` swallowed it, so records were
+    written claiming their identity was resolved against sources that had
+    never answered. The visible symptom was mixed bylines two layers away
+    from the cause. One transport, one failure mode.
+    """
+    import requests
 
     def fetch(url: str) -> str:
-        request = urllib.request.Request(
-            url, headers={"User-Agent": f"ao-commons-kg ({CONTACT})"}
-        )
         try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                return response.read().decode("utf-8", "ignore")
-        except Exception as error:  # noqa: BLE001 — one answer whatever the cause
-            raise ArxivError(f"arXiv: {type(error).__name__}: {error}") from error
+            response = requests.get(
+                url, headers={"User-Agent": f"ao-commons-kg ({CONTACT})"}, timeout=30)
+        except requests.RequestException as error:
+            raise ArxivTransportError(
+                f"arXiv unreachable: {type(error).__name__}: {error}") from error
+        if response.status_code != 200:
+            raise ArxivError(f"arXiv: {response.status_code} for {url}")
+        return response.text
 
     return fetch
 

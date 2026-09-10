@@ -51,6 +51,23 @@ class ProposalError(ValueError):
     """The proposal cannot be added, with a reason the contributor can act on."""
 
 
+class RateLimited(ProposalError):
+    """Every source refused to answer, at least one of them because we asked
+    too fast.
+
+    Distinct from "no source has this paper", which is what the contributor
+    used to be told. The two look identical at the point of failure and call
+    for opposite responses: a rate limit means wait and re-run, a genuine
+    miss means add it by hand with a title. Telling someone to hand-type a
+    title for a paper the resolver could have filled in perfectly is how a
+    guess gets into the corpus dressed as a fact.
+
+    Nine of twenty-nine identifiers in the first bulk run hit this, including
+    Generative Agents and Open Problems in Cooperative AI — both plainly in
+    all three indexes.
+    """
+
+
 # ---- reading the issue -----------------------------------------------------
 #
 # The same question reaches this script under three different names: the issue
@@ -183,6 +200,74 @@ def already_held(ident: dict, resources: list) -> object | None:
     return None
 
 
+def likely_same_work(payload: dict, resources: list) -> list[tuple[object, str]]:
+    """Records that look like the same paper under a different identifier.
+
+    `already_held` compares canonical keys, and a preprint and its published
+    version have different DOIs by construction — so it cannot see the case
+    that actually happens. Both duplicates found in the first outside
+    contribution were this shape:
+
+        EPIC 10.1111/epic.70009   vs  SSRN 10.2139/ssrn.5516298
+        Nature 10.1038/s41586-…   vs  arXiv 2504.21848
+
+    The second defeats a title check too: "Characterizing AI Agents for
+    Alignment and Governance" was published as "Agentic profiles for
+    effective AI governance". What survives retitling is the byline.
+
+    So: the same author set, or a title that barely changed. Reported for a
+    person to confirm rather than refused — two papers by the same pair in
+    the same year is normal, and blocking on it would make the common case
+    pay for the rare one. A sweep over the whole corpus on this signal found
+    exactly the one real pair and no false admissions.
+    """
+    import difflib
+
+    from ao_commons_kg.people import fold
+
+    incoming = {fold(a) for a in payload.get("authors") or []}
+    title = re.sub(r"[^a-z0-9 ]", "", (payload.get("title") or "").lower()).strip()
+    hits: list[tuple[object, str]] = []
+
+    for resource in resources:
+        if resource.id == payload.get("id"):
+            continue
+        held_authors = {fold(a) for a in (resource.authors or [])}
+        held_title = re.sub(r"[^a-z0-9 ]", "", (resource.title or "").lower()).strip()
+
+        if title and held_title:
+            ratio = difflib.SequenceMatcher(None, title, held_title).ratio()
+            if ratio > 0.9:
+                hits.append((resource, f"near-identical title ({ratio:.0%})"))
+                continue
+
+        if incoming and held_authors:
+            shared = incoming & held_authors
+            overlap = len(shared) / len(incoming | held_authors)
+            # Two or more shared names and near-identical author sets. One
+            # shared name is a co-author, not a duplicate.
+            #
+            # And the pair must straddle preprint and published. That is what
+            # the preprint/version-of-record shape *is*, and it is what
+            # separates it from the far more common case of one research
+            # group publishing several papers together — which flagged five
+            # of eighty-seven records before this condition, every one of
+            # them a false positive. Companion preprints posted the same day
+            # share a byline and a type; a preprint and its published
+            # version share a byline and differ in type.
+            straddles = _is_preprint(payload.get("resource_type")) != _is_preprint(
+                resource.resource_type)
+            if overlap >= 0.8 and len(shared) >= 2 and straddles:
+                hits.append((resource, f"same byline across preprint and published "
+                                       f"({len(shared)} authors, {overlap:.0%} overlap)"))
+    return hits
+
+
+def _is_preprint(resource_type) -> bool:
+    value = getattr(resource_type, "value", resource_type)
+    return str(value or "") == "preprint"
+
+
 def read_topics(raw: str, known: set[str]) -> list[str]:
     """The contributor's own codes, checked against the taxonomy.
 
@@ -276,8 +361,18 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
     if ident.get("arxiv") and fetch_arxiv is not None:
         try:
             preprint = arxiv.resolve(ident["arxiv"], fetch_arxiv)
-        except Exception:  # noqa: BLE001 — a third source must never block an add
+        except arxiv.ArxivTransportError as error:
+            # A third source must never *block* an add. It is still allowed
+            # to say it was never reached — this is the decisive source for
+            # a preprint byline, and a record whose provenance claims
+            # otherwise is lying about how it was made.
             preprint = None
+            gaps.append(
+                f"arXiv was unreachable ({error}), so the byline is whichever "
+                "index answered rather than the submission itself")
+        except Exception as error:  # noqa: BLE001
+            preprint = None
+            gaps.append(f"arXiv had nothing usable for this id ({error})")
 
     if preprint:
         if preprint.authors:
@@ -299,10 +394,21 @@ def paper_record(ident: dict, fields: dict, *, topics: list[str], author: str, i
     # paper through with an empty title whenever OpenAlex missed it and arXiv
     # was unreachable — a record filed under nothing at all.
     if not title:
+        # The diagnosis already exists — openalex raises a distinct message
+        # for 429 and it is sitting in `gaps`. It used to be discarded one
+        # line before it would have been printed.
+        throttled = [g for g in gaps if "rate-limit" in g.lower() or "429" in g]
+        if throttled:
+            raise RateLimited(
+                "Rate-limited, not missing. " + " ".join(throttled)
+                + " Re-run with a longer --pause; the record is almost certainly "
+                "resolvable. Do not add it by hand with a typed title."
+            )
         raise ProposalError(
             "No title. None of OpenAlex, Semantic Scholar or arXiv has this "
             "identifier, and the issue does not give a title, so there is nothing "
             "to file it under. Add a Title and this runs again."
+            + (f" What the sources said: {' '.join(gaps)}" if gaps else "")
         )
 
     kind = "preprint" if ident.get("arxiv") else TYPES.get(work.type if work else "", "peer-reviewed-paper")
@@ -407,8 +513,17 @@ def thing_record(ident: dict, fields: dict, *, topics: list[str], author: str,
 
 def provenance(author: str, issue: int, *, resolved: bool, topics: list[str],
                described: bool = False) -> str:
-    """Say where the record came from and how far to trust each part of it."""
-    where = f"added automatically from issue #{issue} by @{author}"
+    """Say where the record came from and how far to trust each part of it.
+
+    `issue=0` means the bulk path, which has no issue behind it. It used to
+    render as "from issue #0", and there is no issue #0 — every record added
+    by a reading list said so. `source_provenance` is the field that
+    separates a claim somebody checked from one a crawler proposed; it must
+    not contain a fiction.
+    """
+    where = (f"added from a reading list by @{author}, in a batch"
+             if not issue
+             else f"added automatically from issue #{issue} by @{author}")
     how = (
         "described by the contributor and not verified against vendor documentation"
         if described
@@ -582,6 +697,18 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     if payload is not None:
+        # Onto the summary, which is what gets posted back on the issue.
+        # `gaps` belongs to paper_record and is long gone by here.
+        if twins := likely_same_work(payload, resources):
+            lines = "\n".join(
+                f"- **{twin.id}** — {why}\n  _{(twin.title or '')[:70]}_"
+                for twin, why in twins)
+            summary += (
+                "\n\n**This may already be in the library.**\n\n" + lines +
+                "\n\nA preprint and its published version have different DOIs, so "
+                "the duplicate check cannot see it. The record was still added — "
+                "if it is the same work, revert this commit and keep the one "
+                "already held.")
         stored = write_references(payload)
         print(f"wrote {write_record(payload).relative_to(REPO)}")
         if stored:

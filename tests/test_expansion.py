@@ -90,6 +90,14 @@ class TestFindingCandidates:
 
 
 class TestSelection:
+    def test_an_admission_keeps_the_verdict_that_allowed_it(self):
+        """The reasoning becomes the record's provenance. Re-fetching it
+        later would pay for the model call twice and could return a
+        different answer than the one the record was admitted on."""
+        selection = select([Candidate("k", ("a", "b"), 1)], judge=admit_all)
+        candidate, verdict = selection.admitted[0]
+        assert candidate.key == "k" and verdict.reasoning
+
     def test_nothing_is_admitted_without_a_judge(self):
         """The fallback for a missing scope test is a queue, not a keyword
         score. A run with no judge configured must look like it did nothing,
@@ -126,6 +134,7 @@ class TestSelection:
         candidates = [Candidate(f"k{i}", ("a", "b"), 1) for i in range(5)]
         selection = select(candidates, judge=admit_all, budget=2)
         assert len(selection.admitted) == 2
+        assert all(v.admit for _, v in selection.admitted)
         assert len(selection.over_budget) == 3
 
     def test_a_verdict_must_say_why(self):

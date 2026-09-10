@@ -454,6 +454,84 @@ def cmd_build(args) -> int:
     return 0
 
 
+
+def cmd_grow(args) -> int:
+    """Admit works the corpus already cites, automatically and within bounds.
+
+    The path that replaces "a maintainer reads a queue". Three gates in cost
+    order — a rising threshold, then the scope scan, then a per-run budget —
+    and with no scope judge configured it admits nothing and says so, rather
+    than falling back to a keyword score.
+    """
+    import sys as _sys
+    from datetime import date as _date
+
+    _sys.path.insert(0, str(REPO / "scripts"))
+    from add_resource import identify, paper_record, write_record, write_references
+
+    from .expansion import find_candidates, provenance, select
+    from .scholarly.keys import keys_for_corpus
+    from .scholarly.store import ReferenceStore
+
+    resources = load_resources()
+    titles = {r.id: r.title for r in resources}
+    store = ReferenceStore.load(REFERENCES)
+    candidates = find_candidates(
+        store.references(), keys_for_corpus(resources),
+        {r.id: r.expansion_generation for r in resources})
+    print(f"{len(candidates)} cited works not held")
+
+    fetch_oa = http_fetcher()
+
+    def metadata(candidate) -> dict:
+        """Only ever called for candidates that cleared the threshold, which
+        is what keeps a run from costing one lookup per cited work."""
+        try:
+            work = resolve_work(candidate.key.split(":", 1)[1], fetch_oa)
+        except OpenAlexError:
+            return {}
+        return {"title": work.title, "abstract": work.abstract,
+                "date": work.publication_date}
+
+    judge = None
+    if not args.propose_only:
+        from .scope_judge import anthropic_judge
+        judge = anthropic_judge(args.model, titles=titles)
+
+    selection = select(candidates, judge=judge, metadata=metadata,
+                       base=args.threshold, budget=args.budget)
+    print(selection.summary())
+    for candidate, verdict in selection.rejected:
+        print(f"  refused {candidate.key}: {verdict.reasoning[:110]}")
+    if judge is None:
+        for candidate in selection.over_budget[:20]:
+            print(f"  would consider {candidate.support}x {candidate.key}")
+        return 0
+
+    written = 0
+    for candidate, verdict in selection.admitted:
+        try:
+            ident = identify(candidate.key.split(":", 1)[1])
+            payload, _ = paper_record(
+                ident, {}, topics=[], author="citation-expansion", issue=0,
+                fetch_openalex=fetch_oa, fetch_s2=semanticscholar.http_fetcher(),
+                fetch_arxiv=None)
+        except Exception as error:  # noqa: BLE001 — one bad candidate must not end the run
+            print(f"  could not resolve {candidate.key}: {error}")
+            continue
+        payload["expansion_generation"] = candidate.generation
+        payload["source_provenance"] = provenance(candidate, verdict, titles)
+        payload["ingested_at"] = _date.today().isoformat()
+        if not args.dry_run:
+            write_references(payload)
+            write_record(payload)
+        written += 1
+        print(f"  + gen{candidate.generation} {payload['title'][:64]}")
+
+    print(f"\n{written} record(s) {'would be ' if args.dry_run else ''}added.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="aokg", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -512,6 +590,21 @@ def main(argv: list[str] | None = None) -> int:
     evaluate.add_argument("--limit", type=int, default=6)
     evaluate.add_argument("--min-score", type=float, default=4.0)
     evaluate.set_defaults(func=cmd_evaluate)
+
+    grow = sub.add_parser(
+        "grow", help="admit works the corpus already cites, within bounds")
+    grow.add_argument("--threshold", type=int, default=2,
+                      help="citations from held papers needed at generation 1; "
+                           "each generation out adds one")
+    grow.add_argument("--budget", type=int, default=40,
+                      help="most records to admit in one run")
+    grow.add_argument("--model", default="claude-opus-5")
+    grow.add_argument("--propose-only", action="store_true",
+                      help="list what clears the threshold and stop, with no "
+                           "model calls and nothing written")
+    grow.add_argument("--dry-run", action="store_true",
+                      help="run the scope scan but write nothing")
+    grow.set_defaults(func=cmd_grow)
 
     people = sub.add_parser("people", help="find one person spelled two ways")
     people.add_argument("--fix", action="store_true", help="rewrite the records")

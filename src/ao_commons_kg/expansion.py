@@ -124,7 +124,11 @@ model behind it has to be swappable without touching the selection rules.
 class Selection:
     """What one expansion run decided."""
 
-    admitted: list[Candidate] = field(default_factory=list)
+    admitted: list[tuple[Candidate, ScopeVerdict]] = field(default_factory=list)
+    """Kept with the verdict that let each one in, not just the candidate.
+    The reasoning goes into the record's `source_provenance`, and fetching
+    it again later would mean paying for the model call twice and possibly
+    getting a different answer than the one the record was admitted on."""
     rejected: list[tuple[Candidate, ScopeVerdict]] = field(default_factory=list)
     below_threshold: list[Candidate] = field(default_factory=list)
     over_budget: list[Candidate] = field(default_factory=list)
@@ -208,7 +212,7 @@ def select(
             continue
         verdict = judge(candidate, (metadata or (lambda _: {}))(candidate))
         if verdict.admit:
-            selection.admitted.append(candidate)
+            selection.admitted.append((candidate, verdict))
         else:
             selection.rejected.append((candidate, verdict))
     return selection

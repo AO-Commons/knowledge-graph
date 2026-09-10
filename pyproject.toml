@@ -26,6 +26,7 @@ dependencies = ["pyyaml>=6.0"]
 scholarly = ["requests>=2.31"]   # OpenAlex and Semantic Scholar ingestion
 airtable = ["requests>=2.31"]    # the curation-surface sync
 mcp = ["mcp>=2.0"]                # the read-only query server
+scope = ["anthropic>=0.40"]       # the scope scan that lets expansion admit
 dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [project.scripts]

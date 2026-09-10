@@ -1,0 +1,151 @@
+# Grow the corpus from its own citations, weekly and unattended.
+#
+#   held papers -> their reference lists -> what several of them cite
+#     -> scope scan -> data/resources/ -> the site
+#
+# This is the workflow that retires "nothing enters the corpus without a
+# human promoting it". Human promotion does not scale: a library that only
+# grows when a maintainer has a free afternoon is a library that stops
+# growing, and the queue it produced was never read.
+#
+# What replaces the human is not nothing. Three gates, in cost order — a
+# threshold that rises with each hop from anybody's judgement, a scope scan
+# that reads the abstract against the scope test and the exclusion register,
+# and a budget per run. Every admitted record carries the generation, the
+# papers that cited it, and the scan's reasoning in `source_provenance`, so
+# a bad rule shows up as a readable pattern rather than a mystery pile.
+#
+# It commits to main for the same reason `new-resource.yml` does: blast
+# radius. A new record changes no existing judgement and no measured number,
+# lands `unreviewed` like everything else, and `git revert` undoes it
+# completely. What still waits for a person is filing and taxonomy change.
+
+name: Grow the corpus
+
+on:
+  schedule:
+    - cron: "0 6 * * 2"        # Tuesday morning, a day after the tooling sync
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "Most records to admit in this run"
+        default: "40"
+      threshold:
+        description: "Citations needed at generation 1"
+        default: "2"
+      dry_run:
+        description: "Run the scan but write nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write         # to report what the run decided
+  actions: write        # to ask Pages to rebuild; see the dispatch step
+
+concurrency:
+  group: grow
+  cancel-in-progress: false
+
+jobs:
+  grow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[scholarly,scope]"
+
+      # Without a key the run admits nothing and says so. That is the
+      # designed behaviour rather than a failure — the fallback for a
+      # missing scope test is a queue, not a keyword score — but a silent
+      # no-op every Tuesday is how a broken secret goes unnoticed for a
+      # month, so say it out loud.
+      - name: Check the scope scan can run
+        id: preflight
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::ANTHROPIC_API_KEY is not set — listing candidates only, admitting nothing"
+            echo "scan=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "scan=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Grow
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          aokg grow \
+            --threshold "${{ github.event.inputs.threshold || 2 }}" \
+            --budget "${{ github.event.inputs.budget || 40 }}" \
+            ${{ steps.preflight.outputs.scan == 'false' && '--propose-only' || '' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee /tmp/grow.log
+
+      - name: Commit what was admitted
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain data/)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          admitted=$(grep -c '^  + gen' /tmp/grow.log || echo 0)
+          summary=$(sed -n '1,3p' /tmp/grow.log)
+          git commit \
+            -m "Grow the corpus by ${admitted} record(s) from its own citations" \
+            -m "${summary}" \
+            -m "Admitted by the citation-expansion path: cited by enough held records to clear the threshold for their generation, and passed a scope scan whose reasoning is recorded on each record. Unreviewed, like everything that has not been through the review queue."
+          pushed=false
+          for attempt in 1 2 3; do
+            if git push; then pushed=true; break; fi
+            git pull --rebase origin main || break
+          done
+          if [ "$pushed" != true ]; then
+            echo "could not push" >&2
+            exit 1
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # A push made with GITHUB_TOKEN does not trigger other workflows, so
+      # the site would keep serving a corpus without the new records.
+      - name: Rebuild the site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo, workflow_id: 'pages.yml', ref: 'main',
+            });
+
+      # The run is the audit trail, so it has to be readable by someone who
+      # was not watching. An issue rather than a log nobody opens.
+      - name: Report what it decided
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('/tmp/grow.log', 'utf8');
+            await github.rest.issues.create({
+              ...context.repo,
+              title: `Corpus growth: ${new Date().toISOString().slice(0, 10)}`,
+              labels: ['expansion'],
+              body: [
+                "Records admitted automatically from the citation graph.",
+                "",
+                "Each carries its generation, the papers that cited it, and the",
+                "scope scan's reasoning in `source_provenance`. **Reviewing these",
+                "is how the scan earns trust** — a wrong admission here is the",
+                "evidence for tightening the threshold, and a run with no wrong",
+                "admissions is the evidence for relaxing it.",
+                "",
+                "```", log.slice(0, 55000), "```",
+              ].join("\n"),
+            });

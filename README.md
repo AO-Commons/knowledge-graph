@@ -103,8 +103,29 @@ aokg evaluate                      # score the classifier against them
 `expand` walks one hop out from the corpus in **both** directions — references
 and citers — because they answer different questions. A corpus grown only
 forward drifts toward the recent; only backward, toward the foundational. It
-writes a scored review queue to `data/candidates/`, and nothing enters the
-corpus without a human promoting it.
+writes a scored review queue to `data/candidates/`.
+
+```bash
+aokg grow --propose-only     # what clears the bar, no model calls, nothing written
+aokg grow                    # scope-scan the shortlist and admit what passes
+```
+
+`grow` admits without waiting for a person. A work cited by enough records we
+already hold, which then passes a scope scan reading it against the scope test
+and the exclusion register, enters the corpus `unreviewed` with the scan's
+reasoning written onto it.
+
+The bar rises with each hop from a human judgement — generation 1 needs 2 of
+our papers to cite it, generation 2 needs 3 — and a per-run budget caps the
+rate. Both exist because the alternative is not hypothetical: admitting
+everything our papers cite measures out at roughly 4,900 records, **93% of
+them cited by exactly one of ours**, mostly optimization and neural-network
+background that fails the scope test on sight. Narrow scope is the reason 87
+curated records are worth more than 8,500.
+
+Without an `ANTHROPIC_API_KEY` the scan cannot run and `grow` admits nothing,
+by design. The fallback for a missing scope test is a queue, not a keyword
+score.
 
 Candidates come from two instruments, and the structural one is the better of them:
 
