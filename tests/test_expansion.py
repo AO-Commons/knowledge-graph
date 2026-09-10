@@ -231,3 +231,17 @@ class TestVerdictParsing:
         from ao_commons_kg.scope_judge import ScanUnreadable, parse_verdict
         with pytest.raises(ScanUnreadable, match="I cannot"):
             parse_verdict("I cannot assess this paper.")
+
+
+class TestBorrowedBackground:
+    def test_a_verdict_can_admit_as_adjacent_material(self):
+        """The corpus holds Melting Pot and SocialJax as borrowed
+        background. A binary scan had to refuse that class, and did — it
+        turned away a MARL benchmark in the first live run while the corpus
+        held two others."""
+        verdict = ScopeVerdict(True, "adjacent but load-bearing", "test",
+                               borrowed_background=True)
+        assert verdict.admit and verdict.borrowed_background
+
+    def test_it_defaults_off(self):
+        assert ScopeVerdict(True, "core scope", "test").borrowed_background is False

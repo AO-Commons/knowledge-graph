@@ -84,8 +84,16 @@ Being cited by several of our papers means the field treats it as part of this \
 conversation. It does not mean it passes the scope test — our papers cite optimization, \
 neural architectures and game theory generally, and none of that belongs here.
 
+Some work is neither in scope nor to be refused: it is **borrowed
+background** — adjacent literature the library points at rather than ingests,
+such as an evaluation suite or a foundational method the field builds on.
+Section 15 exists for this, and records like Melting Pot are held this way.
+Choose it when the work is genuinely load-bearing for this field but is not
+itself about organizations where agents hold authority.
+
 Answer with JSON only:
 {{"admit": true|false,
+  "borrowed_background": true|false,
   "changes_because_agents_hold_authority": "<one sentence: what about designing, \
 operating, overseeing or holding accountable an agent-authority organization is \
 different because of this work. If nothing, say so plainly and admit must be false>",
@@ -211,6 +219,7 @@ def anthropic_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
 
         return ScopeVerdict(
             admit=bool(payload.get("admit")),
+            borrowed_background=bool(payload.get("borrowed_background")),
             reasoning=f"{reasoning} What changes because agents hold authority: {because}",
             judged_by=model)
 

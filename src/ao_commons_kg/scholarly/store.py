@@ -100,6 +100,18 @@ class ReferenceStore:
         ]
         return sorted(set(pairs))
 
+    def orphans(self, held: set[str]) -> list[str]:
+        """Entries for records the corpus no longer holds.
+
+        Reference lists outlive their records: removing a duplicate deletes
+        the YAML and leaves the store untouched. Harmless for the graph,
+        which filters on held records anyway — but the entry keeps its
+        citation count, so coverage figures and "most cited" lists quietly
+        describe a record nobody can open. Removing a record should remove
+        this too, and this is how you find the ones that got away.
+        """
+        return sorted(k for k in self.entries if k not in held)
+
     def coverage(self) -> tuple[int, int]:
         """(records with a reference list, records stored)."""
         return sum(1 for e in self.entries.values() if e.get("referenced_works")), len(self.entries)

@@ -132,6 +132,14 @@ jobs:
 
       # The run is the audit trail, so it has to be readable by someone who
       # was not watching. An issue rather than a log nobody opens.
+      # Runs even when nothing was admitted. A silent Tuesday is
+      # indistinguishable from a broken one, and the whole point of the
+      # weekly cadence is that somebody notices.
+      - name: Say nothing was admitted
+        if: always() && steps.commit.outputs.changed != 'true'
+        run: |
+          echo "::notice::No records admitted this run. See the log above for whether that is because nothing qualified or because the scan failed."
+
       - name: Report what it decided
         if: steps.commit.outputs.changed == 'true'
         uses: actions/github-script@v7

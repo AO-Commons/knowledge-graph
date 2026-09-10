@@ -506,6 +506,21 @@ def cmd_grow(args) -> int:
     print(selection.summary())
     for candidate, verdict in selection.rejected:
         print(f"  refused {candidate.key}: {verdict.reasoning[:110]}")
+
+    # A scan that errors refuses, which is the safe direction and also an
+    # excellent way to hide a broken key or a bad deploy: every candidate
+    # comes back refused and the run reports a normal-looking week in which
+    # nothing happened to qualify. Distinguish the two out loud.
+    broke = [v for _, v in selection.rejected if "could not complete" in v.reasoning]
+    if broke and len(broke) == len(selection.rejected) and not selection.admitted:
+        print(f"\nEvery scan failed ({len(broke)} of {len(broke)}). This is not a week "
+              f"with nothing to add — the scan itself is broken.")
+        print(f"  first failure: {broke[0].reasoning[:200]}")
+        return 1
+    if broke:
+        print(f"\n{len(broke)} scan(s) failed and were refused rather than admitted. "
+              "Refusing is the safe direction, but these are not scope judgements "
+              "and the candidates remain queued.")
     if judge is None:
         for candidate in selection.over_budget[:20]:
             print(f"  would consider {candidate.support}x {candidate.key}")
@@ -544,6 +559,8 @@ def cmd_grow(args) -> int:
             skipped += 1
             continue
         payload["expansion_generation"] = candidate.generation
+        if verdict.borrowed_background:
+            payload["is_borrowed_background"] = True
         payload["source_provenance"] = provenance(candidate, verdict, titles)
         payload["ingested_at"] = _date.today().isoformat()
         if not args.dry_run:

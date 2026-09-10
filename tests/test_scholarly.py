@@ -511,3 +511,15 @@ class TestSemanticScholar:
         paper = parse_paper(S2_PAPER)
         assert paper.abstract and paper.referenced_keys
         assert paper.key == "arxiv:2502.14143"
+
+
+class TestOrphanedEntries:
+    def test_an_entry_whose_record_is_gone_is_reported(self, tmp_path):
+        """Removing a duplicate deletes the record and leaves its reference
+        list behind, keeping a citation count for something nobody can open.
+        One got past the first live expansion run exactly this way."""
+        store = ReferenceStore.load(tmp_path / "refs.jsonl")
+        store.put("resource:here", key="arxiv:1", source="s2", referenced_keys=["arxiv:9"])
+        store.put("resource:gone", key="arxiv:2", source="s2", referenced_keys=["arxiv:9"])
+        assert store.orphans({"resource:here"}) == ["resource:gone"]
+        assert store.orphans({"resource:here", "resource:gone"}) == []

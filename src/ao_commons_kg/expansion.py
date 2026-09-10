@@ -96,11 +96,26 @@ class Candidate:
 
 @dataclass(frozen=True)
 class ScopeVerdict:
-    """What the scan decided, and why."""
+    """What the scan decided, and why.
+
+    Three states, not two. The corpus already distinguishes a record that
+    is about agentic organizations from one it holds as *borrowed
+    background* — Melting Pot and SocialJax are both marked
+    `is_borrowed_background`, and section 15 exists to point at adjacent
+    literatures rather than ingest them.
+
+    A binary scan cannot express that, so it was forced to refuse work the
+    corpus's own convention would admit-and-flag. The first live run turned
+    away a MARL benchmark on exactly those grounds while holding two others.
+    """
 
     admit: bool
     reasoning: str
     judged_by: str
+    borrowed_background: bool = False
+    """Admitted, but as adjacent material rather than as core scope. Sets
+    `is_borrowed_background` on the record, which is how a reader and the
+    query layer already tell the two apart."""
 
     def __post_init__(self) -> None:
         if not self.reasoning.strip():
