@@ -183,3 +183,51 @@ class TestAgainstTheRealCorpus:
         # behaviour, not of our code, and it should not fail on a good week.
         assert len(singletons) / len(candidates) > 0.8
         assert all(c.generation >= 1 for c in candidates)
+
+
+class TestVerdictParsing:
+    """The half that broke in production.
+
+    Twelve of thirty-two candidates in the first live run were refused with
+    `AttributeError: 'NoneType' object has no attribute 'group'` — a regex
+    that returned None, three frames from where it surfaced, saying nothing
+    about what came back. Every shape below is one the model actually
+    produced.
+    """
+
+    def test_a_bare_object(self):
+        from ao_commons_kg.scope_judge import parse_verdict
+        assert parse_verdict('{"admit": true}')["admit"] is True
+
+    def test_inside_a_code_fence(self):
+        from ao_commons_kg.scope_judge import parse_verdict
+        body = '```json\n{"admit": false, "reasoning": "no"}\n```'
+        assert parse_verdict(body)["admit"] is False
+
+    def test_with_prose_either_side(self):
+        from ao_commons_kg.scope_judge import parse_verdict
+        body = 'Here is my assessment.\n{"admit": true}\nLet me know if you need more.'
+        assert parse_verdict(body)["admit"] is True
+
+    def test_a_brace_inside_a_string_does_not_end_the_object(self):
+        """Why this matches braces instead of using a regex."""
+        from ao_commons_kg.scope_judge import parse_verdict
+        body = '{"admit": true, "reasoning": "the set {a, b} is cited"}'
+        assert "{a, b}" in parse_verdict(body)["reasoning"]
+
+    def test_a_truncated_reply_says_it_was_truncated(self):
+        """The actual production failure: max_tokens cut the object off.
+        The message has to name that, or the next person re-derives it."""
+        from ao_commons_kg.scope_judge import ScanUnreadable, parse_verdict
+        with pytest.raises(ScanUnreadable, match="max_tokens"):
+            parse_verdict('{"admit": true, "reasoning": "cut off here')
+
+    def test_an_empty_reply_is_not_an_admission(self):
+        from ao_commons_kg.scope_judge import ScanUnreadable, parse_verdict
+        with pytest.raises(ScanUnreadable, match="no text at all"):
+            parse_verdict("")
+
+    def test_prose_with_no_object_reports_what_came_back(self):
+        from ao_commons_kg.scope_judge import ScanUnreadable, parse_verdict
+        with pytest.raises(ScanUnreadable, match="I cannot"):
+            parse_verdict("I cannot assess this paper.")

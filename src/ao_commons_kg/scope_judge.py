@@ -96,6 +96,65 @@ in the corpus looking like a curated record — while a wrong refusal costs one 
 a person can add by hand."""
 
 
+class ScanUnreadable(ValueError):
+    """The model answered, and the answer was not usable."""
+
+
+def parse_verdict(body: str) -> dict:
+    r"""Pull the JSON object out of a model response.
+
+    Separated from the API call so the fragile half is testable without a
+    key. The first version was `re.search(r"\{.*\}", body, re.S).group(0)`,
+    which returns None on anything unexpected and then raises AttributeError
+    three frames away — 12 of 32 candidates in the first live run failed
+    that way, and the error said nothing about what had actually come back.
+
+    Handles the three shapes that turned up: a bare object, an object inside
+    a ```json fence, and an object with prose before or after it. Brace
+    matching rather than a regex, because a regex cannot tell a closing
+    brace inside a string from the end of the object.
+    """
+    if not body or not body.strip():
+        raise ScanUnreadable("the model returned no text at all")
+
+    text = body.strip()
+    if "```" in text:
+        parts = text.split("```")
+        for part in parts:
+            candidate = part[4:] if part.lower().startswith("json") else part
+            if candidate.strip().startswith("{"):
+                text = candidate.strip()
+                break
+
+    start = text.find("{")
+    if start < 0:
+        raise ScanUnreadable(f"no JSON object in the response: {text[:160]!r}")
+
+    depth, in_string, escaped = 0, False, False
+    for index in range(start, len(text)):
+        char = text[index]
+        if escaped:
+            escaped = False
+            continue
+        if char == "\\":
+            escaped = True
+        elif char == '"':
+            in_string = not in_string
+        elif not in_string:
+            if char == "{":
+                depth += 1
+            elif char == "}":
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start:index + 1])
+                    except json.JSONDecodeError as error:
+                        raise ScanUnreadable(f"malformed JSON: {error}") from error
+    raise ScanUnreadable(
+        "the JSON object never closed, which usually means the reply hit "
+        f"max_tokens: {text[-160:]!r}")
+
+
 def anthropic_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
                     metadata_for=None, titles: dict[str, str] | None = None):
     """A `ScopeJudge` backed by the Anthropic API.
@@ -122,14 +181,18 @@ def anthropic_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
         citing = [titles.get(rid, rid) for rid in candidate.cited_by]
         try:
             response = client.messages.create(
+                # Generous, because the failure it prevents is silent: a
+                # reply cut off mid-object parses as nothing, and the first
+                # run lost 12 of 32 candidates that way. Answers are a few
+                # hundred tokens; the ceiling is not the cost driver.
                 model=model,
-                max_tokens=600,
+                max_tokens=2000,
                 messages=[{"role": "user",
                            "content": build_prompt(candidate, metadata, citing)}],
             )
             body = "".join(block.text for block in response.content
                            if getattr(block, "type", "") == "text")
-            payload = json.loads(re.search(r"\{.*\}", body, re.S).group(0))
+            payload = parse_verdict(body)
         except Exception as error:  # noqa: BLE001 — any failure is a refusal
             return ScopeVerdict(
                 admit=False,
