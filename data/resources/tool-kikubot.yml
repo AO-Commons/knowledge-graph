@@ -1,0 +1,56 @@
+id: resource:tool:kikubot
+resource_type: code-tool
+title: Kikubot
+description: An email-driven multi-agent framework in Go where each agent is an autonomous inbox
+  and agents coordinate by emailing one another. Notable for shipping sender allowlists, container
+  isolation and watchdog timers as documented features rather than deployment advice.
+url: https://github.com/mxaiorg/kikubot
+repository_url: https://github.com/mxaiorg/kikubot
+license: MIT
+taxonomy_topics:
+- '2.2'
+- '5.1'
+- '5.3'
+- '9.2'
+- '11.6'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: Each agent is an autonomous mailbox; a coordinator agent delegates to specialists,
+    and agents collaborate by emailing each other. They act on the outside world through IMAP/SMTP,
+    Salesforce, Buffer, WordPress, Box, Xero, web search and bash execution, plus local or remote
+    MCP servers. That is an unusually wide external surface for a small project — an agent here
+    can email, post, update a CRM and touch accounting records.
+  human_controls: 'The strongest control is on who may address an agent at all: whitelist and
+    blacklist modes restrict senders by domain or address, which bounds the instruction surface
+    rather than the action surface. Integrations use scoped API keys. Agents run in containers
+    — "no risk of AI agents running on user machines" — and each has an isolated knowledge base.
+    Watchdog timers stop stuck recurring tasks, and snoozing tools are stripped during scheduled
+    replays. No approval gate before an agent sends outbound mail or writes to a connected system
+    is documented, and no spend control.'
+  maintainer: mxHERO Labs
+  open_source: 'yes'
+  status: active
+  languages:
+  - Go
+sources:
+- url: https://github.com/mxaiorg/kikubot
+  title: Kikubot — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - languages
+  - maintainer
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

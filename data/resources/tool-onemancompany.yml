@@ -1,0 +1,56 @@
+id: resource:tool:onemancompany
+resource_type: code-tool
+title: OneManCompany
+description: A browser-based platform for running a company staffed by AI employees in named roles
+  — EA, HR, COO, engineers, QA — with the CEO seat reserved for a human. Quality gates are claimed
+  at every level; the enforcement behind them is not documented.
+url: https://github.com/1mancompany/OneManCompany
+repository_url: https://github.com/1mancompany/OneManCompany
+license: Apache-2.0
+taxonomy_topics:
+- '3.1'
+- '3.2'
+- '6.1'
+- '2.4'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: adaptable-with-modification
+tool:
+  agent_model: Agents fill organisational roles in a hierarchy — the CEO seat is human-only and
+    everything below it may be an agent. They execute tasks through hierarchical delegation, hold
+    multi-agent meetings, access tools, execute code, and iterate on deliverables under version
+    control. The org chart is the authority structure, which makes this a direct instance of what
+    section 3 is about.
+  human_controls: 'The documentation claims "quality gates at every level", CEO review of file
+    change diffs before batch approval, task review before completion, and a spectrum from "hands-off"
+    to "full micromanagement". What it does not document is how any of that is enforced: no budget
+    caps or spending limits, no audit-log specification, no kill switch, no rate limiting on autonomous
+    action. Human oversight is assumed at the workflow level rather than enforced at the infrastructure
+    level — which is the distinction section 2.5 exists to draw, and makes this a useful negative
+    example.'
+  maintainer: 1manCompany
+  open_source: 'yes'
+  status: active
+  languages:
+  - Python
+  - JavaScript
+sources:
+- url: https://github.com/1mancompany/OneManCompany
+  title: OneManCompany — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - languages
+  - maintainer
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

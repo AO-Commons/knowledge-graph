@@ -1,0 +1,69 @@
+id: resource:tool:crewai
+resource_type: code-tool
+title: CrewAI
+description: A Python framework for role-based multi-agent teams, in which agents hold specialised
+  roles and may delegate to one another. The authority bounds are per-agent numeric limits — iterations,
+  requests per minute, wall-clock time — with delegation and code execution off by default.
+url: https://docs.crewai.com/
+repository_url: https://github.com/crewAIInc/crewAI
+license: MIT
+taxonomy_topics:
+- '2.1'
+- '2.3'
+- '2.5'
+- '3.1'
+- '5.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: production-at-scale
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: Agents hold specialised roles with defined goals and are described as having "true
+    autonomy and agency… through role-based collaboration", with "autonomous decision-making between
+    agents" and "dynamic task delegation". They call external tools, APIs and databases. Delegation
+    to other agents is governed by `allow_delegation`, which defaults to False — an agent cannot
+    hand work to another unless it is switched on.
+  human_controls: Bounds are numeric and per-agent rather than policy-shaped. `max_iter` (default
+    20) caps reasoning cycles before the agent must give its best answer; `max_retry_limit` (default
+    2) caps retries; `max_rpm` and `max_execution_time` default to unlimited, so rate and duration
+    are unbounded unless set. Code execution is off by default and `code_execution_mode` defaults
+    to "safe" (Docker) — both now deprecated, with sandboxing pushed to E2B or Modal. At the task
+    level `human_input` blocks completion pending human review of the final answer, and guardrails
+    validate output either by a Python function returning (bool, Any) or by an LLM judging a natural-language
+    criterion; a failed guardrail returns the error to the agent, which retries up to `guardrail_max_retries`
+    (default 3). Notably the retry loop is agent-to-agent with no human in it — human_input is
+    the only blocking human gate, and there is no documented spend cap or kill switch.
+  maintainer: CrewAI, Inc.
+  open_source: 'yes'
+  status: active
+  languages:
+  - Python
+sources:
+- url: https://docs.crewai.com/en/concepts/agents
+  title: CrewAI Docs — Agents
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+- url: https://docs.crewai.com/en/concepts/tasks
+  title: CrewAI Docs — Tasks
+  accessed: '2026-09-10'
+  supports:
+  - human_controls
+- url: https://github.com/crewAIInc/crewAI
+  title: CrewAI — repository
+  accessed: '2026-09-10'
+  supports:
+  - license
+  - languages
+  - open_source
+  - agent_model
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

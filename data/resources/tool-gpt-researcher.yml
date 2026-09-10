@@ -1,0 +1,53 @@
+id: resource:tool:gpt-researcher
+resource_type: code-tool
+title: GPT Researcher
+description: An autonomous research agent that plans queries, scrapes and aggregates twenty or
+  more sources, and writes a cited report. Widely used, and ships essentially no oversight surface
+  — which is the interesting fact about it.
+url: https://github.com/assafelovic/gpt-researcher
+repository_url: https://github.com/assafelovic/gpt-researcher
+license: Apache-2.0
+taxonomy_topics:
+- '2.5'
+- '8.2'
+- '9.2'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: independent-practitioner
+  maturity_of_subject: production-at-scale
+  temporal_relevance: current
+  applicability: adaptable-with-modification
+tool:
+  agent_model: 'The agent researches autonomously end to end: it browses and scrapes the web with
+    JavaScript enabled, aggregates over twenty sources, reads local documents, reaches external
+    systems through MCP — "GitHub repositories, databases, and custom APIs" — and writes report
+    files out to PDF and Word.'
+  human_controls: 'Almost none are documented, and the omission is the finding. No search or iteration
+    ceiling, no approval step, no domain allowlist, no mandatory review before a report is produced.
+    Docker is available but not required, so sandboxing is the operator''s choice. The only quantified
+    bound is economic and advisory rather than enforced: deep research is documented as costing
+    around $0.40 per run. The project describes itself as experimental and "as-is without any
+    warranty". A widely adopted agent that spends money and reaches arbitrary web and API endpoints
+    with no ceiling is a useful data point for section 2.5.'
+  maintainer: Assaf Elovic
+  open_source: 'yes'
+  status: active
+  languages:
+  - Python
+sources:
+- url: https://github.com/assafelovic/gpt-researcher
+  title: GPT Researcher — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - languages
+  - maintainer
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

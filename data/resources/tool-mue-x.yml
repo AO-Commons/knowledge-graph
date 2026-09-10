@@ -1,0 +1,54 @@
+id: resource:tool:mue-x
+resource_type: code-tool
+title: MUE-X
+description: A self-modifying agent that rewrites its own source at the AST level, published by
+  an organisation that describes itself as run by AI agents. The oversight model is an immutable
+  kernel the agent may not touch — a boundary drawn inside the system rather than around it.
+url: https://github.com/KorroAi/mue-x
+repository_url: https://github.com/KorroAi/mue-x
+license: MIT
+taxonomy_topics:
+- '2.5'
+- '2.7'
+- '6.2'
+- '11.6'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: background
+tool:
+  agent_model: 'The agent modifies itself: it "reads its own brain, generates mutations, validates
+    them, and applies them" through six AST-level strategies — repair, optimize, explore, exploit,
+    innovate, prune. It absorbs GitHub repositories every seven cycles and self-reflects without
+    user prompting. This is the strongest autonomy claim in the batch, and the only one where
+    the artefact under change is the agent itself.'
+  human_controls: Control is architectural rather than procedural. Protected kernel modules "cannot
+    be modified" by the agent, which is a boundary drawn inside the system rather than a gate
+    a person stands at. Five security layers are documented, including backups, import validation,
+    a SecurityGuard blocking dangerous bash commands, and audit logging. Steering is by CLI command.
+    There is no human approval step before a mutation is applied — the agent validates its own
+    changes, which makes the protected kernel the whole of the containment story.
+  maintainer: KorroAi
+  open_source: 'yes'
+  status: active
+  languages:
+  - Python
+sources:
+- url: https://github.com/KorroAi/mue-x
+  title: MUE-X — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - languages
+  - maintainer
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

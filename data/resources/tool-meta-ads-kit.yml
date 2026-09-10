@@ -1,0 +1,53 @@
+id: resource:tool:meta-ads-kit
+resource_type: code-tool
+title: Meta Ads Kit
+description: An agent kit that operates live Meta advertising accounts — pausing, resuming and
+  adjusting budgets on real campaigns. The clearest case in the mirror of an agent with direct
+  spend authority, and it answers that with approval gates and a dry-run default rather than with
+  limits.
+url: https://github.com/TheMattBerman/meta-ads-kit
+repository_url: https://github.com/TheMattBerman/meta-ads-kit
+license: MIT
+taxonomy_topics:
+- '2.1'
+- '2.5'
+- '8.1'
+- '9.2'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: independent-practitioner
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: The agent works against real ad accounts through Meta's official Ads CLI and can
+    "take action — pause, resume, adjust budgets" on live campaigns. That is unmediated authority
+    over spend, which almost nothing else in the mirror claims.
+  human_controls: 'Approval before anything that moves money: the agent "asks before taking any
+    spend-impacting action", described as "always with your approval". A mock mode runs the whole
+    loop without real API calls, a read-only mode allows reporting without action, and uploads
+    are dry-run-first with new ads created PAUSED rather than live. The gap is that these are
+    conventions of the loop, not enforced ceilings: there is no documented per-action spend cap,
+    no rollback procedure if an approval is given in error, no audit log of who approved what,
+    and the API token permission scopes required are unspecified.'
+  maintainer: Matt Berman
+  open_source: 'yes'
+  status: active
+  languages:
+  - Python
+sources:
+- url: https://github.com/TheMattBerman/meta-ads-kit
+  title: Meta Ads Kit — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - maintainer
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed

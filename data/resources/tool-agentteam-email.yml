@@ -1,0 +1,53 @@
+id: resource:tool:agentteam-email
+resource_type: code-tool
+title: AgentTeam Email
+description: Email infrastructure that gives agents their own mailboxes and puts a human approval
+  step between an agent's draft and what actually leaves the building. One of the few tools in
+  the mirror where the oversight step is the product rather than a setting.
+url: https://github.com/agentteamhq/agentteam-email
+repository_url: https://github.com/agentteamhq/agentteam-email
+license: MIT
+taxonomy_topics:
+- '2.1'
+- '2.2'
+- '9.2'
+- '4.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: 'Agents get dedicated mailboxes with scoped access. They read inbound mail and
+    draft outbound mail, but sending is not theirs to complete: the documentation describes letting
+    "agents draft replies or outbound mail while people approve, edit, or restrict what actually
+    gets sent". Untrusted inbound mail is opened in a separate product surface, which treats a
+    message as data rather than as instructions.'
+  human_controls: Operator approval on outbound mail is the core mechanism, making this machine-proposal
+    / human-approval by construction rather than by configuration. Role-based mailbox permissions
+    are managed through an admin surface, sending is restricted by domain via Cloudflare, and
+    enrolment is token-based through a CLI. Rate limits, recipient allowlists and the scope of
+    audit logging are not documented.
+  maintainer: AgentTeam HQ
+  open_source: 'yes'
+  status: active
+  languages:
+  - TypeScript
+  - Go
+sources:
+- url: https://github.com/agentteamhq/agentteam-email
+  title: AgentTeam Email — repository and README
+  accessed: '2026-09-10'
+  supports:
+  - agent_model
+  - human_controls
+  - license
+  - languages
+source_provenance: profiled by hand from the tool's own documentation on 2026-09-10, promoted
+  from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about what agents may
+  do and what constrains them cites the document it came from; the taxonomy tags are a first pass
+  and unreviewed.
+ingested_at: '2026-09-10'
+review_status: unreviewed
