@@ -245,3 +245,68 @@ class TestBorrowedBackground:
 
     def test_it_defaults_off(self):
         assert ScopeVerdict(True, "core scope", "test").borrowed_background is False
+
+
+class TestRememberingRefusals:
+    """A refusal used to leave no trace, so the same candidate was
+    re-scanned and re-paid for every run, and a verdict that flipped
+    between runs was invisible. ReAct was refused twice and admitted once
+    before anyone noticed, by reading three logs."""
+
+    def test_a_repeat_refusal_counts_up_and_keeps_the_first_date(self):
+        from ao_commons_kg.expansion import merge_refusals
+        first = [{"key": "arxiv:1", "refused_on": "2026-09-01", "times_refused": 1,
+                  "first_refused_on": "2026-09-01"}]
+        merged, _ = merge_refusals(first, [{"key": "arxiv:1", "refused_on": "2026-09-08"}])
+        assert merged[0]["times_refused"] == 2
+        assert merged[0]["first_refused_on"] == "2026-09-01"
+        assert merged[0]["refused_on"] == "2026-09-08"
+
+    def test_a_new_refusal_starts_at_one(self):
+        from ao_commons_kg.expansion import merge_refusals
+        merged, _ = merge_refusals([], [{"key": "arxiv:2", "refused_on": "2026-09-08"}])
+        assert merged[0]["times_refused"] == 1
+
+    def test_admitting_something_previously_refused_is_surfaced(self):
+        """A record entering on a judgement the same scan already made the
+        other way. A reader is entitled to know that."""
+        from ao_commons_kg.expansion import admissions_that_were_previously_refused
+        history = [{"key": "arxiv:2210.03629", "times_refused": 2,
+                    "reasoning": "upstream capability work"}]
+        flipped = admissions_that_were_previously_refused(
+            ["arxiv:2210.03629", "arxiv:9999"], history)
+        assert [f["key"] for f in flipped] == ["arxiv:2210.03629"]
+
+    def test_history_is_ordered_so_a_diff_is_readable(self):
+        from ao_commons_kg.expansion import merge_refusals
+        merged, _ = merge_refusals(
+            [], [{"key": "arxiv:9", "refused_on": "d"}, {"key": "arxiv:1", "refused_on": "d"}])
+        assert [e["key"] for e in merged] == ["arxiv:1", "arxiv:9"]
+
+    def test_a_failed_scan_is_not_recorded_as_a_refusal(self):
+        """`could not complete` is a broken scan, not a scope judgement.
+        Recording it would poison the flip rate with outages."""
+        from ao_commons_kg.expansion import ScopeVerdict
+        verdict = ScopeVerdict(False, "scope scan could not complete (timeout)", "m")
+        assert "could not complete" in verdict.reasoning
+
+
+class TestKnownDuplicates:
+    def test_a_confirmed_duplicate_is_never_proposed_again(self, tmp_path):
+        """It is cited by the same papers next week and clears the same
+        threshold, so without this the run pays for a scan and a fetch every
+        time to rediscover it. The ACM Generative Agents record was top of
+        the candidate list the run after being skipped."""
+        from ao_commons_kg.expansion import load_excluded, record_duplicate
+        path = tmp_path / "known.yml"
+        assert load_excluded(path) == set()
+        record_duplicate(path, "doi:10.1145/3586183.3606763",
+                         "resource:arxiv:2304.03442", "near-identical title", "2026-09-10")
+        assert load_excluded(path) == {"doi:10.1145/3586183.3606763"}
+
+    def test_recording_twice_does_not_duplicate_the_entry(self, tmp_path):
+        from ao_commons_kg.expansion import load_excluded, record_duplicate
+        path = tmp_path / "known.yml"
+        for _ in range(3):
+            record_duplicate(path, "arxiv:1", "resource:x", "same title", "2026-09-10")
+        assert len(load_excluded(path)) == 1

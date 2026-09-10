@@ -471,7 +471,11 @@ def cmd_grow(args) -> int:
         identify, likely_same_work, paper_record, write_record, write_references,
     )
 
-    from .expansion import find_candidates, provenance, select
+    from .expansion import (
+        DUPLICATES, REFUSALS, admissions_that_were_previously_refused,
+        find_candidates, load_excluded, merge_refusals, provenance,
+        record_duplicate, refusal_record, select,
+    )
     from .scholarly import arxiv
     from .scholarly.keys import keys_for_corpus
     from .scholarly.store import ReferenceStore
@@ -482,7 +486,17 @@ def cmd_grow(args) -> int:
     candidates = find_candidates(
         store.references(), keys_for_corpus(resources),
         {r.id: r.expansion_generation for r in resources})
-    print(f"{len(candidates)} cited works not held")
+    # Drop what a previous run already established is a record we hold.
+    # Left in, each one costs a scope scan and a metadata fetch every week
+    # to rediscover the same thing.
+    excluded = load_excluded(REPO / DUPLICATES)
+    if excluded:
+        before = len(candidates)
+        candidates = [c for c in candidates if c.key not in excluded]
+        print(f"{len(candidates)} cited works not held "
+              f"({before - len(candidates)} known duplicates excluded)")
+    else:
+        print(f"{len(candidates)} cited works not held")
 
     fetch_oa = http_fetcher()
 
@@ -526,6 +540,20 @@ def cmd_grow(args) -> int:
             print(f"  would consider {candidate.support}x {candidate.key}")
         return 0
 
+    # What the scan refused last time. Read before writing anything, so a
+    # candidate it is now admitting can be flagged as a verdict it has
+    # already made the other way.
+    refusals_path = REPO / REFUSALS
+    history = []
+    if refusals_path.exists():
+        history = (yaml.safe_load(refusals_path.read_text(encoding="utf-8")) or {}).get(
+            "refused", [])
+    flipped = admissions_that_were_previously_refused(
+        [c.key for c, _ in selection.admitted], history)
+    for entry in flipped:
+        print(f"  NOTE {entry['key']} was refused {entry.get('times_refused', 1)}x "
+              f"before and is admitted now — the scan has changed its mind")
+
     written = skipped = 0
     for candidate, verdict in selection.admitted:
         try:
@@ -556,6 +584,9 @@ def cmd_grow(args) -> int:
         if twins := likely_same_work(payload, resources):
             twin, why = twins[0]
             print(f"  skipped {payload['title'][:52]}: looks like {twin.id} ({why})")
+            if not args.dry_run:
+                record_duplicate(REPO / DUPLICATES, candidate.key, twin.id, why,
+                                 _date.today().isoformat())
             skipped += 1
             continue
         payload["expansion_generation"] = candidate.generation
@@ -568,6 +599,17 @@ def cmd_grow(args) -> int:
             write_record(payload)
         written += 1
         print(f"  + gen{candidate.generation} {payload['title'][:64]}")
+
+    if not args.dry_run and selection.rejected:
+        fresh = [refusal_record(c, v, _date.today().isoformat())
+                 for c, v in selection.rejected
+                 if "could not complete" not in v.reasoning]
+        merged, _ = merge_refusals(history, fresh)
+        refusals_path.parent.mkdir(parents=True, exist_ok=True)
+        refusals_path.write_text(
+            yaml.safe_dump({"refused": merged}, sort_keys=False, allow_unicode=True,
+                           width=94), encoding="utf-8")
+        print(f"  {len(fresh)} refusal(s) recorded; {len(merged)} in the history")
 
     print(f"\n{written} record(s) {'would be ' if args.dry_run else ''}added"
           + (f", {skipped} skipped as likely duplicates." if skipped else "."))

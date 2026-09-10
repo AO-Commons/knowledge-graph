@@ -1,0 +1,5 @@
+duplicates:
+- key: doi:10.1145/3586183.3606763
+  duplicates: resource:arxiv:2304.03442
+  why: near-identical title (100%) — ACM version of the arXiv preprint already held
+  found_on: '2026-09-10'

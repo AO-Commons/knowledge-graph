@@ -251,3 +251,108 @@ def provenance(candidate: Candidate, verdict: ScopeVerdict, titles: dict[str, st
         f"and machine-admitted as well as machine-resolved, so the scope judgement "
         f"here is a model's until a person confirms it."
     )
+
+
+# ---- remembering what was refused -----------------------------------------
+#
+# A refusal used to leave no trace. Three consequences, all bad: the same
+# candidate was re-scanned and re-paid for every run; a verdict that flipped
+# between runs was invisible; and nobody could ask what the scan had been
+# turning away. ReAct was refused twice and admitted once from the same
+# prompt against the same corpus, and only a human reading three logs
+# noticed.
+#
+# So refusals are written down. Not to make them permanent — a refused
+# candidate is reconsidered, and should be, because the corpus around it
+# changes — but so that changing one's mind is a visible event.
+
+REFUSALS = "data/candidates/refused.yml"
+
+
+def refusal_record(candidate: Candidate, verdict: ScopeVerdict, when: str) -> dict:
+    return {
+        "key": candidate.key,
+        "generation": candidate.generation,
+        "support": candidate.support,
+        "cited_by": list(candidate.cited_by),
+        "reasoning": verdict.reasoning,
+        "judged_by": verdict.judged_by,
+        "refused_on": when,
+    }
+
+
+def merge_refusals(existing: list[dict], fresh: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Fold this run's refusals into the history, and report the flips.
+
+    Returns the merged history and the candidates whose verdict changed
+    direction since last time. A flip is the number worth watching: it is
+    the scan disagreeing with itself, and the honest measure of how much
+    the boundary can be trusted.
+    """
+    by_key = {entry["key"]: entry for entry in existing}
+    flips = []
+    for entry in fresh:
+        if previous := by_key.get(entry["key"]):
+            entry["times_refused"] = previous.get("times_refused", 1) + 1
+            entry["first_refused_on"] = previous.get("first_refused_on",
+                                                     previous.get("refused_on"))
+        else:
+            entry["times_refused"] = 1
+            entry["first_refused_on"] = entry["refused_on"]
+        by_key[entry["key"]] = entry
+    return sorted(by_key.values(), key=lambda e: e["key"]), flips
+
+
+def admissions_that_were_previously_refused(
+        admitted: list[str], existing: list[dict]) -> list[dict]:
+    """Candidates the scan refused before and has now let in.
+
+    The flip, caught from the other side. Worth surfacing loudly: it means
+    a record entered the corpus on a judgement the same scan had already
+    made the other way, and a reader is entitled to know that.
+    """
+    refused = {entry["key"]: entry for entry in existing}
+    return [refused[key] for key in admitted if key in refused]
+
+
+DUPLICATES = "data/candidates/known-duplicates.yml"
+
+
+def load_excluded(path) -> set[str]:
+    """Canonical keys that must never be proposed again.
+
+    A candidate found to duplicate a held record is skipped at write time —
+    but it is still cited by the same papers next week, so it clears the
+    threshold again, and the run pays for a scope scan and a metadata fetch
+    before rediscovering what it already knew. The ACM version of Generative
+    Agents did exactly this: refused as a duplicate, then top of the
+    candidate list on the very next run.
+
+    Kept separate from refusals because it is a different kind of fact. A
+    refusal is a scope judgement and is meant to be revisited; this is an
+    identity finding and revisiting it just costs money.
+    """
+    import yaml
+
+    path = __import__("pathlib").Path(path)
+    if not path.exists():
+        return set()
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {entry["key"] for entry in payload.get("duplicates", []) if entry.get("key")}
+
+
+def record_duplicate(path, key: str, twin_id: str, why: str, when: str) -> None:
+    """Remember that this candidate is a record we already hold."""
+    import yaml
+
+    path = __import__("pathlib").Path(path)
+    payload = {}
+    if path.exists():
+        payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    entries = {e["key"]: e for e in payload.get("duplicates", [])}
+    entries[key] = {"key": key, "duplicates": twin_id, "why": why, "found_on": when}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        yaml.safe_dump({"duplicates": [entries[k] for k in sorted(entries)]},
+                       sort_keys=False, allow_unicode=True, width=94),
+        encoding="utf-8")
