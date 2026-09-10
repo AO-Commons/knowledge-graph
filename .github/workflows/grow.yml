@@ -50,6 +50,12 @@ concurrency:
 jobs:
   grow:
     runs-on: ubuntu-latest
+    # The key lives on this environment, not on the repository, and the
+    # environment only admits `main`. Exfiltrating it therefore means
+    # pushing to main rather than to a branch nobody watches — visible, and
+    # revertible. Without this line the job would look for a repo-level
+    # secret, find nothing, and quietly degrade to proposing only.
+    environment: scope-scan
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
