@@ -37,6 +37,16 @@ Three structures live in that one file, and they are implemented differently on 
 - **Section 11 (Failure modes)** is a coding scheme, not a set of shelves. An incident normally carries several codes at once, and its 119 topics are marked `usage_mode: coding_scheme` so the query layer treats multi-tagging as the default.
 - **F1–F12** are facets — flat controlled vocabularies on a resource, never a second tree. The taxonomy says what a resource is *about*; the facets say what kind of evidence it is and when it applies.
 
+## How a paper gets from arriving to citable
+
+[docs/pipeline.md](docs/pipeline.md) walks the ten stages — intake,
+resolution, admission, filing, extraction, tagging, linking, derivation,
+review, release — with what runs unattended, what waits for a person, and
+measured coverage at each step.
+
+The short version: everything up to filing now runs on its own, and nothing
+has yet been reviewed by a human. That is where the binding constraint sits.
+
 ## Adding a lot at once
 
 The site's **Add** tab is quickest for one or two. For a reading list, point an

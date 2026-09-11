@@ -3,6 +3,9 @@
 **Status:** proposal, not yet built. Argued here before any code moves, because
 it changes what the project is rather than how it works.
 
+For how the corpus is processed today, stage by stage, see
+[pipeline.md](pipeline.md).
+
 ## The claim
 
 A paper is a container. The answerable thing is inside it.
