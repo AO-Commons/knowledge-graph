@@ -43,6 +43,29 @@ class TestTheTab:
             assert f'section("{section}"' in page, f"{section} is in the contents and nowhere else"
 
 
+class TestItOpensWithWhatItIs:
+    """Somebody arriving here does not yet know what the thing is, and the
+    page used to open with how it was built."""
+
+    def test_the_first_two_sections_are_what_and_why_use_it(self, page):
+        listed = re.findall(r'\["(\w+)", "[^"]+"\]',
+                            page.split("DOCS_SECTIONS = [")[1].split("];")[0])
+        assert listed[:2] == ["what", "for"]
+
+    def test_the_mechanics_come_after(self, page):
+        docs = page.split("function renderDocs()")[1]
+        assert docs.index('section("what"') < docs.index('section("for"') \
+               < docs.index('section("graph"') < docs.index('section("pipeline"')
+
+    def test_it_says_what_the_questions_are_worth(self, page):
+        """A value proposition that does not say what you get instead is a
+        list of features."""
+        docs = page.split('section("for"')[1].split('section("why"')[0]
+        assert "Why not just search" in docs
+        assert "Has anyone already shown this?" in docs
+        assert "Who disagrees, and about what?" in docs
+
+
 class TestTheFiguresAreMeasured:
     """Hard-coding them is how a page ends up describing a corpus that no
     longer exists, while being the thing everyone trusts for the numbers."""

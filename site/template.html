@@ -593,7 +593,9 @@
   .docs table td { padding: 9px 14px 9px 0; border-bottom: 1px solid var(--rule);
                    vertical-align: top; line-height: 1.5; }
   .docs table tr:last-child td { border-bottom: 0; }
-  .docs table td:first-child { white-space: nowrap; font-weight: 560; }
+  /* The first column is a label in some of these tables and a whole question
+     in others, so it wraps rather than forcing the table sideways. */
+  .docs table td:first-child { font-weight: 560; }
 
   /* A stage of the pipeline: who runs it, and how far it actually goes. */
   .docs .stage { display: grid; grid-template-columns: 26px 1fr; gap: 0 14px;
@@ -677,12 +679,15 @@
   .docs .state.doing { border-color: var(--mark-edge); background: var(--mark); color: var(--ink); }
 
   /* Contents, in the column the taxonomy tree uses on other screens. */
-  .docs-nav { padding: 4px 0 18px; }
+  /* The pane itself has no padding — every other thing in it brings its own,
+     and the heading of each lines up at 20px. This had none, so "On this page"
+     and every entry under it sat flush against the window edge. */
+  .docs-nav { padding: 15px 12px 22px; }
   .docs-nav h2 { font-size: 11.5px; text-transform: uppercase; letter-spacing: .09em;
-                 color: var(--faint); margin: 0 0 9px; font-family: var(--mono);
-                 font-weight: 500; }
-  .docs-nav a { display: block; padding: 6px 9px; border-radius: 6px; font-size: 13px;
-                color: var(--muted); text-decoration: none; line-height: 1.35; }
+                 color: var(--faint); margin: 0 0 10px; padding: 0 8px;
+                 font-family: var(--mono); font-weight: 500; }
+  .docs-nav a { display: block; padding: 7px 8px; border-radius: 6px; font-size: 13px;
+                color: var(--muted); text-decoration: none; line-height: 1.4; }
   .docs-nav a:hover { background: var(--sunk); color: var(--ink); }
   .docs-nav a.here { background: var(--accent-soft); color: var(--accent); font-weight: 560; }
   @media (max-width: 860px) { .docs-nav { display: none; } }
@@ -3252,7 +3257,9 @@
   }
 
   const DOCS_SECTIONS = [
-    ["what", "What this is"],
+    ["what", "What it is"],
+    ["for", "What it is for"],
+    ["why", "Why statements, not papers"],
     ["graph", "How the graph fits together"],
     ["types", "The five kinds of statement"],
     ["pipeline", "From a paper to a statement"],
@@ -3367,30 +3374,86 @@
     const s = DATA.stats || {};
     const wrap = el("div", { className: "docs" });
 
-    wrap.append(el("h1", {}, "How this works"));
+    wrap.append(el("h1", {}, "AO Knowledge Graph"));
     wrap.append(el("p", { className: "lede" },
       "A knowledge graph of research on agentic organizations — organizations "
       + "where machine agents hold real authority. It is built out of what papers "
-      + "assert rather than out of the papers themselves. This page says how, what "
-      + "each stage costs, and how far it currently goes."));
+      + "assert, sentence by sentence, rather than out of the papers themselves."));
     wrap.append(figures());
 
     // --- what ------------------------------------------------------------
-    wrap.append(section("what", "What this is", "the argument", [
+    wrap.append(section("what", "What it is", "in one paragraph", [
+      para("A curated, versioned, machine-readable record of what has been shown "
+           + "and what has been argued about organizations run partly by machines. "
+           + "The unit is the ", el("strong", {}, "statement"), ": one assertion, "
+           + "carrying the sentence from the paper it was read out of, the kind of "
+           + "claim it is, whose result it is, and tags specific enough to be worth "
+           + "joining on. Papers are containers for those. Currently ",
+           String(s.statements), " statements read out of ",
+           String(s.papers_with_statements), " papers, inside a corpus of ",
+           String(s.records), " records."),
+      para("Everything is a file in a public git repository. There is no database "
+           + "and no account: the corpus can be read, diffed, forked, cited at a "
+           + "fixed version, and queried by an assistant through a read-only MCP "
+           + "server. Every statement carries its quote, so anything it says can be "
+           + "checked against the source without re-reading the paper."),
+    ]));
+
+    // --- what it is for --------------------------------------------------
+    wrap.append(section("for", "What it is for", "the questions it answers", [
+      para("The field is young, fast, and scattered across venues that do not cite "
+           + "each other. The expensive thing is not finding papers. It is finding "
+           + "out whether anyone has already shown the thing you are about to "
+           + "assume — and whether anyone disagrees."),
+      docTable(["The question", "What you get", "Why not just search"], [
+        ["Has anyone already shown this?",
+         "the statements that say it, each with the sentence it came from and who claimed it",
+         "search returns papers; you still read twenty abstracts to find the one sentence"],
+        ["Who disagrees, and about what?",
+         "statements asserted to contradict one another, each with the reason somebody gave",
+         "a citation graph tells you what cites what, never whether it agrees"],
+        ["Who has found this, working that way?",
+         "a finding's subject joined to a method's technique",
+         "no index separates what a paper is about from how it was done"],
+        ["What should I know before I trust this finding?",
+         "the background it rests on and the limitations its own authors stated",
+         "limitations live in discussion sections and are the first thing a reader loses"],
+        ["What does the field currently hold on X?",
+         "a citable release, fixed and checksummed, that will say the same thing next year",
+         "a literature review is stale on publication and cannot be queried"],
+      ]),
+      para(el("strong", {}, "For a researcher"), ", it is a way to enter a subject "
+           + "and come out with the claims and the disagreements rather than a "
+           + "reading list. ", el("strong", {}, "For a practitioner"), ", it is a "
+           + "way to check a design decision against what has actually been "
+           + "demonstrated. ", el("strong", {}, "For an agent"), ", it is a "
+           + "queryable substrate: structured claims with provenance, which is what "
+           + "a model needs to answer carefully rather than plausibly."),
+      para(el("strong", {}, "What makes it trustworthy is the same thing that makes "
+           + "it slow. "),
+           "Machines find, resolve, admit and tag. People decide whether a statement "
+           + "says what its source says, and that judgment is recorded against their "
+           + "name in a pull request anyone can read. Nothing here claims to be "
+           + "verified until somebody has verified it — today that is ",
+           String(s.reviewed), " of ", String(s.statements),
+           ", which is the honest state of the library and the reason the Review tab "
+           + "exists."),
+    ]));
+
+    // --- why statements ---------------------------------------------------
+    wrap.append(section("why", "Why statements, not papers", "the design choice", [
       para("A paper is a container. The thing worth linking is what it ",
            el("strong", {}, "asserts"), " — and two papers are almost never "
-           + "about the same thing, while two sentences often are. So the unit "
-           + "here is the statement: one assertion, with the sentence it was read "
-           + "from attached, so anybody can check it without re-reading the paper."),
-      para("That choice decides everything downstream. Tags go on statements, not "
-           + "on papers, so they can be specific enough to be useful — ",
-           mono("sanction-sensitivity"), " proposes a worthwhile pair to read "
-           + "together, ", mono("inter-agent trust"), " does not. Relations run "
-           + "between statements, so “who disagrees with this” has an "
-           + "answer more precise than “this paper, somewhere”. And a "
-           + "paper's categories are computed from the tags on its statements "
-           + "rather than assigned by hand, which is why a paper lands in several "
-           + "at once, honestly."),
+           + "about the same thing, while two sentences often are."),
+      para("That choice decides everything downstream. Tags go on statements rather "
+           + "than on papers, which lets them be far more specific: a tag naming one "
+           + "mechanism puts two statements side by side that are genuinely worth "
+           + "reading together, where a tag naming a whole subfield would put "
+           + "hundreds of unrelated ones there. Relations run between statements, so "
+           + "“who disagrees with this” has an answer more precise than "
+           + "“this paper, somewhere”. And a paper's categories are "
+           + "computed from the tags on its statements rather than assigned by hand, "
+           + "which is why a paper lands in several at once, honestly."),
       para("The corpus is deliberately narrow. Admitting everything cited by "
            + "everything held measures out at roughly 4,900 records, 93% of them "
            + "cited exactly once. ", String(s.records), " curated records are worth "
