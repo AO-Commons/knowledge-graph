@@ -3,18 +3,18 @@
 
     site  →  prefilled issue  →  this script  →  the corpus
 
-Run by `.github/workflows/new-resource.yml` on a labelled issue.
+Run by `.github/workflows/new-resource.yml` on a labeled issue.
 
 This lands without a human in the loop, where a filing and a taxonomy change
 do not, and the difference is blast radius rather than trust. A new record is
-one file that changes no existing judgement and no measured number; it arrives
+one file that changes no existing judgment and no measured number; it arrives
 `unreviewed`, which every consumer already filters on, and reverting it is one
 commit. A taxonomy change moves the branches everything else is filed under,
 so that path stays manual on purpose.
 
 What is automated here is the clerical work — resolving an identifier to
 metadata, spelling the authors the way the corpus already spells them, giving
-the record an id and a home. The judgement is not automated: whether the paper
+the record an id and a home. The judgment is not automated: whether the paper
 belongs is decided later, by the same review the rest of the corpus goes
 through. The script refuses malformed input; it does not pretend to referee.
 
@@ -116,7 +116,7 @@ def _key(label: str) -> str | None:
 def read_issue(body: str) -> dict[str, str]:
     """Read the fields out of an issue body, whatever shape it arrived in.
 
-    A labelled line carries its own value and closes. A bare heading opens a
+    A labeled line carries its own value and closes. A bare heading opens a
     block that runs to the next label. An unrecognized label closes the block
     rather than swallowing the text under it, so a section this script does
     not know about cannot end up appended to the previous answer.
@@ -273,7 +273,7 @@ def read_topics(raw: str, known: set[str]) -> list[str]:
 
     Refused rather than dropped when one is wrong. A code that does not exist
     is usually a typo for one that does, and silently discarding it would lose
-    a judgement the contributor thought they had recorded.
+    a judgment the contributor thought they had recorded.
     """
     codes = [c.strip() for c in re.split(r"[,;\s]+", raw or "") if c.strip()]
     if unknown := [c for c in codes if c not in known]:

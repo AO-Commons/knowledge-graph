@@ -75,7 +75,7 @@ def build_payload() -> dict:
             "where": claim.extracted_from,
             "type": claim.claim_type.value,
             # From the model, not re-derived in the page. Which types are
-            # primary is a judgement about what the library is for, and it
+            # primary is a judgment about what the library is for, and it
             # should have one home.
             "primary": claim.claim_type.is_primary,
             "topics": claim.topic_codes,
@@ -94,7 +94,7 @@ def build_payload() -> dict:
         })
 
     # Relations, and the concept labels the page needs to render a tag as
-    # something a person recognises rather than as a slug.
+    # something a person recognizes rather than as a slug.
     claim_list = load_claims()
     vocabulary = load_vocabulary()
     relations = [
@@ -122,7 +122,7 @@ def build_payload() -> dict:
 
     # Where a paper's own statements put it, next to where a person filed it.
     # Shown side by side rather than merged: the two disagree usefully, and
-    # collapsing them would hide which judgement came from where.
+    # collapsing them would hide which judgment came from where.
     by_claims: dict[str, list] = {}
     for claim in claim_list:
         by_claims.setdefault(claim.resource_id, []).append(claim)

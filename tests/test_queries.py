@@ -186,6 +186,6 @@ class TestToolsFor:
         answer = tools_for(corpus, "zzzz qqqq")
         assert answer["topics"] == [] and "taxonomy would use" in answer["note"]
 
-    def test_unassessed_entries_are_labelled_as_upstreams_words(self, corpus):
+    def test_unassessed_entries_are_labeled_as_upstreams_words(self, corpus):
         answer = tools_for(corpus, "audit what an agent did")
         assert "never checked here" in answer["how_to_read_this"]

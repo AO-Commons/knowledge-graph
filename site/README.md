@@ -58,7 +58,7 @@ classification figure is measured against.
 A contributor files, hits Submit, and opens an issue from a one-click link.
 `filing-to-pr.yml` validates every topic code and record id against this
 repository, merges the filing, and opens a pull request. The audit trail is
-the pull request list: every human judgement that entered the dataset, who
+the pull request list: every human judgment that entered the dataset, who
 made it, and what it changed.
 
 Nobody needs git, and no token exists beyond the one Actions already

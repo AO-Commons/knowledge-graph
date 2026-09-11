@@ -3,8 +3,8 @@ claims:
 - id: claim:arxiv:2509.14485:1
   text: Hierarchical Bayesian capability profiles predict future performance within a multi-agent
     evaluation suite.
-  quote: We show that these capability profiles not only predict future performance within the Melting
-    Pot suite but also reveal the underlying prosocial abilities of agents
+  quote: We show that these capability profiles not only predict future performance within
+    the Melting Pot suite but also reveal the underlying prosocial abilities of agents
   standalone: Applying Measurement Layouts to the Melting Pot contest, the authors show inferred
     capability profiles predict future performance within the suite and reveal agents' underlying
     prosocial abilities.
@@ -13,75 +13,76 @@ claims:
   - capability-profiling
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2509.14485:2
   text: Higher prosocial capability does not reliably accompany higher contest score.
-  quote: while higher prosocial capabilities sometimes correlate with better performance, this is
-    not a universal trend—some lower-scoring agents exhibit stronger cooperation abilities
-  standalone: 'In the Melting Pot contest, higher prosocial capability correlated with better performance
-    only sometimes: some lower-scoring agents showed stronger cooperation abilities than higher-scoring
-    ones.'
+  quote: while higher prosocial capabilities sometimes correlate with better performance,
+    this is not a universal trend—some lower-scoring agents exhibit stronger cooperation abilities
+  standalone: 'In the Melting Pot contest, higher prosocial capability correlated with better
+    performance only sometimes: some lower-scoring agents showed stronger cooperation abilities
+    than higher-scoring ones.'
   claim_type: finding
   concept_tags:
   - prosocial-capability
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2509.14485:3
-  text: Top-performing submissions score highest in scenarios where prosocial capability is not
-    required.
+  text: Top-performing submissions score highest in scenarios where prosocial capability is
+    not required.
   quote: we find that top-performing contest submissions are more likely to achieve high scores
     in scenarios where prosocial capabilities are not required
-  standalone: The authors find that top-performing Melting Pot contest submissions were more likely
-    to score highly in precisely those scenarios where prosocial capability was not demanded.
+  standalone: The authors find that top-performing Melting Pot contest submissions were more
+    likely to score highly in precisely those scenarios where prosocial capability was not
+    demanded.
   claim_type: finding
   concept_tags:
   - prosocial-capability
   - evaluation-gaming-and-answer-key-attacks
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2509.14485:4
-  text: Leading submissions gained much of their advantage by exploiting a weakness in the evaluation
-    framework.
+  text: Leading submissions gained much of their advantage by exploiting a weakness in the
+    evaluation framework.
   quote: It is then plausible that the leading submissions gained much of their edge by excelling
-    in scenarios that did not reward prosocial ability, thereby exploiting a weakness in the evaluation
-    framework
+    in scenarios that did not reward prosocial ability, thereby exploiting a weakness in the
+    evaluation framework
   standalone: The authors conclude it is plausible that leading Melting Pot contest submissions
-    gained much of their advantage by excelling where prosocial ability was not rewarded, exploiting
-    a weakness in the framework.
+    gained much of their advantage by excelling where prosocial ability was not rewarded,
+    exploiting a weakness in the framework.
   claim_type: finding
   concept_tags:
   - evaluation-gaming-and-answer-key-attacks
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2509.14485:5
-  text: Some capabilities fail to differentiate between systems when the corresponding task demands
-    are sparse.
-  quote: some capabilities did not differentiate between submissions, possibly due to the sparse
-    presence of the corresponding demands in the competition
-  standalone: The authors report that some inferred capabilities did not distinguish between Melting
-    Pot submissions, possibly because the corresponding task demands appeared too rarely in the
-    competition.
+  text: Some capabilities fail to differentiate between systems when the corresponding task
+    demands are sparse.
+  quote: some capabilities did not differentiate between submissions, possibly due to the
+    sparse presence of the corresponding demands in the competition
+  standalone: The authors report that some inferred capabilities did not distinguish between
+    Melting Pot submissions, possibly because the corresponding task demands appeared too
+    rarely in the competition.
   claim_type: limitation
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own

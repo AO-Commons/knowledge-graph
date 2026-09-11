@@ -88,8 +88,8 @@ class TestRelationship:
         edge = Relationship("resource:a", "resource:b", RelationType.CITES)
         assert edge.confidence_class is None
 
-    def test_labelling_a_citation_with_confidence_is_rejected(self):
-        """It implies a judgement that was never made."""
+    def test_labeling_a_citation_with_confidence_is_rejected(self):
+        """It implies a judgment that was never made."""
         with pytest.raises(ValueError, match="never made"):
             Relationship("resource:a", "resource:b", RelationType.CITES,
                          confidence_class=ConfidenceClass.INFERRED)

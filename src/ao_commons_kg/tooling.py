@@ -2,8 +2,8 @@
 
 `awesome-builder-tools` (Framework Zero, MIT) curates open-source tools for
 running an AI-staffed company. It is good and it is not this library: it
-answers *what should I build with*, organised by the builder's job, while this
-corpus answers *what does a tool let agents do, and what stops them*, organised
+answers *what should I build with*, organized by the builder's job, while this
+corpus answers *what does a tool let agents do, and what stops them*, organized
 by the taxonomy.
 
 Mirroring rather than copying, and mirroring rather than absorbing, for one
@@ -48,7 +48,7 @@ class Entry:
     promoted_to: str | None = None
     """The resource id, once somebody has profiled this tool for the library.
     Absent means it is listed but not yet assessed — which is most of them, and
-    should stay visible rather than being read as a judgement."""
+    should stay visible rather than being read as a judgment."""
 
 
 @dataclass
@@ -64,7 +64,7 @@ class Index:
 def parse_readme(markdown: str) -> list[Entry]:
     """Read the tables out of upstream's README.
 
-    Headings carry the organising idea — a tool's section is the builder's job
+    Headings carry the organizing idea — a tool's section is the builder's job
     it belongs to — so they are tracked rather than flattened away.
     """
     entries: list[Entry] = []
@@ -86,7 +86,7 @@ def parse_readme(markdown: str) -> list[Entry]:
                 section=section,
                 subsection=subsection,
                 description=cells[1] if len(cells) > 1 else "",
-                # The third column is stars in some tables and the licence in
+                # The third column is stars in some tables and the license in
                 # others, so it is kept only when it looks like a count.
                 stars=cells[2] if len(cells) > 2 and re.search(r"\d", cells[2]) and
                       any(c in cells[2] for c in "k+0123456789") and "/" not in cells[2] else None,

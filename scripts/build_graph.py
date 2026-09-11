@@ -10,7 +10,7 @@ filing site down for everyone who never looks at the graph.
 Kept honest about what each edge *is*. A citation and a bibliographic-coupling
 score and a machine-extracted claim are three different kinds of assertion, and
 a picture that draws them identically invites the viewer to read a resemblance
-as a fact. They are separately coloured and separately switchable.
+as a fact. They are separately colored and separately switchable.
 
 Usage:  python3 scripts/build_graph.py
 """
@@ -97,9 +97,9 @@ def build() -> dict:
     def dominant_section(written: list) -> str:
         """Which part of the field this person mostly works in.
 
-        Their colour, so a co-authorship cluster shows the areas it spans. Ties
+        Their color, so a co-authorship cluster shows the areas it spans. Ties
         break on the lowest section number rather than on dict order, because a
-        person's colour changing between builds would be a diff nobody could
+        person's color changing between builds would be a diff nobody could
         explain.
         """
         tally: dict[str, int] = {}

@@ -57,7 +57,7 @@ def test_a_byline_edge_exists_for_every_authorship(graph):
 
 def test_someone_with_nothing_filed_gets_no_section(graph):
     """Assigning one would put them in a part of the field at random, and the
-    colour would then assert something nobody decided."""
+    color would then assert something nobody decided."""
     people = [node for node in graph["nodes"] if node["kind"] == "author"]
     assert all(node["section"] == "" or node["section"].isdigit() for node in people)
 

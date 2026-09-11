@@ -58,7 +58,7 @@ taxonomy codes their concept tags sit under — against what a person filed.
 
 **The gains are right.** Melting Pot picks up 14.3 (evaluation integrity)
 because one of its own statements predicts the suite will be gamed, and 5.2
-and 5.3 because another says solving it requires modelling trust and
+and 5.3 because another says solving it requires modeling trust and
 deception. Nobody filed it there. It belongs there, by its own words.
 Dissociative Identity and Inter-Agent Trust Models both pick up 2.7 (machine
 participation in governance), which is exactly what their recommendations are
@@ -141,7 +141,7 @@ by being demoted taxonomy leaves. This is the join that makes the rest work.
 
 **A paper's categories are derived, plus a small asserted remainder.** The
 union of its statements' concepts' topics, which is computed and needs no
-judgement — and papers land in several categories naturally, because their
+judgment — and papers land in several categories naturally, because their
 statements do. Alongside that, a short hand-filed list for the framing codes
 derivation cannot see. Two fields, differently sourced, each honest about
 which it is.
@@ -168,7 +168,7 @@ measured.
 What the process needs before it carries the library:
 
 1. **A stated unit.** One assertion, one subject. SciFact's criteria — fluent,
-   atomic, decontextualised, faithful — are already cited in the model and
+   atomic, decontextualized, faithful — are already cited in the model and
    should become the extraction contract rather than a docstring.
 2. **A yield target.** Melting Pot produced 14 claims and Building the Loop
    4; after the editorial pass, 9 and 4. The variance tracked how much methods
@@ -187,7 +187,7 @@ What the process needs before it carries the library:
 
 ## Sequencing, and the thing that makes this hard
 
-Statement extraction is roughly seven judgements per paper against one for
+Statement extraction is roughly seven judgments per paper against one for
 filing. The Tuesday bot admits about eight papers a week. **Extraction cannot
 keep pace with intake unless it is automated, and automated extraction is
 unreviewed by definition** — which is the same bind the scope scan is in, and
@@ -213,7 +213,7 @@ destination is right; the cliff is avoidable.
 
 ## What this changes about the project
 
-Not a better-organised library. A map of what the field asserts, and where it
+Not a better-organized library. A map of what the field asserts, and where it
 disagrees with itself.
 
 That is the thing both researchers asked for in different words — *find who

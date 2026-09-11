@@ -159,9 +159,9 @@ class TestMethodTagging:
     def test_a_method_carrying_only_its_paper_s_subject_is_flagged(self):
         from ao_commons_kg.extract import method_tagged_by_subject
         flagged = method_tagged_by_subject([
-            {"claim_type": "finding", "concept_tags": ["organisational-knowledge-legibility"],
+            {"claim_type": "finding", "concept_tags": ["organizational-knowledge-legibility"],
              "text": "a finding"},
-            {"claim_type": "method", "concept_tags": ["organisational-knowledge-legibility"],
+            {"claim_type": "method", "concept_tags": ["organizational-knowledge-legibility"],
              "text": "KOI is a protocol for connecting disparate systems"},
         ])
         assert flagged == ["KOI is a protocol for connecting disparate systems"]

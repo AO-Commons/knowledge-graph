@@ -59,7 +59,7 @@ class TestParse:
         assert [e.name for e in entries] == ["Open SaaS", "LangGraph", "Composio", "Aragon"]
 
     def test_the_builders_job_is_kept(self, entries):
-        """Their section headings are the organising idea of the list — which
+        """Their section headings are the organizing idea of the list — which
         job a tool belongs to. Flattening them would throw away the part that
         makes it navigable."""
         aragon = entries[-1]

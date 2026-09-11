@@ -59,7 +59,7 @@ class TestVocabulary:
 
     def test_unknown_tags_are_reported_not_dropped(self):
         """A tag that does not resolve is usually a near-miss for one that
-        does. Discarding it silently loses a judgement somebody made."""
+        does. Discarding it silently loses a judgment somebody made."""
         vocab = load_vocabulary()
         assert vocab.unknown(["stake-based-trust"]) == []
         assert vocab.unknown(["stake-based-trusts"]) == ["stake-based-trusts"]
@@ -209,7 +209,7 @@ class TestCandidateQueue:
     def test_drafted_relations_say_they_are_unconfirmed(self):
         """A model proposing an inference and writing its own justification
         is the case the INFERRED class exists to mark. It must not be
-        readable as a person's judgement."""
+        readable as a person's judgment."""
         from ao_commons_kg.claims import load_claim_relations, load_claims
         drafted = [r for r in load_claim_relations(claims=load_claims())
                    if "claude" in (r.extraction_method or "")]
@@ -428,7 +428,7 @@ class TestClaimTopicsAreDerived:
 
 
 class TestRelationAttribution:
-    """Who made a judgement is the one thing this file cannot get wrong.
+    """Who made a judgment is the one thing this file cannot get wrong.
 
     Nine relations carried a person's name for two days and were drafted by
     a model — the exact failure the confidence class exists to prevent,

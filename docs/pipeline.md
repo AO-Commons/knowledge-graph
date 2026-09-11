@@ -42,10 +42,10 @@ it is never inferred or defaulted.
 | **`bulk_add.py`** | a reading list | a contributor, opens a PR | PR review |
 | **`aokg grow`** | the citation graph | Tuesday cron | threshold + scope scan |
 
-**Add tab** → issue labelled `new-resource` → `new-resource.yml` runs
+**Add tab** → issue labeled `new-resource` → `new-resource.yml` runs
 `add_resource.py` → commits to main → asks Pages to rebuild. No maintainer in
 the loop, on a blast-radius argument: a new record changes no existing
-judgement and no measured number, and `git revert` undoes it completely.
+judgment and no measured number, and `git revert` undoes it completely.
 
 **Bulk** is the one-at-a-time path in a loop, deliberately — same resolution,
 same duplicate check, same refusal to file a paper nothing can resolve. A bulk
@@ -76,7 +76,7 @@ record — a hundred identifiers in a file a person is meant to hand-correct is
 a poor trade.
 
 Per-author affiliations are kept paired (`Resource.affiliations`), not
-flattened into two lists. Organisation names fold only on the country suffix:
+flattened into two lists. Organization names fold only on the country suffix:
 `Google (United States)` and `Google (United Kingdom)` are one company,
 `Google DeepMind` is not Google, and anything ambiguous is reported rather
 than merged.
@@ -102,7 +102,7 @@ before the expensive one sees anything.
 
 **Both directions.** Backward: works our papers cite, free from the reference
 store. Forward: works that cite ours, a query per held record. The forward
-half is not an optimisation — it is the only route by which recent research
+half is not an optimization — it is the only route by which recent research
 can be reached at all. A paper published last month has been cited by nobody
 and can never clear a backward threshold however plainly it belongs; it can
 cite three of ours on the day it appears. Both count the same toward support.
@@ -112,7 +112,7 @@ candidates, 38 clearing the threshold, the newest published three weeks ago
 and reachable no other way.
 
 **A rising threshold.** Generation 1 needs 2 held papers connected to it,
-generation 2 needs 3, each hop from a human judgement strictly harder. This is
+generation 2 needs 3, each hop from a human judgment strictly harder. This is
 a brake, not a termination proof — a famous enough work clears any bar.
 
 **A scope scan.** A model reads the abstract against the scope test and the
@@ -161,7 +161,7 @@ What it has to become:
 5. **A measurement.** Until extraction has an accuracy number against the gold
    set, "statements are first class" is an aspiration with 40 examples.
 
-**The bind:** ~7 judgements per paper against 1 for filing, and admission runs
+**The bind:** ~7 judgments per paper against 1 for filing, and admission runs
 at ~8 papers a week. Extraction cannot keep pace unless it is machine-led —
 and machine-led extraction is unreviewed by definition. Same shape as the
 scope scan, and it should be answered the same way: let the machine produce,
@@ -250,7 +250,7 @@ Two mechanisms, and the split is the design.
 
 **Concepts propose.** Pairs sharing a tag become candidates. 40 claims is 780
 pairs; a shared concept cuts it to 73, different papers to 27, minus settled
-leaves 25. The tags do the filtering so judgement is spent where there is
+leaves 25. The tags do the filtering so judgment is spent where there is
 something to judge.
 
 ```bash
@@ -267,7 +267,7 @@ claims disagree — and the loader refuses one without.
 mean the vocabulary is too loose.
 
 A relation drafted by a model says so, and is never readable as a person's
-judgement.
+judgment.
 
 *Proposed:* citations as a second proposal signal. If A cites B, A's
 statements are candidates for relations to B's. One usable edge today — worth
@@ -280,7 +280,7 @@ statements are candidates for relations to B's. One usable edge today — worth
 ## 7 · Filing — categories, derived from what a paper says
 
 The union of the taxonomy codes its statements' concepts sit under. Computed,
-no judgement, and papers land in several categories naturally because their
+no judgment, and papers land in several categories naturally because their
 statements do.
 
 Measured against hand-filing on the six: derivation **gains** codes the filer
@@ -294,12 +294,12 @@ the framing codes, saying what kind of move a paper makes.
 
 Filing a record still becomes a prefilled issue and `filing-to-pr.yml` turns
 it into a pull request — **the PR list is the audit trail**, every human
-judgement in the dataset, who made it and what it changed. What changed is
+judgment in the dataset, who made it and what it changed. What changed is
 when it happens and how much of it there is to do.
 
 **Coverage: 6 derived, 73 hand-filed from before the reordering.** Those 73
 keep their codes; nothing is rewritten. They will look increasingly like what
-they are — a judgement made before anyone had read the paper's statements.
+they are — a judgment made before anyone had read the paper's statements.
 
 ---
 
@@ -311,11 +311,11 @@ A reviewer opening a record is asked two questions in one sitting, because the
 expensive part is the reading and it should be paid once: **where does this
 belong**, and **is each statement what its quote says**. They also now see
 whose claim it is, what it argues about, and any relation it is an end of —
-including machine drafts asking for exactly this judgement.
+including machine drafts asking for exactly this judgment.
 
 Verdicts: `accurate`, `overstated`, `not-in-source`, `ambiguous`.
 `overstated` is the one worth having — the claim is in the paper but the
-paraphrase says more than the source does, which is the characteristic failure
+paraphrase says more than the source does, which is the characteriztic failure
 of extraction and invisible in a yes/no.
 
 Filings become pull requests. The gold set they build is what every

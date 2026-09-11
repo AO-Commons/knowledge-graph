@@ -49,7 +49,7 @@ Section 15 is intentionally shallow. It points into adjacent mature fields — o
 
 Every non-deterministic edge records how it was made. `CITES` from scholarly metadata and `RELATED_TO` from a model are different claims and must never look alike:
 
-- deterministic (`CITES`, `PARENT_OF`) — no confidence class; adding one implies a judgement nobody made
+- deterministic (`CITES`, `PARENT_OF`) — no confidence class; adding one implies a judgment nobody made
 - computed (`SIMILAR_TO`) — always a named `method` and a `score`; a hidden method makes a score uninterpretable
 - extracted or inferred — `confidence_class` plus the source text
 
@@ -62,7 +62,7 @@ record. That rule was retired deliberately: human promotion does not scale,
 and the queue it produced was not being read.
 
 What replaces it is not nothing. A work must be cited by enough records we
-already hold — a threshold that rises with each hop from anybody's judgement
+already hold — a threshold that rises with each hop from anybody's judgment
 — and then pass a scope scan that reads it against the scope test and the
 exclusion register. Every admitted record carries its generation, the papers
 that cited it, and the scan's reasoning, so a bad rule is legible afterwards
@@ -70,7 +70,7 @@ rather than invisible.
 
 The division is meant to hold as trust moves. Machines resolve, deduplicate,
 propose and now admit. People decide what a record is *about*, whether a
-claim is accurately extracted, and what the taxonomy is — the judgements
+claim is accurately extracted, and what the taxonomy is — the judgments
 where being wrong is expensive and quiet. Reviewing auto-admitted records is
 how the scan earns a looser threshold; until that evidence exists the
 settings stay conservative.

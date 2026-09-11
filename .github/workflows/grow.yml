@@ -9,14 +9,14 @@
 # growing, and the queue it produced was never read.
 #
 # What replaces the human is not nothing. Three gates, in cost order — a
-# threshold that rises with each hop from anybody's judgement, a scope scan
+# threshold that rises with each hop from anybody's judgment, a scope scan
 # that reads the abstract against the scope test and the exclusion register,
 # and a budget per run. Every admitted record carries the generation, the
 # papers that cited it, and the scan's reasoning in `source_provenance`, so
 # a bad rule shows up as a readable pattern rather than a mystery pile.
 #
 # It commits to main for the same reason `new-resource.yml` does: blast
-# radius. A new record changes no existing judgement and no measured number,
+# radius. A new record changes no existing judgment and no measured number,
 # lands `unreviewed` like everything else, and `git revert` undoes it
 # completely. What still waits for a person is filing and taxonomy change.
 
@@ -64,7 +64,7 @@ jobs:
       - run: pip install -e ".[scholarly,scope]"
 
       # Without a key the run admits nothing and says so. That is the
-      # designed behaviour rather than a failure — the fallback for a
+      # designed behavior rather than a failure — the fallback for a
       # missing scope test is a queue, not a keyword score — but a silent
       # no-op every Tuesday is how a broken secret goes unnoticed for a
       # month, so say it out loud.

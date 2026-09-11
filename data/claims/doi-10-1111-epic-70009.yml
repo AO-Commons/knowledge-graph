@@ -1,54 +1,54 @@
 resource_id: resource:doi:10-1111-epic-70009
 claims:
 - id: claim:doi:10-1111-epic-70009:1
-  text: Artificial Organisational Intelligence is an organisation's capacity to make its own knowledge
-    legible and governable.
+  text: Artificial Organizational Intelligence is an organization's capacity to make its own
+    knowledge legible and governable.
   quote: 'We introduce Artificial Organisational Intelligence (AOI): the capacity for organisations
     to make their knowledge (including routines, practices, rules, boundaries, and tacit know‐how)
     legible and governable'
-  standalone: The authors define Artificial Organisational Intelligence as an organisation's capacity
-    to make its knowledge — routines, practices, rules, boundaries and tacit know-how — legible
-    and governable.
+  standalone: The authors define Artificial Organizational Intelligence as an organization's
+    capacity to make its knowledge — routines, practices, rules, boundaries and tacit know-how
+    — legible and governable.
   claim_type: method
   concept_tags:
-  - organisational-knowledge-legibility
+  - organizational-knowledge-legibility
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:doi:10-1111-epic-70009:2
-  text: Artificial Organisational Intelligence is about organisations talking to themselves through
-    regulated feedback loops, not about replacing them with AI.
-  quote: AOI is not about replacing organisations with AI, but about enabling them to talk to themselves
-    and to each other through regulated feedback loops
-  standalone: The authors position Artificial Organisational Intelligence as enabling organisations
-    to talk to themselves and each other through regulated feedback loops, rather than as replacing
-    organisations with AI.
+  text: Artificial Organizational Intelligence is about organizations talking to themselves
+    through regulated feedback loops, not about replacing them with AI.
+  quote: AOI is not about replacing organisations with AI, but about enabling them to talk
+    to themselves and to each other through regulated feedback loops
+  standalone: The authors position Artificial Organizational Intelligence as enabling organizations
+    to talk to themselves and each other through regulated feedback loops, rather than as
+    replacing organizations with AI.
   claim_type: position
   concept_tags:
-  - organisational-knowledge-legibility
+  - organizational-knowledge-legibility
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:doi:10-1111-epic-70009:3
-  text: Knowledge Organisation Infrastructure is a protocol for connecting disparate systems without
-    homogenising them.
+  text: Knowledge Organization Infrastructure is a protocol for connecting disparate systems
+    without homogenising them.
   quote: develops Knowledge Organisation Infrastructure (KOI), a protocol for stitching together
     disparate systems and practices without homogenisation
-  standalone: The authors describe Knowledge Organisation Infrastructure as a protocol for stitching
-    together disparate organisational systems and practices without homogenising them, so rules
-    and context become machine-readable.
+  standalone: The authors describe Knowledge Organization Infrastructure as a protocol for
+    stitching together disparate organizational systems and practices without homogenising
+    them, so rules and context become machine-readable.
   claim_type: method
   concept_tags:
   - shared-schemas-for-agentic-organization-data
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own

@@ -1,58 +1,59 @@
 resource_id: resource:arxiv:2107.06857
 claims:
 - id: claim:arxiv:2107.06857:1
-  text: Existing MARL evaluation suites do not treat generalization to novel situations as their
-    primary objective.
+  text: Existing MARL evaluation suites do not treat generalization to novel situations as
+    their primary objective.
   quote: Existing evaluation suites for multi-agent reinforcement learning (MARL) do not assess
     generalization to novel situations as their primary objective
-  standalone: As of 2021, existing evaluation suites for multi-agent reinforcement learning did
-    not treat generalization to novel situations as their primary objective, unlike supervised-learning
+  standalone: As of 2021, existing evaluation suites for multi-agent reinforcement learning
+    did not treat generalization to novel situations as their primary objective, unlike supervised-learning
     benchmarks.
   claim_type: background
   concept_tags:
   - benchmarks-relevant-to-organizational-roles
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: other
   attributed_to: prior MARL evaluation literature
 - id: claim:arxiv:2107.06857:2
-  text: Automated generation of multi-agent test scenarios is possible because one agent's behaviour
-    forms part of another agent's environment.
+  text: Automated generation of multi-agent test scenarios is possible because one agent's
+    behavior forms part of another agent's environment.
   quote: This works because one agent’s behavior constitutes (part of) another agent’s environment
   standalone: Melting Pot's authors argue that reinforcement learning can generate novel multi-agent
-    test scenarios because one agent's behaviour is itself part of another agent's environment.
+    test scenarios because one agent's behavior is itself part of another agent's environment.
   claim_type: method
   concept_tags:
   - agent-generated-evaluation-and-scoring
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2107.06857:3
-  text: Melting Pot reveals weaknesses in MARL algorithms that training performance alone does not
-    show.
-  quote: demonstrate how Melting Pot reveals weaknesses not apparent from training performance alone
-  standalone: The Melting Pot authors report that their suite reveals weaknesses in standard MARL
-    training algorithms which are not apparent from training performance alone.
+  text: Melting Pot reveals weaknesses in MARL algorithms that training performance alone
+    does not show.
+  quote: demonstrate how Melting Pot reveals weaknesses not apparent from training performance
+    alone
+  standalone: The Melting Pot authors report that their suite reveals weaknesses in standard
+    MARL training algorithms which are not apparent from training performance alone.
   claim_type: finding
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2107.06857:4
   text: Solving novel social situations appears to require agents that model trust, reciprocity
     and deception.
-  quote: Solutions to the problems posed here seem to require agents that understand trust, generosity,
-    and forgiveness, as well as reciprocity, stubbornness, and deception
+  quote: Solutions to the problems posed here seem to require agents that understand trust,
+    generosity, and forgiveness, as well as reciprocity, stubbornness, and deception
   standalone: Melting Pot's authors conclude that solving their test scenarios seems to require
     agents that understand trust, generosity, forgiveness, reciprocity, stubbornness and deception.
   claim_type: position
@@ -60,23 +61,24 @@ claims:
   - prosocial-capability
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2107.06857:5
-  text: An evaluation suite improves over time by folding improved agents into its background populations.
+  text: An evaluation suite improves over time by folding improved agents into its background
+    populations.
   quote: Melting Pot will likewise improve over time by reincorporating the latest agent technology
     into new background populations and test scenarios
   standalone: Melting Pot's authors expect the suite to get harder over time, because improvements
-    in agent performance are folded back into the background populations its test scenarios are
-    built from.
+    in agent performance are folded back into the background populations its test scenarios
+    are built from.
   claim_type: position
   concept_tags:
   - dynamic-evaluation
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own

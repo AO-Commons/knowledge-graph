@@ -39,7 +39,7 @@ the first time reference coverage jumps. The cap is per run and takes the
 best candidates first, leaving the rest queued — a corpus that grows at a
 rate nobody can skim is one nobody is checking.
 
-**A scope scan** stops the wrong papers. This is the judgement, and it is the
+**A scope scan** stops the wrong papers. This is the judgment, and it is the
 part that must not be a keyword score: the README already records that the
 keyword pre-filter scores *Institutions as cached computation for
 resource-rational negotiation* at 1 and it is squarely in scope. The scan is
@@ -69,7 +69,7 @@ def threshold_for(generation: int, base: int = BASE_THRESHOLD) -> int:
     """How many of our papers must cite a candidate at this generation.
 
     Generation 1 needs `base`, and each hop outward adds one. A work five
-    hops from anybody's judgement would need six of our papers to cite it,
+    hops from anybody's judgment would need six of our papers to cite it,
     and agreement between our own papers gets rarer the further out you go —
     so growth falls off sharply with depth. Sharply, not to zero: this is a
     brake, and the budget is the bound.
@@ -188,7 +188,7 @@ class Selection:
     the work is. Filing the second as the first pays for a model call to
     learn what an empty title already said, and buries a data problem inside
     a scope decision — where it would be re-proposed and re-refused every
-    week, looking like a judgement."""
+    week, looking like a judgment."""
 
     admitted: list[tuple[Candidate, ScopeVerdict]] = field(default_factory=list)
     """Kept with the verdict that let each one in, not just the candidate.
@@ -339,7 +339,7 @@ def provenance(candidate: Candidate, verdict: ScopeVerdict, titles: dict[str, st
         f"generation. Connected records: {connected}. "
         f"Scope scan by {verdict.judged_by}: {verdict.reasoning} "
         f"Unreviewed, like everything that has not been through the review queue — "
-        f"and machine-admitted as well as machine-resolved, so the scope judgement "
+        f"and machine-admitted as well as machine-resolved, so the scope judgment "
         f"here is a model's until a person confirms it."
     )
 
@@ -399,7 +399,7 @@ def admissions_that_were_previously_refused(
     """Candidates the scan refused before and has now let in.
 
     The flip, caught from the other side. Worth surfacing loudly: it means
-    a record entered the corpus on a judgement the same scan had already
+    a record entered the corpus on a judgment the same scan had already
     made the other way, and a reader is entitled to know that.
     """
     refused = {entry["key"]: entry for entry in existing}
@@ -420,7 +420,7 @@ def load_excluded(path) -> set[str]:
     candidate list on the very next run.
 
     Kept separate from refusals because it is a different kind of fact. A
-    refusal is a scope judgement and is meant to be revisited; this is an
+    refusal is a scope judgment and is meant to be revisited; this is an
     identity finding and revisiting it just costs money.
     """
     import yaml

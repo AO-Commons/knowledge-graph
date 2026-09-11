@@ -169,8 +169,8 @@
       ]
     },
     {
-      "id": "ex-ante-behavioural-harness",
-      "label": "Ex ante behavioural harness",
+      "id": "ex-ante-behavioral-harness",
+      "label": "Ex ante behavioral harness",
       "topics": [
         "2.5",
         "4.1"
@@ -195,8 +195,8 @@
       ]
     },
     {
-      "id": "organisational-knowledge-legibility",
-      "label": "Organisational knowledge legibility",
+      "id": "organizational-knowledge-legibility",
+      "label": "Organizational knowledge legibility",
       "topics": [
         "16.1",
         "2.4"
@@ -207,7 +207,7 @@
         "claim:doi:10-1111-epic-70009:1",
         "claim:doi:10-1111-epic-70009:2"
       ],
-      "note": "Making an organisation's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organisational Intelligence work."
+      "note": "Making an organization's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organizational Intelligence work."
     },
     {
       "id": "prosocial-capability",
@@ -4027,8 +4027,8 @@
       "statements": 0
     },
     {
-      "id": "reward-design-and-what-optimising-a-proxy-does-to-a-population",
-      "label": "Reward design, and what optimising a proxy does to a population",
+      "id": "reward-design-and-what-optimizing-a-proxy-does-to-a-population",
+      "label": "Reward design, and what optimizing a proxy does to a population",
       "topics": [
         "15.6"
       ],

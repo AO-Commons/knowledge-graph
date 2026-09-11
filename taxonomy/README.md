@@ -27,7 +27,7 @@
 
 Sections 2, 4, 6, 10, and 11 carry the weight; 15 and 16 are shallow on purpose.
 
-Two things the file says about itself, worth preserving as product behaviour:
+Two things the file says about itself, worth preserving as product behavior:
 
 - **Section 6 is the thinnest literature and the highest leverage.** Treating agents as organizational members — selection, performance management, retirement — has almost no published research, but the operational questions arrive immediately. A large branch with few resources is a research gap worth surfacing, not a defect to paper over. Note that thin *literature* is not a small branch: section 6 has 31 topics.
 - **Section 12.1 is mostly empty, and that is the honest state of the field.** Everything in sections 2–10 presupposes someone accountable. Do not fill it with material that doesn't exist.

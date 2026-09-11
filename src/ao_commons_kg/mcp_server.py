@@ -11,7 +11,7 @@ does not belong yet.
 Read-only is a design decision, not a limitation to fix later. Filings and
 claim verdicts enter through the review site and a pull request, where they
 are attributable to a person and visible before they land. A tool that let an
-agent write into the gold set would put unattributable judgements into the one
+agent write into the gold set would put unattributable judgments into the one
 dataset every measurement is taken against.
 
 What this will not answer: research questions. "What reduces cascading

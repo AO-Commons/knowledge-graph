@@ -2,7 +2,7 @@
 
 The numbers here were measured, not assumed. Against the tags the corpus
 already carries — themselves a first pass, so this is agreement with an earlier
-judgement rather than truth — stemming bought +3 points of recall@1 and phrases
+judgment rather than truth — stemming bought +3 points of recall@1 and phrases
 another +2 of recall@3, together taking MRR from 0.42 to 0.49.
 """
 

@@ -171,7 +171,7 @@ class TestTopics:
 
     def test_a_code_that_does_not_exist_stops_the_add(self):
         """Almost always a typo for a code that does. Dropping it silently
-        would lose a judgement the contributor thinks they recorded."""
+        would lose a judgment the contributor thinks they recorded."""
         with pytest.raises(ProposalError, match="99.9"):
             read_topics("2.2, 99.9", KNOWN_TOPICS)
 

@@ -36,7 +36,7 @@ PROVENANCE = (
 )
 
 # Papers get the same facet baseline: a preprint reporting a single study is
-# the modal case here, and anything more specific is a judgement the record
+# the modal case here, and anything more specific is a judgment the record
 # should not make on its own.
 PAPER_FACETS = {
     "artifact_type": "preprint",

@@ -738,7 +738,7 @@ Compressed pointers, not shelves. Material from adjacent fields that informs des
   - Multi-agent reinforcement learning -- social dilemmas, cooperation, and competition between trained agents
   - Generalization to unfamiliar partners and novel social situations
   - Evaluation environments and benchmark suites
-  - Reward design, and what optimising a proxy does to a population
+  - Reward design, and what optimizing a proxy does to a population
 
 ---
 

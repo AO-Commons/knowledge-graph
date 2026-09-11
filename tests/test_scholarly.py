@@ -379,7 +379,7 @@ def test_structural_signal_finds_what_keywords_cannot():
     title contains no agent-ish vocabulary.
 
     Keyword scoring puts it below the threshold. Being cited by two corpus
-    papers puts it near the top. The field's own citing behaviour is better
+    papers puts it near the top. The field's own citing behavior is better
     evidence of relevance than a word list, and this asserts the ranking
     reflects that."""
     from ao_commons_kg.graph import co_citation_counts

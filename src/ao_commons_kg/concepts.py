@@ -122,7 +122,7 @@ class Vocabulary:
 
         Reported rather than dropped, on the same reasoning as a bad topic
         code: a tag that does not resolve is usually a near-miss for one that
-        does, and discarding it silently loses a judgement somebody made.
+        does, and discarding it silently loses a judgment somebody made.
         """
         return [c for c in concept_ids if c not in self.concepts]
 

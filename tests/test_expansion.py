@@ -180,7 +180,7 @@ class TestAgainstTheRealCorpus:
         assert candidates, "no candidates at all means references stopped resolving"
         singletons = [c for c in candidates if c.support == 1]
         # The 93% finding. Loose bound: this is a property of citation
-        # behaviour, not of our code, and it should not fail on a good week.
+        # behavior, not of our code, and it should not fail on a good week.
         assert len(singletons) / len(candidates) > 0.8
         assert all(c.generation >= 1 for c in candidates)
 
@@ -268,7 +268,7 @@ class TestRememberingRefusals:
         assert merged[0]["times_refused"] == 1
 
     def test_admitting_something_previously_refused_is_surfaced(self):
-        """A record entering on a judgement the same scan already made the
+        """A record entering on a judgment the same scan already made the
         other way. A reader is entitled to know that."""
         from ao_commons_kg.expansion import admissions_that_were_previously_refused
         history = [{"key": "arxiv:2210.03629", "times_refused": 2,
@@ -284,7 +284,7 @@ class TestRememberingRefusals:
         assert [e["key"] for e in merged] == ["arxiv:1", "arxiv:9"]
 
     def test_a_failed_scan_is_not_recorded_as_a_refusal(self):
-        """`could not complete` is a broken scan, not a scope judgement.
+        """`could not complete` is a broken scan, not a scope judgment.
         Recording it would poison the flip rate with outages."""
         from ao_commons_kg.expansion import ScopeVerdict
         verdict = ScopeVerdict(False, "scope scan could not complete (timeout)", "m")

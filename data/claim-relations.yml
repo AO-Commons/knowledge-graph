@@ -8,16 +8,16 @@
 # with claim B" — somebody read both and decided. So each carries a
 # confidence class and its reasoning in `because`, exactly as an extraction
 # carries its quote. An edge here that looked deterministic would be
-# asserting a judgement nobody made.
+# asserting a judgment nobody made.
 #
 # As of 2026-09-12 that somebody is a machine, for all twelve. Nine of them
 # carried `asserted_by: ankeliu` until now and should not have: they were
-# drafted by a model and labelled with a person's name, which is precisely
+# drafted by a model and labeled with a person's name, which is precisely
 # the failure the confidence class exists to prevent, committed in the file
 # that exists to prevent it. Corrected rather than left, because a relation
 # attributed to a human reads as settled and none of these is.
 #
-# What `asserted_by` means: who made the judgement. Not who ran the command,
+# What `asserted_by` means: who made the judgment. Not who ran the command,
 # and not who owns the repository.
 #
 # Relation names follow CiTO (Shotton, 2010) so they mean what a reader
@@ -26,7 +26,7 @@
 #   SUPPORTS        the source is evidence for the target
 #   DISAGREES_WITH  the two cannot both hold as stated
 #   QUALIFIES       the source narrows or conditions the target, not denying it
-#   EXTENDS_CLAIM   the source takes the target further, or generalises it
+#   EXTENDS_CLAIM   the source takes the target further, or generalizes it
 #
 # Direction is source -> target and it matters: A supports B is not B
 # supports A.
@@ -88,7 +88,7 @@ relations:
       Beyond the High Score reports gaming in one competition. Solipsistic
       Superintelligence argues no existing evaluation approach meets the
       requirements for valid dynamic evaluation at all — the same failure,
-      generalised from an instance to the class.
+      generalized from an instance to the class.
     asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
@@ -207,7 +207,7 @@ relations:
     because: >-
       Inter-Agent Trust Models puts Reputation among six mechanisms available to an
       agent ecosystem. Dissociative Identity states the precondition reputation runs
-      on — persistent identity with behavioural continuity, sanction sensitivity and
+      on — persistent identity with behavioral continuity, sanction sensitivity and
       costly non-fungibility. That does not refute the comparison; it bounds where one
       of its six entries can be used at all.
     asserted_by: claude-opus-5 (drafted, unconfirmed)

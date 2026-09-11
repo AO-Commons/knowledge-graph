@@ -113,7 +113,7 @@ class RelationType(str, Enum):
     QUALIFIES = "QUALIFIES"
     """cito:qualifies — narrows or conditions the other, without denying it."""
     EXTENDS_CLAIM = "EXTENDS_CLAIM"
-    """cito:extends — takes the other further, or generalises it."""
+    """cito:extends — takes the other further, or generalizes it."""
 
 
 CLAIM_RELATIONS = frozenset({
@@ -125,7 +125,7 @@ CLAIM_RELATIONS = frozenset({
 """Relations that hold between two claims. Every one is an inference — no
 source states "claim A disagrees with claim B" — so each must carry a
 confidence class and its reasoning, exactly like an extraction. An edge here
-that looked deterministic would be asserting a judgement nobody made."""
+that looked deterministic would be asserting a judgment nobody made."""
 
 
 DETERMINISTIC_RELATIONS = frozenset(
@@ -342,7 +342,7 @@ class Resource:
     edge — projected at roughly 4,900 records from the first pass alone.
 
     It is also the honest answer to "how did this get here". A generation-3
-    record is three inferences from anybody's judgement, and a reader is
+    record is three inferences from anybody's judgment, and a reader is
     entitled to weigh it accordingly."""
 
     TOOL_TYPES = frozenset({"code-tool", "repository", "framework", "platform"})
@@ -496,7 +496,7 @@ class Claim:
     topic_codes: list[str] = field(default_factory=list)
     """Where this claim suggests the record belongs. A suggestion and nothing
     more — the record's own `taxonomy_topics` are only ever written by a human
-    filing it, so a claim can inform that judgement without becoming it."""
+    filing it, so a claim can inform that judgment without becoming it."""
     concept_tags: list[str] = field(default_factory=list)
     """Fine-grained concepts this claim argues about, from the concept
     vocabulary rather than from the taxonomy.
@@ -529,7 +529,7 @@ class Claim:
     verdict: str | None = None
     """How review landed. `overstated` is the one worth having: the claim is
     in the paper but the paraphrase says more than the source does, which is
-    the characteristic failure of extraction and is invisible in a yes/no."""
+    the characteriztic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
 
     VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
@@ -648,7 +648,7 @@ class Relationship:
             if self.confidence_class is not None:
                 raise ValueError(
                     f"{self.relation.value} is read from structured metadata; "
-                    "labelling it with a confidence class implies a judgement "
+                    "labeling it with a confidence class implies a judgment "
                     "that was never made"
                 )
         elif self.relation is RelationType.SIMILAR_TO:

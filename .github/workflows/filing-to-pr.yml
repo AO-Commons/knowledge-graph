@@ -2,7 +2,7 @@
 #
 #   site  →  prefilled issue  →  this workflow  →  pull request  →  gold set
 #
-# The audit trail is the PR list: every human judgement that entered the
+# The audit trail is the PR list: every human judgment that entered the
 # dataset, who made it, and what it changed. No backend, no tokens beyond the
 # one Actions already provides.
 

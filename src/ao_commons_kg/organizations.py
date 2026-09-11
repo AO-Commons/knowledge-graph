@@ -20,7 +20,7 @@ substring matching, no acronym expansion, no "starts with the same word" —
 Berkeley` and `University of California, Davis` stay separate, and anything
 this module is unsure about it reports rather than merges.
 
-An alias file carries the judgements a rule cannot make. That is where
+An alias file carries the judgments a rule cannot make. That is where
 `DeepMind` and `Google DeepMind` get joined, by a person, once.
 """
 
@@ -76,7 +76,7 @@ class Registry:
     canonical: dict[str, str] = field(default_factory=dict)
     """Folded key -> the spelling to display."""
     aliases: dict[str, str] = field(default_factory=dict)
-    """Folded alias -> folded canonical key. Human judgements only."""
+    """Folded alias -> folded canonical key. Human judgments only."""
 
     def resolve(self, name: str) -> str:
         key = fold(name)

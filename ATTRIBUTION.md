@@ -5,18 +5,18 @@ Work this library builds on, and the terms it carries.
 ## awesome-builder-tools
 
 [framework-zero/awesome-builder-tools](https://github.com/framework-zero/awesome-builder-tools)
-— © 2026 Framework Zero, MIT licence.
+— © 2026 Framework Zero, MIT license.
 
 `data/tooling/awesome-builder-tools.yml` mirrors that list. Entry names,
 descriptions and section headings are Framework Zero's own words, carried under
-the MIT licence with the copyright notice preserved. The mirror records the
+the MIT license with the copyright notice preserved. The mirror records the
 upstream commit it was taken from and is re-read weekly by
 [`scripts/sync_tooling.py`](scripts/sync_tooling.py).
 
 **The two are not the same thing, and the split is deliberate.** Their list
-answers *what should I build with*, organised by the builder's job — orchestration,
+answers *what should I build with*, organized by the builder's job — orchestration,
 CRM, go-to-market, payments. This library answers *what does a tool let agents
-do, and what stops them*, organised by the taxonomy. Of their 60 entries, 7
+do, and what stops them*, organized by the taxonomy. Of their 60 entries, 7
 describe agents holding authority or being constrained; the rest are tools a
 company buys rather than tools that give an agent authority, and pouring all of
 them into `data/resources/` would drown a corpus scoped to agentic

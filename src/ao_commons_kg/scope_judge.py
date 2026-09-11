@@ -1,6 +1,6 @@
 """The scope test, run by a model, on a candidate nobody has read.
 
-This is the judgement that replaces "a human promotes it". The corpus can
+This is the judgment that replaces "a human promotes it". The corpus can
 grow from its own citations without waiting for an afternoon, and what makes
 that safe is not the threshold — structure only says a work is *cited*, never
 that it *belongs*. This says whether it belongs.

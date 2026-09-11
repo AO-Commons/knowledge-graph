@@ -137,18 +137,18 @@ concepts:
       their place for high-impact actions.
     added: "2026-09-10"
 
-  - id: organisational-knowledge-legibility
-    label: Organisational knowledge legibility
+  - id: organizational-knowledge-legibility
+    label: Organizational knowledge legibility
     topics: ["16.1", "2.4"]
     origin: claim
     note: >-
-      Making an organisation's routines, rules and tacit know-how
+      Making an organization's routines, rules and tacit know-how
       machine-readable so they can be governed. The core construct of the
-      Artificial Organisational Intelligence work.
+      Artificial Organizational Intelligence work.
     added: "2026-09-10"
 
-  - id: ex-ante-behavioural-harness
-    label: Ex ante behavioural harness
+  - id: ex-ante-behavioral-harness
+    label: Ex ante behavioral harness
     topics: ["2.5", "4.1"]
     origin: claim
     note: >-

@@ -5,12 +5,12 @@ The contribution loop, without asking anyone to use git:
 
     site  →  prefilled issue  →  this script  →  pull request  →  gold set
 
-Run by `.github/workflows/filing-to-pr.yml` on a labelled issue. Everything a
+Run by `.github/workflows/filing-to-pr.yml` on a labeled issue. Everything a
 reviewer decided arrives as YAML in the issue body; this validates it against
 the taxonomy and the corpus, merges it, and writes a summary the workflow
 puts on the pull request.
 
-Validation is strict on purpose. A filing is a human judgement entering the
+Validation is strict on purpose. A filing is a human judgment entering the
 only dataset that measures everything else, so a typo'd topic code should
 stop the merge and be visible in review rather than land quietly and rot the
 baseline.
@@ -43,7 +43,7 @@ TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 
 FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 
-# `adjusted` is the one that carries payload. The others are a judgement
+# `adjusted` is the one that carries payload. The others are a judgment
 # about a statement; this one replaces it — the reviewer retyped the sentence
 # and confirmed the tags that followed. Without it here the site would offer
 # an edit, the reviewer would make it, and the text would be dropped between
@@ -72,7 +72,7 @@ def extract(body: str) -> dict:
 
     A filing may carry `records:` (where a record belongs), `claims:` (whether
     a sentence was read correctly), or both — one reviewer, one sitting, two
-    judgements, because the expensive part is reading the paper and it should
+    judgments, because the expensive part is reading the paper and it should
     be paid once.
     """
     for candidate in [m.group(1) for m in FENCE.finditer(body or "")] + [body or ""]:
@@ -104,7 +104,7 @@ def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]
     """Check the claim verdicts in a filing.
 
     Held to the same standard as the topic codes and for the same reason: a
-    verdict against a claim id that does not exist is a judgement that will
+    verdict against a claim id that does not exist is a judgment that will
     never be applied to anything, and finding that out later means the review
     was wasted.
     """
@@ -380,7 +380,7 @@ def validate(payload: dict, *, known_records: set[str], known_topics: set[str],
             "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat()),
         }
 
-        # A reviewer's judgement about the record is worth as much as their
+        # A reviewer's judgment about the record is worth as much as their
         # tags. "Out of scope" says the corpus should not hold this;
         # "nothing fits" says the taxonomy has a gap; an unsure call should
         # not be weighed like a confident one; and a note is usually the

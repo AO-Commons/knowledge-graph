@@ -6,7 +6,7 @@
 
 Run weekly by `.github/workflows/tooling-sync.yml`, which opens an issue when
 the list changes rather than committing quietly: an upstream edit is somebody
-else's editorial judgement, and it should arrive as something to read.
+else's editorial judgment, and it should arrive as something to read.
 
 The upstream commit is recorded with every sync, so "which version of their
 list is this" has an answer that does not depend on a date and a guess.
@@ -85,7 +85,7 @@ def report(changes: dict, index: tooling.Index) -> str:
         "",
         "Nothing enters the corpus from this automatically. An entry becomes a record "
         "when somebody has read the tool's own documentation and can say what oversight "
-        "it ships — upstream's one-line description is their judgement, not evidence.",
+        "it ships — upstream's one-line description is their judgment, not evidence.",
         "",
         f"Source: [{tooling.UPSTREAM}]({tooling.UPSTREAM}) — Framework Zero, MIT.",
     ]
@@ -120,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
             "license": "MIT",
             "synced_at": date.today().isoformat(),
             **upstream_commit(),
-            "note": ("Mirrored with attribution under the MIT licence. Descriptions are "
+            "note": ("Mirrored with attribution under the MIT license. Descriptions are "
                      "upstream's own words. Nothing here is a claim by AO Commons about a "
                      "tool; a profiled record in data/resources/ is."),
         },

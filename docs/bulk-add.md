@@ -14,7 +14,7 @@ each, and opening a pull request with them.
 You are **not** deciding whether a paper belongs, or where it is filed. Records
 arrive `unreviewed` and get their topics confirmed by a person later. Adding
 something that turns out to be out of scope costs a revert; asserting a
-judgement nobody made costs more.
+judgment nobody made costs more.
 
 ## Steps
 
@@ -39,7 +39,7 @@ and trailing punctuation are all fine:
 
 Square brackets at the end of a line are taxonomy codes, if you already know
 where something belongs. Leave them off if you do not — a wrong code is worse
-than no code, because it looks like a judgement someone made.
+than no code, because it looks like a judgment someone made.
 
 Then look before you write:
 
@@ -62,7 +62,7 @@ git push -u origin add/<branch> && gh pr create --fill
 Handled for you, and reported rather than passed over.
 
 An identifier already in the library is **skipped and the original kept** —
-including across forms, so `10.48550/arXiv.2502.14143` is recognised as the
+including across forms, so `10.48550/arXiv.2502.14143` is recognized as the
 same paper as `https://arxiv.org/abs/2502.14143`. A repeat inside your own file
 keeps its first appearance, by the same rule.
 

@@ -61,6 +61,12 @@ are the part a downstream reader is most likely to drop.
    than refused — sometimes the technique genuinely is the subject, as when
    a paper's contribution is the mechanism itself.
 
+0. *One spelling.* Statements and tags are normalized to American spelling
+   before any of the gates run, because a tag is a slug and
+   `organisational-knowledge-legibility` would otherwise enter as a second
+   concept beside `organizational-`, connected to nothing. Quotes keep the
+   paper's spelling, which is the point of a quote.
+
 5. *Concepts resolve, or are proposed properly.* A tag that does not exist
    fails loudly; a new term goes through the collision check like any other,
    which is what keeps a vocabulary from growing two names for one idea while
@@ -76,6 +82,7 @@ import re
 from dataclasses import dataclass, field
 
 from .concepts import Vocabulary, similar_terms
+from .spelling import to_american
 
 # Shapes that recurred in the first pass, every one of them a fact about the
 # instrument. Deliberately narrow: this rejects, so a false positive silently
@@ -173,14 +180,14 @@ def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
     which is high and is mostly telling you about the papers rather than
     about the tagging. These are conceptual works — a taxonomy of trust
     models, a definition of dynamic evaluation, a construct called
-    Artificial Organisational Intelligence — and for a paper whose
+    Artificial Organizational Intelligence — and for a paper whose
     contribution *is* the mechanism, subject and technique genuinely
     coincide. An empirical paper separates them cleanly: Melting Pot's
     method is scenario generation and its findings are about evaluation,
     and that one came back clean.
 
     So read a flag as a question rather than a defect. The one it caught
-    that was a real mistake was Knowledge Organisation Infrastructure,
+    that was a real mistake was Knowledge Organization Infrastructure,
     tagged with the legibility it serves rather than the schema-sharing it
     does — invisible to "who has done this, working that way", which is the
     query methods exist to answer.
@@ -210,6 +217,25 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
     verbatim gate cannot run and is skipped rather than faked.
     """
     from .fulltext import verbatim
+
+    # One spelling, before anything is compared against anything.
+    #
+    # A tag is a slug: a statement proposing `organisational-knowledge-legibility`
+    # would pass the vocabulary check as a brand new concept, sitting beside the
+    # `organizational-` one, joined to nothing. The collision guard would not
+    # catch it either, since by its own measure the two labels are the same term
+    # spelled two ways — which is exactly the case it treats as one idea. So it
+    # is settled here, before the tag is looked up, and the statement is just
+    # written the same way every time. The quote is not touched: it is checked
+    # verbatim against the paper, and our spelling is not the paper's business.
+    for candidate in candidates:
+        for field in ("text", "standalone"):
+            if isinstance(candidate.get(field), str):
+                candidate[field] = to_american(candidate[field])
+        tags = candidate.get("concept_tags")
+        if isinstance(tags, list):
+            candidate["concept_tags"] = [
+                to_american(tag) if isinstance(tag, str) else tag for tag in tags]
 
     result = Checked()
     result.subject_tagged_methods = method_tagged_by_subject(candidates)

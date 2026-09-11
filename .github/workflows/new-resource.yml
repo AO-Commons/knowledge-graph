@@ -5,7 +5,7 @@
 #
 # This one commits to main where a filing opens a pull request, and the reason
 # is blast radius rather than trust. A new record is one file that changes no
-# existing judgement and no measured number; it lands `unreviewed`, which every
+# existing judgment and no measured number; it lands `unreviewed`, which every
 # consumer already filters on, and `git revert` undoes it completely. A filing
 # edits the dataset every classifier number is measured against, and a taxonomy
 # change moves the branches everything else is filed under — both stay in front

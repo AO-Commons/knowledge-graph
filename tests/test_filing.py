@@ -1,6 +1,6 @@
 """Filings entering the gold set.
 
-A filing is a human judgement joining the only dataset that measures
+A filing is a human judgment joining the only dataset that measures
 everything else, so this is strict where it matters and forgiving where it
 does not: fussy about topic codes and record ids, relaxed about whether
 someone remembered the code fence.
@@ -161,7 +161,7 @@ class TestMerge:
         assert "Disagreements" in text and "anke" in text and "4.1" in text
 
 
-class TestJudgements:
+class TestJudgments:
     """A reviewer's read of the record is worth as much as their codes."""
 
     def test_out_of_scope_and_no_fit_are_kept_apart(self):
@@ -230,8 +230,8 @@ claims:
 """
 
 
-class TestBothJudgements:
-    """One reviewer, one sitting, two judgements. The expensive part is reading
+class TestBothJudgments:
+    """One reviewer, one sitting, two judgments. The expensive part is reading
     the paper, and it should be paid once — but the two land in different files
     because they measure different things."""
 
@@ -391,7 +391,7 @@ class TestReviewPayload:
 
     def test_a_drafted_relation_is_marked_unconfirmed_on_the_page(self):
         """The reviewer has to be able to tell a machine's suggestion from
-        a person's judgement, and the review surface is where it matters
+        a person's judgment, and the review surface is where it matters
         most — it is the screen where the confirming happens."""
         payload = self._payload()
         drafted = [r for r in payload["relations"] if r["unconfirmed"]]
@@ -418,7 +418,7 @@ class TestReviewSurface:
     Filing was removed from this screen entirely. Naming what a paper is
     "about" derives from the concepts on its statements, and asking a
     reviewer for it as well was asking them to redo, from an abstract, a
-    judgement the statements make better.
+    judgment the statements make better.
     """
 
     def _page(self):
@@ -497,7 +497,7 @@ class TestReviewSurface:
         for kind in ("finding", "position", "method", "background", "limitation"):
             assert f"{kind}: [" in page, f"{kind} has no explanation on the review card"
 
-    def test_the_review_text_colour_passes_contrast(self):
+    def test_the_review_text_color_passes_contrast(self):
         """`--faint` carries the quote, the context line and every hint on
         this screen — most of what a reviewer reads — and was 2.87:1 against
         the sunk surface, below AA on every surface in both themes."""
@@ -578,7 +578,7 @@ class TestPrimaryReachesThePage:
 
     def test_every_claim_says_whether_it_is_primary(self):
         """Shipped from the model rather than re-derived in the page. Which
-        types are primary is a judgement about what the library is for, and
+        types are primary is a judgment about what the library is for, and
         it should have one home."""
         claims = [c for r in self._payload()["records"] for c in r.get("claims", [])]
         assert claims
@@ -666,7 +666,7 @@ class TestAdjustments:
     def test_an_adjustment_is_a_verdict(self):
         cleaned = validate_claims(
             self._filing("    verdict: adjusted\n"
-                         "    text: Reputation carries across organisational boundaries.\n"),
+                         "    text: Reputation carries across organizational boundaries.\n"),
             known_claims=self.KNOWN)
         assert cleaned["claim:arxiv:2502.14143:1"]["verdict"] == "adjusted"
 
@@ -690,7 +690,7 @@ class TestAdjustments:
         with pytest.raises(FilingError, match="do not resolve"):
             validate_claims(
                 self._filing("    verdict: adjusted\n"
-                             "    text: Reputation carries across organisational boundaries.\n"
+                             "    text: Reputation carries across organizational boundaries.\n"
                              '    concepts: ["not-a-real-tag"]\n'),
                 known_claims=self.KNOWN)
 
@@ -699,22 +699,22 @@ class TestAdjustments:
         replace stays as extracted."""
         cleaned = validate_claims(
             self._filing("    verdict: adjusted\n"
-                         "    text: Reputation carries across organisational boundaries.\n"),
+                         "    text: Reputation carries across organizational boundaries.\n"),
             known_claims=self.KNOWN)
         result = merge_claims(cleaned, "anke", tmp_path / "claims.yml")
         text = "\n".join(summarize_claims(result))
-        assert "Reputation carries across organisational boundaries." in text
+        assert "Reputation carries across organizational boundaries." in text
         assert "data/claims/" in text, "says where to apply it"
 
     def test_the_rewrite_is_kept(self, tmp_path):
         gold = tmp_path / "claims.yml"
         cleaned = validate_claims(
             self._filing("    verdict: adjusted\n"
-                         "    text: Reputation carries across organisational boundaries.\n"),
+                         "    text: Reputation carries across organizational boundaries.\n"),
             known_claims=self.KNOWN)
         merge_claims(cleaned, "anke", gold)
         stored = yaml.safe_load(gold.read_text())["claims"]["claim:arxiv:2502.14143:1"]
-        assert stored["text"] == "Reputation carries across organisational boundaries."
+        assert stored["text"] == "Reputation carries across organizational boundaries."
         assert stored["reviewer"] == "anke"
 
 

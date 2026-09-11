@@ -104,7 +104,7 @@ a machine could have gone wrong.
 Filings and claim verdicts enter through [the review site](https://ao-commons.github.io/knowledge-graph/)
 and a pull request, where a person's name is attached and the change is visible
 before it lands. A tool that let an agent write into the gold set would put
-unattributable judgements into the dataset every measurement is taken against.
+unattributable judgments into the dataset every measurement is taken against.
 
 ## The corpus is read once
 

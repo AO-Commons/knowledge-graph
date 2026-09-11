@@ -1,63 +1,64 @@
 resource_id: resource:arxiv:2605.30169
 claims:
 - id: claim:arxiv:2605.30169:1
-  text: Reputation mechanisms presume a persistent identity with behavioural continuity, sanction
+  text: Reputation mechanisms presume a persistent identity with behavioral continuity, sanction
     sensitivity and costly non-fungibility.
-  quote: Reputation mechanisms function both as social signals and as corrective feedback that sustain
-    an equilibrium of trustworthy behavior, presuming a persistent identity associated with behavioral
-    continuity, sanction sensitivity, and costly non-fungibility
-  standalone: The authors hold that reputation mechanisms work as social signal and corrective feedback
-    only by presuming a persistent identity with behavioural continuity, sanction sensitivity and
-    costly non-fungibility.
+  quote: Reputation mechanisms function both as social signals and as corrective feedback
+    that sustain an equilibrium of trustworthy behavior, presuming a persistent identity associated
+    with behavioral continuity, sanction sensitivity, and costly non-fungibility
+  standalone: The authors hold that reputation mechanisms work as social signal and corrective
+    feedback only by presuming a persistent identity with behavioral continuity, sanction
+    sensitivity and costly non-fungibility.
   claim_type: background
   concept_tags:
   - agent-reputation-systems
   - sanction-sensitivity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2605.30169:2
-  text: Language model agents are assemblages of mutable modules, any of which may change their
-    behaviour.
+  text: Language model agents are assemblages of mutable modules, any of which may change
+    their behavior.
   quote: they are essentially an assemblage of mutable modules—foundation models, system prompts,
     tool-access policies, external memory, and, in some cases, a multi-agent system as a whole—any
     of which may change agent behavior
-  standalone: 'The authors characterise language model agents as ontologically dissociative: assemblages
-    of mutable modules — foundation model, system prompt, tool-access policy, external memory —
-    any of which may change the agent''s behaviour.'
+  standalone: 'The authors characterize language model agents as ontologically dissociative:
+    assemblages of mutable modules — foundation model, system prompt, tool-access policy,
+    external memory — any of which may change the agent''s behavior.'
   claim_type: finding
   concept_tags:
   - dissociative-agent-identity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2605.30169:3
-  text: Dissociativity leaves agents without grounding for identifiability, predictability, credibility
-    and rehabilitability.
+  text: Dissociativity leaves agents without grounding for identifiability, predictability,
+    credibility and rehabilitability.
   quote: this dissociativity leaves agents without grounding for identifiability, predictability,
-    credibility, and rehabilitability—the very properties that reputation mechanisms aim to sustain—thereby
-    collapsing trust
-  standalone: The authors argue that the dissociativity of language model agents leaves them without
-    grounding for identifiability, predictability, credibility and rehabilitability — the properties
-    reputation mechanisms exist to sustain.
+    credibility, and rehabilitability—the very properties that reputation mechanisms aim to
+    sustain—thereby collapsing trust
+  standalone: The authors argue that the dissociativity of language model agents leaves them
+    without grounding for identifiability, predictability, credibility and rehabilitability
+    — the properties reputation mechanisms exist to sustain.
   claim_type: finding
   concept_tags:
   - dissociative-agent-identity
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2605.30169:4
-  text: Reputation signals for dissociative agents become actively harmful rather than merely uninformative.
+  text: Reputation signals for dissociative agents become actively harmful rather than merely
+    uninformative.
   quote: producing the credibility trap, in which reputation signals become not merely uninformative
     but actively harmful
   standalone: The authors describe a credibility trap in which reputation signals for dissociative
@@ -67,15 +68,15 @@ claims:
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2605.30169:5
-  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to dissociative
-    agents.
-  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such as reputation,
-    is structurally inapplicable to dissociative agents
+  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to
+    dissociative agents.
+  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such
+    as reputation, is structurally inapplicable to dissociative agents
   standalone: The authors argue that identity-based, ex post, regulative, sanction-based governance
     — reputation among it — is structurally inapplicable to dissociative language model agents.
   claim_type: position
@@ -83,24 +84,24 @@ claims:
   - sanction-sensitivity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2605.30169:6
   text: Governance should target the operator and the protocol rather than the agent.
   quote: which constrain and monitor in real time and which target the operator and the protocol
     rather than the agent
-  standalone: The authors call for governance to shift to ex ante protocol-based harnesses that
-    constrain and monitor in real time, targeting the operator and the protocol rather than the
-    agent itself.
+  standalone: The authors call for governance to shift to ex ante protocol-based harnesses
+    that constrain and monitor in real time, targeting the operator and the protocol rather
+    than the agent itself.
   claim_type: position
   concept_tags:
   - operator-deployer-and-developer-liability
-  - ex-ante-behavioural-harness
+  - ex-ante-behavioral-harness
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own

@@ -239,7 +239,7 @@ def cmd_expand(args) -> int:
     # Structural candidates: works the corpus already cites, repeatedly.
     #
     # No keywords involved. A work several of our papers cite is part of this
-    # conversation by the field's own behaviour, whatever its title says —
+    # conversation by the field's own behavior, whatever its title says —
     # which is how "Institutions as cached computation" would be found, and
     # keyword scoring never will.
     if not args.no_structural:
@@ -559,7 +559,7 @@ def cmd_grow(args) -> int:
         return 1
     if broke:
         print(f"\n{len(broke)} scan(s) failed and were refused rather than admitted. "
-              "Refusing is the safe direction, but these are not scope judgements "
+              "Refusing is the safe direction, but these are not scope judgments "
               "and the candidates remain queued.")
     if judge is None:
         for candidate in selection.over_budget[:20]:
@@ -647,7 +647,7 @@ def cmd_grow(args) -> int:
 def cmd_relate(args) -> int:
     """Propose claim pairs worth reading, from shared concepts.
 
-    Proposes only. Writing a relation is a judgement with provenance
+    Proposes only. Writing a relation is a judgment with provenance
     attached, and this command deliberately cannot make one — it hands a
     person, or a model whose name goes on the result, a short queue where
     there was an unreadable 780.

@@ -3,31 +3,32 @@ claims:
 - id: claim:arxiv:2606.03237:1
   text: The binding constraint on beneficial AI is shifting from capability to coexistence.
   quote: AI’s central challenge is shifting from capability to coexistence
-  standalone: The authors contend that AI's central challenge is shifting from capability to coexistence,
-    and that coexistence rather than capability is the binding constraint on beneficial AI.
+  standalone: The authors contend that AI's central challenge is shifting from capability
+    to coexistence, and that coexistence rather than capability is the binding constraint
+    on beneficial AI.
   claim_type: position
   concept_tags:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:2
-  text: The dominant AI research paradigm treats the world as an exogenous and stationary source
-    of feedback.
-  quote: The dominant paradigm in AI research focuses on developing powerful agents that treat the
-    world as an exogenous and stationary source of feedback
-  standalone: The authors characterise the dominant AI research paradigm as developing powerful
+  text: The dominant AI research paradigm treats the world as an exogenous and stationary
+    source of feedback.
+  quote: The dominant paradigm in AI research focuses on developing powerful agents that treat
+    the world as an exogenous and stationary source of feedback
+  standalone: The authors characterize the dominant AI research paradigm as developing powerful
     agents that treat the world as an exogenous and stationary source of feedback.
   claim_type: background
   concept_tags:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:3
@@ -35,79 +36,81 @@ claims:
     gap.
   quote: Deploying AI systems induces endogenous non-stationarity, resulting in a train–test–deploy
     gap where historical distributions diverge from the deployment context
-  standalone: The authors argue that deploying AI systems induces endogenous non-stationarity, producing
-    a train-test-deploy gap in which historical distributions diverge from the deployment context.
+  standalone: The authors argue that deploying AI systems induces endogenous non-stationarity,
+    producing a train-test-deploy gap in which historical distributions diverge from the deployment
+    context.
   claim_type: finding
   concept_tags:
   - endogenous-non-stationarity
   - train-test-deploy-gap
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:4
-  text: The more aggressively a system exploits historical regularities, the faster other actors
-    render them obsolete.
-  quote: The more aggressively it exploits historical regularities, the faster other actors adapt
-    in ways that render those regularities obsolete
-  standalone: 'The authors state the self-undermining property of unilateral optimisation: the more
-    aggressively a system exploits historical regularities, the faster other actors adapt in ways
-    that make those regularities obsolete.'
+  text: The more aggressively a system exploits historical regularities, the faster other
+    actors render them obsolete.
+  quote: The more aggressively it exploits historical regularities, the faster other actors
+    adapt in ways that render those regularities obsolete
+  standalone: 'The authors state the self-undermining property of unilateral optimization:
+    the more aggressively a system exploits historical regularities, the faster other actors
+    adapt in ways that make those regularities obsolete.'
   claim_type: finding
   concept_tags:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:5
-  text: A dynamic evaluation is one whose test distribution depends on the evaluated policy through
-    adaptive counterparties.
-  quote: A dynamic evaluation is the one in which depends on through the responses of adaptive counterparties
-    whose policies update as a function of ’s behavior
-  standalone: The authors define a dynamic evaluation as one whose test distribution depends on
-    the policy being evaluated, through adaptive counterparties that update in response to its behaviour.
+  text: A dynamic evaluation is one whose test distribution depends on the evaluated policy
+    through adaptive counterparties.
+  quote: A dynamic evaluation is the one in which depends on through the responses of adaptive
+    counterparties whose policies update as a function of ’s behavior
+  standalone: The authors define a dynamic evaluation as one whose test distribution depends
+    on the policy being evaluated, through adaptive counterparties that update in response
+    to its behavior.
   claim_type: method
   concept_tags:
   - dynamic-evaluation
   confidence_class: EXTRACTED
   extracted_from: results
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:6
   text: No existing evaluation approach meets all the requirements for valid dynamic evaluation.
-  quote: Recently evaluation research has engaged with dynamic evaluation but no approach yet meets
-    all the requirements we articulate in combination
-  standalone: The authors survey recent evaluation research engaging with dynamic evaluation and
-    find that no existing approach meets all the requirements they articulate in combination.
+  quote: Recently evaluation research has engaged with dynamic evaluation but no approach
+    yet meets all the requirements we articulate in combination
+  standalone: The authors survey recent evaluation research engaging with dynamic evaluation
+    and find that no existing approach meets all the requirements they articulate in combination.
   claim_type: finding
   concept_tags:
   - dynamic-evaluation
   - train-test-deploy-gap
   confidence_class: EXTRACTED
   extracted_from: results
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
 - id: claim:arxiv:2606.03237:7
   text: Institutions should be treated as design primitives rather than as context.
-  quote: treating institutions as design primitives that restructure incentives at the pace of the
-    systems they govern
-  standalone: The authors call for treating institutions as design primitives that restructure incentives
-    at the pace of the systems they govern, rather than as fixed context.
+  quote: treating institutions as design primitives that restructure incentives at the pace
+    of the systems they govern
+  standalone: The authors call for treating institutions as design primitives that restructure
+    incentives at the pace of the systems they govern, rather than as fixed context.
   claim_type: position
   concept_tags:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
-    every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own

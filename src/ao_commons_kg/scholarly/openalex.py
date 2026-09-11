@@ -240,7 +240,7 @@ AGAINST = (
 #
 # This is the ceiling of keyword scoring, and worth stating plainly: the
 # scope test asks whether agents hold organizational authority, which is a
-# semantic judgement. The pre-filter ranks; it does not decide.
+# semantic judgment. The pre-filter ranks; it does not decide.
 DOMAIN = (
     "smart manufacturing", "preventive maintenance", "healthcare", "clinical",
     "hydrologic", "energy management", "phenotyping", "agriculture", "crop",

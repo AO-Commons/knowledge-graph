@@ -14,7 +14,7 @@
 '10.2':
 - steganography
 - steganographic collusion
-- covert signalling
+- covert signaling
 - hidden coordination channel
 '12.1':
 - infrastructural sovereignty
@@ -37,12 +37,12 @@
 '2.2':
 - information-flow control
 - taint tracking
-- data labelling
+- data labeling
 '5.2':
 - collusion
 - price collusion
 - tacit collusion
-- cartel behaviour
+- cartel behavior
 
 # Builder vocabulary. A builder asks "how do I stop an agent overspending",
 # and the taxonomy says "Spend caps, rate limits, and cumulative budgets" —

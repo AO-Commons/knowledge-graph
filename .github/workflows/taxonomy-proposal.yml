@@ -1,7 +1,7 @@
 # A taxonomy proposal is answered, and then it waits for a person.
 #
 # Nothing here changes the taxonomy. That is the point: a new resource is one
-# file that changes no existing judgement, but renaming, splitting, or moving a
+# file that changes no existing judgment, but renaming, splitting, or moving a
 # branch changes what every record already filed under it means, and every
 # accuracy number measured against those filings. That decision belongs to a
 # human who can look at what is filed underneath first.
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            // Only on the first pass. An edited or re-labelled proposal should
+            // Only on the first pass. An edited or re-labeled proposal should
             // not collect a second copy of the same explanation.
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo, issue_number: context.issue.number, per_page: 100,

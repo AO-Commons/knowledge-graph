@@ -53,7 +53,7 @@ class TestGoldSet:
         assert gold.entries["r"]["topics"] == ["2.2", "3.2", "3.10", "11.6"]
 
     def test_recording_no_topics_is_a_real_answer(self):
-        """"None of these apply" is a judgement worth keeping — it says the
+        """"None of these apply" is a judgment worth keeping — it says the
         record is out of scope or the taxonomy has a gap."""
         gold = GoldSet(path=None)
         gold.record("r", [])
@@ -108,7 +108,7 @@ class TestDecisions:
         decision = parse_decision("c 7.2, 9.1", CANDIDATES)
         assert decision.action == "accept" and decision.topics == ["7.2", "9.1"]
 
-    def test_search_is_recognised(self):
+    def test_search_is_recognized(self):
         decision = parse_decision("/delegation revocation", CANDIDATES)
         assert decision.action == "search" and decision.query == "delegation revocation"
 

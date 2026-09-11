@@ -80,7 +80,7 @@ def co_citation_counts(references: dict[str, list[str]]) -> Counter:
     """How many of our works cite each external work.
 
     The keyword-free relevance signal. A work cited by several papers already
-    in the library is connected to this field by the field's own behaviour,
+    in the library is connected to this field by the field's own behavior,
     whatever its title says.
     """
     counts: Counter = Counter()

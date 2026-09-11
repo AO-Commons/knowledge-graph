@@ -185,7 +185,7 @@ def validate_topics(topics: list[Topic], *, strict_sections: bool = True) -> lis
             )
 
     # Section 11 is the failure coding scheme; if its topics come back as
-    # navigation the multi-tagging behaviour downstream is wrong.
+    # navigation the multi-tagging behavior downstream is wrong.
     for topic in topics:
         expected = (
             UsageMode.CODING_SCHEME

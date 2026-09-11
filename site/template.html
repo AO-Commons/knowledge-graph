@@ -287,7 +287,7 @@
   .concept .n { opacity: .55; margin-left: 5px; }
   /* A relation is an assertion about two claims, so it is drawn as a block
      rather than a line of metadata — and an unconfirmed one is marked,
-     because a model's suggestion and a person's judgement must never look
+     because a model's suggestion and a person's judgment must never look
      alike. */
   .relation {
     border-left: 2px solid var(--n-relates, var(--accent)); padding: 7px 0 7px 12px;
@@ -318,7 +318,7 @@
   #concept-close:hover { color: var(--ink); border-color: var(--rule-hard); }
   /* The three actions are the work. They were chips — the same weight as a
      tag, which is a label rather than a control — and sat below a quote in
-     the same grey. */
+     the same gray. */
   .claim .chips { gap: 7px; margin-top: 4px; }
   .claim .chip {
     font-size: 13px; font-weight: 500; padding: 7px 14px;
@@ -341,8 +341,8 @@
     margin: 9px 0 8px; overflow: hidden;
   }
   .progress .fill { display: block; height: 100%; background: var(--accent); }
-  /* The type, as a badge rather than a word in a row of grey words. It is
-     the first thing that tells a reviewer what kind of judgement this is. */
+  /* The type, as a badge rather than a word in a row of gray words. It is
+     the first thing that tells a reviewer what kind of judgment this is. */
   .type-badge {
     font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
     text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
@@ -580,9 +580,9 @@
     <!-- Hidden for now, not removed. Categories derive from the concepts on
          a paper's statements, and while extraction and tagging are being
          settled the tree is a view of an answer that is still moving —
-         browsing it invites filing against it, which is the judgement this
+         browsing it invites filing against it, which is the judgment this
          screen no longer asks for. Unhide both when the vocabulary has
-         stabilised. -->
+         stabilized. -->
     <div class="tree-head" hidden>
       <h2>The taxonomy</h2>
       <span class="filled" id="filled"></span>
@@ -647,7 +647,7 @@
     // against a different thing.
     claims: {},
     // Statements a reviewer wrote themselves, keyed by record. Held apart from
-    // verdicts: one is a judgement on a machine's reading, the other is a new
+    // verdicts: one is a judgment on a machine's reading, the other is a new
     // reading of the paper, and they enter the corpus by different doors.
     newClaims: {},
     addingTo: null,
@@ -900,7 +900,7 @@
   // Records that can take the whole exercise: they have statements to check as
   // well as a place in the tree. Listed above the taxonomy because they are
   // worth more than an untagged record — a reviewer's hour spent here produces
-  // two kinds of judgement instead of one, and the group should be steered
+  // two kinds of judgment instead of one, and the group should be steered
   // toward them rather than left to find them by chance.
   function renderReady() {
     const host = document.getElementById("ready");
@@ -1077,7 +1077,7 @@
     // The filing question is gone. Naming what a paper is "about" is now
     // derived from the concepts on its statements — see docs/statements-first.md
     // — and asking a reviewer for it as well was asking them to redo, from an
-    // abstract, a judgement the statements make better. Their time is worth
+    // abstract, a judgment the statements make better. Their time is worth
     // more on the statements themselves, which is the one thing here no
     // machine does.
     if (!hasClaims) {
@@ -1799,7 +1799,7 @@
       hint: "The cheapest fix and usually the right one. The topic exists; it is just not "
             + "findable under the words you reached for.",
       ask: "Which words should find it?",
-      placeholder: "steganographic collusion, covert signalling",
+      placeholder: "steganographic collusion, covert signaling",
     },
     {
       key: "crosslink",
@@ -2581,7 +2581,7 @@
     const all = Object.entries(state.decisions);
     const entries = all.filter(([id]) => !gone.has(id));
     // An adjustment nobody confirmed is a half-typed sentence, not a
-    // judgement. It waits in the browser rather than going in: filing a
+    // judgment. It waits in the browser rather than going in: filing a
     // verdict of "adjusted" with no adjustment attached is refused by the
     // bot, which would take the rest of an otherwise good filing with it.
     const claimed = Object.entries(state.claims).filter(([id]) => !gone.has(id));
@@ -2625,7 +2625,7 @@
       });
     }
     // The second block. One issue carries both because one reviewer made both
-    // judgements in one sitting; the bot files them to different places
+    // judgments in one sitting; the bot files them to different places
     // because they measure different things.
     if (checked.length) {
       lines.push("claims:");

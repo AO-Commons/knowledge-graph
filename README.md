@@ -125,7 +125,7 @@ already hold, which then passes a scope scan reading it against the scope test
 and the exclusion register, enters the corpus `unreviewed` with the scan's
 reasoning written onto it.
 
-The bar rises with each hop from a human judgement — generation 1 needs 2 of
+The bar rises with each hop from a human judgment — generation 1 needs 2 of
 our papers to cite it, generation 2 needs 3 — and a per-run budget caps the
 rate. Both exist because the alternative is not hypothetical: admitting
 everything our papers cite measures out at roughly 4,900 records, **93% of
@@ -139,7 +139,7 @@ score.
 
 Candidates come from two instruments, and the structural one is the better of them:
 
-- **Structure** — works the corpus already cites, repeatedly. No keywords involved. A work several of our papers cite is part of this conversation by the field's own behaviour, whatever its title says.
+- **Structure** — works the corpus already cites, repeatedly. No keywords involved. A work several of our papers cite is part of this conversation by the field's own behavior, whatever its title says.
 - **Vocabulary** — a keyword score, used to rank rather than to admit.
 
 The keyword score has a known ceiling and the code says so. *Institutions as cached computation for resource-rational negotiation* is squarely in scope, contains no agent-ish words, and scores 1; it would be found by co-citation and never by vocabulary. Domain applications ("agentic AI in smart manufacturing") are **flagged rather than penalized**, because no keyword can separate "agents run this business" from "agents schedule maintenance here" — the reviewer decides.
@@ -173,7 +173,7 @@ Every relationship says where it came from, because "this paper cites that one" 
 | Computed | `SIMILAR_TO` | `method` and `score`, always. A similarity whose method is hidden can't be interpreted |
 | Extracted or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
 
-The schema refuses to let these blur: labelling a citation with a confidence class is an error, because it implies a judgement nobody made.
+The schema refuses to let these blur: labeling a citation with a confidence class is an error, because it implies a judgment nobody made.
 
 ## Design commitments
 
@@ -183,7 +183,7 @@ The schema refuses to let these blur: labelling a citation with a confidence cla
 
 **Graph first, source second.** For an ordinary question: query the taxonomy and graph, return compact metadata, identify 5–15 likely sources, and only then fetch full text. Sending a corpus to a model is the thing this project exists to avoid.
 
-**Scope discipline over completeness.** The exclusion register in the taxonomy is honoured. Material that is excellent but unchanged by machine authority stays out, and Section 15 points at adjacent literatures rather than ingesting them.
+**Scope discipline over completeness.** The exclusion register in the taxonomy is honored. Material that is excellent but unchanged by machine authority stays out, and Section 15 points at adjacent literatures rather than ingesting them.
 
 ## Repository layout
 
