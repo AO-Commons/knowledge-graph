@@ -191,6 +191,27 @@ new topic code expensive.
 A tag that does not resolve fails loudly. A concept whose id disagrees with
 its label fails too — two of the first nine drifted.
 
+**Growing the list.** The only failure mode a vocabulary has is silent: two
+terms for one idea break nothing, and every relation that would have been
+proposed between claims carrying them simply is not. Half a link layer
+disappears into a synonym and nothing is ever raised.
+
+```bash
+aokg concepts --propose "Delegation revocation latency"   # is this already here?
+aokg concepts                                             # the whole list's state
+```
+
+The loader refuses a term that collides with an existing one, and a
+genuinely different idea has to say why in a sentence rather than tick a
+box. Reuse before adding: a term nothing else will ever carry proposes no
+pairs, which is the only thing a concept is for.
+
+The list is honest about its own state — 523 terms, **17 carrying a
+statement and 506 inert**, and **8 pairs that look like one idea**, all
+inherited from the taxonomy's subpoints, which were written as prose rather
+than as a controlled vocabulary. Those can only be fixed where the taxonomy
+is. What the loader prevents is a ninth.
+
 **Coverage: 40 of 40 statements tagged, 17 concepts in use.**
 
 ---

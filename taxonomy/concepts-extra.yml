@@ -14,6 +14,33 @@
 # Watch this file. A concept layer drifting a long way from the taxonomy is
 # evidence about the taxonomy, and the right response is eventually a topic
 # proposal rather than a longer list here.
+#
+# ---------------------------------------------------------------------------
+# Adding a term
+#
+#   aokg concepts --propose "Delegation revocation latency"
+#
+# It answers one question: is this already here under another name? That is
+# the only failure mode a concept list has, and it is silent — two terms for
+# one idea break nothing, and every relation that would have been proposed
+# between claims carrying them simply is not. Half a link layer disappears
+# into a synonym and no error is ever raised.
+#
+# The loader refuses a term that collides. If it is genuinely a different
+# idea, say so on the entry:
+#
+#   distinct_from_near_matches: >-
+#     Not the same as `agent-reputation-systems`: that is the mechanism, this
+#     is the precondition it runs on.
+#
+# Then: reuse before adding. A term nothing else will ever carry proposes no
+# pairs, which is the only thing a concept is for. Three of the seventeen in
+# use are on exactly one statement — that is fine for a term added today and
+# a sign of over-specificity for one added months ago.
+#
+# `aokg concepts` reports the whole list: what is used, what is inert, what
+# collides, and how far the claim-added terms have drifted from the taxonomy.
+# ---------------------------------------------------------------------------
 
 concepts:
   - id: dissociative-agent-identity

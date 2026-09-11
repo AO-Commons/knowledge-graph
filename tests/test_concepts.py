@@ -249,3 +249,60 @@ class TestDerivedTopics:
     def test_no_statements_derives_nothing_rather_than_guessing(self):
         from ao_commons_kg.concepts import derived_topics, load_vocabulary
         assert derived_topics([], load_vocabulary()) == {}
+
+
+class TestVocabularyHygiene:
+    """A concept list has one failure mode and it is silent: two terms for
+    one idea. Nothing errors; the relations that would have been proposed
+    between claims carrying them are simply never proposed."""
+
+    def test_a_colliding_term_is_refused_with_the_alternative(self, tmp_path):
+        from ao_commons_kg.concepts import load_vocabulary
+        extra = tmp_path / "extra.yml"
+        extra.write_text(yaml.safe_dump({"concepts": [
+            {"label": "Agent reputation", "topics": ["5.3"]},
+        ]}), encoding="utf-8")
+        with pytest.raises(ValueError, match="agent-reputation-systems"):
+            load_vocabulary(extra_path=extra)
+
+    def test_a_genuinely_different_idea_can_say_so(self, tmp_path):
+        """The escape hatch has to exist, and has to be a sentence somebody
+        wrote rather than a boolean nobody reads."""
+        from ao_commons_kg.concepts import load_vocabulary
+        extra = tmp_path / "extra.yml"
+        extra.write_text(yaml.safe_dump({"concepts": [
+            {"label": "Agent reputation", "topics": ["5.3"],
+             "distinct_from_near_matches": "the signal, not the system carrying it"},
+        ]}), encoding="utf-8")
+        assert "agent-reputation" in load_vocabulary(extra_path=extra)
+
+    def test_containment_is_caught_where_ratio_alone_misses_it(self):
+        """"Agent reputation" against "Agent reputation systems" scores 0.80
+        on ratio and slips under any threshold loose enough not to flag real
+        siblings. One label being a whole-word prefix of another is the
+        clearest synonym signal there is."""
+        from ao_commons_kg.concepts import load_vocabulary, similar_terms
+        hits = similar_terms("Agent reputation", load_vocabulary())
+        assert any(c.id == "agent-reputation-systems" for _, c in hits)
+
+    def test_a_word_prefix_is_not_a_substring_match(self):
+        """"agent" must not match "agentic"."""
+        from ao_commons_kg.concepts import Concept, Vocabulary, similar_terms
+        vocab = Vocabulary(concepts={"agentic-drift": Concept("agentic-drift", "Agentic drift")})
+        assert not similar_terms("Agent", vocab)
+
+    def test_the_inherited_duplicates_are_reported_not_hidden(self):
+        """Eight pairs came in with the taxonomy's subpoints, which were
+        written as prose rather than as a vocabulary. They cannot be fixed
+        here, and pretending they are not there would be worse."""
+        from ao_commons_kg.concepts import duplicate_pairs, load_vocabulary
+        assert len(duplicate_pairs(load_vocabulary())) >= 8
+
+    def test_usage_counts_the_zeros(self):
+        """A concept on no statements is inert and a concept on one connects
+        nothing. Both are invisible if only the used terms are counted."""
+        from ao_commons_kg.concepts import load_vocabulary, usage
+        vocab = load_vocabulary()
+        counts = usage(load_claims(), vocab)
+        assert len(counts) == len(vocab)
+        assert sum(1 for n in counts.values() if n == 0) > 400

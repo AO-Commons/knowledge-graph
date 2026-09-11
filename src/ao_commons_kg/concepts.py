@@ -185,6 +185,22 @@ def load_vocabulary(taxonomy_path: Path | str = TAXONOMY,
                     f"taxonomy subpoint under {concepts[key].topics}. Remove it "
                     "from the extras file — the taxonomy is the source of truth."
                 )
+            # Two terms for one idea is the quiet failure. Nothing breaks and
+            # every relation that would have been proposed between claims
+            # carrying them simply is not, so half a link layer disappears
+            # into a synonym. Refused here, where a person is looking, rather
+            # than discovered later as an absence.
+            if not entry.get("distinct_from_near_matches"):
+                close = similar_terms(label, Vocabulary(concepts=dict(concepts)))
+                if close:
+                    listed = ", ".join(f"{c.id!r} ({s:.0%})" for s, c in close[:3])
+                    raise ValueError(
+                        f"concept {key!r} looks like an existing term: {listed}. "
+                        "Use the existing one, or if it is genuinely a different "
+                        "idea say so with `distinct_from_near_matches: <why>` on "
+                        "the entry — two terms for one idea silently halves the "
+                        "relations either would have proposed."
+                    )
             concepts[key] = Concept(
                 id=key, label=label,
                 topics=tuple(entry.get("topics") or ()),
@@ -234,3 +250,84 @@ def derived_topics(claims, vocabulary: Vocabulary) -> dict[str, int]:
             for code in (concept.topics if concept else ()):
                 counts[code] = counts.get(code, 0) + 1
     return dict(sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])))
+
+
+# ---- keeping the vocabulary usable ---------------------------------------
+#
+# A concept list has one failure mode and it is quiet: two terms for one idea.
+# Nothing breaks, nothing is reported, and every relation that would have been
+# proposed between claims carrying them silently is not. Half a link layer can
+# disappear into a synonym.
+#
+# The vocabulary already ships with this problem. 514 of its terms were
+# inherited from the taxonomy's subpoints, which were written as prose bullets
+# rather than as a controlled vocabulary, and eight pairs sit above 0.82
+# similarity — "Assurance framework composition and gap analysis" beside
+# "Assurance framework composition and gaps". Those cannot be merged here,
+# because the taxonomy owns them. What can be prevented is a ninth.
+
+NEAR_DUPLICATE = 0.82
+"""Label similarity above which two concepts are probably one idea.
+
+Calibrated against the inherited terms: 0.82 catches the eight real pairs in
+the taxonomy's subpoints without flagging genuinely distinct siblings like
+"Agent reputation systems" and "Agent-generated evaluation and scoring".
+"""
+
+
+def similar_terms(label: str, vocabulary: Vocabulary, *,
+                  threshold: float = NEAR_DUPLICATE) -> list[tuple[float, Concept]]:
+    """Existing concepts a proposed label may be a synonym of, closest first."""
+    import difflib
+
+    needle = (label or "").lower().strip()
+    if not needle:
+        return []
+
+    def score(other: str) -> float:
+        ratio = difflib.SequenceMatcher(None, needle, other).ratio()
+        # Containment, separately. "Agent reputation" against the existing
+        # "Agent reputation systems" scores 0.80 on ratio alone and slips
+        # under any threshold loose enough not to flag real siblings — but
+        # one label being a whole-word prefix of another is about as clear a
+        # synonym signal as this gets. Word boundaries, not substrings, so
+        # "agent" does not match "agentic".
+        mine, theirs = needle.split(), other.split()
+        if mine and theirs and (mine[:len(theirs)] == theirs or theirs[:len(mine)] == mine):
+            return max(ratio, threshold)
+        return ratio
+
+    scored = [(score(c.label.lower()), c) for c in vocabulary.concepts.values()]
+    return sorted((s for s in scored if s[0] >= threshold), key=lambda s: -s[0])
+
+
+def duplicate_pairs(vocabulary: Vocabulary, *,
+                    threshold: float = NEAR_DUPLICATE) -> list[tuple[float, Concept, Concept]]:
+    """Pairs already in the vocabulary that look like one idea."""
+    import difflib
+    import itertools
+
+    pairs = []
+    for left, right in itertools.combinations(
+            sorted(vocabulary.concepts.values(), key=lambda c: c.id), 2):
+        ratio = difflib.SequenceMatcher(None, left.label.lower(), right.label.lower()).ratio()
+        if ratio >= threshold:
+            pairs.append((ratio, left, right))
+    return sorted(pairs, key=lambda p: -p[0])
+
+
+def usage(claims, vocabulary: Vocabulary) -> dict[str, int]:
+    """How many statements carry each concept, including the zeros.
+
+    The zeros matter. A concept on no statements is inert, and a concept on
+    exactly one connects nothing — it can never propose a pair, which is the
+    only thing a concept is for. Neither is wrong; a term added today is used
+    once before it is used twice. But a term still alone after a few passes
+    is either too specific or was never needed.
+    """
+    counts = {concept_id: 0 for concept_id in vocabulary.concepts}
+    for claim in claims:
+        for tag in claim.concept_tags:
+            if tag in counts:
+                counts[tag] += 1
+    return counts

@@ -686,6 +686,74 @@ def cmd_relate(args) -> int:
     return 0
 
 
+
+def cmd_concepts(args) -> int:
+    """Report the statement vocabulary: what is used, what collides, what is inert.
+
+    A concept list rots quietly. Nothing errors when two terms mean one
+    thing; the relations that would have been proposed between claims
+    carrying them simply are not, and an absence is not something anybody
+    notices. This is the check that makes the state visible.
+    """
+    from .claims import load_claims
+    from .concepts import duplicate_pairs, load_vocabulary, similar_terms, usage
+
+    vocabulary = load_vocabulary()
+    claims = load_claims()
+
+    if args.propose:
+        close = similar_terms(args.propose, vocabulary)
+        if close:
+            print(f"{args.propose!r} looks like something already here:\n")
+            for score, concept in close[:5]:
+                print(f"  {score:.0%}  {concept.id}")
+                print(f"        {concept.label}   [{', '.join(concept.topics) or 'no topic'}]")
+            print("\nUse one of those, or add it with `distinct_from_near_matches:` "
+                  "saying why it is a different idea.")
+            return 1
+        print(f"{args.propose!r} is clear of everything in the vocabulary.\n"
+              "Add it to taxonomy/concepts-extra.yml with the topics it sits under "
+              "and a note saying what it is for.")
+        return 0
+
+    counts = usage(claims, vocabulary)
+    used = {k: n for k, n in counts.items() if n}
+    origins = Counter(c.origin for c in vocabulary.concepts.values())
+    print(f"{len(vocabulary)} concepts — {origins['taxonomy']} inherited from the "
+          f"taxonomy, {origins['claim']} added from claims")
+    print(f"{len(used)} carry a statement; {len(counts) - len(used)} are inert\n")
+
+    alone = sorted(k for k, n in counts.items() if n == 1)
+    if alone:
+        print(f"on exactly one statement — connects nothing yet ({len(alone)}):")
+        for key in alone:
+            print(f"  {key}")
+        print()
+
+    pairs = duplicate_pairs(vocabulary)
+    if pairs:
+        print(f"pairs that look like one idea ({len(pairs)}):")
+        for score, left, right in pairs[:args.limit]:
+            flag = "  <- both in use" if counts.get(left.id) and counts.get(right.id) else ""
+            print(f"  {score:.0%}  {left.label}")
+            print(f"       {right.label}{flag}")
+        print("\nMost of these are inherited from the taxonomy's subpoints, which were "
+              "written as prose rather than as a vocabulary. They can only be fixed "
+              "where the taxonomy is; what the loader prevents is a new one.\n")
+
+    # A concept layer drifting far from the taxonomy is evidence about the
+    # taxonomy, and the right response is eventually a topic proposal.
+    from_claims = [c for c in vocabulary.concepts.values() if c.origin == "claim"]
+    if from_claims:
+        untopiced = [c.id for c in from_claims if not c.topics]
+        print(f"added from claims: {len(from_claims)}"
+              + (f", {len(untopiced)} with no taxonomy home: {untopiced}" if untopiced else ""))
+        if len(from_claims) > 30:
+            print("  That is a lot. A concept layer drifting this far from the taxonomy "
+                  "is evidence about the taxonomy — consider a topic proposal.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="aokg", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -779,6 +847,15 @@ def main(argv: list[str] | None = None) -> int:
     relate.add_argument("--by", default="unattributed",
                         help="who the drafted relations would be attributed to")
     relate.set_defaults(func=cmd_relate)
+
+    concepts = sub.add_parser(
+        "concepts", help="report the statement vocabulary, or check a proposed term")
+    concepts.add_argument("--propose", default="",
+                          help="a label you are thinking of adding; says what it "
+                               "collides with, or that it is clear")
+    concepts.add_argument("--limit", type=int, default=12,
+                          help="how many near-duplicate pairs to list")
+    concepts.set_defaults(func=cmd_concepts)
 
     people = sub.add_parser("people", help="find one person spelled two ways")
     people.add_argument("--fix", action="store_true", help="rewrite the records")
