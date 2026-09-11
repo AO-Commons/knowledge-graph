@@ -168,3 +168,50 @@ class TestTaggedCorpus:
         claims = load_claims()
         tagged = [c for c in claims if c.concept_tags]
         assert len(tagged) == len(claims), "every claim in the pilot carries a concept"
+
+
+class TestCandidateQueue:
+    """The arithmetic that makes the statement layer tractable: 780 pairs
+    are unreadable, 25 are an afternoon."""
+
+    def test_a_shared_concept_is_required(self):
+        from ao_commons_kg.claims import candidate_pairs, load_claims
+        claims = load_claims()
+        for left, right, shared in candidate_pairs(claims, []):
+            assert shared, "a pair with no shared concept has nothing to judge"
+            assert set(shared) <= set(left.concept_tags) & set(right.concept_tags)
+
+    def test_pairs_already_settled_do_not_come_back(self):
+        """Re-reading a pair somebody already judged wastes the scarce half
+        of this process."""
+        from ao_commons_kg.claims import candidate_pairs, load_claim_relations, load_claims
+        claims = load_claims()
+        relations = load_claim_relations(claims=claims)
+        settled = {(r.source_id, r.target_id) for r in relations}
+        pairs = {(a.id, b.id) for a, b, _ in candidate_pairs(claims, relations)}
+        assert not (pairs & settled)
+        assert not (pairs & {(b, a) for a, b in settled}), "direction must not smuggle one back"
+
+    def test_same_paper_pairs_are_a_separate_pass(self):
+        from ao_commons_kg.claims import candidate_pairs, load_claims
+        claims = load_claims()
+        assert all(a.resource_id != b.resource_id
+                   for a, b, _ in candidate_pairs(claims, []))
+        within = candidate_pairs(claims, [], across_papers_only=False)
+        assert any(a.resource_id == b.resource_id for a, b, _ in within)
+
+    def test_the_queue_is_ordered_so_one_concept_is_read_at_a_time(self):
+        from ao_commons_kg.claims import candidate_pairs, load_claims
+        pairs = candidate_pairs(load_claims(), [])
+        concepts = [shared[0] for _, _, shared in pairs]
+        assert concepts == sorted(concepts, key=concepts.index), "grouped, not interleaved"
+
+    def test_drafted_relations_say_they_are_unconfirmed(self):
+        """A model proposing an inference and writing its own justification
+        is the case the INFERRED class exists to mark. It must not be
+        readable as a person's judgement."""
+        from ao_commons_kg.claims import load_claim_relations, load_claims
+        drafted = [r for r in load_claim_relations(claims=load_claims())
+                   if "claude" in (r.extraction_method or "")]
+        assert drafted
+        assert all("unconfirmed" in r.extraction_method for r in drafted)

@@ -255,3 +255,40 @@ def load_claim_relations(path: str | Path = DEFAULT_RELATIONS,
                 f" on {entry.get('asserted_on', 'an unrecorded date')}"),
         ))
     return relations
+
+
+def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True):
+    """Claim pairs worth reading, because they share a concept.
+
+    The arithmetic that makes the statement layer tractable. Forty claims is
+    780 pairs, which nobody will read; requiring a shared concept tag cuts
+    that to 73, and requiring the two claims to come from different papers
+    cuts it to 27. The tags do the filtering so a person only spends
+    judgement where there is something to judge.
+
+    Sharing a concept is emphatically not a relation — most candidates
+    should come back as nothing. A high yield would mean the vocabulary is
+    too loose rather than that the corpus is unusually connected.
+
+    Same-paper pairs are excluded by default because their relations are
+    mostly premise-to-conclusion, which is a different reading task and
+    better done as its own pass. Pass `across_papers_only=False` for those.
+    """
+    import itertools
+
+    settled = set()
+    for relation in relations or []:
+        settled.add((relation.source_id, relation.target_id))
+        settled.add((relation.target_id, relation.source_id))
+
+    pairs = []
+    for left, right in itertools.combinations(sorted(claims, key=lambda c: c.id), 2):
+        if across_papers_only and left.resource_id == right.resource_id:
+            continue
+        shared = sorted(set(left.concept_tags) & set(right.concept_tags))
+        if not shared or (left.id, right.id) in settled:
+            continue
+        pairs.append((left, right, shared))
+    # Densest concept first: a reviewer working one idea at a time is both
+    # faster and more consistent than one jumping between subjects.
+    return sorted(pairs, key=lambda p: (-len(p[2]), p[2][0], p[0].id, p[1].id))

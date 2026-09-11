@@ -146,3 +146,59 @@ relations:
       credibility and rehabilitability is the consequence drawn from it.
     asserted_by: ankeliu
     asserted_on: "2026-09-10"
+
+  # ---------------------------------------------------------------------
+  # Drafted by a model from the shared-concept queue on 2026-09-11, and
+  # NOT yet confirmed by a person. `asserted_by` says so on each one.
+  #
+  # That distinction matters more here than anywhere else in the corpus: a
+  # relation is an inference, and a model both proposing the inference and
+  # writing its justification is exactly the case the INFERRED class exists
+  # to mark. A reviewer should read these as suggestions with reasoning
+  # attached, not as settled.
+  #
+  # 25 candidate pairs were read and 3 survived. The 22 that did not are
+  # the more informative number — sharing a concept is not a relation, and
+  # a high yield would mean the vocabulary is too loose.
+  # ---------------------------------------------------------------------
+
+  - source: claim:arxiv:2509.14485:3
+    target: claim:arxiv:2107.06857:13
+    relation: DISAGREES_WITH
+    confidence_class: INFERRED
+    because: >-
+      Melting Pot's authors conclude that solving their scenarios requires agents which
+      model trust, reciprocity and deception. Beyond the High Score measures prosocial
+      capability separately from contest score and finds the two come apart — so
+      whatever the winning agents are doing, it is not reliably the thing Melting Pot
+      says its scenarios demand. An empirical result against a design claim.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-09-11"
+
+  - source: claim:arxiv:2606.03237:6
+    target: claim:arxiv:2107.06857:14
+    relation: DISAGREES_WITH
+    confidence_class: INFERRED
+    because: >-
+      Melting Pot expects to get harder over time because improved agents are folded
+      into its background populations — which is a claim to adaptive counterparties.
+      Solipsistic Superintelligence argues no existing evaluation approach meets the
+      requirements for valid dynamic evaluation, and Melting Pot is an existing
+      approach. A second and separate objection from the gaming one already recorded
+      above: that one says the suite was beaten, this one says the mechanism does not
+      work in principle.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-09-11"
+
+  - source: claim:arxiv:2605.30169:1
+    target: claim:arxiv:2511.03434:4
+    relation: QUALIFIES
+    confidence_class: INFERRED
+    because: >-
+      Inter-Agent Trust Models puts Reputation among six mechanisms available to an
+      agent ecosystem. Dissociative Identity states the precondition reputation runs
+      on — persistent identity with behavioural continuity, sanction sensitivity and
+      costly non-fungibility. That does not refute the comparison; it bounds where one
+      of its six entries can be used at all.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-09-11"

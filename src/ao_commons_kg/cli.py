@@ -616,6 +616,49 @@ def cmd_grow(args) -> int:
     return 0
 
 
+
+def cmd_relate(args) -> int:
+    """Propose claim pairs worth reading, from shared concepts.
+
+    Proposes only. Writing a relation is a judgement with provenance
+    attached, and this command deliberately cannot make one — it hands a
+    person, or a model whose name goes on the result, a short queue where
+    there was an unreadable 780.
+    """
+    from .claims import candidate_pairs, load_claim_relations, load_claims
+
+    claims = list(load_claims())
+    relations = load_claim_relations(claims=claims)
+    pairs = candidate_pairs(claims, relations,
+                            across_papers_only=not args.within_papers)
+
+    by_id = {c.id: c for c in claims}
+    print(f"{len(claims)} claims, {len(relations)} relations already asserted")
+    print(f"{len(pairs)} pair(s) share a concept and have not been judged\n")
+
+    for left, right, shared in pairs:
+        print(f"── {', '.join(shared)}")
+        for claim in (left, right):
+            paper = claim.resource_id.removeprefix("resource:")
+            print(f"   [{claim.claim_type.value:10}] {paper}  {claim.id.rsplit(':', 1)[-1]}")
+            print(f"      {claim.text}")
+        if args.draft:
+            print(f"""
+  - source: {left.id}
+    target: {right.id}
+    relation: SUPPORTS | DISAGREES_WITH | QUALIFIES | EXTENDS_CLAIM
+    confidence_class: INFERRED
+    because: >-
+      # why, or delete this block — sharing a concept is not a relation
+    asserted_by: {args.by}
+    asserted_on: {__import__("datetime").date.today().isoformat()}""")
+        print()
+
+    print("Most of these should be nothing. A high yield means the concept "
+          "vocabulary is too loose, not that the corpus is unusually connected.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="aokg", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -689,6 +732,17 @@ def main(argv: list[str] | None = None) -> int:
     grow.add_argument("--dry-run", action="store_true",
                       help="run the scope scan but write nothing")
     grow.set_defaults(func=cmd_grow)
+
+    relate = sub.add_parser(
+        "relate", help="propose claim pairs worth reading, from shared concepts")
+    relate.add_argument("--draft", action="store_true",
+                        help="print a YAML skeleton for each pair")
+    relate.add_argument("--within-papers", action="store_true",
+                        help="include pairs from the same paper, which are mostly "
+                             "premise-to-conclusion and a different reading task")
+    relate.add_argument("--by", default="unattributed",
+                        help="who the drafted relations would be attributed to")
+    relate.set_defaults(func=cmd_relate)
 
     people = sub.add_parser("people", help="find one person spelled two ways")
     people.add_argument("--fix", action="store_true", help="rewrite the records")
