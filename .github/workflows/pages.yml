@@ -45,6 +45,11 @@ jobs:
       # not. One unbalanced template literal takes the whole page down, and the
       # only symptom is a console message on a site nobody has opened yet.
       - run: python3 scripts/build_site.py
+      # The readable vocabulary. Derived from the taxonomy and the extras
+      # file, so it goes stale the moment either moves — and a generated
+      # list that is quietly out of date is worse than not having one,
+      # because people will check it and believe the answer.
+      - run: python3 scripts/build_concepts.py
       # The graph page reads this; it is derived from the same corpus and
       # would otherwise go stale the moment a record is added.
       - run: python3 scripts/build_graph.py

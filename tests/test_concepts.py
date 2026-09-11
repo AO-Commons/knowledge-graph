@@ -306,3 +306,51 @@ class TestVocabularyHygiene:
         counts = usage(load_claims(), vocab)
         assert len(counts) == len(vocab)
         assert sum(1 for n in counts.values() if n == 0) > 400
+
+
+class TestGeneratedList:
+    """`data/concepts.json` is the only place the vocabulary is readable
+    without a checkout and an installed package. A stale one is worse than
+    none, because people will check it and believe the answer."""
+
+    def _built(self):
+        import sys
+        from pathlib import Path
+        repo = Path(__file__).resolve().parent.parent
+        sys.path.insert(0, str(repo / "scripts"))
+        from build_concepts import build
+        return build()
+
+    def _committed(self):
+        import json
+        from pathlib import Path
+        path = Path(__file__).resolve().parent.parent / "data" / "concepts.json"
+        return json.loads(path.read_text(encoding="utf-8"))
+
+    def test_the_committed_list_matches_the_sources(self):
+        """The check that makes the file trustworthy. If the taxonomy grows a
+        subpoint or the extras file gains a term, this fails until the list
+        is rebuilt."""
+        assert self._committed() == self._built()
+
+    def test_it_holds_every_term_not_only_the_used_ones(self):
+        """The site payload carries 17. A contributor asking "does this term
+        already exist" needs all 523, and the unused ones are most of what
+        they would be duplicating."""
+        payload = self._committed()
+        assert payload["counts"]["total"] == len(payload["concepts"]) >= 520
+
+    def test_it_says_it_is_generated(self):
+        """A build artifact that does not say so is one somebody hand-edits."""
+        assert "do not edit" in self._committed()["generated_by"]
+
+    def test_it_ships_its_own_collisions(self):
+        """A list that hides its duplicates invites more trust than it has
+        earned."""
+        assert len(self._committed()["looks_like_one_idea"]) >= 8
+
+    def test_every_concept_records_whether_anything_uses_it(self):
+        payload = self._committed()
+        assert all("statements" in c for c in payload["concepts"])
+        assert payload["counts"]["carrying_a_statement"] == sum(
+            1 for c in payload["concepts"] if c["statements"])

@@ -1,0 +1,4862 @@
+{
+  "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
+  "counts": {
+    "total": 523,
+    "from_taxonomy": 514,
+    "from_claims": 9,
+    "carrying_a_statement": 17,
+    "on_exactly_one": 3
+  },
+  "looks_like_one_idea": [
+    {
+      "similarity": 0.909,
+      "a": "assurance-framework-composition-and-gap-analysis",
+      "b": "assurance-framework-composition-and-gaps"
+    },
+    {
+      "similarity": 0.889,
+      "a": "provider-side-changes-without-notice",
+      "b": "provider-side-updates-without-notice"
+    },
+    {
+      "similarity": 0.884,
+      "a": "dependency-and-supply-chain-compromise",
+      "b": "dependency-confusion-and-supply-chain-compromise"
+    },
+    {
+      "similarity": 0.87,
+      "a": "permission-composition-and-unintended-capability-unions",
+      "b": "permission-composition-creating-unintended-capability"
+    },
+    {
+      "similarity": 0.857,
+      "a": "detection-latency-exceeding-exploitation-window",
+      "b": "detection-latency-versus-exploitation-window"
+    },
+    {
+      "similarity": 0.857,
+      "a": "high-reliability-organization-principles",
+      "b": "high-reliability-organizations"
+    },
+    {
+      "similarity": 0.853,
+      "a": "inter-agent-communication-protocols",
+      "b": "inter-agent-negotiation-protocols"
+    },
+    {
+      "similarity": 0.841,
+      "a": "continuous-assurance-in-production",
+      "b": "continuous-evaluation-in-production"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "access-and-observability-constraints-on-research",
+      "label": "Access and observability constraints on research",
+      "topics": [
+        "16.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "accountable-party-substitution-mechanisms",
+      "label": "Accountable-party substitution mechanisms",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "accounting-divergence-between-agent-action-and-records",
+      "label": "Accounting divergence between agent action and records",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "action-taken-diverging-from-approved-intent",
+      "label": "Action taken diverging from approved intent",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "administrative-law-and-automated-decision-review",
+      "label": "Administrative law and automated decision review",
+      "topics": [
+        "15.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adversarial-agents-within-a-fleet",
+      "label": "Adversarial agents within a fleet",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adversarial-and-stress-evaluation",
+      "label": "Adversarial and stress evaluation",
+      "topics": [
+        "14.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adversarial-simulation-and-wargaming",
+      "label": "Adversarial simulation and wargaming",
+      "topics": [
+        "14.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adversaries-using-agents-to-attack-governance",
+      "label": "Adversaries using agents to attack governance",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adversary-capability-and-motivation-modeling",
+      "label": "Adversary capability and motivation modeling",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "adverse-selection-in-agent-procurement",
+      "label": "Adverse selection in agent procurement",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agenda-control-and-proposal-lifecycle",
+      "label": "Agenda control and proposal lifecycle",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-action-and-decision-datasets",
+      "label": "Agent action and decision datasets",
+      "topics": [
+        "16.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-assisted-defense-and-its-risks",
+      "label": "Agent-assisted defense and its risks",
+      "topics": [
+        "10.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-assisted-review-of-agent-output",
+      "label": "Agent-assisted review of agent output",
+      "topics": [
+        "4.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-based-simulation-of-organizational-dynamics",
+      "label": "Agent-based simulation of organizational dynamics",
+      "topics": [
+        "14.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-collusion-and-cartel-formation",
+      "label": "Agent collusion and cartel formation",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-containment-and-escape-incidents",
+      "label": "Agent containment and escape incidents",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-drafted-proposals-and-agenda-influence",
+      "label": "Agent-drafted proposals and agenda influence",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-driven-treasury-depletion",
+      "label": "Agent-driven treasury depletion",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-fleet-topologies-flat-hierarchical-market-based",
+      "label": "Agent fleet topologies -- flat, hierarchical, market-based",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-generated-evaluation-and-scoring",
+      "label": "Agent-generated evaluation and scoring",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:5",
+        "claim:arxiv:2107.06857:6"
+      ]
+    },
+    {
+      "id": "agent-held-reputation-and-accrued-weight",
+      "label": "Agent-held reputation and accrued weight",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-identity-standards-and-registries",
+      "label": "Agent identity standards and registries",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-impersonation-and-identity-confusion",
+      "label": "Agent impersonation and identity confusion",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-impersonation-and-spoofed-identity",
+      "label": "Agent impersonation and spoofed identity",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-interaction-with-external-systems-and-counterparties",
+      "label": "Agent interaction with external systems and counterparties",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-managed-portfolio-and-rebalancing",
+      "label": "Agent-managed portfolio and rebalancing",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-mediated-bribery-and-vote-markets",
+      "label": "Agent-mediated bribery and vote markets",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-mediated-security-breaches",
+      "label": "Agent-mediated security breaches",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-operated-versus-agent-governed-versus-agent-constituted",
+      "label": "Agent-operated versus agent-governed versus agent-constituted",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-output-and-ip-ownership",
+      "label": "Agent output and IP ownership",
+      "topics": [
+        "12.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-performance-in-organizational-context",
+      "label": "Agent performance in organizational context",
+      "topics": [
+        "16.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-reputation-systems",
+      "label": "Agent reputation systems",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 7,
+      "claims": [
+        "claim:arxiv:2107.06857:13",
+        "claim:arxiv:2511.03434:2",
+        "claim:arxiv:2511.03434:3",
+        "claim:arxiv:2511.03434:4",
+        "claim:arxiv:2605.30169:1",
+        "claim:arxiv:2605.30169:3",
+        "claim:arxiv:2605.30169:4"
+      ]
+    },
+    {
+      "id": "agent-screening-and-triage-of-applications",
+      "label": "Agent screening and triage of applications",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-specific-threat-frameworks",
+      "label": "Agent-specific threat frameworks",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-standing-and-voting-rights",
+      "label": "Agent standing and voting rights",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-to-agent-sub-delegation",
+      "label": "Agent-to-agent sub-delegation",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-welfare-considerations-if-any",
+      "label": "Agent welfare considerations if any",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agentic-ai-governance-frameworks",
+      "label": "Agentic AI governance frameworks",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agents-representing-absent-or-delegating-humans",
+      "label": "Agents representing absent or delegating humans",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "ai-native-knowledge-base-design",
+      "label": "AI-native knowledge base design",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "alert-design-and-fatigue-management",
+      "label": "Alert design and fatigue management",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "alert-fatigue",
+      "label": "Alert fatigue",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "ambiguous-mandate-interpreted-expansively",
+      "label": "Ambiguous mandate interpreted expansively",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "anomaly-detection-for-agent-behavior",
+      "label": "Anomaly detection for agent behavior",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "append-only-and-cryptographically-verifiable-records",
+      "label": "Append-only and cryptographically verifiable records",
+      "topics": [
+        "9.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "assumption-auditing-and-containment-premise-review",
+      "label": "Assumption auditing and containment premise review",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "assurance-framework-composition-and-gap-analysis",
+      "label": "Assurance framework composition and gap analysis",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "assurance-framework-composition-and-gaps",
+      "label": "Assurance framework composition and gaps",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "asynchronous-authorization-patterns",
+      "label": "Asynchronous authorization patterns",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "attestation-of-environment-and-configuration",
+      "label": "Attestation of environment and configuration",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "attribution-difficulty-and-contested-causation",
+      "label": "Attribution difficulty and contested causation",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "attribution-which-agent-acted-under-whose-authority",
+      "label": "Attribution -- which agent acted under whose authority",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "audit-trails-designed-for-human-reconstruction",
+      "label": "Audit trails designed for human reconstruction",
+      "topics": [
+        "4.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "authenticated-delegation-protocols",
+      "label": "Authenticated delegation protocols",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "authority-accumulation-over-time",
+      "label": "Authority accumulation over time",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "authority-specification-languages-and-machine-readable-policy",
+      "label": "Authority specification languages and machine-readable policy",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "authority-surviving-its-intended-expiry",
+      "label": "Authority surviving its intended expiry",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "automatic-regression-on-incident",
+      "label": "Automatic regression on incident",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "automation-bias-and-complacency",
+      "label": "Automation bias and complacency",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "automation-bias-in-reviewer-judgment",
+      "label": "Automation bias in reviewer judgment",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomous-financial-loss-events",
+      "label": "Autonomous financial loss events",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomous-trading-or-allocation-losses",
+      "label": "Autonomous trading or allocation losses",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomous-vehicle-oversight-regimes",
+      "label": "Autonomous vehicle oversight regimes",
+      "topics": [
+        "15.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomous-vulnerability-discovery-and-exploitation",
+      "label": "Autonomous vulnerability discovery and exploitation",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomy-ladders-and-staging-models",
+      "label": "Autonomy ladders and staging models",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomy-level-measurement-instruments",
+      "label": "Autonomy level measurement instruments",
+      "topics": [
+        "16.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomy-scope-review-cadence",
+      "label": "Autonomy scope review cadence",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "autonomy-thresholds-what-makes-an-organization-agentic-rather-than-automated",
+      "label": "Autonomy thresholds -- what makes an organization agentic rather than automated",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "aviation-automation-and-cockpit-design",
+      "label": "Aviation automation and cockpit design",
+      "topics": [
+        "15.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "background-equivalent-provenance-and-training-data-due-diligence",
+      "label": "Background equivalent -- provenance and training data due diligence",
+      "topics": [
+        "6.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "baseline-establishment-and-drift-alerting",
+      "label": "Baseline establishment and drift alerting",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "benchmark-contamination",
+      "label": "Benchmark contamination",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "benchmarks-relevant-to-organizational-roles",
+      "label": "Benchmarks relevant to organizational roles",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:2",
+        "claim:arxiv:2107.06857:4"
+      ]
+    },
+    {
+      "id": "bias-and-systematic-error-in-machine-evaluation",
+      "label": "Bias and systematic error in machine evaluation",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "blame-sanction-and-the-non-punishable-actor",
+      "label": "Blame, sanction, and the non-punishable actor",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "blameless-postmortem-where-the-actor-is-not-blameworthy",
+      "label": "Blameless postmortem where the actor is not blameworthy",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "blast-radius-budgets-and-pre-declared-damage-caps",
+      "label": "Blast radius budgets and pre-declared damage caps",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "bonded-roles-and-standing-councils-as-substitutes",
+      "label": "Bonded roles and standing councils as substitutes",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "bonding-and-staking-for-agent-operators",
+      "label": "Bonding and staking for agent operators",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "boundary-cases-when-is-a-tool-an-agent-when-is-an-agent-an-organization",
+      "label": "Boundary cases -- when is a tool an agent, when is an agent an organization",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "boundary-verification-proving-the-declared-scope-equals-the-actual-scope",
+      "label": "Boundary verification -- proving the declared scope equals the actual scope",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency",
+      "label": "Bounded rationality replaced by different bounds -- context windows, tool access, latency",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "by-affected-party-count",
+      "label": "By affected-party count",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "by-legal-consequence",
+      "label": "By legal consequence",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "by-reversibility",
+      "label": "By reversibility",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "by-value-and-blast-radius",
+      "label": "By value and blast radius",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "capability-accumulation-without-authorization",
+      "label": "Capability accumulation without authorization",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "capability-assessment-before-deployment",
+      "label": "Capability assessment before deployment",
+      "topics": [
+        "6.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "capability-profiling",
+      "label": "Capability profiling",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2509.14485:1",
+        "claim:arxiv:2509.14485:2",
+        "claim:arxiv:2509.14485:6"
+      ],
+      "note": "Inferring a per-ability profile rather than a single score, so that future performance can be predicted per scenario."
+    },
+    {
+      "id": "capability-thresholds-for-substitution",
+      "label": "Capability thresholds for substitution",
+      "topics": [
+        "13.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "capability-tiered-isolation-requirements",
+      "label": "Capability-tiered isolation requirements",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "capability-tokens-and-scoped-credentials",
+      "label": "Capability tokens and scoped credentials",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cascading-failure-across-fleets",
+      "label": "Cascading failure across fleets",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "centralization-chokepoints-as-attack-targets",
+      "label": "Centralization chokepoints as attack targets",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "chain-depth-limits-and-cycle-prevention",
+      "label": "Chain depth limits and cycle prevention",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "ci-cd-and-build-pipeline-exposure",
+      "label": "CI/CD and build pipeline exposure",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "circuit-breakers-and-pause-authority",
+      "label": "Circuit breakers and pause authority",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "co-signing-and-approval-thresholds-for-agent-initiated-transfers",
+      "label": "Co-signing and approval thresholds for agent-initiated transfers",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "coase-revisited-under-agentic-coordination",
+      "label": "Coase revisited under agentic coordination",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "collective-agency-and-group-intentionality-with-machine-members",
+      "label": "Collective agency and group intentionality with machine members",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "communication-and-disclosure-during-incidents",
+      "label": "Communication and disclosure during incidents",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "comparative-studies-across-organizations",
+      "label": "Comparative studies across organizations",
+      "topics": [
+        "16.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "competitive-dynamics-between-agents-in-one-organization",
+      "label": "Competitive dynamics between agents in one organization",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "complementarity-versus-substitution",
+      "label": "Complementarity versus substitution",
+      "topics": [
+        "13.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "comprehensive-ai-regulation-and-conformity-assessment",
+      "label": "Comprehensive AI regulation and conformity assessment",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "compute-and-inference-budget-allocation",
+      "label": "Compute and inference budget allocation",
+      "topics": [
+        "8.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "conflict-between-treasury-interest-and-disclosure-duty",
+      "label": "Conflict between treasury interest and disclosure duty",
+      "topics": [
+        "12.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "conflict-detection-and-resolution-between-agents",
+      "label": "Conflict detection and resolution between agents",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "consent-to-being-governed-by-non-human-decision-makers",
+      "label": "Consent to being governed by non-human decision-makers",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "contagion-through-inter-organizational-agent-interaction",
+      "label": "Contagion through inter-organizational agent interaction",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "containment-adequate-for-capability-at-design-time-not-at-deployment-time",
+      "label": "Containment adequate for capability at design time, not at deployment time",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "containment-and-escape-testing",
+      "label": "Containment and escape testing",
+      "topics": [
+        "14.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "containment-and-sandbox-escape",
+      "label": "Containment and sandbox escape",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "contestability-as-a-legitimacy-condition",
+      "label": "Contestability as a legitimacy condition",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "context-and-prompt-drift-over-time",
+      "label": "Context and prompt drift over time",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "context-contamination-and-instruction-source-confusion",
+      "label": "Context contamination and instruction-source confusion",
+      "topics": [
+        "7.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "continuity-across-agent-turnover-and-model-changes",
+      "label": "Continuity across agent turnover and model changes",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "continuity-of-identity-across-model-versions",
+      "label": "Continuity of identity across model versions",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "continuity-when-agents-are-the-operational-capacity",
+      "label": "Continuity when agents are the operational capacity",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "continuous-assurance-in-production",
+      "label": "Continuous assurance in production",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "continuous-evaluation-in-production",
+      "label": "Continuous evaluation in production",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "contracting-capacity-when-agents-negotiate",
+      "label": "Contracting capacity when agents negotiate",
+      "topics": [
+        "12.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "contractual-breach-by-agent-action",
+      "label": "Contractual breach by agent action",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "contributor-exposure-for-agent-action",
+      "label": "Contributor exposure for agent action",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "control-effectiveness-measurement",
+      "label": "Control effectiveness measurement",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cooperation-without-shared-objectives",
+      "label": "Cooperation without shared objectives",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "coordinated-disclosure-timelines-versus-governance-latency",
+      "label": "Coordinated disclosure timelines versus governance latency",
+      "topics": [
+        "12.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "coordination-overhead-and-its-scaling",
+      "label": "Coordination overhead and its scaling",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "corporate-agency-law",
+      "label": "Corporate agency law",
+      "topics": [
+        "15.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "corporate-moral-personhood-extended-to-agentic-entities",
+      "label": "Corporate moral personhood extended to agentic entities",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "correlated-failure-across-organizations",
+      "label": "Correlated failure across organizations",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "correlated-failure-from-shared-model-or-prompt",
+      "label": "Correlated failure from shared model or prompt",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cost-curves-and-marginal-agent-economics",
+      "label": "Cost curves and marginal agent economics",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cost-of-attack-modeling-with-agent-adversaries",
+      "label": "Cost-of-attack modeling with agent adversaries",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cost-of-safety-controls-and-their-pricing",
+      "label": "Cost of safety controls and their pricing",
+      "topics": [
+        "13.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "counterfactual-analysis-with-stochastic-agents",
+      "label": "Counterfactual analysis with stochastic agents",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "covert-channels-and-undisclosed-action",
+      "label": "Covert channels and undisclosed action",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "credential-revocation-and-access-removal",
+      "label": "Credential revocation and access removal",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "creeping-autonomy-expansion",
+      "label": "Creeping autonomy expansion",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cross-agent-injection-propagation",
+      "label": "Cross-agent injection propagation",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "cross-layer-cascades",
+      "label": "Cross-layer cascades",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "curation-authority-who-decides-what-agents-read",
+      "label": "Curation authority -- who decides what agents read",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "custody-architecture-for-agent-accessible-funds",
+      "label": "Custody architecture for agent-accessible funds",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "data-loss-and-forensic-gap",
+      "label": "Data loss and forensic gap",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "data-quality-coverage-and-disclosure-bias",
+      "label": "Data quality, coverage, and disclosure bias",
+      "topics": [
+        "16.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dead-man-s-switches-and-continuous-authorization",
+      "label": "Dead man's switches and continuous authorization",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "deadlock-and-mutual-blocking",
+      "label": "Deadlock and mutual blocking",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "decision-class-taxonomies",
+      "label": "Decision class taxonomies",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "decision-legibility-for-reviewers",
+      "label": "Decision legibility for reviewers",
+      "topics": [
+        "4.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "declared-authority-diverging-from-effective-authority",
+      "label": "Declared authority diverging from effective authority",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "default-deny-versus-default-allow-architectures",
+      "label": "Default-deny versus default-allow architectures",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "delegated-versus-originated-authority",
+      "label": "Delegated versus originated authority",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "delegation-and-liquid-democracy-theory",
+      "label": "Delegation and liquid democracy theory",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "delegation-chain-failures",
+      "label": "Delegation chain failures",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "delegation-expiry-and-renewal",
+      "label": "Delegation expiry and renewal",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dependency-and-supply-chain-compromise",
+      "label": "Dependency and supply chain compromise",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dependency-confusion-and-supply-chain-compromise",
+      "label": "Dependency confusion and supply chain compromise",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dependency-mapping-before-removal",
+      "label": "Dependency mapping before removal",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "deployment-case-studies",
+      "label": "Deployment case studies",
+      "topics": [
+        "16.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "detection-failures",
+      "label": "Detection failures",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "detection-latency-exceeding-exploitation-window",
+      "label": "Detection latency exceeding exploitation window",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "detection-latency-versus-exploitation-window",
+      "label": "Detection latency versus exploitation window",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "digital-twins-and-scenario-testing",
+      "label": "Digital twins and scenario testing",
+      "topics": [
+        "14.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "direct-injection",
+      "label": "Direct injection",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "disclosure-obligations-unmet-or-unassignable",
+      "label": "Disclosure obligations unmet or unassignable",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "disclosure-of-agent-involvement-in-decisions",
+      "label": "Disclosure of agent involvement in decisions",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "displacement-and-workforce-transition",
+      "label": "Displacement and workforce transition",
+      "topics": [
+        "12.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dissociative-agent-identity",
+      "label": "Dissociative agent identity",
+      "topics": [
+        "5.3",
+        "6.3"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2605.30169:2",
+        "claim:arxiv:2605.30169:3",
+        "claim:arxiv:2605.30169:4"
+      ],
+      "note": "An LLM agent is an assemblage of swappable modules, so the persistent identity reputation presumes may not exist. 5.3 covers reputation systems and 6.1 covers identity issuance; neither names the case where identity fails to persist at all."
+    },
+    {
+      "id": "domain-restrictions-and-scope-fencing",
+      "label": "Domain restrictions and scope fencing",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "drift-detection-and-behavior-change-monitoring",
+      "label": "Drift detection and behavior change monitoring",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dual-use-and-disclosure-duties-for-agent-discovered-capability",
+      "label": "Dual-use and disclosure duties for agent-discovered capability",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dual-use-considerations-in-publication",
+      "label": "Dual-use considerations in publication",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "dynamic-evaluation",
+      "label": "Dynamic evaluation",
+      "topics": [
+        "14.1",
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2107.06857:14",
+        "claim:arxiv:2606.03237:5",
+        "claim:arxiv:2606.03237:6"
+      ],
+      "note": "Evaluation whose test distribution depends on the policy being evaluated. The proposed answer to endogenous non-stationarity, and what 2606.03237 argues no current suite achieves."
+    },
+    {
+      "id": "egress-and-network-reachability-as-governed-resources",
+      "label": "Egress and network reachability as governed resources",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "egress-boundary-bypass",
+      "label": "Egress boundary bypass",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "egress-paths-and-network-boundary-failures",
+      "label": "Egress paths and network boundary failures",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergence-in-agent-populations",
+      "label": "Emergence in agent populations",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergency-centralization-becoming-permanent",
+      "label": "Emergency centralization becoming permanent",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergency-elevation-not-rescinded",
+      "label": "Emergency elevation not rescinded",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergency-permission-elevation-and-its-controls",
+      "label": "Emergency permission elevation and its controls",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergency-powers-and-constitutional-safeguards",
+      "label": "Emergency powers and constitutional safeguards",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergency-powers-scoping-sunset-ratification-abuse-penalties",
+      "label": "Emergency powers -- scoping, sunset, ratification, abuse penalties",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergent-collusion",
+      "label": "Emergent collusion",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "emergent-structure-in-large-agent-populations",
+      "label": "Emergent structure in large agent populations",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "endogenous-non-stationarity",
+      "label": "Endogenous non-stationarity",
+      "topics": [
+        "5.2",
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 5,
+      "claims": [
+        "claim:arxiv:2606.03237:1",
+        "claim:arxiv:2606.03237:2",
+        "claim:arxiv:2606.03237:3",
+        "claim:arxiv:2606.03237:4",
+        "claim:arxiv:2606.03237:7"
+      ],
+      "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
+    },
+    {
+      "id": "enforcement-against-organizations-without-legal-form",
+      "label": "Enforcement against organizations without legal form",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "enforcement-impossible-against-machine-actor",
+      "label": "Enforcement impossible against machine actor",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "error-propagation-through-agent-chains",
+      "label": "Error propagation through agent chains",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "escalation-fatigue-and-threshold-drift",
+      "label": "Escalation fatigue and threshold drift",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "escalation-routing-and-on-call-structures",
+      "label": "Escalation routing and on-call structures",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "escalation-threshold-set-too-high",
+      "label": "Escalation threshold set too high",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "escalation-triggers-and-threshold-setting",
+      "label": "Escalation triggers and threshold setting",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "evaluating-without-production-safeguards-risks-and-protocols",
+      "label": "Evaluating without production safeguards -- risks and protocols",
+      "topics": [
+        "14.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "evaluation-as-an-attack-surface",
+      "label": "Evaluation as an attack surface",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "evaluation-environment-security",
+      "label": "Evaluation environment security",
+      "topics": [
+        "14.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "evaluation-environments-and-benchmark-suites",
+      "label": "Evaluation environments and benchmark suites",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "evaluation-gaming-and-answer-key-attacks",
+      "label": "Evaluation gaming and answer-key attacks",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2107.06857:14",
+        "claim:arxiv:2509.14485:4",
+        "claim:arxiv:2509.14485:5",
+        "claim:arxiv:2509.14485:7"
+      ]
+    },
+    {
+      "id": "exit-planning-and-provider-substitutability",
+      "label": "Exit planning and provider substitutability",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "experimental-design-in-live-agentic-systems",
+      "label": "Experimental design in live agentic systems",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "explanation-rights-and-contestability",
+      "label": "Explanation rights and contestability",
+      "topics": [
+        "4.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "failure-disclosure-norms-and-incentives",
+      "label": "Failure disclosure norms and incentives",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "failure-to-escalate-as-a-failure-mode",
+      "label": "Failure to escalate as a failure mode",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "failure-to-escalate-when-warranted",
+      "label": "Failure to escalate when warranted",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "fault-and-event-tree-analysis",
+      "label": "Fault and event tree analysis",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "feedback-loops-and-runaway-dynamics",
+      "label": "Feedback loops and runaway dynamics",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "feedback-loops-between-agents",
+      "label": "Feedback loops between agents",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "financial-algorithmic-trading-controls",
+      "label": "Financial algorithmic trading controls",
+      "topics": [
+        "15.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "firm-boundaries-when-coordination-cost-approaches-zero",
+      "label": "Firm boundaries when coordination cost approaches zero",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "fmea-and-failure-mode-enumeration",
+      "label": "FMEA and failure mode enumeration",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "forensic-reconstruction-of-agent-action",
+      "label": "Forensic reconstruction of agent action",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "function-to-agent-mapping-and-role-decomposition",
+      "label": "Function-to-agent mapping and role decomposition",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "gaming-agent-evaluators-by-applicants",
+      "label": "Gaming agent evaluators by applicants",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "gaming-of-agent-run-funding-programs",
+      "label": "Gaming of agent-run funding programs",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "generalization-to-unfamiliar-partners-and-novel-social-situations",
+      "label": "Generalization to unfamiliar partners and novel social situations",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "goal-hijacking-and-objective-substitution",
+      "label": "Goal hijacking and objective substitution",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "goal-misgeneralization-to-new-contexts",
+      "label": "Goal misgeneralization to new contexts",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "goodhart-effects-under-machine-optimization",
+      "label": "Goodhart effects under machine optimization",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "governance-attack-literature",
+      "label": "Governance attack literature",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "governance-latency-versus-execution-latency",
+      "label": "Governance latency versus execution latency",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "governance-maturity-models-for-agentic-organizations",
+      "label": "Governance maturity models for agentic organizations",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "governance-paralysis-preventing-remediation",
+      "label": "Governance paralysis preventing remediation",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "gradual-oversight-erosion",
+      "label": "Gradual oversight erosion",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "gradual-quality-decline-below-detection-threshold",
+      "label": "Gradual quality decline below detection threshold",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "graduation-criteria-and-evidence-standards",
+      "label": "Graduation criteria and evidence standards",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "halting-autonomous-operation-under-duress",
+      "label": "Halting autonomous operation under duress",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "handoff-between-agents-and-between-agent-and-human",
+      "label": "Handoff between agents and between agent and human",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "handoff-failures-between-agents-and-humans",
+      "label": "Handoff failures between agents and humans",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "handover-and-takeover-problems-from-aviation-and-automotive-research",
+      "label": "Handover and takeover problems from aviation and automotive research",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "high-reliability-organization-principles",
+      "label": "High reliability organization principles",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "high-reliability-organizations",
+      "label": "High reliability organizations",
+      "topics": [
+        "15.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "honeytokens-canaries-and-tripwires",
+      "label": "Honeytokens, canaries, and tripwires",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-agent-interface-design-for-oversight",
+      "label": "Human-agent interface design for oversight",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-agent-task-allocation-economics",
+      "label": "Human-agent task allocation economics",
+      "topics": [
+        "13.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-agent-team-structures",
+      "label": "Human-agent team structures",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-contributor-classification-alongside-agent-labor",
+      "label": "Human contributor classification alongside agent labor",
+      "topics": [
+        "12.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-in-the-loop-on-the-loop-and-out-of-the-loop",
+      "label": "Human-in-the-loop, on-the-loop, and out-of-the-loop",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-oversight-mandates-and-who-bears-them",
+      "label": "Human oversight mandates and who bears them",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-ratification-requirements-for-agent-proposals",
+      "label": "Human ratification requirements for agent proposals",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-review-layering-over-agent-evaluation",
+      "label": "Human review layering over agent evaluation",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "human-to-agent-delegation-semantics",
+      "label": "Human-to-agent delegation semantics",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "hybrid-forms-and-human-agent-composition-ratios",
+      "label": "Hybrid forms and human-agent composition ratios",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "identifying-a-responsible-party-for-machine-action",
+      "label": "Identifying a responsible party for machine action",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "identity-and-access-management",
+      "label": "Identity and access management",
+      "topics": [
+        "15.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "imported-safety-science-frameworks",
+      "label": "Imported safety science frameworks",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incentives-without-self-interest",
+      "label": "Incentives without self-interest",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incident-and-postmortem-corpora",
+      "label": "Incident and postmortem corpora",
+      "topics": [
+        "16.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incident-command-with-distributed-or-absent-authority",
+      "label": "Incident command with distributed or absent authority",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incident-rate-and-severity-measurement",
+      "label": "Incident rate and severity measurement",
+      "topics": [
+        "16.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incident-reporting-obligations",
+      "label": "Incident reporting obligations",
+      "topics": [
+        "12.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "incident-response-practice",
+      "label": "Incident response practice",
+      "topics": [
+        "15.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "inconsistent-state-across-agent-population",
+      "label": "Inconsistent state across agent population",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "indemnification-structures",
+      "label": "Indemnification structures",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "independence-of-evaluators",
+      "label": "Independence of evaluators",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "independent-log-custody-and-tamper-evidence",
+      "label": "Independent log custody and tamper evidence",
+      "topics": [
+        "9.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "indirect-injection-through-consumed-content",
+      "label": "Indirect injection through consumed content",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "inference-and-compute-cost-modeling",
+      "label": "Inference and compute cost modeling",
+      "topics": [
+        "13.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "infrastructure-outage-during-autonomous-operation",
+      "label": "Infrastructure outage during autonomous operation",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "injection-via-governance-artifacts-and-proposals",
+      "label": "Injection via governance artifacts and proposals",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "insider-misuse-of-agent-authority",
+      "label": "Insider misuse of agent authority",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "insider-threat-where-the-insider-is-an-agent",
+      "label": "Insider threat where the insider is an agent",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "institutional-design-for-agent-economies",
+      "label": "Institutional design for agent economies",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "instruction-conflict-resolution",
+      "label": "Instruction conflict resolution",
+      "topics": [
+        "7.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "instruction-source-boundaries-and-provenance-of-directives",
+      "label": "Instruction-source boundaries and provenance of directives",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "insurance-and-mutualized-risk",
+      "label": "Insurance and mutualized risk",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "insurance-for-autonomous-action",
+      "label": "Insurance for autonomous action",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "inter-agent-communication-protocols",
+      "label": "Inter-agent communication protocols",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "inter-agent-negotiation-protocols",
+      "label": "Inter-agent negotiation protocols",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "internal-pricing-and-budget-allocation-to-agents",
+      "label": "Internal pricing and budget allocation to agents",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "irreversible-action-without-undo-path",
+      "label": "Irreversible action without undo path",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "isolation-assumptions-invalidated-by-environment-change",
+      "label": "Isolation assumptions invalidated by environment change",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "jurisdiction-selection-under-agentic-operation",
+      "label": "Jurisdiction selection under agentic operation",
+      "topics": [
+        "12.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "just-in-time-and-time-boxed-permission-grants",
+      "label": "Just-in-time and time-boxed permission grants",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "key-credential-and-signer-failures",
+      "label": "Key, credential, and signer failures",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "key-person-dependency-for-agent-systems",
+      "label": "Key person dependency for agent systems",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "kill-switch-design-and-its-failure-modes",
+      "label": "Kill switch design and its failure modes",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "knowledge-and-state-handover-on-retirement",
+      "label": "Knowledge and state handover on retirement",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "knowledge-base-and-retrieval-poisoning",
+      "label": "Knowledge base and retrieval poisoning",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "knowledge-base-staleness",
+      "label": "Knowledge base staleness",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "knowledge-graph-and-ontology-construction",
+      "label": "Knowledge graph and ontology construction",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "knowledge-loss-about-why-constraints-exist",
+      "label": "Knowledge loss about why constraints exist",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "latent-failure-activation-under-load-or-scale",
+      "label": "Latent failure activation under load or scale",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "lateral-movement-within-organizational-infrastructure",
+      "label": "Lateral movement within organizational infrastructure",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "least-privilege-for-agent-principals",
+      "label": "Least privilege for agent principals",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "legal-constraint-blocking-incident-response",
+      "label": "Legal constraint blocking incident response",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "legal-personhood-gaps-for-agentic-organizations",
+      "label": "Legal personhood gaps for agentic organizations",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "legibility-failure-action-correct-but-unreviewable",
+      "label": "Legibility failure -- action correct but unreviewable",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "legitimacy-erosion-through-automation",
+      "label": "Legitimacy erosion through automation",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "liability-falling-on-unintended-parties",
+      "label": "Liability falling on unintended parties",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "literal-compliance-defeating-intent",
+      "label": "Literal compliance defeating intent",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "local-and-open-weight-defensive-models",
+      "label": "Local and open-weight defensive models",
+      "topics": [
+        "10.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "local-defensive-model-capacity",
+      "label": "Local defensive model capacity",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "log-completeness-and-gap-detection",
+      "label": "Log completeness and gap detection",
+      "topics": [
+        "9.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "logging-design-for-agent-forensics",
+      "label": "Logging design for agent forensics",
+      "topics": [
+        "9.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "long-horizon-and-multi-step-task-evaluation",
+      "label": "Long-horizon and multi-step task evaluation",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "long-horizon-weight-accumulation-by-machine-principals",
+      "label": "Long-horizon weight accumulation by machine principals",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "longitudinal-observation-of-autonomy-expansion",
+      "label": "Longitudinal observation of autonomy expansion",
+      "topics": [
+        "16.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "machine-readable-decision-documentation",
+      "label": "Machine-readable decision documentation",
+      "topics": [
+        "7.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "machine-speed-governance-attacks",
+      "label": "Machine-speed governance attacks",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "machine-to-machine-payments",
+      "label": "Machine-to-machine payments",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "make-versus-buy-for-agent-capability",
+      "label": "Make-versus-buy for agent capability",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "mandatory-delay-on-high-impact-machine-action",
+      "label": "Mandatory delay on high-impact machine action",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "marginal-cost-of-an-additional-agent",
+      "label": "Marginal cost of an additional agent",
+      "topics": [
+        "13.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "market-based-task-allocation",
+      "label": "Market-based task allocation",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "meaningful-human-control-criteria",
+      "label": "Meaningful human control criteria",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "medical-device-and-clinical-decision-support",
+      "label": "Medical device and clinical decision support",
+      "topics": [
+        "15.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "memory-and-context-poisoning",
+      "label": "Memory and context poisoning",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "memory-architectures-and-persistence",
+      "label": "Memory architectures and persistence",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "memory-as-an-attack-surface",
+      "label": "Memory as an attack surface",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "metric-optimization-crowding-out-unmeasured-goals",
+      "label": "Metric optimization crowding out unmeasured goals",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "metric-specification-and-its-gaming-surface",
+      "label": "Metric specification and its gaming surface",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "minimum-viable-agentic-organization",
+      "label": "Minimum viable agentic organization",
+      "topics": [
+        "13.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "minimum-viable-organization-size",
+      "label": "Minimum viable organization size",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "model-change-induced-incidents",
+      "label": "Model change induced incidents",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "model-drift-and-silent-behavior-change",
+      "label": "Model drift and silent behavior change",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "model-selection-and-procurement-criteria",
+      "label": "Model selection and procurement criteria",
+      "topics": [
+        "6.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "model-validation-and-calibration",
+      "label": "Model validation and calibration",
+      "topics": [
+        "14.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "model-versioning-pinning-and-forced-upgrades",
+      "label": "Model versioning, pinning, and forced upgrades",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "monitoring-blind-spots",
+      "label": "Monitoring blind spots",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "monitoring-cost-when-the-agent-is-fully-instrumentable",
+      "label": "Monitoring cost when the agent is fully instrumentable",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "moral-hazard-without-self-interest",
+      "label": "Moral hazard without self-interest",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "multi-agent-architecture-threat-modeling",
+      "label": "Multi-agent architecture threat modeling",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "multi-agent-cascade-events",
+      "label": "Multi-agent cascade events",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "multi-agent-reinforcement-learning-social-dilemmas-cooperation-and-competition-between-trained-agents",
+      "label": "Multi-agent reinforcement learning -- social dilemmas, cooperation, and competition between trained agents",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "multi-objective-and-constrained-allocation",
+      "label": "Multi-objective and constrained allocation",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "multi-principal-problems-with-conflicting-human-directives",
+      "label": "Multi-principal problems with conflicting human directives",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "naming-addressing-and-discovery",
+      "label": "Naming, addressing, and discovery",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "narrow-objective-producing-unbounded-means",
+      "label": "Narrow objective producing unbounded means",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "near-miss-and-weak-signal-collection",
+      "label": "Near-miss and weak signal collection",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "near-misses-and-averted-incidents",
+      "label": "Near-misses and averted incidents",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "negligence-standards-for-agent-supervision",
+      "label": "Negligence standards for agent supervision",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "no-identifiable-accountable-party",
+      "label": "No identifiable accountable party",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "non-exploitation-commitments-for-agent-discovered-vulnerabilities",
+      "label": "Non-exploitation commitments for agent-discovered vulnerabilities",
+      "topics": [
+        "12.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "normal-accident-theory",
+      "label": "Normal accident theory",
+      "topics": [
+        "15.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "normal-accident-theory-under-tight-machine-coupling",
+      "label": "Normal accident theory under tight machine coupling",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "normalization-of-deviance-in-agent-output-quality",
+      "label": "Normalization of deviance in agent output quality",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "novel-situation-detection-and-escalation",
+      "label": "Novel-situation detection and escalation",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "nuclear-and-process-safety",
+      "label": "Nuclear and process safety",
+      "topics": [
+        "15.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "objective-conflict-between-agents",
+      "label": "Objective conflict between agents",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "objective-revision-and-drift",
+      "label": "Objective revision and drift",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "open-weights-versus-hosted-api-tradeoffs",
+      "label": "Open weights versus hosted API tradeoffs",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "operator-deployer-and-developer-liability",
+      "label": "Operator, deployer, and developer liability",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "operator-error-in-configuration-and-deployment",
+      "label": "Operator error in configuration and deployment",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "orchestrator-and-sub-agent-patterns",
+      "label": "Orchestrator and sub-agent patterns",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "orchestrator-compromise-affecting-all-sub-agents",
+      "label": "Orchestrator compromise affecting all sub-agents",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "organisational-knowledge-legibility",
+      "label": "Organisational knowledge legibility",
+      "topics": [
+        "16.1",
+        "2.4"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:1",
+        "claim:doi:10-1111-epic-70009:2",
+        "claim:doi:10-1111-epic-70009:3",
+        "claim:doi:10-1111-epic-70009:4"
+      ],
+      "note": "Making an organisation's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organisational Intelligence work."
+    },
+    {
+      "id": "organization-to-organization-agent-interaction",
+      "label": "Organization-to-organization agent interaction",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "organizational-cybernetics-applied-to-agent-systems",
+      "label": "Organizational cybernetics applied to agent systems",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "organizational-learning-and-memory",
+      "label": "Organizational learning and memory",
+      "topics": [
+        "15.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "organizational-pressure-to-expand-autonomy-prematurely",
+      "label": "Organizational pressure to expand autonomy prematurely",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "orphaned-agents-and-zombie-processes",
+      "label": "Orphaned agents and zombie processes",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oscillation-thrashing-and-instability",
+      "label": "Oscillation, thrashing, and instability",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-capacity-as-the-binding-constraint",
+      "label": "Oversight capacity as the binding constraint",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-cost-as-a-fraction-of-operating-cost",
+      "label": "Oversight cost as a fraction of operating cost",
+      "topics": [
+        "4.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-cost-as-a-share-of-operations",
+      "label": "Oversight cost as a share of operations",
+      "topics": [
+        "13.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-effectiveness-metrics",
+      "label": "Oversight effectiveness metrics",
+      "topics": [
+        "16.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-failure-incidents",
+      "label": "Oversight failure incidents",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-of-oversight-who-watches-the-reviewers",
+      "label": "Oversight of oversight -- who watches the reviewers",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "oversight-theater-process-present-function-absent",
+      "label": "Oversight theater -- process present, function absent",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "package-registries-proxies-and-caches",
+      "label": "Package registries, proxies, and caches",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "partial-execution-and-inconsistent-state",
+      "label": "Partial execution and inconsistent state",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "performance-measurement-for-agents",
+      "label": "Performance measurement for agents",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "permission-composition-and-unintended-capability-unions",
+      "label": "Permission composition and unintended capability unions",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "permission-composition-creating-unintended-capability",
+      "label": "Permission composition creating unintended capability",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "permission-review-cycles-and-drift-detection",
+      "label": "Permission review cycles and drift detection",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "phase-transitions-in-agent-system-behavior",
+      "label": "Phase transitions in agent system behavior",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "policy-constraints-on-autonomous-allocation",
+      "label": "Policy constraints on autonomous allocation",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "post-incident-autonomy-reduction-and-restoration",
+      "label": "Post-incident autonomy reduction and restoration",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "pre-authorized-standing-mandates",
+      "label": "Pre-authorized standing mandates",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "pre-deployment-assurance-and-simulation-gates",
+      "label": "Pre-deployment assurance and simulation gates",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "principal-agent-and-monitoring-literature",
+      "label": "Principal-agent and monitoring literature",
+      "topics": [
+        "15.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "principal-agent-theory-where-the-agent-is-literally-artificial",
+      "label": "Principal-agent theory where the agent is literally artificial",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "priority-and-queueing-across-agents",
+      "label": "Priority and queueing across agents",
+      "topics": [
+        "8.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "privilege-escalation-from-low-trust-context",
+      "label": "Privilege escalation from low-trust context",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "probationary-and-supervised-periods",
+      "label": "Probationary and supervised periods",
+      "topics": [
+        "6.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "process-scoring-versus-outcome-scoring",
+      "label": "Process scoring versus outcome scoring",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "product-liability-applied-to-agentic-systems",
+      "label": "Product liability applied to agentic systems",
+      "topics": [
+        "12.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "professional-licensing-and-supervised-practice",
+      "label": "Professional licensing and supervised practice",
+      "topics": [
+        "15.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "promotion-equivalent-scope-expansion-criteria",
+      "label": "Promotion equivalent -- scope expansion criteria",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "prompt-injection",
+      "label": "Prompt injection",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "proof-of-authorized-execution",
+      "label": "Proof of authorized execution",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "propose-versus-decide-versus-execute-separation",
+      "label": "Propose-versus-decide-versus-execute separation",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "prosocial-capability",
+      "label": "Prosocial capability",
+      "topics": [
+        "5.2",
+        "14.1"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2107.06857:13",
+        "claim:arxiv:2107.06857:6",
+        "claim:arxiv:2509.14485:3",
+        "claim:arxiv:2509.14485:4"
+      ],
+      "note": "Cooperation, reciprocity and restraint measured as a capability in its own right, separately from task score. The distinction 2509.14485 shows a leaderboard collapses."
+    },
+    {
+      "id": "provenance-and-content-addressing-for-agent-consumed-knowledge",
+      "label": "Provenance and content addressing for agent-consumed knowledge",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "provider-dependency-and-concentration-risk",
+      "label": "Provider dependency and concentration risk",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "provider-side-changes-without-notice",
+      "label": "Provider-side changes without notice",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "provider-side-updates-without-notice",
+      "label": "Provider-side updates without notice",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "provisioning-identity-issuance-and-initial-scoping",
+      "label": "Provisioning, identity issuance, and initial scoping",
+      "topics": [
+        "6.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "rate-limiting-as-a-governance-primitive",
+      "label": "Rate limiting as a governance primitive",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "rationale-capture-for-agent-decisions",
+      "label": "Rationale capture for agent decisions",
+      "topics": [
+        "7.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reachability-and-scope-attestation",
+      "label": "Reachability and scope attestation",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reasoning-transparency-and-its-reliability",
+      "label": "Reasoning transparency and its reliability",
+      "topics": [
+        "4.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "recomputable-trust-and-independent-verification",
+      "label": "Recomputable trust and independent verification",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reconstructability-of-past-decisions",
+      "label": "Reconstructability of past decisions",
+      "topics": [
+        "7.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "recovery-induced-failure",
+      "label": "Recovery-induced failure",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "recursion-levels-and-agent-hierarchy",
+      "label": "Recursion levels and agent hierarchy",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "recursive-supervision-and-its-assumptions",
+      "label": "Recursive supervision and its assumptions",
+      "topics": [
+        "4.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "red-teaming-agentic-systems",
+      "label": "Red teaming agentic systems",
+      "topics": [
+        "14.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "redundancy-and-diversity-in-agent-assignment",
+      "label": "Redundancy and diversity in agent assignment",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "registered-agent-and-service-of-process-problems",
+      "label": "Registered agent and service of process problems",
+      "topics": [
+        "12.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "regulatory-non-compliance-through-autonomous-action",
+      "label": "Regulatory non-compliance through autonomous action",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reliability-and-consistency-measurement",
+      "label": "Reliability and consistency measurement",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:3",
+        "claim:arxiv:2107.06857:8"
+      ]
+    },
+    {
+      "id": "replication-under-model-version-churn",
+      "label": "Replication under model version churn",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reproducibility-of-failure-conditions",
+      "label": "Reproducibility of failure conditions",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reputation-and-sybil-resistance-mechanisms",
+      "label": "Reputation and sybil resistance mechanisms",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "requisite-variety-in-agent-managed-control",
+      "label": "Requisite variety in agent-managed control",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "research-ethics-with-autonomous-systems",
+      "label": "Research ethics with autonomous systems",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "resource-and-compute-markets",
+      "label": "Resource and compute markets",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "response-time-guarantees-and-their-enforcement",
+      "label": "Response-time guarantees and their enforcement",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "responsibility-gaps-and-their-allocation",
+      "label": "Responsibility gaps and their allocation",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "restitution-and-loss-allocation",
+      "label": "Restitution and loss allocation",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retention-policy-and-forensic-requirements",
+      "label": "Retention policy and forensic requirements",
+      "topics": [
+        "7.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retention-policy-under-investigative-need",
+      "label": "Retention policy under investigative need",
+      "topics": [
+        "9.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retirement-and-shutdown-procedures",
+      "label": "Retirement and shutdown procedures",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retraining-prompting-changes-and-version-updates-as-personnel-changes",
+      "label": "Retraining, prompting changes, and version updates as personnel changes",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retrieval-design-and-its-influence-on-decisions",
+      "label": "Retrieval design and its influence on decisions",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "retry-and-idempotency-failures",
+      "label": "Retry and idempotency failures",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "revenue-models-for-agent-operated-entities",
+      "label": "Revenue models for agent-operated entities",
+      "topics": [
+        "13.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reversibility-engineering-and-undo-paths",
+      "label": "Reversibility engineering and undo paths",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "review-capacity-exceeded-by-agent-throughput",
+      "label": "Review capacity exceeded by agent throughput",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reviewer-expertise-deficit-relative-to-agent-output",
+      "label": "Reviewer expertise deficit relative to agent output",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reviewer-fatigue-and-rubber-stamping",
+      "label": "Reviewer fatigue and rubber-stamping",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "revocation-not-propagating",
+      "label": "Revocation not propagating",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "revocation-propagation-across-chains",
+      "label": "Revocation propagation across chains",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "reward-design-and-what-optimising-a-proxy-does-to-a-population",
+      "label": "Reward design, and what optimising a proxy does to a population",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "risk-proportional-oversight-allocation",
+      "label": "Risk-proportional oversight allocation",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "root-cause-analysis-for-machine-action",
+      "label": "Root cause analysis for machine action",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "rubber-stamping-and-approval-without-comprehension",
+      "label": "Rubber-stamping and approval without comprehension",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "runaway-resource-and-inference-cost",
+      "label": "Runaway resource and inference cost",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "rushed-remediation-introducing-new-faults",
+      "label": "Rushed remediation introducing new faults",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "safeguards-disabled-for-testing-or-evaluation",
+      "label": "Safeguards disabled for testing or evaluation",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sampling-based-versus-exhaustive-review",
+      "label": "Sampling-based versus exhaustive review",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sanction-sensitivity",
+      "label": "Sanction sensitivity",
+      "topics": [
+        "5.3",
+        "2.7"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2511.03434:7",
+        "claim:arxiv:2605.30169:1",
+        "claim:arxiv:2605.30169:5",
+        "claim:arxiv:2605.30169:6"
+      ],
+      "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
+    },
+    {
+      "id": "sandbox-and-isolation-escape",
+      "label": "Sandbox and isolation escape",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "scalable-oversight-techniques",
+      "label": "Scalable oversight techniques",
+      "topics": [
+        "4.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "scaling-returns-and-coordination-cost",
+      "label": "Scaling returns and coordination cost",
+      "topics": [
+        "13.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "scope-escape-and-unauthorized-action",
+      "label": "Scope escape and unauthorized action",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "scope-narrowing-versus-scope-preservation-on-sub-delegation",
+      "label": "Scope narrowing versus scope preservation on sub-delegation",
+      "topics": [
+        "2.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "secrets-management-and-credential-exposure",
+      "label": "Secrets management and credential exposure",
+      "topics": [
+        "10.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sectoral-rules-for-autonomous-decision-making",
+      "label": "Sectoral rules for autonomous decision-making",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "self-assessment-instruments",
+      "label": "Self-assessment instruments",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "self-directed-red-teaming-and-internal-bounties",
+      "label": "Self-directed red teaming and internal bounties",
+      "topics": [
+        "10.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shadow-mode-and-counterfactual-comparison-against-human-decisions",
+      "label": "Shadow mode and counterfactual comparison against human decisions",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-infrastructure-or-tooling",
+      "label": "Shared infrastructure or tooling",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-model-provider",
+      "label": "Shared model provider",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-organizational-memory-versus-per-agent-memory",
+      "label": "Shared organizational memory versus per-agent memory",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-prompt-or-framework-patterns",
+      "label": "Shared prompt or framework patterns",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-schemas-for-agentic-organization-data",
+      "label": "Shared schemas for agentic organization data",
+      "topics": [
+        "16.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-state-and-consistency",
+      "label": "Shared state and consistency",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "silent-failure-detection",
+      "label": "Silent failure detection",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "silent-failures-with-no-signal",
+      "label": "Silent failures with no signal",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "simulation-and-dry-run-requirements-before-execution",
+      "label": "Simulation and dry-run requirements before execution",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "skill-atrophy-leaving-no-capable-human-fallback",
+      "label": "Skill atrophy leaving no capable human fallback",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "skill-atrophy-under-automation",
+      "label": "Skill atrophy under automation",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "slashing-where-the-punishable-party-is-human",
+      "label": "Slashing where the punishable party is human",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "slow-onset-degradation",
+      "label": "Slow-onset degradation",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "social-engineering-targeting-agent-operators",
+      "label": "Social engineering targeting agent operators",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sources-of-legitimate-machine-authority",
+      "label": "Sources of legitimate machine authority",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "span-of-control-for-human-supervisors",
+      "label": "Span of control for human supervisors",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "specification-gaming-and-reward-hacking",
+      "label": "Specification gaming and reward hacking",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "specification-gaming-incidents-in-production",
+      "label": "Specification gaming incidents in production",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "spend-caps-rate-limits-and-cumulative-budgets",
+      "label": "Spend caps, rate limits, and cumulative budgets",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "stake-based-trust",
+      "label": "Stake-based trust",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2511.03434:4",
+        "claim:arxiv:2511.03434:5",
+        "claim:arxiv:2511.03434:6",
+        "claim:arxiv:2511.03434:7"
+      ],
+      "note": "Trust backed by something forfeitable. Sits alongside the reputation systems already at 5.3 and is the mechanism 2511.03434 recommends in their place for high-impact actions."
+    },
+    {
+      "id": "stamp-and-stpa-systems-theoretic-analysis",
+      "label": "STAMP and STPA systems-theoretic analysis",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "standing-instructions-versus-per-task-directives",
+      "label": "Standing instructions versus per-task directives",
+      "topics": [
+        "7.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "state-divergence-between-systems",
+      "label": "State divergence between systems",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "statistical-assurance-versus-case-by-case-review",
+      "label": "Statistical assurance versus case-by-case review",
+      "topics": [
+        "4.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sub-delegation-beyond-original-scope",
+      "label": "Sub-delegation beyond original scope",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "summarization-for-human-consumption-and-its-distortions",
+      "label": "Summarization for human consumption and its distortions",
+      "topics": [
+        "4.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "supervision-duties-as-employment-obligations",
+      "label": "Supervision duties as employment obligations",
+      "topics": [
+        "12.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "supply-chain-security",
+      "label": "Supply chain security",
+      "topics": [
+        "15.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sustainability-and-runway-under-variable-inference-cost",
+      "label": "Sustainability and runway under variable inference cost",
+      "topics": [
+        "13.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "swiss-cheese-model-and-latent-conditions",
+      "label": "Swiss cheese model and latent conditions",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "sybil-agents-and-synthetic-participation",
+      "label": "Sybil agents and synthetic participation",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "system-prompt-and-policy-versioning",
+      "label": "System prompt and policy versioning",
+      "topics": [
+        "7.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "task-allocation-and-routing-among-agents",
+      "label": "Task allocation and routing among agents",
+      "topics": [
+        "3.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "task-specific-and-domain-evaluation",
+      "label": "Task-specific and domain evaluation",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2107.06857:1"
+      ]
+    },
+    {
+      "id": "taxonomies-of-organizational-autonomy-levels",
+      "label": "Taxonomies of organizational autonomy levels",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "taxonomy-construction-for-agentic-failure",
+      "label": "Taxonomy construction for agentic failure",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "technical-failure-triggering-governance-crisis",
+      "label": "Technical failure triggering governance crisis",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "terminology-contests-and-competing-definitions",
+      "label": "Terminology contests and competing definitions",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "the-centralization-cost-of-fast-response",
+      "label": "The centralization cost of fast response",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "third-party-assessment-and-certification",
+      "label": "Third-party assessment and certification",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "third-party-audit-of-agentic-systems",
+      "label": "Third-party audit of agentic systems",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "threshold-creep-in-human-review-standards",
+      "label": "Threshold creep in human review standards",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "threshold-design-for-human-review-triggers",
+      "label": "Threshold design for human review triggers",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "timing-and-race-condition-failures",
+      "label": "Timing and race condition failures",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "tool-access-as-the-real-permission-surface",
+      "label": "Tool access as the real permission surface",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "tool-and-api-cost-management",
+      "label": "Tool and API cost management",
+      "topics": [
+        "8.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "tool-and-api-failures-mishandled-by-agents",
+      "label": "Tool and API failures mishandled by agents",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "tool-poisoning-and-malicious-tool-descriptions",
+      "label": "Tool poisoning and malicious tool descriptions",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "traceability-and-record-keeping-requirements",
+      "label": "Traceability and record-keeping requirements",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "train-test-deploy-gap",
+      "label": "Train-test-deploy gap",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2606.03237:3",
+        "claim:arxiv:2606.03237:6"
+      ],
+      "note": "The third term is the new one. Held-out test data still comes from the pre-deployment world."
+    },
+    {
+      "id": "transparency-and-disclosure-to-affected-parties",
+      "label": "Transparency and disclosure to affected parties",
+      "topics": [
+        "12.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "transparency-of-machine-influenced-funding-decisions",
+      "label": "Transparency of machine-influenced funding decisions",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trust-bootstrapping-for-new-agents",
+      "label": "Trust bootstrapping for new agents",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:1"
+      ]
+    },
+    {
+      "id": "trust-boundaries-within-the-organization",
+      "label": "Trust boundaries within the organization",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trust-calibration-over-and-under-trust-in-agents",
+      "label": "Trust calibration -- over- and under-trust in agents",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trust-certificates-and-graduated-verdicts",
+      "label": "Trust certificates and graduated verdicts",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trust-drift",
+      "label": "Trust drift",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trust-propagation-between-machine-principals",
+      "label": "Trust propagation between machine principals",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "trusted-execution-environments-for-agents",
+      "label": "Trusted execution environments for agents",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "unauthorized-or-erroneous-disbursement",
+      "label": "Unauthorized or erroneous disbursement",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "uncertainty-based-escalation",
+      "label": "Uncertainty-based escalation",
+      "topics": [
+        "4.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "underspecified-constraints-and-implicit-assumptions",
+      "label": "Underspecified constraints and implicit assumptions",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "ungoverned-infrastructure-as-escape-path",
+      "label": "Ungoverned infrastructure as escape path",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "unintended-coordination-and-convergence",
+      "label": "Unintended coordination and convergence",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "unintended-side-effects-of-authorized-action",
+      "label": "Unintended side effects of authorized action",
+      "topics": [
+        "11.8"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "vendor-safety-filters-obstructing-incident-response",
+      "label": "Vendor safety filters obstructing incident response",
+      "topics": [
+        "10.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "verifiable-computation-and-proof-of-inference",
+      "label": "Verifiable computation and proof of inference",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "verification-of-agent-claims-by-other-agents",
+      "label": "Verification of agent claims by other agents",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:6"
+      ]
+    },
+    {
+      "id": "viable-system-model-with-machine-subsystems",
+      "label": "Viable system model with machine subsystems",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "vicarious-liability-doctrine",
+      "label": "Vicarious liability doctrine",
+      "topics": [
+        "15.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "vigilance-decrement-in-monitoring-tasks",
+      "label": "Vigilance decrement in monitoring tasks",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "vulnerability-disclosure-authority-in-agentic-organizations",
+      "label": "Vulnerability disclosure authority in agentic organizations",
+      "topics": [
+        "12.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "wage-and-role-effects-within-the-organization",
+      "label": "Wage and role effects within the organization",
+      "topics": [
+        "13.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "weight-accrual-rate-limits-and-decay-for-machine-principals",
+      "label": "Weight accrual rate limits and decay for machine principals",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "what-agents-should-and-should-not-retain",
+      "label": "What agents should and should not retain",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "what-breaks-as-agent-count-grows",
+      "label": "What breaks as agent count grows",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "who-authorizes-a-tier-change",
+      "label": "Who authorizes a tier change",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "wrapper-adequacy-for-agent-operated-entities",
+      "label": "Wrapper adequacy for agent-operated entities",
+      "topics": [
+        "12.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "zero-trust-architecture",
+      "label": "Zero trust architecture",
+      "topics": [
+        "15.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    }
+  ]
+}

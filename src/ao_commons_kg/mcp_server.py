@@ -115,6 +115,52 @@ def get_topic(code: str) -> str:
 
 
 @server.tool()
+def search_concepts(term: str = "", unused: bool = False, limit: int = 20) -> str:
+    """Search the statement vocabulary — what a claim can be tagged with.
+
+    Different from `search_topics`. A topic is a shelf a record is filed on,
+    103 of them. A concept is what a statement argues about, 523 of them, and
+    it is the thing that decides which statements can ever be proposed as
+    related to each other: two claims sharing a concept become a candidate
+    pair, and two claims with no concept in common never meet.
+
+    Which makes this the tool to reach for before adding a term. The one
+    failure mode a vocabulary has is silent — two labels for one idea break
+    nothing and quietly halve the relations either would have proposed — so
+    the question worth asking first is always whether the idea is already
+    here under another name.
+
+    `unused` lists concepts no statement carries. Most of the 523 are unused:
+    514 were inherited from the taxonomy's own subpoints and only a handful
+    have met a claim yet.
+    """
+    from .concepts import load_vocabulary, similar_terms, usage
+
+    vocabulary = load_vocabulary()
+    counts = usage(corpus().claims, vocabulary)
+
+    if unused:
+        found = [c for c in vocabulary.concepts.values() if not counts.get(c.id)]
+    elif term:
+        found = [c for c in vocabulary.search(term)]
+        # A near-miss is the answer to "is this already here", so surface it
+        # even when the words do not overlap.
+        found += [c for _, c in similar_terms(term, vocabulary) if c not in found]
+    else:
+        found = [c for c in vocabulary.concepts.values() if counts.get(c.id)]
+
+    return as_text({
+        "vocabulary_size": len(vocabulary),
+        "carrying_a_statement": sum(1 for n in counts.values() if n),
+        "matches": [
+            {"id": c.id, "label": c.label, "topics": list(c.topics),
+             "origin": c.origin, "statements": counts.get(c.id, 0)}
+            for c in found[:limit]
+        ],
+    })
+
+
+@server.tool()
 def search_records(term: str, limit: int = 10) -> str:
     """Find papers, tools and deployments by title, author or abstract."""
     return as_text(queries.search_records(corpus(), term, limit))

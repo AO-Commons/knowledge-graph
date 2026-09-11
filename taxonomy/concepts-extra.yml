@@ -20,6 +20,10 @@
 #
 #   aokg concepts --propose "Delegation revocation latency"
 #
+# Or read the whole list without a checkout: data/concepts.json holds all 523
+# terms with their topics, origin and how many statements carry each. An
+# agent can ask the MCP server instead — `search_concepts`.
+#
 # It answers one question: is this already here under another name? That is
 # the only failure mode a concept list has, and it is silent — two terms for
 # one idea break nothing, and every relation that would have been proposed

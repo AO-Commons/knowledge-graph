@@ -201,6 +201,17 @@ aokg concepts --propose "Delegation revocation latency"   # is this already here
 aokg concepts                                             # the whole list's state
 ```
 
+The list itself is readable without any of that: **[`data/concepts.json`](../data/concepts.json)**
+holds all 523 terms with their topics, origin, and how many statements carry
+each — generated from the taxonomy and the extras file, rebuilt on every
+Pages run, and committed so a pull request shows what moved. Agents ask the
+MCP server's `search_concepts` instead.
+
+That file exists because the vocabulary previously lived only as an object
+built at load time — 514 terms parsed out of indented bullets in a markdown
+document about something else — so the one instruction the process gives,
+*check before you add*, required a local checkout and an installed package.
+
 The loader refuses a term that collides with an existing one, and a
 genuinely different idea has to say why in a sentence rather than tick a
 box. Reuse before adding: a term nothing else will ever carry proposes no
