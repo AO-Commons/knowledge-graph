@@ -12,7 +12,30 @@ those problems by hand are mechanical here, and the ones that cannot be
 mechanical are asked of the extractor directly rather than left to be noticed
 later.
 
-**Four gates, and only the last needs a model to have been honest.**
+**What to extract, by type.** The five types are not equal work.
+
+*Findings and positions are the product.* They are what a researcher comes
+looking for — what has been shown, and what has been argued — and ten of the
+first twelve asserted relations run between them. A paper's yield is its
+primary count, not its statement count: Melting Pot gives three primaries
+and two context, Building the Loop gives one and two.
+
+*Method statements are a query dimension, not filler.* "Who has found this,
+working that way" joins a subject on a finding to a technique on a method
+statement. Which makes the tag on a method a different job from the tag on a
+finding: **tag a method with the technique, not with the paper's subject.**
+A method tagged with what the paper is about answers nothing that its
+findings do not already answer, and the gate below catches the common case.
+
+*Background is where attribution concentrates.* It is usually somebody
+else's result, asserted without evidence and dating badly — so the OWN/OTHER
+question is asked hardest here.
+
+*Limitations are rare and worth hunting.* One in thirty-two across the first
+six papers. They live in discussion sections rather than abstracts, and they
+are the part a downstream reader is most likely to drop.
+
+**Five gates, and only the last needs a model to have been honest.**
 
 1. *The quote is in the paper.* `fulltext.verbatim` searches the fetched
    source for the quoted sentence. A quote that cannot be found was
@@ -30,7 +53,15 @@ later.
    extraction rather than found by rereading, because rereading is what does
    not scale.
 
-4. *Concepts resolve, or are proposed properly.* A tag that does not exist
+4. *A method is tagged with its technique.* Checked by comparing a method
+   statement's tags against the tags on the same paper's findings and
+   positions: a method carrying nothing but its paper's subject has been
+   tagged for what the work is about rather than how it was done, which
+   makes it invisible to the query methods exist to answer. Reported rather
+   than refused — sometimes the technique genuinely is the subject, as when
+   a paper's contribution is the mechanism itself.
+
+5. *Concepts resolve, or are proposed properly.* A tag that does not exist
    fails loudly; a new term goes through the collision check like any other,
    which is what keeps a vocabulary from growing two names for one idea while
    nobody is looking.
@@ -88,6 +119,17 @@ class Checked:
     kept: list[dict] = field(default_factory=list)
     rejected: list[Rejection] = field(default_factory=list)
     new_concepts: list[str] = field(default_factory=list)
+    subject_tagged_methods: list[str] = field(default_factory=list)
+    """Method statements tagged for what the paper is about rather than how
+    it was done. A warning, not a rejection."""
+
+    @property
+    def primaries(self) -> int:
+        """Findings and positions kept. The real yield — a paper's statement
+        count says how much was written down, this says how much of it is
+        what anybody came for."""
+        return sum(1 for c in self.kept
+                   if c.get("claim_type") in ("finding", "position"))
 
     @property
     def waste(self) -> float:
@@ -95,8 +137,8 @@ class Checked:
         return len(self.rejected) / total if total else 0.0
 
     def summary(self) -> str:
-        return (f"{len(self.kept)} kept, {len(self.rejected)} rejected "
-                f"({self.waste:.0%} waste)")
+        return (f"{len(self.kept)} kept ({self.primaries} primary), "
+                f"{len(self.rejected)} rejected ({self.waste:.0%} waste)")
 
 
 def looks_like_artifact_trivia(text: str) -> bool:
@@ -115,6 +157,49 @@ def looks_like_artifact_trivia(text: str) -> bool:
     return bool(ARTIFACT_SHAPED.search(text or ""))
 
 
+def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
+    """Method statements carrying only their paper's subject.
+
+    A method's tag answers "how was this done", and is joined against a
+    finding's "what was shown" to answer "who found this, working that way".
+    A method tagged with the paper's subject instead is invisible to that
+    query — it says the same thing its findings already say, one type down.
+
+    Reported rather than refused, because sometimes the technique is the
+    subject: a paper whose contribution is the mechanism itself will
+    legitimately tag both the same way.
+
+    On the first six papers it flagged three of five method statements,
+    which is high and is mostly telling you about the papers rather than
+    about the tagging. These are conceptual works — a taxonomy of trust
+    models, a definition of dynamic evaluation, a construct called
+    Artificial Organisational Intelligence — and for a paper whose
+    contribution *is* the mechanism, subject and technique genuinely
+    coincide. An empirical paper separates them cleanly: Melting Pot's
+    method is scenario generation and its findings are about evaluation,
+    and that one came back clean.
+
+    So read a flag as a question rather than a defect. The one it caught
+    that was a real mistake was Knowledge Organisation Infrastructure,
+    tagged with the legibility it serves rather than the schema-sharing it
+    does — invisible to "who has done this, working that way", which is the
+    query methods exist to answer.
+    """
+    subject_tags: set[str] = set()
+    for candidate in candidates:
+        if candidate.get("claim_type") in ("finding", "position"):
+            subject_tags.update(candidate.get("concept_tags") or [])
+
+    flagged = []
+    for candidate in candidates:
+        if candidate.get("claim_type") != "method":
+            continue
+        tags = set(candidate.get("concept_tags") or [])
+        if tags and tags <= subject_tags:
+            flagged.append(candidate.get("text", "?"))
+    return flagged
+
+
 def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | None = None,
           allow_new_concepts: bool = True) -> Checked:
     """Put extracted statements through the gates.
@@ -127,6 +212,7 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
     from .fulltext import verbatim
 
     result = Checked()
+    result.subject_tagged_methods = method_tagged_by_subject(candidates)
     seen_texts: set[str] = set()
 
     for candidate in candidates:

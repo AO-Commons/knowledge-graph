@@ -45,7 +45,7 @@ claims:
     and context become machine-readable.
   claim_type: method
   concept_tags:
-  - organisational-knowledge-legibility
+  - shared-schemas-for-agentic-organization-data
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;

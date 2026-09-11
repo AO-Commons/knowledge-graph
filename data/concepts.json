@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 17,
+    "vocabulary": 18,
     "vocabulary_from_claims": 10,
-    "vocabulary_from_taxonomy": 7,
-    "on_exactly_one_statement": 6,
-    "suggestions_available": 507
+    "vocabulary_from_taxonomy": 8,
+    "on_exactly_one_statement": 7,
+    "suggestions_available": 506
   },
   "looks_like_one_idea": [
     {
@@ -202,11 +202,10 @@
         "2.4"
       ],
       "origin": "claim",
-      "statements": 3,
+      "statements": 2,
       "claims": [
         "claim:doi:10-1111-epic-70009:1",
-        "claim:doi:10-1111-epic-70009:2",
-        "claim:doi:10-1111-epic-70009:3"
+        "claim:doi:10-1111-epic-70009:2"
       ],
       "note": "Making an organisation's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organisational Intelligence work."
     },
@@ -253,6 +252,18 @@
         "claim:arxiv:2605.30169:5"
       ],
       "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
+    },
+    {
+      "id": "shared-schemas-for-agentic-organization-data",
+      "label": "Shared schemas for agentic organization data",
+      "topics": [
+        "16.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:3"
+      ]
     },
     {
       "id": "stake-based-trust",
@@ -4209,15 +4220,6 @@
       "label": "Shared prompt or framework patterns",
       "topics": [
         "11.13"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "shared-schemas-for-agentic-organization-data",
-      "label": "Shared schemas for agentic organization data",
-      "topics": [
-        "16.3"
       ],
       "origin": "taxonomy",
       "statements": 0
