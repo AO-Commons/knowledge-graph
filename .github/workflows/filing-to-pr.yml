@@ -58,7 +58,7 @@ jobs:
             const fs = require('fs');
             const body = fs.existsSync('/tmp/summary.md')
               ? fs.readFileSync('/tmp/summary.md', 'utf8')
-              : 'The filing could not be read. Paste the block from the Submit screen, including the `records:` line.';
+              : 'The filing could not be read. Paste the whole block from the Submit screen, starting at the `claims:` or `records:` line.';
             await github.rest.issues.createComment({
               ...context.repo, issue_number: context.issue.number, body,
             });

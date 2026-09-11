@@ -86,8 +86,8 @@ def extract(body: str) -> dict:
         ):
             return payload
     raise FilingError(
-        "No filing found. Paste the block the site's Submit screen produces, "
-        "including the `records:` line."
+        "No filing found. Paste the whole block the site's Submit screen "
+        "produces, starting at the `claims:` or `records:` line."
     )
 
 

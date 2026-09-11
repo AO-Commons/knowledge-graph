@@ -774,3 +774,95 @@ class TestConfirmingAnAdjustment:
         page = self._page()
         assert "const unchanged = committed === null" in page
         assert "Unchanged" in page
+
+
+class TestTheGoldenSetIsReachable:
+    """What a reviewer meets between doing the work and the work counting.
+
+    None of this is the review itself, and all of it decides whether a
+    reviewer finishes: whether their progress shows, whether the exercise can
+    read as done, and whether what they wrote arrives whole.
+    """
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_the_filing_is_never_truncated_into_the_link(self):
+        """A prefilled issue carries the filing in the URL and a URL has a
+        ceiling. Slicing it to fit cut a reviewer who rewrote most of the set
+        off mid-line — the bot then refused the remainder as malformed, and
+        nothing said why. The whole golden set adjusted is about 8,900
+        characters against a 5,200 slice."""
+        page = self._page()
+        assert "yaml.slice(0, 5200)" not in page
+        assert "const fits = prefilled.length <= 6000;" in page
+
+    def test_over_the_limit_it_goes_by_clipboard(self):
+        page = self._page()
+        assert '"Copy and open an issue"' in page
+        assert "too long to carry in a link" in page
+
+    def test_the_title_does_not_lead_with_a_count_of_nothing(self):
+        """Golden-set reviewers file no topics, and "[Filing] 0 record(s)" as
+        the first thing on their own submission reads like a failure."""
+        page = self._page()
+        assert "const parts = [];" in page
+        assert "`[Filing] ${entries.length} record(s)`" not in page
+
+    def test_done_means_every_statement_judged(self):
+        """It also required a topic filing — reachable when the reviewer was
+        asked for both, unreachable once filing left this screen. A finished
+        paper dropped out of the queue and stayed at "6 of 6 open" in the
+        heading beside it."""
+        page = self._page()
+        assert "const done = p => p.total > 0 && p.checked === p.total;" in page
+        assert "p.tagged && p.checked === p.total" not in page
+
+    def test_a_verdict_redraws_the_paper_list(self):
+        """Three handlers redrew the card and not the list next to it, so a
+        reviewer who had just finished a paper watched it sit at 0/7."""
+        page = self._page()
+        assert "function verdictChanged()" in page
+        body = page.split("function verdictChanged()")[1][:200]
+        assert "renderReview();" in body and "renderTree();" in body
+        assert page.count("verdictChanged();") == 3
+
+    def test_the_end_of_the_set_counts_what_was_done(self):
+        """"You have filed 0 records" after judging thirty-two statements
+        reads as though none of it counted."""
+        page = self._page()
+        assert "That is the whole set." in page
+        assert "`You judged ${did.join(\" and \")}. Open Submit to send it in.`" in page
+
+
+class TestTheIssueForm:
+    """The form is the other half of the submission, and it was written when
+    filing tags was the only thing that came through it."""
+
+    def _form(self):
+        from pathlib import Path
+        import yaml as y
+        return y.safe_load((Path(__file__).resolve().parent.parent
+                            / ".github" / "ISSUE_TEMPLATE" / "filing.yml").read_text())
+
+    def test_it_takes_statement_verdicts_too(self):
+        form = self._form()
+        blob = str(form)
+        assert "claims:" in blob, "a golden-set filing starts with this line"
+        assert "Golden-set review" in blob
+
+    def test_the_field_the_site_prefills_still_exists(self):
+        """The Submit link fills `&filing=`, which only works while a textarea
+        with that id is in the form."""
+        form = self._form()
+        ids = [item.get("id") for item in form["body"]]
+        assert "filing" in ids
+        field = next(i for i in form["body"] if i.get("id") == "filing")
+        assert field["attributes"]["render"] == "yaml", "the bot reads a yaml fence"
+
+    def test_the_placeholder_shows_the_shape_reviewers_will_have(self):
+        form = self._form()
+        field = next(i for i in form["body"] if i.get("id") == "filing")
+        assert field["attributes"]["placeholder"].startswith("claims:")

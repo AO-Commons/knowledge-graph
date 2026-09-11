@@ -908,23 +908,26 @@
     const ready = DATA.records.filter(r => (r.claims || []).length);
     if (!ready.length) return;
 
+    // Done means every statement is judged, and nothing else. It used to also
+    // require the record to be filed under a topic — which was fair when the
+    // reviewer was asked for both, and became unreachable when filing left
+    // this screen. A paper could be finished, drop out of the queue, and
+    // still sit here at "6 of 6 open": two counters on one screen
+    // contradicting each other, with the wrong one in the heading.
     const progress = record => {
       const claims = record.claims || [];
       const checked = claims.filter(isJudged).length;
-      return { checked, total: claims.length, tagged: !!state.decisions[record.id] };
+      return { checked, total: claims.length };
     };
     // Unfinished first — a list whose top is work already done is a list
     // nobody reads twice.
+    const done = p => p.total > 0 && p.checked === p.total;
     const ordered = [...ready].sort((a, a2) => {
       const x = progress(a), y = progress(a2);
-      const doneX = x.tagged && x.checked === x.total, doneY = y.tagged && y.checked === y.total;
-      return (doneX - doneY) || (y.total - x.total);
+      return (done(x) - done(y)) || (y.total - x.total);
     });
 
-    const outstanding = ordered.filter(r => {
-      const p = progress(r);
-      return !(p.tagged && p.checked === p.total);
-    }).length;
+    const outstanding = ordered.filter(r => !done(progress(r))).length;
 
     host.append(el("div", { className: "tree-head" }, [
       el("h2", {}, "Golden-set review"),
@@ -933,14 +936,14 @@
 
     ordered.forEach(record => {
       const p = progress(record);
-      const complete = p.tagged && p.checked === p.total;
+      const complete = done(p);
       const row = el("button", { className: "ready-row" + (complete ? " done" : "") });
       row.title = "This one has statements, so a reviewer can check what it actually "
         + "says rather than only where it goes.";
       row.append(
         el("span", { className: "t" }, shorten(record.title, 66)),
         el("span", { className: "s" },
-           complete ? "done" : `${p.checked}/${p.total}${p.tagged ? " · tagged" : ""}`),
+           complete ? "done" : `${p.checked}/${p.total}`),
       );
       row.addEventListener("click", () => { setMode("review"); openRecord(record); });
       host.append(row);
@@ -988,15 +991,36 @@
     return [...pending].sort((a, b) => outstanding(b) - outstanding(a));
   }
 
+  // A verdict changed, so everything that counts verdicts redraws: the card,
+  // and the paper list beside it. Three handlers redrew only the card, which
+  // left a reviewer who had just finished a paper looking at "0/7" in the
+  // list next to it and "6 of 6 open" in the heading above that — the work
+  // was recorded, and the only two places showing progress both denied it.
+  function verdictChanged() {
+    save();
+    renderReview();
+    renderTree();
+  }
+
   function renderReview() {
     const stage = document.getElementById("stage");
     stage.textContent = "";
     const pending = queue();
 
     if (!pending.length) {
+      // Said in terms of the work actually done. A golden-set reviewer files
+      // no topics at all, and being told they had filed 0 records after
+      // judging thirty-two statements read as though none of it counted.
+      const judged = judgedTotal();
+      const filed = reviewed();
+      const did = [];
+      if (judged) did.push(`${judged} statement${judged === 1 ? "" : "s"}`);
+      if (filed) did.push(`${filed} record${filed === 1 ? "" : "s"}`);
       stage.append(
-        el("h2", {}, "Everything here is filed."),
-        el("p", { className: "empty" }, `You have filed ${reviewed()} record${reviewed() === 1 ? "" : "s"}. Open Submit to send them in.`),
+        el("h2", {}, judged ? "That is the whole set." : "Everything here is filed."),
+        el("p", { className: "empty" }, did.length
+          ? `You judged ${did.join(" and ")}. Open Submit to send it in.`
+          : "There is nothing left to check here."),
       );
       return;
     }
@@ -1417,7 +1441,7 @@
         chip.addEventListener("click", () => {
           if (mine && mine.verdict === value) delete state.claims[claim.id];
           else state.claims[claim.id] = { verdict: value, on: today(), note: (mine || {}).note || "" };
-          save(); renderReview();
+          verdictChanged();
         });
         row.append(chip);
       });
@@ -1509,13 +1533,11 @@
           entry.text = (entry.draft !== undefined ? entry.draft : entry.text).trim();
           delete entry.draft;
           retag(claim, entry.text);
-          save();
-          renderReview();
+          verdictChanged();
         });
         revert.addEventListener("click", () => {
           delete state.claims[claim.id];
-          save();
-          renderReview();
+          verdictChanged();
         });
         refreshConfirm();
         card.append(el("div", { className: "actions confirm-row" }, [confirm, revert]));
@@ -2656,8 +2678,12 @@
         `${gone.size} record${gone.size === 1 ? "" : "s"} you already sent ${gone.size === 1 ? "is" : "are"} `
         + "not repeated here — only what is new goes in this one."));
     }
-    const title = `[Filing] ${entries.length} record(s)`
-      + (checked.length ? ` and ${checked.length} statement(s)` : "")
+    // Golden-set reviewers file no topics at all, and "0 record(s)" as the
+    // first thing in the title of their own submission reads like a failure.
+    const parts = [];
+    if (entries.length) parts.push(`${entries.length} record(s)`);
+    if (checked.length) parts.push(`${checked.length} statement(s)`);
+    const title = `[Filing] ${parts.join(" and ") || "a filing"}`
       + (written.length ? " with additions" : "");
     const waiting = sentFor(title);
     if (waiting) panel.append(sentNote(title));
@@ -2672,15 +2698,36 @@
       setTimeout(() => (copy.textContent = "Copy"), 1600);
     });
 
+    // A prefilled issue carries the filing in the URL, and a URL has a
+    // ceiling. The first version sliced the filing to fit it: a reviewer who
+    // rewrote most of the golden set — the whole point of the exercise —
+    // would have had a third of their work cut off mid-line, the bot would
+    // have refused what was left as malformed, and nothing anywhere would
+    // have said why. Over the limit the filing goes by clipboard instead,
+    // which has no ceiling and loses nothing.
+    const blank = "https://github.com/AO-Commons/knowledge-graph/issues/new"
+      + "?template=filing.yml&labels=filing&title=" + encodeURIComponent(title);
+    const prefilled = blank + "&filing=" + encodeURIComponent(yaml);
+    const fits = prefilled.length <= 6000;
+
     const issue = el("a", {
       className: "btn",
-      href: "https://github.com/AO-Commons/knowledge-graph/issues/new"
-        + "?template=filing.yml&labels=filing"
-        + "&title=" + encodeURIComponent(title)
-        + "&filing=" + encodeURIComponent(yaml.slice(0, 5200)),
+      href: fits ? prefilled : blank,
       target: "_blank", rel: "noopener",
-    }, waiting ? "Open it again" : "Open an issue");
-    issue.addEventListener("click", () => markSent(title, "filing", entries.map(([id]) => id)));
+    }, waiting ? "Open it again" : (fits ? "Open an issue" : "Copy and open an issue"));
+    issue.addEventListener("click", async () => {
+      if (!fits) {
+        try { await navigator.clipboard.writeText(yaml); }
+        catch (e) { box.select(); document.execCommand("copy"); }
+      }
+      markSent(title, "filing", entries.map(([id]) => id));
+    });
+    if (!fits) {
+      panel.append(el("p", { className: "hint" },
+        "This filing is too long to carry in a link, so the button copies it "
+        + "instead. Paste it into the issue's \u201cYour filing\u201d box \u2014 "
+        + "nothing is dropped."));
+    }
 
     const reset = el("button", { className: "btn" }, "Clear mine");
     reset.addEventListener("click", () => {
