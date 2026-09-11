@@ -25,7 +25,10 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
-from ao_commons_kg.claims import load_claims  # noqa: E402
+from ao_commons_kg.claims import (  # noqa: E402
+    load_claim_relations, load_claims,
+)
+from ao_commons_kg.concepts import load_vocabulary  # noqa: E402
 from ao_commons_kg.classify import (  # noqa: E402
     _SUFFIXES,
     STOP,
@@ -73,7 +76,43 @@ def build_payload() -> dict:
             # A verdict already merged is shown rather than asked for again.
             "verdict": claim.verdict or "",
             "by": claim.reviewed_by or "",
+            # What the claim argues about, as opposed to what it is filed
+            # under. The reviewer's route to the other papers saying
+            # something about the same thing.
+            "concepts": claim.concept_tags,
+            # Whose claim it is. For a borrowed one the reviewer is being
+            # asked a different question — is this correctly attributed —
+            # and cannot tell without being shown.
+            "own": claim.attribution.value == "own",
+            "from_whom": claim.attributed_to or "",
         })
+
+    # Relations, and the concept labels the page needs to render a tag as
+    # something a person recognises rather than as a slug.
+    claim_list = load_claims()
+    vocabulary = load_vocabulary()
+    relations = [
+        {
+            "source": r.source_id,
+            "target": r.target_id,
+            "relation": r.relation.value,
+            "because": r.source_location or "",
+            "by": r.extraction_method or "",
+            # A relation a model drafted and nobody has confirmed is not the
+            # same object as one a person asserted, and the review surface is
+            # exactly where that difference has to be visible.
+            "unconfirmed": "unconfirmed" in (r.extraction_method or ""),
+        }
+        for r in load_claim_relations(claims=claim_list)
+    ]
+    concepts = {
+        concept_id: {
+            "label": (vocabulary.get(concept_id).label
+                      if vocabulary.get(concept_id) else concept_id),
+            "claims": sorted(c.id for c in claim_list if concept_id in c.concept_tags),
+        }
+        for concept_id in sorted({t for c in claim_list for t in c.concept_tags})
+    }
 
     records = []
     for resource in sorted(resources, key=lambda r: (not r.abstract, r.id)):
@@ -163,6 +202,8 @@ def build_payload() -> dict:
             "word": "[a-z0-9]+",
         },
         "taxonomy_version": "v3",
+        "relations": relations,
+        "concepts": concepts,
         "topics": [
             {
                 "code": t.code,

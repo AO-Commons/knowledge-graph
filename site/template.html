@@ -20,6 +20,7 @@
     --rule-hard: #b9b9ae;
     --accent:  #0b5e52;
     --accent-soft: #dfece9;
+    --n-relates: #b5452f;
     --on-accent: #ffffff;
     --mark:    #ffe89c;
     --mark-edge: #e0b93a;
@@ -37,6 +38,7 @@
     --rule-hard: #3d434a;
     --accent:  #4fb6a0;
     --accent-soft: #14332d;
+    --n-relates: #e07a5f;
     --on-accent: #08110e;
     --mark:    #4a3f14;
     --mark-edge: #8a7325;
@@ -257,6 +259,54 @@
   }
   .ready-row.done .s { color: var(--accent); }
   .claim.mine { border-left: 2px solid var(--accent); padding-left: 12px; }
+  /* Borrowed claims. The badge changes the question being asked, so it sits
+     above the paraphrase rather than beside it as a footnote. */
+  .claim-borrowed {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .05em;
+    color: var(--accent); border: 1px solid var(--accent-soft);
+    padding: 3px 7px; display: inline-block; margin: 0 0 8px;
+  }
+  /* Concepts are the route out of one claim and into the others arguing
+     about the same thing. Buttons, not labels — they go somewhere. */
+  .concepts { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 10px; }
+  .concept {
+    font-family: var(--mono); font-size: 11px; color: var(--faint);
+    border: 1px solid var(--rule); background: none; padding: 3px 8px;
+    cursor: pointer; border-radius: 2px;
+  }
+  .concept:hover, .concept:focus { color: var(--ink); border-color: var(--rule-hard); }
+  .concept .n { opacity: .55; margin-left: 5px; }
+  /* A relation is an assertion about two claims, so it is drawn as a block
+     rather than a line of metadata — and an unconfirmed one is marked,
+     because a model's suggestion and a person's judgement must never look
+     alike. */
+  .relation {
+    border-left: 2px solid var(--n-relates, var(--accent)); padding: 7px 0 7px 12px;
+    margin: 10px 0 2px; font-size: 13px; line-height: 1.5;
+  }
+  .relation .rel-kind {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--n-relates, var(--accent));
+  }
+  .relation .rel-other { color: var(--ink); margin: 3px 0; }
+  .relation .rel-why { color: var(--faint); font-size: 12.5px; }
+  .relation .rel-draft {
+    font-family: var(--mono); font-size: 10.5px; color: var(--accent);
+    margin-top: 4px;
+  }
+  .stage-wrap { min-width: 0; }
+  .concept-panel {
+    border: 1px solid var(--rule-hard); border-top: 2px solid var(--n-relates, var(--accent));
+    background: var(--card); padding: 16px 18px; margin-bottom: 18px;
+  }
+  .concept-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .concept-head h2 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 500; }
+  .concept-head .hint { margin: 2px 0 0; }
+  #concept-close {
+    font-family: var(--mono); font-size: 11px; background: none; cursor: pointer;
+    border: 1px solid var(--rule); color: var(--faint); padding: 4px 9px;
+  }
+  #concept-close:hover { color: var(--ink); border-color: var(--rule-hard); }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
   .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
@@ -465,7 +515,22 @@
     </div>
     <div id="tree"></div>
   </aside>
-  <div class="stage" id="stage"></div>
+  <div class="stage-wrap">
+    <!-- Sits above the stage rather than replacing it: a reviewer opening a
+         concept is checking the neighbourhood of the claim they are on, and
+         losing their place to do it would make the link not worth clicking. -->
+    <section class="concept-panel" id="concept-panel" hidden>
+      <div class="concept-head">
+        <div>
+          <h2 id="concept-title"></h2>
+          <p class="hint" id="concept-count"></p>
+        </div>
+        <button type="button" id="concept-close">Close</button>
+      </div>
+      <div id="concept-body"></div>
+    </section>
+    <div class="stage" id="stage"></div>
+  </div>
 </main>
 
 <script type="application/json" id="graph">__GRAPH_DATA__</script>
@@ -1190,6 +1255,15 @@
         el("span", {}, kind[0]),
         ...(kind[1] ? [info(kind[1])] : []),
       ]));
+      // Whose claim it is, before the claim itself. For a borrowed one the
+      // reviewer is being asked something different — not "is this
+      // accurate" but "is this correctly attributed" — and answering the
+      // first question about the second is how a citation gets credited to
+      // whoever most recently repeated it.
+      if (claim.own === false) {
+        card.append(el("p", { className: "claim-borrowed" },
+          "reported from prior work" + (claim.from_whom ? " — " + claim.from_whom : "")));
+      }
       card.append(el("p", { className: "claim-text" }, claim.text));
       // The claim is deliberately stripped to one assertion, which can leave it
       // unjudgeable on its own — "it reveals weaknesses" reveals nothing about
@@ -1205,6 +1279,48 @@
             ? "from the abstract, above"
             : `from the ${claim.where} — not shown above, so judge it on the quote`));
       }
+
+      // What this claim argues about, and the way out of it. Clicking a
+      // concept shows every claim on it across the corpus — which is the
+      // difference between reviewing forty cards and reading what the
+      // library actually says about reputation.
+      if ((claim.concepts || []).length) {
+        const tags = el("div", { className: "concepts" });
+        claim.concepts.forEach(id => {
+          const concept = (DATA.concepts || {})[id] || { label: id, claims: [] };
+          const button = el("button", { className: "concept", type: "button" }, [
+            el("span", {}, concept.label),
+            el("span", { className: "n" }, String(concept.claims.length)),
+          ]);
+          button.addEventListener("click", () => showConcept(id));
+          tags.append(button);
+        });
+        card.append(tags);
+      }
+
+      // Relations this claim is an end of. Shown with the other statement
+      // and the reasoning, because "does this paraphrase match its quote"
+      // is a smaller question than "do these two papers disagree", and the
+      // reviewer is the only person positioned to answer the second.
+      (DATA.relations || [])
+        .filter(r => r.source === claim.id || r.target === claim.id)
+        .forEach(r => {
+          const outgoing = r.source === claim.id;
+          const other = claimById(outgoing ? r.target : r.source);
+          const block = el("div", { className: "relation" });
+          block.append(el("div", { className: "rel-kind" },
+            (outgoing ? "" : "← ") + r.relation.replace(/_/g, " ").toLowerCase()
+            + (outgoing ? " →" : "")));
+          block.append(el("div", { className: "rel-other" },
+            other ? other.text : (outgoing ? r.target : r.source)));
+          if (r.because) block.append(el("div", { className: "rel-why" }, r.because));
+          if (r.unconfirmed) {
+            block.append(el("div", { className: "rel-draft" },
+              "drafted by a machine and not confirmed — this one is asking for your "
+              + "judgement, not reporting somebody else's"));
+          }
+          card.append(block);
+        });
 
       // Already merged means somebody else settled it. Shown rather than
       // asked again — re-deciding a merged verdict belongs in a disagreement,
@@ -2579,6 +2695,85 @@
     setMode("explore");
   }
 
+  // Every claim, by id, across every record. Relations cross papers, so an
+  // edge's other end is usually not in the record currently open.
+  let claimIndex = null;
+  function claimById(id) {
+    if (!claimIndex) {
+      claimIndex = new Map();
+      DATA.records.forEach(record =>
+        (record.claims || []).forEach(claim => claimIndex.set(claim.id, {
+          ...claim, paper: record.title, paperId: record.id,
+        })));
+    }
+    return claimIndex.get(id) || null;
+  }
+
+  // One concept, and everything the corpus asserts under it.
+  //
+  // The reason the concept layer exists. Forty claims read one at a time are
+  // forty paraphrase checks; the seven claims tagged `agent-reputation-systems`
+  // read together are an argument, and whether they are consistent with each
+  // other is a question only visible in this view.
+  function showConcept(id) {
+    const concept = (DATA.concepts || {})[id];
+    if (!concept) return;
+    const panel = document.getElementById("concept-panel");
+    const body = document.getElementById("concept-body");
+    document.getElementById("concept-title").textContent = concept.label;
+
+    const claims = concept.claims.map(claimById).filter(Boolean);
+    const papers = new Set(claims.map(c => c.paperId));
+    document.getElementById("concept-count").textContent =
+      `${claims.length} statement${claims.length === 1 ? "" : "s"} across `
+      + `${papers.size} paper${papers.size === 1 ? "" : "s"}`;
+
+    body.textContent = "";
+    claims.forEach(claim => {
+      const row = el("div", { className: "claim" });
+      row.append(el("div", { className: "kicker" },
+        [el("span", {}, (CLAIM_KINDS[claim.type] || [claim.type])[0])]));
+      if (claim.own === false) {
+        row.append(el("p", { className: "claim-borrowed" },
+          "reported from prior work" + (claim.from_whom ? " — " + claim.from_whom : "")));
+      }
+      row.append(el("p", { className: "claim-text" }, claim.text));
+      row.append(el("p", { className: "claim-where" }, claim.paper));
+      body.append(row);
+    });
+
+    const related = (DATA.relations || []).filter(r =>
+      concept.claims.includes(r.source) || concept.claims.includes(r.target));
+    if (related.length) {
+      body.append(el("p", { className: "section-label" }, "asserted between them"));
+      related.forEach(r => {
+        const from = claimById(r.source), to = claimById(r.target);
+        const block = el("div", { className: "relation" });
+        block.append(el("div", { className: "rel-kind" },
+          r.relation.replace(/_/g, " ").toLowerCase()));
+        block.append(el("div", { className: "rel-other" },
+          (from ? from.text : r.source) + "  →  " + (to ? to.text : r.target)));
+        if (r.because) block.append(el("div", { className: "rel-why" }, r.because));
+        if (r.unconfirmed) {
+          block.append(el("div", { className: "rel-draft" },
+            "drafted by a machine and not confirmed"));
+        }
+        body.append(block);
+      });
+    } else if (claims.length > 1) {
+      // Said out loud rather than left as an empty space. Claims sharing a
+      // concept and relating to each other are different things, and a
+      // reviewer who sees nothing here should know that means nobody has
+      // looked, not that nothing connects.
+      body.append(el("p", { className: "hint" },
+        "Nothing asserted between these yet. Sharing a concept is not a "
+        + "relation — but if two of them argue with each other, this is where "
+        + "that would be recorded."));
+    }
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
   // ---- wiring ------------------------------------------------------------
   function renderStage() {
     ({ review: renderReview, explore: renderExplore, add: renderAdd,
@@ -2590,6 +2785,9 @@
       document.getElementById("mode-" + m).setAttribute("aria-pressed", String(m === mode)));
     renderStage(); renderTree();
   }
+  document.getElementById("concept-close").addEventListener("click", () => {
+    document.getElementById("concept-panel").hidden = true;
+  });
   document.getElementById("mode-review").addEventListener("click", () => setMode("review"));
   document.getElementById("mode-explore").addEventListener("click", () => setMode("explore"));
   document.getElementById("mode-add").addEventListener("click", () => { loadIndex(); setMode("add"); });

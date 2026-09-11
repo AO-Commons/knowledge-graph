@@ -340,3 +340,73 @@ class TestNewStatements:
                 '      text: "This tool caps agent spending."\n'
                 '      quote: "Budgets auto-pause execution when limits are hit."\n')
         assert "resource:tool:paperclip" in extract(body)["new_statements"]
+
+
+class TestReviewPayload:
+    """What the review surface is given.
+
+    The layer this guards was built and then invisible for a week: claims
+    carried attribution, concepts and relations, `build_site` passed nine
+    fields and none of them were these, and the page could not show what
+    the corpus knew. Nothing failed — the data was simply not there.
+    """
+
+    def _payload(self):
+        import sys
+        from pathlib import Path
+        repo = Path(__file__).resolve().parent.parent
+        sys.path.insert(0, str(repo / "scripts"))
+        sys.path.insert(0, str(repo / "src"))
+        from build_site import build_payload
+        return build_payload()
+
+    def test_claims_carry_their_concepts(self):
+        payload = self._payload()
+        claims = [c for r in payload["records"] for c in r.get("claims", [])]
+        assert claims
+        assert any(c["concepts"] for c in claims), (
+            "no claim reached the page with a concept — the tag layer is "
+            "invisible to every reviewer")
+
+    def test_borrowed_claims_are_marked_for_the_reviewer(self):
+        """A reviewer asked "is this paraphrase accurate" about somebody
+        else's claim will answer yes and endorse an attribution nobody
+        checked."""
+        payload = self._payload()
+        claims = [c for r in payload["records"] for c in r.get("claims", [])]
+        borrowed = [c for c in claims if not c["own"]]
+        assert borrowed
+        assert all(c["from_whom"] for c in borrowed)
+
+    def test_relations_reach_the_page_and_both_ends_resolve(self):
+        """An unresolvable end renders as a raw claim id, which tells a
+        reviewer nothing."""
+        payload = self._payload()
+        known = {c["id"] for r in payload["records"] for c in r.get("claims", [])}
+        assert payload["relations"]
+        for relation in payload["relations"]:
+            assert relation["source"] in known
+            assert relation["target"] in known
+            assert relation["because"], "a relation with no reasoning cannot be judged"
+
+    def test_a_drafted_relation_is_marked_unconfirmed_on_the_page(self):
+        """The reviewer has to be able to tell a machine's suggestion from
+        a person's judgement, and the review surface is where it matters
+        most — it is the screen where the confirming happens."""
+        payload = self._payload()
+        drafted = [r for r in payload["relations"] if r["unconfirmed"]]
+        assert drafted, "three relations are awaiting confirmation and none is flagged"
+
+    def test_every_concept_a_claim_cites_has_an_entry(self):
+        """Otherwise the page renders a slug where a label should be, and
+        the click goes nowhere."""
+        payload = self._payload()
+        cited = {t for r in payload["records"]
+                 for c in r.get("claims", []) for t in c["concepts"]}
+        assert cited <= set(payload["concepts"])
+
+    def test_a_concept_entry_lists_the_claims_under_it(self):
+        payload = self._payload()
+        entry = payload["concepts"]["agent-reputation-systems"]
+        assert entry["label"] == "Agent reputation systems"
+        assert len(entry["claims"]) > 1, "a concept on one claim connects nothing"
