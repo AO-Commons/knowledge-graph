@@ -74,6 +74,10 @@ def build_payload() -> dict:
             # they need to be told where to look.
             "where": claim.extracted_from,
             "type": claim.claim_type.value,
+            # From the model, not re-derived in the page. Which types are
+            # primary is a judgement about what the library is for, and it
+            # should have one home.
+            "primary": claim.claim_type.is_primary,
             "topics": claim.topic_codes,
             # A verdict already merged is shown rather than asked for again.
             "verdict": claim.verdict or "",

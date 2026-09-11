@@ -341,6 +341,30 @@
     margin: 9px 0 8px; overflow: hidden;
   }
   .progress .fill { display: block; height: 100%; background: var(--accent); }
+  /* The type, as a badge rather than a word in a row of grey words. It is
+     the first thing that tells a reviewer what kind of judgement this is. */
+  .type-badge {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
+    border: 1px solid transparent;
+  }
+  .type-badge.primary {
+    color: var(--accent); background: var(--accent-soft); border-color: var(--accent-soft);
+  }
+  .type-badge.supporting { color: var(--faint); border-color: var(--rule); }
+
+  .group-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 12px; margin: 18px 0 2px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--rule-hard);
+  }
+  .group-head.supporting { border-bottom-color: var(--rule); }
+  .group-head .g-title { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .group-head.supporting .g-title { font-weight: 500; color: var(--muted); }
+  .group-head .g-count {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
   .chip.derived { border-style: dashed; }
   .chip.derived .n { opacity: .55; margin-left: 6px; font-size: 10.5px; }
   .retag-label {
@@ -550,11 +574,17 @@
 <main>
   <aside class="tree-pane">
     <div class="ready" id="ready"></div>
-    <div class="tree-head">
+    <!-- Hidden for now, not removed. Categories derive from the concepts on
+         a paper's statements, and while extraction and tagging are being
+         settled the tree is a view of an answer that is still moving —
+         browsing it invites filing against it, which is the judgement this
+         screen no longer asks for. Unhide both when the vocabulary has
+         stabilised. -->
+    <div class="tree-head" hidden>
       <h2>The taxonomy</h2>
       <span class="filled" id="filled"></span>
     </div>
-    <div id="tree"></div>
+    <div id="tree" hidden></div>
   </aside>
   <div class="stage-wrap">
     <!-- Sits above the stage rather than replacing it: a reviewer opening a
@@ -894,7 +924,7 @@
     }).length;
 
     host.append(el("div", { className: "tree-head" }, [
-      el("h2", {}, "Has statements to check"),
+      el("h2", {}, "Golden-set review"),
       el("span", { className: "filled" }, `${outstanding} of ${ready.length} open`),
     ]));
 
@@ -1240,12 +1270,35 @@
       ),
     ]));
 
-    record.claims.forEach(claim => {
+    // Two groups, because they are two different jobs. Findings and
+    // positions are what the library is asked for — what has been shown and
+    // what has been argued. The rest is how you judge one: the background it
+    // rests on, the method that produced it, the limitation its authors put
+    // on it. Interleaved, a reviewer reads eleven supporting statements at
+    // the same weight as the twenty-one that carry the argument.
+    const groups = [
+      ["primary", "What this paper shows and argues",
+       record.claims.filter(c => c.primary !== false)],
+      ["supporting", "Context for judging those",
+       record.claims.filter(c => c.primary === false)],
+    ];
+
+    groups.forEach(([key, heading, claims]) => {
+      if (!claims.length) return;
+      const openLeft = claims.filter(c => !(state.claims[c.id] || c.verdict)).length;
+      wrap.append(el("div", { className: "group-head " + key }, [
+        el("span", { className: "g-title" }, heading),
+        el("span", { className: "g-count" },
+           openLeft ? `${openLeft} to check` : "done"),
+      ]));
+
+      claims.forEach(claim => {
       const settled = !!(state.claims[claim.id] || claim.verdict);
       const card = el("div", { className: "claim" + (settled ? " judged" : "") });
       const kind = CLAIM_KINDS[claim.type] || [claim.type, ""];
       card.append(el("div", { className: "kicker" }, [
-        el("span", {}, kind[0]),
+        el("span", { className: "type-badge " + (claim.primary === false ? "supporting" : "primary") },
+           kind[0]),
         ...(kind[1] ? [info(kind[1])] : []),
       ]));
       // Whose claim it is, before the claim itself. For a borrowed one the
@@ -1291,30 +1344,16 @@
         card.append(tags);
       }
 
-      // Relations this claim is an end of. Shown with the other statement
-      // and the reasoning, because "does this paraphrase match its quote"
-      // is a smaller question than "do these two papers disagree", and the
-      // reviewer is the only person positioned to answer the second.
-      (DATA.relations || [])
-        .filter(r => r.source === claim.id || r.target === claim.id)
-        .forEach(r => {
-          const outgoing = r.source === claim.id;
-          const other = claimById(outgoing ? r.target : r.source);
-          const block = el("div", { className: "relation" });
-          block.append(el("div", { className: "rel-kind" },
-            (outgoing ? "" : "← ") + r.relation.replace(/_/g, " ").toLowerCase()
-            + (outgoing ? " →" : "")));
-          block.append(el("div", { className: "rel-other" },
-            other ? other.text : (outgoing ? r.target : r.source)));
-          if (r.because) block.append(el("div", { className: "rel-why" }, r.because));
-          if (r.unconfirmed) {
-            block.append(el("div", { className: "rel-draft" },
-              "drafted by a machine and not confirmed — this one is asking for your "
-              + "judgement, not reporting somebody else's"));
-          }
-          card.append(block);
-        });
-
+      // Relations are not shown here for now. Twelve of them across
+      // thirty-two statements is not yet a layer a reviewer benefits from
+      // meeting mid-task — it is three paragraphs of reasoning between one
+      // statement and the next, on a screen whose whole job is getting the
+      // statements right. They are still in the data, still on the graph,
+      // and still proposed by `aokg relate`.
+      //
+      // This comes back when extraction and tagging are settled and there
+      // are enough relations that seeing one is informative rather than
+      // incidental.
       // Already merged means somebody else settled it. Shown rather than
       // asked again — re-deciding a merged verdict belongs in a disagreement,
       // not in a queue.
@@ -1387,6 +1426,7 @@
         card.append(el("div", { className: "note" }, area));
       }
       wrap.append(card);
+      });
     });
 
     mine(record).forEach((entry, index) => {

@@ -534,3 +534,76 @@ class TestReviewSurface:
         page = self._page()
         assert ".claim.judged" in page
         assert '(settled ? " judged" : "")' in page
+
+    def test_statements_are_grouped_by_what_they_are_for(self):
+        """Findings and positions are what the library is asked for; the
+        rest is how you judge one. Interleaved, a reviewer reads eleven
+        supporting statements at the same weight as the twenty-one carrying
+        the argument."""
+        page = self._page()
+        assert "What this paper shows and argues" in page
+        assert "Context for judging those" in page
+        assert 'record.claims.filter(c => c.primary !== false)' in page
+
+    def test_the_type_is_a_badge_not_a_word_in_a_row_of_grey_words(self):
+        page = self._page()
+        assert ".type-badge" in page
+        assert ".type-badge.primary" in page and ".type-badge.supporting" in page
+
+    def test_each_group_says_how_much_is_left_in_it(self):
+        page = self._page()
+        assert 'className: "g-count"' in page
+        assert "${openLeft} to check" in page
+
+
+class TestPrimaryReachesThePage:
+    def _payload(self):
+        import sys
+        from pathlib import Path
+        repo = Path(__file__).resolve().parent.parent
+        sys.path.insert(0, str(repo / "scripts"))
+        sys.path.insert(0, str(repo / "src"))
+        from build_site import build_payload
+        return build_payload()
+
+    def test_every_claim_says_whether_it_is_primary(self):
+        """Shipped from the model rather than re-derived in the page. Which
+        types are primary is a judgement about what the library is for, and
+        it should have one home."""
+        claims = [c for r in self._payload()["records"] for c in r.get("claims", [])]
+        assert claims
+        assert all("primary" in c for c in claims)
+
+    def test_the_split_matches_the_model(self):
+        from ao_commons_kg.models import ClaimType
+        claims = [c for r in self._payload()["records"] for c in r.get("claims", [])]
+        for claim in claims:
+            assert claim["primary"] is ClaimType(claim["type"]).is_primary
+
+
+class TestTemporarilyHidden:
+    """Two things are out of the reviewer's way while extraction and tagging
+    are being settled. Both are hidden rather than deleted, and both have a
+    comment in the source saying when they come back."""
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_relations_are_not_shown_on_a_statement_card(self):
+        """Twelve relations across thirty-two statements is not yet a layer
+        worth meeting mid-task — it is three paragraphs of reasoning between
+        one statement and the next."""
+        page = self._page()
+        assert 'className: "rel-kind"' not in page.split("function showConcept")[0]
+
+    def test_relations_are_still_in_the_data(self):
+        """Hidden from one screen, not removed from the corpus."""
+        from ao_commons_kg.claims import load_claim_relations, load_claims
+        assert len(load_claim_relations(claims=load_claims())) == 12
+
+    def test_the_taxonomy_tree_is_hidden_not_deleted(self):
+        page = self._page()
+        assert '<div id="tree" hidden></div>' in page
+        assert "Unhide both when the vocabulary has stabilised" in page
