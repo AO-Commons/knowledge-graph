@@ -22,21 +22,68 @@ import re
 # `metre` and `programme` are deliberately absent: `parameter` contains one and
 # a `programme` in a British institution's name is that institution's name.
 PAIRS = [
-    (r"organis", "organiz"), (r"Organis", "Organiz"),
-    (r"recognis", "recogniz"), (r"formalis", "formaliz"),
-    (r"optimis", "optimiz"), (r"utilis", "utiliz"),
-    (r"generalis", "generaliz"), (r"specialis", "specializ"),
-    (r"summaris", "summariz"), (r"categoris", "categoriz"),
-    (r"characteris", "characteriz"), (r"prioritis", "prioritiz"),
-    (r"minimis", "minimiz"), (r"maximis", "maximiz"),
-    (r"normalis", "normaliz"), (r"operationalis", "operationaliz"),
-    (r"institutionalis", "institutionaliz"), (r"legitimis", "legitimiz"),
-    (r"standardis", "standardiz"), (r"decentralis", "decentraliz"),
-    (r"centralis", "centraliz"), (r"incentivis", "incentiviz"),
-    (r"contextualis", "contextualiz"), (r"conceptualis", "conceptualiz"),
-    (r"rationalis", "rationaliz"), (r"marginalis", "marginaliz"),
-    (r"internalis", "internaliz"), (r"externalis", "externaliz"),
-    (r"stabilis", "stabiliz"), (r"mobilis", "mobiliz"),
+    # The -ise family, each with a suffix guard. Without one
+    # `characteris` matches inside `characteristic` and yields
+    # `characteriztic`, which is how this converter first ran.
+    (r"organis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "organiz"),
+    (r"Organis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Organiz"),
+    (r"recognis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "recogniz"),
+    (r"Recognis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Recogniz"),
+    (r"formalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "formaliz"),
+    (r"Formalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Formaliz"),
+    (r"optimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "optimiz"),
+    (r"Optimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Optimiz"),
+    (r"utilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "utiliz"),
+    (r"Utilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Utiliz"),
+    (r"generalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "generaliz"),
+    (r"Generalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Generaliz"),
+    (r"specialis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "specializ"),
+    (r"Specialis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Specializ"),
+    (r"summaris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "summariz"),
+    (r"Summaris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Summariz"),
+    (r"categoris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "categoriz"),
+    (r"Categoris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Categoriz"),
+    (r"characteris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "characteriz"),
+    (r"Characteris(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Characteriz"),
+    (r"prioritis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "prioritiz"),
+    (r"Prioritis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Prioritiz"),
+    (r"minimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "minimiz"),
+    (r"Minimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Minimiz"),
+    (r"maximis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "maximiz"),
+    (r"Maximis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Maximiz"),
+    (r"normalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "normaliz"),
+    (r"Normalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Normaliz"),
+    (r"operationalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "operationaliz"),
+    (r"Operationalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Operationaliz"),
+    (r"institutionalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "institutionaliz"),
+    (r"Institutionalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Institutionaliz"),
+    (r"legitimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "legitimiz"),
+    (r"Legitimis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Legitimiz"),
+    (r"standardis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "standardiz"),
+    (r"Standardis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Standardiz"),
+    (r"decentralis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "decentraliz"),
+    (r"Decentralis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Decentraliz"),
+    (r"centralis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "centraliz"),
+    (r"Centralis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Centraliz"),
+    (r"incentivis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "incentiviz"),
+    (r"Incentivis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Incentiviz"),
+    (r"contextualis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "contextualiz"),
+    (r"Contextualis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Contextualiz"),
+    (r"conceptualis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "conceptualiz"),
+    (r"Conceptualis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Conceptualiz"),
+    (r"rationalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "rationaliz"),
+    (r"Rationalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Rationaliz"),
+    (r"marginalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "marginaliz"),
+    (r"Marginalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Marginaliz"),
+    (r"internalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "internaliz"),
+    (r"Internalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Internaliz"),
+    (r"externalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "externaliz"),
+    (r"Externalis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Externaliz"),
+    (r"stabilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "stabiliz"),
+    (r"Stabilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Stabiliz"),
+    (r"mobilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "mobiliz"),
+    (r"Mobilis(?=e|ed|es|ing|ation|able|abilit|er\b|ers\b)", "Mobiliz"),
+
     (r"behaviour", "behavior"), (r"Behaviour", "Behavior"),
     (r"colour", "color"), (r"favour", "favor"), (r"labour", "labor"),
     (r"honour", "honor"), (r"rigour", "rigor"), (r"endeavour", "endeavor"),
@@ -66,15 +113,19 @@ _REPL = {p: r for p, r in PAIRS}
 
 
 def to_american(text: str) -> str:
+    """Every pattern matches exactly the text its replacement replaces.
+
+    Each entry's suffix conditions are lookaheads and word boundaries, which
+    match no characters, so the group that fired names the replacement
+    outright. An earlier version re-ran the pattern against the matched text
+    to decide — which silently stopped converting anything the moment the
+    conditions became lookaheads, because a lookahead cannot be satisfied by a
+    string that ends where the match ends.
+    """
     def swap(match: re.Match) -> str:
-        for (pattern, replacement) in PAIRS:
-            if re.fullmatch(pattern, match.group(0)):
-                return replacement
-        # `\b` and `s` suffixes mean the matched text can be longer than the
-        # pattern's literal; fall back to the group that fired.
-        for i, (pattern, replacement) in enumerate(PAIRS, start=1):
+        for i, (_pattern, replacement) in enumerate(PAIRS, start=1):
             if match.group(i) is not None:
-                return re.sub(pattern, replacement, match.group(0))
+                return replacement
         return match.group(0)
     return PATTERN.sub(swap, text)
 

@@ -30,6 +30,27 @@ class TestTheConverter:
         assert to_american("the analysis of one parameter") == "the analysis of one parameter"
         assert to_american("metres of diameter") == "metres of diameter"
 
+    def test_a_stem_inside_a_longer_word_is_left_alone(self):
+        """`characteris` sits inside `characteristic`, and the first version of
+        this converter turned four files' worth of them into `characteriztic` —
+        including the code of conduct. Every -ise stem carries a suffix guard
+        now, and this is the test that says why."""
+        assert to_american("the characteristic failure") == "the characteristic failure"
+        assert to_american("a specialist team") == "a specialist team"
+        assert to_american("characterise the specialists") == "characterize the specialists"
+
+    def test_the_stems_still_convert(self):
+        """The guard is a lookahead, and the version that added it stopped
+        converting anything at all — the replacement logic re-ran the pattern
+        against the matched text, which a lookahead can never satisfy. Silent,
+        and it would have left the next extraction's tags British."""
+        for british, american in [
+            ("organisational", "organizational"), ("generalisation", "generalization"),
+            ("specialises", "specializes"), ("characterise", "characterize"),
+            ("optimising", "optimizing"), ("recognised", "recognized"),
+        ]:
+            assert to_american(british) == american, british
+
 
 class TestTheStatements:
     """What a reviewer reads, and what the tags are built from."""

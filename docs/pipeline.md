@@ -315,7 +315,7 @@ including machine drafts asking for exactly this judgment.
 
 Verdicts: `accurate`, `overstated`, `not-in-source`, `ambiguous`.
 `overstated` is the one worth having — the claim is in the paper but the
-paraphrase says more than the source does, which is the characteriztic failure
+paraphrase says more than the source does, which is the characteristic failure
 of extraction and invisible in a yes/no.
 
 Filings become pull requests. The gold set they build is what every

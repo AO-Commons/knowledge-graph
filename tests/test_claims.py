@@ -55,7 +55,7 @@ class TestClaim:
         assert ClaimType("finding") is not ClaimType("position")
 
     def test_overstated_is_a_verdict_of_its_own(self):
-        """The characteriztic failure of extraction is a paraphrase that says
+        """The characteristic failure of extraction is a paraphrase that says
         more than its source. A yes/no verdict cannot express it."""
         assert a_claim(review_status="reviewed", reviewed_by="anke",
                        verdict="overstated").verdict == "overstated"

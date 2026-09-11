@@ -529,7 +529,7 @@ class Claim:
     verdict: str | None = None
     """How review landed. `overstated` is the one worth having: the claim is
     in the paper but the paraphrase says more than the source does, which is
-    the characteriztic failure of extraction and is invisible in a yes/no."""
+    the characteristic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
 
     # `adjusted` is the reviewer rewriting the sentence rather than grading
