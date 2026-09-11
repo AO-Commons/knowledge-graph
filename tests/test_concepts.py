@@ -383,3 +383,45 @@ class TestGeneratedList:
         payload = self._committed()
         everything = payload["vocabulary"] + payload["suggestions"]
         assert all("statements" in c for c in everything)
+
+
+class TestClaimTopicsAreDerived:
+    """A statement's place in the taxonomy follows from what it argues about.
+
+    The two layers used to be asserted separately and disagreed: on
+    `arxiv:2511.03434` claim 2 the topic codes said 10.1 and 4.4 while the
+    concept resolved to 5.3. Deriving one from the other removes the
+    contradiction rather than documenting it.
+    """
+
+    def test_topics_come_from_the_claim_s_concepts(self):
+        from ao_commons_kg.claims import claim_edges
+        from ao_commons_kg.concepts import load_vocabulary
+
+        vocab = load_vocabulary()
+        claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2605.30169"]
+        edges = claim_edges(claims, vocabulary=vocab)
+        about = {e.target_id for e in edges if e.relation.value == "ABOUT"}
+        assert "topic:5.3" in about, "reputation claims belong under inter-agent trust"
+
+    def test_a_claim_with_no_concepts_falls_back_to_its_own_codes(self):
+        """The fallback matters during the changeover. Without it, 62
+        claim-to-topic edges vanished in one commit and nothing failed except
+        a test that happened to assert the edge kind still existed."""
+        from ao_commons_kg.claims import claim_edges
+        from ao_commons_kg.models import Claim
+
+        legacy = Claim(id="claim:x:1", resource_id="resource:x", text="t", quote="q",
+                       topic_codes=["5.3"])
+        about = [e for e in claim_edges([legacy]) if e.relation.value == "ABOUT"]
+        assert [e.target_id for e in about] == ["topic:5.3"]
+
+    def test_a_derived_topic_is_still_marked_inferred(self):
+        """Deriving it does not make it read. A claim's topic is an inference
+        either way."""
+        from ao_commons_kg.claims import claim_edges
+        from ao_commons_kg.concepts import load_vocabulary
+
+        edges = claim_edges(load_claims(), vocabulary=load_vocabulary())
+        about = [e for e in edges if e.relation.value == "ABOUT"]
+        assert about and all(e.confidence_class.value == "INFERRED" for e in about)

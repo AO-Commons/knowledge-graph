@@ -4,178 +4,79 @@ claims:
   text: Existing MARL evaluation suites do not treat generalization to novel situations as their
     primary objective.
   quote: Existing evaluation suites for multi-agent reinforcement learning (MARL) do not assess
-    generalization to novel situations as their primary objective (unlike supervised-learning benchmarks).
+    generalization to novel situations as their primary objective
   standalone: As of 2021, existing evaluation suites for multi-agent reinforcement learning did
     not treat generalization to novel situations as their primary objective, unlike supervised-learning
     benchmarks.
   claim_type: background
-  topic_codes:
-  - '14.1'
+  concept_tags:
+  - benchmarks-relevant-to-organizational-roles
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: unreviewed
   attribution: other
   attributed_to: prior MARL evaluation literature
-  concept_tags:
-  - task-specific-and-domain-evaluation
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
 - id: claim:arxiv:2107.06857:2
-  text: No broadly accepted benchmark test set for MARL research existed.
-  quote: No broadly accepted benchmark test set for multi-agent reinforcement learning (MARL) research
-    yet exists.
-  standalone: As of 2021, no broadly accepted benchmark test set existed for multi-agent reinforcement
-    learning research.
-  claim_type: background
-  topic_codes:
-  - '14.1'
-  confidence_class: EXTRACTED
-  extracted_from: introduction
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: other
-  attributed_to: prior MARL evaluation literature
+  text: Automated generation of multi-agent test scenarios is possible because one agent's behaviour
+    forms part of another agent's environment.
+  quote: This works because one agent’s behavior constitutes (part of) another agent’s environment
+  standalone: Melting Pot's authors argue that reinforcement learning can generate novel multi-agent
+    test scenarios because one agent's behaviour is itself part of another agent's environment.
+  claim_type: method
   concept_tags:
-  - benchmarks-relevant-to-organizational-roles
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
+  - agent-generated-evaluation-and-scoring
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
+  review_status: unreviewed
+  attribution: own
 - id: claim:arxiv:2107.06857:3
-  text: The absence of a standardized MARL evaluation protocol has impeded progress in the field.
-  quote: This lack of a standardized evaluation protocol has impeded progress in the field by making
-    it difficult to obtain like-for-like comparisons between algorithms.
-  standalone: The authors assert that the lack of a standardized evaluation protocol for multi-agent
-    reinforcement learning has impeded progress by preventing like-for-like comparison between algorithms.
-  claim_type: background
-  topic_codes:
-  - '14.3'
-  confidence_class: EXTRACTED
-  extracted_from: introduction
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: other
-  attributed_to: prior MARL evaluation literature
-  concept_tags:
-  - reliability-and-consistency-measurement
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:4
-  text: Melting Pot is an evaluation suite for multi-agent reinforcement learning.
-  quote: Our contribution, Melting Pot, is a MARL evaluation suite that fills this gap, and uses
-    reinforcement learning to reduce the human labor required to create novel test scenarios.
-  standalone: Melting Pot, introduced by this paper, is an evaluation suite for multi-agent reinforcement
-    learning that measures generalization to novel social situations.
-  claim_type: method
-  topic_codes:
-  - '14.1'
-  confidence_class: EXTRACTED
-  extracted_from: abstract
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: own
-  concept_tags:
-  - benchmarks-relevant-to-organizational-roles
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:5
-  text: Melting Pot uses reinforcement learning to create test scenarios instead of authoring them
-    by hand.
-  quote: Our contribution, Melting Pot, is a MARL evaluation suite that fills this gap, and uses
-    reinforcement learning to reduce the human labor required to create novel test scenarios.
-  standalone: Melting Pot generates its novel test scenarios using reinforcement learning, which
-    reduces the human labor that environment design would otherwise require.
-  claim_type: method
-  topic_codes:
-  - '14.5'
-  confidence_class: EXTRACTED
-  extracted_from: abstract
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: own
-  concept_tags:
-  - agent-generated-evaluation-and-scoring
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:6
-  text: Automated scenario generation is possible because one agent's behaviour forms part of another
-    agent's environment.
-  quote: This works because one agent’s behavior constitutes (part of) another agent’s environment.
-  standalone: Melting Pot can generate test scenarios automatically because, in a multi-agent setting,
-    one agent's behaviour constitutes part of another agent's environment.
-  claim_type: method
-  topic_codes:
-  - '14.5'
-  confidence_class: EXTRACTED
-  extracted_from: abstract
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: own
-  concept_tags:
-  - agent-generated-evaluation-and-scoring
-  - prosocial-capability
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:8
-  text: Melting Pot revealed weaknesses in standard MARL algorithms that training performance alone
-    did not show.
-  quote: We apply these test scenarios to standard MARL training algorithms, and demonstrate how
-    Melting Pot reveals weaknesses not apparent from training performance alone.
-  standalone: Applying Melting Pot's test scenarios to standard multi-agent reinforcement learning
-    algorithms revealed weaknesses in those algorithms that were not apparent from their training
-    performance.
+  text: Melting Pot reveals weaknesses in MARL algorithms that training performance alone does not
+    show.
+  quote: demonstrate how Melting Pot reveals weaknesses not apparent from training performance alone
+  standalone: The Melting Pot authors report that their suite reveals weaknesses in standard MARL
+    training algorithms which are not apparent from training performance alone.
   claim_type: finding
-  topic_codes:
-  - '14.1'
-  confidence_class: EXTRACTED
-  extracted_from: abstract
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: own
   concept_tags:
   - reliability-and-consistency-measurement
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:13
-  text: Solving Melting Pot's scenarios appears to require agents that model trust, reciprocity
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
+  review_status: unreviewed
+  attribution: own
+- id: claim:arxiv:2107.06857:4
+  text: Solving novel social situations appears to require agents that model trust, reciprocity
     and deception.
   quote: Solutions to the problems posed here seem to require agents that understand trust, generosity,
-    and forgiveness, as well as reciprocity, stubbornness, and deception.
-  standalone: The authors argue that solving the problems posed by Melting Pot's test scenarios
-    seems to require agents that understand trust, generosity, forgiveness, reciprocity, stubbornness
-    and deception.
+    and forgiveness, as well as reciprocity, stubbornness, and deception
+  standalone: Melting Pot's authors conclude that solving their test scenarios seems to require
+    agents that understand trust, generosity, forgiveness, reciprocity, stubbornness and deception.
   claim_type: position
-  topic_codes:
-  - '5.2'
-  - '5.3'
-  confidence_class: EXTRACTED
-  extracted_from: conclusion
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
-  review_status: unreviewed
-  attribution: own
   concept_tags:
   - prosocial-capability
-  - agent-reputation-systems
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
-- id: claim:arxiv:2107.06857:14
-  text: Melting Pot is expected to get harder over time as improved agents are folded into its background
-    populations.
-  quote: since the effectiveness of the bots in test scenarios is itself advanced by improvements
-    in the performance of learning systems, Melting Pot will likewise improve over time by reincorporating
-    the latest agent technology into new background populations and test scenarios.
-  standalone: The authors expect Melting Pot to improve over time, because the bots that populate
-    its test scenarios are themselves built from learning systems, so advances in agent technology
-    can be reincorporated into new background populations.
-  claim_type: position
-  topic_codes:
-  - '14.3'
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, three-pass over arXiv full text, 2026-08-13
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: unreviewed
   attribution: own
+- id: claim:arxiv:2107.06857:5
+  text: An evaluation suite improves over time by folding improved agents into its background populations.
+  quote: Melting Pot will likewise improve over time by reincorporating the latest agent technology
+    into new background populations and test scenarios
+  standalone: Melting Pot's authors expect the suite to get harder over time, because improvements
+    in agent performance are folded back into the background populations its test scenarios are
+    built from.
+  claim_type: position
   concept_tags:
   - dynamic-evaluation
-  - evaluation-gaming-and-answer-key-attacks
-  note: 'first editorial pass, 2026-09-10: attribution assigned, concept tags added, artifact-only
-    claims cut'
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
+  review_status: unreviewed
+  attribution: own

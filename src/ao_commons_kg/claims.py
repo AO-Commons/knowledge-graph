@@ -146,12 +146,25 @@ def save_claims(resource_id: str, claims: Iterable[Claim],
     return path
 
 
-def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None) -> list:
+def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
+                vocabulary=None) -> list:
     """The edges a claim contributes: back to its resource, out to its topics.
 
     Every one carries its confidence class and the text it was read from, so a
     consumer meeting one of these edges in isolation can still tell it apart
     from a citation and go back to the sentence behind it.
+
+    A claim's topics come from its concepts when it has them, and from its own
+    `topic_codes` otherwise. That is the derivation principle applied one level
+    down: a statement's place in the taxonomy follows from what it argues
+    about, rather than being asserted separately and then disagreeing with
+    itself — which the two layers did, on `arxiv:2511.03434` claim 2, where
+    the codes said 10.1 and 4.4 and the concept resolved to 5.3.
+
+    The fallback matters during the changeover. Re-extraction drops
+    `topic_codes`, and without it 62 claim-to-topic edges vanished from the
+    graph in one commit with nothing failing except a test that happened to
+    assert the edge kind still existed.
     """
     edges: list[Relationship] = []
     for claim in claims:
@@ -164,7 +177,14 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None)
             source_location=claim.extracted_from,
             extraction_method=claim.extraction_method,
         ))
-        for code in claim.topic_codes:
+        derived: list[str] = []
+        if vocabulary is not None and claim.concept_tags:
+            for tag in claim.concept_tags:
+                concept = vocabulary.get(tag)
+                for code in (concept.topics if concept else ()):
+                    if code not in derived:
+                        derived.append(code)
+        for code in (derived or claim.topic_codes):
             if topic_codes is not None and code not in topic_codes:
                 continue
             edges.append(Relationship(

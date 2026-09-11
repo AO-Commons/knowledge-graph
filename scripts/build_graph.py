@@ -27,6 +27,7 @@ sys.path.insert(0, str(REPO / "src"))
 from ao_commons_kg.claims import (  # noqa: E402
     claim_edges, load_claim_relations, load_claims,
 )
+from ao_commons_kg.concepts import load_vocabulary  # noqa: E402
 from ao_commons_kg.graph import similarity_edges  # noqa: E402
 from ao_commons_kg.models import RelationType  # noqa: E402
 from ao_commons_kg.resources import load_resources, tagged_edges  # noqa: E402
@@ -163,7 +164,7 @@ def build() -> dict:
     edges += [
         {"source": e.source_id, "target": e.target_id,
          "kind": "claim" if e.relation is RelationType.MAKES_CLAIM else "about"}
-        for e in claim_edges(claims, topic_codes=codes)
+        for e in claim_edges(claims, topic_codes=codes, vocabulary=load_vocabulary())
     ]
     # Claim to claim. Drawn apart from everything else because it is the only
     # edge here that is nobody's observation — a person read two statements

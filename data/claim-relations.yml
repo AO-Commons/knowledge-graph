@@ -33,8 +33,8 @@ relations:
   # together.
   # ---------------------------------------------------------------------
 
-  - source: claim:arxiv:2509.14485:5
-    target: claim:arxiv:2107.06857:14
+  - source: claim:arxiv:2509.14485:4
+    target: claim:arxiv:2107.06857:5
     relation: DISAGREES_WITH
     confidence_class: INFERRED
     because: >-
@@ -46,8 +46,8 @@ relations:
     asserted_by: ankeliu
     asserted_on: "2026-09-10"
 
-  - source: claim:arxiv:2509.14485:4
-    target: claim:arxiv:2107.06857:8
+  - source: claim:arxiv:2509.14485:3
+    target: claim:arxiv:2107.06857:3
     relation: QUALIFIES
     confidence_class: INFERRED
     because: >-
@@ -59,8 +59,8 @@ relations:
     asserted_by: ankeliu
     asserted_on: "2026-09-10"
 
-  - source: claim:arxiv:2509.14485:5
-    target: claim:arxiv:2509.14485:4
+  - source: claim:arxiv:2509.14485:4
+    target: claim:arxiv:2509.14485:3
     relation: SUPPORTS
     confidence_class: INFERRED
     because: >-
@@ -71,7 +71,7 @@ relations:
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2606.03237:6
-    target: claim:arxiv:2509.14485:5
+    target: claim:arxiv:2509.14485:4
     relation: EXTENDS_CLAIM
     confidence_class: INFERRED
     because: >-
@@ -101,7 +101,7 @@ relations:
   # ---------------------------------------------------------------------
 
   - source: claim:arxiv:2605.30169:4
-    target: claim:arxiv:2511.03434:6
+    target: claim:arxiv:2511.03434:5
     relation: EXTENDS_CLAIM
     confidence_class: INFERRED
     because: >-
@@ -125,7 +125,7 @@ relations:
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2605.30169:5
-    target: claim:arxiv:2511.03434:7
+    target: claim:arxiv:2511.03434:6
     relation: QUALIFIES
     confidence_class: INFERRED
     because: >-
@@ -162,8 +162,8 @@ relations:
   # a high yield would mean the vocabulary is too loose.
   # ---------------------------------------------------------------------
 
-  - source: claim:arxiv:2509.14485:3
-    target: claim:arxiv:2107.06857:13
+  - source: claim:arxiv:2509.14485:2
+    target: claim:arxiv:2107.06857:4
     relation: DISAGREES_WITH
     confidence_class: INFERRED
     because: >-
@@ -176,7 +176,7 @@ relations:
     asserted_on: "2026-09-11"
 
   - source: claim:arxiv:2606.03237:6
-    target: claim:arxiv:2107.06857:14
+    target: claim:arxiv:2107.06857:5
     relation: DISAGREES_WITH
     confidence_class: INFERRED
     because: >-
@@ -191,7 +191,7 @@ relations:
     asserted_on: "2026-09-11"
 
   - source: claim:arxiv:2605.30169:1
-    target: claim:arxiv:2511.03434:4
+    target: claim:arxiv:2511.03434:3
     relation: QUALIFIES
     confidence_class: INFERRED
     because: >-
