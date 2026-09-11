@@ -205,3 +205,32 @@ def propose(label: str, topics, note: str | None = None) -> dict:
         "note": note,
         "added": date.today().isoformat(),
     }
+
+
+def derived_topics(claims, vocabulary: Vocabulary) -> dict[str, int]:
+    """Taxonomy codes a set of statements puts their paper into, and how often.
+
+    The union of the categories the statements' concepts sit under. A paper
+    lands in several naturally, because its statements do — which is what two
+    thirds of the corpus is already doing by hand, less precisely, by carrying
+    multiple topic codes on the container.
+
+    Counts rather than a set, because weight is information: Melting Pot
+    derives 14.1 eight times and 5.3 once, and those are not the same claim on
+    the topic.
+
+    What this cannot see is the paper's framing. Measured over the first six
+    papers, derivation gains codes the filer missed — Melting Pot picks up
+    evaluation integrity because one of its own statements predicts the suite
+    will be gamed — and loses codes describing what kind of move the paper
+    makes: agency theory, borrowed background, research method. No individual
+    sentence carries a reframing. So this augments a hand-filed list rather
+    than replacing it.
+    """
+    counts: dict[str, int] = {}
+    for claim in claims:
+        for tag in claim.concept_tags:
+            concept = vocabulary.get(tag)
+            for code in (concept.topics if concept else ()):
+                counts[code] = counts.get(code, 0) + 1
+    return dict(sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])))

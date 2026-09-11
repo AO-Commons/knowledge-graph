@@ -307,6 +307,8 @@
     border: 1px solid var(--rule); color: var(--faint); padding: 4px 9px;
   }
   #concept-close:hover { color: var(--ink); border-color: var(--rule-hard); }
+  .chip.derived { border-style: dashed; }
+  .chip.derived .n { opacity: .55; margin-left: 6px; font-size: 10.5px; }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
   .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
@@ -988,6 +990,42 @@
       chips.append(chip);
     });
     ask.append(chips);
+
+    // Where this paper's own statements put it, which is a different kind of
+    // answer from the suggestions above. Those are a classifier's guess from
+    // the abstract; this is computed from sentences the paper actually
+    // contains, and it regularly finds a category nobody filed — Melting Pot
+    // belongs under evaluation integrity because one of its own claims
+    // predicts the suite will be gamed.
+    //
+    // Offered rather than applied. Derivation cannot see a paper's framing:
+    // a work whose contribution is a reframing makes it at the level of the
+    // whole, and no sentence in it carries the frame. So this adds codes and
+    // never removes one.
+    const derived = record.derived_topics || {};
+    const derivedCodes = Object.keys(derived);
+    if (derivedCodes.length) {
+      ask.append(el("p", { className: "section-label" },
+        "where its own statements put it"));
+      const from = el("div", { className: "chips" });
+      derivedCodes.forEach(code => {
+        const topic = TOPICS.get(code);
+        if (!topic) return;
+        const chip = el("button", { className: "chip derived" });
+        chip.setAttribute("aria-pressed", state.picked.has(code) ? "true" : "false");
+        chip.title = `${derived[code]} statement(s) argue about this. `
+          + (trailOf(code) || topic.title);
+        chip.append(el("span", { className: "c" }, code),
+                    el("span", { className: "t" }, topic.title),
+                    el("span", { className: "n" }, String(derived[code])));
+        chip.addEventListener("click", () => {
+          state.picked.has(code) ? state.picked.delete(code) : state.picked.add(code);
+          renderReview(); renderTree();
+        });
+        from.append(chip);
+      });
+      ask.append(from);
+    }
 
     if (!state.showAll && ranked.length > shown.length) {
       const more = el("button", { className: "more" },

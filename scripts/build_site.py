@@ -28,7 +28,9 @@ sys.path.insert(0, str(REPO / "src"))
 from ao_commons_kg.claims import (  # noqa: E402
     load_claim_relations, load_claims,
 )
-from ao_commons_kg.concepts import load_vocabulary  # noqa: E402
+from ao_commons_kg.concepts import (  # noqa: E402
+    derived_topics, load_vocabulary,
+)
 from ao_commons_kg.classify import (  # noqa: E402
     _SUFFIXES,
     STOP,
@@ -114,6 +116,16 @@ def build_payload() -> dict:
         for concept_id in sorted({t for c in claim_list for t in c.concept_tags})
     }
 
+    # Where a paper's own statements put it, next to where a person filed it.
+    # Shown side by side rather than merged: the two disagree usefully, and
+    # collapsing them would hide which judgement came from where.
+    by_claims: dict[str, list] = {}
+    for claim in claim_list:
+        by_claims.setdefault(claim.resource_id, []).append(claim)
+    derived_by_record = {
+        rid: derived_topics(claims, vocabulary) for rid, claims in by_claims.items()
+    }
+
     records = []
     for resource in sorted(resources, key=lambda r: (not r.abstract, r.id)):
         abstract = resource.abstract or resource.description or ""
@@ -158,6 +170,7 @@ def build_payload() -> dict:
             "suggested": [a.code for a in suggestions],
             "suggested_more": [a.code for a in tail],
             "claims": by_resource.get(resource.id, []),
+            "derived_topics": derived_by_record.get(resource.id, {}),
         })
 
     # The classifier's index, shipped compactly so the browser can suggest

@@ -215,3 +215,37 @@ class TestCandidateQueue:
                    if "claude" in (r.extraction_method or "")]
         assert drafted
         assert all("unconfirmed" in r.extraction_method for r in drafted)
+
+
+class TestDerivedTopics:
+    """A paper's categories, computed from what its statements argue about."""
+
+    def test_a_paper_lands_where_its_statements_do(self):
+        from ao_commons_kg.concepts import derived_topics, load_vocabulary
+        claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2605.30169"]
+        derived = derived_topics(claims, load_vocabulary())
+        assert "5.3" in derived, "a paper arguing about reputation belongs under 5.3"
+        assert derived["5.3"] > 1, "weight is information, not just membership"
+
+    def test_it_finds_categories_the_filer_missed(self):
+        """Melting Pot was filed 14.1 and 14.5. One of its own statements
+        predicts the suite will be gamed, which is 14.3 — evaluation
+        integrity — and nobody filed it there."""
+        from ao_commons_kg.concepts import derived_topics, load_vocabulary
+        claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2107.06857"]
+        assert "14.3" in derived_topics(claims, load_vocabulary())
+
+    def test_it_cannot_see_a_paper_s_framing(self):
+        """The finding that keeps this additive rather than replacing. A
+        paper whose contribution is a reframing makes it at the level of the
+        whole, and no sentence in it carries the frame — so Solipsistic
+        Superintelligence derives its evaluation codes and loses 1.2."""
+        from ao_commons_kg.concepts import derived_topics, load_vocabulary
+        claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2606.03237"]
+        derived = derived_topics(claims, load_vocabulary())
+        assert "1.2" not in derived
+        assert "14.3" in derived
+
+    def test_no_statements_derives_nothing_rather_than_guessing(self):
+        from ao_commons_kg.concepts import derived_topics, load_vocabulary
+        assert derived_topics([], load_vocabulary()) == {}
