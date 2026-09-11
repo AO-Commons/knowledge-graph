@@ -1104,11 +1104,26 @@
      + "quote itself is wrong."],
   ];
 
+  // All five, because the one that was missing is the one that most needs
+  // saying. A `background` statement fell through to the raw value with no
+  // explanation, so a reviewer got less help on exactly the type where the
+  // hardest question lives — background is usually somebody else's result,
+  // and the thing to check is whether it is credited to them.
   const CLAIM_KINDS = {
     finding: ["finding", "Something the work reports as observed or measured."],
+    position: ["position", "An argument or recommendation, offered without evidence here. "
+               + "\"Agents with budget caps overspent less in our trials\" and \"agents "
+               + "should have budget caps\" look alike in an abstract and answer different "
+               + "questions — one is evidence, the other is advocacy."],
     method: ["method", "A technique or mechanism the work introduces."],
-    limitation: ["limitation", "A boundary the authors put on their own result."],
-    position: ["position", "An argument or recommendation, offered without evidence here."],
+    background: ["background", "An assertion about the state of the field or about prior "
+                 + "work, rather than about this paper's own contribution. Usually somebody "
+                 + "else's result, routinely asserted without evidence, and it dates badly — "
+                 + "so the thing to check is whether it is credited to whoever actually "
+                 + "showed it."],
+    limitation: ["limitation", "A boundary the authors put on their own result. Rare in "
+                 + "abstracts and disproportionately useful, because it is the part a "
+                 + "downstream reader is most likely to drop."],
   };
 
   // Re-tag an edited statement from its own words.

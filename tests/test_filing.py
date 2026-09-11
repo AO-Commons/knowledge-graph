@@ -477,3 +477,12 @@ class TestReviewSurface:
     def test_a_record_with_nothing_extracted_says_it_is_not_your_turn(self):
         page = self._page()
         assert "waiting on extraction, not on you" in page
+
+    def test_every_statement_type_is_explained(self):
+        """`background` was missing from the page's list for as long as the
+        list existed, so those statements rendered a bare label while the
+        others carried an explanation — and background is the type where the
+        hardest question lives, since it is usually somebody else's result."""
+        page = self._page()
+        for kind in ("finding", "position", "method", "background", "limitation"):
+            assert f"{kind}: [" in page, f"{kind} has no explanation on the review card"
