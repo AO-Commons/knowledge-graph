@@ -1064,16 +1064,32 @@
     // record level — and a button implying otherwise would be asking for a
     // confirmation that means nothing.
     const judged = (record.claims || []).filter(c => state.claims[c.id] || c.verdict).length;
-    const next = el("button", { className: "btn primary" },
-      hasClaims && judged === record.claims.length ? "Done — next paper" : "Next paper");
+
+    // Submit goes to Submit. Somebody reviewing one paper and stopping is
+    // the normal case, not the exception, and leaving them on a "next paper"
+    // button meant the work sat in a browser until they found the tab that
+    // sends it — which is the one step between doing the work and the work
+    // counting for anything.
+    const submit = el("button", { className: "btn primary" }, "Submit");
+    submit.disabled = !judgedTotal();
+    submit.title = judgedTotal()
+      ? "Opens Submit with everything you have judged, ready to send."
+      : "Judge at least one statement first.";
+    submit.addEventListener("click", () => {
+      state.viewing = null;
+      loadSubmissions(false);
+      setMode("export");
+    });
+
+    const next = el("button", { className: "btn" }, "Next paper");
     next.addEventListener("click", () => { state.viewing = null; advance(); });
-    const skip = el("button", { className: "btn" }, "Skip");
-    skip.addEventListener("click", () => { state.viewing = null; advance(); });
 
     ask.append(el("div", { className: "actions" }, [
-      next, skip,
+      submit, next,
       el("span", { className: "hint" },
-         `${judgedTotal()} statement${judgedTotal() === 1 ? "" : "s"} judged by you`),
+         judged && hasClaims && judged === record.claims.length
+           ? "This paper is done."
+           : `${judgedTotal()} statement${judgedTotal() === 1 ? "" : "s"} judged by you`),
     ]));
     stage.append(ask);
 

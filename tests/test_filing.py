@@ -606,4 +606,34 @@ class TestTemporarilyHidden:
     def test_the_taxonomy_tree_is_hidden_not_deleted(self):
         page = self._page()
         assert '<div id="tree" hidden></div>' in page
-        assert "Unhide both when the vocabulary has stabilised" in page
+        # Matched on one line: the comment wraps, and asserting across the
+        # break is a test that can never pass however right the code is.
+        assert "Unhide both when the vocabulary has" in page
+
+
+class TestSubmitPath:
+    """Somebody reviewing one paper and stopping is the normal case. The
+    step between doing the work and the work counting for anything should
+    not be finding the tab that sends it."""
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_submit_is_the_primary_action(self):
+        page = self._page()
+        assert 'el("button", { className: "btn primary" }, "Submit")' in page
+        assert '"btn primary" }, "Next paper")' not in page
+
+    def test_submit_goes_to_submit(self):
+        page = self._page()
+        block = page.split('el("button", { className: "btn primary" }, "Submit")')[1][:600]
+        assert 'setMode("export")' in block
+        assert "loadSubmissions(false)" in block
+
+    def test_it_is_disabled_until_there_is_something_to_send(self):
+        """An enabled button that submits nothing teaches people the button
+        does nothing."""
+        page = self._page()
+        assert "submit.disabled = !judgedTotal();" in page
