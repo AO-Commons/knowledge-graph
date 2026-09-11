@@ -18,11 +18,13 @@ from __future__ import annotations
 import hashlib
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 import yaml
 
 REPO = Path(__file__).resolve().parent.parent
+REFERENCES = REPO / "data" / "scholarly" / "references.jsonl"
 sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.claims import (  # noqa: E402
@@ -38,6 +40,8 @@ from ao_commons_kg.classify import (  # noqa: E402
     classify_resource,
 )
 from ao_commons_kg.resources import load_resources  # noqa: E402
+from ao_commons_kg.scholarly.keys import keys_for_corpus  # noqa: E402
+from ao_commons_kg.scholarly.store import ReferenceStore  # noqa: E402
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
 TEMPLATE = REPO / "site" / "template.html"
@@ -206,8 +210,43 @@ def build_payload() -> dict:
         "averageLength": round(index.average_length, 2),
     }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
 
+    # Every number the docs page states, measured here at build time.
+    #
+    # A documentation page that hard-codes its own figures is wrong within a
+    # week and nobody notices, because the page is the thing people check the
+    # figures against. These are counted from the same objects the rest of the
+    # payload is built from, so the page cannot disagree with the corpus it
+    # describes.
+    all_claims = [c for group in by_resource.values() for c in group]
+    reference_store = ReferenceStore.load(REFERENCES)
+    releases = sorted(p.name for p in (REPO / "data" / "releases").iterdir()
+                      if p.is_dir()) if (REPO / "data" / "releases").exists() else []
+    stats = {
+        "records": len(records),
+        "with_abstract": sum(1 for r in records if r["abstract"]),
+        "with_references": len(reference_store.entries),
+        "citation_edges": len(reference_store.citation_pairs(
+            keys_for_corpus(resources))),
+        "statements": len(all_claims),
+        "papers_with_statements": sum(1 for r in records if r["claims"]),
+        "primary": sum(1 for c in all_claims if c["primary"]),
+        "reviewed": sum(1 for c in all_claims if c.get("verdict")),
+        "by_type": {
+            kind: sum(1 for c in all_claims if c["type"] == kind)
+            for kind in ("finding", "position", "method", "background", "limitation")
+        },
+        "concepts_in_use": len({t for c in all_claims for t in (c["concepts"] or [])}),
+        "vocabulary": len(vocabulary.concepts),
+        "suggestion_pool": sum(len(t.subpoints or []) for t in topics),
+        "relations": len(relations),
+        "topics": len(topics),
+        "releases": releases,
+        "built": date.today().isoformat(),
+    }
+
     return {
         "generated_for": "AO Commons knowledge graph",
+        "stats": stats,
         # Injected rather than copied. The page scores queries against the
         # index built here, so every one of these existing twice was a way for
         # the two to drift apart in silence.
