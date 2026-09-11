@@ -180,6 +180,16 @@ model behind it has to be swappable without touching the selection rules.
 class Selection:
     """What one expansion run decided."""
 
+    unresolvable: list[Candidate] = field(default_factory=list)
+    """Candidates with no title, so nothing to judge.
+
+    Kept apart from refusals because they are a different fact. A refusal
+    says a work does not belong; this says the index could not tell us what
+    the work is. Filing the second as the first pays for a model call to
+    learn what an empty title already said, and buries a data problem inside
+    a scope decision — where it would be re-proposed and re-refused every
+    week, looking like a judgement."""
+
     admitted: list[tuple[Candidate, ScopeVerdict]] = field(default_factory=list)
     """Kept with the verdict that let each one in, not just the candidate.
     The reasoning goes into the record's `source_provenance`, and fetching
@@ -190,9 +200,13 @@ class Selection:
     over_budget: list[Candidate] = field(default_factory=list)
 
     def summary(self) -> str:
-        return (f"{len(self.admitted)} admitted, {len(self.rejected)} out of scope, "
-                f"{len(self.below_threshold)} below threshold, "
-                f"{len(self.over_budget)} deferred to the next run")
+        parts = [f"{len(self.admitted)} admitted",
+                 f"{len(self.rejected)} out of scope",
+                 f"{len(self.below_threshold)} below threshold",
+                 f"{len(self.over_budget)} deferred to the next run"]
+        if self.unresolvable:
+            parts.append(f"{len(self.unresolvable)} unresolvable")
+        return ", ".join(parts)
 
 
 def find_candidates(
@@ -284,7 +298,20 @@ def select(
         if len(selection.admitted) >= budget:
             selection.over_budget.append(candidate)
             continue
-        verdict = judge(candidate, (metadata or (lambda _: {}))(candidate))
+        facts = metadata(candidate) if metadata else {}
+        # Nothing to judge. Observed on a live run: an identifier 404s at
+        # OpenAlex, metadata comes back empty, and the scan is asked to
+        # assess a blank — which it correctly refuses, having cost a model
+        # call to do it.
+        #
+        # Only when a provider was configured and came back with nothing.
+        # No provider at all is a different situation — a judge that does
+        # not need one, which is every offline test — and treating the two
+        # alike would make the gate fire on exactly the cases it should not.
+        if metadata and not (facts.get("title") or "").strip():
+            selection.unresolvable.append(candidate)
+            continue
+        verdict = judge(candidate, facts)
         if verdict.admit:
             selection.admitted.append((candidate, verdict))
         else:

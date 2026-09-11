@@ -361,3 +361,38 @@ class TestBothDirections:
         assert find_candidates(
             {}, {"arxiv:held": "resource:b"}, {"resource:a": 0},
             citers={"resource:a": ["arxiv:held"]}) == []
+
+
+class TestUnresolvable:
+    """Observed on a live run: three of 44 candidates had corrupt upstream
+    metadata — a wrong title, a wrong abstract, and a 404. The scan caught
+    all three, which is the right outcome, but one of them cost a model call
+    to assess a blank."""
+
+    def test_a_candidate_with_no_title_never_reaches_the_judge(self):
+        seen = []
+
+        def judge(candidate, metadata):
+            seen.append(candidate.key)
+            return ScopeVerdict(True, "should not be asked", "test")
+
+        selection = select([Candidate("k", ("a", "b"), 1)], judge=judge,
+                           metadata=lambda c: {})
+        assert seen == []
+        assert [c.key for c in selection.unresolvable] == ["k"]
+        assert selection.admitted == []
+
+    def test_it_is_not_counted_as_out_of_scope(self):
+        """Different facts. One says the work does not belong; the other
+        says the index could not say what the work is."""
+        selection = select([Candidate("k", ("a", "b"), 1)], judge=admit_all,
+                           metadata=lambda c: {"title": "   "})
+        assert selection.rejected == []
+        assert len(selection.unresolvable) == 1
+        assert "unresolvable" in selection.summary()
+
+    def test_a_resolvable_candidate_is_unaffected(self):
+        selection = select([Candidate("k", ("a", "b"), 1)], judge=admit_all,
+                           metadata=lambda c: {"title": "A real paper"})
+        assert len(selection.admitted) == 1
+        assert selection.unresolvable == []

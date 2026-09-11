@@ -543,6 +543,9 @@ def cmd_grow(args) -> int:
     print(selection.summary())
     for candidate, verdict in selection.rejected:
         print(f"  refused {candidate.key}: {verdict.reasoning[:110]}")
+    for candidate in selection.unresolvable:
+        print(f"  unresolvable {candidate.key}: no title from OpenAlex, so there "
+              "was nothing to judge — a data problem, not a scope decision")
 
     # A scan that errors refuses, which is the safe direction and also an
     # excellent way to hide a broken key or a bad deploy: every candidate
