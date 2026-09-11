@@ -5,10 +5,20 @@
 # read differently depending on which paper you opened.
 #
 # Every relation here is an INFERRED edge. No source says "claim A disagrees
-# with claim B" — a person read both and decided. So each carries a
+# with claim B" — somebody read both and decided. So each carries a
 # confidence class and its reasoning in `because`, exactly as an extraction
 # carries its quote. An edge here that looked deterministic would be
 # asserting a judgement nobody made.
+#
+# As of 2026-09-12 that somebody is a machine, for all twelve. Nine of them
+# carried `asserted_by: ankeliu` until now and should not have: they were
+# drafted by a model and labelled with a person's name, which is precisely
+# the failure the confidence class exists to prevent, committed in the file
+# that exists to prevent it. Corrected rather than left, because a relation
+# attributed to a human reads as settled and none of these is.
+#
+# What `asserted_by` means: who made the judgement. Not who ran the command,
+# and not who owns the repository.
 #
 # Relation names follow CiTO (Shotton, 2010) so they mean what a reader
 # outside this project expects:
@@ -43,7 +53,7 @@ relations:
       that leading submissions exploited a weakness in the framework instead.
       A suite that can be gamed does not get harder by absorbing stronger
       agents; it absorbs stronger exploitation.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2509.14485:3
@@ -56,7 +66,7 @@ relations:
       submissions scored highest precisely where prosocial capability was not
       required — so what the suite reveals is not uniformly what it was built
       to reveal. A narrowing, not a contradiction.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2509.14485:4
@@ -67,7 +77,7 @@ relations:
       Within one paper: the finding that submissions exploited a framework
       weakness is the mechanism explaining why they scored highest where
       prosocial capability was not demanded.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2606.03237:6
@@ -79,7 +89,7 @@ relations:
       Superintelligence argues no existing evaluation approach meets the
       requirements for valid dynamic evaluation at all — the same failure,
       generalised from an instance to the class.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2606.03237:3
@@ -89,7 +99,7 @@ relations:
     because: >-
       Within one paper: deployment inducing endogenous non-stationarity is
       the premise from which the insufficiency of current evaluation follows.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   # ---------------------------------------------------------------------
@@ -109,7 +119,7 @@ relations:
       by Proof and Stake instead. Dissociative Identity goes further — for
       agents without persistent identity, reputation signals are actively
       harmful rather than merely weak. Same direction, stronger claim.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2605.30169:1
@@ -121,7 +131,7 @@ relations:
       sensitivity and costly non-fungibility is the premise; harm from
       reputation signals for dissociative agents is what follows when the
       presupposition fails.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2605.30169:5
@@ -133,7 +143,7 @@ relations:
       and to sanction. Dissociative Identity argues identity-based ex post
       governance is structurally inapplicable to LM agents, which conditions
       where the tiering recommendation can apply rather than refuting it.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   - source: claim:arxiv:2605.30169:2
@@ -144,7 +154,7 @@ relations:
       Within one paper: agents being assemblages of mutable modules is the
       observation; the loss of grounding for identifiability, predictability,
       credibility and rehabilitability is the consequence drawn from it.
-    asserted_by: ankeliu
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
   # ---------------------------------------------------------------------

@@ -425,3 +425,26 @@ class TestClaimTopicsAreDerived:
         edges = claim_edges(load_claims(), vocabulary=load_vocabulary())
         about = [e for e in edges if e.relation.value == "ABOUT"]
         assert about and all(e.confidence_class.value == "INFERRED" for e in about)
+
+
+class TestRelationAttribution:
+    """Who made a judgement is the one thing this file cannot get wrong.
+
+    Nine relations carried a person's name for two days and were drafted by
+    a model — the exact failure the confidence class exists to prevent,
+    committed in the file that exists to prevent it. A relation attributed
+    to a human reads as settled, and none of these is.
+    """
+
+    def test_nothing_claims_a_human_asserted_it_until_one_has(self):
+        from ao_commons_kg.claims import load_claim_relations
+        for relation in load_claim_relations(claims=load_claims()):
+            assert "unconfirmed" in (relation.extraction_method or ""), (
+                f"{relation.source_id} -> {relation.target_id} is attributed to a "
+                "person; if that is now true, this test should be the thing that "
+                "changes, deliberately")
+
+    def test_every_relation_still_carries_its_reasoning(self):
+        """Re-attributing must not have cost the `because`."""
+        from ao_commons_kg.claims import load_claim_relations
+        assert all(r.source_location for r in load_claim_relations(claims=load_claims()))
