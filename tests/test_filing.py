@@ -486,3 +486,51 @@ class TestReviewSurface:
         page = self._page()
         for kind in ("finding", "position", "method", "background", "limitation"):
             assert f"{kind}: [" in page, f"{kind} has no explanation on the review card"
+
+    def test_the_review_text_colour_passes_contrast(self):
+        """`--faint` carries the quote, the context line and every hint on
+        this screen — most of what a reviewer reads — and was 2.87:1 against
+        the sunk surface, below AA on every surface in both themes."""
+        import re
+
+        page = self._page()
+
+        def lum(value):
+            value = value.lstrip("#")
+            channels = [int(value[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+            channels = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+                        for c in channels]
+            return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2]
+
+        def ratio(a, b):
+            high, low = sorted([lum(a), lum(b)], reverse=True)
+            return (high + 0.05) / (low + 0.05)
+
+        for theme, pattern in (("light", r":root \{(.*?)\}"),
+                               ("dark", r':root\[data-theme="dark"\] \{(.*?)\}')):
+            block = re.search(pattern, page, re.S).group(1)
+            def token(name):
+                return re.search(rf"--{name}:\s*(#[0-9a-f]{{6}})", block).group(1)
+            for surface in ("card", "sunk"):
+                assert ratio(token("faint"), token(surface)) >= 4.5, (
+                    f"--faint fails AA on --{surface} in the {theme} theme")
+
+    def test_the_statement_blurb_is_gone(self):
+        """Three paragraphs of rationale stood between a reviewer and the
+        work. The rationale is still behind the info marker."""
+        page = self._page()
+        assert "read out of the paper automatically" not in page
+        assert "where the full text was available" not in page
+
+    def test_it_reads_as_a_task_with_an_end(self):
+        page = self._page()
+        assert 'className: "progress"' in page
+        assert "All statements checked" in page
+        assert "Check ${left} statement" in page
+
+    def test_a_judged_statement_steps_back(self):
+        """What is left should be findable by scrolling rather than by
+        reading every card."""
+        page = self._page()
+        assert ".claim.judged" in page
+        assert '(settled ? " judged" : "")' in page

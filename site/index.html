@@ -15,7 +15,11 @@
     --sunk:    #f1f1ec;
     --ink:     #16191c;
     --muted:   #55595e;
-    --faint:   #8b8f93;
+    /* 4.6:1 on the sunk surface, 5.2:1 on card. The old value was
+       2.87:1 against sunk — below AA on every surface in both themes,
+       and it carried the quote, the context line and every hint on the
+       review screen, which is most of what a reviewer reads. */
+    --faint:   #686d72;
     --rule:    #d8d8d0;
     --rule-hard: #b9b9ae;
     --accent:  #0b5e52;
@@ -33,7 +37,7 @@
     --sunk:    #111316;
     --ink:     #e9e9e3;
     --muted:   #9aa0a6;
-    --faint:   #6f757b;
+    --faint:   #8e949a;   /* 5.4:1 on card, 6.1:1 on sunk */
     --rule:    #2b2f35;
     --rule-hard: #3d434a;
     --accent:  #4fb6a0;
@@ -241,7 +245,12 @@
 
   .claims-block { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--rule-hard); }
   .kicker .flag { color: var(--accent); font-weight: 600; }
-  .claim { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .claim { padding: 14px 0 14px 13px; border-top: 1px solid var(--rule);
+           border-left: 2px solid transparent; }
+  /* What is left to do should be findable by scrolling, not by reading.
+     A judged statement steps back; an unjudged one keeps its weight. */
+  .claim.judged { border-left-color: var(--accent); opacity: .62; }
+  .claim.judged:hover, .claim.judged:focus-within { opacity: 1; }
   .claim:first-of-type { border-top: none; }
   .claim-text { font-size: 15px; line-height: 1.5; color: var(--ink); margin: 2px 0 10px; max-width: 62ch; }
   .ready { border-bottom: 1px solid var(--rule-hard); }
@@ -270,11 +279,11 @@
      about the same thing. Buttons, not labels — they go somewhere. */
   .concepts { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 10px; }
   .concept {
-    font-family: var(--mono); font-size: 11px; color: var(--faint);
-    border: 1px solid var(--rule); background: none; padding: 3px 8px;
-    cursor: pointer; border-radius: 2px;
+    font-family: var(--mono); font-size: 11.5px; color: var(--accent);
+    border: 1px solid var(--accent-soft); background: var(--accent-soft);
+    padding: 4px 9px; cursor: pointer; border-radius: 2px;
   }
-  .concept:hover, .concept:focus { color: var(--ink); border-color: var(--rule-hard); }
+  .concept:hover, .concept:focus { border-color: var(--accent); }
   .concept .n { opacity: .55; margin-left: 5px; }
   /* A relation is an assertion about two claims, so it is drawn as a block
      rather than a line of metadata — and an unconfirmed one is marked,
@@ -307,6 +316,31 @@
     border: 1px solid var(--rule); color: var(--faint); padding: 4px 9px;
   }
   #concept-close:hover { color: var(--ink); border-color: var(--rule-hard); }
+  /* The three actions are the work. They were chips — the same weight as a
+     tag, which is a label rather than a control — and sat below a quote in
+     the same grey. */
+  .claim .chips { gap: 7px; margin-top: 4px; }
+  .claim .chip {
+    font-size: 13px; font-weight: 500; padding: 7px 14px;
+    border: 1px solid var(--rule-hard); color: var(--ink); background: var(--card);
+  }
+  .claim .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .claim .chip[aria-pressed="true"] {
+    background: var(--accent); border-color: var(--accent); color: var(--on-accent);
+  }
+  /* The task header. A count, a bar, and one line of instruction. */
+  .prompt.task { position: relative; }
+  .prompt.task strong { font-size: 16px; }
+  .prompt.task .count {
+    position: absolute; top: 0; right: 0;
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .progress {
+    display: block; height: 3px; background: var(--rule);
+    margin: 9px 0 8px; overflow: hidden;
+  }
+  .progress .fill { display: block; height: 100%; background: var(--accent); }
   .chip.derived { border-style: dashed; }
   .chip.derived .n { opacity: .55; margin-left: 6px; font-size: 10.5px; }
   .retag-label {
@@ -1176,27 +1210,39 @@
       + mine(record).length;
 
     const total = record.claims.length + mine(record).length;
-    wrap.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, `${done} of ${total}`),
-      el("strong", {}, "Context statements"),
-      el("span", { className: "sub" },
-        `${record.claims.length} read out of the paper automatically — from the abstract and, `
-        + "where the full text was available, from its introduction, results and conclusion. "
-        + "Each shows the sentence it came from."),
+    const left = total - done;
+
+    // A task with a visible end. It read as an open-ended pile of prose
+    // before — three paragraphs of rationale above statements nobody had
+    // been told how many of there were, or when they would be finished.
+    // The rationale is still available behind the info marker; what changed
+    // is that it is no longer the first thing in the way.
+    const bar = el("div", { className: "progress" });
+    bar.append(el("span", { className: "fill",
+                            style: `width:${total ? (done / total) * 100 : 0}%` }));
+    wrap.append(el("div", { className: "prompt task" }, [
+      el("strong", {}, left === 0
+        ? "All statements checked"
+        : `Check ${left} statement${left === 1 ? "" : "s"}`),
+      el("span", { className: "count" }, `${done}/${total}`),
+      bar,
+      el("span", { className: "sub" }, left === 0
+        ? "Nothing left on this paper. Open Submit to send them in."
+        : "Judge each against its quote, not against the paper."),
       info(
-        "Why it is worth a minute: a confirmed statement carries its own source, so the "
-        + "library can answer a question with the sentence behind it rather than handing "
-        + "someone five papers to read.",
-        "How to judge one: against the quoted sentence, not against the paper. Every quote "
-        + "is checked word-for-word against the source before it reaches you, so if the "
-        + "quote does not support the statement, the statement is wrong.",
-        "A machine wrote these. Until a person confirms one, it stays marked as a machine's "
-        + "reading everywhere it appears.",
+        "A confirmed statement carries its own source, so the library can answer a "
+        + "question with the sentence behind it rather than handing someone five "
+        + "papers to read.",
+        "Every quote is checked word-for-word against the source before it reaches "
+        + "you, so if the quote does not support the statement, the statement is wrong.",
+        "A machine wrote these. Until a person confirms one, it stays marked as a "
+        + "machine's reading everywhere it appears.",
       ),
     ]));
 
     record.claims.forEach(claim => {
-      const card = el("div", { className: "claim" });
+      const settled = !!(state.claims[claim.id] || claim.verdict);
+      const card = el("div", { className: "claim" + (settled ? " judged" : "") });
       const kind = CLAIM_KINDS[claim.type] || [claim.type, ""];
       card.append(el("div", { className: "kicker" }, [
         el("span", {}, kind[0]),
