@@ -855,7 +855,7 @@
     }).length;
 
     host.append(el("div", { className: "tree-head" }, [
-      el("h2", {}, "Ready for complete review"),
+      el("h2", {}, "Has statements to check"),
       el("span", { className: "filled" }, `${outstanding} of ${ready.length} open`),
     ]));
 
@@ -863,8 +863,8 @@
       const p = progress(record);
       const complete = p.tagged && p.checked === p.total;
       const row = el("button", { className: "ready-row" + (complete ? " done" : "") });
-      row.title = "Both questions can be answered for this one: where it belongs, and "
-        + "whether its statements are right.";
+      row.title = "This one has statements, so a reviewer can check what it actually "
+        + "says rather than only where it goes.";
       row.append(
         el("span", { className: "t" }, shorten(record.title, 66)),
         el("span", { className: "s" },
@@ -903,7 +903,13 @@
   function queue() {
     let pending = DATA.records.filter(r => !state.decisions[r.id] && !merged.has(r.id));
     if (state.focusTopic) pending = pending.filter(r => inBranch(r, state.focusTopic));
-    return pending;
+    // Records with statements first. They are the ones where a reviewer can
+    // answer the question that matters — is this what the paper says — and
+    // where an hour produces something no machine could have. A record with
+    // nothing extracted offers only the judgement a classifier already
+    // guessed at, so it should not be the first thing anybody meets.
+    return [...pending].sort((a, b) =>
+      ((b.claims || []).length > 0) - ((a.claims || []).length > 0));
   }
 
   function renderReview() {
@@ -956,12 +962,34 @@
     // Everything that wants a decision lives in one marked block, so a
     // contributor can see where to act without reading first.
     const ask = el("div", { className: "ask" });
+    const hasClaims = !!(record.claims && record.claims.length);
+
+    // Statements come first where there are any, and the filing question
+    // changes shape depending on whether they exist.
+    //
+    // Filing used to be the whole of this screen and the first thing asked.
+    // That is the wrong question in the wrong order: naming what a paper is
+    // "about" before anything has said what it contains is guesswork, and
+    // the corpus shows it — two thirds of filed records carry more than one
+    // code because one was never the whole truth.
+    if (hasClaims) ask.append(claimPanel(record));
+
     ask.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, already ? "added" : "your call"),
-      el("strong", {}, "Which topics does this belong under?"),
-      el("span", { className: "sub" }, "Pick every one that applies — most papers sit under two or three."),
-      info("A topic is what the paper is about. Tag the most specific one that fits: "
-           + "tagging 2.2.2 already implies 2.2 and 2, so there is no need to add the parents."),
+      el("span", { className: "step" }, already ? "added" : hasClaims ? "then" : "your call"),
+      el("strong", {}, hasClaims
+        ? "And where does it belong?"
+        : "Which topics does this belong under?"),
+      el("span", { className: "sub" }, hasClaims
+        ? "Its statements already suggest categories below. Add what they miss — "
+          + "usually the framing: what kind of move the paper makes, not what it asserts."
+        : "Pick every one that applies — most papers sit under two or three."),
+      info(hasClaims
+        ? "Categories now derive from the concepts on a paper's statements. What is "
+          + "left to a person is the part derivation cannot see: a paper that reframes "
+          + "a field makes that contribution as a whole, and no sentence in it carries "
+          + "the frame."
+        : "A topic is what the paper is about. Tag the most specific one that fits: "
+          + "tagging 2.2.2 already implies 2.2 and 2, so there is no need to add the parents."),
     ]));
 
     // Five, not fourteen. A wall of near-misses makes the choice harder, and
@@ -1139,11 +1167,16 @@
     // screen below the fold and below the control that ends the task: a
     // reviewer tagged, clicked, and never saw it. Optional work still has to be
     // in the path of the eye, or it may as well not be built.
-    if (record.claims && record.claims.length) {
-      ask.append(claimPanel(record));
-    } else {
+    if (!hasClaims) {
+      // Honest about what is missing rather than presenting filing as the
+      // whole job. It is not the whole job — it is the half that can be done
+      // without having read the paper closely, and the more useful half has
+      // not been started.
       ask.append(el("p", { className: "hint", style: "margin-top:18px" },
-        "Nothing has been extracted from this one yet, so topics are the whole job here."));
+        "No statements have been extracted from this one, so there is nothing here to "
+        + "check against its own words. Filing it is still useful and still worth doing "
+        + "— but the categories will be a judgement from the abstract rather than from "
+        + "what the paper actually asserts."));
     }
 
     ask.append(el("div", { className: "actions" }, [

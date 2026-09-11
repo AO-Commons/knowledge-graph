@@ -410,3 +410,50 @@ class TestReviewPayload:
         entry = payload["concepts"]["agent-reputation-systems"]
         assert entry["label"] == "Agent reputation systems"
         assert len(entry["claims"]) > 1, "a concept on one claim connects nothing"
+
+
+class TestReviewOrder:
+    """Filing moved after extraction, and the review screen has to agree.
+
+    The screen used to open with "which topics does this belong under?" for
+    every record, which is the wrong question in the wrong order: naming
+    what a paper is about before anything has said what it contains is
+    guesswork, and the corpus shows it — two thirds of filed records carry
+    more than one code because one was never the whole truth.
+    """
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_statements_are_appended_before_the_filing_prompt(self):
+        page = self._page()
+        claims_at = page.index('if (hasClaims) ask.append(claimPanel(record));')
+        prompt_at = page.index('ask.append(el("div", { className: "prompt" }')
+        assert claims_at < prompt_at, (
+            "the filing question is being asked before the statements are shown")
+
+    def test_the_filing_question_changes_when_statements_exist(self):
+        """A record with statements is asked for the remainder — the framing
+        its own sentences cannot carry — not for a fresh guess."""
+        page = self._page()
+        assert "And where does it belong?" in page
+        assert "usually the framing" in page
+
+    def test_a_record_with_nothing_extracted_says_so_honestly(self):
+        """Filing it is still worth doing. Presenting that as the whole job
+        would misdescribe what the library needs from a reviewer."""
+        page = self._page()
+        assert "No statements have been extracted from this one" in page
+        # The message is built from concatenated literals, so match one of
+        # them rather than across the join.
+        assert "what the paper actually asserts" in page
+
+    def test_the_queue_puts_records_with_statements_first(self):
+        page = self._page()
+        assert "((b.claims || []).length > 0) - ((a.claims || []).length > 0)" in page
+
+    def test_the_sidebar_heading_describes_what_it_lists(self):
+        page = self._page()
+        assert "Has statements to check" in page
