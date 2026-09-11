@@ -1,8 +1,15 @@
 # Concepts the corpus argues about that the taxonomy has no subpoint for.
 #
-# The taxonomy's own 514 subpoints are the bulk of the concept vocabulary and
-# are read straight from the taxonomy file — they are not repeated here. This
-# file holds only what claims needed and the taxonomy did not have.
+# The vocabulary grows from the bottom up: a term is in it because a statement
+# needed it, not because somebody predicted the field would need it. The
+# evidence for doing it this way is in the corpus — of the terms carrying a
+# statement, more arrived from claims than from the taxonomy, and 506 taxonomy
+# subpoints have never been reached for at all.
+#
+# So those subpoints are a *suggestion pool*, searched before a near-duplicate
+# is invented and joining the vocabulary the moment a statement uses one. They
+# are read straight from the taxonomy file and not repeated here. This file
+# holds what claims needed and the pool did not have.
 #
 # Adding one is meant to be cheap. A concept is not a filing target, nothing
 # is tagged with it by obligation, and removing it later breaks nothing but
@@ -30,12 +37,16 @@
 # between claims carrying them simply is not. Half a link layer disappears
 # into a synonym and no error is ever raised.
 #
-# The loader refuses a term that collides. If it is genuinely a different
-# idea, say so on the entry:
+# The loader refuses a term that collides, and there is no way to assert past
+# it. Two resolutions, and "they are different, trust me" is not one: either
+# the terms name one idea, and you use the existing one — or the *name* is
+# doing a bad job of saying what differs, and the fix is a better name.
 #
-#   distinct_from_near_matches: >-
-#     Not the same as `agent-reputation-systems`: that is the mechanism, this
-#     is the precondition it runs on.
+# Prefer the more specific. 'agent reputation' is a worse term than 'agent
+# reputation systems' because it could mean either, and a vocabulary holding
+# both makes every tagger guess. If the new idea is genuinely distinct, say
+# what it is in the label — 'reputation portability between agent ecosystems'
+# collides with nothing because it is actually specific.
 #
 # Then: reuse before adding. A term nothing else will ever carry proposes no
 # pairs, which is the only thing a concept is for. Three of the seventeen in

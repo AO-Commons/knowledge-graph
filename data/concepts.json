@@ -1,11 +1,12 @@
 {
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
+  "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "total": 523,
-    "from_taxonomy": 514,
-    "from_claims": 9,
-    "carrying_a_statement": 17,
-    "on_exactly_one": 3
+    "vocabulary": 17,
+    "vocabulary_from_claims": 9,
+    "vocabulary_from_taxonomy": 8,
+    "on_exactly_one_statement": 3,
+    "suggestions_available": 506
   },
   "looks_like_one_idea": [
     {
@@ -49,7 +50,263 @@
       "b": "continuous-evaluation-in-production"
     }
   ],
-  "concepts": [
+  "vocabulary": [
+    {
+      "id": "agent-generated-evaluation-and-scoring",
+      "label": "Agent-generated evaluation and scoring",
+      "topics": [
+        "8.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:5",
+        "claim:arxiv:2107.06857:6"
+      ]
+    },
+    {
+      "id": "agent-reputation-systems",
+      "label": "Agent reputation systems",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 7,
+      "claims": [
+        "claim:arxiv:2107.06857:13",
+        "claim:arxiv:2511.03434:2",
+        "claim:arxiv:2511.03434:3",
+        "claim:arxiv:2511.03434:4",
+        "claim:arxiv:2605.30169:1",
+        "claim:arxiv:2605.30169:3",
+        "claim:arxiv:2605.30169:4"
+      ]
+    },
+    {
+      "id": "benchmarks-relevant-to-organizational-roles",
+      "label": "Benchmarks relevant to organizational roles",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:2",
+        "claim:arxiv:2107.06857:4"
+      ]
+    },
+    {
+      "id": "capability-profiling",
+      "label": "Capability profiling",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2509.14485:1",
+        "claim:arxiv:2509.14485:2",
+        "claim:arxiv:2509.14485:6"
+      ],
+      "note": "Inferring a per-ability profile rather than a single score, so that future performance can be predicted per scenario."
+    },
+    {
+      "id": "dissociative-agent-identity",
+      "label": "Dissociative agent identity",
+      "topics": [
+        "5.3",
+        "6.3"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2605.30169:2",
+        "claim:arxiv:2605.30169:3",
+        "claim:arxiv:2605.30169:4"
+      ],
+      "note": "An LLM agent is an assemblage of swappable modules, so the persistent identity reputation presumes may not exist. 5.3 covers reputation systems and 6.1 covers identity issuance; neither names the case where identity fails to persist at all."
+    },
+    {
+      "id": "dynamic-evaluation",
+      "label": "Dynamic evaluation",
+      "topics": [
+        "14.1",
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2107.06857:14",
+        "claim:arxiv:2606.03237:5",
+        "claim:arxiv:2606.03237:6"
+      ],
+      "note": "Evaluation whose test distribution depends on the policy being evaluated. The proposed answer to endogenous non-stationarity, and what 2606.03237 argues no current suite achieves."
+    },
+    {
+      "id": "endogenous-non-stationarity",
+      "label": "Endogenous non-stationarity",
+      "topics": [
+        "5.2",
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 5,
+      "claims": [
+        "claim:arxiv:2606.03237:1",
+        "claim:arxiv:2606.03237:2",
+        "claim:arxiv:2606.03237:3",
+        "claim:arxiv:2606.03237:4",
+        "claim:arxiv:2606.03237:7"
+      ],
+      "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
+    },
+    {
+      "id": "evaluation-gaming-and-answer-key-attacks",
+      "label": "Evaluation gaming and answer-key attacks",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2107.06857:14",
+        "claim:arxiv:2509.14485:4",
+        "claim:arxiv:2509.14485:5",
+        "claim:arxiv:2509.14485:7"
+      ]
+    },
+    {
+      "id": "organisational-knowledge-legibility",
+      "label": "Organisational knowledge legibility",
+      "topics": [
+        "16.1",
+        "2.4"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:1",
+        "claim:doi:10-1111-epic-70009:2",
+        "claim:doi:10-1111-epic-70009:3",
+        "claim:doi:10-1111-epic-70009:4"
+      ],
+      "note": "Making an organisation's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organisational Intelligence work."
+    },
+    {
+      "id": "prosocial-capability",
+      "label": "Prosocial capability",
+      "topics": [
+        "5.2",
+        "14.1"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2107.06857:13",
+        "claim:arxiv:2107.06857:6",
+        "claim:arxiv:2509.14485:3",
+        "claim:arxiv:2509.14485:4"
+      ],
+      "note": "Cooperation, reciprocity and restraint measured as a capability in its own right, separately from task score. The distinction 2509.14485 shows a leaderboard collapses."
+    },
+    {
+      "id": "reliability-and-consistency-measurement",
+      "label": "Reliability and consistency measurement",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:3",
+        "claim:arxiv:2107.06857:8"
+      ]
+    },
+    {
+      "id": "sanction-sensitivity",
+      "label": "Sanction sensitivity",
+      "topics": [
+        "5.3",
+        "2.7"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2511.03434:7",
+        "claim:arxiv:2605.30169:1",
+        "claim:arxiv:2605.30169:5",
+        "claim:arxiv:2605.30169:6"
+      ],
+      "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
+    },
+    {
+      "id": "stake-based-trust",
+      "label": "Stake-based trust",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:arxiv:2511.03434:4",
+        "claim:arxiv:2511.03434:5",
+        "claim:arxiv:2511.03434:6",
+        "claim:arxiv:2511.03434:7"
+      ],
+      "note": "Trust backed by something forfeitable. Sits alongside the reputation systems already at 5.3 and is the mechanism 2511.03434 recommends in their place for high-impact actions."
+    },
+    {
+      "id": "task-specific-and-domain-evaluation",
+      "label": "Task-specific and domain evaluation",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2107.06857:1"
+      ]
+    },
+    {
+      "id": "train-test-deploy-gap",
+      "label": "Train-test-deploy gap",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "claim",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2606.03237:3",
+        "claim:arxiv:2606.03237:6"
+      ],
+      "note": "The third term is the new one. Held-out test data still comes from the pre-deployment world."
+    },
+    {
+      "id": "trust-bootstrapping-for-new-agents",
+      "label": "Trust bootstrapping for new agents",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:1"
+      ]
+    },
+    {
+      "id": "verification-of-agent-claims-by-other-agents",
+      "label": "Verification of agent claims by other agents",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:6"
+      ]
+    }
+  ],
+  "suggestions": [
     {
       "id": "access-and-observability-constraints-on-research",
       "label": "Access and observability constraints on research",
@@ -240,19 +497,6 @@
       "statements": 0
     },
     {
-      "id": "agent-generated-evaluation-and-scoring",
-      "label": "Agent-generated evaluation and scoring",
-      "topics": [
-        "8.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 2,
-      "claims": [
-        "claim:arxiv:2107.06857:5",
-        "claim:arxiv:2107.06857:6"
-      ]
-    },
-    {
       "id": "agent-held-reputation-and-accrued-weight",
       "label": "Agent-held reputation and accrued weight",
       "topics": [
@@ -350,24 +594,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "agent-reputation-systems",
-      "label": "Agent reputation systems",
-      "topics": [
-        "5.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 7,
-      "claims": [
-        "claim:arxiv:2107.06857:13",
-        "claim:arxiv:2511.03434:2",
-        "claim:arxiv:2511.03434:3",
-        "claim:arxiv:2511.03434:4",
-        "claim:arxiv:2605.30169:1",
-        "claim:arxiv:2605.30169:3",
-        "claim:arxiv:2605.30169:4"
-      ]
     },
     {
       "id": "agent-screening-and-triage-of-applications",
@@ -730,19 +956,6 @@
       "statements": 0
     },
     {
-      "id": "benchmarks-relevant-to-organizational-roles",
-      "label": "Benchmarks relevant to organizational roles",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 2,
-      "claims": [
-        "claim:arxiv:2107.06857:2",
-        "claim:arxiv:2107.06857:4"
-      ]
-    },
-    {
       "id": "bias-and-systematic-error-in-machine-evaluation",
       "label": "Bias and systematic error in machine evaluation",
       "topics": [
@@ -876,21 +1089,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "capability-profiling",
-      "label": "Capability profiling",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "claim",
-      "statements": 3,
-      "claims": [
-        "claim:arxiv:2509.14485:1",
-        "claim:arxiv:2509.14485:2",
-        "claim:arxiv:2509.14485:6"
-      ],
-      "note": "Inferring a per-ability profile rather than a single score, so that future performance can be predicted per scenario."
     },
     {
       "id": "capability-thresholds-for-substitution",
@@ -1595,22 +1793,6 @@
       "statements": 0
     },
     {
-      "id": "dissociative-agent-identity",
-      "label": "Dissociative agent identity",
-      "topics": [
-        "5.3",
-        "6.3"
-      ],
-      "origin": "claim",
-      "statements": 3,
-      "claims": [
-        "claim:arxiv:2605.30169:2",
-        "claim:arxiv:2605.30169:3",
-        "claim:arxiv:2605.30169:4"
-      ],
-      "note": "An LLM agent is an assemblage of swappable modules, so the persistent identity reputation presumes may not exist. 5.3 covers reputation systems and 6.1 covers identity issuance; neither names the case where identity fails to persist at all."
-    },
-    {
       "id": "domain-restrictions-and-scope-fencing",
       "label": "Domain restrictions and scope fencing",
       "topics": [
@@ -1645,22 +1827,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "dynamic-evaluation",
-      "label": "Dynamic evaluation",
-      "topics": [
-        "14.1",
-        "14.3"
-      ],
-      "origin": "claim",
-      "statements": 3,
-      "claims": [
-        "claim:arxiv:2107.06857:14",
-        "claim:arxiv:2606.03237:5",
-        "claim:arxiv:2606.03237:6"
-      ],
-      "note": "Evaluation whose test distribution depends on the policy being evaluated. The proposed answer to endogenous non-stationarity, and what 2606.03237 argues no current suite achieves."
     },
     {
       "id": "egress-and-network-reachability-as-governed-resources",
@@ -1762,24 +1928,6 @@
       "statements": 0
     },
     {
-      "id": "endogenous-non-stationarity",
-      "label": "Endogenous non-stationarity",
-      "topics": [
-        "5.2",
-        "14.3"
-      ],
-      "origin": "claim",
-      "statements": 5,
-      "claims": [
-        "claim:arxiv:2606.03237:1",
-        "claim:arxiv:2606.03237:2",
-        "claim:arxiv:2606.03237:3",
-        "claim:arxiv:2606.03237:4",
-        "claim:arxiv:2606.03237:7"
-      ],
-      "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
-    },
-    {
       "id": "enforcement-against-organizations-without-legal-form",
       "label": "Enforcement against organizations without legal form",
       "topics": [
@@ -1877,21 +2025,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "evaluation-gaming-and-answer-key-attacks",
-      "label": "Evaluation gaming and answer-key attacks",
-      "topics": [
-        "14.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 4,
-      "claims": [
-        "claim:arxiv:2107.06857:14",
-        "claim:arxiv:2509.14485:4",
-        "claim:arxiv:2509.14485:5",
-        "claim:arxiv:2509.14485:7"
-      ]
     },
     {
       "id": "exit-planning-and-provider-substitutability",
@@ -3217,23 +3350,6 @@
       "statements": 0
     },
     {
-      "id": "organisational-knowledge-legibility",
-      "label": "Organisational knowledge legibility",
-      "topics": [
-        "16.1",
-        "2.4"
-      ],
-      "origin": "claim",
-      "statements": 4,
-      "claims": [
-        "claim:doi:10-1111-epic-70009:1",
-        "claim:doi:10-1111-epic-70009:2",
-        "claim:doi:10-1111-epic-70009:3",
-        "claim:doi:10-1111-epic-70009:4"
-      ],
-      "note": "Making an organisation's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organisational Intelligence work."
-    },
-    {
       "id": "organization-to-organization-agent-interaction",
       "label": "Organization-to-organization agent interaction",
       "topics": [
@@ -3558,23 +3674,6 @@
       "statements": 0
     },
     {
-      "id": "prosocial-capability",
-      "label": "Prosocial capability",
-      "topics": [
-        "5.2",
-        "14.1"
-      ],
-      "origin": "claim",
-      "statements": 4,
-      "claims": [
-        "claim:arxiv:2107.06857:13",
-        "claim:arxiv:2107.06857:6",
-        "claim:arxiv:2509.14485:3",
-        "claim:arxiv:2509.14485:4"
-      ],
-      "note": "Cooperation, reciprocity and restraint measured as a capability in its own right, separately from task score. The distinction 2509.14485 shows a leaderboard collapses."
-    },
-    {
       "id": "provenance-and-content-addressing-for-agent-consumed-knowledge",
       "label": "Provenance and content addressing for agent-consumed knowledge",
       "topics": [
@@ -3735,19 +3834,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "reliability-and-consistency-measurement",
-      "label": "Reliability and consistency measurement",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 2,
-      "claims": [
-        "claim:arxiv:2107.06857:3",
-        "claim:arxiv:2107.06857:8"
-      ]
     },
     {
       "id": "replication-under-model-version-churn",
@@ -4020,23 +4106,6 @@
       "statements": 0
     },
     {
-      "id": "sanction-sensitivity",
-      "label": "Sanction sensitivity",
-      "topics": [
-        "5.3",
-        "2.7"
-      ],
-      "origin": "claim",
-      "statements": 4,
-      "claims": [
-        "claim:arxiv:2511.03434:7",
-        "claim:arxiv:2605.30169:1",
-        "claim:arxiv:2605.30169:5",
-        "claim:arxiv:2605.30169:6"
-      ],
-      "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
-    },
-    {
       "id": "sandbox-and-isolation-escape",
       "label": "Sandbox and isolation escape",
       "topics": [
@@ -4298,22 +4367,6 @@
       "statements": 0
     },
     {
-      "id": "stake-based-trust",
-      "label": "Stake-based trust",
-      "topics": [
-        "5.3"
-      ],
-      "origin": "claim",
-      "statements": 4,
-      "claims": [
-        "claim:arxiv:2511.03434:4",
-        "claim:arxiv:2511.03434:5",
-        "claim:arxiv:2511.03434:6",
-        "claim:arxiv:2511.03434:7"
-      ],
-      "note": "Trust backed by something forfeitable. Sits alongside the reputation systems already at 5.3 and is the mechanism 2511.03434 recommends in their place for high-impact actions."
-    },
-    {
       "id": "stamp-and-stpa-systems-theoretic-analysis",
       "label": "STAMP and STPA systems-theoretic analysis",
       "topics": [
@@ -4429,18 +4482,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "task-specific-and-domain-evaluation",
-      "label": "Task-specific and domain evaluation",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2107.06857:1"
-      ]
     },
     {
       "id": "taxonomies-of-organizational-autonomy-levels",
@@ -4578,20 +4619,6 @@
       "statements": 0
     },
     {
-      "id": "train-test-deploy-gap",
-      "label": "Train-test-deploy gap",
-      "topics": [
-        "14.3"
-      ],
-      "origin": "claim",
-      "statements": 2,
-      "claims": [
-        "claim:arxiv:2606.03237:3",
-        "claim:arxiv:2606.03237:6"
-      ],
-      "note": "The third term is the new one. Held-out test data still comes from the pre-deployment world."
-    },
-    {
       "id": "transparency-and-disclosure-to-affected-parties",
       "label": "Transparency and disclosure to affected parties",
       "topics": [
@@ -4608,18 +4635,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "trust-bootstrapping-for-new-agents",
-      "label": "Trust bootstrapping for new agents",
-      "topics": [
-        "5.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2511.03434:1"
-      ]
     },
     {
       "id": "trust-boundaries-within-the-organization",
@@ -4746,18 +4761,6 @@
       ],
       "origin": "taxonomy",
       "statements": 0
-    },
-    {
-      "id": "verification-of-agent-claims-by-other-agents",
-      "label": "Verification of agent claims by other agents",
-      "topics": [
-        "5.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2511.03434:6"
-      ]
     },
     {
       "id": "viable-system-model-with-machine-subsystems",

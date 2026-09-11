@@ -179,14 +179,25 @@ which is the entire reason the layer exists: `sanction-sensitivity` is a
 better tag than `inter-agent trust`, because two claims sharing the first are
 worth reading together and two sharing the second are not.
 
-The vocabulary is 523 terms. **514 of them are the taxonomy's own demoted leaf
-titles**, read from the taxonomy file rather than copied — one source of
-truth. The other 9 are terms the corpus needed and the taxonomy had no shelf
-for, in `concepts-extra.yml`, each carrying the categories it sits under.
+**The vocabulary is what statements have needed, and it grows from the bottom
+up.** A term is in it because a claim argued about something, not because
+somebody predicted the field would. The corpus is the argument for doing it
+this way:
 
-Concepts grow bottom-up from what the corpus argues about; the taxonomy stays
-top-down and stable. That asymmetry is what makes a new concept cheap and a
-new topic code expensive.
+```
+17 terms in use — 9 grown from statements, 8 taken from the pool
+506 taxonomy subpoints never reached for
+```
+
+More of the working vocabulary arrived from claims than from the taxonomy,
+and the predefined majority has gone untouched. So the taxonomy's 514
+subpoints are a **suggestion pool** — searched before a near-duplicate is
+invented, joining the vocabulary the moment a statement uses one — rather
+than the vocabulary itself.
+
+The asymmetry with the taxonomy is the point: a concept is cheap and
+reversible, a topic code is a stable identifier other people's filings point
+at.
 
 A tag that does not resolve fails loudly. A concept whose id disagrees with
 its label fails too — two of the first nine drifted.
@@ -212,16 +223,22 @@ built at load time — 514 terms parsed out of indented bullets in a markdown
 document about something else — so the one instruction the process gives,
 *check before you add*, required a local checkout and an installed package.
 
-The loader refuses a term that collides with an existing one, and a
-genuinely different idea has to say why in a sentence rather than tick a
-box. Reuse before adding: a term nothing else will ever carry proposes no
-pairs, which is the only thing a concept is for.
+The loader refuses a colliding term, with no way to assert past it. Two
+resolutions and "they are different, trust me" is not one: either the terms
+name one idea and you use the existing one, or the *name* is failing to say
+what differs and the fix is a better name.
 
-The list is honest about its own state — 523 terms, **17 carrying a
-statement and 506 inert**, and **8 pairs that look like one idea**, all
-inherited from the taxonomy's subpoints, which were written as prose rather
-than as a controlled vocabulary. Those can only be fixed where the taxonomy
-is. What the loader prevents is a ninth.
+Prefer the more specific. `agent reputation` is a worse term than `agent
+reputation systems` because it could mean either, and a vocabulary holding
+both makes every tagger guess. A genuinely distinct idea says so in its
+label — `reputation portability between agent ecosystems` collides with
+nothing because it is actually specific.
+
+It separates the vocabulary from the pool rather than reporting 523 as one
+list, and ships the **8 pairs that look like one idea** — all inherited from
+the taxonomy's subpoints, which were written as prose rather than as a
+controlled vocabulary. Those can only be fixed where the taxonomy is. What
+the loader prevents is a ninth.
 
 **Coverage: 40 of 40 statements tagged, 17 concepts in use.**
 

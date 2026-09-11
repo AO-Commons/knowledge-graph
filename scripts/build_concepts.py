@@ -65,17 +65,30 @@ def build() -> dict:
             entry["note"] = concept.note
         concepts.append(entry)
 
+    # The vocabulary is what statements have needed. Everything else is a
+    # suggestion — available to be found before a near-duplicate is invented,
+    # and not yet part of the list. Reporting 523 as "the vocabulary" would
+    # describe a predefined scheme this deliberately is not: 9 of the 17 terms
+    # in use arrived from claims, and 506 taxonomy terms have never been
+    # reached for.
+    in_use = [c for c in concepts if c["statements"]]
+    suggestions = [c for c in concepts if not c["statements"]]
+
     return {
         # Said in the file, because a generated artifact that does not say so
         # is one somebody will eventually hand-edit.
         "generated_by": "scripts/build_concepts.py — do not edit; "
                         "terms are defined in the taxonomy and concepts-extra.yml",
+        "how_this_grows": "bottom-up, from statements. A term enters the vocabulary "
+                          "when a claim needs it. The taxonomy's subpoints are a "
+                          "suggestion pool to search before inventing a near-duplicate, "
+                          "and join the vocabulary the moment a statement uses one.",
         "counts": {
-            "total": len(concepts),
-            "from_taxonomy": sum(1 for c in concepts if c["origin"] == "taxonomy"),
-            "from_claims": sum(1 for c in concepts if c["origin"] == "claim"),
-            "carrying_a_statement": sum(1 for c in concepts if c["statements"]),
-            "on_exactly_one": sum(1 for c in concepts if c["statements"] == 1),
+            "vocabulary": len(in_use),
+            "vocabulary_from_claims": sum(1 for c in in_use if c["origin"] == "claim"),
+            "vocabulary_from_taxonomy": sum(1 for c in in_use if c["origin"] == "taxonomy"),
+            "on_exactly_one_statement": sum(1 for c in in_use if c["statements"] == 1),
+            "suggestions_available": len(suggestions),
         },
         # Shipped rather than left to be rediscovered. These cannot be fixed
         # here — the taxonomy owns 514 of the terms — but a list that hides
@@ -84,7 +97,8 @@ def build() -> dict:
             {"similarity": round(score, 3), "a": left.id, "b": right.id}
             for score, left, right in duplicate_pairs(vocabulary)
         ],
-        "concepts": concepts,
+        "vocabulary": in_use,
+        "suggestions": suggestions,
     }
 
 
@@ -94,10 +108,11 @@ def main() -> int:
                       encoding="utf-8")
     counts = payload["counts"]
     print(f"wrote {OUTPUT.relative_to(REPO)}  {OUTPUT.stat().st_size:,} bytes")
-    print(f"  {counts['total']} concepts — {counts['from_taxonomy']} from the taxonomy, "
-          f"{counts['from_claims']} from claims")
-    print(f"  {counts['carrying_a_statement']} carry a statement, "
-          f"{counts['on_exactly_one']} on exactly one")
+    print(f"  vocabulary: {counts['vocabulary']} terms in use — "
+          f"{counts['vocabulary_from_claims']} grown from statements, "
+          f"{counts['vocabulary_from_taxonomy']} taken from the suggestion pool")
+    print(f"  {counts['on_exactly_one_statement']} sit on one statement and connect nothing yet")
+    print(f"  {counts['suggestions_available']} suggestions available, unused")
     print(f"  {len(payload['looks_like_one_idea'])} pairs look like one idea")
     return 0
 

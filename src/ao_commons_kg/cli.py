@@ -718,10 +718,10 @@ def cmd_concepts(args) -> int:
 
     counts = usage(claims, vocabulary)
     used = {k: n for k, n in counts.items() if n}
-    origins = Counter(c.origin for c in vocabulary.concepts.values())
-    print(f"{len(vocabulary)} concepts — {origins['taxonomy']} inherited from the "
-          f"taxonomy, {origins['claim']} added from claims")
-    print(f"{len(used)} carry a statement; {len(counts) - len(used)} are inert\n")
+    grown = sum(1 for k in used if vocabulary.get(k).origin == "claim")
+    print(f"vocabulary: {len(used)} terms in use — {grown} grown from statements, "
+          f"{len(used) - grown} taken from the suggestion pool")
+    print(f"{len(counts) - len(used)} suggestions available, never reached for\n")
 
     alone = sorted(k for k, n in counts.items() if n == 1)
     if alone:
@@ -749,7 +749,7 @@ def cmd_concepts(args) -> int:
         print(f"added from claims: {len(from_claims)}"
               + (f", {len(untopiced)} with no taxonomy home: {untopiced}" if untopiced else ""))
         if len(from_claims) > 30:
-            print("  That is a lot. A concept layer drifting this far from the taxonomy "
+            print("  That is a lot. A vocabulary drifting this far from the taxonomy "
                   "is evidence about the taxonomy — consider a topic proposal.")
     return 0
 

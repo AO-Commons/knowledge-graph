@@ -265,16 +265,32 @@ class TestVocabularyHygiene:
         with pytest.raises(ValueError, match="agent-reputation-systems"):
             load_vocabulary(extra_path=extra)
 
-    def test_a_genuinely_different_idea_can_say_so(self, tmp_path):
-        """The escape hatch has to exist, and has to be a sentence somebody
-        wrote rather than a boolean nobody reads."""
+    def test_asserting_distinctness_does_not_get_you_past_the_check(self, tmp_path):
+        """There is no escape hatch, deliberately. If two labels are this
+        close, either they name one idea — use the existing term — or the
+        name is doing a bad job of saying what differs, and the fix is a
+        better name. A note explaining the collision away leaves the
+        ambiguity exactly where it does damage: on the screen at tagging
+        time, where somebody has to pick one."""
         from ao_commons_kg.concepts import load_vocabulary
         extra = tmp_path / "extra.yml"
         extra.write_text(yaml.safe_dump({"concepts": [
             {"label": "Agent reputation", "topics": ["5.3"],
-             "distinct_from_near_matches": "the signal, not the system carrying it"},
+             "distinct_from_near_matches": "asserting it is different"},
         ]}), encoding="utf-8")
-        assert "agent-reputation" in load_vocabulary(extra_path=extra)
+        with pytest.raises(ValueError, match="rename yours"):
+            load_vocabulary(extra_path=extra)
+
+    def test_a_distinct_idea_gets_in_by_being_named_distinctly(self, tmp_path):
+        """The intended resolution: not a flag, a clearer label."""
+        from ao_commons_kg.concepts import load_vocabulary
+        extra = tmp_path / "extra.yml"
+        extra.write_text(yaml.safe_dump({"concepts": [
+            {"label": "Reputation portability between agent ecosystems",
+             "topics": ["5.3"]},
+        ]}), encoding="utf-8")
+        assert "reputation-portability-between-agent-ecosystems" in load_vocabulary(
+            extra_path=extra)
 
     def test_containment_is_caught_where_ratio_alone_misses_it(self):
         """"Agent reputation" against "Agent reputation systems" scores 0.80
@@ -333,12 +349,26 @@ class TestGeneratedList:
         is rebuilt."""
         assert self._committed() == self._built()
 
-    def test_it_holds_every_term_not_only_the_used_ones(self):
-        """The site payload carries 17. A contributor asking "does this term
-        already exist" needs all 523, and the unused ones are most of what
-        they would be duplicating."""
+    def test_the_vocabulary_is_what_statements_use(self):
+        """Not a predefined 523. The list grows bottom-up: a term enters when
+        a claim needs it, and the taxonomy's subpoints are a pool to search
+        before inventing a near-duplicate."""
         payload = self._committed()
-        assert payload["counts"]["total"] == len(payload["concepts"]) >= 520
+        assert payload["counts"]["vocabulary"] == len(payload["vocabulary"])
+        assert all(c["statements"] for c in payload["vocabulary"])
+        assert payload["counts"]["vocabulary_from_claims"] > 0
+
+    def test_suggestions_are_kept_apart_from_the_vocabulary(self):
+        """Reporting the pool as the vocabulary would describe a predefined
+        scheme this deliberately is not — and 506 of the 523 have never been
+        reached for."""
+        payload = self._committed()
+        assert all(not c["statements"] for c in payload["suggestions"])
+        assert payload["counts"]["suggestions_available"] == len(payload["suggestions"])
+        assert payload["counts"]["suggestions_available"] > payload["counts"]["vocabulary"]
+
+    def test_it_says_how_it_grows(self):
+        assert "bottom-up" in self._committed()["how_this_grows"]
 
     def test_it_says_it_is_generated(self):
         """A build artifact that does not say so is one somebody hand-edits."""
@@ -349,8 +379,7 @@ class TestGeneratedList:
         earned."""
         assert len(self._committed()["looks_like_one_idea"]) >= 8
 
-    def test_every_concept_records_whether_anything_uses_it(self):
+    def test_every_term_records_whether_anything_uses_it(self):
         payload = self._committed()
-        assert all("statements" in c for c in payload["concepts"])
-        assert payload["counts"]["carrying_a_statement"] == sum(
-            1 for c in payload["concepts"] if c["statements"])
+        everything = payload["vocabulary"] + payload["suggestions"]
+        assert all("statements" in c for c in everything)

@@ -14,7 +14,20 @@ not filing targets. They are how two claims from different papers become
 findable as candidates for a relation, and how a researcher arrives with a
 question rather than guessing which branch it lives under.
 
-The vocabulary comes from two places, and never from a third:
+**The vocabulary is what statements have needed.** It grows from the bottom
+up, one term at a time, when a claim argues about something nothing existing
+covers — which is the opposite of how the taxonomy works and deliberately so.
+A predefined list is a guess about what a field will turn out to argue about,
+and the evidence here is that the guess mostly missed: of the 17 terms
+carrying a statement, 9 arrived from claims and 8 from the taxonomy, while
+506 taxonomy terms have never been reached for at all.
+
+So the taxonomy's subpoints are a **suggestion pool**, not the vocabulary.
+They are there to be found before a near-duplicate is invented, and they
+join the vocabulary the moment a statement uses one. Until then they are
+available, not in use.
+
+The terms come from two places, and never from a third:
 
 1. **The taxonomy's own subpoints.** 514 leaf titles were demoted to notes in
    August, when measurement showed the leaf layer was forcing a hard choice on
@@ -190,17 +203,27 @@ def load_vocabulary(taxonomy_path: Path | str = TAXONOMY,
             # carrying them simply is not, so half a link layer disappears
             # into a synonym. Refused here, where a person is looking, rather
             # than discovered later as an absence.
-            if not entry.get("distinct_from_near_matches"):
-                close = similar_terms(label, Vocabulary(concepts=dict(concepts)))
-                if close:
-                    listed = ", ".join(f"{c.id!r} ({s:.0%})" for s, c in close[:3])
-                    raise ValueError(
-                        f"concept {key!r} looks like an existing term: {listed}. "
-                        "Use the existing one, or if it is genuinely a different "
-                        "idea say so with `distinct_from_near_matches: <why>` on "
-                        "the entry — two terms for one idea silently halves the "
-                        "relations either would have proposed."
-                    )
+            close = similar_terms(label, Vocabulary(concepts=dict(concepts)))
+            if close:
+                score, twin = close[0]
+                listed = ", ".join(f"{c.id!r} ({s:.0%})" for s, c in close[:3])
+                # Two resolutions, and asserting they are different is not one
+                # of them. If two labels are this close, either they name one
+                # idea — use the existing term — or the *name* is doing a bad
+                # job of saying what is different about the new one, and the
+                # fix is a better name rather than a note explaining the
+                # collision away. A metadata field asserting distinctness
+                # leaves the ambiguity in the vocabulary where it does its
+                # damage: on the screen, at tagging time, where somebody has
+                # to pick one.
+                raise ValueError(
+                    f"concept {key!r} is too close to {listed}.\n"
+                    f"Either use {twin.id!r}, or rename yours so the difference "
+                    "is in the label. Prefer the more specific of two: "
+                    "'agent reputation' is a worse term than 'agent reputation "
+                    "systems' because it could mean either, and a vocabulary "
+                    "holding both makes every tagger guess."
+                )
             concepts[key] = Concept(
                 id=key, label=label,
                 topics=tuple(entry.get("topics") or ()),
