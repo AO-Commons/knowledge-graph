@@ -412,14 +412,13 @@ class TestReviewPayload:
         assert len(entry["claims"]) > 1, "a concept on one claim connects nothing"
 
 
-class TestReviewOrder:
-    """Filing moved after extraction, and the review screen has to agree.
+class TestReviewSurface:
+    """The reviewer is asked one thing: is this statement what the paper says.
 
-    The screen used to open with "which topics does this belong under?" for
-    every record, which is the wrong question in the wrong order: naming
-    what a paper is about before anything has said what it contains is
-    guesswork, and the corpus shows it — two thirds of filed records carry
-    more than one code because one was never the whole truth.
+    Filing was removed from this screen entirely. Naming what a paper is
+    "about" derives from the concepts on its statements, and asking a
+    reviewer for it as well was asking them to redo, from an abstract, a
+    judgement the statements make better.
     """
 
     def _page(self):
@@ -427,33 +426,54 @@ class TestReviewOrder:
         return (Path(__file__).resolve().parent.parent
                 / "site" / "template.html").read_text(encoding="utf-8")
 
-    def test_statements_are_appended_before_the_filing_prompt(self):
+    def test_the_filing_question_is_gone(self):
         page = self._page()
-        claims_at = page.index('if (hasClaims) ask.append(claimPanel(record));')
-        prompt_at = page.index('ask.append(el("div", { className: "prompt" }')
-        assert claims_at < prompt_at, (
-            "the filing question is being asked before the statements are shown")
+        assert "And where does it belong?" not in page
+        assert "Which topics does this belong under?" not in page
 
-    def test_the_filing_question_changes_when_statements_exist(self):
-        """A record with statements is asked for the remainder — the framing
-        its own sentences cannot carry — not for a fresh guess."""
+    def test_three_actions_not_four_verdicts(self):
+        """A reviewer is deciding what the library should hold, not filling
+        in a diagnostic form."""
         page = self._page()
-        assert "And where does it belong?" in page
-        assert "usually the framing" in page
+        for label in ('"Add as is"', '"Adjust"', '"Remove"'):
+            assert label in page
+        assert '"Overstated"' not in page, "the diagnostic verdict set is gone"
 
-    def test_a_record_with_nothing_extracted_says_so_honestly(self):
-        """Filing it is still worth doing. Presenting that as the whole job
-        would misdescribe what the library needs from a reviewer."""
+    def test_adjusting_edits_the_statement_not_the_quote(self):
+        """The quote is what the statement is checked against. A reviewer who
+        can edit both can make anything true."""
         page = self._page()
-        assert "No statements have been extracted from this one" in page
-        # The message is built from concatenated literals, so match one of
-        # them rather than across the join.
-        assert "what the paper actually asserts" in page
+        assert "The statement, in your words" in page
+        assert "the quote is not editable" in page.lower() or \
+               "not editable" in page.lower()
 
-    def test_the_queue_puts_records_with_statements_first(self):
+    def test_tags_follow_an_edit(self):
+        """A statement edited from reputation to sanctions is about something
+        else now, and the old tag would connect it to the wrong statements —
+        quietly, since a wrong link looks exactly like a right one."""
         page = self._page()
-        assert "((b.claims || []).length > 0) - ((a.claims || []).length > 0)" in page
+        assert "function retag(" in page
+        assert "tags follow the wording" in page
 
-    def test_the_sidebar_heading_describes_what_it_lists(self):
+    def test_an_edit_that_matches_nothing_keeps_the_extracted_tags(self):
+        """Never strand a statement with no tag at all."""
         page = self._page()
-        assert "Has statements to check" in page
+        assert "picked.length ? picked : (claim.concepts || [])" in page
+
+    def test_an_adjustment_reaches_the_submission(self):
+        """Otherwise the verdict says "adjusted" and carries no adjustment,
+        and the edit is lost between the browser and the repository."""
+        page = self._page()
+        assert 'lines.push(`    text: ${JSON.stringify(c.text)}`)' in page
+        assert "concepts: [" in page
+
+    def test_a_paper_is_finished_when_its_statements_are_judged(self):
+        """Filing is gone, so there is no button to press. This signal is
+        true rather than declared."""
+        page = self._page()
+        assert "function outstanding(record)" in page
+        assert "outstanding(r) > 0" in page
+
+    def test_a_record_with_nothing_extracted_says_it_is_not_your_turn(self):
+        page = self._page()
+        assert "waiting on extraction, not on you" in page

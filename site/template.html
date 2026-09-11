@@ -309,6 +309,11 @@
   #concept-close:hover { color: var(--ink); border-color: var(--rule-hard); }
   .chip.derived { border-style: dashed; }
   .chip.derived .n { opacity: .55; margin-left: 6px; font-size: 10.5px; }
+  .retag-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .05em;
+    color: var(--faint); align-self: center; margin-right: 2px;
+  }
+  .concept.still { border-style: dashed; cursor: default; }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
   .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
@@ -900,16 +905,20 @@
     return record.current.some(under) || record.suggested.some(under);
   }
 
+  // A paper is finished when every statement on it has been judged, not when
+  // somebody pressed a button. Filing is gone, so there is no other signal —
+  // and this one is true rather than declared.
+  function outstanding(record) {
+    const claims = record.claims || [];
+    return claims.filter(c => !(state.claims[c.id] || c.verdict)).length;
+  }
+
   function queue() {
-    let pending = DATA.records.filter(r => !state.decisions[r.id] && !merged.has(r.id));
+    let pending = DATA.records.filter(r => !merged.has(r.id) && outstanding(r) > 0);
     if (state.focusTopic) pending = pending.filter(r => inBranch(r, state.focusTopic));
-    // Records with statements first. They are the ones where a reviewer can
-    // answer the question that matters — is this what the paper says — and
-    // where an hour produces something no machine could have. A record with
-    // nothing extracted offers only the judgement a classifier already
-    // guessed at, so it should not be the first thing anybody meets.
-    return [...pending].sort((a, b) =>
-      ((b.claims || []).length > 0) - ((a.claims || []).length > 0));
+    // Most outstanding first, so the queue drains rather than scattering
+    // half-finished papers behind it.
+    return [...pending].sort((a, b) => outstanding(b) - outstanding(a));
   }
 
   function renderReview() {
@@ -974,229 +983,35 @@
     // code because one was never the whole truth.
     if (hasClaims) ask.append(claimPanel(record));
 
-    ask.append(el("div", { className: "prompt" }, [
-      el("span", { className: "step" }, already ? "added" : hasClaims ? "then" : "your call"),
-      el("strong", {}, hasClaims
-        ? "And where does it belong?"
-        : "Which topics does this belong under?"),
-      el("span", { className: "sub" }, hasClaims
-        ? "Its statements already suggest categories below. Add what they miss — "
-          + "usually the framing: what kind of move the paper makes, not what it asserts."
-        : "Pick every one that applies — most papers sit under two or three."),
-      info(hasClaims
-        ? "Categories now derive from the concepts on a paper's statements. What is "
-          + "left to a person is the part derivation cannot see: a paper that reframes "
-          + "a field makes that contribution as a whole, and no sentence in it carries "
-          + "the frame."
-        : "A topic is what the paper is about. Tag the most specific one that fits: "
-          + "tagging 2.2.2 already implies 2.2 and 2, so there is no need to add the parents."),
-    ]));
-
-    // Five, not fourteen. A wall of near-misses makes the choice harder, and
-    // retrieval puts a right answer in the top five often enough that the
-    // rest are better as a deliberate second look than as noise.
-    // How many are offered now depends on how close the scores were, decided
-    // at build time where the scores live. A flat ranking offers more, a
-    // decisive one offers fewer, and the tail is behind the button.
-    const ranked = [...new Set([...record.suggested, ...(record.suggested_more || []),
-                                ...state.picked])];
-    const shown = state.showAll
-      ? ranked
-      : [...new Set([...record.suggested, ...state.picked])];
-    const chips = el("div", { className: "chips" });
-    shown.forEach(code => {
-      const topic = TOPICS.get(code);
-      if (!topic) return;
-      const chip = el("button", { className: "chip" + (record.current.includes(code) ? " was" : "") });
-      chip.setAttribute("aria-pressed", state.picked.has(code) ? "true" : "false");
-      chip.title = trailOf(code) || topic.title;
-      chip.append(el("span", { className: "c" }, code), el("span", { className: "t" }, topic.title));
-      chip.addEventListener("click", () => {
-        state.picked.has(code) ? state.picked.delete(code) : state.picked.add(code);
-        renderReview(); renderTree();
-      });
-      chips.append(chip);
-    });
-    ask.append(chips);
-
-    // Where this paper's own statements put it, which is a different kind of
-    // answer from the suggestions above. Those are a classifier's guess from
-    // the abstract; this is computed from sentences the paper actually
-    // contains, and it regularly finds a category nobody filed — Melting Pot
-    // belongs under evaluation integrity because one of its own claims
-    // predicts the suite will be gamed.
-    //
-    // Offered rather than applied. Derivation cannot see a paper's framing:
-    // a work whose contribution is a reframing makes it at the level of the
-    // whole, and no sentence in it carries the frame. So this adds codes and
-    // never removes one.
-    const derived = record.derived_topics || {};
-    const derivedCodes = Object.keys(derived);
-    if (derivedCodes.length) {
-      ask.append(el("p", { className: "section-label" },
-        "where its own statements put it"));
-      const from = el("div", { className: "chips" });
-      derivedCodes.forEach(code => {
-        const topic = TOPICS.get(code);
-        if (!topic) return;
-        const chip = el("button", { className: "chip derived" });
-        chip.setAttribute("aria-pressed", state.picked.has(code) ? "true" : "false");
-        chip.title = `${derived[code]} statement(s) argue about this. `
-          + (trailOf(code) || topic.title);
-        chip.append(el("span", { className: "c" }, code),
-                    el("span", { className: "t" }, topic.title),
-                    el("span", { className: "n" }, String(derived[code])));
-        chip.addEventListener("click", () => {
-          state.picked.has(code) ? state.picked.delete(code) : state.picked.add(code);
-          renderReview(); renderTree();
-        });
-        from.append(chip);
-      });
-      ask.append(from);
-    }
-
-    if (!state.showAll && ranked.length > shown.length) {
-      const more = el("button", { className: "more" },
-        `Show ${ranked.length - shown.length} more suggestions`);
-      more.addEventListener("click", () => { state.showAll = true; renderReview(); });
-      ask.append(more);
-    }
-
-    // Free search over all 568.
-    const finder = el("div", { className: "finder" });
-    const input = el("input", {
-      placeholder: `Nothing fits? Search all ${DATA.topics.length} topics — try “revocation”, “budget”, “incident”`,
-      type: "search",
-    });
-    const results = el("div", { className: "results" });
-    input.addEventListener("input", () => {
-      results.textContent = "";
-      const q = input.value.trim().toLowerCase();
-      if (q.length < 2) return;
-      DATA.topics
-        .map(t => {
-          const hay = (t.title + " " + t.points.join(" ") + " " + (t.aka || []).join(" ")).toLowerCase();
-          let score = hay.includes(q) ? 2 : 0;
-          if (t.title.toLowerCase().startsWith(q)) score += 2;
-          if ((t.aka || []).some(name => name.toLowerCase() === q)) score += 4;
-          if (t.code.startsWith(q)) score += 3;
-          return { t, score };
-        })
-        .filter(x => x.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 12)
-        .forEach(({ t }) => {
-          const hit = el("button", { className: "result" }, [
-            el("span", { className: "code" }, t.code),
-            el("span", {}, [t.title, el("span", { className: "trail" }, trailOf(t.code))]),
-          ]);
-          hit.addEventListener("click", () => {
-            state.picked.add(t.code); input.value = ""; results.textContent = "";
-            renderReview(); renderTree();
-          });
-          results.append(hit);
-        });
-    });
-    finder.append(input, results);
-    ask.append(finder);
-
-    const extras = el("div", { className: "extras" });
-
-    const unsureBox = el("input", { type: "checkbox", id: "unsure", checked: state.unsure });
-    unsureBox.addEventListener("change", () => { state.unsure = unsureBox.checked; });
-    extras.append(el("div", { className: "checkline" }, [
-      unsureBox,
-      el("label", { htmlFor: "unsure" }, [
-        "I'm not certain about this one",
-        info("Recorded with your answer. An unsure call is not weighed the same as a "
-             + "confident one when the gold set is used to measure the classifier, and it "
-             + "tells a maintainer where a second opinion is worth having."),
-        el("span", { className: "why" },
-           "Better than guessing quietly — say so and someone will look again."),
-      ]),
-    ]));
-
-    const note = el("div", { className: "note" });
-    if (state.noteOpen) {
-      const area = el("textarea", {
-        placeholder: "Anything that gave you trouble — a topic that almost fit, a branch you were torn between.",
-        value: state.note,
-      });
-      area.addEventListener("input", () => { state.note = area.value; });
-      note.append(area);
-    } else {
-      const open = el("button", { className: "more" }, "Add a note");
-      open.addEventListener("click", () => { state.noteOpen = true; renderReview(); });
-      note.append(open);
-    }
-    extras.append(note);
-    ask.append(extras);
-
-    const file = el("button", { className: "btn primary" },
-      already ? `Update — ${state.picked.size} topic${state.picked.size === 1 ? "" : "s"}`
-              : `Add to submission — ${state.picked.size || "no"} topic${state.picked.size === 1 ? "" : "s"}`);
-    file.disabled = state.picked.size === 0;
-    file.addEventListener("click", () => commit(record, [...state.picked], "filed"));
-
-    // "None apply" was two different findings wearing one button. Out of
-    // scope means the corpus is wrong to hold this; nothing fits means the
-    // taxonomy has a gap. The second is a proposal waiting to happen and the
-    // first is an ingestion error, so they are worth telling apart.
-    const outOfScope = el("button", { className: "btn" }, "Out of scope");
-    outOfScope.title = "This paper does not belong in the library at all. Use it when agents hold "
-      + "no real authority in whatever it describes — the scope test the taxonomy sets. "
-      + "It tells us the corpus is holding something it should not.";
-    outOfScope.addEventListener("click", () => commit(record, [], "out-of-scope"));
-
-    const noFit = el("button", { className: "btn" }, "Nothing fits");
-    noFit.title = "The paper belongs here, but no topic in the taxonomy covers it. "
-      + "That is a gap worth a proposal, and the most useful thing you can tell us — "
-      + "leave a note saying what was closest.";
-    noFit.addEventListener("click", () => commit(record, [], "no-topic-fits"));
-
-    const skip = el("button", { className: "btn" }, already ? "Next" : "Skip");
-    skip.title = already ? "Move on. Your decision is kept."
-                         : "No opinion on this one. Nothing is recorded and it stays in the queue.";
-    skip.addEventListener("click", () => {
-      if (!already) state.cursor = (state.cursor + 1) % Math.max(1, pending.length);
-      advance();
-    });
-
-    // The second question, asked while the paper is still in your head — and
-    // asked *before* the buttons. It sat after them once, which put it a full
-    // screen below the fold and below the control that ends the task: a
-    // reviewer tagged, clicked, and never saw it. Optional work still has to be
-    // in the path of the eye, or it may as well not be built.
+    // The filing question is gone. Naming what a paper is "about" is now
+    // derived from the concepts on its statements — see docs/statements-first.md
+    // — and asking a reviewer for it as well was asking them to redo, from an
+    // abstract, a judgement the statements make better. Their time is worth
+    // more on the statements themselves, which is the one thing here no
+    // machine does.
     if (!hasClaims) {
-      // Honest about what is missing rather than presenting filing as the
-      // whole job. It is not the whole job — it is the half that can be done
-      // without having read the paper closely, and the more useful half has
-      // not been started.
       ask.append(el("p", { className: "hint", style: "margin-top:18px" },
-        "No statements have been extracted from this one, so there is nothing here to "
-        + "check against its own words. Filing it is still useful and still worth doing "
-        + "— but the categories will be a judgement from the abstract rather than from "
-        + "what the paper actually asserts."));
+        "No statements have been extracted from this one yet, so there is nothing here "
+        + "to check. It is waiting on extraction, not on you."));
     }
+
+    // Navigation, not a decision. Each statement is judged on its own card
+    // and saved as it is judged, so there is nothing left to submit at the
+    // record level — and a button implying otherwise would be asking for a
+    // confirmation that means nothing.
+    const judged = (record.claims || []).filter(c => state.claims[c.id] || c.verdict).length;
+    const next = el("button", { className: "btn primary" },
+      hasClaims && judged === record.claims.length ? "Done — next paper" : "Next paper");
+    next.addEventListener("click", () => { state.viewing = null; advance(); });
+    const skip = el("button", { className: "btn" }, "Skip");
+    skip.addEventListener("click", () => { state.viewing = null; advance(); });
 
     ask.append(el("div", { className: "actions" }, [
-      file, outOfScope, noFit, skip,
-      el("span", { className: "hint" }, `${reviewed()} filed by you`),
+      next, skip,
+      el("span", { className: "hint" },
+         `${judgedTotal()} statement${judgedTotal() === 1 ? "" : "s"} judged by you`),
     ]));
     stage.append(ask);
-
-    if (already) {
-      const verdict = already.verdict === "out-of-scope" ? "marked out of scope"
-        : already.verdict === "no-topic-fits" ? "marked as fitting no topic"
-        : `added under ${already.topics.join(", ")}`;
-      const next = el("button", { className: "btn primary" }, "Next record");
-      next.addEventListener("click", () => { state.viewing = null; advance(); });
-      stage.append(el("div", { className: "staged" }, [
-        el("span", {}, [el("strong", {}, "In your submission — "), verdict,
-                        ". Change anything above and press Update."]),
-        next,
-      ]));
-    }
 
     stage.append(ledger());
   }
@@ -1272,19 +1087,21 @@
   // nothing until a person has checked them against the quoted sentence —
   // which is why the sentence is shown, and why checking one takes seconds.
 
+  // Three actions, because a reviewer is deciding what the library should
+  // hold, not filling in a diagnostic form. The old set asked for a
+  // classification — accurate, overstated, not-in-source, can't tell — which
+  // is a useful signal about the extractor and a slow way to fix a sentence.
+  // Adjusting is now the middle path it was missing: most statements that
+  // are not right are not wrong either, they are a hedge away from right.
   const VERDICTS = [
-    ["accurate", "Accurate",
-     "The paraphrase says what the quoted sentence says, no more."],
-    ["overstated", "Overstated",
-     "It is in the paper, but the paraphrase claims more than the source does — a "
-     + "hedge dropped, a scope widened. The most common way extraction goes wrong, and "
-     + "invisible in a yes/no."],
-    ["not-in-source", "Not in the source",
-     "The paper does not say this. Either the quote does not support it or the quote "
-     + "itself is wrong."],
-    ["ambiguous", "Can't tell",
-     "The sentence alone is not enough to judge, and you would need the full paper. "
-     + "A real answer, not a failure to answer."],
+    ["accurate", "Add as is",
+     "The statement says what the quoted sentence says, no more."],
+    ["adjusted", "Adjust",
+     "Nearly right. Edit the wording and it goes in as yours — which is faster "
+     + "than describing what is wrong and waiting for somebody to fix it."],
+    ["not-in-source", "Remove",
+     "The paper does not say this. Either the quote does not support it, or the "
+     + "quote itself is wrong."],
   ];
 
   const CLAIM_KINDS = {
@@ -1293,6 +1110,50 @@
     limitation: ["limitation", "A boundary the authors put on their own result."],
     position: ["position", "An argument or recommendation, offered without evidence here."],
   };
+
+  // Re-tag an edited statement from its own words.
+  //
+  // Word overlap against concept labels, scored so that a longer label
+  // matching fully beats a short one matching by accident — "agent
+  // reputation systems" against a sentence about reputation should win over
+  // "reputation" alone. Deliberately simple and deliberately local: the
+  // point is that the tags visibly track the wording while somebody types,
+  // so an edit that changes the subject cannot silently keep the old tag.
+  //
+  // It proposes, and only for statements a person is editing. Tags on
+  // unedited statements are left exactly as extracted.
+  const STOPWORDS = new Set(["the","a","an","of","to","in","for","and","or","is","are",
+    "was","were","be","been","that","this","it","its","as","by","on","with","not","no",
+    "than","from","their","them","they","which","when","what","how","do","does","can"]);
+
+  function words(text) {
+    return new Set((text || "").toLowerCase().match(/[a-z]{3,}/g) || []);
+  }
+
+  function retag(claim, text) {
+    const said = words(text);
+    if (!said.size) return;
+    const scored = [];
+    Object.entries(DATA.concepts || {}).forEach(([id, concept]) => {
+      const label = [...words(concept.label)].filter(w => !STOPWORDS.has(w));
+      if (!label.length) return;
+      const hit = label.filter(w => said.has(w)).length;
+      if (!hit) return;
+      // Proportion of the label matched, so a full match on a specific term
+      // outranks one word of a vague one.
+      scored.push([hit / label.length, hit, id]);
+    });
+    scored.sort((a, b) => b[0] - a[0] || b[1] - a[1]);
+    const picked = scored.filter(s => s[0] >= 0.5).slice(0, 2).map(s => s[2]);
+    // Never strand a statement with no tag: if the edit matches nothing, the
+    // extracted tags stand and the reviewer can see they no longer fit.
+    const entry = state.claims[claim.id];
+    entry.concepts = picked.length ? picked : (claim.concepts || []);
+  }
+
+  function judgedTotal() {
+    return Object.keys(state.claims || {}).length;
+  }
 
   function claimPanel(record) {
     const wrap = el("div", { className: "claims-block" });
@@ -1419,13 +1280,44 @@
       });
       card.append(row);
 
-      // A note is where the actual finding lives when a verdict is negative:
-      // "overstated" tells the extractor something is wrong, and the note
-      // tells it what.
-      if (mine && mine.verdict !== "accurate") {
+      // Adjusting edits the statement itself. The quote is not editable and
+      // never should be — it is the thing the statement is checked against,
+      // and a reviewer who can change both can make anything true.
+      if (mine && mine.verdict === "adjusted") {
         const area = el("textarea", {
-          placeholder: "What is wrong with it? One line is plenty — this is what an "
-                       + "extractor can be fixed against.",
+          placeholder: "The statement, in your words. It still has to say what the "
+                       + "quote above says.",
+          value: mine.text !== undefined ? mine.text : claim.text,
+        });
+        area.addEventListener("input", () => {
+          state.claims[claim.id].text = area.value;
+          retag(claim, area.value);
+          save();
+          renderTags();
+        });
+        card.append(el("div", { className: "note" }, area));
+
+        // Tags follow the words. A statement edited from reputation to
+        // sanctions is about something else now, and leaving the old tag on
+        // it would connect it to the wrong statements — quietly, since a
+        // wrong link looks exactly like a right one.
+        const tagHost = el("div", { className: "concepts" });
+        const renderTags = () => {
+          tagHost.textContent = "";
+          const current = (state.claims[claim.id] || {}).concepts || claim.concepts || [];
+          tagHost.append(el("span", { className: "retag-label" }, "tags follow the wording:"));
+          current.forEach(id => {
+            const concept = (DATA.concepts || {})[id] || { label: id };
+            tagHost.append(el("span", { className: "concept still" }, concept.label));
+          });
+          if (!current.length) tagHost.append(el("span", { className: "hint" }, "none match"));
+        };
+        renderTags();
+        card.append(tagHost);
+      } else if (mine && mine.verdict === "not-in-source") {
+        const area = el("textarea", {
+          placeholder: "Optional: what is wrong with it? One line is what an extractor "
+                       + "can be fixed against.",
           value: mine.note || "",
         });
         area.addEventListener("input", () => {
@@ -2499,6 +2391,16 @@
       checked.sort().forEach(([id, c]) => {
         lines.push(`  ${id}:`);
         lines.push(`    verdict: ${c.verdict}`);
+        // An adjustment is the reviewer's own wording, and the tags that
+        // follow from it. Without these the verdict would say "adjusted" and
+        // carry no adjustment — the edit would be lost between the browser
+        // and the repository, which is the one place it cannot be lost.
+        if (c.verdict === "adjusted" && c.text) {
+          lines.push(`    text: ${JSON.stringify(c.text)}`);
+          if (c.concepts && c.concepts.length) {
+            lines.push(`    concepts: [${c.concepts.map(t => `"${t}"`).join(", ")}]`);
+          }
+        }
         if (c.note) lines.push(`    note: ${JSON.stringify(c.note)}`);
         lines.push(`    reviewed_on: ${c.on}`);
       });
