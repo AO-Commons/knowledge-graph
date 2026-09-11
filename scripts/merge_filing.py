@@ -43,7 +43,15 @@ TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 
 FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 
-CLAIM_VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
+# `adjusted` is the one that carries payload. The others are a judgement
+# about a statement; this one replaces it — the reviewer retyped the sentence
+# and confirmed the tags that followed. Without it here the site would offer
+# an edit, the reviewer would make it, and the text would be dropped between
+# the issue and the repository. `overstated` and `ambiguous` stay accepted so
+# that filings made before the site changed still merge.
+CLAIM_VERDICTS = frozenset({
+    "accurate", "adjusted", "overstated", "not-in-source", "ambiguous",
+})
 CLAIM_TYPES = frozenset({"finding", "method", "limitation", "position", "background"})
 
 # A filing that is only claim verdicts still needs a shape for the tag half,
@@ -83,6 +91,15 @@ def extract(body: str) -> dict:
     )
 
 
+def _unknown_concepts(concepts: list[str]) -> list[str]:
+    """Concept ids that are not in the vocabulary."""
+    try:
+        from ao_commons_kg.concepts import load_vocabulary
+    except Exception:  # noqa: BLE001 — the check is a bonus, not a dependency
+        return []
+    return load_vocabulary().unknown(concepts)
+
+
 def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]:
     """Check the claim verdicts in a filing.
 
@@ -120,6 +137,32 @@ def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]
                   "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat())}
         if note := entry.get("note"):
             record["note"] = str(note).strip()
+
+        # An adjustment is a rewrite, so it has to bring the rewrite with it.
+        if verdict == "adjusted":
+            text = str(entry.get("text") or "").strip()
+            if not text:
+                problems.append(
+                    f"{claim_id}: marked adjusted but carries no text. The verdict "
+                    "says the statement was rewritten and nothing says how")
+                continue
+            if len(text) < 15:
+                problems.append(f"{claim_id}: the adjusted text is too short to be a claim")
+                continue
+            record["text"] = text
+            concepts = entry.get("concepts") or []
+            if not isinstance(concepts, list) or not all(isinstance(c, str) for c in concepts):
+                problems.append(f"{claim_id}: `concepts:` should be a list of concept ids")
+                continue
+            # Checked against the vocabulary here as well as in the browser.
+            # A filing arrives as text somebody could have hand-edited, and a
+            # tag that does not resolve is a statement nothing can link to.
+            if unknown := _unknown_concepts(concepts):
+                problems.append(
+                    f"{claim_id}: concept(s) do not resolve: {', '.join(unknown)}")
+                continue
+            record["concepts"] = concepts
+
         cleaned[claim_id] = record
 
     if problems:
@@ -164,6 +207,12 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
         "added": added, "changed": changed, "total": len(existing),
         "flagged": [c for c, e in cleaned.items()
                     if e["verdict"] in ("overstated", "not-in-source")],
+        # An adjustment is the one verdict that carries work for somebody
+        # else: the reviewer's wording has to replace the extracted sentence
+        # in the corpus, and nobody will do that from a gold file they never
+        # open. It goes in the pull request where the change is being made.
+        "adjusted": [(c, e["text"], e.get("concepts") or [])
+                     for c, e in cleaned.items() if e["verdict"] == "adjusted"],
     }
 
 
@@ -420,6 +469,16 @@ def summarize_claims(result: dict) -> list[str]:
             "",
         ]
         lines += [f"- `{claim_id}`" for claim_id in result["flagged"]]
+    if result.get("adjusted"):
+        lines += [
+            "",
+            "**Rewritten by the reviewer.** Apply these to the statement text in "
+            "`data/claims/`; the verdict alone does not change what the corpus says:",
+            "",
+        ]
+        for claim_id, text, concepts in result["adjusted"]:
+            tags = f" — tags: {', '.join(f'`{c}`' for c in concepts)}" if concepts else ""
+            lines.append(f"- `{claim_id}`: {text}{tags}")
     if result["changed"]:
         lines += ["", "| Claim | Was | Now | Previously by |", "|---|---|---|---|"]
         for claim_id, before, after, who in result["changed"]:

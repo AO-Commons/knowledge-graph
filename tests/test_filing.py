@@ -447,18 +447,28 @@ class TestReviewSurface:
         assert "the quote is not editable" in page.lower() or \
                "not editable" in page.lower()
 
-    def test_tags_follow_an_edit(self):
+    def test_an_edit_suggests_tags(self):
         """A statement edited from reputation to sanctions is about something
-        else now, and the old tag would connect it to the wrong statements —
-        quietly, since a wrong link looks exactly like a right one."""
+        else now, and nothing in the tags saying so would connect it to the
+        wrong statements — quietly, since a wrong link looks like a right
+        one."""
         page = self._page()
         assert "function retag(" in page
-        assert "tags follow the wording" in page
+        assert "entry.suggested = picked.filter(id => !kept.includes(id));" in page
 
-    def test_an_edit_that_matches_nothing_keeps_the_extracted_tags(self):
-        """Never strand a statement with no tag at all."""
+    def test_a_suggestion_never_replaces_an_extracted_tag(self):
+        """Word overlap is much weaker evidence than a model that read the
+        paper, and weaker evidence does not get to overrule stronger. The
+        version that swapped them dropped a good tag on the ordinary case of
+        rewording a sentence without changing its subject."""
         page = self._page()
-        assert "picked.length ? picked : (claim.concepts || [])" in page
+        assert "entry.concepts = [...kept, ...entry.suggested].slice(0, 3);" in page
+        assert "picked.length ? picked : (claim.concepts || [])" not in page
+
+    def test_the_two_kinds_of_tag_are_told_apart(self):
+        page = self._page()
+        assert '"concept still added" : "concept still"' in page
+        assert "suggested by your wording" in page
 
     def test_an_adjustment_reaches_the_submission(self):
         """Otherwise the verdict says "adjusted" and carries no adjustment,
@@ -637,3 +647,130 @@ class TestSubmitPath:
         does nothing."""
         page = self._page()
         assert "submit.disabled = !judgedTotal();" in page
+
+
+class TestAdjustments:
+    """The verdict that carries a rewrite.
+
+    "Adjusted" is the only verdict that changes what the corpus says rather
+    than recording an opinion about it, so the rewrite has to survive the
+    trip: out of the browser, through the filing, into the gold file, and
+    onto the pull request where somebody applies it.
+    """
+
+    KNOWN = {"claim:arxiv:2502.14143:1"}
+
+    def _filing(self, body: str) -> dict:
+        return extract("```yaml\nclaims:\n  claim:arxiv:2502.14143:1:\n" + body + "```\n")
+
+    def test_an_adjustment_is_a_verdict(self):
+        cleaned = validate_claims(
+            self._filing("    verdict: adjusted\n"
+                         "    text: Reputation carries across organisational boundaries.\n"),
+            known_claims=self.KNOWN)
+        assert cleaned["claim:arxiv:2502.14143:1"]["verdict"] == "adjusted"
+
+    def test_the_rewrite_comes_with_it(self):
+        """A verdict saying the statement was rewritten, with nothing saying
+        how, is worse than no verdict: it marks the claim reviewed and leaves
+        the wrong sentence in place."""
+        with pytest.raises(FilingError, match="carries no text"):
+            validate_claims(self._filing("    verdict: adjusted\n"),
+                            known_claims=self.KNOWN)
+
+    def test_a_fragment_is_not_a_statement(self):
+        with pytest.raises(FilingError, match="too short"):
+            validate_claims(
+                self._filing("    verdict: adjusted\n    text: reputation\n"),
+                known_claims=self.KNOWN)
+
+    def test_tags_are_checked_against_the_vocabulary(self):
+        """The browser checks them too. A filing is text somebody can hand-edit,
+        and a tag that resolves to nothing is a statement nothing links to."""
+        with pytest.raises(FilingError, match="do not resolve"):
+            validate_claims(
+                self._filing("    verdict: adjusted\n"
+                             "    text: Reputation carries across organisational boundaries.\n"
+                             '    concepts: ["not-a-real-tag"]\n'),
+                known_claims=self.KNOWN)
+
+    def test_the_rewrite_reaches_the_pull_request(self, tmp_path):
+        """It sits in a gold file otherwise, and the statement it was meant to
+        replace stays as extracted."""
+        cleaned = validate_claims(
+            self._filing("    verdict: adjusted\n"
+                         "    text: Reputation carries across organisational boundaries.\n"),
+            known_claims=self.KNOWN)
+        result = merge_claims(cleaned, "anke", tmp_path / "claims.yml")
+        text = "\n".join(summarize_claims(result))
+        assert "Reputation carries across organisational boundaries." in text
+        assert "data/claims/" in text, "says where to apply it"
+
+    def test_the_rewrite_is_kept(self, tmp_path):
+        gold = tmp_path / "claims.yml"
+        cleaned = validate_claims(
+            self._filing("    verdict: adjusted\n"
+                         "    text: Reputation carries across organisational boundaries.\n"),
+            known_claims=self.KNOWN)
+        merge_claims(cleaned, "anke", gold)
+        stored = yaml.safe_load(gold.read_text())["claims"]["claim:arxiv:2502.14143:1"]
+        assert stored["text"] == "Reputation carries across organisational boundaries."
+        assert stored["reviewer"] == "anke"
+
+
+class TestConfirmingAnAdjustment:
+    """Typing is not deciding.
+
+    Every keystroke used to be the edit — an accidental character rewrote a
+    statement, the tags moved with it, and there was no moment where the
+    reviewer said "yes, this is my version". A draft now waits for a confirm.
+    """
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_typing_writes_a_draft_not_the_statement(self):
+        page = self._page()
+        assert "entry.draft = area.value;" in page
+        assert "state.claims[claim.id].draft = area.value;" not in page
+
+    def test_there_is_a_confirm_and_a_way_back(self):
+        page = self._page()
+        assert '"Confirm wording"' in page
+        assert '"Back to original"' in page
+
+    def test_confirming_makes_the_draft_the_statement(self):
+        page = self._page()
+        assert "delete entry.draft;" in page
+
+    def test_an_unconfirmed_draft_is_not_judged(self):
+        """The count at the top should not tell somebody they have finished a
+        sentence they are halfway through rewriting."""
+        page = self._page()
+        assert "function settledVerdict(" in page
+        assert 'if (entry.verdict !== "adjusted") return true;' in page
+        assert "return entry.text !== undefined && entry.draft === undefined;" in page
+
+    def test_one_definition_of_judged(self):
+        """Five places asked this question and they have to agree, or the
+        progress bar, the paper list and the submit button each count a
+        different thing."""
+        page = self._page()
+        assert "state.claims[claim.id] || claim.verdict" not in page
+        assert page.count("isJudged") >= 5
+
+    def test_an_unconfirmed_draft_is_not_submitted(self):
+        """It would file a verdict of "adjusted" with no adjustment, which the
+        bot refuses — taking the rest of an otherwise good filing with it."""
+        page = self._page()
+        assert "const checked = claimed.filter(([, c]) => settledVerdict(c));" in page
+        assert "still being" in page, "and says so, rather than dropping it silently"
+
+    def test_confirming_the_original_unchanged_is_not_an_adjustment(self):
+        """That is "Add as is" reached the long way round, and filing it as an
+        adjustment puts a reviewer's name on a rewording nobody did."""
+        page = self._page()
+        assert "const unchanged = committed === null" in page
+        assert "Unchanged" in page

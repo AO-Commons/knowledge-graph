@@ -372,6 +372,9 @@
     color: var(--faint); align-self: center; margin-right: 2px;
   }
   .concept.still { border-style: dashed; cursor: default; }
+  /* A tag your wording suggested, sitting alongside the ones the
+     extraction gave. Marked so the two are not mistaken for each other. */
+  .concept.still.added { border-style: solid; border-color: var(--accent); }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
   .claim-context { font-size: 13.5px; line-height: 1.5; color: var(--faint); margin: -4px 0 10px; max-width: 62ch; }
@@ -907,7 +910,7 @@
 
     const progress = record => {
       const claims = record.claims || [];
-      const checked = claims.filter(c => state.claims[c.id] || c.verdict).length;
+      const checked = claims.filter(isJudged).length;
       return { checked, total: claims.length, tagged: !!state.decisions[record.id] };
     };
     // Unfinished first — a list whose top is work already done is a list
@@ -974,7 +977,7 @@
   // and this one is true rather than declared.
   function outstanding(record) {
     const claims = record.claims || [];
-    return claims.filter(c => !(state.claims[c.id] || c.verdict)).length;
+    return claims.filter(c => !isJudged(c)).length;
   }
 
   function queue() {
@@ -1063,7 +1066,7 @@
     // and saved as it is judged, so there is nothing left to submit at the
     // record level — and a button implying otherwise would be asking for a
     // confirmation that means nothing.
-    const judged = (record.claims || []).filter(c => state.claims[c.id] || c.verdict).length;
+    const judged = (record.claims || []).filter(isJudged).length;
 
     // Submit goes to Submit. Somebody reviewing one paper and stopping is
     // the normal case, not the exception, and leaving them on a "next paper"
@@ -1240,19 +1243,43 @@
     });
     scored.sort((a, b) => b[0] - a[0] || b[1] - a[1]);
     const picked = scored.filter(s => s[0] >= 0.5).slice(0, 2).map(s => s[2]);
-    // Never strand a statement with no tag: if the edit matches nothing, the
-    // extracted tags stand and the reviewer can see they no longer fit.
+    // A suggestion is added to the extracted tags, never swapped for them.
+    //
+    // The extracted tags come from a model that read the paper; these come
+    // from counting words, which is much weaker evidence and does not get to
+    // overrule the stronger kind. Swapping was the first version and it was
+    // wrong in the ordinary case: rewording "the binding constraint is
+    // shifting from capability to coexistence" kept the subject intact but
+    // dropped `endogenous-non-stationarity` — which no word in either version
+    // matches — for two tags that happened to share the word "capability"
+    // with a sentence arguing capability is not the constraint.
     const entry = state.claims[claim.id];
-    entry.concepts = picked.length ? picked : (claim.concepts || []);
+    const kept = claim.concepts || [];
+    entry.suggested = picked.filter(id => !kept.includes(id));
+    entry.concepts = [...kept, ...entry.suggested].slice(0, 3);
+  }
+
+  // A statement is judged when its verdict is settled — which for an
+  // adjustment means the wording was confirmed, not merely typed. Counting
+  // a half-rewritten sentence as done would have the progress bar tell
+  // somebody they had finished a paper they were still in the middle of.
+  function settledVerdict(entry, claim) {
+    if (!entry) return !!(claim && claim.verdict);
+    if (entry.verdict !== "adjusted") return true;
+    return entry.text !== undefined && entry.draft === undefined;
+  }
+
+  function isJudged(claim) {
+    return settledVerdict(state.claims[claim.id], claim);
   }
 
   function judgedTotal() {
-    return Object.keys(state.claims || {}).length;
+    return Object.values(state.claims || {}).filter(e => settledVerdict(e)).length;
   }
 
   function claimPanel(record) {
     const wrap = el("div", { className: "claims-block" });
-    const done = record.claims.filter(c => state.claims[c.id] || c.verdict).length
+    const done = record.claims.filter(isJudged).length
       + mine(record).length;
 
     const total = record.claims.length + mine(record).length;
@@ -1301,7 +1328,7 @@
 
     groups.forEach(([key, heading, claims]) => {
       if (!claims.length) return;
-      const openLeft = claims.filter(c => !(state.claims[c.id] || c.verdict)).length;
+      const openLeft = claims.filter(c => !isJudged(c)).length;
       wrap.append(el("div", { className: "group-head " + key }, [
         el("span", { className: "g-title" }, heading),
         el("span", { className: "g-count" },
@@ -1309,7 +1336,7 @@
       ]));
 
       claims.forEach(claim => {
-      const settled = !!(state.claims[claim.id] || claim.verdict);
+      const settled = isJudged(claim);
       const card = el("div", { className: "claim" + (settled ? " judged" : "") });
       const kind = CLAIM_KINDS[claim.type] || [claim.type, ""];
       card.append(el("div", { className: "kicker" }, [
@@ -1403,13 +1430,31 @@
         const area = el("textarea", {
           placeholder: "The statement, in your words. It still has to say what the "
                        + "quote above says.",
-          value: mine.text !== undefined ? mine.text : claim.text,
+          value: mine.draft !== undefined ? mine.draft
+               : (mine.text !== undefined ? mine.text : claim.text),
         });
+        // Typing is a draft. It becomes the statement when somebody says so.
+        //
+        // Before this, every keystroke was the edit: an accidental character
+        // in a textarea silently rewrote a statement, and there was no
+        // moment where a reviewer said "yes, this is my version". The
+        // tags moved with it too, so a half-typed sentence retagged itself
+        // on the way past.
         area.addEventListener("input", () => {
-          state.claims[claim.id].text = area.value;
+          const entry = state.claims[claim.id];
+          // Typing back to the wording already confirmed is that wording, not
+          // a new draft of it. Without this the card strands: the draft
+          // differs from nothing, so Confirm has nothing to do and stays
+          // disabled, and the statement never counts as judged.
+          if (entry.text !== undefined && area.value.trim() === entry.text.trim()) {
+            delete entry.draft;
+          } else {
+            entry.draft = area.value;
+          }
           retag(claim, area.value);
           save();
           renderTags();
+          refreshConfirm();
         });
         card.append(el("div", { className: "note" }, area));
 
@@ -1421,15 +1466,59 @@
         const renderTags = () => {
           tagHost.textContent = "";
           const current = (state.claims[claim.id] || {}).concepts || claim.concepts || [];
-          tagHost.append(el("span", { className: "retag-label" }, "tags follow the wording:"));
+          const added = (state.claims[claim.id] || {}).suggested || [];
+          tagHost.append(el("span", { className: "retag-label" },
+            "tags, checked again on the pull request:"));
           current.forEach(id => {
             const concept = (DATA.concepts || {})[id] || { label: id };
-            tagHost.append(el("span", { className: "concept still" }, concept.label));
+            tagHost.append(el("span", {
+              className: added.includes(id) ? "concept still added" : "concept still",
+              title: added.includes(id) ? "suggested by your wording" : "from the extraction",
+            }, concept.label));
           });
           if (!current.length) tagHost.append(el("span", { className: "hint" }, "none match"));
         };
         renderTags();
         card.append(tagHost);
+
+        // Confirm, and a way back. Until confirmed the statement is not
+        // counted as judged — the count at the top of the screen should not
+        // tell somebody they are finished with a sentence they are still
+        // halfway through rewriting.
+        const confirm = el("button", { className: "btn primary small" }, "Confirm wording");
+        const revert = el("button", { className: "btn small" }, "Back to original");
+        const state_ = () => state.claims[claim.id] || {};
+        function refreshConfirm() {
+          const entry = state_();
+          const committed = entry.text !== undefined ? entry.text.trim() : null;
+          const draft = (entry.draft !== undefined ? entry.draft
+                       : (committed !== null ? committed : claim.text)).trim();
+          const settled = committed !== null && entry.draft === undefined;
+          // Confirming the sentence exactly as extracted is not an
+          // adjustment — it is "Add as is" reached the long way round, and
+          // filing it as an adjustment would put a reviewer's name on a
+          // rewording nobody did.
+          const unchanged = committed === null && draft === (claim.text || "").trim();
+          confirm.disabled = settled || unchanged || draft.length < 15 || draft === committed;
+          confirm.textContent = settled ? "Confirmed"
+            : unchanged ? "Unchanged — use Add as is"
+            : "Confirm wording";
+        }
+        confirm.addEventListener("click", () => {
+          const entry = state.claims[claim.id];
+          entry.text = (entry.draft !== undefined ? entry.draft : entry.text).trim();
+          delete entry.draft;
+          retag(claim, entry.text);
+          save();
+          renderReview();
+        });
+        revert.addEventListener("click", () => {
+          delete state.claims[claim.id];
+          save();
+          renderReview();
+        });
+        refreshConfirm();
+        card.append(el("div", { className: "actions confirm-row" }, [confirm, revert]));
       } else if (mine && mine.verdict === "not-in-source") {
         const area = el("textarea", {
           placeholder: "Optional: what is wrong with it? One line is what an extractor "
@@ -2469,10 +2558,23 @@
       .flatMap(entry => entry.records || []));
     const all = Object.entries(state.decisions);
     const entries = all.filter(([id]) => !gone.has(id));
-    const checked = Object.entries(state.claims).filter(([id]) => !gone.has(id));
+    // An adjustment nobody confirmed is a half-typed sentence, not a
+    // judgement. It waits in the browser rather than going in: filing a
+    // verdict of "adjusted" with no adjustment attached is refused by the
+    // bot, which would take the rest of an otherwise good filing with it.
+    const claimed = Object.entries(state.claims).filter(([id]) => !gone.has(id));
+    const checked = claimed.filter(([, c]) => settledVerdict(c));
+    const unconfirmed = claimed.length - checked.length;
     const written = Object.entries(state.newClaims).filter(([id]) => !gone.has(id));
 
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
+
+    if (unconfirmed) {
+      stage.append(el("p", { className: "hint" },
+        `${unconfirmed} adjustment${unconfirmed === 1 ? " is" : "s are"} still being `
+        + "written and not included here. Go back to Review and press Confirm wording "
+        + `on ${unconfirmed === 1 ? "it" : "them"} to send ${unconfirmed === 1 ? "it" : "them"} too.`));
+    }
 
     if (!entries.length && !checked.length && !written.length) {
       // The history is most wanted by someone who has filed nothing yet —
