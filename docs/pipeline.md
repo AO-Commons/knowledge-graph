@@ -13,14 +13,19 @@ actually go" — the scaffolding is complete and thins sharply toward the top.
   1  INTAKE          three doors                101 records
   2  RESOLUTION      metadata, references        45 with references
   3  ADMISSION       scope, duplicates          automatic since 10 Sep
-  4  FILING          a place in the taxonomy     73 filed
-  5  EXTRACTION      statements out of text       6 records · proposed as process
-  6  TAGGING         concepts on statements      40 of 40 statements
-  7  LINKING         relations between them      12 relations
-  8  DERIVATION      categories from statements   6 records
-  9  REVIEW          a person decides             0 reviewed
- 10  RELEASE         a fixed, citable version     3 releases
+  4  EXTRACTION      statements out of text       6 records · proposed as process
+  5  TAGGING         concepts on statements      40 of 40 statements
+  6  LINKING         relations between them      12 relations
+  7  FILING          categories, derived          6 derived · 73 legacy hand-filed
+  8  REVIEW          a person decides             0 reviewed
+  9  RELEASE         a fixed, citable version     3 releases
 ```
+
+**Filing moved.** It used to sit at stage 4, before extraction, and it is now
+stage 7 and mostly computed. Asking somebody to name what a paper is "about"
+before anything has said what it contains is the wrong question in the wrong
+order — which is why two thirds of the filed records carry more than one code
+and 28 carry none at all. See [statements-first.md](statements-first.md).
 
 ---
 
@@ -95,7 +100,18 @@ references for, mostly tools and recent DOIs.
 Runs Tuesdays. Three filters in cost order, because the cheap one removes 93%
 before the expensive one sees anything.
 
-**A rising threshold.** Generation 1 needs 2 held papers to cite it,
+**Both directions.** Backward: works our papers cite, free from the reference
+store. Forward: works that cite ours, a query per held record. The forward
+half is not an optimisation — it is the only route by which recent research
+can be reached at all. A paper published last month has been cited by nobody
+and can never clear a backward threshold however plainly it belongs; it can
+cite three of ours on the day it appears. Both count the same toward support.
+
+Measured on the corpus with a window back to January 2025: 687 forward
+candidates, 38 clearing the threshold, the newest published three weeks ago
+and reachable no other way.
+
+**A rising threshold.** Generation 1 needs 2 held papers connected to it,
 generation 2 needs 3, each hop from a human judgement strictly harder. This is
 a brake, not a termination proof — a famous enough work clears any bar.
 
@@ -119,23 +135,7 @@ between runs is visible rather than invisible.
 
 ---
 
-## 4 · Filing — a place in the taxonomy
-
-A classifier proposes from title and abstract; a person confirms. The record's
-own `taxonomy_topics` are only ever written by a human filing it.
-
-Filing happens on the site, becomes a prefilled issue, and
-`filing-to-pr.yml` turns it into a pull request. **The PR list is the audit
-trail**: every human judgement in the dataset, who made it, what it changed.
-
-*Proposed change:* most of this becomes derived (stage 8), leaving a short
-hand-filed remainder for the framing codes derivation cannot see.
-
-**Coverage: 73 of 101 filed.**
-
----
-
-## 5 · Extraction — proposed as a process
+## 4 · Extraction — proposed as a process
 
 **This is the stage that decides whether statements can carry the library, and
 it is currently not a process.** 40 claims, six papers, one model, one
@@ -172,7 +172,7 @@ quality signal and the evidence for loosening the rules.
 
 ---
 
-## 6 · Tagging — concepts on statements
+## 5 · Tagging — concepts on statements
 
 Fine-grained on purpose. The finer the tag, the better it proposes relations,
 which is the entire reason the layer exists: `sanction-sensitivity` is a
@@ -195,7 +195,7 @@ its label fails too — two of the first nine drifted.
 
 ---
 
-## 7 · Linking — relations between statements
+## 6 · Linking — relations between statements
 
 Two mechanisms, and the split is the design.
 
@@ -228,7 +228,7 @@ statements are candidates for relations to B's. One usable edge today — worth
 
 ---
 
-## 8 · Derivation — categories from what a paper says
+## 7 · Filing — categories, derived from what a paper says
 
 The union of the taxonomy codes its statements' concepts sit under. Computed,
 no judgement, and papers land in several categories naturally because their
@@ -240,14 +240,21 @@ statements predicts the suite will be gamed — and **loses** codes describing
 what kind of move the paper makes: agency theory, borrowed background,
 research method.
 
-So it adds and never removes, and the review screen offers derived codes as
-dashed chips beside the classifier's suggestions rather than applying them.
+So it adds and never removes. What stays hand-filed is the remainder:
+the framing codes, saying what kind of move a paper makes.
 
-**Coverage: 6 of 101.**
+Filing a record still becomes a prefilled issue and `filing-to-pr.yml` turns
+it into a pull request — **the PR list is the audit trail**, every human
+judgement in the dataset, who made it and what it changed. What changed is
+when it happens and how much of it there is to do.
+
+**Coverage: 6 derived, 73 hand-filed from before the reordering.** Those 73
+keep their codes; nothing is rewritten. They will look increasingly like what
+they are — a judgement made before anyone had read the paper's statements.
 
 ---
 
-## 9 · Review — the stage nothing has passed through
+## 8 · Review — the stage nothing has passed through
 
 The scarce good, and the one thing on this page no machine does.
 
@@ -270,7 +277,7 @@ of the library and the reason every accuracy figure is still unquotable.
 
 ---
 
-## 10 · Release — a fixed, citable version
+## 9 · Release — a fixed, citable version
 
 ```bash
 aokg build --version v1.0.0
@@ -291,9 +298,9 @@ make every other release less trustworthy.
 ## Where the effort actually goes
 
 ```
-machine, unattended      intake · resolution · admission · derivation · release
+machine, unattended      intake · resolution · admission · filing · release
 machine, then confirmed  extraction · tagging · linking          ← proposed
-human, irreducible       filing · review
+human, irreducible       review · the framing codes filing cannot derive
 ```
 
 The bottom line grows only when somebody reads something. Everything above it

@@ -409,3 +409,31 @@ def _candidate(work: Work, score: int, reasons: list[str], via: str) -> Candidat
         authors=work.authors,
         institutions=work.institutions,
     )
+
+
+def works_citing(openalex_id: str, fetch: Fetcher, *, limit: int = 100,
+                 since: str | None = None) -> list[Work]:
+    """Works that cite this one, newest first.
+
+    The forward direction, and the only route by which recent research can
+    reach the corpus. A paper published this month has been cited by nobody
+    and can never clear a threshold counting citations *into* it, however
+    plainly it belongs — but it can cite three of ours the day it appears.
+
+    Sorted by publication date rather than by citation count, which is the
+    opposite of what `expand_neighborhood` does and deliberately so: that
+    function is looking for the works a field has converged on, and this one
+    is looking for the works nobody has had time to converge on yet.
+
+    `since` filters to a publication date, so a weekly run asks only about
+    what is new rather than re-reading the same citers every Tuesday.
+    """
+    query = f"{API}/works?filter=cites:{openalex_id}"
+    if since:
+        query += f",from_publication_date:{since}"
+    query += f"&per-page={min(limit, 200)}&sort=publication_date:desc"
+    try:
+        payload = fetch(query)
+    except OpenAlexError:
+        return []
+    return [parse_work(item) for item in payload.get("results", [])]

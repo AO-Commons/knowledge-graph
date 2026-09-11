@@ -284,6 +284,18 @@ class Resource:
     is_open_access: bool | None = None
     is_retracted: bool | None = None
     taxonomy_topics: list[str] = field(default_factory=list)
+    """Where a person put this record.
+
+    Being demoted. A paper is a container and filing the container asks
+    somebody to name what it is "about" before anyone has said what it
+    contains — which is why two thirds of these records carry more than one
+    code and why 28 carry none. Categories now derive from the concepts on a
+    record's statements (`concepts.derived_topics`), and this field is
+    shrinking to the codes derivation cannot see: the framing ones, saying
+    what kind of move a paper makes rather than what it asserts.
+
+    Filing before extraction is no longer a stage. See docs/pipeline.md.
+    """
     facets: dict[str, list[str]] = field(default_factory=dict)
     is_borrowed_background: bool = False
     """Section 15 material: relevant by transfer, not about agentic

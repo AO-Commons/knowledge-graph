@@ -310,3 +310,54 @@ class TestKnownDuplicates:
         for _ in range(3):
             record_duplicate(path, "arxiv:1", "resource:x", "same title", "2026-09-10")
         assert len(load_excluded(path)) == 1
+
+
+class TestBothDirections:
+    """The recency fix.
+
+    A threshold counting only citations *into* a work cannot admit anything
+    published recently, however plainly it belongs — a paper from last month
+    has been cited by nobody. It can, however, cite three of ours on the day
+    it appears. Counting both directions makes new research reachable, and
+    `expand_neighborhood` had said so in its docstring since August while
+    this path quietly did the opposite.
+    """
+
+    def test_a_paper_nobody_has_cited_yet_can_still_clear(self):
+        new = Candidate("arxiv:2609.99999", cited_by=(), cites=("a", "b", "c"),
+                        generation=1)
+        assert new.support == 3
+        assert new.clears()
+        assert new.direction == "cites us"
+
+    def test_both_directions_count_the_same(self):
+        """"Three of ours cite it" and "it cites three of ours" are equally
+        strong evidence of being part of this conversation."""
+        backward = Candidate("k", cited_by=("a", "b"), cites=(), generation=1)
+        forward = Candidate("k", cited_by=(), cites=("a", "b"), generation=1)
+        assert backward.support == forward.support == 2
+
+    def test_one_held_paper_on_both_sides_is_counted_once(self):
+        """A mutual citation is one connection, not two."""
+        mutual = Candidate("k", cited_by=("a",), cites=("a",), generation=1)
+        assert mutual.support == 1
+        assert mutual.direction == "both"
+
+    def test_citers_are_found_alongside_references(self):
+        candidates = find_candidates(
+            references={"resource:a": ["arxiv:old"]},
+            held_keys={},
+            generations={"resource:a": 0, "resource:b": 0},
+            citers={"resource:b": ["arxiv:new"]},
+        )
+        found = {c.key: c for c in candidates}
+        assert found["arxiv:old"].direction == "we cite"
+        assert found["arxiv:new"].direction == "cites us"
+
+    def test_a_citer_of_a_record_we_dropped_is_ignored(self):
+        assert find_candidates({}, {}, {}, citers={"resource:gone": ["arxiv:x"]}) == []
+
+    def test_a_citer_already_held_is_an_edge_not_a_candidate(self):
+        assert find_candidates(
+            {}, {"arxiv:held": "resource:b"}, {"resource:a": 0},
+            citers={"resource:a": ["arxiv:held"]}) == []

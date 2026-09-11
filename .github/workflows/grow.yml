@@ -84,9 +84,15 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
+          # A fortnight's window on the forward direction. The schedule is
+          # weekly, so this overlaps deliberately: OpenAlex indexes a new
+          # paper some days after it appears, and a window exactly the width
+          # of the cadence would drop whatever landed late.
+          since=$(python3 -c "import datetime;print((datetime.date.today()-datetime.timedelta(days=14)).isoformat())")
           aokg grow \
             --threshold "${{ github.event.inputs.threshold || 2 }}" \
             --budget "${{ github.event.inputs.budget || 40 }}" \
+            --since "$since" \
             ${{ steps.preflight.outputs.scan == 'false' && '--propose-only' || '' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee /tmp/grow.log

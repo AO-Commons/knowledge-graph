@@ -483,9 +483,32 @@ def cmd_grow(args) -> int:
     resources = load_resources()
     titles = {r.id: r.title for r in resources}
     store = ReferenceStore.load(REFERENCES)
+
+    # The forward direction. Without it the corpus can only ever find work
+    # old enough to have been cited, which makes it structurally unable to
+    # admit anything published recently however plainly it belongs. Costs a
+    # query per held record, so it is on by default and can be skipped.
+    citers: dict[str, list[str]] = {}
+    if not args.no_citers:
+        from .scholarly.keys import canonical_key
+        from .scholarly.openalex import works_citing
+
+        fetch_citers = http_fetcher()
+        holders = [r for r in resources if r.openalex_id]
+        print(f"asking who cites {len(holders)} held record(s)"
+              + (f", published since {args.since}" if args.since else ""))
+        for resource in holders:
+            found = works_citing(resource.openalex_id, fetch_citers,
+                                 limit=args.citer_limit, since=args.since)
+            keys = [k for k in (canonical_key({"doi": w.doi, "arxiv": w.arxiv_id})
+                                for w in found) if k]
+            if keys:
+                citers[resource.id] = keys
+
     candidates = find_candidates(
         store.references(), keys_for_corpus(resources),
-        {r.id: r.expansion_generation for r in resources})
+        {r.id: r.expansion_generation for r in resources},
+        citers=citers)
     # Drop what a previous run already established is a record we hold.
     # Left in, each one costs a scope scan and a metadata fetch every week
     # to rediscover the same thing.
@@ -537,7 +560,8 @@ def cmd_grow(args) -> int:
               "and the candidates remain queued.")
     if judge is None:
         for candidate in selection.over_budget[:20]:
-            print(f"  would consider {candidate.support}x {candidate.key}")
+            print(f"  would consider {candidate.support}x [{candidate.direction}] "
+                  f"{candidate.key}")
         return 0
 
     # What the scan refused last time. Read before writing anything, so a
@@ -731,6 +755,15 @@ def main(argv: list[str] | None = None) -> int:
                            "model calls and nothing written")
     grow.add_argument("--dry-run", action="store_true",
                       help="run the scope scan but write nothing")
+    grow.add_argument("--no-citers", action="store_true",
+                      help="skip the forward direction. Cheaper, and makes the "
+                           "run unable to find anything published recently")
+    grow.add_argument("--since", default="",
+                      help="only consider citing works published on or after this "
+                           "date (YYYY-MM-DD), so a weekly run asks about what is "
+                           "new rather than re-reading the same citers")
+    grow.add_argument("--citer-limit", type=int, default=100,
+                      help="most citing works to read per held record")
     grow.set_defaults(func=cmd_grow)
 
     relate = sub.add_parser(

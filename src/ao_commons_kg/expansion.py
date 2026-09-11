@@ -12,8 +12,18 @@ records, most of them optimization and neural-architecture background that
 fails the scope test on sight. Admitting them would destroy the property that
 makes this worth citing — that 87 curated records beat 8,500 uncurated ones.
 
-So expansion is automatic and bounded, by three mechanisms that each stop a
-different failure:
+Expansion walks **both directions**, and that is what keeps it from only ever
+finding old work. Backward: works our papers cite, read free from the
+reference store. Forward: works that cite ours, one query per held record and
+the only route by which a paper published this month can be reached — it has
+been cited by nobody and can never clear a backward threshold, but it can
+cite three of ours the day it appears.
+
+Both count the same toward support, because "three of ours cite it" and "it
+cites three of ours" are equally strong evidence of belonging to this
+conversation.
+
+It is bounded by three mechanisms that each stop a different failure:
 
 **A rising threshold** makes each hop outward strictly harder. Generation 1
 needs 2 of our papers to cite it, generation 2 needs 3, generation 3 needs 4.
@@ -71,24 +81,55 @@ def threshold_for(generation: int, base: int = BASE_THRESHOLD) -> int:
 
 @dataclass(frozen=True)
 class Candidate:
-    """A cited work that is not in the corpus, and the case for admitting it."""
+    """A work not in the corpus, and the case for admitting it."""
 
     key: str
     """Canonical key — the same identity the citation graph joins on."""
     cited_by: tuple[str, ...]
-    """Held records that cite it. The evidence, and the reason this is a
-    structural signal rather than a keyword one: a work several of our papers
-    cite is part of this conversation by the field's own behaviour, whatever
-    its title says."""
-    generation: int
-    """One hop beyond the *closest* paper that cites it. Closest, not
-    furthest: being cited by an original seed is a stronger claim to
-    relevance than being cited by something admitted three hops out, and the
-    candidate should be judged at its best case."""
+    """Held records that cite it — the backward direction. Our corpus builds
+    on this work."""
+    generation: int = 1
+    """One hop beyond the *closest* connected paper. Closest, not furthest:
+    being connected to an original seed is a stronger claim to relevance than
+    being connected to something admitted three hops out, and the candidate
+    should be judged at its best case."""
+    cites: tuple[str, ...] = ()
+    """Held records that *it* cites — the forward direction. This work builds
+    on our corpus.
+
+    The direction that makes new research reachable. A paper published last
+    month has been cited by nobody and can never clear a backward threshold,
+    however plainly it belongs; but it can cite three of ours on the day it
+    appears. Growing only backward drifts toward the foundational, which is
+    the failure `expand_neighborhood` was already written to avoid and this
+    path had quietly reintroduced.
+
+    Last in the field order on purpose: `generation` stays third so every
+    existing positional construction keeps meaning what it did."""
+
+    @property
+    def connected(self) -> tuple[str, ...]:
+        """Held records connected by a citation in either direction."""
+        return tuple(sorted(set(self.cited_by) | set(self.cites)))
 
     @property
     def support(self) -> int:
-        return len(self.cited_by)
+        """How much of our corpus is connected to this work.
+
+        Both directions count the same, and that symmetry is the point. "Three
+        of our papers cite it" and "it cites three of our papers" are equally
+        strong evidence that a work is part of this conversation — the first
+        says the corpus builds on it, the second says it builds on the corpus.
+        Counting only the first makes the library structurally unable to admit
+        anything published recently.
+        """
+        return len(self.connected)
+
+    @property
+    def direction(self) -> str:
+        if self.cited_by and self.cites:
+            return "both"
+        return "cites us" if self.cites else "we cite"
 
     def clears(self, base: int = BASE_THRESHOLD) -> bool:
         return self.support >= threshold_for(self.generation, base)
@@ -158,10 +199,16 @@ def find_candidates(
     references: dict[str, list[str]],
     held_keys: dict[str, str],
     generations: dict[str, int],
+    citers: dict[str, list[str]] | None = None,
 ) -> list[Candidate]:
-    """Every cited work we do not hold, with the papers that cite it.
+    """Every work we do not hold that is connected to one we do.
 
-    `references` maps a held record id to the canonical keys it cites,
+    `references` maps a held record id to the canonical keys it cites — the
+    backward direction, free, read from the store. `citers` maps a held
+    record id to the canonical keys of works citing *it* — the forward
+    direction, which costs a query per held record and is the only way a
+    paper published this month can ever be found.
+
     `held_keys` maps a canonical key to the record holding it, and
     `generations` gives each held record's generation.
 
@@ -169,23 +216,35 @@ def find_candidates(
     propose the same things in the same order. An expansion whose output
     depends on dict ordering would make a diff between runs unreadable.
     """
-    support: dict[str, set[str]] = {}
+    backward: dict[str, set[str]] = {}
+    forward: dict[str, set[str]] = {}
     closest: dict[str, int] = {}
 
-    for citing_id, cited_keys in references.items():
-        if citing_id not in generations:
+    def note(key: str, held_id: str, bucket: dict[str, set[str]]) -> None:
+        bucket.setdefault(key, set()).add(held_id)
+        proposed = generations[held_id] + 1
+        closest[key] = min(closest.get(key, proposed), proposed)
+
+    for held_id, cited_keys in references.items():
+        if held_id not in generations:
             continue          # a reference list for a record we no longer hold
-        citing_generation = generations[citing_id]
         for key in cited_keys:
-            if key in held_keys:
-                continue      # already in the corpus; this is a CITES edge, not a candidate
-            support.setdefault(key, set()).add(citing_id)
-            proposed = citing_generation + 1
-            closest[key] = min(closest.get(key, proposed), proposed)
+            if key not in held_keys:
+                note(key, held_id, backward)
+
+    for held_id, citing_keys in (citers or {}).items():
+        if held_id not in generations:
+            continue
+        for key in citing_keys:
+            if key not in held_keys:
+                note(key, held_id, forward)
 
     return sorted(
-        (Candidate(key=key, cited_by=tuple(sorted(ids)), generation=closest[key])
-         for key, ids in support.items()),
+        (Candidate(key=key,
+                   cited_by=tuple(sorted(backward.get(key, ()))),
+                   cites=tuple(sorted(forward.get(key, ()))),
+                   generation=closest[key])
+         for key in set(backward) | set(forward)),
         key=lambda c: (-c.support, c.generation, c.key),
     )
 
@@ -240,12 +299,17 @@ def provenance(candidate: Candidate, verdict: ScopeVerdict, titles: dict[str, st
     reader consults when they are surprised to find something in the corpus,
     and "expansion gen 2" answers nothing.
     """
-    citing = "; ".join(sorted(titles.get(rid, rid)[:60] for rid in candidate.cited_by))
+    connected = "; ".join(sorted(titles.get(rid, rid)[:60] for rid in candidate.connected))
+    how = {
+        "we cite": "cited by",
+        "cites us": "cites",
+        "both": "mutually connected to",
+    }[candidate.direction]
     return (
         f"admitted automatically at generation {candidate.generation} by citation "
-        f"expansion: cited by {candidate.support} records already held, which is at "
+        f"expansion: {how} {candidate.support} records already held, which is at "
         f"or above the threshold of {threshold_for(candidate.generation)} for this "
-        f"generation. Citing records: {citing}. "
+        f"generation. Connected records: {connected}. "
         f"Scope scan by {verdict.judged_by}: {verdict.reasoning} "
         f"Unreviewed, like everything that has not been through the review queue — "
         f"and machine-admitted as well as machine-resolved, so the scope judgement "
