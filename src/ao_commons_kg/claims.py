@@ -346,3 +346,49 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
     # Densest concept first: a reviewer working one idea at a time is both
     # faster and more consistent than one jumping between subjects.
     return sorted(pairs, key=lambda p: (-len(p[2]), p[2][0], p[0].id, p[1].id))
+
+
+def by_subject_and_method(claims, *, subject: str = "", method: str = "",
+                          claim_type: str = "") -> list[dict]:
+    """Answer "who has found this, working that way".
+
+    Two questions in one, and they are asked of different statements. The
+    subject is a tag on a finding or a position — what was shown or argued.
+    The method is a tag on a method statement in the same paper — how it was
+    done. Joining them through the paper is what makes the pair answerable,
+    and it is the shape of the question a researcher actually brings: not
+    "what is about reputation" but "what has been *found* about reputation,
+    by people doing dynamic evaluation".
+
+    No second vocabulary is needed for this, and adding one would be a
+    mistake. Eight of the seventeen terms in use already sit on more than
+    one statement type — `dynamic-evaluation` is a method in one paper, what
+    a finding is about in another, and what a position argues about in a
+    third. Splitting it into a subject term and a method term would make two
+    names for one idea, which is the failure this vocabulary is built to
+    avoid. The statement's type already says which role its tag is playing.
+    """
+    claims = list(claims)
+    methods_by_paper: dict[str, list] = {}
+    for claim in claims:
+        if claim.claim_type.value == "method":
+            methods_by_paper.setdefault(claim.resource_id, []).append(claim)
+
+    found = []
+    for claim in claims:
+        if claim_type and claim.claim_type.value != claim_type:
+            continue
+        if not claim_type and not claim.claim_type.is_primary:
+            continue
+        if subject and subject not in claim.concept_tags:
+            continue
+        via = [m for m in methods_by_paper.get(claim.resource_id, [])
+               if not method or method in m.concept_tags]
+        if method and not via:
+            continue
+        found.append({
+            "claim": claim,
+            "paper": claim.resource_id,
+            "via": via,
+        })
+    return found

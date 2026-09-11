@@ -501,3 +501,49 @@ class TestPrimaryAndContext:
                                primary_only=False)
         assert any(not a.claim_type.is_primary or not b.claim_type.is_primary
                    for a, b, _ in wide)
+
+
+class TestSubjectAndMethod:
+    """"Who has found this, working that way" — two questions of different
+    statements, joined through the paper."""
+
+    def test_a_subject_and_a_method_are_joined_through_the_paper(self):
+        from ao_commons_kg.claims import by_subject_and_method
+        hits = by_subject_and_method(load_claims(), subject="train-test-deploy-gap",
+                                     method="dynamic-evaluation")
+        assert hits
+        for hit in hits:
+            assert hit["claim"].claim_type.is_primary
+            assert hit["via"], "a method match must name the method statement it matched"
+            assert all(m.resource_id == hit["claim"].resource_id for m in hit["via"])
+
+    def test_a_method_nobody_used_returns_nothing(self):
+        from ao_commons_kg.claims import by_subject_and_method
+        assert not by_subject_and_method(load_claims(), subject="agent-reputation-systems",
+                                         method="dynamic-evaluation")
+
+    def test_it_returns_primaries_unless_asked_otherwise(self):
+        """Background and limitation are how you judge an answer, not what
+        the question was."""
+        from ao_commons_kg.claims import by_subject_and_method
+        hits = by_subject_and_method(load_claims(), subject="agent-reputation-systems")
+        assert hits and all(h["claim"].claim_type.is_primary for h in hits)
+        asked = by_subject_and_method(load_claims(), subject="agent-reputation-systems",
+                                      claim_type="background")
+        assert asked and all(h["claim"].claim_type.value == "background" for h in asked)
+
+    def test_one_vocabulary_serves_every_statement_type(self):
+        """The design decision this query rests on. Splitting concepts by
+        type would make `dynamic-evaluation` into a subject term and a method
+        term — two names for one idea, which is the failure the vocabulary is
+        built to avoid. The statement's type says which role its tag plays."""
+        import collections
+        roles = collections.defaultdict(set)
+        for claim in load_claims():
+            for tag in claim.concept_tags:
+                roles[tag].add(claim.claim_type.value)
+        spanning = {t: r for t, r in roles.items() if len(r) > 1}
+        assert len(spanning) >= 8, (
+            "terms stopped spanning statement types; if that is deliberate, this "
+            "test is the thing that should change")
+        assert "dynamic-evaluation" in spanning

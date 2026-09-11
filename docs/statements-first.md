@@ -103,6 +103,27 @@ from its own paper, rather than being returned beside it in a search:
 asking for a finding should hand back the background it rests on, the method
 that produced it, and the limitation its authors put on it.
 
+**Method is queryable, not only context.** "Who has found this, working that
+way" is a real question — a subject on a finding, a technique on a method
+statement, joined through the paper. `who_found` answers it as one query
+rather than two searches and a manual intersection.
+
+**One vocabulary, not one per type.** The obvious next move would be separate
+tag sets — subject tags for findings, technique tags for methods — and it is
+the wrong one. Eight of the seventeen terms in use already sit on more than
+one statement type: `dynamic-evaluation` is the technique in one paper's
+method statement, what a finding is about in another, and what a position
+argues about in a third. Splitting it would produce a subject term and a
+method term for one idea, which is exactly the failure the collision check
+exists to prevent. **The statement's type already says which role its tag is
+playing.**
+
+Background and limitation take subject tags like findings do, which the
+corpus confirms — `capability-profiling` on a limitation, `benchmarks-relevant-to-organizational-roles`
+on a background claim. They needed no special handling, and asking what a
+background tag "means differently" turned out to be a question with no
+content.
+
 This is a reading of the types rather than a new field. Nothing is tagged
 primary; it follows from what kind of statement it is.
 

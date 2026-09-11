@@ -115,6 +115,52 @@ def get_topic(code: str) -> str:
 
 
 @server.tool()
+def who_found(subject: str = "", method: str = "", claim_type: str = "",
+              limit: int = 20) -> str:
+    """Who has shown or argued something about `subject`, working via `method`.
+
+    Two questions asked of different statements and joined through the paper.
+    The subject is a tag on a finding or a position — what was shown or
+    argued. The method is a tag on a method statement in the same paper — how
+    it was done. "What has been found about the train-test-deploy gap, by
+    people doing dynamic evaluation" is one query, not two searches and a
+    manual intersection.
+
+    `claim_type` narrows to findings or to positions; left empty it returns
+    both and nothing else, because background and limitation are how you
+    judge an answer rather than what you were asking for. `get_statement`
+    returns those alongside any statement.
+
+    Concepts are one vocabulary, not one per statement type. Eight of the
+    seventeen terms in use already sit on more than one type — the same term
+    names a technique on a method and a subject on a finding — and the
+    statement's type says which role it is playing.
+    """
+    from .claims import by_subject_and_method
+
+    found = by_subject_and_method(
+        corpus().claims, subject=subject, method=method,
+        claim_type=claim_type or "")
+    return as_text({
+        "asked": {"subject": subject, "method": method, "type": claim_type or "primary"},
+        "matches": [
+            {
+                "id": hit["claim"].id,
+                "text": hit["claim"].text,
+                "type": hit["claim"].claim_type.value,
+                "paper": hit["paper"],
+                "concepts": hit["claim"].concept_tags,
+                "verified": hit["claim"].review_status.value != "unreviewed",
+                "method_statements": [
+                    {"text": m.text, "concepts": m.concept_tags} for m in hit["via"]
+                ],
+            }
+            for hit in found[:limit]
+        ],
+    })
+
+
+@server.tool()
 def get_statement(claim_id: str, with_context: bool = True) -> str:
     """One statement, its source sentence, and the context needed to judge it.
 
