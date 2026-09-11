@@ -277,7 +277,29 @@ def load_claim_relations(path: str | Path = DEFAULT_RELATIONS,
     return relations
 
 
-def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True):
+def context_for(claim, claims) -> list:
+    """The statements that help judge this one.
+
+    A finding is what a researcher was looking for; the background it rests
+    on, the method that produced it and the limitation the authors put on it
+    are how they decide what it is worth. Those travel with it — from the
+    same paper, because that is whose context it is.
+
+    Returns nothing for a context statement, which is not a refusal so much
+    as a category answer: background does not have background.
+    """
+    if not claim.claim_type.is_primary:
+        return []
+    return [
+        other for other in claims
+        if other.resource_id == claim.resource_id
+        and other.id != claim.id
+        and not other.claim_type.is_primary
+    ]
+
+
+def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
+                    primary_only: bool = True):
     """Claim pairs worth reading, because they share a concept.
 
     The arithmetic that makes the statement layer tractable. Forty claims is
@@ -297,6 +319,18 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True):
     import itertools
 
     settled = set()
+    if primary_only:
+        # The argument is between findings and positions. Ten of the first
+        # twelve asserted relations run between those two types, while eight
+        # of eleven *proposed* pairs involved a context statement — so
+        # without this the queue spends most of a reviewer's attention on
+        # pairs the corpus has never once produced a relation from.
+        #
+        # Context still relates to a primary, as grounds: a background
+        # premise supporting a finding. Those are found by reading the
+        # statement's own context, which travels with it, rather than by
+        # proposing every context pair in the corpus.
+        claims = [c for c in claims if c.claim_type.is_primary]
     for relation in relations or []:
         settled.add((relation.source_id, relation.target_id))
         settled.add((relation.target_id, relation.source_id))

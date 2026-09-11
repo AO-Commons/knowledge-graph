@@ -448,3 +448,56 @@ class TestRelationAttribution:
         """Re-attributing must not have cost the `because`."""
         from ao_commons_kg.claims import load_claim_relations
         assert all(r.source_location for r in load_claim_relations(claims=load_claims()))
+
+
+class TestPrimaryAndContext:
+    """Findings and positions are what the library is asked for. Background,
+    method and limitation are how you judge one once you have it."""
+
+    def test_the_split_follows_the_type(self):
+        from ao_commons_kg.models import ClaimType
+        assert ClaimType.FINDING.is_primary and ClaimType.POSITION.is_primary
+        assert not any(t.is_primary for t in
+                       (ClaimType.BACKGROUND, ClaimType.METHOD, ClaimType.LIMITATION))
+
+    def test_context_travels_with_a_primary_from_its_own_paper(self):
+        from ao_commons_kg.claims import context_for
+        claims = load_claims()
+        finding = next(c for c in claims if c.id == "claim:arxiv:2605.30169:4")
+        context = context_for(finding, claims)
+        assert context
+        assert all(c.resource_id == finding.resource_id for c in context)
+        assert all(not c.claim_type.is_primary for c in context)
+
+    def test_context_does_not_have_context(self):
+        """Not a refusal so much as a category answer: background does not
+        have background."""
+        from ao_commons_kg.claims import context_for
+        claims = load_claims()
+        background = next(c for c in claims if not c.claim_type.is_primary)
+        assert context_for(background, claims) == []
+
+    def test_proposals_run_between_primaries_by_default(self):
+        """Eight of eleven proposed pairs involved a context statement, and
+        the corpus has never produced a relation from that shape except as
+        grounds. Without this the queue spends most of a reviewer's attention
+        where nothing has ever been found."""
+        from ao_commons_kg.claims import candidate_pairs, load_claim_relations
+        claims = load_claims()
+        relations = load_claim_relations(claims=claims)
+        narrow = candidate_pairs(claims, relations)
+        wide = candidate_pairs(claims, relations, primary_only=False)
+        assert len(narrow) < len(wide)
+        assert all(a.claim_type.is_primary and b.claim_type.is_primary
+                   for a, b, _ in narrow)
+
+    def test_context_pairs_are_still_reachable_when_asked_for(self):
+        """Context does relate to a primary, as grounds — two of the twelve
+        asserted relations are exactly that. Narrowing the default must not
+        make them unfindable."""
+        from ao_commons_kg.claims import candidate_pairs, load_claim_relations
+        claims = load_claims()
+        wide = candidate_pairs(claims, load_claim_relations(claims=claims),
+                               primary_only=False)
+        assert any(not a.claim_type.is_primary or not b.claim_type.is_primary
+                   for a, b, _ in wide)

@@ -437,6 +437,26 @@ class ClaimType(str, Enum):
     about this field has nobody actually measured" is a question worth being
     able to ask."""
 
+    @property
+    def is_primary(self) -> bool:
+        """Whether this is a statement a researcher comes looking for.
+
+        Findings and positions are what the library is asked for — what has
+        been shown, and what has been argued. Background, method and
+        limitation are context: how you judge a finding once you have one,
+        rather than the thing you were searching for.
+
+        The corpus bears it out. Ten of the first twelve asserted relations
+        run between findings and positions; the argument the field is having
+        is carried almost entirely by those two. Context enters that argument
+        as grounds — a background premise supporting a finding — rather than
+        as a participant in it.
+
+        A reading of the types, not a fourth field. Nothing is tagged
+        primary; it follows from what kind of statement it is.
+        """
+        return self in (ClaimType.FINDING, ClaimType.POSITION)
+
 
 @dataclass
 class Claim:

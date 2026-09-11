@@ -115,6 +115,54 @@ def get_topic(code: str) -> str:
 
 
 @server.tool()
+def get_statement(claim_id: str, with_context: bool = True) -> str:
+    """One statement, its source sentence, and the context needed to judge it.
+
+    Findings and positions are what the library is asked for — what has been
+    shown, and what has been argued. Background, method and limitation are
+    how you decide what a finding is worth once you have it, so they travel
+    with it rather than being returned as peers in a search.
+
+    Also returns the relations this statement is an end of, with the
+    reasoning behind each. Every one is inferred and most are currently a
+    machine's draft; the response says which.
+    """
+    from .claims import context_for, load_claim_relations, load_claims
+
+    claims = load_claims()
+    by_id = {c.id: c for c in claims}
+    claim = by_id.get(claim_id)
+    if not claim:
+        return as_text({"error": f"no statement {claim_id!r}"})
+
+    def brief(c) -> dict:
+        return {
+            "id": c.id, "text": c.text, "type": c.claim_type.value,
+            "primary": c.claim_type.is_primary,
+            "attribution": c.attribution.value,
+            "attributed_to": c.attributed_to or "",
+            "concepts": c.concept_tags,
+            "quote": c.quote,
+            "from": c.extracted_from,
+            "verified": c.review_status.value != "unreviewed",
+        }
+
+    payload = {"statement": brief(claim), "of_paper": claim.resource_id}
+    if with_context:
+        payload["context"] = [brief(c) for c in context_for(claim, claims)]
+    payload["relations"] = [
+        {"relation": r.relation.value,
+         "direction": "from this" if r.source_id == claim_id else "to this",
+         "other": (by_id[r.target_id if r.source_id == claim_id else r.source_id].text),
+         "because": r.source_location,
+         "asserted_by": r.extraction_method}
+        for r in load_claim_relations(claims=claims)
+        if claim_id in (r.source_id, r.target_id)
+    ]
+    return as_text(payload)
+
+
+@server.tool()
 def search_concepts(term: str = "", unused: bool = False, limit: int = 20) -> str:
     """Search the statement vocabulary — what a claim can be tagged with.
 

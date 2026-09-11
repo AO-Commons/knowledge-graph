@@ -78,6 +78,34 @@ at the level of the whole, and no individual sentence in it carries the frame.
 That is the thing to design around, and it is the argument against a pure
 switch.
 
+## Two kinds of statement
+
+Not all five types do the same work, and the corpus says which.
+
+**Findings and positions are what the library is asked for** — what has been
+shown, and what has been argued. **Background, method and limitation are
+context**: how a researcher judges a finding once they have one, rather than
+the thing they were searching for.
+
+```
+10 of the first 12 asserted relations run between findings and positions
+ 8 of 11 proposed pairs involved a context statement — and produced nothing
+```
+
+The argument a field is having is carried almost entirely by two of the five
+types. Context enters that argument as *grounds* — a background premise
+supporting a finding — rather than as a participant in it.
+
+So the two behave differently. Linking proposes between primaries, because
+otherwise most of a reviewer's attention goes to pairs the corpus has never
+once produced a relation from. And context travels *with* its primary,
+from its own paper, rather than being returned beside it in a search:
+asking for a finding should hand back the background it rests on, the method
+that produced it, and the limitation its authors put on it.
+
+This is a reading of the types rather than a new field. Nothing is tagged
+primary; it follows from what kind of statement it is.
+
 ## The design
 
 **Statements carry the specific tags.** Fine-grained on purpose: the finer the
