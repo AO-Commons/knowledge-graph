@@ -532,7 +532,13 @@ class Claim:
     the characteriztic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
 
-    VERDICTS = frozenset({"accurate", "overstated", "not-in-source", "ambiguous"})
+    # `adjusted` is the reviewer rewriting the sentence rather than grading
+    # it. It was added to the filing bot and not here, which meant the first
+    # adjustment anybody filed would merge cleanly into the gold set and then
+    # make every load of the corpus raise — the site build, the tests and the
+    # next filing all failing on a file that arrived by the front door.
+    VERDICTS = frozenset({"accurate", "adjusted", "overstated", "not-in-source",
+                          "ambiguous"})
 
     def __post_init__(self) -> None:
         if isinstance(self.claim_type, str):

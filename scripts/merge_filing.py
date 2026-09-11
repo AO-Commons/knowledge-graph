@@ -472,8 +472,9 @@ def summarize_claims(result: dict) -> list[str]:
     if result.get("adjusted"):
         lines += [
             "",
-            "**Rewritten by the reviewer.** Apply these to the statement text in "
-            "`data/claims/`; the verdict alone does not change what the corpus says:",
+            "**Rewritten by the reviewer.** Merging this applies the new wording to "
+            "the statement — check each against the quote in `data/claims/`, which "
+            "is what it still has to say:",
             "",
         ]
         for claim_id, text, concepts in result["adjusted"]:

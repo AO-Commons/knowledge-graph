@@ -210,3 +210,58 @@ class TestVerdicts:
     def test_no_verdict_file_is_the_normal_state(self, tmp_path):
         assert load_claims(self._corpus(tmp_path), verdicts=None)[0].review_status \
             is ReviewStatus.UNREVIEWED
+
+
+class TestAnAdjustmentReachesTheCorpus:
+    """The verdict that rewrites a statement, followed all the way through.
+
+    It was accepted by the filing bot and unknown to the model, so the first
+    one anybody filed would have merged into the gold set and then made every
+    load of the corpus raise: the site build, the test suite, and the next
+    filing all failing on a file that came in through the front door.
+    """
+
+    GOLD = {"claims": {"claim:arxiv:2606.03237:1": {
+        "verdict": "adjusted",
+        "reviewed_on": "2026-09-11",
+        "reviewer": "a-reviewer",
+        "text": "Coexistence, not capability, is the binding constraint.",
+        "concepts": ["endogenous-non-stationarity"],
+    }}}
+
+    def _gold(self, tmp_path):
+        import yaml
+        path = tmp_path / "claims.yml"
+        path.write_text(yaml.safe_dump(self.GOLD), encoding="utf-8")
+        return path
+
+    def test_the_corpus_still_loads(self, tmp_path):
+        from ao_commons_kg.claims import load_claims
+        assert load_claims(verdicts=self._gold(tmp_path))
+
+    def test_the_statement_becomes_the_reviewer_s_wording(self, tmp_path):
+        """Otherwise the corpus goes on showing the sentence a reviewer
+        rejected, with a note beside it saying somebody had fixed it."""
+        from ao_commons_kg.claims import load_claims
+        claims = {c.id: c for c in load_claims(verdicts=self._gold(tmp_path))}
+        claim = claims["claim:arxiv:2606.03237:1"]
+        assert claim.text == "Coexistence, not capability, is the binding constraint."
+        assert claim.concept_tags == ["endogenous-non-stationarity"]
+        assert claim.reviewed_by == "a-reviewer"
+
+    def test_the_quote_is_not_rewritten_with_it(self, tmp_path):
+        """The quote is what the new wording has to answer to. A reviewer who
+        could change both could make anything true."""
+        from ao_commons_kg.claims import load_claims
+        claims = {c.id: c for c in load_claims(verdicts=self._gold(tmp_path))}
+        quote = claims["claim:arxiv:2606.03237:1"].quote
+        assert "central challenge is shifting from capability to coexistence" in quote
+
+    def test_a_verdict_with_no_rewrite_leaves_the_text_alone(self, tmp_path):
+        import yaml
+        from ao_commons_kg.claims import load_claims
+        path = tmp_path / "claims.yml"
+        path.write_text(yaml.safe_dump({"claims": {"claim:arxiv:2606.03237:1": {
+            "verdict": "accurate", "reviewer": "a-reviewer"}}}), encoding="utf-8")
+        claims = {c.id: c for c in load_claims(verdicts=path)}
+        assert claims["claim:arxiv:2606.03237:1"].text.startswith("The binding constraint")

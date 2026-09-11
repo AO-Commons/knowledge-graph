@@ -704,7 +704,8 @@ class TestAdjustments:
         result = merge_claims(cleaned, "anke", tmp_path / "claims.yml")
         text = "\n".join(summarize_claims(result))
         assert "Reputation carries across organizational boundaries." in text
-        assert "data/claims/" in text, "says where to apply it"
+        assert "data/claims/" in text, "points at the quote it has to answer to"
+        assert "Merging this applies" in text, "says what merging it does"
 
     def test_the_rewrite_is_kept(self, tmp_path):
         gold = tmp_path / "claims.yml"

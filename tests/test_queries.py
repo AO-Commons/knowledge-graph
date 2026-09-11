@@ -107,9 +107,16 @@ class TestClaims:
         positions = get_claims(corpus, claim_type="position")["matched"]
         assert findings and positions
 
-    def test_the_unverified_filter_is_honest_while_nothing_is_verified(self, corpus):
-        every = get_claims(corpus, limit=100)["matched"]
-        assert get_claims(corpus, only_unverified=True, limit=100)["matched"] == every
+    def test_the_unverified_filter_excludes_exactly_what_has_a_verdict(self, corpus):
+        """This asserted that the filter matched *everything*, which was true
+        only while nobody had reviewed anything — so the first filing a
+        reviewer sent would have turned this red on their own pull request,
+        with the failure saying nothing about what they had done wrong,
+        because they had done nothing wrong."""
+        every = get_claims(corpus, limit=500)["matched"]
+        unverified = get_claims(corpus, only_unverified=True, limit=500)["matched"]
+        verified = sum(1 for c in corpus.claims if c.verdict is not None)
+        assert unverified == every - verified
 
 
 class TestPeople:

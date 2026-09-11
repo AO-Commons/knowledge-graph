@@ -105,6 +105,22 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
                 claim.reviewed_by = checked.get("reviewer")
                 claim.note = checked.get("note") or claim.note
                 claim.review_status = ReviewStatus.REVIEWED
+                # An adjustment is a rewrite, and the rewrite is the point of
+                # it. Left in the verdict file, the corpus would go on showing
+                # the sentence a reviewer had explicitly rejected, with a note
+                # beside it saying somebody had fixed it — the worst of both.
+                #
+                # Applying it here rather than editing the claim file keeps one
+                # rule: the claim file is what extraction produced, the verdict
+                # file is what review decided, and review wins. Nothing arrives
+                # in the verdict file that a maintainer did not merge, so the
+                # human gate is the pull request, where the rewrite and the
+                # quote it has to answer to are both on screen.
+                if claim.verdict == "adjusted":
+                    if rewritten := (checked.get("text") or "").strip():
+                        claim.text = rewritten
+                    if retagged := checked.get("concepts"):
+                        claim.concept_tags = list(retagged)
                 try:
                     claim.__post_init__()
                 except ValueError as error:
