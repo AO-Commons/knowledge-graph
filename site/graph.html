@@ -42,6 +42,7 @@
     --n-topic:   #7ba79b;
     --n-resource:#9c3a10;
     --n-claim:   #6c4f9c;
+    --n-relates: #b5452f;
     --n-author:  #d1d5db;
     --void:      #07080b;
   }
@@ -65,6 +66,7 @@
     --n-topic:   #3f7a6c;
     --n-resource:#d9873f;
     --n-claim:   #a98cc7;
+    --n-relates: #e07a5f;
     --n-author:  #cbd5e1;
     --void:      #07080b;
   }
@@ -325,19 +327,22 @@
     ["similar", "Shares references", "--mark-edge", "computed: bibliographic coupling, not a claim by either paper"],
     ["claim", "States", "--n-claim", "a statement extracted from the paper"],
     ["about", "Statement is about", "--n-topic", "inferred: which branch a statement concerns"],
+    ["relates", "Statement to statement", "--n-relates",
+     "inferred by a person: no source says two claims disagree, so each carries its reasoning"],
     ["wrote", "Wrote", "--n-author", "the byline, taken from arXiv rather than from a resolver"],
   ];
 
   // How many particles ride each kind of edge, and how fast. The taxonomy is
   // structure and stays still; the edges that assert something move, and the
   // ones read from a paper move faster than the ones we computed.
-  const PARTICLES = { cites: 3, claim: 2, tagged: 1, similar: 2, about: 1, wrote: 2, parent: 0 };
+  const PARTICLES = { cites: 3, claim: 2, tagged: 1, similar: 2, about: 1, wrote: 2,
+                      relates: 4, parent: 0 };
   const SPEED = { cites: 0.010, claim: 0.006, tagged: 0.004, similar: 0.003,
-                  about: 0.003, wrote: 0.005 };
+                  about: 0.003, wrote: 0.005, relates: 0.008 };
 
   const state = {
     nodes: new Set(NODE_KINDS.map(k => k[0])),
-    links: new Set(["parent", "tagged", "cites", "similar", "claim", "wrote"]),
+    links: new Set(["parent", "tagged", "cites", "similar", "claim", "relates", "wrote"]),
     allTopics: false,
     // 251 people, but only 25 are on more than one paper. The rest hang off a
     // single record, adding a spoke and no structure — so the default shows
@@ -572,6 +577,19 @@
           background:${token("--card")};color:${token("--ink")};
           border:1px solid ${token("--rule-hard")};padding:6px 9px;
           font:12px/1.45 ui-sans-serif,system-ui;max-width:280px">${escape(node.label)}</div>`)
+      // Only the statement-to-statement edges carry a label, and they earn
+      // it: the edge asserts that two claims disagree, and the whole rule of
+      // this project is that an inference shows its reasoning. A line
+      // between two nodes with the reasoning hidden is the thing the
+      // provenance discipline exists to prevent.
+      .linkLabel(link => (link.kind !== "relates" ? "" : `<div style="
+          background:${token("--card")};color:${token("--ink")};
+          border:1px solid ${token("--rule-hard")};padding:7px 10px;
+          font:12px/1.5 ui-sans-serif,system-ui;max-width:340px">
+          <strong>${escape((link.relation || "").replace(/_/g, " ").toLowerCase())}</strong>
+          <div style="margin-top:4px;opacity:.85">${escape(link.because || "")}</div>
+          <div style="margin-top:5px;font-size:11px;opacity:.6">inferred — a person read
+          both statements and decided</div></div>`))
       .nodeColor(colourOfNode)
       .nodeThreeObject(personCube)
       .nodeThreeObjectExtend(false)
