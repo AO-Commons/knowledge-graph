@@ -1,0 +1,55 @@
+id: resource:doi:10-52202-079017-3548
+resource_type: peer-reviewed-paper
+title: 'Cooperate or Collapse: Emergence of Sustainable Cooperation in a Society of LLM Agents'
+abstract: As AI systems pervade human life, ensuring that large language models (LLMs) make
+  safe decisions remains a significant challenge. We introduce the Governance of the Commons
+  Simulation (GovSim), a generative simulation platform designed to study strategic interactions
+  and cooperative decision-making in LLMs. In GovSim, a society of AI agents must collectively
+  balance exploiting a common resource with sustaining it for future use. This environment
+  enables the study of how ethical considerations, strategic planning, and negotiation skills
+  impact cooperative outcomes. We develop an LLM-based agent architecture and test it with
+  the leading open and closed LLMs. We find that all but the most powerful LLM agents fail
+  to achieve a sustainable equilibrium in GovSim, with the highest survival rate below 54%.
+  Ablations reveal that successful multi-agent communication between agents is critical for
+  achieving cooperation in these cases. Furthermore, our analyses show that the failure to
+  achieve sustainable cooperation in most LLMs stems from their inability to formulate and
+  analyze hypotheses about the long-term effects of their actions on the equilibrium of the
+  group. Finally, we show that agents that leverage"Universalization"-based reasoning, a theory
+  of moral thinking, are able to achieve significantly better sustainability. Taken together,
+  GovSim enables us to study the mechanisms that underlie sustainable self-government with
+  specificity and scale. We open source the full suite of our research results, including
+  the simulation environment, agent prompts, and a comprehensive web interface.
+authors:
+- Giorgio Piatti
+- Zhijing Jin
+- Max Kleiman‐Weiner
+- Bernhard Schölkopf
+- Mrinmaya Sachan
+- Rada Mihalcea
+published_at: '2024-01-01'
+url: https://doi.org/10.52202/079017-3548
+doi: 10.52202/079017-3548
+openalex_id: W4415795596
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Solipsistic Superintelligence is Unlikely to be Cooperative; Virtual Agent Economies;
+  Will Systems of LLM Agents Cooperate: An Investigation into . Scope scan by claude-opus-5:
+  GovSim is a simulation benchmark rather than a study of an organization where agents hold
+  authority, so it sits in the same class as Melting Pot — load-bearing method/evaluation
+  precedent the field builds on, held at section 15. The commons-governance exclusion line
+  does not bar it, since the finding depends entirely on the agents being the decision-makers
+  and would vanish without them. What changes because agents hold authority: It supplies an
+  evaluation harness and empirical baseline for whether LLM agents left to govern a shared
+  resource sustain or exhaust it, which sets expectations for how much unsupervised allocation
+  authority agents can be given and what scaffolding (communication, universalization prompts)
+  oversight must supply. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,54 @@
+id: resource:arxiv:2403.02691
+resource_type: preprint
+title: 'InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language
+  Model Agents'
+abstract: 'Recent work has embodied LLMs as agents, allowing them to access tools, perform
+  actions, and interact with external content (e.g., emails or websites). However, external
+  content introduces the risk of indirect prompt injection (IPI) attacks, where malicious
+  instructions are embedded within the content processed by LLMs, aiming to manipulate these
+  agents into executing detrimental actions against users. Given the potentially severe consequences
+  of such attacks, establishing benchmarks to assess and mitigate these risks is imperative.
+  In this work, we introduce InjecAgent, a benchmark designed to assess the vulnerability
+  of tool-integrated LLM agents to IPI attacks. InjecAgent comprises 1,054 test cases covering
+  17 different user tools and 62 attacker tools. We categorize attack intentions into two
+  primary types: direct harm to users and exfiltration of private data. We evaluate 30 different
+  LLM agents and show that agents are vulnerable to IPI attacks, with ReAct-prompted GPT-4
+  vulnerable to attacks 24% of the time. Further investigation into an enhanced setting, where
+  the attacker instructions are reinforced with a hacking prompt, shows additional increases
+  in success rates, nearly doubling the attack success rate on the ReAct-prompted GPT-4. Our
+  findings raise questions about the widespread deployment of LLM Agents. Our benchmark is
+  available at https://github.com/uiuc-kang-lab/InjecAgent.'
+authors:
+- Qiusi Zhan
+- Zhixiang Liang
+- Zifan Ying
+- Daniel Kang
+published_at: '2024-03-05'
+url: https://arxiv.org/abs/2403.02691
+doi: 10.48550/arXiv.2403.02691
+arxiv_id: '2403.02691'
+openalex_id: W4392538073
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Securing AI Agents with Information-Flow Control; Trustworthy
+  agentic AI systems: a cross-layer review of arch. Scope scan by claude-opus-5: This is an
+  evaluation suite about agent-level security rather than about organizations where agents
+  hold authority, so it fits the Section 15 borrowed-background role alongside Melting Pot;
+  no exclusion-register line applies since it is agent-specific and would not exist without
+  machine actors. It is load-bearing for the library''s oversight and containment records
+  (information-flow control, delegation, threat-model reviews all cite it) but should be pointed
+  at, not ingested as an agentic-organization record. What changes because agents hold authority:
+  It quantifies how often an agent granted tool-execution authority can be hijacked by untrusted
+  external content into harmful or data-exfiltrating actions, which sets a baseline threat
+  model and evaluation method for any delegation, approval-gating, or information-flow control
+  an agent-authority organization puts in place. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

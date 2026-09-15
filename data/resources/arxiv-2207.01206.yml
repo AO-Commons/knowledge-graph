@@ -1,0 +1,53 @@
+id: resource:arxiv:2207.01206
+resource_type: preprint
+title: 'WebShop: Towards Scalable Real-World Web Interaction with Grounded Language Agents'
+abstract: Existing benchmarks for grounding language in interactive environments either lack
+  real-world linguistic elements, or prove difficult to scale up due to substantial human
+  involvement in the collection of data or feedback signals. To bridge this gap, we develop
+  WebShop -- a simulated e-commerce website environment with $1.18$ million real-world products
+  and $12,087$ crowd-sourced text instructions. Given a text instruction specifying a product
+  requirement, an agent needs to navigate multiple types of webpages and issue diverse actions
+  to find, customize, and purchase an item. WebShop provides several challenges for language
+  grounding including understanding compositional instructions, query (re-)formulation, comprehending
+  and acting on noisy text in webpages, and performing strategic exploration. We collect over
+  $1,600$ human demonstrations for the task, and train and evaluate a diverse range of agents
+  using reinforcement learning, imitation learning, and pre-trained image and language models.
+  Our best model achieves a task success rate of $29\%$, which outperforms rule-based heuristics
+  ($9.6\%$) but is far lower than human expert performance ($59\%$). We also analyze agent
+  and human trajectories and ablate various model components to provide insights for developing
+  future agents with stronger language understanding and decision making abilities. Finally,
+  we show that agents trained on WebShop exhibit non-trivial sim-to-real transfer when evaluated
+  on amazon.com and ebay.com, indicating the potential value of WebShop in developing practical
+  web-based agents that can operate in the wild.
+authors:
+- Shunyu Yao
+- Howard Chen
+- John Yang
+- Karthik Narasimhan
+published_at: '2022-07-04'
+url: https://arxiv.org/abs/2207.01206
+doi: 10.48550/arXiv.2207.01206
+arxiv_id: '2207.01206'
+openalex_id: W4283828996
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterog; Levels of Autonomy
+  for AI Agents. Scope scan by claude-opus-5: WebShop is an evaluation environment, not a
+  study of organizations where agents hold authority, so it fits the Section 15 borrowed-background
+  pattern alongside Melting Pot rather than the core corpus. It is genuinely load-bearing:
+  the library''s autonomy-level and multi-agent-economy papers build on it as the standard
+  measure of grounded agent task competence. What changes because agents hold authority: It
+  supplies the canonical benchmark for measuring whether an agent can reliably execute consequential
+  real-world transactions (searching, customizing, purchasing) — the capability floor any
+  organization must verify before delegating purchasing authority — but it says nothing about
+  organizational authority itself. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

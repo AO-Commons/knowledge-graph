@@ -1,0 +1,59 @@
+id: resource:doi:10-18653-v1-2025-realm-1-9
+resource_type: peer-reviewed-paper
+title: 'Inherent and emergent liability issues in LLM-based agentic systems: a principal-agent
+  perspective'
+abstract: Agentic systems powered by large language models (LLMs) are becoming progressively
+  more complex and capable.Their increasing agency and expanding deployment settings attract
+  growing attention to effective governance policies, monitoring, and control protocols.Based
+  on the emerging landscape of the agentic market, we analyze potential liability issues arising
+  from the delegated use of LLM agents and their extended systems through a principalagent
+  perspective.Our analysis complements existing risk-based studies on artificial agency and
+  covers the spectrum of important aspects of the principal-agent relationship and their potential
+  consequences at deployment.Furthermore, we motivate method developments for technical governance
+  along the directions of interpretability and behavior evaluations, reward and conflict management,
+  and the mitigation of misalignment and misconduct through principled engineering of detection
+  and fail-safe mechanisms.By illustrating the outstanding issues in AI liability for LLM-based
+  agentic systems, we aim to inform the system design, auditing, and tracing to enhance transparency
+  and liability attribution.
+authors:
+- Garry A. Gabison
+- R. Patrick Xian
+organizations:
+- Berkeley College
+- Ceres
+- Queen Mary University of London
+- University of California, Berkeley
+- University of California, San Francisco
+affiliations:
+  Garry A. Gabison:
+  - Berkeley College
+  - Queen Mary University of London
+  - University of California, Berkeley
+  R. Patrick Xian:
+  - Ceres
+  - University of California, San Francisco
+published_at: '2025-01-01'
+url: https://doi.org/10.18653/v1/2025.realm-1.9
+doi: 10.18653/v1/2025.realm-1.9
+openalex_id: W4412944208
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Holistic Review of Agentic AI Frameworks, Applications, an; AI Agents vs. Agentic
+  AI: A Conceptual taxonomy, application; Reliable agent engineering should integrate machine-compatib.
+  Scope scan by claude-opus-5: The register excludes general entity legal concerns but explicitly
+  retains work where agent action creates novel exposure (12.6.3), which is exactly this paper''s
+  subject. It directly informs how an agent-authority organization is audited and held accountable,
+  so it is in scope rather than borrowed background. What changes because agents hold authority:
+  It maps how delegating operational authority to LLM agents reallocates liability along the
+  principal-agent chain, and derives concrete design requirements — tracing, detection, fail-safes,
+  conflict and reward management — for attributing responsibility when an agent acts on a
+  principal''s behalf. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

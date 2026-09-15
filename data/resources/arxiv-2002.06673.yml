@@ -1,0 +1,53 @@
+id: resource:arxiv:2002.06673
+resource_type: preprint
+title: Performative Prediction
+abstract: When predictions support decisions they may influence the outcome they aim to predict.
+  We call such predictions performative; the prediction influences the target. Performativity
+  is a well-studied phenomenon in policy-making that has so far been neglected in supervised
+  learning. When ignored, performativity surfaces as undesirable distribution shift, routinely
+  addressed with retraining. We develop a risk minimization framework for performative prediction
+  bringing together concepts from statistics, game theory, and causality. A conceptual novelty
+  is an equilibrium notion we call performative stability. Performative stability implies
+  that the predictions are calibrated not against past outcomes, but against the future outcomes
+  that manifest from acting on the prediction. Our main results are necessary and sufficient
+  conditions for the convergence of retraining to a performatively stable point of nearly
+  minimal loss. In full generality, performative prediction strictly subsumes the setting
+  known as strategic classification. We thus also give the first sufficient conditions for
+  retraining to overcome strategic feedback effects.
+authors:
+- Juan C. Perdomo
+- Tijana Zrnic
+- Celestine Mendler-Dünner
+- Moritz Hardt
+organizations:
+- University of California, Berkeley
+affiliations:
+  Moritz Hardt:
+  - University of California, Berkeley
+published_at: '2020-02-16'
+url: https://arxiv.org/abs/2002.06673
+doi: 10.48550/arXiv.2002.06673
+arxiv_id: '2002.06673'
+openalex_id: W3034367601
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Lessons from complex systems science for AI governance; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: This is foundational ML/game-theoretic
+  method, not a study of organizations with delegated machine authority, so it belongs as
+  a pointer in section 15 rather than as an ingested record. No exclusion-register line bars
+  it — it is not human collective decision theory — but it is load-bearing background for
+  designing feedback-aware monitoring of agents that hold allocation or scoring authority.
+  What changes because agents hold authority: When an agent''s predictions drive real decisions,
+  the distribution it is evaluated against is one it partly causes, so oversight must check
+  calibration against post-deployment outcomes and monitor retraining loops for performative
+  equilibria rather than treating drift as exogenous. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

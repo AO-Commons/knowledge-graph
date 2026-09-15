@@ -1,0 +1,51 @@
+id: resource:arxiv:2310.02170
+resource_type: preprint
+title: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent Collaboration
+abstract: 'Recent studies show that collaborating multiple large language model (LLM) powered
+  agents is a promising way for task solving. However, current approaches are constrained
+  by using a fixed number of agents and static communication structures. In this work, we
+  propose automatically selecting a team of agents from candidates to collaborate in a dynamic
+  communication structure toward different tasks and domains. Specifically, we build a framework
+  named Dynamic LLM-Powered Agent Network ($\textbf{DyLAN}$) for LLM-powered agent collaboration,
+  operating a two-stage paradigm: (1) Team Optimization and (2) Task Solving. During the first
+  stage, we utilize an $\textit{agent selection}$ algorithm, based on an unsupervised metric
+  called $\textit{Agent Importance Score}$, enabling the selection of best agents according
+  to their contributions in a preliminary trial, oriented to the given task. Then, in the
+  second stage, the selected agents collaborate dynamically according to the query. Empirically,
+  we demonstrate that DyLAN outperforms strong baselines in code generation, decision-making,
+  general reasoning, and arithmetic reasoning tasks with moderate computational cost. On specific
+  subjects in MMLU, selecting a team of agents in the team optimization stage improves accuracy
+  by up to 25.0% in DyLAN.'
+authors:
+- Zijun Liu
+- Yanzhe Zhang
+- Peng Li
+- Yang Liu
+- Diyi Yang
+published_at: '2023-10-03'
+url: https://arxiv.org/abs/2310.02170
+doi: 10.48550/arXiv.2310.02170
+arxiv_id: '2310.02170'
+openalex_id: W4387356327
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Large Language Model
+  based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration Mechanisms: A Survey
+  of LLMs. Scope scan by claude-opus-5: This is core agent-organizational design: team formation,
+  per-agent contribution measurement, and reconfigurable authority-to-speak structures among
+  agents that execute tasks without a human in the loop. No exclusion-register line applies
+  — it is not human collective decision-making, mechanism voting, or token/entity design,
+  and removing the machines removes the finding entirely. What changes because agents hold
+  authority: It gives a concrete mechanism for deciding which agents are admitted to a team
+  and how they are wired together — contribution-based selection via an Agent Importance Score
+  plus dynamic communication topology — which is the staffing, attribution and structure problem
+  an organization faces when the operators are machines rather than people. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

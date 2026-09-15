@@ -1,0 +1,54 @@
+id: resource:arxiv:2308.07201
+resource_type: preprint
+title: 'ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate'
+abstract: Text evaluation has historically posed significant challenges, often demanding substantial
+  labor and time cost. With the emergence of large language models (LLMs), researchers have
+  explored LLMs' potential as alternatives for human evaluation. While these single-agent-based
+  approaches show promise, experimental results suggest that further advancements are needed
+  to bridge the gap between their current effectiveness and human-level evaluation quality.
+  Recognizing that best practices of human evaluation processes often involve multiple human
+  annotators collaborating in the evaluation, we resort to a multi-agent debate framework,
+  moving beyond single-agent prompting strategies. The multi-agent-based approach enables
+  a group of LLMs to synergize with an array of intelligent counterparts, harnessing their
+  distinct capabilities and expertise to enhance efficiency and effectiveness in handling
+  intricate tasks. In this paper, we construct a multi-agent referee team called ChatEval
+  to autonomously discuss and evaluate the quality of generated responses from different models
+  on open-ended questions and traditional natural language generation (NLG) tasks. Our analysis
+  shows that ChatEval transcends mere textual scoring, offering a human-mimicking evaluation
+  process for reliable assessments. Our code is available at https://github.com/chanchimin/ChatEval.
+authors:
+- Chi-Min Chan
+- Weize Chen
+- Yusheng Su
+- Jianxuan Yu
+- Wei Xue
+- Shanghang Zhang
+- Jie Fu
+- Zhiyuan Liu
+published_at: '2023-08-14'
+url: https://arxiv.org/abs/2308.07201
+doi: 10.48550/arXiv.2308.07201
+arxiv_id: '2308.07201'
+openalex_id: W4385849309
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: The paper is a benchmark-facing
+  method for LLM-based text evaluation, not a study of organizations where agents hold operational
+  or decision authority, so it fails the scope test on its own terms. But it is load-bearing
+  for the agent-as-evaluator/allocator material (8.2) and for any oversight design that delegates
+  judgment to a machine panel, so it belongs in section 15 as borrowed background rather than
+  as an in-scope record. What changes because agents hold authority: If agents are to hold
+  evaluative authority — scoring submissions, gating outputs, or allocating on quality judgments
+  — ChatEval is the canonical method showing that a multi-agent debate panel, not a single
+  judge, is the unit that produces a defensible machine assessment. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,55 @@
+id: resource:arxiv:2406.07155
+resource_type: preprint
+title: Scaling Large Language Model-based Multi-Agent Collaboration
+abstract: Recent breakthroughs in large language model-driven autonomous agents have revealed
+  that multi-agent collaboration often surpasses each individual through collective reasoning.
+  Inspired by the neural scaling law--increasing neurons enhances performance, this study
+  explores whether the continuous addition of collaborative agents can yield similar benefits.
+  Technically, we utilize directed acyclic graphs to organize agents into a multi-agent collaboration
+  network (MacNet), upon which their interactive reasoning is topologically orchestrated for
+  autonomous task solving. Extensive evaluations reveal that it effectively supports collaboration
+  among over a thousand agents, with irregular topologies outperforming regular ones. We also
+  identify a collaborative scaling law--the overall performance follows a logistic growth
+  pattern as agents scale, with collaborative emergence occurring earlier than traditional
+  neural emergence. We speculate this may be because scaling agents catalyzes their multidimensional
+  considerations during interactive reflection and refinement, thereby producing more comprehensive
+  artifacts. The code is available at https://github.com/OpenBMB/ChatDev/tree/macnet.
+authors:
+- Qian Chen
+- Zihao Xie
+- Yifei Wang
+- Wei Liu
+- Zhu, Kunlun
+- Xia, Hanchen
+- Yufan Dang
+- Z. Z. Du
+- W. Chen
+- Cheng Yang
+- Zhiyuan Liu
+- Maosong Sun
+published_at: '2024-06-11'
+url: https://arxiv.org/abs/2406.07155
+doi: 10.48550/arXiv.2406.07155
+arxiv_id: '2406.07155'
+openalex_id: W4399597845
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Virtual Agent Economies. Scope scan by claude-opus-5:
+  This is a scaling/architecture result about agent collectives solving tasks autonomously,
+  with no treatment of authority, oversight, or accountability, so it is foundational method
+  the field builds on rather than a study of agentic organizations; no exclusion-register
+  line applies. Hold it as a section 15 pointer alongside Melting Pot rather than ingesting
+  it as a core record. What changes because agents hold authority: It supplies empirical evidence
+  that the topology of an all-agent collective — not just individual agent capability — determines
+  collective output quality, which bears on how one structures an organization whose operational
+  work is executed by many agents. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

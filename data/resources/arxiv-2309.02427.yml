@@ -1,0 +1,48 @@
+id: resource:arxiv:2309.02427
+resource_type: preprint
+title: Cognitive Architectures for Language Agents
+abstract: Recent efforts have augmented large language models (LLMs) with external resources
+  (e.g., the Internet) or internal control flows (e.g., prompt chaining) for tasks requiring
+  grounding or reasoning, leading to a new class of language agents. While these agents have
+  achieved substantial empirical success, we lack a systematic framework to organize existing
+  agents and plan future developments. In this paper, we draw on the rich history of cognitive
+  science and symbolic artificial intelligence to propose Cognitive Architectures for Language
+  Agents (CoALA). CoALA describes a language agent with modular memory components, a structured
+  action space to interact with internal memory and external environments, and a generalized
+  decision-making process to choose actions. We use CoALA to retrospectively survey and organize
+  a large body of recent work, and prospectively identify actionable directions towards more
+  capable agents. Taken together, CoALA contextualizes today's language agents within the
+  broader history of AI and outlines a path towards language-based general intelligence.
+authors:
+- Theodore R. Sumers
+- Shunyu Yao
+- Karthik Narasimhan
+- Thomas L. Griffiths
+published_at: '2023-09-05'
+url: https://arxiv.org/abs/2309.02427
+doi: 10.48550/arXiv.2309.02427
+arxiv_id: '2309.02427'
+openalex_id: W4386528753
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; OpenLife: Toward
+  Open-World Artificial Life with Autonomous . Scope scan by claude-opus-5: CoALA is a single-agent
+  architecture framework, not an account of organizations where agents hold authority, so
+  it fails the scope test on its own terms; no exclusion-register line applies since it is
+  machine-specific rather than human collective decision-making. It is genuinely load-bearing
+  for the multi-agent and autonomy work the library does ingest, so it belongs as a Section
+  15 pointer alongside Melting Pot rather than as a substantive record. What changes because
+  agents hold authority: It specifies the memory, action-space, and decision-procedure structure
+  inside an agent, which determines what can actually be logged, constrained, and audited
+  when that agent is granted operational authority — but it says nothing about organizations
+  itself. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

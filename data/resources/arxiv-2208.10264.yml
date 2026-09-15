@@ -1,0 +1,49 @@
+id: resource:arxiv:2208.10264
+resource_type: preprint
+title: Using Large Language Models to Simulate Multiple Humans and Replicate Human Subject
+  Studies
+abstract: 'We introduce a new type of test, called a Turing Experiment (TE), for evaluating
+  to what extent a given language model, such as GPT models, can simulate different aspects
+  of human behavior. A TE can also reveal consistent distortions in a language model''s simulation
+  of a specific human behavior. Unlike the Turing Test, which involves simulating a single
+  arbitrary individual, a TE requires simulating a representative sample of participants in
+  human subject research. We carry out TEs that attempt to replicate well-established findings
+  from prior studies. We design a methodology for simulating TEs and illustrate its use to
+  compare how well different language models are able to reproduce classic economic, psycholinguistic,
+  and social psychology experiments: Ultimatum Game, Garden Path Sentences, Milgram Shock
+  Experiment, and Wisdom of Crowds. In the first three TEs, the existing findings were replicated
+  using recent models, while the last TE reveals a "hyper-accuracy distortion" present in
+  some language models (including ChatGPT and GPT-4), which could affect downstream applications
+  in education and the arts.'
+authors:
+- Gati Aher
+- Rosa I. Arriaga
+- Adam Tauman Kalai
+published_at: '2022-08-18'
+url: https://arxiv.org/abs/2208.10264
+doi: 10.48550/arXiv.2208.10264
+arxiv_id: '2208.10264'
+openalex_id: W4292947474
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Generative agent-based
+  modeling with actions grounded in phy; Large Language Model based Multi-Agents: A Survey
+  of Progres; Multi-Agent Collaboration Mechanisms: A Survey of LLMs; Will Systems of LLM
+  Agents Cooperate: An Investigation into . Scope scan by claude-opus-5: This is a foundational
+  method paper for LLM-as-human-simulator that much of the library''s multi-agent simulation
+  work builds on, but it is not itself about organizations where agents hold operational or
+  decision authority — so it belongs in section 15 as borrowed background alongside Melting
+  Pot rather than as an in-scope record. What changes because agents hold authority: It establishes
+  that LLM simulations of human populations carry systematic distortions (e.g. hyper-accuracy),
+  which matters when agent-populated simulations are used to pre-test governance rules or
+  stand in for stakeholder preferences in an agent-authority organization. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

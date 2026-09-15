@@ -1,0 +1,54 @@
+id: resource:arxiv:2308.10144
+resource_type: preprint
+title: 'ExpeL: LLM Agents Are Experiential Learners'
+abstract: The recent surge in research interest in applying large language models (LLMs) to
+  decision-making tasks has flourished by leveraging the extensive world knowledge embedded
+  in LLMs. While there is a growing demand to tailor LLMs for custom decision-making tasks,
+  finetuning them for specific tasks is resource-intensive and may diminish the model's generalization
+  capabilities. Moreover, state-of-the-art language models like GPT-4 and Claude are primarily
+  accessible through API calls, with their parametric weights remaining proprietary and unavailable
+  to the public. This scenario emphasizes the growing need for new methodologies that allow
+  learning from agent experiences without requiring parametric updates. To address these problems,
+  we introduce the Experiential Learning (ExpeL) agent. Our agent autonomously gathers experiences
+  and extracts knowledge using natural language from a collection of training tasks. At inference,
+  the agent recalls its extracted insights and past experiences to make informed decisions.
+  Our empirical results highlight the robust learning efficacy of the ExpeL agent, indicating
+  a consistent enhancement in its performance as it accumulates experiences. We further explore
+  the emerging capabilities and transfer learning potential of the ExpeL agent through qualitative
+  observations and additional experiments.
+authors:
+- Andrew Zhao
+- Daniel Huang
+- Quentin Xu
+- Matthieu Gaetan Lin
+- Yong‐Jin Liu
+- Gao Huang
+published_at: '2023-08-20'
+url: https://arxiv.org/abs/2308.10144
+doi: 10.48550/arXiv.2308.10144
+arxiv_id: '2308.10144'
+openalex_id: W4386081135
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agentic Harness Engineering: Observability-Driven Automatic ; Bridging Inference-Time
+  Scaling and Episodic Memory with Act; OpenLife: Toward Open-World Artificial Life with Autonomous
+  . Scope scan by claude-opus-5: This is a single-agent learning method, not a study of organizations
+  where agents hold operational authority, so it fails the scope test on its own terms; no
+  exclusion-register line applies, but it is foundational method literature the field visibly
+  builds on (three library papers cite it for memory and experiential-learning machinery).
+  Hold it in section 15 as borrowed background rather than ingesting it as an agentic-organization
+  record. What changes because agents hold authority: It supplies the mechanism by which an
+  agent accumulates and reuses institutional experience as inspectable natural-language insights
+  rather than opaque weight updates, which matters for how a delegated agent''s behavior drifts
+  over time and how that drift can be audited — but the paper itself says nothing about authority,
+  roles, or accountability. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

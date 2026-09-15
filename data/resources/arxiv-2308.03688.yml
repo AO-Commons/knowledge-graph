@@ -1,0 +1,66 @@
+id: resource:arxiv:2308.03688
+resource_type: preprint
+title: 'AgentBench: Evaluating LLMs as Agents'
+abstract: The potential of Large Language Model (LLM) as agents has been widely acknowledged
+  recently. Thus, there is an urgent need to quantitatively \textit{evaluate LLMs as agents}
+  on challenging tasks in interactive environments. We present AgentBench, a multi-dimensional
+  benchmark that consists of 8 distinct environments to assess LLM-as-Agent's reasoning and
+  decision-making abilities. Our extensive test over \num API-based and open-sourced (OSS)
+  LLMs shows that, while top commercial LLMs present a strong ability of acting as agents
+  in complex environments, there is a significant disparity in performance between them and
+  many OSS competitors that are no larger than 70B. We identify the typical reasons of failures
+  in environments and LLMs, showing that poor long-term reasoning, decision-making, and instruction
+  following abilities are the main obstacles for developing usable LLM agents. Improving instruction
+  following and training on high quality multi-round alignment data could improve agent performance.
+  And different from existing assumptions, training on code present ambivalent impacts on
+  different agent tasks. Datasets, environments, and an integrated evaluation package for
+  AgentBench are released at https://github.com/THUDM/AgentBench.
+authors:
+- Xiao Liu
+- Hao Yu
+- Hanchen Zhang
+- Yifan Xu
+- Xuanyu Lei
+- Hanyu Lai
+- Yu Gu
+- Hangliang Ding
+- Kaiwen Men
+- Kejuan Yang
+- Shudan Zhang
+- Xiang Deng
+- Aohan Zeng
+- Zhengxiao Du
+- Chenhui Zhang
+- Sheng Shen
+- Tianjun Zhang
+- Yu Su
+- Huan Sun
+- Minlie Huang
+- Yuxiao Dong
+- Jie Tang
+published_at: '2023-08-07'
+url: https://arxiv.org/abs/2308.03688
+doi: 10.48550/arXiv.2308.03688
+arxiv_id: '2308.03688'
+openalex_id: W4385682136
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agent Bazaar: Enabling
+  Economic Alignment in Multi-Agent Mar. Scope scan by claude-opus-5: AgentBench is an evaluation
+  suite rather than a study of organizations where agents hold authority, so it sits with
+  Melting Pot as borrowed background in section 15 rather than as an in-scope record. No exclusion-register
+  line bars it; its relevance is as the field''s standard instrument for assessing agent competence
+  prior to delegation. What changes because agents hold authority: It supplies the capability-measurement
+  baseline — long-horizon reasoning, decision-making, and instruction-following failure modes
+  — that determines how much operational authority an agent can responsibly be delegated and
+  what must be monitored. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

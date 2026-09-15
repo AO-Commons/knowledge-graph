@@ -1,0 +1,77 @@
+id: resource:arxiv:2505.02077
+resource_type: preprint
+title: 'Open Challenges in Multi-Agent Security: Towards Secure Systems of Interacting AI
+  Agents'
+abstract: AI agents are beginning to interact with each other directly and across internet
+  platforms and physical environments, creating security challenges beyond traditional cybersecurity
+  and AI safety frameworks. Free-form protocols are essential for AI's task generalization
+  but enable new threats like secret collusion and coordinated swarm attacks. Network effects
+  can rapidly spread privacy breaches, disinformation, jailbreaks, and data poisoning, while
+  multi-agent dispersion and stealth optimization help adversaries evade oversight - creating
+  novel persistent threats at a systemic level. Despite their critical importance, these security
+  challenges remain understudied, with research fragmented across disparate fields including
+  AI security, multi-agent learning, complex systems, cybersecurity, game theory, distributed
+  systems, and technical AI governance. We introduce multi-agent security, a new field dedicated
+  to securing networks of AI agents against threats that emerge or amplify through their interactions
+  - whether direct or indirect via shared environments - with each other, humans, and institutions,
+  and characterise fundamental security-utility and security-security trade-offs across both
+  distributed and decentralised settings. Our preliminary work (1) taxonomizes the threat
+  landscape arising from interacting AI agents, (2) offers applications to multi-agent security
+  for work across diffuse subfields, and (3) proposes a unified research agenda addressing
+  open challenges in designing secure agent systems and interaction environments. By identifying
+  these gaps, we aim to guide research in this critical area to unlock the socioeconomic potential
+  of large-scale agent deployment, foster public trust, and mitigate national security risks
+  in critical infrastructure and defense contexts.
+authors:
+- Christian Schroeder de Witt
+- Krawiecka, Klaudia
+- Krawczuk, Igor
+- Hagag, Ben
+- Anderson, William L.
+- Belcak, Peter
+- Bucknall, Ben
+- Cai, Xiaohong
+- Chopra, Ayush
+- Cohen, Doron
+- Del Rosario, Ron F.
+- Draguns, Andis
+- Gray, Annie
+- Katz, Keren
+- Mavroudis, Vasilios
+- Mink, Jaron
+- Motwani, Sumeet Ramesh
+- Petit, Jonathan
+- Rembeck, Leif-Sebastian
+- Smith, Chandler
+- Sotiropoulos, John
+- Young, Steven
+- Scheffler, Sarah
+- Llewellyn, Mary
+published_at: '2025-05-04'
+url: https://arxiv.org/abs/2505.02077
+doi: 10.48550/arXiv.2505.02077
+arxiv_id: '2505.02077'
+openalex_id: W4415030290
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecture Matters for Multi-Agent Security; Reliable agent engineering should
+  integrate machine-compatib; Trustworthy agentic AI systems: a cross-layer review of arch.
+  Scope scan by claude-opus-5: No exclusion-register line applies: this is agent-specific
+  security and governance, not human collective decision-making, token design, or general
+  entity regulation. Removing the machines eliminates the findings entirely, and the library
+  already holds two direct descendants (Architecture Matters for Multi-Agent Security; Trustworthy
+  agentic AI systems), making this the parent framing rather than adjacent background. What
+  changes because agents hold authority: It names the threat classes—secret collusion, swarm
+  attacks, multi-agent dispersion and stealth optimization to evade oversight—that only exist
+  once agents interact with operational latitude, so oversight, monitoring and containment
+  controls for an agent-authority organization must be designed at the interaction-network
+  level rather than per-agent. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

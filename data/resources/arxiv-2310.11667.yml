@@ -1,0 +1,57 @@
+id: resource:arxiv:2310.11667
+resource_type: preprint
+title: 'SOTOPIA: Interactive Evaluation for Social Intelligence in Language Agents'
+abstract: Humans are social beings; we pursue social goals in our daily interactions, which
+  is a crucial aspect of social intelligence. Yet, AI systems' abilities in this realm remain
+  elusive. We present SOTOPIA, an open-ended environment to simulate complex social interactions
+  between artificial agents and evaluate their social intelligence. In our environment, agents
+  role-play and interact under a wide variety of scenarios; they coordinate, collaborate,
+  exchange, and compete with each other to achieve complex social goals. We simulate the role-play
+  interaction between LLM-based agents and humans within this task space and evaluate their
+  performance with a holistic evaluation framework called SOTOPIA-Eval. With SOTOPIA, we find
+  significant differences between these models in terms of their social intelligence, and
+  we identify a subset of SOTOPIA scenarios, SOTOPIA-hard, that is generally challenging for
+  all models. We find that on this subset, GPT-4 achieves a significantly lower goal completion
+  rate than humans and struggles to exhibit social commonsense reasoning and strategic communication
+  skills. These findings demonstrate SOTOPIA's promise as a general platform for research
+  on evaluating and improving social intelligence in artificial agents.
+authors:
+- Xuhui Zhou
+- Hao Zhu
+- Leena Mathur
+- Ruohong Zhang
+- Haofei Yu
+- Zhengyang Qi
+- Louis‐Philippe Morency
+- Yonatan Bisk
+- Daniel Fried
+- Graham Neubig
+- Maarten Sap
+published_at: '2023-10-18'
+url: https://arxiv.org/abs/2310.11667
+doi: 10.48550/arXiv.2310.11667
+arxiv_id: '2310.11667'
+openalex_id: W4387800437
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Generative agent-based
+  modeling with actions grounded in phy; Large Language Model based Multi-Agents: A Survey
+  of Progres; TheAgentCompany: Benchmarking LLM Agents on Consequential Re. Scope scan by
+  claude-opus-5: Like Melting Pot, this is an evaluation suite the field builds on rather
+  than a study of organizations where agents hold operational or decision authority, so it
+  belongs in section 15 as borrowed background. No exclusion-register line bars it; it simply
+  falls short of the scope test on its own terms. What changes because agents hold authority:
+  It supplies a benchmark and evaluation framework for whether LLM agents can negotiate, coordinate
+  and compete socially — the capability floor you would need to certify before delegating
+  interpersonal or negotiating authority to an agent — but it studies capability, not organizational
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,52 @@
+id: resource:arxiv:2208.10469
+resource_type: preprint
+title: Formal Contracts Mitigate Social Dilemmas in Multi-Agent RL
+abstract: 'Multi-agent Reinforcement Learning (MARL) is a powerful tool for training autonomous
+  agents acting independently in a common environment. However, it can lead to sub-optimal
+  behavior when individual incentives and group incentives diverge. Humans are remarkably
+  capable at solving these social dilemmas. It is an open problem in MARL to replicate such
+  cooperative behaviors in selfish agents. In this work, we draw upon the idea of formal contracting
+  from economics to overcome diverging incentives between agents in MARL. We propose an augmentation
+  to a Markov game where agents voluntarily agree to binding transfers of reward, under pre-specified
+  conditions. Our contributions are theoretical and empirical. First, we show that this augmentation
+  makes all subgame-perfect equilibria of all Fully Observable Markov Games exhibit socially
+  optimal behavior, given a sufficiently rich space of contracts. Next, we show that for general
+  contract spaces, and even under partial observability, richer contract spaces lead to higher
+  welfare. Hence, contract space design solves an exploration-exploitation tradeoff, sidestepping
+  incentive issues. We complement our theoretical analysis with experiments. Issues of exploration
+  in the contracting augmentation are mitigated using a training methodology inspired by multi-objective
+  reinforcement learning: Multi-Objective Contract Augmentation Learning (MOCA). We test our
+  methodology in static, single-move games, as well as dynamic domains that simulate traffic,
+  pollution management and common pool resource management.'
+authors:
+- Andreas Haupt
+- Phillip J. K. Christoffersen
+- Damani, Mehul
+- Dylan Hadfield-Menell
+published_at: '2022-08-22'
+url: https://arxiv.org/abs/2208.10469
+doi: 10.48550/arXiv.2208.10469
+arxiv_id: '2208.10469'
+openalex_id: W4292941517
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Quantifying the Self-Interest
+  Level of Markov Social Dilemma. Scope scan by claude-opus-5: This is not human collective
+  decision-making nor generic optimization: it is mechanism/institution design for autonomous
+  agents that commit and enforce transfers among themselves, so no exclusion-register line
+  applies and removing the agents removes the finding. It is load-bearing as a design lever
+  for agent-authority organizations rather than merely adjacent method, so it is ingested
+  rather than held as a section 15 pointer. What changes because agents hold authority: It
+  gives a concrete institutional primitive — voluntary, binding reward-transfer contracts
+  whose feasible space the designer chooses — by which an organization can align self-interested
+  machine agents that hold operational authority, showing that contract-space design substitutes
+  for direct control of agent objectives. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

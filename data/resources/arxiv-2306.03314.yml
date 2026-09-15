@@ -1,0 +1,46 @@
+id: resource:arxiv:2306.03314
+resource_type: preprint
+title: 'Multi-Agent Collaboration: Harnessing the Power of Intelligent LLM Agents'
+abstract: In this paper, we present a novel framework for enhancing the capabilities of large
+  language models (LLMs) by leveraging the power of multi-agent systems. Our framework introduces
+  a collaborative environment where multiple intelligent agent components, each with distinctive
+  attributes and roles, work together to handle complex tasks more efficiently and effectively.
+  We demonstrate the practicality and versatility of our framework through case studies in
+  artificial general intelligence (AGI), specifically focusing on the Auto-GPT and BabyAGI
+  models. We also examine the "Gorilla" model, which integrates external APIs into the LLM.
+  Our framework addresses limitations and challenges such as looping issues, security risks,
+  scalability, system evaluation, and ethical considerations. By modeling various domains
+  such as courtroom simulations and software development scenarios, we showcase the potential
+  applications and benefits of our proposed multi-agent system. Our framework provides an
+  avenue for advancing the capabilities and performance of LLMs through collaboration and
+  knowledge exchange among intelligent agents.
+authors:
+- Yashar Talebirad
+- Amirhossein Nadiri
+published_at: '2023-06-05'
+url: https://arxiv.org/abs/2306.03314
+doi: 10.48550/arXiv.2306.03314
+arxiv_id: '2306.03314'
+openalex_id: W4379919478
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs; PsySafe: A Comprehensive Framework for Psychological-based
+  A. Scope scan by claude-opus-5: The paper is about capability and architecture rather than
+  authority, oversight, or accountability, so it is not in-scope on its own terms; but it
+  is a foundational collaboration-framework precedent that three library papers build on,
+  which is exactly the borrowed-background role Section 15 holds (cf. Melting Pot). No exclusion-register
+  line applies. What changes because agents hold authority: It supplies the early role-differentiated
+  multi-agent architecture pattern — distinct agent roles, task decomposition, and the failure
+  modes (looping, unbounded tool/API access, evaluation gaps) that any organization delegating
+  operational authority to agent teams must design around. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

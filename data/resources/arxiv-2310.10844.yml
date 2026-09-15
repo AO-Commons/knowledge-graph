@@ -1,0 +1,54 @@
+id: resource:arxiv:2310.10844
+resource_type: preprint
+title: Survey of Vulnerabilities in Large Language Models Revealed by Adversarial Attacks
+abstract: 'Large Language Models (LLMs) are swiftly advancing in architecture and capability,
+  and as they integrate more deeply into complex systems, the urgency to scrutinize their
+  security properties grows. This paper surveys research in the emerging interdisciplinary
+  field of adversarial attacks on LLMs, a subfield of trustworthy ML, combining the perspectives
+  of Natural Language Processing and Security. Prior work has shown that even safety-aligned
+  LLMs (via instruction tuning and reinforcement learning through human feedback) can be susceptible
+  to adversarial attacks, which exploit weaknesses and mislead AI systems, as evidenced by
+  the prevalence of `jailbreak'' attacks on models like ChatGPT and Bard. In this survey,
+  we first provide an overview of large language models, describe their safety alignment,
+  and categorize existing research based on various learning structures: textual-only attacks,
+  multi-modal attacks, and additional attack methods specifically targeting complex systems,
+  such as federated learning or multi-agent systems. We also offer comprehensive remarks on
+  works that focus on the fundamental sources of vulnerabilities and potential defenses. To
+  make this field more accessible to newcomers, we present a systematic review of existing
+  works, a structured typology of adversarial attack concepts, and additional resources, including
+  slides for presentations on related topics at the 62nd Annual Meeting of the Association
+  for Computational Linguistics (ACL''24).'
+authors:
+- Erfan Shayegani
+- Md Abdullah Al Mamun
+- Yu Fu
+- Pedram Zaree
+- Yue Dong
+- Nael Abu‐Ghazaleh
+published_at: '2023-10-16'
+url: https://arxiv.org/abs/2310.10844
+doi: 10.48550/arXiv.2310.10844
+arxiv_id: '2310.10844'
+openalex_id: W4387806231
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Multi-Agent Collaboration Mechanisms: A Survey of LLMs; Virtual Agent Economies.
+  Scope scan by claude-opus-5: The survey is about model-level security properties rather
+  than about organizations where agents hold authority, so it fails the scope test on its
+  own terms but is genuinely load-bearing for anyone designing controls over acting agents.
+  No exclusion-register line applies; it belongs as a section 15 pointer alongside Melting
+  Pot rather than as an ingested organizational record. What changes because agents hold authority:
+  When an agent holds operational authority, a successful jailbreak or injection is not a
+  content-safety incident but an unauthorized exercise of that authority, so this taxonomy
+  of attack surfaces (including multi-agent and federated settings) is the threat model any
+  delegation, permissioning or audit design must answer to. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

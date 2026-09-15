@@ -1,0 +1,49 @@
+id: resource:arxiv:2310.08901
+resource_type: preprint
+title: 'Welfare Diplomacy: Benchmarking Language Model Cooperation'
+abstract: 'The growing capabilities and increasingly widespread deployment of AI systems necessitate
+  robust benchmarks for measuring their cooperative capabilities. Unfortunately, most multi-agent
+  benchmarks are either zero-sum or purely cooperative, providing limited opportunities for
+  such measurements. We introduce a general-sum variant of the zero-sum board game Diplomacy
+  -- called Welfare Diplomacy -- in which players must balance investing in military conquest
+  and domestic welfare. We argue that Welfare Diplomacy facilitates both a clearer assessment
+  of and stronger training incentives for cooperative capabilities. Our contributions are:
+  (1) proposing the Welfare Diplomacy rules and implementing them via an open-source Diplomacy
+  engine; (2) constructing baseline agents using zero-shot prompted language models; and (3)
+  conducting experiments where we find that baselines using state-of-the-art models attain
+  high social welfare but are exploitable. Our work aims to promote societal safety by aiding
+  researchers in developing and assessing multi-agent AI systems. Code to evaluate Welfare
+  Diplomacy and reproduce our experiments is available at https://github.com/mukobi/welfare-diplomacy.'
+authors:
+- Gabriel Mukobi
+- Hannah Erlebach
+- Niklas Lauffer
+- Lewis Hammond
+- Alan Chan
+- Jesse Clifton
+published_at: '2023-10-13'
+url: https://arxiv.org/abs/2310.08901
+doi: 10.48550/arXiv.2310.08901
+arxiv_id: '2310.08901'
+openalex_id: W4387687183
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Large Language Model
+  based Multi-Agents: A Survey of Progres. Scope scan by claude-opus-5: This is a benchmark/evaluation
+  suite rather than a study of organizations where agents hold authority, so it is held exactly
+  as Melting Pot is — borrowed background under section 15 — not ingested as in-scope. No
+  exclusion-register line applies; the register''s bar is against human-only collective decision
+  material, which this is not. What changes because agents hold authority: It supplies an
+  evaluation instrument for whether agents acting with delegated authority can sustain cooperative,
+  welfare-positive conduct without being exploitable — a pre-deployment screen for agents
+  whose choices bind an organization to other parties. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

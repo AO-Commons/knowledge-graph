@@ -1,0 +1,53 @@
+id: resource:arxiv:2311.08562
+resource_type: preprint
+title: 'MAgIC: Investigation of Large Language Model Powered Multi-Agent in Cognition, Adaptability,
+  Rationality and Collaboration'
+abstract: Large Language Models (LLMs) have significantly advanced natural language processing,
+  demonstrating exceptional reasoning, tool usage, and memory capabilities. As their applications
+  expand into multi-agent environments, there arises a need for a comprehensive evaluation
+  framework that captures LLMs' reasoning, planning, collaboration, and other social abilities.
+  This work introduces a novel competition-based benchmark framework specifically designed
+  to assess LLMs within multi-agent settings, providing quantitative metrics to evaluate their
+  judgment, reasoning, deception, self-awareness, cooperation, coordination, and rationality.
+  We utilize two social deduction games alongside three game-theory scenarios to create diverse
+  environments. Our frame is fortified with the probabilistic graphic modeling (PGM) method,
+  enhancing the LLMs' capabilities in navigating complex social and cognitive dimensions.
+  We evaluate seven LLMs, quantitatively highlighting a significant capability gap of over
+  threefold between the strongest, GPT o1, and the weakest, Llama-2-70B. It also confirms
+  that our PGM enhancement boosts the abilities of all selected models by an average of 37%.
+  Our data and code can be found here https://github.com/cathyxl/MAgIC.
+authors:
+- Lin Xu
+- Zhiyuan Hu
+- Daquan Zhou
+- Hongyu Ren
+- Zhen Dong
+- Kurt Keutzer
+- See Kiong Ng
+- Jiashi Feng
+published_at: '2023-11-14'
+url: https://arxiv.org/abs/2311.08562
+doi: 10.48550/arXiv.2311.08562
+arxiv_id: '2311.08562'
+openalex_id: W4388787282
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: This is an evaluation suite for
+  multi-agent LLM social/strategic competence, directly analogous to Melting Pot, which the
+  library holds as borrowed background rather than ingesting. No exclusion-register line applies;
+  it simply is not about an organization where agents hold authority, so it belongs as a section
+  15 pointer. What changes because agents hold authority: It supplies measurable evidence
+  on agent judgment, rationality, deception and cooperation under multi-agent competition,
+  which is the kind of capability evidence one would need before delegating operational authority
+  to a given model — but it studies models, not organizations. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

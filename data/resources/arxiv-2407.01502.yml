@@ -1,0 +1,52 @@
+id: resource:arxiv:2407.01502
+resource_type: preprint
+title: AI Agents That Matter
+abstract: AI agents are an exciting new research direction, and agent development is driven
+  by benchmarks. Our analysis of current agent benchmarks and evaluation practices reveals
+  several shortcomings that hinder their usefulness in real-world applications. First, there
+  is a narrow focus on accuracy without attention to other metrics. As a result, SOTA agents
+  are needlessly complex and costly, and the community has reached mistaken conclusions about
+  the sources of accuracy gains. Our focus on cost in addition to accuracy motivates the new
+  goal of jointly optimizing the two metrics. We design and implement one such optimization,
+  showing its potential to greatly reduce cost while maintaining accuracy. Second, the benchmarking
+  needs of model and downstream developers have been conflated, making it hard to identify
+  which agent would be best suited for a particular application. Third, many agent benchmarks
+  have inadequate holdout sets, and sometimes none at all. This has led to agents that are
+  fragile because they take shortcuts and overfit to the benchmark in various ways. We prescribe
+  a principled framework for avoiding overfitting. Finally, there is a lack of standardization
+  in evaluation practices, leading to a pervasive lack of reproducibility. We hope that the
+  steps we introduce for addressing these shortcomings will spur the development of agents
+  that are useful in the real world and not just accurate on benchmarks.
+authors:
+- Sayash Kapoor
+- Benedikt Stroebl
+- Zachary S. Siegel
+- Nitya Nadgir
+- Arvind Narayanan
+published_at: '2024-07-01'
+url: https://arxiv.org/abs/2407.01502
+doi: 10.48550/arXiv.2407.01502
+arxiv_id: '2407.01502'
+openalex_id: W4400337927
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Levels of Autonomy
+  for AI Agents. Scope scan by claude-opus-5: The paper is about benchmark and evaluation
+  methodology for agents, not about organizations where agents hold decision authority, so
+  it is not in scope on its own terms. But it is load-bearing for anyone assessing agent reliability
+  before delegating authority, which is precisely the Melting Pot / section 15 borrowed-background
+  pattern; no exclusion-register line applies. What changes because agents hold authority:
+  It supplies the evaluation discipline — cost alongside accuracy, adequate holdouts, reproducible
+  protocols — that an organization must rely on when deciding which agent to trust with real
+  operational authority, since benchmark-overfit agents are fragile exactly where delegated
+  authority is costly. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

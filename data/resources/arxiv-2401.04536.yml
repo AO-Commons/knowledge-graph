@@ -1,0 +1,68 @@
+id: resource:arxiv:2401.04536
+resource_type: preprint
+title: Evaluating Language Model Agency through Negotiations
+abstract: 'We introduce an approach to evaluate language model (LM) agency using negotiation
+  games. This approach better reflects real-world use cases and addresses some of the shortcomings
+  of alternative LM benchmarks. Negotiation games enable us to study multi-turn, and cross-model
+  interactions, modulate complexity, and side-step accidental evaluation data leakage. We
+  use our approach to test six widely used and publicly accessible LMs, evaluating performance
+  and alignment in both self-play and cross-play settings. Noteworthy findings include: (i)
+  only closed-source models tested here were able to complete these tasks; (ii) cooperative
+  bargaining games proved to be most challenging to the models; and (iii) even the most powerful
+  models sometimes "lose" to weaker opponents'
+authors:
+- Tim R. Davidson
+- Veniamin Veselovsky
+- Martin Josifoski
+- Maxime Peyrard
+- Antoine Bosselut
+- Michał Kosiński
+- Robert West
+organizations:
+- GIPSA-Lab
+- Laboratoire d'Informatique de Grenoble
+- Stanford University
+- École Polytechnique Fédérale de Lausanne
+affiliations:
+  Tim R. Davidson:
+  - École Polytechnique Fédérale de Lausanne
+  Veniamin Veselovsky:
+  - École Polytechnique Fédérale de Lausanne
+  Martin Josifoski:
+  - École Polytechnique Fédérale de Lausanne
+  Maxime Peyrard:
+  - Laboratoire d'Informatique de Grenoble
+  - GIPSA-Lab
+  Antoine Bosselut:
+  - École Polytechnique Fédérale de Lausanne
+  Michał Kosiński:
+  - Stanford University
+  Robert West:
+  - École Polytechnique Fédérale de Lausanne
+published_at: '2024-01-09'
+url: https://arxiv.org/abs/2401.04536
+doi: 10.48550/arXiv.2401.04536
+arxiv_id: '2401.04536'
+openalex_id: W4390784301
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Multi-Agent Collaboration Mechanisms: A Survey of LLMs; The Collaboration Gap:
+  Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: This is an evaluation
+  suite, not a study of an organization in which agents hold authority, so it sits alongside
+  Melting Pot as section 15 borrowed background rather than core corpus. No exclusion-register
+  line applies; the risk is only that it is a benchmark paper, which is precisely what the
+  borrowed-background category exists to hold. What changes because agents hold authority:
+  It gives a capability-and-alignment measurement method for the exact situation where an
+  agent is delegated bargaining authority against other agents, so it informs what level of
+  transactional authority an organization can safely delegate and how to detect degradation
+  in cross-model encounters. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

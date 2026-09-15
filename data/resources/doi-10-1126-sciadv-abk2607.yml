@@ -1,0 +1,63 @@
+id: resource:doi:10-1126-sciadv-abk2607
+resource_type: peer-reviewed-paper
+title: 'The AI Economist: Taxation policy design via two-level deep multiagent reinforcement
+  learning'
+abstract: Artificial intelligence (AI) and reinforcement learning (RL) have improved many
+  areas but are not yet widely adopted in economic policy design, mechanism design, or economics
+  at large. The AI Economist is a two-level, deep RL framework for policy design in which
+  agents and a social planner coadapt. In particular, the AI Economist uses structured curriculum
+  learning to stabilize the challenging two-level, coadaptive learning problem. We validate
+  this framework in the domain of taxation. In one-step economies, the AI Economist recovers
+  the optimal tax policy of economic theory. In spatiotemporal economies, the AI Economist
+  substantially improves both utilitarian social welfare and the trade-off between equality
+  and productivity over baselines. It does so despite emergent tax-gaming strategies while
+  accounting for emergent labor specialization, agent interactions, and behavioral change.
+  These results demonstrate that two-level, deep RL complements economic theory and unlocks
+  an AI-based approach to designing and understanding economic policy.
+authors:
+- Stephan Zheng
+- Alexander Trott
+- Sunil Srinivasa
+- David C. Parkes
+- Richard Socher
+organizations:
+- Harvard University Press
+- Palo Alto Institute
+- Salesforce
+affiliations:
+  Stephan Zheng:
+  - Salesforce
+  Alexander Trott:
+  - Salesforce
+  Sunil Srinivasa:
+  - Salesforce
+  David C. Parkes:
+  - Harvard University Press
+  Richard Socher:
+  - Palo Alto Institute
+published_at: '2022-05-04'
+url: https://doi.org/10.1126/sciadv.abk2607
+doi: 10.1126/sciadv.abk2607
+openalex_id: W4228997196
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Tabula rasa agents
+  display emergent in-group behavior; Virtual Agent Economies. Scope scan by claude-opus-5:
+  This is machine-as-mechanism-designer rather than human collective choice, so the voting/social-choice
+  exclusion lines do not bite, but the artifact itself is a simulated tax-policy learning
+  framework, not an organization where agents hold operational authority. Hold it as section
+  15 borrowed background, like Melting Pot, since three library papers build on its two-level
+  planner-agent construction. What changes because agents hold authority: It supplies the
+  canonical method for a machine planner that sets the rules a population of agents then optimizes
+  against, including co-adaptation and emergent rule-gaming — the failure mode you must anticipate
+  when a machine holds allocation or policy-setting authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

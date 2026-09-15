@@ -1,0 +1,50 @@
+id: resource:arxiv:2311.02462
+resource_type: preprint
+title: Levels of AGI for Operationalizing Progress on the Path to AGI
+abstract: We propose a framework for classifying the capabilities and behavior of Artificial
+  General Intelligence (AGI) models and their precursors. This framework introduces levels
+  of AGI performance, generality, and autonomy, providing a common language to compare models,
+  assess risks, and measure progress along the path to AGI. To develop our framework, we analyze
+  existing definitions of AGI, and distill six principles that a useful ontology for AGI should
+  satisfy. With these principles in mind, we propose "Levels of AGI" based on depth (performance)
+  and breadth (generality) of capabilities, and reflect on how current systems fit into this
+  ontology. We discuss the challenging requirements for future benchmarks that quantify the
+  behavior and capabilities of AGI models against these levels. Finally, we discuss how these
+  levels of AGI interact with deployment considerations such as autonomy and risk, and emphasize
+  the importance of carefully selecting Human-AI Interaction paradigms for responsible and
+  safe deployment of highly capable AI systems.
+authors:
+- Meredith Ringel Morris
+- Jascha Sohl‐Dickstein
+- Noah Fiedel
+- Tris Warkentin
+- Allan Dafoe
+- Aleksandra Faust
+- Clément Farabet
+- Shane Legg
+published_at: '2023-11-04'
+url: https://arxiv.org/abs/2311.02462
+doi: 10.48550/arXiv.2311.02462
+arxiv_id: '2311.02462'
+openalex_id: W4388481599
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Lessons from complex systems science for AI governance; Levels of Autonomy for
+  AI Agents. Scope scan by claude-opus-5: The paper is a capability-and-autonomy taxonomy
+  for AGI progress, not a study of organizations where agents hold authority, so it is adjacent
+  foundational material rather than in-scope; no exclusion-register line applies. It is load-bearing
+  — the library''s own ''Levels of Autonomy for AI Agents'' builds directly on it — so it
+  belongs at section 15 as borrowed background alongside Melting Pot. What changes because
+  agents hold authority: Its autonomy/Human-AI Interaction ladder (tool → consultant → collaborator
+  → expert → agent) gives a shared vocabulary for specifying how much operational authority
+  a given system is competent to hold and what oversight paradigm must accompany it. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

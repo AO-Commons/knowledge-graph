@@ -1,0 +1,62 @@
+id: resource:doi:10-65109-qmsu8421
+resource_type: peer-reviewed-paper
+title: Multi-agent Reinforcement Learning in Sequential Social Dilemmas
+abstract: 'Matrix games like Prisoner''s Dilemma have guided research on social dilemmas for
+  decades. However, they necessarily treat the choice to cooperate or defect as an atomic
+  action. In real-world social dilemmas these choices are temporally extended. Cooperativeness
+  is a property that applies to policies, not elementary actions. We introduce sequential
+  social dilemmas that share the mixed incentive structure of matrix game social dilemmas
+  but also require agents to learn policies that implement their strategic intentions. We
+  analyze the dynamics of policies learned by multiple self-interested independent learning
+  agents, each using its own deep Q-network, on two Markov games we introduce here: 1. a fruit
+  Gathering game and 2. a Wolfpack hunting game. We characterize how learned behavior in each
+  domain changes as a function of environmental factors including resource abundance. Our
+  experiments show how conflict can emerge from competition over shared resources and shed
+  light on how the sequential nature of real world social dilemmas affects cooperation.'
+authors:
+- Joel Z. Leibo
+- Vinicius Zambaldi
+- Marc Lanctot
+- Janusz Marecki
+- Thore Graepel
+organizations:
+- Google DeepMind
+affiliations:
+  Joel Z. Leibo:
+  - Google DeepMind
+  Vinicius Zambaldi:
+  - Google DeepMind
+  Marc Lanctot:
+  - Google DeepMind
+  Janusz Marecki:
+  - Google DeepMind
+  Thore Graepel:
+  - Google DeepMind
+published_at: '2017-05-08'
+url: https://doi.org/10.65109/qmsu8421
+doi: 10.65109/qmsu8421
+openalex_id: W7124273160
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Generative agent-based modeling
+  with actions grounded in phy; Quantifying the Self-Interest Level of Markov Social Dilemma;
+  SocialJax: An Evaluation Suite for Multi-agent Reinforcement. Scope scan by claude-opus-5:
+  This is the foundational sequential social dilemma formulation that several ingested records
+  (SocialJax, Concordia, the cooperation review) build directly on, so it is genuinely load-bearing
+  for the field, but it is a multi-agent RL method and benchmark paper, not a study of organizations
+  where agents hold authority. Held as borrowed background in section 15 on the same footing
+  as Melting Pot rather than ingested as in-scope. What changes because agents hold authority:
+  It establishes that cooperation or conflict among independently-learning agents is a property
+  of the environment and resource conditions they are placed in rather than of their stated
+  objectives, which is load-bearing for anyone designing the shared-resource settings in which
+  agents with operational authority will interact. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

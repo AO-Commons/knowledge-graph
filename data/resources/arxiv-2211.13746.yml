@@ -1,0 +1,76 @@
+id: resource:arxiv:2211.13746
+resource_type: preprint
+title: Melting Pot 2.0
+abstract: 'Multi-agent artificial intelligence research promises a path to develop intelligent
+  technologies that are more human-like and more human-compatible than those produced by "solipsistic"
+  approaches, which do not consider interactions between agents. Melting Pot is a research
+  tool developed to facilitate work on multi-agent artificial intelligence, and provides an
+  evaluation protocol that measures generalization to novel social partners in a set of canonical
+  test scenarios. Each scenario pairs a physical environment (a "substrate") with a reference
+  set of co-players (a "background population"), to create a social situation with substantial
+  interdependence between the individuals involved. For instance, some scenarios were inspired
+  by institutional-economics-based accounts of natural resource management and public-good-provision
+  dilemmas. Others were inspired by considerations from evolutionary biology, game theory,
+  and artificial life. Melting Pot aims to cover a maximally diverse set of interdependencies
+  and incentives. It includes the commonly-studied extreme cases of perfectly-competitive
+  (zero-sum) motivations and perfectly-cooperative (shared-reward) motivations, but does not
+  stop with them. As in real-life, a clear majority of scenarios in Melting Pot have mixed
+  incentives. They are neither purely competitive nor purely cooperative and thus demand successful
+  agents be able to navigate the resulting ambiguity. Here we describe Melting Pot 2.0, which
+  revises and expands on Melting Pot. We also introduce support for scenarios with asymmetric
+  roles, and explain how to integrate them into the evaluation protocol. This report also
+  contains: (1) details of all substrates and scenarios; (2) a complete description of all
+  baseline algorithms and results. Our intention is for it to serve as a reference for researchers
+  using Melting Pot 2.0.'
+authors:
+- Agapiou, John P.
+- Vezhnevets, Alexander Sasha
+- Duéñez-Guzmán, Edgar A.
+- Matyas, Jayd
+- Mao, Yiran
+- Sunehag, Peter
+- Raphaël Koster
+- Udari Madhushani
+- Kavya Kopparapu
+- Ramona Comanescu
+- DJ Strouse
+- Michael B. Johanson
+- Sukhdeep Singh
+- Julia Haas
+- Igor Mordatch
+- Dean Mobbs
+- Joel Z. Leibo
+organizations:
+- Cambia
+affiliations:
+  Matyas, Jayd:
+  - Cambia
+published_at: '2022-11-24'
+url: https://arxiv.org/abs/2211.13746
+doi: 10.48550/arXiv.2211.13746
+arxiv_id: '2211.13746'
+openalex_id: W4310280911
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; SocialJax: An Evaluation Suite
+  for Multi-agent Reinforcement; Virtual Agent Economies. Scope scan by claude-opus-5: Melting
+  Pot 2.0 is an evaluation suite, not a study of organizations where agents hold authority,
+  so it is load-bearing method infrastructure rather than in-scope content — exactly the Section
+  15 borrowed-background case the brief names. Its institutional-economics-inspired substrates
+  brush the compressed 15.3 commons line, but the artifact''s value here is as the field''s
+  shared generalization benchmark, so it is pointed at rather than ingested. What changes
+  because agents hold authority: It supplies the standard benchmark substrates and evaluation
+  protocol for measuring how agents behave in mixed-motive, interdependent social situations
+  — including resource-management and public-good dilemmas — which is the empirical basis
+  for predicting whether agents given operational authority will sustain or defect from cooperative
+  arrangements with unfamiliar counterparts. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,69 @@
+id: resource:arxiv:2310.19852
+resource_type: preprint
+title: 'AI Alignment: A Comprehensive Survey'
+abstract: 'AI alignment aims to make AI systems behave in line with human intentions and values.
+  As AI systems grow more capable, so do risks from misalignment. To provide a comprehensive
+  and up-to-date overview of the alignment field, in this survey, we delve into the core concepts,
+  methodology, and practice of alignment. First, we identify four principles as the key objectives
+  of AI alignment: Robustness, Interpretability, Controllability, and Ethicality (RICE). Guided
+  by these four principles, we outline the landscape of current alignment research and decompose
+  them into two key components: forward alignment and backward alignment. The former aims
+  to make AI systems aligned via alignment training, while the latter aims to gain evidence
+  about the systems'' alignment and govern them appropriately to avoid exacerbating misalignment
+  risks. On forward alignment, we discuss techniques for learning from feedback and learning
+  under distribution shift. On backward alignment, we discuss assurance techniques and governance
+  practices. We also release and continually update the website (www.alignmentsurvey.com)
+  which features tutorials, collections of papers, blog posts, and other resources.'
+authors:
+- Jiaming Ji
+- Tianyi Qiu
+- Boyuan Chen
+- Borong Zhang
+- Hantao Lou
+- Kaile Wang
+- Yawen Duan
+- Zhonghao He
+- Vierling, Lukas
+- Hong, Donghai
+- Jiayi Zhou
+- Zhaowei Zhang
+- Fanzhi Zeng
+- Juntao Dai
+- Xuehai Pan
+- Kwan Yee Ng
+- Aidan O’Gara
+- Hua Xu
+- Brian Tse
+- Jie Fu
+- Stephen McAleer
+- Yaodong Yang
+- Yizhou Wang
+- Song‐Chun Zhu
+- Yike Guo
+- Wen Gao
+published_at: '2023-10-30'
+url: https://arxiv.org/abs/2310.19852
+doi: 10.48550/arXiv.2310.19852
+arxiv_id: '2310.19852'
+openalex_id: W4388274718
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Virtual Agent Economies.
+  Scope scan by claude-opus-5: No exclusion-register line applies; this is a foundational
+  method survey the agentic-organization literature builds on, but it is about aligning individual
+  AI systems rather than about organizations in which agents hold authority. Hold it as borrowed
+  background in section 15 alongside records like Melting Pot rather than ingesting it as
+  in-scope. What changes because agents hold authority: It supplies the field''s canonical
+  vocabulary and taxonomy (RICE, forward/backward alignment, assurance, governance) for specifying
+  and verifying what an agent holding delegated authority is supposed to do and how to gain
+  evidence it is doing it. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

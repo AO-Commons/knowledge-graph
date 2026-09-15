@@ -1,0 +1,55 @@
+id: resource:arxiv:2102.03896
+resource_type: preprint
+title: Consequences of Misaligned AI
+abstract: 'AI systems often rely on two key components: a specified goal or reward function
+  and an optimization algorithm to compute the optimal behavior for that goal. This approach
+  is intended to provide value for a principal: the user on whose behalf the agent acts. The
+  objectives given to these agents often refer to a partial specification of the principal''s
+  goals. We consider the cost of this incompleteness by analyzing a model of a principal and
+  an agent in a resource constrained world where the $L$ attributes of the state correspond
+  to different sources of utility for the principal. We assume that the reward function given
+  to the agent only has support on $J < L$ attributes. The contributions of our paper are
+  as follows: 1) we propose a novel model of an incomplete principal-agent problem from artificial
+  intelligence; 2) we provide necessary and sufficient conditions under which indefinitely
+  optimizing for any incomplete proxy objective leads to arbitrarily low overall utility;
+  and 3) we show how modifying the setup to allow reward functions that reference the full
+  state or allowing the principal to update the proxy objective over time can lead to higher
+  utility solutions. The results in this paper argue that we should view the design of reward
+  functions as an interactive and dynamic process and identifies a theoretical scenario where
+  some degree of interactivity is desirable.'
+authors:
+- Simon Zhuang
+- Dylan Hadfield-Menell
+organizations:
+- University of California, Berkeley
+affiliations:
+  Simon Zhuang:
+  - University of California, Berkeley
+  Dylan Hadfield-Menell:
+  - University of California, Berkeley
+published_at: '2021-02-07'
+url: https://arxiv.org/abs/2102.03896
+doi: 10.48550/arXiv.2102.03896
+arxiv_id: '2102.03896'
+openalex_id: W3101636211
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Trustworthy agentic AI systems: a cross-layer review of arch; Virtual Agent Economies.
+  Scope scan by claude-opus-5: This is a single-principal/single-agent theory result rather
+  than a study of an organization, so it is not in-scope on its own terms, but it is load-bearing
+  background for mandate design and oversight of delegated machine authority — the delegation
+  analogue of Melting Pot''s evaluation role. No exclusion-register line applies; it is agent-specific,
+  not human collective decision-making. What changes because agents hold authority: It gives
+  formal conditions under which an agent optimizing an incomplete mandate drives overall principal
+  utility arbitrarily low, which argues that any grant of operational authority to an agent
+  must be bounded, revisable, and periodically re-specified rather than set once. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

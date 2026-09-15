@@ -1,0 +1,50 @@
+id: resource:arxiv:2305.14325
+resource_type: preprint
+title: Improving Factuality and Reasoning in Language Models through Multiagent Debate
+abstract: Large language models (LLMs) have demonstrated remarkable capabilities in language
+  generation, understanding, and few-shot learning in recent years. An extensive body of work
+  has explored how their performance may be further improved through the tools of prompting,
+  ranging from verification, self-consistency, or intermediate scratchpads. In this paper,
+  we present a complementary approach to improve language responses where multiple language
+  model instances propose and debate their individual responses and reasoning processes over
+  multiple rounds to arrive at a common final answer. Our findings indicate that this approach
+  significantly enhances mathematical and strategic reasoning across a number of tasks. We
+  also demonstrate that our approach improves the factual validity of generated content, reducing
+  fallacious answers and hallucinations that contemporary models are prone to. Our approach
+  may be directly applied to existing black-box models and uses identical procedure and prompts
+  for all tasks we investigate. Overall, our findings suggest that such "society of minds"
+  approach has the potential to significantly advance the capabilities of LLMs and pave the
+  way for further breakthroughs in language generation and understanding.
+authors:
+- Yilun Du
+- Shuang Li
+- Antonio Torralba
+- Joshua B. Tenenbaum
+- Igor Mordatch
+published_at: '2023-05-23'
+url: https://arxiv.org/abs/2305.14325
+doi: 10.48550/arXiv.2305.14325
+arxiv_id: '2305.14325'
+openalex_id: W4378509427
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: Multiagent debate is a foundational
+  method the field builds on and is cited as such by two survey records already held, so it
+  belongs as borrowed background in section 15 rather than as an ingested account of agentic
+  organization. No exclusion-register line bars it — it is agent-specific, not human collective
+  decision theory — but it is a capability/accuracy technique, not a study of organizations
+  where agents hold operational or decision authority. What changes because agents hold authority:
+  It supplies the canonical primitive for how a group of machine agents can reach a single
+  committed answer, which is the substrate any agent-decision procedure sits on — but it says
+  nothing about authority, accountability, or oversight itself. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

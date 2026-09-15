@@ -1,0 +1,68 @@
+id: resource:doi:10-1145-3605764-3623985
+resource_type: peer-reviewed-paper
+title: 'Not What You''ve Signed Up For: Compromising Real-World LLM-Integrated Applications
+  with Indirect Prompt Injection'
+abstract: Large Language Models (LLMs) are increasingly being integrated into applications,
+  with versatile functionalities that can be easily modulated via natural language prompts.
+  So far, it was assumed that the user is directly prompting the LLM. But, what if it is not
+  the user prompting? We show that LLM-Integrated Applications blur the line between data
+  and instructions and reveal several new attack vectors, using Indirect Prompt Injection,
+  that enable adversaries to remotely (i.e., without a direct interface) exploit LLM-integrated
+  applications by strategically injecting prompts into data likely to be retrieved at inference
+  time. We derive a comprehensive taxonomy from a computer security perspective to broadly
+  investigate impacts and vulnerabilities, including data theft, worming, information ecosystem
+  contamination, and other novel security risks. We then demonstrate the practical viability
+  of our attacks against both real-world systems, such as Bing Chat and code-completion engines,
+  and GPT-4 synthetic applications. We show how processing retrieved prompts can act as arbitrary
+  code execution, manipulate the application's functionality, and control how and if other
+  APIs are called. Despite the increasing reliance on LLMs, effective mitigations of these
+  emerging threats are lacking. By raising awareness of these vulnerabilities, we aim to promote
+  the safe and responsible deployment of these powerful models and the development of robust
+  defenses that protect users from potential attacks.
+authors:
+- Kai Greshake
+- Sahar Abdelnabi
+- Shailesh Mishra
+- Christoph Endres
+- Thorsten Holz
+- Mario Fritz
+organizations:
+- Helmholtz Center for Information Security
+- Saarland University
+affiliations:
+  Kai Greshake:
+  - Saarland University
+  Sahar Abdelnabi:
+  - Helmholtz Center for Information Security
+  Shailesh Mishra:
+  - Saarland University
+  Thorsten Holz:
+  - Helmholtz Center for Information Security
+  Mario Fritz:
+  - Helmholtz Center for Information Security
+published_at: '2023-11-21'
+url: https://doi.org/10.1145/3605764.3623985
+doi: 10.1145/3605764.3623985
+openalex_id: W4388886073
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Intelligent AI Delegation;
+  Securing AI Agents with Information-Flow Control. Scope scan by claude-opus-5: No exclusion-register
+  line applies: this is not human collective decision-making but a threat model specific to
+  machines that act, and removing the machine removes the finding entirely. It is directly
+  load-bearing for how much authority an agent can safely hold and what oversight must sit
+  between retrieval and action, which is why the library''s information-flow-control and delegation
+  papers build on it. What changes because agents hold authority: It shows that any agent
+  granted operational authority over tools and APIs can have that authority silently redirected
+  by untrusted content it merely reads, so delegation boundaries, data/instruction separation,
+  and action-level controls become first-order organizational design constraints rather than
+  infrastructure details. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

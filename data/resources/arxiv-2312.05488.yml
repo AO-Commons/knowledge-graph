@@ -1,0 +1,52 @@
+id: resource:arxiv:2312.05488
+resource_type: preprint
+title: Can Large Language Models Serve as Rational Players in Game Theory? A Systematic Analysis
+abstract: Game theory, as an analytical tool, is frequently utilized to analyze human behavior
+  in social science research. With the high alignment between the behavior of Large Language
+  Models (LLMs) and humans, a promising research direction is to employ LLMs as substitutes
+  for humans in game experiments, enabling social science research. However, despite numerous
+  empirical researches on the combination of LLMs and game theory, the capability boundaries
+  of LLMs in game theory remain unclear. In this research, we endeavor to systematically analyze
+  LLMs in the context of game theory. Specifically, rationality, as the fundamental principle
+  of game theory, serves as the metric for evaluating players' behavior -- building a clear
+  desire, refining belief about uncertainty, and taking optimal actions. Accordingly, we select
+  three classical games (dictator game, Rock-Paper-Scissors, and ring-network game) to analyze
+  to what extent LLMs can achieve rationality in these three aspects. The experimental results
+  indicate that even the current state-of-the-art LLM (GPT-4) exhibits substantial disparities
+  compared to humans in game theory. For instance, LLMs struggle to build desires based on
+  uncommon preferences, fail to refine belief from many simple patterns, and may overlook
+  or modify refined belief when taking actions. Therefore, we consider that introducing LLMs
+  into game experiments in the field of social science should be approached with greater caution.
+authors:
+- Caoyun Fan
+- Jindou Chen
+- Yaohui Jin
+- Hao He
+published_at: '2023-12-09'
+url: https://arxiv.org/abs/2312.05488
+doi: 10.48550/arXiv.2312.05488
+arxiv_id: '2312.05488'
+openalex_id: W4389713601
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Large Language Model
+  based Multi-Agents: A Survey of Progres; Will Systems of LLM Agents Cooperate: An Investigation
+  into . Scope scan by claude-opus-5: The paper is a capability evaluation rather than a study
+  of organizations where agents hold authority, so it belongs as borrowed background in section
+  15 alongside Melting Pot rather than as an in-scope record. No exclusion-register line applies
+  — it is agent-specific (the finding vanishes without the machine) but it is a foundational
+  evaluation method the field builds on rather than an account of agentic organization design.
+  What changes because agents hold authority: It documents systematic failures of LLMs to
+  form coherent preferences, refine beliefs, and act on them — the exact competence assumptions
+  behind delegating decision authority to an agent, so it sets the evidentiary baseline for
+  how much oversight a delegated agent''s choices require. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

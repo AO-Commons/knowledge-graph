@@ -1,0 +1,61 @@
+id: resource:doi:10-1007-s13347-021-00450-x
+resource_type: peer-reviewed-paper
+title: 'Four Responsibility Gaps with Artificial Intelligence: Why they Matter and How to
+  Address them'
+abstract: 'Abstract The notion of “responsibility gap” with artificial intelligence (AI) was
+  originally introduced in the philosophical debate to indicate the concern that “learning
+  automata” may make more difficult or impossible to attribute moral culpability to persons
+  for untoward events. Building on literature in moral and legal philosophy, and ethics of
+  technology, the paper proposes a broader and more comprehensive analysis of the responsibility
+  gap. The responsibility gap, it is argued, is not one problem but a set of at least four
+  interconnected problems – gaps in culpability, moral and public accountability, active responsibility—caused
+  by different sources, some technical, other organisational, legal, ethical, and societal.
+  Responsibility gaps may also happen with non-learning systems. The paper clarifies which
+  aspect of AI may cause which gap in which form of responsibility, and why each of these
+  gaps matter. It proposes a critical review of partial and non-satisfactory attempts to address
+  the responsibility gap: those which present it as a new and intractable problem (“fatalism”),
+  those which dismiss it as a false problem (“deflationism”), and those which reduce it to
+  only one of its dimensions or sources and/or present it as a problem that can be solved
+  by simply introducing new technical and/or legal tools (“solutionism”). The paper also outlines
+  a more comprehensive approach to address the responsibility gaps with AI in their entirety,
+  based on the idea of designing socio-technical systems for “meaningful human control", that
+  is systems aligned with the relevant human reasons and capacities.'
+authors:
+- Filippo Santoni de Sio
+- Giulio Mecacci
+organizations:
+- Delft University of Technology
+- Radboud University Nijmegen
+affiliations:
+  Filippo Santoni de Sio:
+  - Delft University of Technology
+  Giulio Mecacci:
+  - Radboud University Nijmegen
+published_at: '2021-05-13'
+url: https://doi.org/10.1007/s13347-021-00450-x
+doi: 10.1007/s13347-021-00450-x
+openalex_id: W3160005967
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Is Decentralized AI Governable? From Regulative Policy
+  to Co; Sovereign Agents: Towards Infrastructural Sovereignty and Di. Scope scan by claude-opus-5:
+  This is squarely about holding accountable actions taken by autonomous machine systems and
+  the socio-technical design (meaningful human control) required to keep responsibility attributable,
+  which is the core oversight problem of agentic organizations; no exclusion-register line
+  applies since it is not human collective decision-making that would survive removing the
+  machine. It is more than borrowed background because its taxonomy directly structures how
+  one would assign roles, controls and answerability in an agent-authority organization rather
+  than merely supplying a method the field builds on. What changes because agents hold authority:
+  It decomposes accountability for machine-caused outcomes into four distinct gaps (culpability,
+  moral and public accountability, active responsibility) with distinct technical, organisational
+  and legal sources, giving a design and oversight checklist for allocating answerability
+  inside an organization where agents act with real authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1

@@ -1,0 +1,60 @@
+id: resource:doi:10-1109-access-2025-3532853
+resource_type: peer-reviewed-paper
+title: 'Agentic AI: Autonomous Intelligence for Complex Goals—A Comprehensive Survey'
+abstract: Agentic AI, an emerging paradigm in artificial intelligence, refers to autonomous
+  systems designed to pursue complex goals with minimal human intervention. Unlike traditional
+  AI, which depends on structured instructions and close oversight, Agentic AI demonstrates
+  adaptability, advanced decision-making capabilities and self-sufficiency, enabling it to
+  operate dynamically in evolving environments. This survey thoroughly explores the foundational
+  concepts, unique characteristics, and core methodologies driving the development of Agentic
+  AI. We examine its current and potential applications across various fields, including healthcare,
+  finance, and adaptive software systems, emphasizing the advantages of deploying agentic
+  systems in real-world scenarios. The paper also addresses the ethical challenges posed by
+  Agentic AI, proposing solutions for goal alignment, resource constraints, and environmental
+  adaptability. We outline a framework for safely and effectively integrating Agentic AI into
+  society, highlighting the need for further research on ethical considerations to ensure
+  beneficial societal impacts. This survey serves as a comprehensive introduction to Agentic
+  AI, guiding researchers, developers, and policymakers in engaging with its transformative
+  potential responsibly and creatively.
+authors:
+- Deepak Bhaskar Acharya
+- Karthigeyan Kuppan
+- B Divya
+organizations:
+- JPMorgan Chase & Co
+- Manipal Academy of Higher Education
+- University of Alabama in Huntsville
+affiliations:
+  Deepak Bhaskar Acharya:
+  - University of Alabama in Huntsville
+  Karthigeyan Kuppan:
+  - JPMorgan Chase & Co
+  B Divya:
+  - Manipal Academy of Higher Education
+published_at: '2025-01-01'
+url: https://doi.org/10.1109/access.2025.3532853
+doi: 10.1109/access.2025.3532853
+openalex_id: W4406728221
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Intelligent AI Delegation;
+  Trustworthy agentic AI systems: a cross-layer review of arch. Scope scan by claude-opus-5:
+  This is a general capability-and-ethics survey of agentic AI, not a study of organizational
+  authority, so it fails the scope test on its own terms; no exclusion-register line bars
+  it, and it is genuinely foundational for three library records that build their taxonomies
+  and threat models on its definitions. Hold it at section 15 as a pointer rather than ingesting
+  it as an in-scope record. What changes because agents hold authority: It supplies the field''s
+  baseline definition of what makes a system agentic — autonomous goal pursuit with minimal
+  human intervention — which is the precondition the library''s authority-delegation questions
+  rest on, but it says nothing itself about organizations in which agents hold operational
+  or decision authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true

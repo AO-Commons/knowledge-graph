@@ -1,0 +1,56 @@
+id: resource:arxiv:2309.15025
+resource_type: preprint
+title: 'Large Language Model Alignment: A Survey'
+abstract: Recent years have witnessed remarkable progress made in large language models (LLMs).
+  Such advancements, while garnering significant attention, have concurrently elicited various
+  concerns. The potential of these models is undeniably vast; however, they may yield texts
+  that are imprecise, misleading, or even detrimental. Consequently, it becomes paramount
+  to employ alignment techniques to ensure these models to exhibit behaviors consistent with
+  human values. This survey endeavors to furnish an extensive exploration of alignment methodologies
+  designed for LLMs, in conjunction with the extant capability research in this domain. Adopting
+  the lens of AI alignment, we categorize the prevailing methods and emergent proposals for
+  the alignment of LLMs into outer and inner alignment. We also probe into salient issues
+  including the models' interpretability, and potential vulnerabilities to adversarial attacks.
+  To assess LLM alignment, we present a wide variety of benchmarks and evaluation methodologies.
+  After discussing the state of alignment research for LLMs, we finally cast a vision toward
+  the future, contemplating the promising avenues of research that lie ahead. Our aspiration
+  for this survey extends beyond merely spurring research interests in this realm. We also
+  envision bridging the gap between the AI alignment research community and the researchers
+  engrossed in the capability exploration of LLMs for both capable and safe LLMs.
+authors:
+- Tianhao Shen
+- Renren Jin
+- Yufei Huang
+- Chuang Liu
+- Weilong Dong
+- Zishan Guo
+- Xinwei Wu
+- Yan Liu
+- Deyi Xiong
+published_at: '2023-09-26'
+url: https://arxiv.org/abs/2309.15025
+doi: 10.48550/arXiv.2309.15025
+arxiv_id: '2309.15025'
+openalex_id: W4387156634
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Inter-Agent Trust
+  Models: A Comparative Study of Brief, Clai. Scope scan by claude-opus-5: This is a general
+  LLM alignment survey: it concerns single-model value alignment, interpretability and benchmarks,
+  not organizations in which agents hold operational or decision authority. It is load-bearing
+  foundational method the field builds on and is cited by library papers on inter-agent trust,
+  so it is held as borrowed background in section 15 rather than ingested as in-scope. What
+  changes because agents hold authority: Nothing in it is about organizational authority —
+  it surveys model-level alignment and evaluation techniques that an organization delegating
+  authority to agents would rely on as a substrate, so it is a pointer rather than a design
+  input. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-15'
+expansion_generation: 1
+is_borrowed_background: true
