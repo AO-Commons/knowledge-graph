@@ -79,6 +79,24 @@ python3 scripts/sync_tooling.py           # what moved upstream, and what is wor
 python3 scripts/sync_tooling.py --write   # update the mirror
 ```
 
+## Browsing it as a spreadsheet
+
+The same library in a public Airtable base, for people who would rather filter
+and group than clone and install. Five tables — Papers, People, Organizations,
+Tooling and Registry — linked to each other, so a paper opens to its authors, a
+person opens to the organizations they belong to, an organization opens to the
+tooling it built, and a tool opens to the autonomous organizations running it.
+
+```bash
+python3 scripts/mirror_public.py --dry-run
+```
+
+**The repository is the source of truth; the base is a way to view it.** It is
+rebuilt every morning from `data/resources/` and
+[the registry](https://github.com/AO-Commons/registry), and never read back, so
+an edit typed into it survives until the next run and no longer. Curation
+happens here. See [scripts/README.md](scripts/README.md#the-public-base).
+
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the

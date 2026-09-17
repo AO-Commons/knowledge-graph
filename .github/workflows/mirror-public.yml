@@ -1,0 +1,82 @@
+name: Build the public Airtable base
+
+# The repository is the source of truth. The public base is a way to view it,
+# rebuilt every morning from data/resources/ and the registry's published JSON.
+# Nothing is ever read back, so anything typed into the base is overwritten here.
+
+on:
+  schedule:
+    # 06:20 UTC daily. Off the hour, because every scheduled job that asks for
+    # :00 is queued behind every other one.
+    - cron: "20 6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "data/resources/**"
+      - "taxonomy/agentic-org-research-library-taxonomy-v3.md"
+      - "scripts/mirror_public.py"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report what would change and write nothing"
+        type: boolean
+        default: false
+
+concurrency:
+  group: mirror-public
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    # The `secrets` context is not available in a step-level `if`, so the
+    # presence of the optional registry token is carried through `env`, which is.
+    env:
+      HAS_REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN != '' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # The registry repository is private, so the workflow's own GITHUB_TOKEN
+      # cannot read it. Without REGISTRY_TOKEN these steps are skipped and the
+      # run leaves the Registry table untouched rather than reporting it empty.
+      - name: Check out the registry
+        if: env.HAS_REGISTRY_TOKEN == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: AO-Commons/registry
+          token: ${{ secrets.REGISTRY_TOKEN }}
+          path: registry-src
+
+      - name: Put the registry where the script looks for it
+        if: env.HAS_REGISTRY_TOKEN == 'true'
+        run: |
+          mkdir -p ../registry/data
+          cp registry-src/data/registry.json ../registry/data/registry.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -e ".[airtable]"
+
+      - name: Build the base
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_PUBLIC_TOKEN }}
+          AIRTABLE_PUBLIC_BASE_ID: ${{ vars.AIRTABLE_PUBLIC_BASE_ID }}
+        run: |
+          python3 scripts/mirror_public.py \
+            ${{ inputs.dry_run && '--dry-run' || '' }} 2>&1 | tee mirror.log
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "### Public base"
+            echo
+            echo '```'
+            cat mirror.log 2>/dev/null || echo "the run produced no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
