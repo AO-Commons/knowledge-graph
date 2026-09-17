@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -e ".[dev]"
+      # `airtable` brings requests, which scripts/mirror_public.py imports at
+      # module level and tests/test_mirror_public.py therefore needs to collect.
+      - run: pip install -e ".[dev,airtable]"
       - run: pytest -q
 
       # The release must rebuild byte-for-byte from the checked-in taxonomy.
