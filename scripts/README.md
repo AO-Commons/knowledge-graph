@@ -36,7 +36,6 @@ flattened list, so *who works on inter-agent trust, and where* stays answerable.
 ```sh
 export AIRTABLE_TOKEN=pat...              # schema.bases:write + data.records:*
 export AIRTABLE_PUBLIC_BASE_ID=app...
-export REGISTRY_TOKEN=ghp...              # optional; see below
 python3 scripts/mirror_public.py --dry-run
 python3 scripts/mirror_public.py
 ```
@@ -51,11 +50,11 @@ Three things keep a bad run from doing damage:
   once, and refuses outright to clear a table the repository says is empty.
   There is no floor on table size — a table of four hand-made rows is exactly
   the one nobody would notice losing.
-- **An unreadable source is not an empty one.** The registry repository is
-  private, so without `REGISTRY_TOKEN` the fetch fails. That leaves the Registry
-  table *untouched* and says so, rather than reporting zero rows and retiring
-  what is there. The distinction is the whole reason a table's rows can be
-  `None` rather than `{}`.
+- **An unreadable source is not an empty one.** If the registry cannot be read,
+  its table is left *untouched* and the run says so, rather than reporting zero
+  rows and retiring what is there. The distinction between "no AOs yet" and "I
+  could not tell" is the whole reason a table's rows can be `None` rather than
+  `{}`, and it is what stops one failed fetch from clearing the tab.
 - **Backoff.** Airtable allows five requests a second and a full build is a few
   hundred, so 429s and 5xx are retried with exponential backoff. A 401 or 422 is
   not retried: that is a fact, not a phase.
@@ -70,9 +69,8 @@ produce.
 [`.github/workflows/mirror-public.yml`](../.github/workflows/mirror-public.yml)
 runs it daily at 06:20 UTC, on every push that changes a record, and on demand
 with a dry-run switch. It needs the `AIRTABLE_PUBLIC_TOKEN` secret and the
-`AIRTABLE_PUBLIC_BASE_ID` variable, plus a `REGISTRY_TOKEN` secret that can read
-the private registry repository. Without that last one the other four tables
-still build and Registry is left alone.
+`AIRTABLE_PUBLIC_BASE_ID` variable. The registry is public, so its JSON is
+fetched directly and needs no credential of its own.
 
 [../tests/test_mirror_public.py](../tests/test_mirror_public.py) holds the seam:
 every link resolves, every value is a type Airtable accepts, every facet and

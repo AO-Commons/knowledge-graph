@@ -64,9 +64,6 @@ REGISTRY_LOCAL = REPO.parent / "registry" / "data" / "registry.json"
 REGISTRY_URL = (
     "https://raw.githubusercontent.com/AO-Commons/registry/main/data/registry.json"
 )
-REGISTRY_API = (
-    "https://api.github.com/repos/AO-Commons/registry/contents/data/registry.json"
-)
 
 # A view that empties itself because an upstream read failed is worse than a
 # stale one. Past this fraction the run stops instead of retiring rows. There is
@@ -447,11 +444,11 @@ class RegistryUnavailable(Exception):
 def load_registry():
     """The AO registry, from a sibling checkout if there is one, else from GitHub.
 
-    The registry repository is private, so the anonymous raw URL 404s and CI has
-    no sibling checkout. Rather than crash the whole build over one of five
-    tables — or, worse, report zero rows and let the guard think the registry was
-    emptied — an unreadable registry raises, and the caller leaves that table
-    exactly as it found it.
+    Rather than crash the whole build over one of five tables — or, worse,
+    report zero rows and let the guard conclude the registry was emptied — an
+    unreadable registry raises, and the caller leaves that table exactly as it
+    found it. That matters because the difference between "no AOs yet" and "I
+    could not tell" decides whether rows get retired.
     """
     if REGISTRY_LOCAL.exists():
         try:
@@ -460,17 +457,8 @@ def load_registry():
             raise RegistryUnavailable(f"{REGISTRY_LOCAL}: {exc}") from exc
         return payload.get("registry", [])
 
-    request = urllib.request.Request(REGISTRY_URL)
-    if token := os.environ.get("REGISTRY_TOKEN"):
-        # A PAT that can read the private registry. The workflow's own
-        # GITHUB_TOKEN is scoped to this repository and will not do.
-        request = urllib.request.Request(
-            REGISTRY_API,
-            headers={"Authorization": f"Bearer {token}",
-                     "Accept": "application/vnd.github.raw"},
-        )
     try:
-        with urllib.request.urlopen(request, timeout=60) as handle:
+        with urllib.request.urlopen(REGISTRY_URL, timeout=60) as handle:
             payload = json.loads(handle.read().decode())
     except Exception as exc:  # noqa: BLE001 — every failure means the same thing
         raise RegistryUnavailable(str(exc)) from exc
