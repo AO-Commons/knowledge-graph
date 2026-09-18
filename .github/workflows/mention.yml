@@ -1,0 +1,94 @@
+# Somebody tagged the agent in Slack. Answer them.
+#
+#   @mention -> relay (Cloudflare Worker) -> repository_dispatch -> this
+#     -> read the thread -> answer from the graph, or open a new-resource issue
+#
+# The relay forwards where to look, never what was said, so this run reads the
+# thread itself. A question is answered from `queries.py` — the same tools the
+# MCP server exposes — and an addition opens the issue the site's Add tab
+# already opens, which `new-resource.yml` then resolves and files.
+#
+# Which of the two happens is decided deterministically, before any model runs.
+# "Machines admit, humans judge" is the rule the corpus grows under, and
+# letting a model decide it had been asked to add something would move
+# admission from a person's sentence to a model's reading of it.
+
+name: Answer a Slack mention
+
+on:
+  repository_dispatch:
+    types: [slack-mention]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Channel id"
+        required: true
+      ts:
+        description: "Timestamp of the message that tagged the agent"
+        required: true
+      thread_ts:
+        description: "Its thread, if it is in one"
+        default: ""
+
+permissions:
+  contents: read
+  issues: write         # the addition path opens one; no PAT needed for this
+
+# One at a time per thread. Two runs answering the same question would post
+# twice, and Slack gives no way to tell which reply somebody read.
+concurrency:
+  group: mention-${{ github.event.client_payload.thread_ts || github.event.client_payload.ts || github.event.inputs.ts }}
+  cancel-in-progress: false
+
+jobs:
+  answer:
+    runs-on: ubuntu-latest
+    # The Anthropic key lives on this environment, not on the repository, and
+    # the environment only admits `main`.
+    environment: scope-scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[scope]"
+
+      - name: Answer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          # Actions' own token. Enough to open an issue in this repository,
+          # scoped to this run, and rotated without anybody doing anything.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/slack_mention.py \
+            --channel "${{ github.event.client_payload.channel || github.event.inputs.channel }}" \
+            --ts "${{ github.event.client_payload.ts || github.event.inputs.ts }}" \
+            --thread-ts "${{ github.event.client_payload.thread_ts || github.event.inputs.thread_ts }}"
+
+      # Somebody asked a question and got nothing back. They cannot see this
+      # log, so the failure has to reach the thread they are waiting in.
+      - name: Say it went wrong, where they asked
+        if: failure()
+        continue-on-error: true
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          channel = "${{ github.event.client_payload.channel || github.event.inputs.channel }}"
+          thread = "${{ github.event.client_payload.thread_ts || github.event.client_payload.ts || github.event.inputs.ts }}"
+          token = os.environ.get("SLACK_BOT_TOKEN")
+          if not (token and channel and thread):
+              raise SystemExit(0)
+          run = "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body = json.dumps({
+              "channel": channel, "thread_ts": thread,
+              "text": f"Something went wrong answering that — <{run}|the run says what>.",
+              "unfurl_links": False,
+          }).encode()
+          urllib.request.urlopen(urllib.request.Request(
+              "https://slack.com/api/chat.postMessage", data=body,
+              headers={"Authorization": f"Bearer {token}",
+                       "Content-Type": "application/json; charset=utf-8"}), timeout=20)
+          PY

@@ -111,6 +111,18 @@ rebuilt every morning from `data/resources/` and
 an edit typed into it survives until the next run and no longer. Curation
 happens here. See [scripts/README.md](scripts/README.md#the-public-base).
 
+## Asking it questions in Slack
+
+Tag the agent in `#knowledge-graph` and it answers from the graph — through the
+same tools the MCP server exposes, so the two cannot drift apart. A message that
+carries an identifier *and* asks for it to go in opens a `new-resource` issue
+instead, which is the door the Add tab already uses.
+
+Which of the two happens is decided before any model runs. *Machines admit,
+humans judge* stops meaning anything if a model can decide it was asked.
+
+See [docs/slack-agent.md](docs/slack-agent.md) for the app and relay setup.
+
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the

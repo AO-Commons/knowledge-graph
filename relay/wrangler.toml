@@ -1,0 +1,19 @@
+name = "aokg-slack-relay"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+# Non-secret. CHANNELS scopes the relay, so a mention anywhere else in the
+# workspace never wakes a workflow. Leave it unset to answer everywhere the
+# app is invited.
+#
+#   C0BV170L4GJ  #knowledge-graph
+[vars]
+GITHUB_REPO = "AO-Commons/knowledge-graph"
+CHANNELS = "C0BV170L4GJ"
+
+# Secrets are set with `wrangler secret put`, never in this file:
+#   SLACK_SIGNING_SECRET   Slack app -> Basic Information -> Signing Secret
+#   GITHUB_TOKEN           fine-grained PAT, Contents: read and write, this
+#                          repo only. Contents is what repository_dispatch
+#                          needs; the issue itself is opened by the workflow
+#                          with the GITHUB_TOKEN Actions provides.
