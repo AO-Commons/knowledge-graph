@@ -65,7 +65,16 @@ def call(method: str, payload: dict, *, token: str) -> dict:
     with urllib.request.urlopen(request, timeout=30) as response:
         body = json.loads(response.read().decode("utf-8"))
     if not body.get("ok"):
-        raise SlackError(f"{method}: {body.get('error')}")
+        error = body.get("error")
+        # The one that actually happens, and whose cause is not in this repo:
+        # Slack splits channel history by channel type, so an app with only
+        # `channels:history` is deaf in a private channel it was invited to.
+        if error == "missing_scope":
+            raise SlackError(
+                f"{method}: missing_scope — the app needs `groups:history` to read a "
+                "private channel and `channels:history` for a public one. Add the "
+                "missing scope in OAuth & Permissions and reinstall.")
+        raise SlackError(f"{method}: {error}")
     return body
 
 
