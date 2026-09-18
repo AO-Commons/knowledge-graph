@@ -35,6 +35,7 @@ from .models import (
 REPO = Path(__file__).resolve().parent.parent.parent
 DEFAULT_DIR = REPO / "data" / "claims"
 DEFAULT_VERDICTS = REPO / "evals" / "gold" / "claims.yml"
+DEFAULT_MACHINE = REPO / "evals" / "machine" / "extraction.yml"
 
 
 class ClaimError(ValueError):
@@ -60,8 +61,22 @@ def slug_for(resource_id: str) -> str:
     return resource_id.removeprefix("resource:").replace(":", "-")
 
 
+def load_machine_checks(path: str | Path = DEFAULT_MACHINE) -> dict[str, dict]:
+    """An independent pass over the extraction, keyed by claim id.
+
+    Written by `scripts/verify_extraction.py`, kept in its own file so that a
+    number drawn from the human gold set can never quietly include it.
+    """
+    path = Path(path)
+    if not path.exists():
+        return {}
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return payload.get("statements") or {}
+
+
 def load_claims(directory: str | Path = DEFAULT_DIR,
-                verdicts: dict[str, dict] | str | Path | None = DEFAULT_VERDICTS) -> list[Claim]:
+                verdicts: dict[str, dict] | str | Path | None = DEFAULT_VERDICTS,
+                machine: dict[str, dict] | str | Path | None = DEFAULT_MACHINE) -> list[Claim]:
     """Read every claim file, applying any verdicts, failing loudly on a bad one."""
     directory = Path(directory)
     if not directory.exists():
@@ -71,6 +86,11 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
         verdicts = {}
     elif not isinstance(verdicts, dict):
         verdicts = load_verdicts(verdicts)
+
+    if machine is None:
+        machine = {}
+    elif not isinstance(machine, dict):
+        machine = load_machine_checks(machine)
 
     claims: list[Claim] = []
     seen: dict[str, Path] = {}
@@ -150,6 +170,19 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
                     # fine; the judgment recorded against it is not, and
                     # sending someone to the wrong file wastes the trip.
                     raise ClaimError(f"in the verdict file: {error}") from error
+            # An independent pass cannot review a statement and never promotes
+            # one. What it can do is say which statements a person should look
+            # at first, which is the only part of review that scales. A human
+            # verdict outranks it: once somebody has actually read the thing,
+            # a machine's opinion of it is no longer the interesting fact.
+            if claim.verdict is None and (found := machine.get(claim.id)):
+                if str(found.get("saw") or "") in ("", claim.fingerprint):
+                    if found.get("verdict") != "supported":
+                        claim.machine_check = (
+                            f"{found.get('by', 'an independent pass')} read this as "
+                            f"{found.get('verdict')}: {found.get('because', '')}".strip())
+                        claim.review_status = ReviewStatus.NEEDS_REVIEW
+
             if claim.id in seen:
                 raise ClaimError(f"{path.name}: duplicate claim id {claim.id!r}, "
                                  f"also in {seen[claim.id].name}")

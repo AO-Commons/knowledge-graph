@@ -356,3 +356,8 @@ The bottom line grows only when somebody reads something. Everything above it
 now grows on its own — which is why the binding constraint has moved from
 "how do we find papers" to "who decides whether any of this is right", and why
 the incentive question is about review rather than about adding.
+
+
+## Verification, by somebody who did not extract
+
+`scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `evals/machine/extraction.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.

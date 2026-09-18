@@ -545,6 +545,11 @@ class Claim:
     in the paper but the paraphrase says more than the source does, which is
     the characteristic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
+    machine_check: str | None = None
+    """What an independent pass made of this, when one disagreed with the
+    extraction. A machine cannot review a statement, but it can say which ones
+    a person should look at first — which is the only part of review that
+    scales."""
     stale_review: str | None = None
     """Set when a verdict was recorded against wording this statement no
     longer has. It names who judged it and when, so the work is visible
