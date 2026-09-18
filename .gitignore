@@ -12,3 +12,7 @@ build/
 credentials*
 # cached upstream metadata, not source
 data/cache/
+
+# wrangler's local cache. It holds the Cloudflare account id and the account
+# name, which is an email address — and this repository is public.
+.wrangler/
