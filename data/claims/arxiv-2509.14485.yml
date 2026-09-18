@@ -86,3 +86,36 @@ claims:
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
+- id: claim:arxiv:2509.14485:6
+  text: Whether the prosocial ability measurement layout transfers beyond Melting Pot to other
+    social-AI evaluation suites is unresolved.
+  quote: How well the same measurement layout transfers to other social-AI suites remains
+    an open question
+  standalone: The authors state that they evaluated their prosocial ability profiling on a
+    single testbed, Melting Pot, and that whether the same measurement layout carries over
+    to other social-AI suites has not been established.
+  claim_type: gap
+  concept_tags:
+  - capability-profiling
+  - prosocial-capability
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:7
+  text: How the choice of substrate biases an agent's measured capability has not been modeled.
+  quote: This study did not consider how different substrates might influence an agent’s performance.
+  standalone: The authors note that their study did not model substrates, and that substrates
+    could introduce systematic biases so that a capability is more or less expressed depending
+    on which one an entry is tested on.
+  claim_type: gap
+  concept_tags:
+  - capability-profiling
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

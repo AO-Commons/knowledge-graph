@@ -105,3 +105,53 @@ claims:
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
+- id: claim:arxiv:2605.30169:7
+  text: Identity and reputation are unsolved problems in technical AI governance.
+  quote: identity and reputation remain open problems in technical AI governance
+  standalone: The authors place their account of agent identity instability alongside multi-agent
+    safety, asserting that identity and reputation are still open problems in technical AI
+    governance.
+  claim_type: gap
+  concept_tags:
+  - agent-reputation-systems
+  - dissociative-agent-identity
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:8
+  text: How to assign accountability under fragmented identity is unresolved, and has been
+    for centuries in the law that has tried longest.
+  quote: DID jurisprudence is the most sustained legal effort to resolve accountability under
+    fragmented identity, and it remains unresolved after centuries.
+  standalone: The authors draw a parallel between agents whose prompts, models and memories
+    can be swapped and dissociative identity in law, observing that the longest-running legal
+    attempt to resolve accountability under fragmented identity has not settled it.
+  claim_type: gap
+  concept_tags:
+  - dissociative-agent-identity
+  - operator-deployer-and-developer-liability
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:9
+  text: How ex ante constraint mechanisms interact in practice has not been studied.
+  quote: And the interaction of these mechanisms in practice is unexplored.
+  standalone: Having proposed configuration binding, behavioral fingerprinting and insurance
+    as ex ante alternatives to reputation, the authors state that each faces its own difficulty
+    and that how the three interact in practice has not been examined.
+  claim_type: gap
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - insurance-for-autonomous-action
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
