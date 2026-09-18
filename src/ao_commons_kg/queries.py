@@ -26,6 +26,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import re
+
 import yaml
 
 from .classify import TopicIndex
@@ -204,6 +206,13 @@ def search_records(corpus: Corpus, term: str, limit: int = 10) -> list[dict]:
     if len(q) < 2:
         return []
 
+    # An identifier is an exact question and deserves an exact answer before any
+    # word matching. Searching title text for "2502.15840" finds nothing, and
+    # nothing reads as "we do not hold it" — which is the same sentence as a
+    # real gap, told about a paper the corpus has held all along.
+    if exact := resolve_record(corpus, term):
+        return [record_brief(corpus, exact)]
+
     scored = []
     for resource in corpus.resources:
         score = 0
@@ -220,9 +229,44 @@ def search_records(corpus: Corpus, term: str, limit: int = 10) -> list[dict]:
     return [record_brief(corpus, r) for _, r in scored[:limit]]
 
 
+_ARXIV_PREFIX = re.compile(r"^(?:https?://)?(?:www\.)?arxiv\.org/(?:abs|pdf|html)/|^arxiv:", re.I)
+_DOI_PREFIX = re.compile(r"^(?:https?://)?(?:dx\.)?doi\.org/", re.I)
+
+
+def resolve_record(corpus: Corpus, text: str):
+    """A record from whatever somebody has in their hand.
+
+    Our own id, an arXiv id, a DOI, or the URL of either. A person pasting
+    `arxiv.org/abs/2502.15840` is asking about a paper the corpus holds under
+    `resource:arxiv:2502.15840`, and answering "not a record in this corpus"
+    to that is wrong in the way that matters most — it is the same answer as a
+    genuine gap, and a gap is the thing the library is meant to be able to
+    report honestly.
+    """
+    q = (text or "").strip()
+    if not q:
+        return None
+    if hit := corpus.by_id.get(q):
+        return hit
+
+    bare = _ARXIV_PREFIX.sub("", q)
+    bare = _DOI_PREFIX.sub("", bare)
+    bare = bare.rstrip("/").removesuffix(".pdf")
+    # arXiv serves 2502.15840v2; the corpus holds the version-less id, and
+    # asking for the wrong one is how this reported no paper had full text.
+    versionless = re.sub(r"v\d+$", "", bare)
+
+    for resource in corpus.resources:
+        if resource.arxiv_id and resource.arxiv_id in (bare, versionless):
+            return resource
+        if resource.doi and resource.doi.lower() == bare.lower():
+            return resource
+    return None
+
+
 def get_record(corpus: Corpus, resource_id: str) -> dict:
     """One record in full, with its claims and their sources."""
-    resource = corpus.by_id.get(resource_id)
+    resource = resolve_record(corpus, resource_id)
     if resource is None:
         return {"error": f"{resource_id} is not a record in this corpus"}
     return record_brief(corpus, resource, with_claims=True)

@@ -196,3 +196,36 @@ class TestToolsFor:
     def test_unassessed_entries_are_labeled_as_upstreams_words(self, corpus):
         answer = tools_for(corpus, "audit what an agent did")
         assert "never checked here" in answer["how_to_read_this"]
+
+
+class TestFindingARecordByWhatSomebodyPasted:
+    """`2502.15840` was held as `resource:arxiv:2502.15840` and both lookups
+    said it was not in the corpus — the same sentence a real gap gets, told
+    about a paper the library had all along."""
+
+    def test_an_arxiv_id_finds_the_record(self, corpus):
+        assert get_record(corpus, "2502.15840")["id"] == "resource:arxiv:2502.15840"
+
+    def test_so_does_the_url_somebody_actually_pastes(self, corpus):
+        for probe in ("https://arxiv.org/abs/2502.15840",
+                      "arxiv.org/abs/2502.15840",
+                      "https://arxiv.org/pdf/2502.15840.pdf"):
+            assert get_record(corpus, probe)["id"] == "resource:arxiv:2502.15840", probe
+
+    def test_a_version_suffix_is_not_a_different_paper(self, corpus):
+        assert get_record(corpus, "2502.15840v2")["id"] == "resource:arxiv:2502.15840"
+
+    def test_searching_an_identifier_returns_that_record_alone(self, corpus):
+        hits = search_records(corpus, "2502.15840")
+        assert [h["id"] for h in hits] == ["resource:arxiv:2502.15840"]
+
+    def test_word_search_is_untouched(self, corpus):
+        titles = [h["title"] for h in search_records(corpus, "vending")]
+        assert any("Vending-Bench" in t for t in titles)
+
+    def test_a_topic_search_still_returns_topics(self, corpus):
+        assert search_topics(corpus, "2502.15840") == []
+        assert "8.1" in [t["code"] for t in search_topics(corpus, "treasury")]
+
+    def test_something_nobody_holds_is_still_a_gap(self, corpus):
+        assert "error" in get_record(corpus, "9999.99999")

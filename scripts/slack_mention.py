@@ -125,20 +125,28 @@ def open_issue(*, repo: str, token: str, title: str, body: str) -> dict:
         return json.loads(response.read().decode("utf-8"))
 
 
-def thread_context(messages: list, *, limit: int = 6) -> str:
+def thread_context(messages: list, *, limit: int = 6, exclude: str = "") -> str:
     """What was said before, so a follow-up question is answerable.
 
     Only the thread, only the tail of it, and only text. A question asked five
     replies deep usually depends on the three above it and never on the
     ninety-line digest somebody pasted at the top.
+
+    `exclude` is the timestamp of the message being answered. It used to drop
+    the last line instead, which is right until somebody tags the agent with no
+    words: a bare mention contributes no line, so the line dropped was the
+    paper they were pointing at — leaving the agent with no context at all,
+    precisely when the context was the entire question.
     """
     lines = []
     for message in messages[-limit:]:
+        if exclude and message.get("ts") == exclude:
+            continue
         text = strip_mention(message.get("text", ""))
         if text:
             who = "agent" if message.get("bot_id") else "person"
             lines.append(f"{who}: {text}")
-    return "\n".join(lines[:-1])   # the last one is the question itself
+    return "\n".join(lines if exclude else lines[:-1])
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -165,10 +173,33 @@ def main(argv: list[str] | None = None) -> int:
         print(f"no message at {args.ts}", file=sys.stderr)
         return 1
 
+    # Seen, before anything slow happens. A model call takes most of a minute
+    # and a run can fail; either way the person who tagged us is watching a
+    # message that looks ignored. The tick is cheap and it is the honest claim
+    # — it says "this arrived", not "this is answered".
+    try:
+        call("reactions.add", {"channel": args.channel, "timestamp": args.ts, "name": "eyes"},
+             token=slack_token)
+    except SlackError as error:
+        # already_reacted on a re-run, or missing the scope. Neither is a
+        # reason to not answer the question.
+        print(f"could not react: {error}", file=sys.stderr)
+
     question = strip_mention(here.get("text", ""))
+    history = thread_context(messages, exclude=args.ts)
     if not question:
-        print("tagged with no question; saying nothing")
-        return 0
+        # A bare tag in a thread is not an empty question. It means "this" —
+        # somebody pasted a paper and tagged us under it, and answering
+        # nothing is the one response that cannot be what they wanted.
+        if not history:
+            question = ("They tagged me with nothing else, in no thread. Say in one line "
+                        "what you can be asked — the library's contents, what is filed "
+                        "where, and adding a paper by pasting its link with 'add'.")
+        else:
+            question = ("They tagged me under this thread without asking anything in "
+                        "particular. Say what the library holds about what is above — "
+                        "whether it is already a record, what is filed near it, or that "
+                        "it holds nothing on this.")
 
     permalink = call("chat.getPermalink", {"channel": args.channel, "message_ts": args.ts},
                      token=slack_token).get("permalink", "")
@@ -193,7 +224,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         from ao_commons_kg.slack_agent import answer
 
-        result = answer(question, history=thread_context(messages))
+        result = answer(question, history=history)
         reply = result.text
         if not reply:
             reply = "I could not work out an answer to that from the graph."
