@@ -41,6 +41,7 @@ entries:
     be easily disabled — a real issue if you're privacy-sensitive; the role/goal/backstory
     abstraction can get "too rigid" once work doesn't decompose into team-shaped roles.
   stars: 50.8k+
+  promoted_to: resource:tool:crewai
 - name: Mastra
   url: https://github.com/mastra-ai/mastra
   section: Managing the Company
@@ -111,6 +112,7 @@ entries:
     inbound mail opens in a dedicated review surface rather than being handed straight to
     the agent, and sending can be gated on human approval — a good default posture for a company
     where agents draft but don''t always auto-send.'
+  promoted_to: resource:tool:agentteam-email
 - name: kikubot
   url: https://github.com/mxaiorg/kikubot
   section: Managing the Company
@@ -120,6 +122,7 @@ entries:
     delegates to specialists via `message_tool`). MIT, used in production at mxHERO. If Framework
     Zero wants "email as the company''s internal nervous system" rather than just an outbound
     channel, this is the closest existing pattern.'
+  promoted_to: resource:tool:kikubot
 - name: email-agent-mcp
   url: https://github.com/usejunior/email-agent-mcp
   section: Managing the Company
@@ -194,6 +197,7 @@ entries:
     iteration**, and **self-evolution** (repeated tasks auto-distill into reusable workflows).
     Apache-2.0.
   stars: 343+
+  promoted_to: resource:tool:onemancompany
 - name: KorroAi/mue-x
   url: https://github.com/KorroAi/mue-x
   section: Managing the Company
@@ -202,6 +206,7 @@ entries:
     currently-running six-agent autonomous company. Reads its own Python source and rewrites
     it via validated AST mutations, with kernel-integrity protection and auto-rollback. MIT.
   stars: 62+
+  promoted_to: resource:tool:mue-x
 - name: Plane
   url: https://github.com/makeplane/plane
   section: Managing the Company
@@ -400,6 +405,7 @@ entries:
     → detect ad fatigue → shift budget → generate new copy → upload PAUSED ads for human review
     → repeat. The most "batteries included" option that''s unambiguously permissively licensed.'
   stars: 272+
+  promoted_to: resource:tool:meta-ads-kit
 - name: meta-ads-automation-ai
   url: https://github.com/sandhere01/meta-ads-automation-ai
   section: Reaching Customers (Go-to-Market)
@@ -422,6 +428,7 @@ entries:
     long-form cited reports. Apache-2.0. Native MCP support. ~5 min / ~$0.40 per query on
     an o3-mini-class model — this is your market-analysis/ICP generator.
   stars: 28.1k+
+  promoted_to: resource:tool:gpt-researcher
 - name: open_deep_research
   url: https://github.com/langchain-ai/open_deep_research
   section: Translating Problems into Capability

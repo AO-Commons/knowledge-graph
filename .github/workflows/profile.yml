@@ -1,0 +1,168 @@
+# Profile mirrored tools by reading their own documentation, weekly.
+#
+#   mirror entry -> its README and the docs it links -> what agents may do,
+#     what stops them, what is not documented -> a pull request
+#
+# The tooling counterpart of `grow.yml`. That workflow admits a paper the
+# corpus already cites; this reads a tool the mirror already lists and answers
+# the two questions the list cannot: what authority does this hand a machine,
+# and what oversight ships with it.
+#
+# It opens a pull request rather than committing to main, and the difference
+# from `grow.yml` is deliberate. Growth commits straight to main on a
+# blast-radius argument — a new paper record changes no existing judgment and
+# `git revert` undoes it completely. That argument does not transfer. A profile
+# asserts what somebody else's software does and does not let agents do, under
+# our name, and the mirror's own note draws exactly this line:
+#
+#   Nothing here is a claim by AO Commons about a tool; a profiled record in
+#   data/resources/ is.
+#
+# Claims about other people's software get a human.
+
+name: Profile builder tools
+
+on:
+  schedule:
+    # Wednesday, after Monday's tooling sync and Tuesday's growth. The mirror
+    # is fresh and the corpus has settled, so a run reads the current list.
+    - cron: "0 6 * * 3"
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "Most tools to profile in this run"
+        default: "3"
+      only:
+        description: "Profile one tool by name, whatever its ranking"
+        default: ""
+      dry_run:
+        description: "Read and profile, but write nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: false
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    # The key lives on this environment, not on the repository, and the
+    # environment only admits `main`. Same reasoning as `grow.yml`: without
+    # this line the job finds no secret and quietly profiles nothing.
+    environment: scope-scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[scope]"
+
+      # A silent no-op every Wednesday is how a broken secret goes unnoticed
+      # for a month. Profiling nothing is the designed behavior without a key,
+      # not a failure — but it has to be audible.
+      - name: Check the profiler can run
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::ANTHROPIC_API_KEY is not set — this run will profile nothing"
+          fi
+
+      - name: Profile
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          aokg profile \
+            --budget "${{ github.event.inputs.budget || 3 }}" \
+            ${{ github.event.inputs.only && format('--only "{0}"', github.event.inputs.only) || '' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee /tmp/profile.log
+
+      - name: Anything to open?
+        id: changed
+        run: |
+          if [ -z "$(git status --porcelain data/)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Nothing profiled this run. The log above says whether that is because every tool was refused or because the profiler could not start."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Write the summary
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          {
+            echo "Tools profiled from their own documentation."
+            echo
+            echo "Each record answers two questions — what may agents do, what stops"
+            echo "them — and every claim cites the document it came from. What the"
+            echo "documentation does **not** say is written into \`source_provenance\`,"
+            echo "which is usually the most useful part."
+            echo
+            echo "**What to check before merging**, in the order it is worth checking:"
+            echo
+            echo "1. Does \`human_controls\` describe a mechanism that exists, or one"
+            echo "   the documentation implies? The second is the failure mode."
+            echo "2. Does each \`sources[].supports\` entry actually back the fields it"
+            echo "   claims? Open the page and look."
+            echo "3. Is anything asserted that no cited document says?"
+            echo
+            echo "Records land \`unreviewed\` like everything else; merging this is not"
+            echo "review, it is agreeing the profile is worth reviewing."
+            echo
+            echo '```'
+            cat /tmp/profile.log
+            echo '```'
+          } > /tmp/summary.md
+
+      # Opening the pull request needs "Allow GitHub Actions to create and
+      # approve pull requests", which this organization disables. The branch
+      # still pushes, so the work is never lost — the notice below carries the
+      # compare link a maintainer opens it from. If the setting is ever turned
+      # on this step starts succeeding and nothing else changes.
+      - name: Open the pull request
+        if: steps.changed.outputs.changed == 'true'
+        id: pr
+        continue-on-error: true
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: profile/tools-${{ github.run_number }}
+          title: "Tool profiles from documentation (run ${{ github.run_number }})"
+          body-path: /tmp/summary.md
+          commit-message: "Profile builder tools from their own documentation"
+          labels: tooling
+          delete-branch: true
+
+      - name: Say where it went
+        if: steps.changed.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        env:
+          PR: ${{ steps.pr.outputs.pull-request-url }}
+          BRANCH: profile/tools-${{ github.run_number }}
+        with:
+          script: |
+            const url = process.env.PR;
+            const branch = process.env.BRANCH;
+            const { owner, repo } = context.repo;
+            if (url) {
+              core.notice(`Opened ${url}`);
+              return;
+            }
+            // Did the branch land? Saying "opened a PR" when nothing pushed
+            // is a claim nobody can check, which is the thing this repository
+            // is about not doing.
+            try {
+              await github.rest.repos.getBranch({ owner, repo, branch });
+              core.notice(
+                `Profiles are on \`${branch}\`. Open the pull request here: ` +
+                `https://github.com/${owner}/${repo}/compare/main...${branch}?expand=1`);
+            } catch (error) {
+              core.setFailed(
+                `Profiles were written but neither a branch nor a pull request landed. ` +
+                `Check the "Open the pull request" step.`);
+            }

@@ -79,6 +79,20 @@ python3 scripts/sync_tooling.py           # what moved upstream, and what is wor
 python3 scripts/sync_tooling.py --write   # update the mirror
 ```
 
+`aokg profile` does the reading. It fetches a tool's README and the
+documentation that README links about approval, permissions and oversight, and
+answers the two questions — refusing when the documents do not, which is often.
+What it will not say is written down beside what it will.
+
+```bash
+aokg profile --propose-only   # what is waiting, in the order it would be read
+aokg profile --budget 3       # read three and write them
+```
+
+It opens a pull request rather than committing, unlike `grow`. A wrong paper
+record is a row in our own pile; a wrong profile is a claim about somebody
+else's software. See [docs/tool-profiles.md](docs/tool-profiles.md).
+
 ## Browsing it as a spreadsheet
 
 The same library in a public Airtable base, for people who would rather filter

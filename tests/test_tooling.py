@@ -16,6 +16,7 @@ from ao_commons_kg.tooling import (
     load,
     parse_readme,
     save,
+    waiting,
 )
 
 README = """# awesome-builder-tools
@@ -163,9 +164,20 @@ class TestCandidates:
                                      description="Track customers and deals in one place.")])
         assert candidates(index) == []
 
-    def test_the_real_mirror_has_a_queue_and_it_is_not_everything(self):
+    def test_the_shortlist_is_never_most_of_the_list(self):
         """If this ever matched most of the list it would have stopped being a
-        shortlist and become noise."""
+        shortlist and become noise.
+
+        It used to also assert the shortlist was non-empty, which stopped being
+        true the day the last shortlisted tool was profiled — and an empty
+        shortlist is a fine outcome. What must never be empty is the queue, and
+        that is `waiting`."""
         index = load()
-        waiting = candidates(index)
-        assert 0 < len(waiting) < len(index.entries) / 3
+        assert len(candidates(index)) < len(index.entries) / 3
+
+    def test_the_real_mirror_has_a_queue(self):
+        """Fifty-two tools were unprofiled while the report said nothing was
+        worth a look, because the shortlist was being read as the queue."""
+        index = load()
+        assert 0 < len(waiting(index)) <= len(index.entries)
+        assert all(not e.promoted_to for e in waiting(index))
