@@ -310,10 +310,11 @@
         "2.4"
       ],
       "origin": "claim",
-      "statements": 2,
+      "statements": 3,
       "claims": [
         "claim:doi:10-1111-epic-70009:1",
-        "claim:doi:10-1111-epic-70009:2"
+        "claim:doi:10-1111-epic-70009:2",
+        "claim:doi:10-1111-epic-70009:4"
       ],
       "note": "Making an organization's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organizational Intelligence work."
     },

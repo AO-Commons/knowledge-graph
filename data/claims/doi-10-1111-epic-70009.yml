@@ -52,3 +52,21 @@ claims:
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
+- id: claim:doi:10-1111-epic-70009:4
+  text: Ethnography changes from observing an organization's hidden practices to building
+    the loops that make them computable.
+  quote: 'We describe how our ethnographic practice both informs and is transformed by this
+    work: from observing hidden practices to actively building the loops that make organisational
+    knowledge accessible and computable.'
+  standalone: 'The authors'' claim about their own method, and the one the paper is named
+    for: in making organizational knowledge legible, the ethnographer stops being an observer
+    of practices and becomes a builder of the infrastructure that carries them.'
+  claim_type: position
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, re-read of the abstract, 2026-09-18; quote verified against
+    the abstract, which is all this record holds
+  review_status: machine-checked
+  attribution: own
