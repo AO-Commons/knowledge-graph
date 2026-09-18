@@ -52,61 +52,73 @@ claims:
     reviewed_on: '2026-09-18'
     saw: 161837709ec1
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2511.03434:2:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: 0009ffb2bcd0
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2511.03434:3:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: 337690b43e9a
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2511.03434:4:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: f4497c518796
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2511.03434:5:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: 2140ff6954db
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2511.03434:6:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: f5ae28347a3d
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:1:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: db2d3c0ed46c
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:2:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: b4fb599c8214
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:3:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: f8e3b166cee3
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:4:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: fb8d7d1fae5b
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:5:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: ceb4702f6c15
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:6:
     verdict: accurate
     reviewed_on: '2026-09-18'
     saw: 52b4d9628d7e
     reviewer: helenarong2703
+    by_author: true
   claim:arxiv:2605.30169:7:
     verdict: accurate
     reviewed_on: '2026-09-18'

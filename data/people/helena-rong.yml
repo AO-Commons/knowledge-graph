@@ -1,10 +1,9 @@
 name: Helena Rong
 github: helenarong2703
 orcid: null
-link_status: claimed
-verified_by: null
+link_status: verified
+verified_by: ankeliu
 verified_how: >-
-  The account filed verdicts on two papers whose byline carries this name,
-  and the project invited her to review. Neither of those is a check: a
-  matching name is a coincidence until somebody confirms it is not. Flip to
-  `verified` with a name in `verified_by` once that has happened.
+  Confirmed by Anke on 2026-09-18, who invited her to review: the account
+  helenarong2703 belongs to Helena Rong, an author of Inter-Agent Trust
+  Models and of Dissociative Identity.

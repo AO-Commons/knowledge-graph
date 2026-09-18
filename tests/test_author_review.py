@@ -127,11 +127,37 @@ class TestConfirmingALinkReachesVerdictsAlreadyMerged:
     who filed it. If confirming a link only affected future filings it would
     stay invisible for ever."""
 
-    def test_the_corpus_knows_axel_wrote_vending_bench(self):
+    def test_every_mark_is_one_the_link_table_supports(self):
+        """The contract, not the roll call. This named the one paper that had
+        an author review the day it was written, and broke the moment a second
+        author's link was confirmed — which is the event it exists to support.
+        """
         from ao_commons_kg.claims import load_claims
+        from ao_commons_kg.people import load_identities, wrote
+        from ao_commons_kg.resources import load_resources
+
+        identities = load_identities()
+        authors_of = {r.id: (r.authors or []) for r in load_resources()}
         marked = [c for c in load_claims() if c.reviewed_by_author]
         assert marked, "no verdict is marked as an author's"
-        assert all(c.resource_id == "resource:arxiv:2502.15840" for c in marked)
+        for claim in marked:
+            assert wrote(claim.reviewed_by or "", authors_of[claim.resource_id], identities), \
+                f"{claim.id} is marked as an author's and the link table does not agree"
+
+    def test_nothing_is_marked_that_should_not_be(self):
+        """The other direction: a reviewer who is not on the byline, or whose
+        link nobody confirmed, must not be carrying the mark."""
+        from ao_commons_kg.claims import load_claims
+        from ao_commons_kg.people import load_identities, wrote
+        from ao_commons_kg.resources import load_resources
+
+        identities = load_identities()
+        authors_of = {r.id: (r.authors or []) for r in load_resources()}
+        for claim in load_claims():
+            if not claim.verdict:
+                continue
+            expected = wrote(claim.reviewed_by or "", authors_of[claim.resource_id], identities)
+            assert claim.reviewed_by_author == expected, claim.id
 
     def test_the_backfill_is_idempotent(self):
         """It is run after every confirmation, so running it twice must be a
