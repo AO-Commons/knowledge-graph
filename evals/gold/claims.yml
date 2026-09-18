@@ -1,44 +1,4 @@
 claims:
-  claim:arxiv:2502.15840:1:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: e8d8752eab98
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:2:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: 18beb4c6577a
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:3:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: 79bee7402df5
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:4:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: 1bd265888fa1
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:5:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: 3cc62c3b73bc
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:6:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: b3f7a0e3043d
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:7:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: '654454085538'
-    reviewer: Axelmannen
-  claim:arxiv:2502.15840:8:
-    verdict: accurate
-    reviewed_on: '2026-09-18'
-    saw: 7d119d343bad
-    reviewer: Axelmannen
   claim:arxiv:2511.03434:1:
     verdict: accurate
     reviewed_on: '2026-09-18'
@@ -99,3 +59,18 @@ claims:
     reviewed_on: '2026-09-18'
     saw: 52b4d9628d7e
     reviewer: helenarong2703
+  claim:arxiv:2605.30169:7:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 95030ea92b88
+    reviewer: ankeliu
+  claim:arxiv:2605.30169:8:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 9e9709f5f795
+    reviewer: ankeliu
+  claim:arxiv:2605.30169:9:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 7db90c7988f1
+    reviewer: ankeliu
