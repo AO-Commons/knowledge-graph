@@ -1584,7 +1584,8 @@
         chip.append(el("span", { className: "t" }, label));
         chip.addEventListener("click", () => {
           if (mine && mine.verdict === value) delete state.claims[claim.id];
-          else state.claims[claim.id] = { verdict: value, on: today(), note: (mine || {}).note || "" };
+          else state.claims[claim.id] = { verdict: value, on: today(), saw: claim.saw,
+                                          note: (mine || {}).note || "" };
           verdictChanged();
         });
         row.append(chip);
@@ -2729,11 +2730,36 @@
     // verdict of "adjusted" with no adjustment attached is refused by the
     // bot, which would take the rest of an otherwise good filing with it.
     const claimed = Object.entries(state.claims).filter(([id]) => !gone.has(id));
-    const checked = claimed.filter(([, c]) => settledVerdict(c));
-    const unconfirmed = claimed.length - checked.length;
+    const settled = claimed.filter(([, c]) => settledVerdict(c));
+    const unconfirmed = claimed.length - settled.length;
+
+    // A statement can be re-extracted while a reviewer's judgement sits in
+    // their browser, and their verdict would then be filed against wording
+    // they never read. The page is rebuilt on every deploy, so it knows: if
+    // the fingerprint it holds is not the one the statement has now, the
+    // verdict is held back and the reviewer is told which paper to look at
+    // again. A verdict recorded before fingerprints existed carries none, and
+    // takes the current one — there were no filed verdicts at that point, so
+    // there is nothing to be wrong about.
+    const current = {};
+    (DATA.records || []).forEach(r => (r.claims || []).forEach(c => {
+      current[c.id] = c.saw;
+    }));
+    const checked = settled.filter(([id, c]) => !c.saw || c.saw === current[id]);
+    const moved = settled.filter(([id, c]) => c.saw && c.saw !== current[id]);
+    checked.forEach(([id, c]) => { if (!c.saw && current[id]) c.saw = current[id]; });
     const written = Object.entries(state.newClaims).filter(([id]) => !gone.has(id));
 
     stage.append(el("h1", { className: "record-title" }, "Send in what you filed"));
+
+    if (moved.length) {
+      stage.append(el("p", { className: "hint" },
+        `${moved.length} statement${moved.length === 1 ? " has" : "s have"} been `
+        + "rewritten since you judged "
+        + `${moved.length === 1 ? "it" : "them"}, so ${moved.length === 1 ? "it is" : "they are"} `
+        + "not included here. Open the Review tab and check "
+        + `${moved.length === 1 ? "it" : "them"} again — the rest of your filing is fine.`));
+    }
 
     if (unconfirmed) {
       stage.append(el("p", { className: "hint" },
@@ -2776,6 +2802,10 @@
       checked.sort().forEach(([id, c]) => {
         lines.push(`  ${id}:`);
         lines.push(`    verdict: ${c.verdict}`);
+        // Which wording this verdict is about. The bot refuses the statement
+        // if it has changed since the page was built, rather than recording a
+        // judgement of a sentence the reviewer never saw.
+        if (c.saw) lines.push(`    saw: ${c.saw}`);
         // An adjustment is the reviewer's own wording, and the tags that
         // follow from it. Without these the verdict would say "adjusted" and
         // carry no adjustment — the edit would be lost between the browser

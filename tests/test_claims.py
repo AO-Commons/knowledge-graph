@@ -265,3 +265,74 @@ class TestAnAdjustmentReachesTheCorpus:
             "verdict": "accurate", "reviewer": "a-reviewer"}}}), encoding="utf-8")
         claims = {c.id: c for c in load_claims(verdicts=path)}
         assert claims["claim:arxiv:2606.03237:1"].text.startswith("The binding constraint")
+
+
+class TestAVerdictBindsToTheWordingItWasGiven:
+    """A verdict is stored against a claim id, and an id outlives the sentence
+    under it. Re-extraction keeps the id and changes the words, so without
+    this a verdict from August applies to a sentence written in November —
+    and an adjustment's stored rewrite overwrites the new extraction outright.
+    """
+
+    CID = "claim:arxiv:2107.06857:1"
+
+    def _gold(self, tmp_path, saw, **extra):
+        import yaml
+        entry = {"verdict": "adjusted", "reviewer": "anke", "reviewed_on": "2026-09-01",
+                 "text": "A rewritten sentence, long enough to be a claim.", **extra}
+        if saw is not None:
+            entry["saw"] = saw
+        path = tmp_path / "claims.yml"
+        path.write_text(yaml.safe_dump({"claims": {self.CID: entry}}), encoding="utf-8")
+        return path
+
+    def _claim(self, verdicts=None):
+        from ao_commons_kg.claims import load_claims
+        return {c.id: c for c in load_claims(verdicts=verdicts)}[self.CID]
+
+    def test_the_fingerprint_covers_the_statement_and_its_quote(self):
+        import dataclasses
+        claim = self._claim()
+        assert len(claim.fingerprint) == 12
+        assert dataclasses.replace(claim, text=claim.text + " and more").fingerprint \
+            != claim.fingerprint
+        assert dataclasses.replace(claim, quote="something else").fingerprint \
+            != claim.fingerprint
+
+    def test_rewrapping_the_file_is_not_a_changed_statement(self):
+        """The text is a wrapped YAML scalar. Re-dumping at a different width
+        moves the line breaks without changing a word, and that must not read
+        as a different sentence."""
+        import dataclasses
+        claim = self._claim()
+        rewrapped = dataclasses.replace(
+            claim, text=claim.text.replace(" ", "\n  ", 1))
+        assert rewrapped.fingerprint == claim.fingerprint
+
+    def test_a_matching_verdict_applies(self, tmp_path):
+        claim = self._claim()
+        applied = self._claim(self._gold(tmp_path, claim.fingerprint))
+        assert applied.verdict == "adjusted"
+        assert applied.review_status.value == "reviewed"
+        assert applied.text == "A rewritten sentence, long enough to be a claim."
+        assert applied.stale_review is None
+
+    def test_a_verdict_on_wording_it_no_longer_has_does_not_count(self, tmp_path):
+        original = self._claim().text
+        stale = self._claim(self._gold(tmp_path, "deadbeef1234"))
+        assert stale.verdict is None
+        assert stale.review_status.value == "needs-review"
+        assert stale.text == original, "the old rewrite must not overwrite the new text"
+
+    def test_and_it_says_whose_judgment_went_stale(self, tmp_path):
+        """The work is visible rather than silently discarded — somebody read
+        that statement, and the next reviewer should know."""
+        stale = self._claim(self._gold(tmp_path, "deadbeef1234"))
+        assert "anke" in stale.stale_review and "2026-09-01" in stale.stale_review
+
+    def test_a_verdict_with_no_fingerprint_is_still_honoured(self, tmp_path):
+        """Nothing had been filed when this was introduced, so there is no
+        migration to do — but refusing an entry that predates the field would
+        throw away a real judgment to enforce bookkeeping."""
+        applied = self._claim(self._gold(tmp_path, None))
+        assert applied.verdict == "adjusted"

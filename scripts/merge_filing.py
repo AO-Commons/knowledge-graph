@@ -100,7 +100,8 @@ def _unknown_concepts(concepts: list[str]) -> list[str]:
     return load_vocabulary().unknown(concepts)
 
 
-def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]:
+def validate_claims(payload: dict, *, known_claims: set[str],
+                    fingerprints: dict[str, str] | None = None) -> dict[str, dict]:
     """Check the claim verdicts in a filing.
 
     Held to the same standard as the topic codes and for the same reason: a
@@ -133,8 +134,29 @@ def validate_claims(payload: dict, *, known_claims: set[str]) -> dict[str, dict]
             )
             continue
 
+        # What the reviewer was looking at. The site ships each statement's
+        # fingerprint and the submission echoes it back, so a statement
+        # re-extracted between the reviewer opening the page and sending the
+        # filing is caught here rather than recorded as judged. The filing
+        # says which statement changed, which is a reviewer's question; the
+        # alternative is a verdict on a sentence nobody read.
         record = {"verdict": verdict,
                   "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat())}
+        if fingerprints is not None:
+            saw = str(entry.get("saw") or "").strip()
+            current = fingerprints.get(claim_id, "")
+            if not saw:
+                problems.append(
+                    f"{claim_id}: no `saw:` line, so there is no way to tell which "
+                    "wording was judged. Re-copy the block from the Submit screen")
+                continue
+            if saw != current:
+                problems.append(
+                    f"{claim_id}: the statement changed after you reviewed it "
+                    f"(you saw {saw}, it is now {current}). Reload the Review tab "
+                    "and check this one again — the rest of your filing is fine")
+                continue
+            record["saw"] = saw
         if note := entry.get("note"):
             record["note"] = str(note).strip()
 
@@ -551,14 +573,17 @@ def main(argv: list[str] | None = None) -> int:
 
     known_topics = {t.code for t in load_taxonomy(TAXONOMY)}
     known_records = {r.id for r in load_resources()}
-    known_claims = {c.id for c in load_claims()}
+    corpus_claims = load_claims()
+    known_claims = {c.id for c in corpus_claims}
+    fingerprints = {c.id: c.fingerprint for c in corpus_claims}
 
     try:
         payload = extract(Path(args.body_file).read_text(encoding="utf-8"))
         # A filing may be all tags, all claim verdicts, or both. Requiring
         # records would refuse a reviewer who only checked claims — which is
         # exactly the reviewer this layer needs most.
-        claim_verdicts = validate_claims(payload, known_claims=known_claims)
+        claim_verdicts = validate_claims(payload, known_claims=known_claims,
+                                         fingerprints=fingerprints)
         written = validate_new_statements(payload, known_records=known_records)
         cleaned = validate(payload, known_records=known_records, known_topics=known_topics,
                            require=not (claim_verdicts or written))

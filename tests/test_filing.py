@@ -766,7 +766,8 @@ class TestConfirmingAnAdjustment:
         """It would file a verdict of "adjusted" with no adjustment, which the
         bot refuses — taking the rest of an otherwise good filing with it."""
         page = self._page()
-        assert "const checked = claimed.filter(([, c]) => settledVerdict(c));" in page
+        assert "const settled = claimed.filter(([, c]) => settledVerdict(c));" in page
+        assert "const unconfirmed = claimed.length - settled.length;" in page
         assert "still being" in page, "and says so, rather than dropping it silently"
 
     def test_confirming_the_original_unchanged_is_not_an_adjustment(self):
@@ -867,3 +868,78 @@ class TestTheIssueForm:
         form = self._form()
         field = next(i for i in form["body"] if i.get("id") == "filing")
         assert field["attributes"]["placeholder"].startswith("claims:")
+
+
+class TestTheFilingSaysWhatWasJudged:
+    """The other half of the binding. The site ships each statement's
+    fingerprint and the filing echoes it back, so a statement rewritten
+    between the reviewer opening the page and sending the filing is caught
+    where the reviewer can still do something about it."""
+
+    def _known(self):
+        from ao_commons_kg.claims import load_claims
+        claims = load_claims()
+        return {c.id for c in claims}, {c.id: c.fingerprint for c in claims}
+
+    def _filing(self, claim_id, saw):
+        body = (f"```yaml\nclaims:\n  {claim_id}:\n    verdict: accurate\n"
+                f"    saw: {saw}\n    reviewed_on: 2026-09-18\n```\n")
+        return extract(body)
+
+    def test_a_matching_fingerprint_is_accepted_and_kept(self):
+        known, prints = self._known()
+        claim_id = next(iter(sorted(known)))
+        cleaned = validate_claims(self._filing(claim_id, prints[claim_id]),
+                                  known_claims=known, fingerprints=prints)
+        assert cleaned[claim_id]["saw"] == prints[claim_id]
+
+    def test_a_statement_that_changed_is_refused_by_name(self):
+        """And the message tells the reviewer what to do, because this is not
+        their mistake — the corpus moved under them."""
+        known, prints = self._known()
+        claim_id = next(iter(sorted(known)))
+        with pytest.raises(FilingError, match="changed after you reviewed it"):
+            validate_claims(self._filing(claim_id, "deadbeef1234"),
+                            known_claims=known, fingerprints=prints)
+
+    def test_a_filing_with_no_fingerprint_is_refused(self):
+        known, prints = self._known()
+        claim_id = next(iter(sorted(known)))
+        payload = extract(f"```yaml\nclaims:\n  {claim_id}:\n    verdict: accurate\n```\n")
+        with pytest.raises(FilingError, match="no `saw:` line"):
+            validate_claims(payload, known_claims=known, fingerprints=prints)
+
+    def test_the_check_is_skipped_when_there_is_nothing_to_check_against(self):
+        """`fingerprints=None` is the older call, kept so a caller without the
+        corpus in hand is not forced to fake one."""
+        known, _ = self._known()
+        claim_id = next(iter(sorted(known)))
+        payload = extract(f"```yaml\nclaims:\n  {claim_id}:\n    verdict: accurate\n```\n")
+        assert validate_claims(payload, known_claims=known)[claim_id]["verdict"] == "accurate"
+
+
+class TestTheBrowserHoldsBackWhatMoved:
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_the_payload_ships_the_fingerprint(self):
+        from pathlib import Path
+        import json, re
+        built = (Path(__file__).resolve().parent.parent
+                 / "site" / "index.html").read_text(encoding="utf-8")
+        assert '"saw":' in built
+
+    def test_a_verdict_records_what_was_on_screen(self):
+        page = self._page()
+        assert "saw: claim.saw" in page
+
+    def test_the_submission_carries_it(self):
+        page = self._page()
+        assert "if (c.saw) lines.push(`    saw: ${c.saw}`);" in page
+
+    def test_a_statement_rewritten_since_judging_is_not_sent(self):
+        page = self._page()
+        assert "const moved = settled.filter(([id, c]) => c.saw && c.saw !== current[id]);" in page
+        assert "rewritten since you judged" in page

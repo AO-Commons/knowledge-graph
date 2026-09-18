@@ -70,6 +70,10 @@ def build_payload() -> dict:
     for claim in load_claims():
         by_resource.setdefault(claim.resource_id, []).append({
             "id": claim.id,
+            # What this statement said when the page was built. The filing
+            # echoes it back, so a verdict can be tied to the wording it was
+            # given rather than to an id that outlives it.
+            "saw": claim.fingerprint,
             "text": claim.text,
             "standalone": claim.standalone or "",
             "quote": claim.quote,

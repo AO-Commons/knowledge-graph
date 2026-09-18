@@ -12,6 +12,7 @@ product rather than a dump.
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import asdict, dataclass, field
 from datetime import date
@@ -531,6 +532,10 @@ class Claim:
     in the paper but the paraphrase says more than the source does, which is
     the characteristic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
+    stale_review: str | None = None
+    """Set when a verdict was recorded against wording this statement no
+    longer has. It names who judged it and when, so the work is visible
+    rather than silently discarded — but it does not count as review."""
 
     # `adjusted` is the reviewer rewriting the sentence rather than grading
     # it. It was added to the filing bot and not here, which meant the first
@@ -539,6 +544,27 @@ class Claim:
     # next filing all failing on a file that arrived by the front door.
     VERDICTS = frozenset({"accurate", "adjusted", "overstated", "not-in-source",
                           "ambiguous"})
+
+    @property
+    def fingerprint(self) -> str:
+        """What a reviewer actually judged, in twelve hex characters.
+
+        A verdict is stored against a claim id, and an id outlives the
+        sentence it points at: re-extraction can leave the id in place and
+        change the wording under it. Without something recording *what* was
+        judged, a verdict from August silently applies to a sentence written
+        in November — and for an adjustment, the stored rewrite overwrites the
+        new extraction outright. So the verdict carries this, and a mismatch
+        is treated as unreviewed rather than reviewed.
+
+        Whitespace is collapsed before hashing because the text is stored as a
+        wrapped YAML scalar: re-dumping the file at a different width moves
+        the line breaks without changing a word, and that must not read as a
+        changed statement.
+        """
+        blob = "\x00".join(
+            " ".join((part or "").split()) for part in (self.text, self.quote))
+        return hashlib.sha256(blob.encode("utf-8")).hexdigest()[:12]
 
     def __post_init__(self) -> None:
         if isinstance(self.claim_type, str):

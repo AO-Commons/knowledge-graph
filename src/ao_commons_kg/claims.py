@@ -101,6 +101,28 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
             # the one path from EXTRACTED to reviewed, so an extraction pass
             # cannot manufacture one however sure it sounds.
             if checked := verdicts.get(claim.id):
+                # A verdict binds to the wording it was given, not to the id.
+                # An id outlives the sentence under it — re-extraction keeps
+                # the id and changes the words — so a verdict recorded against
+                # different wording is set aside and the statement goes back
+                # into the queue. Silently honouring it would put a reviewer's
+                # name on a sentence they never read, and for an adjustment
+                # would overwrite the new extraction with the old rewrite.
+                saw = str(checked.get("saw") or "").strip()
+                if saw and saw != claim.fingerprint:
+                    who = checked.get("reviewer") or "somebody"
+                    when = checked.get("reviewed_on") or "an earlier pass"
+                    claim.stale_review = (
+                        f"{who} judged this {checked.get('verdict')} on {when}, "
+                        "against wording it no longer has")
+                    claim.review_status = ReviewStatus.NEEDS_REVIEW
+                    claims.append(claim)
+                    if claim.id in seen:
+                        raise ClaimError(
+                            f"{path.name}: duplicate claim id {claim.id!r}, "
+                            f"also in {seen[claim.id].name}")
+                    seen[claim.id] = path
+                    continue
                 claim.verdict = checked.get("verdict")
                 claim.reviewed_by = checked.get("reviewer")
                 claim.note = checked.get("note") or claim.note
