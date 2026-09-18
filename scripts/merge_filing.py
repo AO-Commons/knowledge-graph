@@ -196,6 +196,38 @@ def validate_claims(payload: dict, *, known_claims: set[str],
     return cleaned
 
 
+def mark_author_verdicts(cleaned: dict[str, dict], login: str) -> list[str]:
+    """Note which verdicts come from somebody on the paper's own byline.
+
+    Derived from the link table, never from the filing: a filing that says it
+    comes from an author is worth nothing on its own, and the link table only
+    answers for a link a named person has confirmed.
+
+    This is recorded as a fact about the reviewer, not as a higher score. An
+    author is the best judge of whether a statement says what their paper says
+    and the worst judge of whether it overstates — which is the verdict worth
+    having. A reader can weigh that only if it is written down.
+    """
+    try:
+        from ao_commons_kg.claims import load_claims
+        from ao_commons_kg.people import load_identities, wrote
+        from ao_commons_kg.resources import load_resources
+    except Exception:  # noqa: BLE001 — the mark is a bonus, not a dependency
+        return []
+
+    identities = load_identities()
+    authors_of = {r.id: (r.authors or []) for r in load_resources()}
+    claim_source = {c.id: c.resource_id for c in load_claims()}
+
+    marked = []
+    for claim_id, record in cleaned.items():
+        resource_id = claim_source.get(claim_id)
+        if resource_id and wrote(login, authors_of.get(resource_id, []), identities):
+            record["by_author"] = True
+            marked.append(claim_id)
+    return marked
+
+
 def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_GOLD) -> dict:
     """Write claim verdicts to their own gold file.
 
@@ -236,6 +268,7 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
         # open. It goes in the pull request where the change is being made.
         "adjusted": [(c, e["text"], e.get("concepts") or [])
                      for c, e in cleaned.items() if e["verdict"] == "adjusted"],
+        "by_author": [c for c, e in cleaned.items() if e.get("by_author")],
     }
 
 
@@ -492,6 +525,16 @@ def summarize_claims(result: dict) -> list[str]:
             "",
         ]
         lines += [f"- `{claim_id}`" for claim_id in result["flagged"]]
+    if result.get("by_author"):
+        lines += [
+            "",
+            "**Filed by an author of the paper.** They are the highest authority on whether "
+            "a statement says what their paper says, and the least disinterested party on "
+            "whether it overstates \u2014 so an adjustment here wants a second reader who "
+            "did not write the paper:",
+            "",
+        ]
+        lines += [f"- `{claim_id}`" for claim_id in result["by_author"]]
     if result.get("adjusted"):
         lines += [
             "",
@@ -585,6 +628,7 @@ def main(argv: list[str] | None = None) -> int:
         # exactly the reviewer this layer needs most.
         claim_verdicts = validate_claims(payload, known_claims=known_claims,
                                          fingerprints=fingerprints)
+        by_author = mark_author_verdicts(claim_verdicts, args.author)
         written = validate_new_statements(payload, known_records=known_records)
         cleaned = validate(payload, known_records=known_records, known_topics=known_topics,
                            require=not (claim_verdicts or written))

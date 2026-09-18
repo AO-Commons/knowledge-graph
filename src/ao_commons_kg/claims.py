@@ -147,6 +147,13 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
                 claim.reviewed_by = checked.get("reviewer")
                 claim.note = checked.get("note") or claim.note
                 claim.review_status = ReviewStatus.REVIEWED
+                claim.reviewed_by_author = bool(checked.get("by_author"))
+                # An author's rewrite is the best wording available and the
+                # one nobody disinterested has checked. It stays in the queue
+                # until a reader who did not write the paper agrees it still
+                # says what the quote says.
+                if claim.verdict == "adjusted" and claim.reviewed_by_author:
+                    claim.review_status = ReviewStatus.NEEDS_REVIEW
                 # An adjustment is a rewrite, and the rewrite is the point of
                 # it. Left in the verdict file, the corpus would go on showing
                 # the sentence a reviewer had explicitly rejected, with a note

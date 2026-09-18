@@ -596,6 +596,14 @@ class Claim:
     in the paper but the paraphrase says more than the source does, which is
     the characteristic failure of extraction and is invisible in a yes/no."""
     note: str | None = None
+    reviewed_by_author: bool = False
+    """Whether the verdict came from somebody on this paper's byline.
+
+    A fact about the reviewer, not a higher score. An author is the highest
+    authority on whether a statement says what their paper says, and the
+    least disinterested party on whether it overstates — the verdict this
+    layer most wants. Published so a reader can weigh it rather than having
+    it folded invisibly into a count."""
     machine_check: str | None = None
     """What an independent pass made of this, when one disagreed with the
     extraction. A machine cannot review a statement, but it can say which ones

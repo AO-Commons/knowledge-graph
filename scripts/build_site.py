@@ -90,6 +90,7 @@ def build_payload() -> dict:
             "topics": claim.topic_codes,
             # A verdict already merged is shown rather than asked for again.
             "verdict": claim.verdict or "",
+            "byAuthor": claim.reviewed_by_author,
             "by": claim.reviewed_by or "",
             # What the claim argues about, as opposed to what it is filed
             # under. The reviewer's route to the other papers saying
