@@ -85,6 +85,7 @@ api.slack.com/apps → *From scratch* → name it *AO Knowledge Graph*.
 | `channels:history` | read the thread it was tagged in, in a **public** channel |
 | `groups:history` | the same, in a **private** one — `#agent-test` is private |
 | `chat:write` | reply |
+| `reactions:write` | 👀 on your message the moment the run picks it up |
 
 Slack splits channel history by channel type, and the mention arrives either
 way: `app_mention` fires, the relay dispatches, and the run then fails on
@@ -102,6 +103,11 @@ approval.
 
 Install to the workspace, copy the `xoxb-` token, `/invite` it to
 `#knowledge-graph`.
+
+A run takes most of a minute, and a message that looks ignored for a minute
+reads as broken. So the first thing a run does is react 👀 — before reading the
+thread, before any model call. It claims only that the mention arrived; the
+reply claims the rest.
 
 ### 3. The repository side
 

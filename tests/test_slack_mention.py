@@ -110,3 +110,25 @@ class TestThreadContext:
     def test_only_the_tail_of_a_long_thread(self):
         messages = [{"text": f"message {i}"} for i in range(30)]
         assert len(slack_mention.thread_context(messages, limit=4).splitlines()) == 3
+
+
+class TestABareTag:
+    """Tagging the agent under a paper with no other words is the commonest
+    gesture there is, and it used to mean the run exited saying nothing."""
+
+    def test_a_tag_with_no_words_is_not_an_empty_question(self):
+        assert slack_mention.strip_mention("<@U0C9ABC>") == ""
+
+    def test_the_thread_is_what_a_bare_tag_is_about(self):
+        """Dropping the last *line* rather than the last *message* threw away
+        the paper, because a bare mention contributes no line at all."""
+        messages = [{"ts": "1.0", "text": "https://arxiv.org/abs/2502.15840"},
+                    {"ts": "2.0", "text": "<@U0C9ABC>"}]
+        assert "2502.15840" in slack_mention.thread_context(messages, exclude="2.0")
+
+    def test_the_message_being_answered_is_never_context_for_itself(self):
+        messages = [{"ts": "1.0", "text": "what about approvals?"},
+                    {"ts": "2.0", "text": "<@U0C9ABC> and budgets?"}]
+        context = slack_mention.thread_context(messages, exclude="2.0")
+        assert "approvals" in context
+        assert "budgets" not in context
