@@ -82,8 +82,14 @@ api.slack.com/apps → *From scratch* → name it *AO Knowledge Graph*.
 | Scope | Why |
 |---|---|
 | `app_mentions:read` | receive the tag |
-| `channels:history` | read the thread it was tagged in — `#knowledge-graph` is public |
+| `channels:history` | read the thread it was tagged in, in a **public** channel |
+| `groups:history` | the same, in a **private** one — `#agent-test` is private |
 | `chat:write` | reply |
+
+Slack splits channel history by channel type, and the mention arrives either
+way: `app_mention` fires, the relay dispatches, and the run then fails on
+`conversations.replies: missing_scope` because it cannot read the thread it was
+invited to. Add both and the app works wherever you invite it.
 
 **Event Subscriptions** → on. Request URL: the Worker URL from step 1. It must
 go green immediately; if it says *"didn't respond with the value of the

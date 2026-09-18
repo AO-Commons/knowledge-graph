@@ -6,10 +6,16 @@ compatibility_date = "2026-09-01"
 # workspace never wakes a workflow. Leave it unset to answer everywhere the
 # app is invited.
 #
-#   C0BV170L4GJ  #knowledge-graph
+# When you invite the app somewhere new, add the id here and redeploy. This is
+# the setting that silently stopped the sibling relay working when its digest
+# moved channel: nothing errored, replies simply stopped waking a run, and the
+# only symptom was an hour of slowness.
+#
+#   C0BV170L4GJ  #knowledge-graph  (public)
+#   C0C1PDGRC14  #agent-test       (private — needs groups:history, not channels:history)
 [vars]
 GITHUB_REPO = "AO-Commons/knowledge-graph"
-CHANNELS = "C0BV170L4GJ"
+CHANNELS = "C0BV170L4GJ,C0C1PDGRC14"
 
 # Secrets are set with `wrangler secret put`, never in this file:
 #   SLACK_SIGNING_SECRET   Slack app -> Basic Information -> Signing Secret
