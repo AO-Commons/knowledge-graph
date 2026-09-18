@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 19,
+    "vocabulary": 25,
     "vocabulary_from_claims": 10,
-    "vocabulary_from_taxonomy": 9,
-    "on_exactly_one_statement": 6,
-    "suggestions_available": 505
+    "vocabulary_from_taxonomy": 15,
+    "on_exactly_one_statement": 12,
+    "suggestions_available": 499
   },
   "looks_like_one_idea": [
     {
@@ -110,6 +110,18 @@
       "note": "Inferring a per-ability profile rather than a single score, so that future performance can be predicted per scenario."
     },
     {
+      "id": "contestability-as-a-legitimacy-condition",
+      "label": "Contestability as a legitimacy condition",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:9"
+      ]
+    },
+    {
       "id": "dissociative-agent-identity",
       "label": "Dissociative agent identity",
       "topics": [
@@ -150,9 +162,11 @@
         "14.3"
       ],
       "origin": "claim",
-      "statements": 5,
+      "statements": 7,
       "claims": [
         "claim:arxiv:2606.03237:1",
+        "claim:arxiv:2606.03237:10",
+        "claim:arxiv:2606.03237:12",
         "claim:arxiv:2606.03237:2",
         "claim:arxiv:2606.03237:3",
         "claim:arxiv:2606.03237:4",
@@ -189,6 +203,18 @@
       "note": "Constraining and monitoring an agent in real time, rather than rating and punishing it afterwards. The alternative 2605.30169 proposes once it argues reputation is structurally inapplicable — and the distinction its whole argument turns on, which nothing in the pool named."
     },
     {
+      "id": "generalization-to-unfamiliar-partners-and-novel-social-situations",
+      "label": "Generalization to unfamiliar partners and novel social situations",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2107.06857:6"
+      ]
+    },
+    {
       "id": "insurance-for-autonomous-action",
       "label": "Insurance for autonomous action",
       "topics": [
@@ -198,6 +224,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2605.30169:9"
+      ]
+    },
+    {
+      "id": "legitimacy-erosion-through-automation",
+      "label": "Legitimacy erosion through automation",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:9"
       ]
     },
     {
@@ -227,6 +265,18 @@
         "claim:doi:10-1111-epic-70009:2"
       ],
       "note": "Making an organization's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organizational Intelligence work."
+    },
+    {
+      "id": "oversight-capacity-as-the-binding-constraint",
+      "label": "Oversight capacity as the binding constraint",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:11"
+      ]
     },
     {
       "id": "prosocial-capability",
@@ -286,6 +336,18 @@
       ]
     },
     {
+      "id": "sources-of-legitimate-machine-authority",
+      "label": "Sources of legitimate machine authority",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:8"
+      ]
+    },
+    {
       "id": "stake-based-trust",
       "label": "Stake-based trust",
       "topics": [
@@ -325,6 +387,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2511.03434:1"
+      ]
+    },
+    {
+      "id": "unintended-coordination-and-convergence",
+      "label": "Unintended coordination and convergence",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:10"
       ]
     }
   ],
@@ -1329,15 +1403,6 @@
       "statements": 0
     },
     {
-      "id": "contestability-as-a-legitimacy-condition",
-      "label": "Contestability as a legitimacy condition",
-      "topics": [
-        "1.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "context-and-prompt-drift-over-time",
       "label": "Context and prompt drift over time",
       "topics": [
@@ -2193,15 +2258,6 @@
       "statements": 0
     },
     {
-      "id": "generalization-to-unfamiliar-partners-and-novel-social-situations",
-      "label": "Generalization to unfamiliar partners and novel social situations",
-      "topics": [
-        "15.6"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "goal-hijacking-and-objective-substitution",
       "label": "Goal hijacking and objective substitution",
       "topics": [
@@ -2841,15 +2897,6 @@
       "statements": 0
     },
     {
-      "id": "legitimacy-erosion-through-automation",
-      "label": "Legitimacy erosion through automation",
-      "topics": [
-        "1.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "liability-falling-on-unintended-parties",
       "label": "Liability falling on unintended parties",
       "topics": [
@@ -3403,15 +3450,6 @@
       "label": "Oscillation, thrashing, and instability",
       "topics": [
         "5.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "oversight-capacity-as-the-binding-constraint",
-      "label": "Oversight capacity as the binding constraint",
-      "topics": [
-        "3.4"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4317,15 +4355,6 @@
       "statements": 0
     },
     {
-      "id": "sources-of-legitimate-machine-authority",
-      "label": "Sources of legitimate machine authority",
-      "topics": [
-        "1.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "span-of-control-for-human-supervisors",
       "label": "Span of control for human supervisors",
       "topics": [
@@ -4726,15 +4755,6 @@
       "label": "Ungoverned infrastructure as escape path",
       "topics": [
         "11.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "unintended-coordination-and-convergence",
-      "label": "Unintended coordination and convergence",
-      "topics": [
-        "5.1"
       ],
       "origin": "taxonomy",
       "statements": 0

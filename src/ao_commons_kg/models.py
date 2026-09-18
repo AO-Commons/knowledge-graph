@@ -450,6 +450,21 @@ class ClaimType(str, Enum):
     limitation; "whether this survives multilingual training remains an open
     question" is a gap, and the second is the one somebody can go and work on.
 
+    **The line against `background` is whether the paper then closes it.**
+    Both types say something has not been done, which is why this needs a
+    rule rather than a feel. A paper naming an absence it is about to fill is
+    stating the premise it argues *from*, and that is background — Melting Pot
+    opens with "no one has yet attempted to build a benchmark ..." and then
+    builds one. A paper naming an absence it leaves for somebody else is
+    stating a gap — the Dissociative Identity paper says its contribution is
+    "the conceptual reframing ... not a finished governance architecture" and
+    that how its mechanisms interact "is unexplored".
+
+    Without the rule the same sentence types two ways depending on who reads
+    it, and this docstring's own sibling proves it: `BACKGROUND` offers "no
+    accepted benchmark exists" as its example, which is gap-shaped by every
+    other test.
+
     They live where limitations live — introductions, discussions,
     conclusions — and are marked in the prose far more often than any other
     type is, because an author stating an open question wants it found."""
@@ -458,7 +473,9 @@ class ClaimType(str, Enum):
     BACKGROUND = "background"
     """An assertion about the state of the field or about prior work, rather
     than about this work's own contribution — "no accepted benchmark exists",
-    "this has impeded progress". Added after reading full texts rather than
+    "this has impeded progress". When it names an absence, it is an absence
+    this paper goes on to fill; the absence it leaves to somebody else is a
+    `GAP`, and which one it is decides the type. Added after reading full texts rather than
     abstracts, where they turn out to be everywhere and to be load-bearing:
     they are what a paper's contribution is justified against, they are
     routinely asserted without evidence, and they date badly. "Which claims

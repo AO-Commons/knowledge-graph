@@ -377,6 +377,18 @@ to interpretation — and the sense meaning unresolved is the predicative one:
 the sentence ends there, or carries on with the question itself. Real full
 text taught that lesson, by way of "A2A is an open specification".
 
+**Does the paper then close it?** That is the rule that separates a gap from
+background, and it needs to be a rule because both say something has not been
+done. A paper naming an absence it is about to fill states the premise it
+argues *from* — Melting Pot opens with "no one has yet attempted to build a
+benchmark" and then builds one, which is background. A paper naming an absence
+it leaves for somebody else states a gap.
+
+Checked against the corpus, the rule holds everywhere: the two papers the
+finder returns nothing for are a resource paper and a position paper, and both
+name absences only in order to close them. That is why zero is the right answer
+for them and not a miss.
+
 A `gap` is not a `limitation`. A limitation bounds *this result* — what these
 authors did not test. A gap is about the state of the field — what nobody has
 answered. "We evaluated only on English" is the first; "whether this survives

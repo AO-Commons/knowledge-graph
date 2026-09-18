@@ -114,3 +114,92 @@ claims:
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
+- id: claim:arxiv:2606.03237:8
+  text: Legitimacy constraints bound which solutions are admissible at all, rather than trading
+    off against efficiency.
+  quote: These constraints operate as feasibility bounds on admissible solutions, not as preferences
+    to be weighed against efficiency.
+  standalone: Arguing that even a system able to predict every adaptive response would still
+    face the legitimacy constraints open societies impose, the authors hold that those constraints
+    are feasibility bounds rather than one more objective to weigh.
+  claim_type: position
+  concept_tags:
+  - sources-of-legitimate-machine-authority
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:9
+  text: An AI decision that is technically correct is still delegitimized by the absence of
+    due process.
+  quote: Even when an AI’s predictions or decisions are technically correct, the absence of
+    due process delegitimizes the result, undermining the coordination that legal order provides.
+  standalone: The authors argue that a functioning legal order depends on open, public procedures
+    through which affected parties contest outcomes and demand justification, and that unilateral
+    optimization bypasses them.
+  claim_type: position
+  concept_tags:
+  - contestability-as-a-legitimacy-condition
+  - legitimacy-erosion-through-automation
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:10
+  text: A social system tipped into a degraded equilibrium may not be able to escape it at
+    any acceptable cost.
+  quote: Once a system tips into a degraded equilibrium, escaping may be costly or impossible.
+  standalone: The authors argue that introducing a powerful optimizer reshapes the payoff
+    landscape of a social system, that small deployment differences can decide which equilibrium
+    it settles into, and that network effects and infrastructure dependencies can then lock
+    it there.
+  claim_type: position
+  concept_tags:
+  - endogenous-non-stationarity
+  - unintended-coordination-and-convergence
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:11
+  text: Multi-agent designs multiply the points of failure and make oversight harder than
+    a single aligned optimizer would.
+  quote: Decentralizing capability across many agents does not eliminate the coordination
+    problem; it multiplies the points of failure and makes oversight harder.
+  standalone: 'This is an objection the authors state in their Alternative Views section in
+    order to rebut it: that economies of interacting actors can race to the bottom, collude
+    or deadlock, and that a well-aligned monolithic system offers more tractable safety guarantees.'
+  claim_type: background
+  concept_tags:
+  - oversight-capacity-as-the-binding-constraint
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: other
+  attributed_to: an alternative view the authors state in order to rebut it
+- id: claim:arxiv:2606.03237:12
+  text: The real choice is between designs that acknowledge strategic interdependence and
+    designs that defer it to deployment, when it is least tractable.
+  quote: The actual choice is between systems that acknowledge strategic interdependence in
+    their design and systems that defer this reckoning until deployment, when the dynamics
+    are least tractable.
+  standalone: 'Rebutting the objection that multi-actor designs fail worse, the authors argue
+    the comparison is wrong: a monolithic optimizer still meets interaction dynamics at deployment,
+    having been designed as if they did not exist.'
+  claim_type: position
+  concept_tags:
+  - endogenous-non-stationarity
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

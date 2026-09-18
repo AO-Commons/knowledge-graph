@@ -82,3 +82,21 @@ claims:
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
+- id: claim:arxiv:2107.06857:6
+  text: A multi-agent population must generalize to unfamiliar individuals and pass a universalization
+    test, not only perform well on the situations it trained on.
+  quote: generalize to interact effectively with unfamiliar individuals not seen during training
+    (who may well be human), and pass a universalization test
+  standalone: 'The authors set three desiderata for a population of agents acting as decentralized
+    individuals: performing well across interdependent social situations, generalizing to
+    individuals never seen in training who may be human, and answering positively to “what
+    if everyone behaved like that?”'
+  claim_type: position
+  concept_tags:
+  - generalization-to-unfamiliar-partners-and-novel-social-situations
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
