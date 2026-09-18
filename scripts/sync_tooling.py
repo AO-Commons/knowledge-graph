@@ -28,7 +28,7 @@ from ao_commons_kg import tooling  # noqa: E402
 
 RAW = "https://raw.githubusercontent.com/framework-zero/awesome-builder-tools/main/README.md"
 API = "https://api.github.com/repos/framework-zero/awesome-builder-tools/commits/main"
-CONTACT = "anke@stellar.org"
+from ao_commons_kg import CONTACT   # one copy, in the package
 
 
 def fetch(url: str) -> str:

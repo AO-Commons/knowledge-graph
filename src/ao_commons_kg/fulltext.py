@@ -22,10 +22,10 @@ import urllib.request
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
+from . import CONTACT
 
 REPO = Path(__file__).resolve().parent.parent.parent
 CACHE = REPO / "data" / "cache" / "fulltext"
-CONTACT = "anke@stellar.org"
 
 # Where claims concentrate. Ordered by yield rather than by document order:
 # a paper's own statement of what it showed sits in its conclusion and its

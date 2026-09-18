@@ -53,8 +53,8 @@ from pathlib import Path
 
 from .facets import BY_NAME
 from .tooling import Entry
+from . import CONTACT
 
-CONTACT = "anke@stellar.org"
 DEFAULT_MODEL = "claude-opus-5"
 
 REPO = Path(__file__).resolve().parent.parent.parent

@@ -24,9 +24,9 @@ import html
 import re
 import urllib.request
 from dataclasses import dataclass, field
+from .. import CONTACT
 
 API = "https://export.arxiv.org/api/query"
-CONTACT = "anke@stellar.org"
 
 ENTRY = re.compile(r"<entry>(.*?)</entry>", re.S)
 IDENTIFIER = re.compile(r"<id>https?://arxiv\.org/abs/([0-9.]+)v?\d*</id>")
