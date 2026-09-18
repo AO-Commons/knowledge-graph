@@ -2160,7 +2160,7 @@
     const key = id.doi ? `https://doi.org/${id.doi}` : `https://doi.org/10.48550/arXiv.${id.arxiv}`;
     return fetch(`https://api.openalex.org/works/${key}`
                  + "?select=title,abstract_inverted_index,authorships,publication_date"
-                 + "&mailto=anke@stellar.org")
+                 + "&mailto=anke@daostar.org")
       .then(response => (response.ok ? response.json() : null))
       .then(work => {
         if (!work || !work.title) return null;
@@ -2217,7 +2217,7 @@
   function fromCrossref(id) {
     if (!id.doi) return Promise.resolve(null);
     return fetch(`https://api.crossref.org/works/${encodeURIComponent(id.doi)}`
-                 + "?mailto=anke@stellar.org")
+                 + "?mailto=anke@daostar.org")
       .then(response => (response.ok ? response.json() : null))
       .then(payload => {
         const work = payload && payload.message;

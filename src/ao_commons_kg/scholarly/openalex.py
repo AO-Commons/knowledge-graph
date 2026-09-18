@@ -19,9 +19,9 @@ from dataclasses import dataclass, field
 from typing import Callable, Iterable, Protocol
 
 from ..people import uninvert
+from .. import CONTACT
 
 API = "https://api.openalex.org"
-CONTACT = "anke@stellar.org"
 """OpenAlex asks for a contact address and gives the polite pool in return —
 anonymous requests get rate-limited hard, which is worth knowing before
 blaming the expansion for being slow."""
