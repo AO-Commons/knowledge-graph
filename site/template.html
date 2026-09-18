@@ -3308,7 +3308,8 @@
       [s.concepts_in_use, "concepts in use"],
       [s.relations, "asserted relations"],
       [s.citation_edges, "citations inside the corpus"],
-      [s.reviewed + " of " + s.statements, "statements reviewed"],
+      [s.machine_checked + " of " + s.statements, "quotes machine-checked"],
+      [s.reviewed + " of " + s.statements, "reviewed by a person"],
     ];
     const host = el("div", { className: "figures" });
     cells.forEach(([n, label]) => {
@@ -3461,12 +3462,17 @@
            + "a model needs to answer carefully rather than plausibly."),
       para(el("strong", {}, "What makes it trustworthy is the same thing that makes "
            + "it slow. "),
-           "Machines find, resolve, admit and tag. People decide whether a statement "
-           + "says what its source says, and that judgment is recorded against their "
-           + "name in a pull request anyone can read. Nothing here claims to be "
-           + "verified until somebody has verified it — today that is ",
+           "Machines find, resolve, admit and tag. Every statement here has been "
+           + "checked mechanically — its quote was found verbatim in the source, its "
+           + "tags resolve, and it is about the field rather than about the paper's "
+           + "own instrument — which is why ", String(s.machine_checked), " of ",
+           String(s.statements), " say machine-checked. That is a real signal and it "
+           + "is not review."),
+      para("What no machine does is decide whether the statement says what its "
+           + "source says. A person does that, and the judgment is recorded against "
+           + "their name in a pull request anyone can read. Today that is ",
            String(s.reviewed), " of ", String(s.statements),
-           ", which is the honest state of the library and the reason the Review tab "
+           " — the honest state of the library, and the reason the Review tab "
            + "exists."),
     ]));
 

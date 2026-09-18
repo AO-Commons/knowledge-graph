@@ -17,7 +17,7 @@ claims:
   extracted_from: introduction
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:2
   text: State-of-the-art LLM agent frameworks exhibit prompt injection, sycophancy, hallucination,
@@ -35,7 +35,7 @@ claims:
   extracted_from: introduction
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: other
   attributed_to: recent AI safety studies cited by the paper
 - id: claim:arxiv:2511.03434:3
@@ -55,7 +55,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:4
   text: No single inter-agent trust mechanism is sufficient on its own.
@@ -70,7 +70,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:5
   text: High-impact agent actions should be gated by cryptographic proof and bonded stake
@@ -88,7 +88,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:6
   text: 'Verification should be tiered to stakes: low friction where impact is negligible,
@@ -106,5 +106,5 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own

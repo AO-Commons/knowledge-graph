@@ -13,7 +13,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:2
   text: The dominant AI research paradigm treats the world as an exogenous and stationary
@@ -29,7 +29,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:3
   text: Deploying an AI system induces endogenous non-stationarity, producing a train-test-deploy
@@ -47,7 +47,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:4
   text: The more aggressively a system exploits historical regularities, the faster other
@@ -64,7 +64,7 @@ claims:
   extracted_from: introduction
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:5
   text: A dynamic evaluation is one whose test distribution depends on the evaluated policy
@@ -81,7 +81,7 @@ claims:
   extracted_from: results
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:6
   text: No existing evaluation approach meets all the requirements for valid dynamic evaluation.
@@ -97,7 +97,7 @@ claims:
   extracted_from: results
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:7
   text: Institutions should be treated as design primitives rather than as context.
@@ -112,5 +112,5 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own

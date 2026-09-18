@@ -17,7 +17,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:2
   text: Language model agents are assemblages of mutable modules, any of which may change
@@ -35,7 +35,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:3
   text: Dissociativity leaves agents without grounding for identifiability, predictability,
@@ -54,7 +54,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:4
   text: Reputation signals for dissociative agents become actively harmful rather than merely
@@ -70,7 +70,7 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:5
   text: Identity-based, ex post, sanction-based governance is structurally inapplicable to
@@ -86,7 +86,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:6
   text: Governance should target the operator and the protocol rather than the agent.
@@ -103,5 +103,5 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own

@@ -15,7 +15,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:2
   text: Higher prosocial capability does not reliably accompany higher contest score.
@@ -31,7 +31,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:3
   text: Top-performing submissions score highest in scenarios where prosocial capability is
@@ -49,7 +49,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:4
   text: Leading submissions gained much of their advantage by exploiting a weakness in the
@@ -67,7 +67,7 @@ claims:
   extracted_from: discussion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:5
   text: Some capabilities fail to differentiate between systems when the corresponding task
@@ -84,5 +84,5 @@ claims:
   extracted_from: discussion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own

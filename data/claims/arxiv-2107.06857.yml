@@ -15,7 +15,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: other
   attributed_to: prior MARL evaluation literature
 - id: claim:arxiv:2107.06857:2
@@ -31,7 +31,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:3
   text: Melting Pot reveals weaknesses in MARL algorithms that training performance alone
@@ -47,7 +47,7 @@ claims:
   extracted_from: abstract
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:4
   text: Solving novel social situations appears to require agents that model trust, reciprocity
@@ -63,7 +63,7 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:5
   text: An evaluation suite improves over time by folding improved agents into its background
@@ -80,5 +80,5 @@ claims:
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
-  review_status: unreviewed
+  review_status: machine-checked
   attribution: own

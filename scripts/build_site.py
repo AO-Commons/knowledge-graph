@@ -70,6 +70,7 @@ def build_payload() -> dict:
     for claim in load_claims():
         by_resource.setdefault(claim.resource_id, []).append({
             "id": claim.id,
+            "status": claim.review_status.value,
             # What this statement said when the page was built. The filing
             # echoes it back, so a verdict can be tied to the wording it was
             # given rather than to an id that outlives it.
@@ -235,6 +236,8 @@ def build_payload() -> dict:
         "papers_with_statements": sum(1 for r in records if r["claims"]),
         "primary": sum(1 for c in all_claims if c["primary"]),
         "reviewed": sum(1 for c in all_claims if c.get("verdict")),
+        "machine_checked": sum(1 for c in all_claims
+                               if c.get("status") == "machine-checked"),
         "by_type": {
             kind: sum(1 for c in all_claims if c["type"] == kind)
             for kind in ("finding", "position", "method", "background", "limitation")

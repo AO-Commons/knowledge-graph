@@ -336,3 +336,46 @@ class TestAVerdictBindsToTheWordingItWasGiven:
         throw away a real judgment to enforce bookkeeping."""
         applied = self._claim(self._gold(tmp_path, None))
         assert applied.verdict == "adjusted"
+
+
+class TestMachineCheckedIsNotReviewed:
+    """A careful machine pass is a real signal and it is not review.
+
+    Reporting the two as one number overstates the corpus; reporting only
+    review said nothing had been checked at all, which was equally untrue —
+    every quote in the corpus has been verified verbatim against its source.
+    """
+
+    def test_the_gated_statements_say_what_checked_them(self):
+        from ao_commons_kg.claims import load_claims
+        claims = load_claims()
+        assert claims
+        assert all(c.review_status.value == "machine-checked" for c in claims), \
+            "every statement went through the gated extraction"
+
+    def test_it_does_not_count_as_reviewed(self):
+        from ao_commons_kg.claims import load_claims
+        assert not [c for c in load_claims() if c.verdict], "nobody has reviewed anything yet"
+
+    def test_a_verdict_still_promotes_past_it(self, tmp_path):
+        """Machine-checked is a floor, not a ceiling — a human verdict moves a
+        statement the rest of the way."""
+        import yaml
+        from ao_commons_kg.claims import load_claims
+        claims = {c.id: c for c in load_claims()}
+        cid = "claim:arxiv:2107.06857:1"
+        gold = tmp_path / "claims.yml"
+        gold.write_text(yaml.safe_dump({"claims": {cid: {
+            "verdict": "accurate", "reviewer": "anke", "reviewed_on": "2026-09-18",
+            "saw": claims[cid].fingerprint}}}), encoding="utf-8")
+        promoted = {c.id: c for c in load_claims(verdicts=gold)}[cid]
+        assert promoted.review_status.value == "reviewed"
+
+    def test_extraction_records_it_rather_than_a_person_remembering_to(self):
+        from ao_commons_kg.extract import check
+        result = check([{
+            "text": "A statement long enough to count as one.",
+            "quote": "the source sentence", "claim_type": "finding",
+            "attribution": "own", "concept_tags": [],
+        }])
+        assert result.kept[0]["review_status"] == "machine-checked"

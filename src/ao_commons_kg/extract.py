@@ -304,10 +304,15 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
                     result.new_concepts.append(tag)
             else:
                 seen_texts.add(key)
+                candidate.setdefault("review_status", "machine-checked")
                 result.kept.append(candidate)
             continue
 
         seen_texts.add(key)
+        # Passing the gates is a fact about the statement and belongs on it.
+        # Recording it here rather than by hand keeps the claim that every
+        # kept statement was mechanically checked true by construction.
+        candidate.setdefault("review_status", "machine-checked")
         result.kept.append(candidate)
 
     return result

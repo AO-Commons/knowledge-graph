@@ -54,10 +54,23 @@ class ReviewStatus(str, Enum):
 
     `unreviewed` is the default and the honest state of most of the corpus.
     A record moves to `reviewed` only when a named human has checked it —
-    an AI pass, however careful, does not promote a record.
+    an AI pass, however careful, does not promote a record. `machine-checked`
+    exists so that a careful AI pass can still be reported as what it is,
+    rather than being rounded down to "nobody looked" or up to "reviewed".
     """
 
     UNREVIEWED = "unreviewed"
+    MACHINE_CHECKED = "machine-checked"
+    """Mechanically verified and not reviewed. For a statement it means the
+    extraction gates passed — the quote was found verbatim in the source, the
+    claim is about the field rather than the instrument, attribution is
+    stated, and every tag resolves.
+
+    It is a real signal and it is not review. Reporting the two as one number
+    would be the overstatement this enum exists to prevent; reporting only
+    review says nothing was checked at all, which is equally untrue and is
+    what "0 reviewed" looked like. A verdict from a named human is the only
+    thing that reaches `reviewed`."""
     NEEDS_REVIEW = "needs-review"
     """Actively suspected wrong — a stronger claim than 'not yet looked at',
     and the queue a reviewer should work from first."""
