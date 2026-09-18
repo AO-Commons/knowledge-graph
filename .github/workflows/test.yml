@@ -25,6 +25,15 @@ jobs:
       # The release must rebuild byte-for-byte from the checked-in taxonomy.
       # If it doesn't, either the parser changed or the taxonomy did, and
       # both should be visible in review rather than discovered later.
+      # A verdict is the most expensive thing here: somebody read a paper and
+      # decided. Eight were deleted by a rebase that replaced the file
+      # wholesale, and every other check passed — a gold set missing eight
+      # entries is a perfectly valid gold set.
+      - name: No judgement disappeared
+        run: |
+          git fetch --quiet origin main
+          python3 scripts/check_gold_intact.py --base origin/main
+
       - name: Release is reproducible
         run: |
           aokg build --version check --out /tmp/rel-a

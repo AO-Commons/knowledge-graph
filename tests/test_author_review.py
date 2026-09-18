@@ -120,3 +120,54 @@ class TestTheScreenSaysIt:
         page = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
         assert "Filed by an author of this paper" in page
         assert "least disinterested" in page
+
+
+class TestConfirmingALinkReachesVerdictsAlreadyMerged:
+    """The first author review in the corpus arrived before anything recorded
+    who filed it. If confirming a link only affected future filings it would
+    stay invisible for ever."""
+
+    def test_the_corpus_knows_axel_wrote_vending_bench(self):
+        from ao_commons_kg.claims import load_claims
+        marked = [c for c in load_claims() if c.reviewed_by_author]
+        assert marked, "no verdict is marked as an author's"
+        assert all(c.resource_id == "resource:arxiv:2502.15840" for c in marked)
+
+    def test_the_backfill_is_idempotent(self):
+        """It is run after every confirmation, so running it twice must be a
+        no-op rather than a second round of edits."""
+        import subprocess, sys
+        from pathlib import Path
+        root = Path(__file__).resolve().parent.parent
+        out = subprocess.run([sys.executable, "scripts/mark_authors.py"],
+                             cwd=root, capture_output=True, text=True)
+        assert "nothing to change" in out.stdout, out.stdout
+
+
+class TestNoJudgementDisappears:
+    """Eight verdicts were deleted by a rebase that replaced the gold file
+    wholesale from a branch predating another reviewer's merge. Tests passed,
+    fingerprints matched, the site built — a gold set missing eight entries is
+    a perfectly valid gold set."""
+
+    def test_the_guard_exists_and_runs(self):
+        import subprocess, sys
+        from pathlib import Path
+        root = Path(__file__).resolve().parent.parent
+        assert (root / "scripts" / "check_gold_intact.py").exists()
+        out = subprocess.run([sys.executable, "scripts/check_gold_intact.py",
+                              "--base", "HEAD"], cwd=root, capture_output=True, text=True)
+        assert out.returncode == 0, out.stderr
+
+    def test_ci_runs_it_against_main(self):
+        from pathlib import Path
+        workflow = (Path(__file__).resolve().parent.parent
+                    / ".github" / "workflows" / "test.yml").read_text(encoding="utf-8")
+        assert "check_gold_intact.py" in workflow
+        assert "origin/main" in workflow
+
+    def test_every_verdict_still_names_a_reviewer(self):
+        from ao_commons_kg.claims import load_verdicts
+        gold = load_verdicts()
+        assert len(gold) >= 23
+        assert all(e.get("reviewer") for e in gold.values())

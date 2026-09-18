@@ -1,4 +1,52 @@
 claims:
+  claim:arxiv:2502.15840:1:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: e8d8752eab98
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:2:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 18beb4c6577a
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:3:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 79bee7402df5
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:4:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 1bd265888fa1
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:5:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 3cc62c3b73bc
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:6:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: b3f7a0e3043d
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:7:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: '654454085538'
+    reviewer: Axelmannen
+    by_author: true
+  claim:arxiv:2502.15840:8:
+    verdict: accurate
+    reviewed_on: '2026-09-18'
+    saw: 7d119d343bad
+    reviewer: Axelmannen
+    by_author: true
   claim:arxiv:2511.03434:1:
     verdict: accurate
     reviewed_on: '2026-09-18'
