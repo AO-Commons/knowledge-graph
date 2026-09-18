@@ -65,7 +65,19 @@ export default {
     }
 
     const body = await request.text();
+
+    // Say which kind of 401 this is. Without the secret every request is
+    // rejected — including the url_verification challenge, so Slack cannot
+    // even save the Request URL — and the tail is silent, which looks exactly
+    // like Slack not delivering. Two very different problems, one symptom.
+    if (!env.SLACK_SIGNING_SECRET) {
+      console.log(
+        "SLACK_SIGNING_SECRET is not set, so every Slack request is rejected " +
+        "including the challenge. Run: npx wrangler secret put SLACK_SIGNING_SECRET");
+      return new Response("relay has no signing secret", { status: 401 });
+    }
     if (!(await fromSlack(request, body, env.SLACK_SIGNING_SECRET))) {
+      console.log("signature did not verify — wrong signing secret, or not from Slack");
       return new Response("bad signature", { status: 401 });
     }
 
@@ -91,6 +103,12 @@ export default {
 
     // Answer first: Slack retries anything slower than three seconds, and a
     // retry would wake Actions twice for one question.
+    // A mention that wakes nothing is the other silent failure: the event
+    // arrived and was dropped, which reads identically to never arriving.
+    if (!worthWaking && e?.type === "app_mention") {
+      console.log(`ignored an app_mention in ${e.channel} — not in CHANNELS ` +
+                  `(${env.CHANNELS ?? "unset"}). Add the id to wrangler.toml and redeploy.`);
+    }
     if (worthWaking) {
       ctx.waitUntil(dispatch(env, {
         channel: e.channel,
