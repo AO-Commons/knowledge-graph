@@ -455,6 +455,114 @@ def cmd_build(args) -> int:
 
 
 
+def cmd_profile(args) -> int:
+    """Profile mirrored tools by reading their own documentation.
+
+    The counterpart of `grow` for the tooling half of the library. `grow`
+    admits a paper the corpus already cites; this reads a tool the mirror
+    already lists and answers the two questions the list does not — what may
+    agents do, and what stops them.
+
+    It writes to the working tree and stops there. Unlike an admitted paper, a
+    profile is a claim about somebody else's software made under our name, so
+    the workflow that runs this opens a pull request rather than committing to
+    main.
+    """
+    import yaml as _yaml
+
+    from . import tooling
+    from .tool_profile import (
+        ProfileUnavailable, anthropic_profiler, documents_for, existing_links,
+        path_for, record_for,
+    )
+
+    index = tooling.load()
+
+    # Link what is already done before proposing to redo it. Nine tools are
+    # profiled and one mirror entry says so, which makes the shortlist offer
+    # up finished work and the mirror understate the library ninefold.
+    relinked = existing_links(index.entries)
+    if relinked:
+        for entry in index.entries:
+            if entry.name in relinked:
+                entry.promoted_to = relinked[entry.name]
+        print(f"linked {len(relinked)} mirror entr(ies) to profiles that already exist:")
+        for name, resource_id in relinked.items():
+            print(f"  = {name} -> {resource_id}")
+        if not args.dry_run and not args.propose_only:
+            tooling.save(index)
+
+    # Every unprofiled entry, shortlisted ones first. `candidates` matches an
+    # authority word in *upstream's* one-line description, which is the blurb
+    # this profiler is built to read past — a good way to decide what to read
+    # first and a poor one to decide what is worth reading at all. Keywords
+    # rank; they do not admit. That is the same rule the scope scan follows,
+    # and for the same reason: "agent" appearing in a sentence somebody else
+    # wrote is not evidence about the software.
+    shortlist = {e.name for e in tooling.candidates(index)}
+    queue = tooling.waiting(index)
+    if args.only:
+        wanted = args.only.lower()
+        queue = [e for e in index.entries
+                 if not e.promoted_to and wanted in e.name.lower()]
+        if not queue:
+            print(f"nothing unprofiled in the mirror matches {args.only!r}")
+            return 1
+
+    if not queue:
+        print("nothing in the mirror is waiting to be profiled")
+        return 0
+
+    ranked = sum(1 for e in queue if e.name in shortlist)
+    print(f"{len(queue)} tool(s) listed and unprofiled, {ranked} of them described in "
+          f"terms of authority; taking {min(args.budget, len(queue))}")
+    if args.propose_only:
+        for entry in queue:
+            print(f"  {'*' if entry.name in shortlist else '-'} {entry.name} — {entry.url}")
+        return 0
+
+    try:
+        profiler = anthropic_profiler(args.model)
+    except ProfileUnavailable as error:
+        # The same shape as a missing scope judge: say it out loud, write
+        # nothing. A silent no-op is how a broken secret goes unnoticed.
+        print(f"profiling nothing: {error}")
+        return 0
+
+    written, refused = [], []
+    for entry in queue[:args.budget]:
+        try:
+            documents = documents_for(entry)
+            draft = profiler(entry, documents)
+            payload = record_for(entry, draft, documents)
+        except ProfileUnavailable as error:
+            refused.append(str(error))
+            print(f"  ~ {entry.name}: {error}")
+            continue
+
+        path = path_for(payload["id"])
+        if path.exists():
+            refused.append(f"{entry.name}: {path.name} already exists")
+            print(f"  ~ {entry.name}: already profiled as {path.name}")
+            continue
+
+        print(f"  + {entry.name} -> {path.name}")
+        if args.dry_run:
+            continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            _yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=88),
+            encoding="utf-8")
+        entry.promoted_to = payload["id"]
+        written.append(entry.name)
+
+    if written:
+        tooling.save(index)
+    print(f"\nprofiled {len(written)}, refused {len(refused)}"
+          + (" (dry run, nothing written)" if args.dry_run else ""))
+    return 0
+
+
 def cmd_grow(args) -> int:
     """Admit works the corpus already cites, automatically and within bounds.
 
@@ -836,6 +944,22 @@ def main(argv: list[str] | None = None) -> int:
     grow.add_argument("--citer-limit", type=int, default=100,
                       help="most citing works to read per held record")
     grow.set_defaults(func=cmd_grow)
+
+    profile = sub.add_parser(
+        "profile", help="profile a mirrored tool from its own documentation")
+    profile.add_argument("--budget", type=int, default=3,
+                         help="most tools to profile in one run. Small on purpose: "
+                              "fifty profiles landing at once is fifty claims "
+                              "nobody checked")
+    profile.add_argument("--model", default="claude-opus-5")
+    profile.add_argument("--only", default="",
+                         help="profile the one mirrored tool whose name contains this, "
+                              "whether or not it is in the shortlist")
+    profile.add_argument("--propose-only", action="store_true",
+                         help="list what is waiting and stop, with no model calls")
+    profile.add_argument("--dry-run", action="store_true",
+                         help="build the profiles but write nothing")
+    profile.set_defaults(func=cmd_profile)
 
     relate = sub.add_parser(
         "relate", help="propose claim pairs worth reading, from shared concepts")

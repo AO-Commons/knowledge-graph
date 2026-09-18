@@ -161,6 +161,20 @@ def candidates(index: Index) -> list[Entry]:
             if not e.promoted_to and _AUTHORITY.search(e.description or "")]
 
 
+def waiting(index: Index) -> list[Entry]:
+    """Every unprofiled entry, the shortlisted ones first.
+
+    `candidates` is a keyword match on upstream's one-line summary, and its
+    own docstring says a miss means nothing. It stopped being a queue the day
+    the last shortlisted tool was profiled: seven hits, all seven done, and a
+    report that said nothing was worth a look while fifty-two tools had never
+    been read. A keyword ranks; it does not decide what exists.
+    """
+    shortlist = {id(e) for e in candidates(index)}
+    return sorted((e for e in index.entries if not e.promoted_to),
+                  key=lambda e: id(e) not in shortlist)
+
+
 def carry_promotions(before: Index, after: Index) -> Index:
     """Keep our own links to the library across a resync.
 

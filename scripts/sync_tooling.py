@@ -64,13 +64,25 @@ def report(changes: dict, index: tooling.Index) -> str:
         lines += ["", f"### {len(changes['changed'])} reworded upstream", ""]
         lines += [f"- [{new.name}]({new.url})" for _, new in changes["changed"]]
 
-    waiting = tooling.candidates(index)
-    if waiting:
-        lines += ["", f"### {len(waiting)} worth a look", "",
+    shortlisted = tooling.candidates(index)
+    unprofiled = tooling.waiting(index)
+    if shortlisted:
+        lines += ["", f"### {len(shortlisted)} worth a look first", "",
                   "Listed upstream, not yet profiled here, and described in terms of what "
                   "agents may do or what constrains them. Reading the tool's own "
                   "documentation is what settles it:", ""]
-        lines += [f"- [{e.name}]({e.url}) — *{e.subsection or e.section}*" for e in waiting]
+        lines += [f"- [{e.name}]({e.url}) — *{e.subsection or e.section}*" for e in shortlisted]
+    # An empty shortlist means the keyword found nothing, not that the work is
+    # done. Saying only the first number is how a queue of fifty-two became
+    # invisible.
+    rest = len(unprofiled) - len(shortlisted)
+    if rest > 0:
+        lines += ["", f"### {rest} more, unprofiled", "",
+                  "Upstream's summary says nothing about authority for these, which is a "
+                  "fact about the summary. `aokg profile` reads them in this order:", ""]
+        lines += [f"- [{e.name}]({e.url})" for e in unprofiled[len(shortlisted):][:10]]
+        if rest > 10:
+            lines.append(f"- …and {rest - 10} more")
 
     if not lines:
         return "The list is unchanged since the last sync, and nothing is waiting to be profiled."
