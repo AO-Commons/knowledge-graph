@@ -439,6 +439,20 @@ class ClaimType(str, Enum):
     """A boundary the authors themselves put on their result. Rare in
     abstracts and disproportionately useful, because it is the part a
     downstream reader is most likely to drop."""
+    GAP = "gap"
+    """A question the paper says is open — either one it leaves open itself,
+    or one it reports the field has not answered.
+
+    The line against `limitation` is what the statement is about. A limitation
+    is a boundary on *this result*: what these authors did not test, and what
+    their number therefore does not cover. A gap is about the *state of the
+    field*: what nobody has answered yet. "We evaluated only on English" is a
+    limitation; "whether this survives multilingual training remains an open
+    question" is a gap, and the second is the one somebody can go and work on.
+
+    They live where limitations live — introductions, discussions,
+    conclusions — and are marked in the prose far more often than any other
+    type is, because an author stating an open question wants it found."""
     POSITION = "position"
     """An argument or recommendation, offered without evidence in this work."""
     BACKGROUND = "background"
@@ -459,6 +473,11 @@ class ClaimType(str, Enum):
         been shown, and what has been argued. Background, method and
         limitation are context: how you judge a finding once you have one,
         rather than the thing you were searching for.
+
+        A gap is neither, and that is why it is not primary here. It is not
+        an answer the library holds; it is a question the library can say
+        nobody has answered, which is a different product built on the same
+        statements — see `Problem`.
 
         The corpus bears it out. Ten of the first twelve asserted relations
         run between findings and positions; the argument the field is having

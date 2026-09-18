@@ -358,6 +358,35 @@ now grows on its own — which is why the binding constraint has moved from
 the incentive question is about review rather than about adding.
 
 
+## Open questions are hunted, not waited for
+
+Five of the six statement types have to be recognized in prose. The sixth
+announces itself: an author writing "remains an open question", "we leave to
+future work" or "it is not yet known whether" wants it found and worked on.
+So `scripts/find_gaps.py` scans the full text for those markers and hands the
+passages to the extractor, which decides what the statement is and writes the
+quote — a pattern that finds is not allowed to become the author of a claim.
+
+Measured over the first twelve records we hold full text for: 19 passages,
+1.6 per paper. Against one `limitation` statement in the whole corpus, which
+is what reading abstracts gets you.
+
+The rule the pattern turns on is grammatical rather than a word list. `open`
+is a busy word here — open source, open weights, an open specification, open
+to interpretation — and the sense meaning unresolved is the predicative one:
+the sentence ends there, or carries on with the question itself. Real full
+text taught that lesson, by way of "A2A is an open specification".
+
+A `gap` is not a `limitation`. A limitation bounds *this result* — what these
+authors did not test. A gap is about the state of the field — what nobody has
+answered. "We evaluated only on English" is the first; "whether this survives
+multilingual training remains an open question" is the second, and only the
+second is something somebody can go and work on.
+
+Gaps are what `Problem` nodes will be clustered from: one question, asked in
+several papers, each occurrence keeping its own quote. That layer is not built
+yet — this stage is the supply for it.
+
 ## Verification, by somebody who did not extract
 
 `scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `evals/machine/extraction.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.

@@ -110,6 +110,90 @@ ARTIFACT_SHAPED = re.compile(
 )
 
 
+
+# Open questions are the one kind of statement authors mark for you.
+#
+# Every other type has to be recognized: a finding looks like a sentence. An
+# open question is almost always announced — "remains an open question", "we
+# leave to future work", "it is not yet known whether" — because an author
+# stating one wants it found and worked on. That makes this the opposite of
+# `ARTIFACT_SHAPED`, which rejects: this one *finds*, and so it is allowed to
+# be generous. A false positive costs a passage an extractor glances at and
+# discards; a false negative costs a problem nobody in the corpus knows is
+# open.
+#
+# Measured against the passages Emergent Mind quotes for its own open
+# problems, the markers below catch both of the two on the page I checked —
+# "remains an open question" and "genuinely open" — which is the shape to
+# expect: the marker is a stock phrase and the question around it is not.
+GAP_MARKERS = re.compile(
+    r"\b("
+    # `open` is a busy word in this literature — open source, open weights,
+    # open-ended, an open specification, open to interpretation. A blacklist
+    # of the nouns that can follow it would never finish; the distinction is
+    # grammatical instead. The sense that means unresolved is predicative:
+    # the sentence ends there, or carries on with the question itself.
+    # "A2A is an open specification" is the attributive use and is not a gap;
+    # "whether it survives is genuinely open." is.
+    r"(remains?|is|are|stays?) (an? )?(genuinely |largely |still |very much )?open\b"
+    r"(?=\s*[.,;:)\]]|\s+(whether|how|if|why|to what|as to)\b|\s*$)"
+    r"|open (question|problem|challenge|issue)s?\b"
+    r"|(remains?|is|are) (still )?(unclear|unknown|unanswered|unresolved|untested|unexplored)\b"
+    r"|(it|this) is not (yet )?(known|clear|understood|established)\b"
+    r"|(we|authors?) (leave|defer)s? .{0,40}\bto future work\b"
+    r"|(is|are|remains?) (an )?(important |promising )?(direction|avenue)s? for future work\b"
+    r"|future work (should|will|must|could)\b"
+    r"|(has|have) (not )?yet to be (shown|established|demonstrated|answered|tested)\b"
+    r"|no (accepted|established|agreed|standard|existing) (benchmark|method|approach|measure|definition)\b"
+    r"|(little|no) (prior |existing )?(work|research|evidence) (has |exists)"
+    r"|(warrants?|requires?|calls for) further (study|investigation|research)\b"
+    r"|(an|the) important (open )?(question|problem) (is|remains)\b"
+    r")",
+    re.I,
+)
+
+
+@dataclass
+class Passage:
+    """Somewhere an author said something is unresolved."""
+
+    section: str
+    """Which section it was found in. A gap stated in a conclusion is the
+    authors' own; one in an introduction is usually about the field."""
+    marker: str
+    """The phrase that flagged it, so a reader can see why this was surfaced."""
+    text: str
+
+    def __str__(self) -> str:
+        return f"[{self.section}] …{self.text}…  ({self.marker!r})"
+
+
+def gap_passages(sections, *, window: int = 320) -> list[Passage]:
+    """Where in a paper somebody said a question is open.
+
+    Not an extractor. This hands back passages for one to read, which is the
+    whole point of separating them: the extractor decides what the statement
+    is and writes the quote, and this only says where to look. Abstracts are
+    skipped — an abstract that mentions an open question is selling the
+    paper's contribution, and the question itself is stated properly further
+    down.
+    """
+    found: list[Passage] = []
+    for section in sections or []:
+        kind = getattr(section, "kind", "") or ""
+        if kind == "abstract":
+            continue
+        text = getattr(section, "text", "") or ""
+        for match in GAP_MARKERS.finditer(text):
+            start = max(0, match.start() - window)
+            end = min(len(text), match.end() + window)
+            found.append(Passage(
+                section=kind or getattr(section, "heading", "") or "other",
+                marker=match.group(0),
+                text=" ".join(text[start:end].split()),
+            ))
+    return found
+
 @dataclass
 class Rejection:
     """A candidate statement that did not survive a gate, and which one."""

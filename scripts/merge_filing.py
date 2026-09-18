@@ -52,7 +52,8 @@ FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 CLAIM_VERDICTS = frozenset({
     "accurate", "adjusted", "overstated", "not-in-source", "ambiguous",
 })
-CLAIM_TYPES = frozenset({"finding", "method", "limitation", "position", "background"})
+CLAIM_TYPES = frozenset({"finding", "method", "limitation", "gap", "position",
+                         "background"})
 
 # A filing that is only claim verdicts still needs a shape for the tag half,
 # so the summary reads "0 new decisions" rather than crashing on a missing key.

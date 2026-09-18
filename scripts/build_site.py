@@ -240,7 +240,8 @@ def build_payload() -> dict:
                                if c.get("status") == "machine-checked"),
         "by_type": {
             kind: sum(1 for c in all_claims if c["type"] == kind)
-            for kind in ("finding", "position", "method", "background", "limitation")
+            for kind in ("finding", "position", "method", "background", "limitation",
+                         "gap")
         },
         "concepts_in_use": len({t for c in all_claims for t in (c["concepts"] or [])}),
         "vocabulary": len(vocabulary.concepts),

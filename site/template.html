@@ -1375,6 +1375,11 @@
     limitation: ["limitation", "A boundary the authors put on their own result. Rare in "
                  + "abstracts and disproportionately useful, because it is the part a "
                  + "downstream reader is most likely to drop."],
+    gap: ["gap", "A question the paper says is open — one it leaves open itself, or one "
+          + "it reports the field has not answered. \u201cWe evaluated only on "
+          + "English\u201d is a limitation; \u201cwhether this survives multilingual "
+          + "training remains an open question\u201d is a gap, and the second is the one "
+          + "somebody can go and work on."],
   };
 
   // Re-tag an edited statement from its own words.
@@ -3291,7 +3296,7 @@
     ["for", "What it is for"],
     ["why", "Why statements, not papers"],
     ["graph", "How the graph fits together"],
-    ["types", "The five kinds of statement"],
+    ["types", "The six kinds of statement"],
     ["pipeline", "From a paper to a statement"],
     ["review", "What a reviewer is asked"],
     ["stack", "What it runs on"],
@@ -3534,7 +3539,7 @@
 
     // --- types -----------------------------------------------------------
     const t = s.by_type || {};
-    wrap.append(section("types", "The five kinds of statement", "and why tagging differs by kind", [
+    wrap.append(section("types", "The six kinds of statement", "and why tagging differs by kind", [
       para("Findings and positions are what somebody came for: what has been shown, "
            + "and what has been argued. The other three give a reader what they need "
            + "to judge those. The review screen groups them that way for the same "
@@ -3561,6 +3566,13 @@
           + "and it dates badly.",
           "Attribution matters more than the tag: whose result is it. Asked at "
           + "extraction, because finding it later means rereading."));
+        host.append(kindCard("gap", "open question", false, t.gap || 0,
+          "A question the paper says is open — one it leaves open itself, or one it "
+          + "reports the field has not answered. Where a limitation bounds this result, "
+          + "a gap says what nobody has answered yet.",
+          "Tagged with the subject of the question. These are what Problems are "
+          + "clustered from, so the tag is what joins one paper's open question to "
+          + "another's."));
         host.append(kindCard("limitation", "context", false, t.limitation || 0,
           "What the work says it cannot do or did not test.",
           "Rare and worth hunting — they live in discussion sections, and they "

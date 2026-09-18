@@ -271,7 +271,7 @@ def get_claims(record: str = "", claim_type: str = "", only_unverified: bool = F
                limit: int = 50) -> str:
     """Claims extracted from the corpus, each with the sentence it was read from.
 
-    `claim_type` is one of finding, method, limitation, position, background.
+    `claim_type` is one of finding, method, limitation, gap, position, background.
     A finding is something the work reports observing; a position is an
     argument offered without evidence in that work, and conflating the two is
     how a graph comes to report that something has been shown when it was only
