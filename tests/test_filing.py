@@ -975,3 +975,48 @@ class TestAMergedVerdictIsTheFinalWord:
         file the revision."""
         page = self._page()
         assert "settledVerdict(c)" in page
+
+
+class TestAPaperSaysHowMuchOfItWasRead:
+    """Building the Loop carried three statements for a month, which reads as
+    a paper with little to say. It is a thirteen-page argument whose publisher
+    answers 403 to an automated fetch, and the abstract is 879 characters.
+    A reviewer judging statements drawn from an abstract is judging the
+    paper's summary of itself and should be told so."""
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_the_record_carries_it(self):
+        from ao_commons_kg.resources import load_resources
+        read = [r for r in load_resources() if r.text_coverage != "unknown"]
+        assert read, "nothing records what anyone was able to read"
+        assert all(r.text_coverage in ("full-text", "abstract-only", "none") for r in read)
+
+    def test_every_paper_with_statements_says_what_was_read(self):
+        """The flag matters exactly where statements exist — it is what tells
+        a reviewer how much those statements could possibly cover."""
+        from ao_commons_kg.claims import load_claims
+        from ao_commons_kg.resources import load_resources
+        with_claims = {c.resource_id for c in load_claims()}
+        unknown = [r.id for r in load_resources()
+                   if r.id in with_claims and r.text_coverage == "unknown"]
+        assert not unknown, unknown
+
+    def test_the_payload_ships_it(self):
+        from pathlib import Path
+        built = (Path(__file__).resolve().parent.parent
+                 / "site" / "index.html").read_text(encoding="utf-8")
+        assert '"coverage":' in built
+
+    def test_the_reviewer_is_told_before_they_judge(self):
+        page = self._page()
+        assert "Read from the abstract only" in page
+        assert "if (coverageNote) stage.append(coverageNote);" in page
+
+    def test_a_fully_read_paper_says_nothing(self):
+        """A notice on every paper is a notice nobody reads."""
+        page = self._page()
+        assert 'record.coverage !== "full-text"' in page

@@ -183,6 +183,10 @@ def build_payload() -> dict:
             "suggested": [a.code for a in suggestions],
             "suggested_more": [a.code for a in tail],
             "claims": by_resource.get(resource.id, []),
+            # What anyone was able to read. A reviewer judging statements
+            # drawn from an abstract is judging the paper's summary of
+            # itself, and should be told rather than left to infer it.
+            "coverage": resource.text_coverage,
             "derived_topics": derived_by_record.get(resource.id, {}),
         })
 

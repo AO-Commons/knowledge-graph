@@ -70,3 +70,125 @@ claims:
     the abstract, which is all this record holds
   review_status: machine-checked
   attribution: own
+- id: claim:doi:10-1111-epic-70009:5
+  text: Most organizational routines are opaque to outsiders and only weakly documented inside
+    the organization itself.
+  quote: most routines remain opaque to outsiders and only weakly documented internally
+  standalone: Summarizing the evolutionary theory of the firm, in which a firm is a population
+    of routines carrying know-how across time, the authors note that those routines are partly
+    tacit — enacted without full articulation — and that a firm's distinction lies in this
+    cryptic stock of operational knowledge.
+  claim_type: background
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: other
+  attributed_to: Nelson and Winter's evolutionary theory of the firm
+- id: claim:doi:10-1111-epic-70009:6
+  text: What formal manuals present as systematic procedure appears on the shop floor as situated
+    improvisation.
+  quote: what appears as systematic procedure in formal manuals manifests on the shop floor
+    as situated improvisations coordinated through talk, gestures, and artefacts
+  standalone: One of two ethnographies the authors cite for how routines actually materialize
+    in everyday work, against the documented version of them.
+  claim_type: background
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: other
+  attributed_to: Lucy Suchman (1987, 2007)
+- id: claim:doi:10-1111-epic-70009:7
+  text: Informal practices such as storytelling preserve diagnostic expertise that the official
+    databases do not hold.
+  quote: highlights informal knowledge-sharing practices, such as storytelling, that preserve
+    critical diagnostic expertise absent from official databases
+  standalone: The authors cite Julian Orr's ethnography of Xerox technicians as evidence that
+    the knowledge an organization runs on is not the knowledge it has written down.
+  claim_type: background
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: other
+  attributed_to: Julian Orr's ethnography of Xerox technicians (1996)
+- id: claim:doi:10-1111-epic-70009:8
+  text: Artificial Organizational Intelligence means being able to address an organization
+    itself rather than one of its representatives.
+  quote: AOI is making the knowledge of organisations, including tacit and practice/process
+    components, machine readable so that we may talk to an organisation (not just a representative
+    of an organisation)
+  standalone: 'The authors'' sharpest statement of what AOI is for: not applying AI to an
+    organization''s data, and not replacing the organization, but making its knowledge addressable
+    so that an outsider can query the organization rather than a person who speaks for it.'
+  claim_type: position
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:9
+  text: 'Under this infrastructure the stages of ethnography stop being sequential: a fieldnote
+    can sync to a dataset and be acted on immediately.'
+  quote: data collection, analysis, and output are no longer staged sequentially
+  standalone: 'The first of three implications the authors draw for ethnographic practice,
+    this one about temporality: a fieldnote syncs to a dataset, which is interpreted and fed
+    back to enhance the legibility of the organization.'
+  claim_type: finding
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:10
+  text: The ethnographer's authority shifts from solitary immersion to maintaining intelligibility
+    inside a networked architecture.
+  quote: The ethnographer’s authority no longer rests in solitary immersion or narrative synthesis
+    but in their capacity to configure and maintain intelligibility within digitally networked
+    architectures.
+  standalone: 'The third implication the authors draw, about epistemology: the field is not
+    discovered but enacted through socio-technical affordances, so what the ethnographer is
+    expert at changes.'
+  claim_type: position
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:11
+  text: Machines belong in participatory ethnography as collaborators in interpretation, under
+    rules and permissions that are collectively governed.
+  quote: Participatory ethnography is extended to include machines, not as tools of extraction
+    but as collaborators in interpretation where the rules and permissions for how that occurs
+    can be collectively governed
+  standalone: 'The authors'' closing argument, and the one the paper is named for: a move
+    from “human in the loop” to “human building the loop”, designing systems that are ethically
+    aware and epistemically accountable.'
+  claim_type: position
+  concept_tags:
+  - organizational-knowledge-legibility
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-09-18; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own

@@ -341,6 +341,21 @@ class Resource:
     as "unaffiliated" when it means "not recorded"."""
     source_provenance: str | None = None
     ingested_at: str | None = None
+    text_coverage: str = "unknown"
+    """How much of this paper anyone has actually been able to read.
+
+    `full-text` means the body was available and extraction saw it.
+    `abstract-only` means the record holds a few hundred words and the
+    statements drawn from it cannot be more than that abstract states.
+    `none` means not even an abstract. `unknown` is the default and means
+    nobody has checked.
+
+    Published because it changes what a thin paper means. Building the Loop
+    carried three statements for a month, which read as a paper with little
+    to say; it is a thirteen-page argument whose publisher answers 403 to an
+    automated fetch. A reviewer looking at statements drawn from an abstract
+    is looking at the paper's summary of itself, and should be told so rather
+    than left to infer it from how few there are."""
     expansion_generation: int = 0
     """How many citation hops from a record a person chose.
 
