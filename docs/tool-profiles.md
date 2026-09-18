@@ -98,3 +98,34 @@ three. The key lives on the `scope-scan` environment, which only admits `main`
 
 The budget is small on purpose. Fifty profiles landing at once is fifty claims
 nobody checked.
+
+## Saying so in Slack
+
+The run posts what it profiled, what each tool's documentation does not say,
+and what it refused, to `#knowledge-graph`.
+
+It uses **its own Slack app**, not the internal task agent's. The small reason
+is that this repository is public and that agent's token reads private channels
+and writes to a CRM base. The real reason is that a bot's name is how a reader
+decides what kind of claim they are reading: "Task Digest says three tools were
+profiled" invites you to read it as something to action, and this is a
+different process making a different claim about a public artifact.
+
+Setting the app up is much smaller than the task agent's was, because nothing
+comes back. No request URL, no signing secret, no relay, no event
+subscriptions — it posts and stops.
+
+1. Create a Slack app, name it for what it does (*AO Knowledge Graph*).
+2. **OAuth & Permissions → Bot Token Scopes:** `chat:write`. That is the whole
+   list.
+3. Install to the workspace, copy the bot token (`xoxb-…`).
+4. Invite it: `/invite @AO Knowledge Graph` in `#knowledge-graph`.
+5. Add the token as the `SLACK_BOT_TOKEN` secret on the `scope-scan`
+   environment, beside `ANTHROPIC_API_KEY`. Optionally set a `SLACK_CHANNEL`
+   variable to post somewhere else.
+
+Without the token the step prints the message it would have sent and the run
+carries on. A missing credential is a quiet run, never a failed one — and
+never a silent one, because a week of silence is indistinguishable from a
+workflow that stopped running. That is also why it posts on a week when
+nothing was profiled.

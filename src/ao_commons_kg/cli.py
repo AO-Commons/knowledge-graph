@@ -536,13 +536,13 @@ def cmd_profile(args) -> int:
             draft = profiler(entry, documents)
             payload = record_for(entry, draft, documents)
         except ProfileUnavailable as error:
-            refused.append(str(error))
+            refused.append({"name": entry.name, "why": str(error)})
             print(f"  ~ {entry.name}: {error}")
             continue
 
         path = path_for(payload["id"])
         if path.exists():
-            refused.append(f"{entry.name}: {path.name} already exists")
+            refused.append({"name": entry.name, "why": f"already profiled as {path.name}"})
             print(f"  ~ {entry.name}: already profiled as {path.name}")
             continue
 
@@ -554,10 +554,30 @@ def cmd_profile(args) -> int:
             _yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=88),
             encoding="utf-8")
         entry.promoted_to = payload["id"]
-        written.append(entry.name)
+        written.append({
+            "name": entry.name,
+            "url": entry.url,
+            # What the documentation does not say. The most useful line in a
+            # profile, and the one worth carrying into a notification: it is
+            # what a reader would otherwise have to find out themselves.
+            "undocumented": draft.undocumented,
+        })
 
     if written:
         tooling.save(index)
+
+    # A structured summary, so anything reporting on this run reads a file
+    # rather than parsing prose written for a person.
+    if args.summary:
+        import json as _json
+        Path(args.summary).write_text(_json.dumps({
+            "profiled": written,
+            "refused": refused,
+            "waiting": len(queue) - len(written),
+            "relinked": sorted(relinked),
+            "dry_run": bool(args.dry_run),
+        }, indent=2), encoding="utf-8")
+
     print(f"\nprofiled {len(written)}, refused {len(refused)}"
           + (" (dry run, nothing written)" if args.dry_run else ""))
     return 0
@@ -959,6 +979,9 @@ def main(argv: list[str] | None = None) -> int:
                          help="list what is waiting and stop, with no model calls")
     profile.add_argument("--dry-run", action="store_true",
                          help="build the profiles but write nothing")
+    profile.add_argument("--summary", default="",
+                         help="write a JSON summary of the run to this path, for "
+                              "whatever reports on it")
     profile.set_defaults(func=cmd_profile)
 
     relate = sub.add_parser(
