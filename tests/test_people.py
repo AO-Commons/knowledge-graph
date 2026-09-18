@@ -147,3 +147,45 @@ def test_the_corpus_credits_nobody_to_a_paper_they_did_not_write():
                    "Shuying Yu", "Yong Li (15029)"}
     credited = {a for r in load_resources() for a in (r.authors or [])}
     assert not (credited & known_wrong)
+
+
+class TestUninvert:
+    """Indexes sort people by surname and hand the name back sorted. arXiv
+    gives the byline as submitted, which is why it is asked last and treated
+    as decisive — but it answers only for preprints, and for everything else
+    an inverted name went in exactly as the index spelled it."""
+
+    def test_a_catalogue_entry_becomes_a_byline(self):
+        from ao_commons_kg.people import uninvert
+        assert uninvert("Damani, Mehul") == "Mehul Damani"
+        assert uninvert("Del Rosario, Ron F.") == "Ron F. Del Rosario"
+        assert uninvert("Duéñez-Guzmán, Edgar A.") == "Edgar A. Duéñez-Guzmán"
+
+    def test_a_byline_is_left_alone(self):
+        from ao_commons_kg.people import uninvert
+        assert uninvert("Joel Z. Leibo") == "Joel Z. Leibo"
+
+    def test_a_suffix_is_not_an_inversion(self):
+        """`King, Jr.` is one person's name written correctly."""
+        from ao_commons_kg.people import uninvert
+        assert uninvert("Martin Luther King, Jr.") == "Martin Luther King, Jr."
+        assert uninvert("Sammy Davis, III") == "Sammy Davis, III"
+
+    def test_it_runs_where_bylines_enter(self):
+        """At the boundary, because grow, add and bulk all trust what the
+        scholarly layer returns — and only one of them ever asks arXiv."""
+        from ao_commons_kg.scholarly.openalex import parse_work
+        from ao_commons_kg.scholarly.semanticscholar import parse_paper
+        work = parse_work({"id": "https://openalex.org/W1", "title": "T",
+                           "authorships": [{"author": {"display_name": "Damani, Mehul"},
+                                            "institutions": []}]})
+        assert work.authors == ["Mehul Damani"]
+        paper = parse_paper({"paperId": "x", "title": "T",
+                             "authors": [{"name": "Lukošiūtė, Kamilė"}]})
+        assert paper.authors == ["Kamilė Lukošiūtė"]
+
+    def test_the_corpus_holds_no_inverted_bylines(self):
+        from ao_commons_kg.resources import load_resources
+        offenders = [(r.id, a) for r in load_resources()
+                     for a in (r.authors or []) if "," in a]
+        assert not offenders, offenders

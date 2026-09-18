@@ -24,29 +24,29 @@ abstract: AI agents are beginning to interact with each other directly and acros
   in critical infrastructure and defense contexts.
 authors:
 - Christian Schroeder de Witt
-- Krawiecka, Klaudia
-- Krawczuk, Igor
-- Hagag, Ben
-- Anderson, William L.
-- Belcak, Peter
-- Bucknall, Ben
-- Cai, Xiaohong
-- Chopra, Ayush
-- Cohen, Doron
-- Del Rosario, Ron F.
-- Draguns, Andis
-- Gray, Annie
-- Katz, Keren
-- Mavroudis, Vasilios
-- Mink, Jaron
-- Motwani, Sumeet Ramesh
-- Petit, Jonathan
-- Rembeck, Leif-Sebastian
-- Smith, Chandler
-- Sotiropoulos, John
-- Young, Steven
-- Scheffler, Sarah
-- Llewellyn, Mary
+- Klaudia Krawiecka
+- Igor Krawczuk
+- Ben Hagag
+- William L. Anderson
+- Peter Belcak
+- Ben Bucknall
+- Xiaohong Cai
+- Ayush Chopra
+- Doron Cohen
+- Ron F. Del Rosario
+- Andis Draguns
+- Annie Gray
+- Keren Katz
+- Vasilios Mavroudis
+- Jaron Mink
+- Sumeet Ramesh Motwani
+- Jonathan Petit
+- Leif-Sebastian Rembeck
+- Chandler Smith
+- John Sotiropoulos
+- Steven Young
+- Sarah Scheffler
+- Mary Llewellyn
 published_at: '2025-05-04'
 url: https://arxiv.org/abs/2505.02077
 doi: 10.48550/arXiv.2505.02077

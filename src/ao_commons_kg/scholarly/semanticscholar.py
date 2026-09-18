@@ -17,6 +17,8 @@ from dataclasses import dataclass, field
 
 from .keys import canonical_key
 
+from ..people import uninvert
+
 API = "https://api.semanticscholar.org/graph/v1"
 
 FIELDS = ",".join((
@@ -71,7 +73,7 @@ def parse_paper(payload: dict) -> Paper:
         abstract=payload.get("abstract"),
         publication_date=payload.get("publicationDate"),
         citation_count=payload.get("citationCount") or 0,
-        authors=[a.get("name") for a in payload.get("authors") or [] if a.get("name")],
+        authors=[uninvert(a["name"]) for a in payload.get("authors") or [] if a.get("name")],
         semantic_scholar_id=payload.get("paperId"),
         # Sorted and deduplicated so a re-fetch produces an identical record
         # and the store stays diff-friendly.

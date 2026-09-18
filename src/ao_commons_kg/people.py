@@ -26,6 +26,34 @@ PUNCTUATION = re.compile(r"[.'`\-‐‑’]")
 SPACES = re.compile(r"\s+")
 
 
+# Suffixes that follow a comma legitimately. "King, Jr." is one person's name
+# written correctly; "Damani, Mehul" is a catalogue entry that escaped.
+_SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv", "phd", "ph.d.", "md", "m.d."}
+
+
+def uninvert(name: str) -> str:
+    """`Damani, Mehul` -> `Mehul Damani`. A byline, not a catalogue entry.
+
+    Indexes sort people by surname and hand the name back sorted. arXiv gives
+    the byline as submitted, which is why it is asked last and treated as
+    decisive — but it answers only for preprints, and for everything else an
+    inverted name goes in exactly as the index spelled it. Thirty-five of them
+    across six records reached the corpus that way, and they read as different
+    people from their own co-authors.
+
+    Only a single comma is touched, and only when what follows is not a
+    suffix, so `Martin Luther King, Jr.` survives.
+    """
+    text = " ".join((name or "").split())
+    if text.count(",") != 1:
+        return text
+    surname, given = (part.strip() for part in text.split(","))
+    if not surname or not given or given.lower().rstrip(".") in {
+            s.rstrip(".") for s in _SUFFIXES}:
+        return text
+    return f"{given} {surname}"
+
+
 def fold(name: str) -> str:
     """The key two spellings of one person share.
 

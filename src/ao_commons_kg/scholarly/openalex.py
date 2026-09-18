@@ -18,6 +18,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Callable, Iterable, Protocol
 
+from ..people import uninvert
+
 API = "https://api.openalex.org"
 CONTACT = "anke@stellar.org"
 """OpenAlex asks for a contact address and gives the polite pool in return —
@@ -148,6 +150,10 @@ def parse_work(payload: dict) -> Work:
             if (display := institution.get("display_name"))
         )
         if name:
+            # Indexes hand names back surname-first. Uninverted here, at the
+            # boundary, because every path downstream — grow, add, bulk —
+            # trusts what this returns.
+            name = uninvert(name)
             authors.append(name)
             authorships.append(Authorship(
                 name=name, institutions=places,

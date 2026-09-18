@@ -23,12 +23,12 @@ abstract: 'Multi-agent artificial intelligence research promises a path to devel
   baseline algorithms and results. Our intention is for it to serve as a reference for researchers
   using Melting Pot 2.0.'
 authors:
-- Agapiou, John P.
-- Vezhnevets, Alexander Sasha
-- Duéñez-Guzmán, Edgar A.
-- Matyas, Jayd
-- Mao, Yiran
-- Sunehag, Peter
+- John P. Agapiou
+- Alexander Sasha Vezhnevets
+- Edgar A. Duéñez-Guzmán
+- Jayd Matyas
+- Yiran Mao
+- Peter Sunehag
 - Raphaël Koster
 - Udari Madhushani
 - Kavya Kopparapu
@@ -43,7 +43,7 @@ authors:
 organizations:
 - Cambia
 affiliations:
-  Matyas, Jayd:
+  Jayd Matyas:
   - Cambia
 published_at: '2022-11-24'
 url: https://arxiv.org/abs/2211.13746
