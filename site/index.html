@@ -1437,7 +1437,16 @@
   // a half-rewritten sentence as done would have the progress bar tell
   // somebody they had finished a paper they were still in the middle of.
   function settledVerdict(entry, claim) {
-    if (!entry) return !!(claim && claim.verdict);
+    // A verdict already in the corpus is the final word. It was filed,
+    // merged, and is what the library now holds, so nothing left in this
+    // browser can make that statement unjudged again.
+    //
+    // Without this line a reviewer who pressed Adjust, typed a few words and
+    // moved on watched a paper they had finished — and whose verdicts had
+    // already merged — go back to 5/6 the next time they opened the page.
+    // The work was in the corpus and the screen said it was not.
+    if (claim && claim.verdict) return true;
+    if (!entry) return false;
     if (entry.verdict !== "adjusted") return true;
     return entry.text !== undefined && entry.draft === undefined;
   }

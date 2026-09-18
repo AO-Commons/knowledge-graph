@@ -943,3 +943,35 @@ class TestTheBrowserHoldsBackWhatMoved:
         page = self._page()
         assert "const moved = settled.filter(([id, c]) => c.saw && c.saw !== current[id]);" in page
         assert "rewritten since you judged" in page
+
+
+class TestAMergedVerdictIsTheFinalWord:
+    """The first reviewer finished two papers, and one of them then showed as
+    5/6 when she reopened the page — because an Adjust she had started and
+    never confirmed was still sitting in her browser, and the local entry was
+    consulted instead of the verdict that had already merged. The work was in
+    the corpus and the screen said it was not."""
+
+    def _page(self):
+        from pathlib import Path
+        return (Path(__file__).resolve().parent.parent
+                / "site" / "template.html").read_text(encoding="utf-8")
+
+    def test_the_corpus_outranks_whatever_is_left_in_the_browser(self):
+        page = self._page()
+        block = page.split("function settledVerdict(")[1].split("}")[0]
+        assert "if (claim && claim.verdict) return true;" in block
+
+    def test_it_is_checked_before_the_local_entry(self):
+        """Order is the whole fix — the old version returned on the local
+        entry first and never reached the merged verdict."""
+        page = self._page()
+        block = page.split("function settledVerdict(")[1].split("\n  }")[0]
+        assert block.index("claim.verdict") < block.index("if (!entry)")
+
+    def test_the_submit_path_still_works_with_one_argument(self):
+        """`settledVerdict(c)` is called with only the entry when deciding
+        what to send, so a reviewer revising something already filed can still
+        file the revision."""
+        page = self._page()
+        assert "settledVerdict(c)" in page
