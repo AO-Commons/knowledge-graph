@@ -79,6 +79,7 @@ jobs:
         run: |
           aokg profile \
             --budget "${{ github.event.inputs.budget || 3 }}" \
+            --summary /tmp/profile.json \
             ${{ github.event.inputs.only && format('--only "{0}"', github.event.inputs.only) || '' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee /tmp/profile.log
@@ -137,6 +138,33 @@ jobs:
           commit-message: "Profile builder tools from their own documentation"
           labels: tooling
           delete-branch: true
+
+      # Its own Slack app, not the internal task agent's. This repository is
+      # public and that agent's token reads private channels and writes to a
+      # CRM base — but the reason that matters more is that a bot's name is how
+      # a reader decides what kind of claim they are reading. This is a
+      # different process making a different claim about a public artifact.
+      #
+      # Runs whether or not anything was profiled: a week of "nothing profiled"
+      # is information, and a week of silence is indistinguishable from a
+      # workflow that stopped running.
+      - name: Say so in Slack
+        if: always()
+        continue-on-error: true
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL || 'knowledge-graph' }}
+        run: |
+          # No link when nothing was written. A "Review:" pointing at a branch
+          # that was never pushed is worse than no link, because somebody
+          # clicks it.
+          python3 scripts/notify_slack.py \
+            --summary /tmp/profile.json \
+            --url "${{ steps.changed.outputs.changed == 'true'
+                      && (steps.pr.outputs.pull-request-url
+                          || format('https://github.com/{0}/compare/main...profile/tools-{1}?expand=1',
+                                    github.repository, github.run_number))
+                      || '' }}"
 
       - name: Say where it went
         if: steps.changed.outputs.changed == 'true'
