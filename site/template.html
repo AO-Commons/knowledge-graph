@@ -3638,7 +3638,10 @@
         "Statements read out of the full text, each with a verbatim quote. Five "
         + "gates: the quote is really in the paper, the claim is about the field and "
         + "not the instrument, attribution is stated, a method is tagged with its "
-        + "technique, and concepts resolve or are proposed properly.",
+        + "technique, and concepts resolve or are proposed properly. Open questions "
+        + "are hunted separately, because they are the one kind of statement an "
+        + "author announces. Reaching the text at all is the real ceiling: only arXiv "
+        + "has a path, and a record says how much of it anyone could read.",
         s.papers_with_statements + " of " + s.records + " papers"),
       stageRow(5, "Tagging", ["machine", "a person"],
         "Concepts on statements, fine-grained on purpose. The vocabulary grows from "
@@ -3658,9 +3661,12 @@
         + "never removes one.",
         "computed"),
       stageRow(8, "Review", ["a person"],
-        "The scarce good, and the one thing here no machine does. Is each statement "
-        + "what its quote says. This is the honest state of the library and the "
-        + "reason every accuracy figure is still unquotable.",
+        "The scarce good, and the one thing here no machine does: is each statement "
+        + "what its quote says. A verdict binds to the wording it was given, so "
+        + "re-extracting a sentence sends it back to the queue rather than carrying "
+        + "somebody's name onto words they never read. An independent machine pass "
+        + "can triage — it moves a doubtful statement up the queue and never marks "
+        + "one reviewed.",
         s.reviewed + " of " + s.statements + " statements reviewed"),
       stageRow(9, "Release", ["machine"],
         "A fixed, citable version. Nodes sorted by id, edges by their triple, no "
@@ -3703,6 +3709,11 @@
            + "the statement with your wording. The pull request list is the audit "
            + "trail — every human judgment in the dataset, who made it, and "
            + "what it changed."),
+      para("Two things the screen will tell you. A paper read only from its abstract "
+           + "says so above its statements, because those statements cannot say more "
+           + "than the abstract does. And a statement that was rewritten after "
+           + "somebody judged it comes back to the queue rather than keeping the old "
+           + "verdict \u2014 a verdict belongs to the wording it was given."),
       para("Nothing is uploaded as you work. Your filing lives in your browser "
            + "until you send it."),
     ]));
@@ -3733,6 +3744,24 @@
 
     // --- changelog -------------------------------------------------------
     const log = el("div", { className: "log" });
+    log.append(logEntry("This week", "The first review, and what it exposed", [
+      "The first reviewer filed twelve verdicts across two papers — issue to pull request to "
+        + "corpus, with nobody in the middle.",
+      "A verdict now binds to the wording it was given. An id outlives the sentence under it, so "
+        + "a verdict from August could silently land on a sentence written in November, and an "
+        + "adjustment's stored rewrite could overwrite a fresh extraction.",
+      "Machine-checked now sits between unreviewed and reviewed: every statement's quote has been "
+        + "verified verbatim against its source, which is real and is not review.",
+      "Extraction can be checked by somebody who did not extract — a packet with the statement, "
+        + "its quote and its section, and nothing of the extractor's reasoning.",
+      "A gap is a sixth kind of statement: a question a paper says is open. Five so far, and a "
+        + "rule for telling them from background — does the paper then close it?",
+      "Two papers joined the golden set: Vending-Bench, and Building the Loop read in full for "
+        + "the first time.",
+      "Every record now says how much of it anyone could read, and the review screen warns when "
+        + "statements came from an abstract alone.",
+    ], ["shipped", "done"], true));
+
     log.append(logEntry("September 2026", "Statements become the main character", [
       "Papers stopped being the unit. Tags moved onto statements, and a paper's categories are now computed from them.",
       "Extraction became a process with five gates, and the first six papers were re-read under it.",
@@ -3740,7 +3769,7 @@
       "Citation expansion walks both directions, with a rising threshold, a model scope scan, and a hard budget — no human in the loop.",
       "The review screen became one question per statement, with add / adjust / remove, and adjustments that carry the reviewer's wording all the way into the corpus.",
       "One spelling throughout: American in everything the project writes, and quotes left exactly as published.",
-    ], ["shipped", "done"], true));
+    ], ["shipped", "done"]));
     log.append(logEntry("August 2026", "The corpus and the surfaces", [
       "Filing site, with filings becoming pull requests so the audit trail is the PR list.",
       "The Graph tab: the corpus in three dimensions, people included.",
@@ -3757,16 +3786,28 @@
 
     // --- roadmap ---------------------------------------------------------
     const road = el("div", { className: "log" });
-    road.append(logEntry("Now", "Get the first statements reviewed", [
-      "Six papers, " + s.statements + " statements, open for review on the Review tab.",
-      "Nothing here has an accuracy number until this is done — it is what every other figure would be measured against.",
+    road.append(logEntry("Now", "Get the statements reviewed", [
+      s.papers_with_statements + " papers and " + s.statements + " statements are open on the "
+        + "Review tab; " + s.reviewed + " have been judged.",
+      "Nothing here has an accuracy number until more of this is done — it is what every other "
+        + "figure would be measured against.",
     ], ["open", "doing"], true));
-    road.append(logEntry("Next", "Extraction across the corpus", [
-      "Run the gated process over the remaining " + (s.records - s.papers_with_statements)
-        + " records, in batches, so the vocabulary is grown bottom-up from the whole library rather than from six papers.",
+    road.append(logEntry("Next", "Reach the papers we cannot read", [
+      "Only arXiv has a full-text path today, so " + (s.records - s.papers_with_statements)
+        + " records have no route to their own body. Building the Loop took a browser to reach "
+        + "and turned out to be 55 times its abstract.",
+      "Record for every record what anyone was able to read, so the shape of the problem is "
+        + "visible rather than found one paper at a time.",
+    ], ["planned", ""]));
+    road.append(logEntry("Then", "Extraction across the corpus", [
+      "Run the gated process over the rest, tiered by what a paper is: argument papers repay a "
+        + "deep read, benchmark papers mostly yield instrument detail the gates refuse.",
       "Publish an extraction accuracy figure against the reviewed set.",
     ], ["planned", ""]));
-    road.append(logEntry("Then", "Linking at scale, and incentives", [
+    road.append(logEntry("After that", "Problems, linking, and incentives", [
+      "Cluster gaps into Problem nodes — one question, asked in several papers, each occurrence "
+        + "keeping its own quote — and an ADDRESSES edge from a finding to a problem. That is "
+        + "the query nobody else can answer with provenance.",
       "Bring relation tags back to the review screen once there are enough statements for the pairs to be worth meeting mid-task.",
       "Citations as a second proposal signal: if A cites B, A's statements are candidates for relations to B's.",
       "The organization layer — affiliations are resolved for a fraction of records, and reputation is the thing that makes review worth doing.",
