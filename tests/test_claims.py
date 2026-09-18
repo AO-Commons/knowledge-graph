@@ -346,16 +346,26 @@ class TestMachineCheckedIsNotReviewed:
     every quote in the corpus has been verified verbatim against its source.
     """
 
-    def test_the_gated_statements_say_what_checked_them(self):
+    def test_machine_checked_is_the_floor(self):
+        """Every statement went through the gated extraction, so none of them
+        is `unreviewed`. A reviewed one is above that floor, not a breach of
+        it — this asserted equality until a reviewer filed twelve verdicts and
+        turned its own premise false."""
         from ao_commons_kg.claims import load_claims
         claims = load_claims()
         assert claims
-        assert all(c.review_status.value == "machine-checked" for c in claims), \
-            "every statement went through the gated extraction"
+        assert not [c for c in claims if c.review_status.value == "unreviewed"]
 
-    def test_it_does_not_count_as_reviewed(self):
-        from ao_commons_kg.claims import load_claims
-        assert not [c for c in load_claims() if c.verdict], "nobody has reviewed anything yet"
+    def test_the_gates_alone_never_produce_a_verdict(self):
+        """The contract, rather than the count. A statement nobody has filed
+        against carries no verdict and is not reviewed, however carefully the
+        machine checked it."""
+        from ao_commons_kg.claims import load_claims, load_verdicts
+        filed = set(load_verdicts())
+        unfiled = [c for c in load_claims() if c.id not in filed]
+        assert unfiled, "there is still something nobody has reviewed"
+        assert not [c for c in unfiled if c.verdict]
+        assert not [c for c in unfiled if c.review_status.value == "reviewed"]
 
     def test_a_verdict_still_promotes_past_it(self, tmp_path):
         """Machine-checked is a floor, not a ceiling — a human verdict moves a
