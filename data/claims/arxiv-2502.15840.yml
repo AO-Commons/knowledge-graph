@@ -1,0 +1,139 @@
+resource_id: resource:arxiv:2502.15840
+claims:
+- id: claim:arxiv:2502.15840:1
+  text: Every model tested has runs that lose coherence over a long horizon, including the
+    strongest.
+  quote: all models struggle with consistent long-horizon coherence
+  standalone: Testing LLM agents on a simulated vending-machine business run over more than
+    20M tokens, the authors report that although individual runs can show effective management,
+    no model held coherence consistently — the strongest model included.
+  claim_type: finding
+  concept_tags:
+  - long-horizon-and-multi-step-task-evaluation
+  - slow-onset-degradation
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:2
+  text: A long-horizon failure typically begins with the agent misreading its own operational
+    state, after which it loops or abandons the task.
+  quote: Failures typically arise when the agent misinterprets its operational status (e.g.,
+    believing an order arrived prematurely) and then veers into tangential loops or abandons
+    the task.
+  standalone: 'Across runs the authors find a recurring failure shape: the agent forms a wrong
+    belief about its own situation — that an order had arrived, that the business had been
+    closed — and the subsequent behavior follows from the wrong belief rather than from the
+    task.'
+  claim_type: finding
+  concept_tags:
+  - slow-onset-degradation
+  - silent-failure-detection
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:3
+  text: The breakdown is not explained by context length, because models degrade well after
+    their memory is already full.
+  quote: We show that the breakdowns are not directly related to the context of the LLMs being
+    filled, as models generally stagnate well after their memory is full.
+  standalone: The authors test whether long input length explains the degradation by comparing
+    when each model's memory fills against when it stops selling. Degradation arrives long
+    afterwards — 51 days later for one model — and the correlation across runs is 0.167.
+  claim_type: finding
+  concept_tags:
+  - bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency
+  - memory-architectures-and-persistence
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:4
+  text: Giving an agent more memory made it perform worse, not better.
+  quote: agents with larger memory capacities performed worse than those with less memory
+  standalone: 'In the authors'' configuration experiments, capacity for retained context was
+    not a monotonic benefit: the larger-memory condition scored below the smaller-memory one.'
+  claim_type: finding
+  concept_tags:
+  - memory-architectures-and-persistence
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:5
+  text: Every model tested had runs that ended in bankruptcy, however well it did on average.
+  quote: All models had runs where they went bankrupt.
+  standalone: Comparing against a single human baseline, the authors note that the strongest
+    model beat the human on mean performance while showing very high variance, and that bankruptcy
+    appeared somewhere in every model's runs.
+  claim_type: finding
+  concept_tags:
+  - reliability-and-consistency-measurement
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:6
+  text: Long-term coherence can be measured on its own by making each task simple and the
+    horizon long.
+  quote: By formulating tasks that are more simple (but long-running), one could measure the
+    capability of long-term coherence in a more isolated manner.
+  standalone: 'The authors'' design argument for the benchmark: prior evaluations of long
+    time budgets used very complex tasks, which confounds coherence with difficulty, so simple
+    tasks over a long run isolate the thing being measured.'
+  claim_type: method
+  concept_tags:
+  - long-horizon-and-multi-step-task-evaluation
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:7
+  text: LLMs gain far less from a larger time budget than humans do.
+  quote: found that LLMs gain far less in performance from increased time budgets compared
+    to humans
+  standalone: The authors cite METR, an AI safety organization evaluating LLMs, for this result,
+    and note that METR's investigation covered very complex tasks — which is the premise their
+    own simpler benchmark is built to test.
+  claim_type: background
+  concept_tags:
+  - long-horizon-and-multi-step-task-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: other
+  attributed_to: METR
+- id: claim:arxiv:2502.15840:8
+  text: The human baseline rests on a single sample, so the variance that separates humans
+    from models is not measured.
+  quote: We only have a single sample for the human baseline and therefore cannot compare
+    variances.
+  standalone: 'Variance is the paper''s central result about models, and the comparison against
+    humans is the one place it cannot be computed: the human was run once, and the authors''
+    expectation that human variance is lower rests on the human''s own estimate rather than
+    on measurement.'
+  claim_type: limitation
+  concept_tags:
+  - reliability-and-consistency-measurement
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+    2026-09-18; every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

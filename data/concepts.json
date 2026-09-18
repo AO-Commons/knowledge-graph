@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 25,
+    "vocabulary": 31,
     "vocabulary_from_claims": 10,
-    "vocabulary_from_taxonomy": 15,
-    "on_exactly_one_statement": 12,
-    "suggestions_available": 499
+    "vocabulary_from_taxonomy": 21,
+    "on_exactly_one_statement": 14,
+    "suggestions_available": 493
   },
   "looks_like_one_idea": [
     {
@@ -94,6 +94,18 @@
       ]
     },
     {
+      "id": "bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency",
+      "label": "Bounded rationality replaced by different bounds -- context windows, tool access, latency",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2502.15840:3"
+      ]
+    },
+    {
       "id": "capability-profiling",
       "label": "Capability profiling",
       "topics": [
@@ -175,6 +187,18 @@
       "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
     },
     {
+      "id": "evaluation-environments-and-benchmark-suites",
+      "label": "Evaluation environments and benchmark suites",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2502.15840:6"
+      ]
+    },
+    {
       "id": "evaluation-gaming-and-answer-key-attacks",
       "label": "Evaluation gaming and answer-key attacks",
       "topics": [
@@ -236,6 +260,33 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:9"
+      ]
+    },
+    {
+      "id": "long-horizon-and-multi-step-task-evaluation",
+      "label": "Long-horizon and multi-step task evaluation",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2502.15840:1",
+        "claim:arxiv:2502.15840:6",
+        "claim:arxiv:2502.15840:7"
+      ]
+    },
+    {
+      "id": "memory-architectures-and-persistence",
+      "label": "Memory architectures and persistence",
+      "topics": [
+        "7.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2502.15840:3",
+        "claim:arxiv:2502.15840:4"
       ]
     },
     {
@@ -302,9 +353,11 @@
         "14.1"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 3,
       "claims": [
-        "claim:arxiv:2107.06857:3"
+        "claim:arxiv:2107.06857:3",
+        "claim:arxiv:2502.15840:5",
+        "claim:arxiv:2502.15840:8"
       ]
     },
     {
@@ -333,6 +386,31 @@
       "statements": 1,
       "claims": [
         "claim:doi:10-1111-epic-70009:3"
+      ]
+    },
+    {
+      "id": "silent-failure-detection",
+      "label": "Silent failure detection",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2502.15840:2"
+      ]
+    },
+    {
+      "id": "slow-onset-degradation",
+      "label": "Slow-onset degradation",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2502.15840:1",
+        "claim:arxiv:2502.15840:2"
       ]
     },
     {
@@ -1119,15 +1197,6 @@
       "label": "Boundary verification -- proving the declared scope equals the actual scope",
       "topics": [
         "2.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency",
-      "label": "Bounded rationality replaced by different bounds -- context windows, tool access, latency",
-      "topics": [
-        "1.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -2105,15 +2174,6 @@
       "statements": 0
     },
     {
-      "id": "evaluation-environments-and-benchmark-suites",
-      "label": "Evaluation environments and benchmark suites",
-      "topics": [
-        "15.6"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "exit-planning-and-provider-substitutability",
       "label": "Exit planning and provider substitutability",
       "topics": [
@@ -2951,15 +3011,6 @@
       "statements": 0
     },
     {
-      "id": "long-horizon-and-multi-step-task-evaluation",
-      "label": "Long-horizon and multi-step task evaluation",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "long-horizon-weight-accumulation-by-machine-principals",
       "label": "Long-horizon weight accumulation by machine principals",
       "topics": [
@@ -3063,15 +3114,6 @@
       "label": "Memory and context poisoning",
       "topics": [
         "10.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "memory-architectures-and-persistence",
-      "label": "Memory architectures and persistence",
-      "topics": [
-        "7.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4283,15 +4325,6 @@
       "statements": 0
     },
     {
-      "id": "silent-failure-detection",
-      "label": "Silent failure detection",
-      "topics": [
-        "9.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "silent-failures-with-no-signal",
       "label": "Silent failures with no signal",
       "topics": [
@@ -4332,15 +4365,6 @@
       "label": "Slashing where the punishable party is human",
       "topics": [
         "13.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "slow-onset-degradation",
-      "label": "Slow-onset degradation",
-      "topics": [
-        "11.13"
       ],
       "origin": "taxonomy",
       "statements": 0
