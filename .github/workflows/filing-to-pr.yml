@@ -34,6 +34,15 @@ jobs:
           python-version: "3.12"
       - run: pip install -e .
 
+      - name: Say which issue this closes
+        if: always()
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+        # GitHub closes the issue when the pull request merges, so a filing
+        # stops leaving an open issue behind it forever. Five had piled up
+        # before anybody noticed, four of them already merged.
+        run: printf 'Closes #%s\n\n' "$ISSUE" > /tmp/closes.md
+
       - name: Read the filing
         env:
           BODY: ${{ github.event.issue.body }}
@@ -47,6 +56,7 @@ jobs:
             --body-file /tmp/filing.md \
             --author "${{ github.event.issue.user.login }}" \
             --summary-file /tmp/summary.md
+          cat /tmp/closes.md /tmp/summary.md > /tmp/pr-body.md
 
       # A rejected filing is answered on the issue rather than failing
       # silently in a log the contributor will never look at.
@@ -63,7 +73,12 @@ jobs:
               ...context.repo, issue_number: context.issue.number, body,
             });
 
-      - name: Rebuild the site's merged ledger
+      # Run as a check, not as a commit. A broken corpus should stop a filing
+      # here rather than at deploy — but the built page must not travel in the
+      # pull request. It is one generated line, so two filings in flight both
+      # touch it and the second one conflicts with main through no fault of
+      # the reviewer. `Publish the site` rebuilds it on main anyway.
+      - name: The corpus still builds
         if: steps.merge.outcome == 'success'
         run: python3 scripts/build_site.py
 
@@ -80,8 +95,12 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: filing/issue-${{ github.event.issue.number }}
+          # Only the judgements. Anything generated is rebuilt on main.
+          add-paths: |
+            evals/gold/**
+            data/claims/**
           title: "Filing from ${{ github.event.issue.user.login }} (#${{ github.event.issue.number }})"
-          body-path: /tmp/summary.md
+          body-path: /tmp/pr-body.md
           commit-message: "Filed tags from ${{ github.event.issue.user.login }} (#${{ github.event.issue.number }})"
           labels: filing
           delete-branch: true

@@ -1020,3 +1020,42 @@ class TestAPaperSaysHowMuchOfItWasRead:
         """A notice on every paper is a notice nobody reads."""
         page = self._page()
         assert 'record.coverage !== "full-text"' in page
+
+
+class TestAFilingDoesNotFightTheNextOne:
+    """Two filings arrived within a day of each other and the second could not
+    merge. Neither reviewer did anything wrong: the pull request carried the
+    rebuilt page, which is one generated line, so any two filings in flight
+    touch it and the later one conflicts with main.
+
+    And nothing closed the issue when its filing landed, so five had piled up,
+    four of them already merged.
+    """
+
+    def _workflow(self):
+        import yaml as y
+        from pathlib import Path
+        path = Path(__file__).resolve().parent.parent / ".github" / "workflows" / "filing-to-pr.yml"
+        return path.read_text(encoding="utf-8"), y.safe_load(path.read_text(encoding="utf-8"))
+
+    def test_the_pull_request_carries_only_judgments(self):
+        raw, parsed = self._workflow()
+        step = next(s for s in parsed["jobs"]["merge"]["steps"]
+                    if "create-pull-request" in str(s.get("uses", "")))
+        paths = step["with"]["add-paths"]
+        assert "evals/gold/**" in paths
+        assert "site/" not in paths, "the built page is generated, and rebuilt on main"
+
+    def test_the_corpus_is_still_built_as_a_check(self):
+        """A broken corpus should stop a filing here rather than at deploy."""
+        raw, parsed = self._workflow()
+        assert any("build_site.py" in str(s.get("run", ""))
+                   for s in parsed["jobs"]["merge"]["steps"])
+
+    def test_the_issue_closes_when_the_filing_lands(self):
+        raw, parsed = self._workflow()
+        assert "Closes #" in raw
+        step = next(s for s in parsed["jobs"]["merge"]["steps"]
+                    if "create-pull-request" in str(s.get("uses", "")))
+        assert step["with"]["body-path"] == "/tmp/pr-body.md", \
+            "the body has to be the one carrying `Closes`"
