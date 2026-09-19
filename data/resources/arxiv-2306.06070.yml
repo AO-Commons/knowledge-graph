@@ -1,0 +1,56 @@
+id: resource:arxiv:2306.06070
+resource_type: preprint
+title: 'Mind2Web: Towards a Generalist Agent for the Web'
+abstract: 'We introduce Mind2Web, the first dataset for developing and evaluating generalist
+  agents for the web that can follow language instructions to complete complex tasks on any
+  website. Existing datasets for web agents either use simulated websites or only cover a
+  limited set of websites and tasks, thus not suitable for generalist web agents. With over
+  2,000 open-ended tasks collected from 137 websites spanning 31 domains and crowdsourced
+  action sequences for the tasks, Mind2Web provides three necessary ingredients for building
+  generalist web agents: 1) diverse domains, websites, and tasks, 2) use of real-world websites
+  instead of simulated and simplified ones, and 3) a broad spectrum of user interaction patterns.
+  Based on Mind2Web, we conduct an initial exploration of using large language models (LLMs)
+  for building generalist web agents. While the raw HTML of real-world websites are often
+  too large to be fed to LLMs, we show that first filtering it with a small LM significantly
+  improves the effectiveness and efficiency of LLMs. Our solution demonstrates a decent level
+  of performance, even on websites or entire domains the model has never seen before, but
+  there is still a substantial room to improve towards truly generalizable agents. We open-source
+  our dataset, model implementation, and trained models (https://osu-nlp-group.github.io/Mind2Web)
+  to facilitate further research on building a generalist agent for the web.'
+authors:
+- Xiang Deng
+- Yu Gu
+- Boyuan Zheng
+- Shijie Chen
+- Samuel Stevens
+- Boshi Wang
+- Huan Sun
+- Yu Su
+published_at: '2023-06-09'
+url: https://arxiv.org/abs/2306.06070
+doi: 10.48550/arXiv.2306.06070
+arxiv_id: '2306.06070'
+openalex_id: W4380374951
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Cooperate or Collapse: Emergence of
+  Sustainable Cooperation ; TheAgentCompany: Benchmarking LLM Agents on Consequential Re;
+  WebVoyager: Building an End-to-End Web Agent with Large Mult. Scope scan by claude-opus-5:
+  This is a capability dataset and evaluation suite, not a study of organizations where machines
+  hold decision authority, so it fails the scope test on its own terms. It is genuinely load-bearing
+  background for the web-action substrate that library items like WebVoyager and TheAgentCompany
+  build on, so it is held as a Section 15 pointer rather than ingested. What changes because
+  agents hold authority: Nothing directly — it measures whether agents can execute real-world
+  web tasks at all, which is the capability precondition for granting an agent operational
+  authority, but it says nothing about how that authority is delegated, bounded, or reviewed.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

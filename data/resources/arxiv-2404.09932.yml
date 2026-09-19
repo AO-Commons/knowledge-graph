@@ -1,0 +1,77 @@
+id: resource:arxiv:2404.09932
+resource_type: preprint
+title: Foundational Challenges in Assuring Alignment and Safety of Large Language Models
+abstract: 'This work identifies 18 foundational challenges in assuring the alignment and safety
+  of large language models (LLMs). These challenges are organized into three different categories:
+  scientific understanding of LLMs, development and deployment methods, and sociotechnical
+  challenges. Based on the identified challenges, we pose $200+$ concrete research questions.'
+authors:
+- Usman Anwar
+- Abulhair Saparov
+- Javier Rando
+- Daniel Paleka
+- Miles Turpin
+- Peter Hase
+- Ekdeep Singh Lubana
+- Erik Jenner
+- Stephen Casper
+- Oliver Sourbut
+- Benjamin L. Edelman
+- Zhaowei Zhang
+- Mario Günther
+- Anton Korinek
+- Jose Hernandez-Orallo
+- Lewis Hammond
+- Eric Bigelow
+- Alexander Pan
+- Lauro Langosco
+- Tomasz Korbak
+- Heidi Zhang
+- Ruiqi Zhong
+- Seán Ó hÉigeartaigh
+- Gabriel Recchia
+- Giulio Corsi
+- Alan Chan
+- Markus Anderljung
+- Lilian Edwards
+- Aleksandar Petrov
+- Christian Schroeder de Witt
+- Sumeet Ramesh Motwan
+- Yoshua Bengio
+- Danqi Chen
+- Philip H. S. Torr
+- Samuel Albanie
+- Tegan Maharaj
+- Jakob Foerster
+- Florian Tramer
+- He He
+- Atoosa Kasirzadeh
+- Yejin Choi
+- David Krueger
+published_at: '2024-04-15'
+url: https://arxiv.org/abs/2404.09932
+doi: 10.48550/arXiv.2404.09932
+arxiv_id: '2404.09932'
+openalex_id: W4394868309
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; Inherent and emergent
+  liability issues in LLM-based agentic ; Lessons from complex systems science for AI governance;
+  Will Systems of LLM Agents Cooperate: An Investigation into . Scope scan by claude-opus-5:
+  This is a foundational agenda paper about LLM alignment and safety rather than about organizations
+  where agents hold authority, so it is load-bearing adjacent literature rather than in-scope
+  content; no exclusion-register line applies. Hold it in section 15 as borrowed background,
+  the way Melting Pot is held. What changes because agents hold authority: It maps the unresolved
+  scientific and sociotechnical gaps — unreliable evaluation, unpredictable capabilities,
+  weak interpretability, multi-agent safety — that bound how much operational authority can
+  responsibly be delegated to LLM-based agents and what oversight must compensate for. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

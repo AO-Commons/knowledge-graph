@@ -1,0 +1,59 @@
+id: resource:arxiv:2501.10114
+resource_type: preprint
+title: Infrastructure for AI Agents
+abstract: 'AI agents plan and execute interactions in open-ended environments. For example,
+  OpenAI''s Operator can use a web browser to do product comparisons and buy online goods.
+  Much research on making agents useful and safe focuses on directly modifying their behaviour,
+  such as by training them to follow user instructions. Direct behavioural modifications are
+  useful, but do not fully address how heterogeneous agents will interact with each other
+  and other actors. Rather, we will need external protocols and systems to shape such interactions.
+  For instance, agents will need more efficient protocols to communicate with each other and
+  form agreements. Attributing an agent''s actions to a particular human or other legal entity
+  can help to establish trust, and also disincentivize misuse. Given this motivation, we propose
+  the concept of \textbf{agent infrastructure}: technical systems and shared protocols external
+  to agents that are designed to mediate and influence their interactions with and impacts
+  on their environments. Just as the Internet relies on protocols like HTTPS, our work argues
+  that agent infrastructure will be similarly indispensable to ecosystems of agents. We identify
+  three functions for agent infrastructure: 1) attributing actions, properties, and other
+  information to specific agents, their users, or other actors; 2) shaping agents'' interactions;
+  and 3) detecting and remedying harmful actions from agents. We provide an incomplete catalog
+  of research directions for such functions. For each direction, we include analysis of use
+  cases, infrastructure adoption, relationships to existing (internet) infrastructure, limitations,
+  and open questions. Making progress on agent infrastructure can prepare society for the
+  adoption of more advanced agents.'
+authors:
+- Alan Chan
+- Kevin Wei
+- Sihao Huang
+- Nitarshan Rajkumar
+- Elija Perrier
+- Seth Lazar
+- Gillian K. Hadfield
+- Markus Anderljung
+published_at: '2025-01-17'
+url: https://arxiv.org/abs/2501.10114
+doi: 10.48550/arXiv.2501.10114
+arxiv_id: '2501.10114'
+openalex_id: W4406603985
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Virtual Agent Economies.
+  Scope scan by claude-opus-5: The paper is directly about the accountability and control
+  substrate for agents acting in the world (agent IDs, action attribution, interaction protocols,
+  harm detection and rollback), which is squarely what oversight of an agent-authority organization
+  depends on. No exclusion-register line applies: this is not general entity regulation or
+  human collective decision-making, and it is agent-specific rather than adjacent institutional
+  background. What changes because agents hold authority: It specifies the external attribution,
+  identity, agreement and incident-remediation infrastructure an organization must have in
+  place to trace an autonomous agent''s action back to a responsible human or legal entity
+  and to constrain and remedy it — a requirement that only exists once machines act with real
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

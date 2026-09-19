@@ -1,0 +1,45 @@
+id: resource:arxiv:2410.21572
+resource_type: preprint
+title: Safety cases for frontier AI
+abstract: 'As frontier artificial intelligence (AI) systems become more capable, it becomes
+  more important that developers can explain why their systems are sufficiently safe. One
+  way to do so is via safety cases: reports that make a structured argument, supported by
+  evidence, that a system is safe enough in a given operational context. Safety cases are
+  already common in other safety-critical industries such as aviation and nuclear power. In
+  this paper, we explain why they may also be a useful tool in frontier AI governance, both
+  in industry self-regulation and government regulation. We then discuss the practicalities
+  of safety cases, outlining how to produce a frontier AI safety case and discussing what
+  still needs to happen before safety cases can substantially inform decisions.'
+authors:
+- Marie Davidsen Buhl
+- Gaurav Sett
+- Leonie Koessler
+- Jonas Schuett
+- Markus Anderljung
+published_at: '2024-10-28'
+url: https://arxiv.org/abs/2410.21572
+doi: 10.48550/arXiv.2410.21572
+arxiv_id: '2410.21572'
+openalex_id: W4404340969
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Lessons from complex systems science for AI governance; Levels of Autonomy for
+  AI Agents. Scope scan by claude-opus-5: The paper is about developer-level safety assurance
+  for frontier models, not about organizations where agents hold authority, so it fails the
+  scope test on its own terms; but safety cases are the load-bearing method the autonomy-level
+  and governance work in the library builds delegation thresholds on, which is exactly the
+  Section 15 borrowed-background role. No exclusion-register line applies — it is not voting
+  mechanism design, human collective decision theory, or general entity regulation. What changes
+  because agents hold authority: It supplies the structured assurance-argument format by which
+  an organization would have to justify, in advance and on the record, that a given agent
+  is safe enough to be granted a given scope of operational authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

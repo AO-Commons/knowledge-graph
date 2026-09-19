@@ -1,0 +1,53 @@
+id: resource:arxiv:2206.05802
+resource_type: preprint
+title: Self-critiquing models for assisting human evaluators
+abstract: We fine-tune large language models to write natural language critiques (natural
+  language critical comments) using behavioral cloning. On a topic-based summarization task,
+  critiques written by our models help humans find flaws in summaries that they would have
+  otherwise missed. Our models help find naturally occurring flaws in both model and human
+  written summaries, and intentional flaws in summaries written by humans to be deliberately
+  misleading. We study scaling properties of critiquing with both topic-based summarization
+  and synthetic tasks. Larger models write more helpful critiques, and on most tasks, are
+  better at self-critiquing, despite having harder-to-critique outputs. Larger models can
+  also integrate their own self-critiques as feedback, refining their own summaries into better
+  ones. Finally, we motivate and introduce a framework for comparing critiquing ability to
+  generation and discrimination ability. Our measurements suggest that even large models may
+  still have relevant knowledge they cannot or do not articulate as critiques. These results
+  are a proof of concept for using AI-assisted human feedback to scale the supervision of
+  machine learning systems to tasks that are difficult for humans to evaluate directly. We
+  release our training datasets, as well as samples from our critique assistance experiments.
+authors:
+- William Saunders
+- Catherine Yeh
+- Jeff Wu
+- Steven Bills
+- Long Ouyang
+- Jonathan Ward
+- Jan Leike
+published_at: '2022-06-12'
+url: https://arxiv.org/abs/2206.05802
+doi: 10.48550/arXiv.2206.05802
+arxiv_id: '2206.05802'
+openalex_id: W4282968607
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Intelligent AI Delegation. Scope scan
+  by claude-opus-5: This is an ML method paper about AI-assisted human feedback, not about
+  an organization where agents hold authority, so it is held as borrowed background rather
+  than ingested as an organizational record; no exclusion-register line applies, and it is
+  explicitly hybrid human-machine evaluation rather than human collective decision-making.
+  It is load-bearing because oversight capacity is the binding constraint on how much authority
+  agents can be given. What changes because agents hold authority: It supplies the core scalable-oversight
+  primitive — machine-written critiques that let humans catch flaws they would otherwise miss
+  — which is what makes human review of agent outputs viable when agents act faster and on
+  harder-to-check tasks than reviewers can handle unaided. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

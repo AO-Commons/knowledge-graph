@@ -1,0 +1,46 @@
+id: resource:arxiv:2410.00031
+resource_type: preprint
+title: 'Strategic Collusion of LLM Agents: Market Division in Multi-Commodity Competitions'
+abstract: Machine-learning technologies are seeing increased deployment in real-world market
+  scenarios. In this work, we explore the strategic behaviors of large language models (LLMs)
+  when deployed as autonomous agents in multi-commodity markets, specifically within Cournot
+  competition frameworks. We examine whether LLMs can independently engage in anti-competitive
+  practices such as collusion or, more specifically, market division. Our findings demonstrate
+  that LLMs can effectively monopolize specific commodities by dynamically adjusting their
+  pricing and resource allocation strategies, thereby maximizing profitability without direct
+  human input or explicit collusion commands. These results pose unique challenges and opportunities
+  for businesses looking to integrate AI into strategic roles and for regulatory bodies tasked
+  with maintaining fair and competitive markets. The study provides a foundation for further
+  exploration into the ramifications of deferring high-stakes decisions to LLM-based agents.
+authors:
+- Ryan Y. Lin
+- Sadhana Ojha
+- Kevin Cai
+- Maxwell F. Chen
+published_at: '2024-09-19'
+url: https://arxiv.org/abs/2410.00031
+doi: 10.48550/arXiv.2410.00031
+arxiv_id: '2410.00031'
+openalex_id: W4403818338
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: This is an empirical study of
+  what agents do when they actually hold operational authority, not financial engineering
+  or market microstructure design, so the token/market-microstructure exclusion does not apply;
+  removing the machine removes the finding entirely. It is load-bearing for oversight and
+  liability design (and is already cited by the library''s principal-agent liability record),
+  so it belongs in the corpus rather than as a pointer. What changes because agents hold authority:
+  It shows that delegating pricing and allocation authority to LLM agents can produce tacit
+  collusion and market division with no human instruction, so an organization that gives agents
+  commercial decision rights inherits novel antitrust and monitoring obligations it would
+  not have with human operators. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

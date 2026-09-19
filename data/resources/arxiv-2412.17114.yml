@@ -1,0 +1,53 @@
+id: resource:arxiv:2412.17114
+resource_type: preprint
+title: Decentralized Governance of Autonomous AI Agents
+abstract: Autonomous AI agents present transformative opportunities and significant governance
+  challenges. Existing frameworks, such as the EU AI Act and the NIST AI Risk Management Framework,
+  fall short of addressing the complexities of these agents, which are capable of independent
+  decision-making, learning, and adaptation. To bridge these gaps, we propose the ETHOS (Ethical
+  Technology and Holistic Oversight System) framework, a decentralized governance (DeGov)
+  model leveraging Web3 technologies, including blockchain, smart contracts, and decentralized
+  autonomous organizations (DAOs). ETHOS establishes a global registry for AI agents, enabling
+  dynamic risk classification, proportional oversight, and automated compliance monitoring
+  through tools like soulbound tokens and zero-knowledge proofs. Furthermore, the framework
+  incorporates decentralized justice systems for transparent dispute resolution and introduces
+  AI specific legal entities to manage limited liability, supported by mandatory insurance
+  to ensure financial accountability and incentivize ethical design. By integrating philosophical
+  principles of rationality, ethical grounding, and goal alignment, ETHOS aims to create a
+  robust research agenda for promoting trust, transparency, and participatory governance.
+  This innovative framework offers a scalable and inclusive strategy for regulating AI agents,
+  balancing innovation with ethical responsibility to meet the demands of an AI-driven future.
+authors:
+- Tomer Jordi Chaffer
+- Charles von Goins
+- Bayo Okusanya
+- Dontrail Cotlage
+- Justin Goldston
+published_at: '2024-12-22'
+url: https://arxiv.org/abs/2412.17114
+doi: 10.48550/arXiv.2412.17114
+arxiv_id: '2412.17114'
+openalex_id: W4405767585
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Sovereign Agents: Towards Infrastructural Sovereignty and Di; Trustworthy agentic
+  AI systems: a cross-layer review of arch. Scope scan by claude-opus-5: The work is squarely
+  about how to oversee and hold liable agents that act independently, so removing the machine
+  removes the entire problem it addresses; the Web3/DAO tooling is instrumental rather than
+  the subject, so the token-design and DAO-empirics exclusions do not bite. Its legal-entity
+  and insurance proposals are the novel-exposure case explicitly preserved at 12.6.3 rather
+  than general entity regulation. What changes because agents hold authority: It proposes
+  concrete accountability machinery for organizations whose acting units are autonomous agents
+  — global agent registry, dynamic risk-tiered oversight, automated compliance via smart contracts,
+  AI-specific legal entities with limited liability and mandatory insurance — all of which
+  only become necessary once a machine, not a person, is the locus of decision authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

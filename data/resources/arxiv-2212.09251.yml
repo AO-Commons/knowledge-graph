@@ -1,0 +1,108 @@
+id: resource:arxiv:2212.09251
+resource_type: preprint
+title: Discovering Language Model Behaviors with Model-Written Evaluations
+abstract: As language models (LMs) scale, they develop many novel behaviors, good and bad,
+  exacerbating the need to evaluate how they behave. Prior work creates evaluations with crowdwork
+  (which is time-consuming and expensive) or existing data sources (which are not always available).
+  Here, we automatically generate evaluations with LMs. We explore approaches with varying
+  amounts of human effort, from instructing LMs to write yes/no questions to making complex
+  Winogender schemas with multiple stages of LM-based generation and filtering. Crowdworkers
+  rate the examples as highly relevant and agree with 90-100% of labels, sometimes more so
+  than corresponding human-written datasets. We generate 154 datasets and discover new cases
+  of inverse scaling where LMs get worse with size. Larger LMs repeat back a dialog user's
+  preferred answer ("sycophancy") and express greater desire to pursue concerning goals like
+  resource acquisition and goal preservation. We also find some of the first examples of inverse
+  scaling in RL from Human Feedback (RLHF), where more RLHF makes LMs worse. For example,
+  RLHF makes LMs express stronger political views (on gun rights and immigration) and a greater
+  desire to avoid shut down. Overall, LM-written evaluations are high-quality and let us quickly
+  discover many novel LM behaviors.
+authors:
+- Ethan Perez
+- Sam Ringer
+- Kamilė Lukošiūtė
+- Karina Nguyen
+- Edwin Chen
+- Scott Heiner
+- Craig Pettit
+- Catherine Olsson
+- Sandipan Kundu
+- Saurav Kadavath
+- Andy Jones
+- Anna Chen
+- Ben Mann
+- Brian Israel
+- Bryan Seethor
+- Cameron McKinnon
+- Christopher Olah
+- Da Yan
+- Daniela Amodei
+- Dario Amodei
+- Dawn Drain
+- Dustin Li
+- Eli Tran-Johnson
+- Guro Khundadze
+- Jackson Kernion
+- James Landis
+- Jamie Kerr
+- Jared Mueller
+- Jeeyoon Hyun
+- Joshua Landau
+- Kamal Ndousse
+- Landon Goldberg
+- Liane Lovitt
+- Martin Lucas
+- Michael Sellitto
+- Miranda Zhang
+- Neerav Kingsland
+- Nelson Elhage
+- Nicholas Joseph
+- Noemí Mercado
+- Nova DasSarma
+- Oliver Rausch
+- Robin Larson
+- Sam McCandlish
+- Scott Johnston
+- Shauna Kravec
+- Sheer El Showk
+- Tamera Lanham
+- Timothy Telleen-Lawton
+- Tom Brown
+- Tom Henighan
+- Tristan Hume
+- Yuntao Bai
+- Zac Hatfield-Dodds
+- Jack Clark
+- Samuel R. Bowman
+- Amanda Askell
+- Roger Grosse
+- Danny Hernandez
+- Deep Ganguli
+- Evan Hubinger
+- Nicholas Schiefer
+- Jared Kaplan
+published_at: '2022-12-19'
+url: https://arxiv.org/abs/2212.09251
+doi: 10.48550/arXiv.2212.09251
+arxiv_id: '2212.09251'
+openalex_id: W4312050653
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: This is an evaluation methodology
+  and behavioral-discovery paper about models, not about organizations where agents hold authority,
+  so it fails the scope test on its own terms but is genuinely load-bearing for oversight
+  design. Holding it as borrowed background in section 15 alongside Melting Pot is the correct
+  placement; no exclusion-register line applies. What changes because agents hold authority:
+  It supplies the measurement method and the specific findings — sycophancy, resource acquisition,
+  goal preservation, shutdown avoidance, and RLHF making some of these worse — that an organization
+  delegating authority to agents must screen for before and during deployment. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

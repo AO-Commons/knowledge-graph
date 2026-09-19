@@ -1,0 +1,53 @@
+id: resource:arxiv:2407.18074
+resource_type: preprint
+title: 'Principal-Agent Reinforcement Learning: Orchestrating AI Agents with Contracts'
+abstract: The increasing deployment of AI is shaping the future landscape of the internet,
+  which is set to become an integrated ecosystem of AI agents. Orchestrating the interaction
+  among AI agents necessitates decentralized, self-sustaining mechanisms that harmonize the
+  tension between individual interests and social welfare. In this paper we tackle this challenge
+  by synergizing reinforcement learning with principal-agent theory from economics. Taken
+  separately, the former allows unrealistic freedom of intervention, while the latter struggles
+  to scale in sequential settings. Combining them achieves the best of both worlds. We propose
+  a framework where a principal guides an agent in a Markov Decision Process (MDP) using a
+  series of contracts, which specify payments by the principal based on observable outcomes
+  of the agent's actions. We present and analyze a meta-algorithm that iteratively optimizes
+  the policies of the principal and agent, showing its equivalence to a contraction operator
+  on the principal's Q-function, and its convergence to subgame-perfect equilibrium. We then
+  scale our algorithm with deep Q-learning and analyze its convergence in the presence of
+  approximation error, both theoretically and through experiments with randomly generated
+  binary game-trees. Extending our framework to multiple agents, we apply our methodology
+  to the combinatorial Coin Game. Addressing this multi-agent sequential social dilemma is
+  a promising first step toward scaling our approach to more complex, real-world instances.
+authors:
+- Dima Ivanov
+- Paul Dütting
+- Inbal Talgam-Cohen
+- Tonghan Wang
+- David C. Parkes
+published_at: '2024-07-25'
+url: https://arxiv.org/abs/2407.18074
+doi: 10.48550/arXiv.2407.18074
+arxiv_id: '2407.18074'
+openalex_id: W4402619217
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Trustworthy agentic
+  AI systems: a cross-layer review of arch. Scope scan by claude-opus-5: The contribution
+  is a general RL/contract-theory method rather than a study of an organization with delegated
+  machine authority, so it belongs at section 15 as load-bearing method precedent alongside
+  Melting Pot; no exclusion-register line applies, since this is agent-specific incentive
+  design and not human collective decision-making or token/monetary engineering. What changes
+  because agents hold authority: It supplies a formal, scalable mechanism for a principal
+  to delegate sequential decision authority to machine agents and steer them via outcome-contingent
+  contracts rather than direct intervention, which is the core control problem when agents
+  act with real operational authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

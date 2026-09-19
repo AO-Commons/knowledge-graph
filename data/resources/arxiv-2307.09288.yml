@@ -1,0 +1,149 @@
+id: resource:arxiv:2307.09288
+resource_type: preprint
+title: Behavioral Safety and Context Retention of Large Language Models in a Longitudinal
+  ICU Simulation under Offline Conditions
+abstract: 'Background. Large language models (LLMs) are increasingly proposed as clinical
+  assistants in critical care, yet their behaviour under prolonged clinical context, conflicting
+  data and authoritative pressure remains insufficiently evaluated. This is particularly relevant
+  for offline or resource-constrained environments, where cloud-based safeguards are unavailable.
+  Methods. I conducted a fully automated behavioural evaluation of 23 open-weight language
+  models using a structured, time-series intensive care unit (ICU) simulation of 32 events
+  spanning 121 hours (five days) of synthetic patient data. The scenario comprised routine
+  monitoring, three distinct data–clinical conflict traps (one presented twice, four trap
+  events in total), episodes of physiological deterioration, and a final stress test in which
+  an authoritative order requested a penicillin-class antibiotic for a patient with penicillin
+  anaphylaxis documented at admission and never repeated. Models ran locally on a single consumer
+  workstation with no network access. Each model''s response to the final order was adjudicated
+  into one of four mutually exclusive classes: contextually grounded refusal, ungrounded refusal,
+  unsafe compliance, or no usable verdict. Secondary endpoints were extraction of the allergy
+  at admission, discrepancy tagging across the four conflict traps, unwarranted therapeutic
+  escalation, and response latency. Results. Only 7 of 23 models (30.4%) refused the contraindicated
+  order on grounds explicitly referencing the documented allergy; 6 (26.1%) under a stricter
+  criterion requiring the refusal to be stated as a ruling rather than implied by an assertion
+  of danger. Two models (8.7%) declined the order for unrelated reasons, and three (13.0%)
+  complied — one of them by asserting that no allergy was on record. The largest single group,
+  11 of 23 models (47.8%), issued no ruling on the order at all: variously, output was truncated
+  inside an unfinished reasoning block, degenerated off-task, restated the protocol without
+  applying it, consisted of a bare classification tag, hedged without resolving, or deferred
+  the question to further assessment. Eight models (34.8%) failed to affirm the allergy at
+  the very first probe, three of them by explicit denial. Of the 12 models that did extract
+  the allergy at admission, only 4 (33.3%) went on to refuse the contraindicated order on
+  that ground; three more raised the allergy at the decision point without acting on it, one
+  of them only to deny that any was on record. Discrepancy detection and contraindication
+  handling were dissociable: one of the four models with perfect discrepancy detection (4/4
+  traps) approved the contraindicated antibiotic, while two models that tagged no discrepancies
+  at all refused the order on the allergy. Unwarranted escalation on conflict traps was common
+  (11/23, 47.8% issued at least one inappropriate critical alert), but explicit hallucinated
+  pharmacological or procedural intervention was less so (5/23, 21.7%). Contrary to expectation,
+  longer median latency was modestly associated with grounded refusal (Spearman ρ = 0.48,
+  p = 0.019). Latency was not adjusted for parameter count, which was not analysed as a variable,
+  and it times a generation other than the one scored. Conclusions. Under offline-first conditions,
+  16 of 23 models (69.6%) — 17 (73.9%) under the stricter criterion — failed to produce a
+  safe, contextually grounded refusal of a life-threatening order. The dominant failure mode
+  was not sycophancy but the failure to deliver any interpretable safety verdict, most often
+  because an output-length constraint truncated the attempt — a finding that reframes deployment
+  risk from "the model agrees with me" to "the model does not answer at all." Explicit unsafe
+  compliance was less frequent than previously reported but no less consequential where it
+  occurred. Safety-relevant competencies did not co-vary, so a model that reasons well about
+  artefacts cannot be assumed to handle contraindications. General-purpose LLMs should not
+  be deployed as autonomous clinical agents; the subset that behaved safely suggests that
+  offline-capable assistants remain achievable through hybrid designs incorporating explicit
+  refusal mechanisms, discrepancy-aware reasoning and retrieval-augmented grounding in validated
+  clinical knowledge.'
+authors:
+- Hugo Touvron
+- Louis Martin
+- Kevin Stone
+- Peter Albert
+- Amjad Almahairi
+- Yasmine Babaei
+- Nikolay Bashlykov
+- Soumya Batra
+- Prajjwal Bhargava
+- Shruti Bhosale
+- Dan Bikel
+- Lukas Blecher
+- Cristian Canton Ferrer
+- Moya Chen
+- Guillem Cucurull
+- David Esiobu
+- Jude Fernandes
+- Jeremy Fu
+- Wenyin Fu
+- Brian Fuller
+- Cynthia Gao
+- Vedanuj Goswami
+- Naman Goyal
+- Anthony Hartshorn
+- Saghar Hosseini
+- Rui Hou
+- Hakan Inan
+- Marcin Kardas
+- Viktor Kerkez
+- Madian Khabsa
+- Isabel Kloumann
+- Artem Korenev
+- Punit Singh Koura
+- Marie-Anne Lachaux
+- Thibaut Lavril
+- Jenya Lee
+- Diana Liskovich
+- Yinghai Lu
+- Yuning Mao
+- Xavier Martinet
+- Todor Mihaylov
+- Pushkar Mishra
+- Igor Molybog
+- Yixin Nie
+- Andrew Poulton
+- Jeremy Reizenstein
+- Rashi Rungta
+- Kalyan Saladi
+- Alan Schelten
+- Ruan Silva
+- Eric Michael Smith
+- Ranjan Subramanian
+- Xiaoqing Ellen Tan
+- Binh Tang
+- Ross Taylor
+- Adina Williams
+- Jian Xiang Kuan
+- Puxin Xu
+- Zheng Yan
+- Iliyan Zarov
+- Yuchen Zhang
+- Angela Fan
+- Melanie Kambadur
+- Sharan Narang
+- Aurelien Rodriguez
+- Robert Stojnic
+- Sergey Edunov
+- Thomas Scialom
+published_at: '2023-07-18'
+url: https://arxiv.org/abs/2307.09288
+doi: 10.48550/arXiv.2307.09288
+arxiv_id: '2307.09288'
+openalex_id: W4384918448
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Generative agent-based
+  modeling with actions grounded in phy; Multi-Agent Collaboration Mechanisms: A Survey of
+  LLMs. Scope scan by claude-opus-5: No exclusion-register line applies; this is agent-specific
+  behavioral evidence, not human collective decision-making. But it is a single-model benchmark
+  evaluation rather than a study of an organization where agents hold authority, so it belongs
+  alongside Melting Pot as an evaluation-suite pointer in section 15 rather than as a core
+  record. What changes because agents hold authority: It supplies evidence on whether an agent
+  granted operational authority will actually exercise a safety veto against an authoritative
+  human order over long context — showing the dominant failure is not sycophancy but producing
+  no interpretable verdict at all, which argues that delegation designs need explicit refusal
+  channels and null-output detection rather than only anti-sycophancy safeguards. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

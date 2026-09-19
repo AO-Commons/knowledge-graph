@@ -1,0 +1,89 @@
+id: resource:arxiv:2411.04468
+resource_type: preprint
+title: 'Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks'
+abstract: 'Modern AI agents, driven by advances in large foundation models, promise to enhance
+  our productivity and transform our lives by augmenting our knowledge and capabilities. To
+  achieve this vision, AI agents must effectively plan, perform multi-step reasoning and actions,
+  respond to novel observations, and recover from errors, to successfully complete complex
+  tasks across a wide range of scenarios. In this work, we introduce Magentic-One, a high-performing
+  open-source agentic system for solving such tasks. Magentic-One uses a multi-agent architecture
+  where a lead agent, the Orchestrator, plans, tracks progress, and re-plans to recover from
+  errors. Throughout task execution, the Orchestrator directs other specialized agents to
+  perform tasks as needed, such as operating a web browser, navigating local files, or writing
+  and executing Python code. We show that Magentic-One achieves statistically competitive
+  performance to the state-of-the-art on three diverse and challenging agentic benchmarks:
+  GAIA, AssistantBench, and WebArena. Magentic-One achieves these results without modification
+  to core agent capabilities or to how they collaborate, demonstrating progress towards generalist
+  agentic systems. Moreover, Magentic-One''s modular design allows agents to be added or removed
+  from the team without additional prompt tuning or training, easing development and making
+  it extensible to future scenarios. We provide an open-source implementation of Magentic-One,
+  and we include AutoGenBench, a standalone tool for agentic evaluation. AutoGenBench provides
+  built-in controls for repetition and isolation to run agentic benchmarks in a rigorous and
+  contained manner -- which is important when agents'' actions have side-effects. Magentic-One,
+  AutoGenBench and detailed empirical performance evaluations of Magentic-One, including ablations
+  and error analysis are available at https://aka.ms/magentic-one'
+authors:
+- Adam Fourney
+- Gagan Bansal
+- Hussein Mozannar
+- Cheng Tan
+- Eduardo Salinas
+- Erkang
+- Zhu
+- Friederike Niedtner
+- Grace Proebsting
+- Griffin Bassman
+- Jack Gerrits
+- Jacob Alber
+- Peter Chang
+- Ricky Loynd
+- Robert West
+- Victor Dibia
+- Ahmed Awadallah
+- Ece Kamar
+- Rafah Hosn
+- Saleema Amershi
+organizations:
+- Seattle Epidemiologic Information and Research Center
+affiliations:
+  Adam Fourney:
+  - Seattle Epidemiologic Information and Research Center
+  Gagan Bansal:
+  - Seattle Epidemiologic Information and Research Center
+  Hussein Mozannar:
+  - Seattle Epidemiologic Information and Research Center
+  Cheng Tan:
+  - Seattle Epidemiologic Information and Research Center
+  Eduardo Salinas:
+  - Seattle Epidemiologic Information and Research Center
+  Erkang:
+  - Seattle Epidemiologic Information and Research Center
+published_at: '2024-11-07'
+url: https://arxiv.org/abs/2411.04468
+doi: 10.48550/arXiv.2411.04468
+arxiv_id: '2411.04468'
+openalex_id: W4404396586
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Multi-Agent Collaboration Mechanisms: A Survey of LLMs; Securing AI Agents with
+  Information-Flow Control; The Collaboration Gap: Exploration and Benchmarking of Open-;
+  Trustworthy agentic AI systems: a cross-layer review of arch. Scope scan by claude-opus-5:
+  This is a capability/architecture-and-benchmark paper about task performance, not about
+  organizations where agents hold operational or decision authority, so it fails the scope
+  test on its own terms. It is nonetheless load-bearing infrastructure the field''s governance
+  and security work builds on (cited by four library items), which is exactly the Section
+  15 borrowed-background role held by Melting Pot. What changes because agents hold authority:
+  It supplies the canonical orchestrator-and-specialist delegation architecture (plus a contained
+  benchmark harness for agents whose actions have side-effects) that concrete agent-authority
+  structures are built and evaluated on, but it does not itself address how that authority
+  is granted, bounded, or held accountable. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

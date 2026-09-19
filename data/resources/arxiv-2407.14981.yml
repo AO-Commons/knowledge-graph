@@ -1,0 +1,76 @@
+id: resource:arxiv:2407.14981
+resource_type: preprint
+title: Open Problems in Technical AI Governance
+abstract: AI progress is creating a growing range of risks and opportunities, but it is often
+  unclear how they should be navigated. In many cases, the barriers and uncertainties faced
+  are at least partly technical. Technical AI governance, referring to technical analysis
+  and tools for supporting the effective governance of AI, seeks to address such challenges.
+  It can help to (a) identify areas where intervention is needed, (b) identify and assess
+  the efficacy of potential governance actions, and (c) enhance governance options by designing
+  mechanisms for enforcement, incentivization, or compliance. In this paper, we explain what
+  technical AI governance is, why it is important, and present a taxonomy and incomplete catalog
+  of its open problems. This paper is intended as a resource for technical researchers or
+  research funders looking to contribute to AI governance.
+authors:
+- Anka Reuel
+- Ben Bucknall
+- Stephen Casper
+- Tim Fist
+- Lisa Soder
+- Onni Aarne
+- Lewis Hammond
+- Lujain Ibrahim
+- Alan Chan
+- Peter R. Wills
+- Markus Anderljung
+- Ben Garfinkel
+- Lennart Heim
+- Andrew Trask
+- Gabriel Mukobi
+- Rylan Schaeffer
+- Mauricio Baker
+- Sara Hooker
+- Irene Solaiman
+- Alexandra Sasha Luccioni
+- Nitarshan Rajkumar
+- Nicolas Moës
+- Jeffrey Ladish
+- David Bau
+- Paul Bricman
+- Neel Guha
+- Jessica Newman
+- Yoshua Bengio
+- Tobin South
+- Alex Pentland
+- Oluwasanmi Koyejo
+- Mykel J. Kochenderfer
+- Robert Trager
+published_at: '2024-07-20'
+url: https://arxiv.org/abs/2407.14981
+doi: 10.48550/arXiv.2407.14981
+arxiv_id: '2407.14981'
+openalex_id: W4406072501
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: This is a field-level research
+  agenda for technical AI governance, not a study of organizations in which agents exercise
+  operational or decision authority, so it fails the scope test directly; no exclusion-register
+  line applies since it is not human collective decision-making. It is genuinely load-bearing
+  for the oversight-tooling side of the field and is cited as such by two library records,
+  so it belongs as a section 15 pointer rather than an ingested record. What changes because
+  agents hold authority: It catalogs the technical mechanisms — evaluation, verification,
+  compute and deployment monitoring, agent identification, compliance enforcement — that an
+  organization delegating real authority to machine agents would need to instrument oversight,
+  but it addresses AI governance at the ecosystem/regulatory level rather than organizations
+  where agents hold authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,45 @@
+id: resource:arxiv:2401.03729
+resource_type: preprint
+title: 'The Butterfly Effect of Altering Prompts: How Small Changes and Jailbreaks Affect
+  Large Language Model Performance'
+abstract: 'Large Language Models (LLMs) are regularly being used to label data across many
+  domains and for myriad tasks. By simply asking the LLM for an answer, or ``prompting,''''
+  practitioners are able to use LLMs to quickly get a response for an arbitrary task. This
+  prompting is done through a series of decisions by the practitioner, from simple wording
+  of the prompt, to requesting the output in a certain data format, to jailbreaking in the
+  case of prompts that address more sensitive topics. In this work, we ask: do variations
+  in the way a prompt is constructed change the ultimate decision of the LLM? We answer this
+  using a series of prompt variations across a variety of text classification tasks. We find
+  that even the smallest of perturbations, such as adding a space at the end of a prompt,
+  can cause the LLM to change its answer. Further, we find that requesting responses in XML
+  and commonly used jailbreaks can have cataclysmic effects on the data labeled by LLMs.'
+authors:
+- Abel Salinas
+- Fred Morstatter
+published_at: '2024-01-08'
+url: https://arxiv.org/abs/2401.03729
+doi: 10.48550/arXiv.2401.03729
+arxiv_id: '2401.03729'
+openalex_id: W4390783861
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: This is a model-behaviour
+  reliability finding, not a study of an organization where agents hold authority, so it sits
+  as borrowed background rather than core scope — no exclusion-register line bars it. It is
+  load-bearing because two library papers (agent engineering reliability, principal-agent
+  liability) rest on the premise that an agent''s decision is unstable under inputs no human
+  overseer would treat as meaningful. What changes because agents hold authority: If an agent''s
+  decisions are binding, the demonstration that trivial prompt perturbations and format requests
+  flip its outputs makes input-surface control, prompt versioning, and decision-stability
+  testing a governance requirement rather than an engineering nicety. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,59 @@
+id: resource:arxiv:2310.11986
+resource_type: preprint
+title: Sociotechnical Safety Evaluation of Generative AI Systems
+abstract: Generative AI systems produce a range of risks. To ensure the safety of generative
+  AI systems, these risks must be evaluated. In this paper, we make two main contributions
+  toward establishing such evaluations. First, we propose a three-layered framework that takes
+  a structured, sociotechnical approach to evaluating these risks. This framework encompasses
+  capability evaluations, which are the main current approach to safety evaluation. It then
+  reaches further by building on system safety principles, particularly the insight that context
+  determines whether a given capability may cause harm. To account for relevant context, our
+  framework adds human interaction and systemic impacts as additional layers of evaluation.
+  Second, we survey the current state of safety evaluation of generative AI systems and create
+  a repository of existing evaluations. Three salient evaluation gaps emerge from this analysis.
+  We propose ways forward to closing these gaps, outlining practical steps as well as roles
+  and responsibilities for different actors. Sociotechnical safety evaluation is a tractable
+  approach to the robust and comprehensive safety evaluation of generative AI systems.
+authors:
+- Laura Weidinger
+- Maribeth Rauh
+- Nahema Marchal
+- Arianna Manzini
+- Lisa Anne Hendricks
+- Juan Mateos-Garcia
+- Stevie Bergman
+- Jackie Kay
+- Conor Griffin
+- Ben Bariach
+- Iason Gabriel
+- Verena Rieser
+- William Isaac
+published_at: '2023-10-18'
+url: https://arxiv.org/abs/2310.11986
+doi: 10.48550/arXiv.2310.11986
+arxiv_id: '2310.11986'
+openalex_id: W4387801479
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Inherent and emergent
+  liability issues in LLM-based agentic ; Lessons from complex systems science for AI governance;
+  Solipsistic Superintelligence is Unlikely to be Cooperative. Scope scan by claude-opus-5:
+  The paper is about safety evaluation of generative AI systems, not about organizations where
+  agents hold operational or decision authority, so it fails the scope test on its own terms;
+  but it is genuinely load-bearing method infrastructure that four library papers build on,
+  which is exactly the Section 15 / Melting Pot case. Holding it as a borrowed-background
+  pointer avoids miscataloguing an evaluation framework as an organizational-design record.
+  What changes because agents hold authority: It supplies the layered evaluation structure
+  — capability, human-interaction, systemic impact — that any oversight regime for agents
+  holding real authority must instantiate to catch harms that only appear in deployment context
+  rather than in model capability tests. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

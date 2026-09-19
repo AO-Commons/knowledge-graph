@@ -1,0 +1,42 @@
+id: resource:arxiv:2502.02649
+resource_type: preprint
+title: Fully Autonomous AI Agents Should Not be Developed
+abstract: 'This paper argues that fully autonomous AI agents should not be developed. In support
+  of this position, we build from prior scientific literature and current product marketing
+  to delineate different AI agent levels and detail the ethical values at play in each, documenting
+  trade-offs in potential benefits and risks. Our analysis reveals that risks to people increase
+  with the autonomy of a system: The more control a user cedes to an AI agent, the more risks
+  to people arise. Particularly concerning are safety risks, which affect human life and impact
+  further values.'
+authors:
+- Margaret Mitchell
+- Avijit Ghosh
+- Alexandra Sasha Luccioni
+- Giada Pistilli
+published_at: '2025-02-04'
+url: https://arxiv.org/abs/2502.02649
+doi: 10.48550/arXiv.2502.02649
+arxiv_id: '2502.02649'
+openalex_id: W4407208775
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Levels of Autonomy
+  for AI Agents; Reliable agent engineering should integrate machine-compatib. Scope scan
+  by claude-opus-5: The work is about the ceding of control to machine agents and the risks
+  that scale with that delegation — the core question of an agent-authority organization —
+  so no exclusion-register line applies (it is not human collective decision-making, mechanism
+  design, or general entity regulation). It is load-bearing design guidance rather than adjacent
+  background, and the library already holds its direct descendants such as ''Levels of Autonomy
+  for AI Agents''. What changes because agents hold authority: It supplies a graded taxonomy
+  of agent autonomy levels with the specific safety, control and accountability risks that
+  attach at each level, which is directly the frame for deciding how much operational authority
+  to delegate to an agent and what human override must be retained. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

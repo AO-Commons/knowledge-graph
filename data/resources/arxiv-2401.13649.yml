@@ -1,0 +1,57 @@
+id: resource:arxiv:2401.13649
+resource_type: preprint
+title: 'VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks'
+abstract: Autonomous agents capable of planning, reasoning, and executing actions on the web
+  offer a promising avenue for automating computer tasks. However, the majority of existing
+  benchmarks primarily focus on text-based agents, neglecting many natural tasks that require
+  visual information to effectively solve. Given that most computer interfaces cater to human
+  perception, visual information often augments textual data in ways that text-only models
+  struggle to harness effectively. To bridge this gap, we introduce VisualWebArena, a benchmark
+  designed to assess the performance of multimodal web agents on realistic \textit{visually
+  grounded tasks}. VisualWebArena comprises of a set of diverse and complex web-based tasks
+  that evaluate various capabilities of autonomous multimodal agents. To perform on this benchmark,
+  agents need to accurately process image-text inputs, interpret natural language instructions,
+  and execute actions on websites to accomplish user-defined objectives. We conduct an extensive
+  evaluation of state-of-the-art LLM-based autonomous agents, including several multimodal
+  models. Through extensive quantitative and qualitative analysis, we identify several limitations
+  of text-only LLM agents, and reveal gaps in the capabilities of state-of-the-art multimodal
+  language agents. VisualWebArena provides a framework for evaluating multimodal autonomous
+  language agents, and offers insights towards building stronger autonomous agents for the
+  web. Our code, baseline models, and data is publicly available at https://jykoh.com/vwa.
+authors:
+- Jing Yu Koh
+- Robert Lo
+- Lawrence Jang
+- Vikram Duvvur
+- Ming Chong Lim
+- Po‐Yu Huang
+- Graham Neubig
+- Shuyan Zhou
+- Ruslan Salakhutdinov
+- Daniel Fried
+published_at: '2024-01-24'
+url: https://arxiv.org/abs/2401.13649
+doi: 10.48550/arXiv.2401.13649
+arxiv_id: '2401.13649'
+openalex_id: W4391244971
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: TheAgentCompany: Benchmarking LLM Agents on Consequential Re; WebVoyager: Building
+  an End-to-End Web Agent with Large Mult. Scope scan by claude-opus-5: This is an evaluation
+  suite, not a study of organizations where agents hold authority, so it belongs in section
+  15 alongside Melting Pot rather than the main corpus. No exclusion-register line bars it;
+  it is held as borrowed background because it is a foundational benchmark that library papers
+  (WebVoyager, TheAgentCompany) build directly upon. What changes because agents hold authority:
+  It supplies the capability-ceiling evidence — how reliably multimodal agents perceive and
+  act on real interfaces — that bounds how much operational authority can responsibly be delegated
+  to web-acting agents, but it says nothing itself about organizational authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

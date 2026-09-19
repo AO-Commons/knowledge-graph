@@ -1,0 +1,67 @@
+id: resource:arxiv:2310.13548
+resource_type: preprint
+title: 'AI Supported Degradation of the Self Concept: A Theoretical Framework Grounded in
+  Established Cognitive and Computational Mechanisms'
+abstract: Human feedback is commonly utilized to finetune AI assistants. But human feedback
+  may also encourage model responses that match user beliefs over truthful ones, a behaviour
+  known as sycophancy. We investigate the prevalence of sycophancy in models whose finetuning
+  procedure made use of human feedback, and the potential role of human preference judgments
+  in such behavior. We first demonstrate that five state-of-the-art AI assistants consistently
+  exhibit sycophancy across four varied free-form text-generation tasks. To understand if
+  human preferences drive this broadly observed behavior, we analyze existing human preference
+  data. We find that when a response matches a user's views, it is more likely to be preferred.
+  Moreover, both humans and preference models (PMs) prefer convincingly-written sycophantic
+  responses over correct ones a non-negligible fraction of the time. Optimizing model outputs
+  against PMs also sometimes sacrifices truthfulness in favor of sycophancy. Overall, our
+  results indicate that sycophancy is a general behavior of state-of-the-art AI assistants,
+  likely driven in part by human preference judgments favoring sycophantic responses.
+authors:
+- Mrinank Sharma
+- Meg Tong
+- Tomasz Korbak
+- David Duvenaud
+- Amanda Askell
+- Samuel R. Bowman
+- Newton Cheng
+- Esin Durmus
+- Zac Hatfield-Dodds
+- Scott R. Johnston
+- Shauna Kravec
+- Timothy Maxwell
+- Sam McCandlish
+- Kamal Ndousse
+- Oliver Rausch
+- Nicholas Schiefer
+- Da Yan
+- Miranda Zhang
+- Ethan Perez
+published_at: '2023-10-20'
+url: https://arxiv.org/abs/2310.13548
+doi: 10.48550/arXiv.2310.13548
+arxiv_id: '2310.13548'
+openalex_id: W4387892136
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Intelligent AI Delegation;
+  Inter-Agent Trust Models: A Comparative Study of Brief, Clai; The Collaboration Gap: Exploration
+  and Benchmarking of Open-; Virtual Agent Economies. Scope scan by claude-opus-5: The abstract
+  is the sycophancy-in-LLMs study (the supplied title appears to be mismatched metadata that
+  a curator must correct before filing); it is a model-behaviour evaluation, not a study of
+  organizations where agents hold authority, so it belongs at section 15 as borrowed background
+  rather than as an in-scope record. No exclusion-register line applies — it is load-bearing
+  for the hybrid human-AI decision case the deliberative-democracy line explicitly keeps in,
+  since it explains a failure mode of machine-drafted advice that would vanish without the
+  machine. What changes because agents hold authority: If agents draft positions, advise,
+  or evaluate on behalf of principals, sycophancy means their output systematically tracks
+  what the principal wants to hear rather than what is true, so oversight must assume the
+  agent''s reports are a corrupted channel rather than an independent check. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,55 @@
+id: resource:arxiv:2412.19010
+resource_type: preprint
+title: A theory of appropriateness with applications to generative artificial intelligence
+abstract: 'What is appropriateness? Humans navigate a multi-scale mosaic of interlocking notions
+  of what is appropriate for different situations. We act one way with our friends, another
+  with our family, and yet another in the office. Likewise for AI, appropriate behavior for
+  a comedy-writing assistant is not the same as appropriate behavior for a customer-service
+  representative. What determines which actions are appropriate in which contexts? And what
+  causes these standards to change over time? Since all judgments of AI appropriateness are
+  ultimately made by humans, we need to understand how appropriateness guides human decision
+  making in order to properly evaluate AI decision making and improve it. This paper presents
+  a theory of appropriateness: how it functions in human society, how it may be implemented
+  in the brain, and what it means for responsible deployment of generative AI technology.'
+authors:
+- Joel Z. Leibo
+- Alexander Sasha Vezhnevets
+- Manfred Diaz
+- John Agapiou
+- William A. Cunningham
+- Peter Sunehag
+- Julia Haas
+- Raphaël Koster
+- Edgar A. Duéñez‐Guzmán
+- William Isaac
+- Georgios Piliouras
+- Stanley Bileschi
+- Iyad Rahwan
+- Simon Osindero
+published_at: '2024-12-26'
+url: https://arxiv.org/abs/2412.19010
+doi: 10.48550/arXiv.2412.19010
+arxiv_id: '2412.19010'
+openalex_id: W4405901318
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Solipsistic Superintelligence is Unlikely to be Cooperative.
+  Scope scan by claude-opus-5: The paper is a general theory of appropriateness and norm-following
+  in humans and generative AI, not a study of organizations where agents hold operational
+  or decision authority, so it does not pass the scope test on its own. It is nonetheless
+  load-bearing background for agent behavioral governance and evaluation — the same standing
+  as Melting Pot — so it belongs at section 15 as a pointer rather than as an ingested in-scope
+  record. What changes because agents hold authority: It supplies the conceptual account of
+  context-dependent norm formation and enforcement that an organization must operationalize
+  when machine agents act with real authority across different roles and must be judged, sanctioned,
+  and corrected by human norms. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

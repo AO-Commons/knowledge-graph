@@ -1,0 +1,32 @@
+id: resource:doi:10-1016-s0921-8890-98-00028-1
+resource_type: peer-reviewed-paper
+title: Towards a theory of delegation for agent-based systems
+authors:
+- Cristiano Castelfranchi
+- Rino Falcone
+published_at: '1998-09-01'
+url: https://doi.org/10.1016/s0921-8890(98)00028-1
+doi: 10.1016/s0921-8890(98)00028-1
+openalex_id: W1965203309
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Intelligent AI Delegation;
+  Reliable agent engineering should integrate machine-compatib. Scope scan by claude-opus-5:
+  Castelfranchi and Falcone''s delegation/adoption theory is about machine agents receiving
+  and exercising delegated authority, so it is agent-specific rather than human collective
+  decision-making, and no exclusion-register line applies. It is directly load-bearing for
+  the library''s principal-agent, liability, and delegation records that cite it, so it should
+  be ingested rather than held as a pointer. What changes because agents hold authority: It
+  supplies the formal vocabulary for how much and what kind of authority is transferred when
+  a task is delegated to a machine agent — weak/mild/strong delegation, open versus closed
+  task specification, and the corresponding control and adjustable-autonomy requirements —
+  which is exactly the design and oversight decision an agentic organization must make. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

@@ -1,0 +1,50 @@
+id: resource:arxiv:2009.03300
+resource_type: preprint
+title: Measuring Massive Multitask Language Understanding
+abstract: We propose a new test to measure a text model's multitask accuracy. The test covers
+  57 tasks including elementary mathematics, US history, computer science, law, and more.
+  To attain high accuracy on this test, models must possess extensive world knowledge and
+  problem solving ability. We find that while most recent models have near random-chance accuracy,
+  the very largest GPT-3 model improves over random chance by almost 20 percentage points
+  on average. However, on every one of the 57 tasks, the best models still need substantial
+  improvements before they can reach expert-level accuracy. Models also have lopsided performance
+  and frequently do not know when they are wrong. Worse, they still have near-random accuracy
+  on some socially important subjects such as morality and law. By comprehensively evaluating
+  the breadth and depth of a model's academic and professional understanding, our test can
+  be used to analyze models across many tasks and to identify important shortcomings.
+authors:
+- Dan Hendrycks
+- Collin Burns
+- Steven Basart
+- Andy Zou
+- Mantas Mazeika
+- Dawn Song
+- Jacob Steinhardt
+published_at: '2020-09-07'
+url: https://arxiv.org/abs/2009.03300
+doi: 10.48550/arXiv.2009.03300
+arxiv_id: '2009.03300'
+openalex_id: W3083410900
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterog; Cooperate or Collapse:
+  Emergence of Sustainable Cooperation ; Large Language Model based Multi-Agents: A Survey
+  of Progres; Using Large Language Models to Simulate Multiple Humans and . Scope scan by
+  claude-opus-5: MMLU is a general knowledge benchmark, not a study of agent-run organizations,
+  so it cannot be ingested as in-scope; but it is load-bearing background for capability thresholds
+  and miscalibration in delegation, the same way Melting Pot is held. Hold at section 15 as
+  borrowed background rather than admitting to the core corpus. What changes because agents
+  hold authority: It supplies the standard capability-and-calibration measure — including
+  the finding that models are confidently wrong and near-random on law and morality — that
+  grounds decisions about which competences may be delegated to an agent, but it says nothing
+  itself about organizational authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,89 @@
+id: resource:doi:10-1007-s11704-024-40231-1
+resource_type: peer-reviewed-paper
+title: A survey on large language model based autonomous agents
+abstract: Abstract Autonomous agents have long been a research focus in academic and industry
+  communities. Previous research often focuses on training agents with limited knowledge within
+  isolated environments, which diverges significantly from human learning processes, and makes
+  the agents hard to achieve human-like decisions. Recently, through the acquisition of vast
+  amounts of Web knowledge, large language models (LLMs) have shown potential in human-level
+  intelligence, leading to a surge in research on LLM-based autonomous agents. In this paper,
+  we present a comprehensive survey of these studies, delivering a systematic review of LLM-based
+  autonomous agents from a holistic perspective. We first discuss the construction of LLM-based
+  autonomous agents, proposing a unified framework that encompasses much of previous work.
+  Then, we present a overview of the diverse applications of LLM-based autonomous agents in
+  social science, natural science, and engineering. Finally, we delve into the evaluation
+  strategies commonly used for LLM-based autonomous agents. Based on the previous studies,
+  we also present several challenges and future directions in this field.
+authors:
+- Lei Wang
+- Chen Ma
+- Xueyang Feng
+- Zeyu Zhang
+- Hao Yang
+- Jingsen Zhang
+- Zhiyuan Chen
+- Jiakai Tang
+- Xu Chen
+- Yankai Lin
+- Wayne Xin Zhao
+- Zhewei Wei
+- Ji-Rong Wen
+organizations:
+- Renmin University of China
+affiliations:
+  Lei Wang:
+  - Renmin University of China
+  Chen Ma:
+  - Renmin University of China
+  Xueyang Feng:
+  - Renmin University of China
+  Zeyu Zhang:
+  - Renmin University of China
+  Hao Yang:
+  - Renmin University of China
+  Jingsen Zhang:
+  - Renmin University of China
+  Zhiyuan Chen:
+  - Renmin University of China
+  Jiakai Tang:
+  - Renmin University of China
+  Xu Chen:
+  - Renmin University of China
+  Yankai Lin:
+  - Renmin University of China
+  Wayne Xin Zhao:
+  - Renmin University of China
+  Zhewei Wei:
+  - Renmin University of China
+  Ji-Rong Wen:
+  - Renmin University of China
+published_at: '2024-03-22'
+url: https://doi.org/10.1007/s11704-024-40231-1
+doi: 10.1007/s11704-024-40231-1
+openalex_id: W4393065402
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  8 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Holistic Review of Agentic AI Frameworks, Applications, an; Architecting Agentic
+  Communities using Design Patterns; Bridging Inference-Time Scaling and Episodic Memory with
+  Act; Cognitive Architectures for Language Agents; Intelligent AI Delegation; Large Language
+  Model based Multi-Agents: A Survey of Progres; Sovereign Agents: Towards Infrastructural
+  Sovereignty and Di; Will Systems of LLM Agents Cooperate: An Investigation into . Scope
+  scan by claude-opus-5: This is a general capability-and-architecture survey rather than
+  a study of organizations where agents hold operational or decision authority, so it fails
+  the scope test directly. It is nonetheless the foundational reference eight library papers
+  build their agent models on, making it precisely the load-bearing adjacent literature Section
+  15 exists to point at rather than ingest. What changes because agents hold authority: It
+  supplies the canonical construction vocabulary — profile, memory, planning, action, and
+  evaluation strategies — that determines what capabilities and failure modes an organization
+  is actually delegating authority to, but it says nothing itself about authority, oversight,
+  or accountability structures. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

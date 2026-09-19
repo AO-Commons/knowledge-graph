@@ -3,3 +3,7 @@ duplicates:
   duplicates: resource:arxiv:2304.03442
   why: near-identical title (100%) — ACM version of the arXiv preprint already held
   found_on: '2026-09-10'
+- key: doi:10.52202/075280-2264
+  duplicates: resource:arxiv:2303.17760
+  why: near-identical title (100%)
+  found_on: '2026-09-19'

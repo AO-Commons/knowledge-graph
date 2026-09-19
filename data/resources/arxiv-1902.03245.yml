@@ -1,0 +1,48 @@
+id: resource:arxiv:1902.03245
+resource_type: preprint
+title: 'Ask Not What AI Can Do, But What AI Should Do: Towards a Framework of Task Delegability'
+abstract: 'While artificial intelligence (AI) holds promise for addressing societal challenges,
+  issues of exactly which tasks to automate and to what extent to do so remain understudied.
+  We approach this problem of task delegability from a human-centered perspective by developing
+  a framework on human perception of task delegation to AI. We consider four high-level factors
+  that can contribute to a delegation decision: motivation, difficulty, risk, and trust. To
+  obtain an empirical understanding of human preferences in different tasks, we build a dataset
+  of 100 tasks from academic papers, popular media portrayal of AI, and everyday life, and
+  administer a survey based on our proposed framework. We find little preference for full
+  AI control and a strong preference for machine-in-the-loop designs, in which humans play
+  the leading role. Among the four factors, trust is the most correlated with human preferences
+  of optimal human-machine delegation. This framework represents a first step towards characterizing
+  human preferences of AI automation across tasks. We hope this work encourages future efforts
+  towards understanding such individual attitudes; our goal is to inform the public and the
+  AI research community rather than dictating any direction in technology development.'
+authors:
+- Brian Lubars
+- Chenhao Tan
+published_at: '2019-02-08'
+url: https://arxiv.org/abs/1902.03245
+doi: 10.48550/arXiv.1902.03245
+arxiv_id: '1902.03245'
+openalex_id: W2919060532
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Intelligent AI Delegation.
+  Scope scan by claude-opus-5: The work is about delegability of authority to machines rather
+  than about human collective decision-making, so no exclusion-register line applies; the
+  delegability axis is load-bearing for authority allocation and is cited as such by two in-library
+  delegation/principal-agent papers. But it studies task-level individual human preferences
+  rather than organizations in which agents actually hold operational authority, so it is
+  held as a pointer in section 15 rather than ingested as core. What changes because agents
+  hold authority: It supplies a factor framework (motivation, difficulty, risk, trust) and
+  empirical evidence that humans prefer machine-in-the-loop over full machine control, which
+  directly informs where an organization should draw the line on delegating decision authority
+  to agents and at what autonomy level. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

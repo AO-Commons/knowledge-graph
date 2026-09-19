@@ -1,0 +1,58 @@
+id: resource:arxiv:2501.16946
+resource_type: preprint
+title: 'Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development'
+abstract: 'This paper examines the systemic risks posed by incremental advancements in artificial
+  intelligence, developing the concept of `gradual disempowerment'', in contrast to the abrupt
+  takeover scenarios commonly discussed in AI safety. We analyze how even incremental improvements
+  in AI capabilities can undermine human influence over large-scale systems that society depends
+  on, including the economy, culture, and nation-states. As AI increasingly replaces human
+  labor and cognition in these domains, it can weaken both explicit human control mechanisms
+  (like voting and consumer choice) and the implicit alignments with human interests that
+  often arise from societal systems'' reliance on human participation to function. Furthermore,
+  to the extent that these systems incentivise outcomes that do not line up with human preferences,
+  AIs may optimize for those outcomes more aggressively. These effects may be mutually reinforcing
+  across different domains: economic power shapes cultural narratives and political decisions,
+  while cultural shifts alter economic and political behavior. We argue that this dynamic
+  could lead to an effectively irreversible loss of human influence over crucial societal
+  systems, precipitating an existential catastrophe through the permanent disempowerment of
+  humanity. This suggests the need for both technical research and governance approaches that
+  specifically address the risk of incremental erosion of human influence across interconnected
+  societal systems.'
+authors:
+- Jan Kulveit
+- Raymond Douglas
+- Nora Ammann
+- Deger Turan
+- David Krueger
+- David Duvenaud
+published_at: '2025-01-28'
+url: https://arxiv.org/abs/2501.16946
+doi: 10.48550/arXiv.2501.16946
+arxiv_id: '2501.16946'
+openalex_id: W4406961142
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Levels of Autonomy for AI Agents; Solipsistic Superintelligence is Unlikely to
+  be Cooperative; Virtual Agent Economies. Scope scan by claude-opus-5: Its unit of analysis
+  is civilizational (economy, culture, states) rather than an organization in which agents
+  hold authority, so it is not a design or governance record in the core sense; but it is
+  the canonical statement of the failure mode that agent-authority oversight is meant to prevent
+  and is treated as such by three library papers. No exclusion-register line applies — it
+  is not human collective decision theory unchanged by machines, since the entire argument
+  is about what changes when machines substitute for human participation — so it is held as
+  borrowed background in section 15 rather than refused. What changes because agents hold
+  authority: It identifies that much human influence over systems is implicit — arising from
+  those systems'' dependence on human participation — so an organization delegating operational
+  roles to agents must deliberately reconstruct control mechanisms that previously came for
+  free, and must watch for incremental, individually-reasonable delegations that compound
+  into irreversible loss of oversight. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

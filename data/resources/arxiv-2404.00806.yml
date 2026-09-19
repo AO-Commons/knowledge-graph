@@ -1,0 +1,42 @@
+id: resource:arxiv:2404.00806
+resource_type: preprint
+title: Algorithmic Collusion by Large Language Models
+abstract: We conduct experiments with algorithmic pricing agents based on Large Language Models
+  (LLMs). In oligopoly settings, LLM-based pricing agents quickly and autonomously reach supracompetitive
+  prices and profits. Variation in seemingly innocuous phrases in LLM instructions ("prompts")
+  substantially influence the degree of supracompetitive pricing. We develop novel techniques
+  for behavioral analysis of LLMs and use them to uncover price-war concerns as a contributing
+  factor. Our results extend to auction settings. Our findings uncover unique challenges to
+  any future regulation of LLM-based pricing agents, and AI-based pricing agents more broadly.
+authors:
+- Sara Fish
+- Yannai A. Gonczarowski
+- Ran I. Shorrer
+published_at: '2024-03-31'
+url: https://arxiv.org/abs/2404.00806
+doi: 10.48550/arXiv.2404.00806
+arxiv_id: '2404.00806'
+openalex_id: W4393724845
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: The finding disappears entirely
+  without the machine agents — it is about what autonomous LLM decision-makers do when given
+  operational authority, not about human collective decision-making, so no exclusion-register
+  line applies (it is not ''market microstructure/token design'' financial engineering but
+  a study of delegated agent authority and its accountability gap). It directly informs how
+  one would oversee and hold accountable an organization whose pricing or bidding functions
+  are run by agents. What changes because agents hold authority: It shows that LLM agents
+  holding delegated pricing authority converge on supracompetitive, tacitly collusive behavior
+  that is steered by incidental prompt wording, so delegation of commercial decisions to agents
+  creates a novel liability and oversight surface requiring prompt-level audit and behavioral
+  monitoring rather than intent-based review. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

@@ -1,0 +1,62 @@
+id: resource:arxiv:2312.11671
+resource_type: preprint
+title: Evaluating Language-Model Agents on Realistic Autonomous Tasks
+abstract: In this report, we explore the ability of language model agents to acquire resources,
+  create copies of themselves, and adapt to novel challenges they encounter in the wild. We
+  refer to this cluster of capabilities as "autonomous replication and adaptation" or ARA.
+  We believe that systems capable of ARA could have wide-reaching and hard-to-anticipate consequences,
+  and that measuring and forecasting ARA may be useful for informing measures around security,
+  monitoring, and alignment. Additionally, once a system is capable of ARA, placing bounds
+  on a system's capabilities may become significantly more difficult. We construct four simple
+  example agents that combine language models with tools that allow them to take actions in
+  the world. We then evaluate these agents on 12 tasks relevant to ARA. We find that these
+  language model agents can only complete the easiest tasks from this list, although they
+  make some progress on the more challenging tasks. Unfortunately, these evaluations are not
+  adequate to rule out the possibility that near-future agents will be capable of ARA. In
+  particular, we do not think that these evaluations provide good assurance that the ``next
+  generation'' of language models (e.g. 100x effective compute scaleup on existing models)
+  will not yield agents capable of ARA, unless intermediate evaluations are performed during
+  pretraining. Relatedly, we expect that fine-tuning of the existing models could produce
+  substantially more competent agents, even if the fine-tuning is not directly targeted at
+  ARA.
+authors:
+- Megan Kinniment
+- Lucas Jun Koba Sato
+- Haoxing Du
+- Brian Goodrich
+- Max Hasin
+- Lawrence Chan
+- Luke Harold Miles
+- Tao R. Lin
+- Hjalmar Wijk
+- Joel Burget
+- Aaron Ho
+- Elizabeth Barnes
+- Paul Christiano
+published_at: '2023-12-18'
+url: https://arxiv.org/abs/2312.11671
+doi: 10.48550/arXiv.2312.11671
+arxiv_id: '2312.11671'
+openalex_id: W4390041563
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: This is an evaluation suite
+  for dangerous autonomous capability, not a study of an organization in which agents hold
+  authority, so it sits in the same borrowed-background slot as Melting Pot rather than the
+  main corpus. No exclusion-register line applies; it is load-bearing for oversight design
+  thresholds but should be pointed at, not ingested as an agentic-organization record. What
+  changes because agents hold authority: It supplies the capability-threshold evaluation methodology
+  — can an agent acquire resources, replicate, and adapt unsupervised — that bounds how much
+  unmonitored authority an organization can responsibly delegate and what containment and
+  monitoring the delegation requires. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

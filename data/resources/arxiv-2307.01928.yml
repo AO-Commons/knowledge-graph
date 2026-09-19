@@ -1,0 +1,58 @@
+id: resource:arxiv:2307.01928
+resource_type: preprint
+title: 'Robots That Ask For Help: Uncertainty Alignment for Large Language Model Planners'
+abstract: 'Large language models (LLMs) exhibit a wide range of promising capabilities --
+  from step-by-step planning to commonsense reasoning -- that may provide utility for robots,
+  but remain prone to confidently hallucinated predictions. In this work, we present KnowNo,
+  which is a framework for measuring and aligning the uncertainty of LLM-based planners such
+  that they know when they don''t know and ask for help when needed. KnowNo builds on the
+  theory of conformal prediction to provide statistical guarantees on task completion while
+  minimizing human help in complex multi-step planning settings. Experiments across a variety
+  of simulated and real robot setups that involve tasks with different modes of ambiguity
+  (e.g., from spatial to numeric uncertainties, from human preferences to Winograd schemas)
+  show that KnowNo performs favorably over modern baselines (which may involve ensembles or
+  extensive prompt tuning) in terms of improving efficiency and autonomy, while providing
+  formal assurances. KnowNo can be used with LLMs out of the box without model-finetuning,
+  and suggests a promising lightweight approach to modeling uncertainty that can complement
+  and scale with the growing capabilities of foundation models. Website: https://robot-help.github.io'
+authors:
+- Allen Z. Ren
+- Anushri Dixit
+- Alexandra Bodrova
+- Sumeet Singh
+- Stephen Tu
+- Noah Brown
+- Peng Xu
+- Leila Takayama
+- Fei Xia
+- Jake Varley
+- Zhenjia Xu
+- Dorsa Sadigh
+- Andy Zeng
+- Anirudha Majumdar
+published_at: '2023-07-04'
+url: https://arxiv.org/abs/2307.01928
+doi: 10.48550/arXiv.2307.01928
+arxiv_id: '2307.01928'
+openalex_id: W4383472635
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Intelligent AI Delegation. Scope scan
+  by claude-opus-5: No exclusion-register line applies; this is a single-agent robotics method
+  paper, not a study of organizations, but the conformal-prediction escalation threshold is
+  load-bearing for designing autonomy limits and human-in-the-loop oversight in agentic organizations.
+  Held as borrowed background in section 15 alongside Melting Pot rather than ingested as
+  core organizational literature. What changes because agents hold authority: It gives a calibrated,
+  statistically guaranteed rule for when an agent may act on its own versus must escalate
+  to a human, which is exactly the threshold an organization must set when delegating operational
+  authority to machines. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

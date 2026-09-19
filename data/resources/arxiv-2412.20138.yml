@@ -1,0 +1,51 @@
+id: resource:arxiv:2412.20138
+resource_type: preprint
+title: 'TradingAgents: Multi-Agents LLM Financial Trading Framework'
+abstract: Significant progress has been made in automated problem-solving using societies
+  of agents powered by large language models (LLMs). In finance, efforts have largely focused
+  on single-agent systems handling specific tasks or multi-agent frameworks independently
+  gathering data. However, the multi-agent systems' potential to replicate real-world trading
+  firms' collaborative dynamics remains underexplored. TradingAgents proposes a novel stock
+  trading framework inspired by trading firms, featuring LLM-powered agents in specialized
+  roles such as fundamental analysts, sentiment analysts, technical analysts, and traders
+  with varied risk profiles. The framework includes Bull and Bear researcher agents assessing
+  market conditions, a risk management team monitoring exposure, and traders synthesizing
+  insights from debates and historical data to make informed decisions. By simulating a dynamic,
+  collaborative trading environment, this framework aims to improve trading performance. Detailed
+  architecture and extensive experiments reveal its superiority over baseline models, with
+  notable improvements in cumulative returns, Sharpe ratio, and maximum drawdown, highlighting
+  the potential of multi-agent LLM frameworks in financial trading. TradingAgents is available
+  at https://github.com/TauricResearch/TradingAgents.
+authors:
+- Yijia Xiao
+- Edward W. Sun
+- Di Luo
+- Wei Wang
+published_at: '2024-12-28'
+url: https://arxiv.org/abs/2412.20138
+doi: 10.48550/arXiv.2412.20138
+arxiv_id: '2412.20138'
+openalex_id: W4405955490
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterog; Inherent and emergent
+  liability issues in LLM-based agentic . Scope scan by claude-opus-5: This is not a human
+  collective-decision study nor a generic optimization method; it is an agent-only decision
+  structure with operational authority over trades, including an explicit oversight function,
+  which is exactly the design material the library exists to hold. No exclusion-register line
+  applies — it is not market microstructure or token design but firm-structure replication,
+  and it is treated as a reference architecture by existing library items on multi-agent economies
+  and principal-agent liability. What changes because agents hold authority: It supplies a
+  concrete organizational architecture — role-specialized analysts, adversarial bull/bear
+  debate, a risk-management review layer, and a trader who executes — in which machine agents
+  hold real capital-allocation authority, so it directly informs how internal checks, role
+  separation and escalation are designed in an agent-run firm. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1

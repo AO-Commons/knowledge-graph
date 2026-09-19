@@ -1,0 +1,47 @@
+id: resource:arxiv:1706.03741
+resource_type: preprint
+title: Deep reinforcement learning from human preferences
+abstract: For sophisticated reinforcement learning (RL) systems to interact usefully with
+  real-world environments, we need to communicate complex goals to these systems. In this
+  work, we explore goals defined in terms of (non-expert) human preferences between pairs
+  of trajectory segments. We show that this approach can effectively solve complex RL tasks
+  without access to the reward function, including Atari games and simulated robot locomotion,
+  while providing feedback on less than one percent of our agent's interactions with the environment.
+  This reduces the cost of human oversight far enough that it can be practically applied to
+  state-of-the-art RL systems. To demonstrate the flexibility of our approach, we show that
+  we can successfully train complex novel behaviors with about an hour of human time. These
+  behaviors and environments are considerably more complex than any that have been previously
+  learned from human feedback.
+authors:
+- Paul Christiano
+- Jan Leike
+- Tom B. Brown
+- Miljan Martic
+- Shane Legg
+- Dario Amodei
+published_at: '2017-06-12'
+url: https://arxiv.org/abs/1706.03741
+doi: 10.48550/arXiv.1706.03741
+arxiv_id: '1706.03741'
+openalex_id: W2626804490
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Human-centred mechanism design with
+  Democratic AI. Scope scan by claude-opus-5: This is a foundational alignment method, not
+  a study of an organization where agents hold authority, so it belongs at the pointer level
+  rather than the core corpus. No exclusion-register line applies; it is held as borrowed
+  background in section 15 alongside Melting Pot because the library''s oversight and accountability
+  material builds directly on it. What changes because agents hold authority: It establishes
+  the canonical mechanism by which humans retain low-bandwidth oversight over an agent''s
+  objective — feedback on under 1% of actions — which is the technical substrate for any claim
+  that a delegated agent''s goals remain answerable to principals. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

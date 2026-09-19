@@ -1,0 +1,102 @@
+id: resource:arxiv:2404.16244
+resource_type: preprint
+title: The Ethics of Advanced AI Assistants
+abstract: This paper focuses on the opportunities and the ethical and societal risks posed
+  by advanced AI assistants. We define advanced AI assistants as artificial agents with natural
+  language interfaces, whose function is to plan and execute sequences of actions on behalf
+  of a user, across one or more domains, in line with the user's expectations. The paper starts
+  by considering the technology itself, providing an overview of AI assistants, their technical
+  foundations and potential range of applications. It then explores questions around AI value
+  alignment, well-being, safety and malicious uses. Extending the circle of inquiry further,
+  we next consider the relationship between advanced AI assistants and individual users in
+  more detail, exploring topics such as manipulation and persuasion, anthropomorphism, appropriate
+  relationships, trust and privacy. With this analysis in place, we consider the deployment
+  of advanced assistants at a societal scale, focusing on cooperation, equity and access,
+  misinformation, economic impact, the environment and how best to evaluate advanced AI assistants.
+  Finally, we conclude by providing a range of recommendations for researchers, developers,
+  policymakers and public stakeholders.
+authors:
+- Iason Gabriel
+- Arianna Manzini
+- Geoff Keeling
+- Lisa Anne Hendricks
+- Verena Rieser
+- Hasan Iqbal
+- Nenad Tomašev
+- Sofia Ira Ktena
+- Zachary Kenton
+- M. Balsa Rodríguez
+- Seliem El-Sayed
+- Sasha Brown
+- Canfer Akbulut
+- Andrew Trask
+- Edward Hughes
+- A. S. Bergman
+- Renee Shelby
+- Nahema Marchal
+- Conor Griffin
+- Juan Mateos-García
+- Laura Weidinger
+- Winnie Street
+- Benjamin P. Lange
+- Alex Ingerman
+- Alison Lentz
+- Reed Enger
+- Andrew Barakat
+- Victoria Krakovna
+- John Oliver Siy
+- Zeb Kurth‐Nelson
+- Amanda McCroskery
+- Vijay Bolina
+- Harry Law
+- Murray Shanahan
+- Lize Alberts
+- Borja Balle
+- Sarah Haas
+- Yetunde Ibitoye
+- Allan Dafoe
+- Beth Goldberg
+- Sébastien Krier
+- Alexander Reese
+- Sims Witherspoon
+- Will Hawkins
+- Maribeth Rauh
+- Don Wallace
+- Matija Franklin
+- Josh A. Goldstein
+- Joel Lehman
+- Michael Klenk
+- Shannon Vallor
+- Courtney Biles
+- Meredith Ringel Morris
+- Helen King
+- Blaise Agüera y Arcas
+- William Isaac
+- James Manyika
+published_at: '2024-04-24'
+url: https://arxiv.org/abs/2404.16244
+doi: 10.48550/arXiv.2404.16244
+arxiv_id: '2404.16244'
+openalex_id: W4395686739
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Virtual Agent Economies. Scope scan by claude-opus-5:
+  Load-bearing for the field''s account of delegated machine action and cited as such by two
+  library records, but its unit of analysis is the user-assistant dyad and societal aggregates,
+  not an organization in which agents hold operational or decision authority. No exclusion-register
+  line bars it; it belongs at section 15 as pointed-at background rather than ingested scope.
+  What changes because agents hold authority: It supplies the delegation-and-alignment vocabulary
+  for agents that plan and act on a principal''s behalf — user-expectation fidelity, manipulation,
+  trust calibration, and multi-assistant cooperation effects — which frames how authority
+  delegated to an agent can go wrong, though it addresses individual principals rather than
+  organizational ones. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true

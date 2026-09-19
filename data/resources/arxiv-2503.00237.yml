@@ -1,0 +1,60 @@
+id: resource:arxiv:2503.00237
+resource_type: preprint
+title: Agentic AI Needs a Systems Theory
+abstract: The endowment of AI with reasoning capabilities and some degree of agency is widely
+  viewed as a path toward more capable and generalizable systems. Our position is that the
+  current development of agentic AI requires a more holistic, systems-theoretic perspective
+  in order to fully understand their capabilities and mitigate any emergent risks. The primary
+  motivation for our position is that AI development is currently overly focused on individual
+  model capabilities, often ignoring broader emergent behavior, leading to a significant underestimation
+  in the true capabilities and associated risks of agentic AI. We describe some fundamental
+  mechanisms by which advanced capabilities can emerge from (comparably simpler) agents simply
+  due to their interaction with the environment and other agents. Informed by an extensive
+  amount of existing literature from various fields, we outline mechanisms for enhanced agent
+  cognition, emergent causal reasoning ability, and metacognitive awareness. We conclude by
+  presenting some key open challenges and guidance for the development of agentic AI. We emphasize
+  that a systems-level perspective is essential for better understanding, and purposefully
+  shaping, agentic AI systems.
+authors:
+- Erik Miehling
+- Karthikeyan Natesan Ramamurthy
+- Kush R. Varshney
+- Matthew Riemer
+- Djallel Bouneffouf
+- John T. Richards
+- Amit Dhurandhar
+- Elizabeth M. Daly
+- Michael Hind
+- Prasanna Sattigeri
+- Dennis Wei
+- Ambrish Rawat
+- Jasmina Gajcin
+- Werner Geyer
+published_at: '2025-02-28'
+url: https://arxiv.org/abs/2503.00237
+doi: 10.48550/arXiv.2503.00237
+arxiv_id: '2503.00237'
+openalex_id: W6929400699
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Inherent and emergent
+  liability issues in LLM-based agentic ; Reliable agent engineering should integrate machine-compatib.
+  Scope scan by claude-opus-5: This is a position paper about emergent behavior in multi-agent
+  AI generally, not about organizations where agents hold operational or decision authority,
+  so it fails the scope test as a core record; no exclusion-register line applies, since it
+  is machine-specific rather than human collective decision-making. It is load-bearing framing
+  that three library papers build on, which is exactly the Section 15 borrowed-background
+  case alongside Melting Pot. What changes because agents hold authority: It warns that risk
+  and capability assessment done at the level of individual models underestimates what emerges
+  when agents interact with each other and their environment, so oversight of an agent-authority
+  organization must be specified at the system level rather than per-agent. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-19'
+expansion_generation: 1
+is_borrowed_background: true
