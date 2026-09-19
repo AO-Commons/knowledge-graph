@@ -1602,11 +1602,9 @@
       // not in a queue.
       if (claim.verdict) {
         card.append(el("p", { className: "hint" },
-          `Checked${claim.by ? " by " + claim.by : ""} — ${claim.verdict.replace(/-/g, " ")}.`
-          + (claim.byAuthor
-             ? " Filed by an author of this paper: the best judge of whether it says what the"
-               + " paper says, and the least disinterested about whether it overstates."
-             : "")));
+          "Checked"
+          + (claim.by ? ` by ${claim.by}${claim.byAuthor ? " (paper author)" : ""}` : "")
+          + ` as ${claim.verdict.replace(/-/g, " ")}.`));
         wrap.append(card);
         return;
       }

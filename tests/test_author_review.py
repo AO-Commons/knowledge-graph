@@ -116,10 +116,13 @@ class TestTheScreenSaysIt:
         built = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
         assert '"byAuthor":' in built
 
-    def test_and_says_what_it_means(self):
+    def test_the_line_names_the_reviewer_their_standing_and_the_verdict(self):
+        """"Checked by Axelmannen (paper author) as accurate." The reasoning
+        for why that standing matters lives in the docs; the card just has to
+        say who, in what capacity, and what they decided."""
         page = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
-        assert "Filed by an author of this paper" in page
-        assert "least disinterested" in page
+        assert '" (paper author)"' in page
+        assert "` as ${claim.verdict.replace(/-/g, \" \")}.`" in page
 
 
 class TestConfirmingALinkReachesVerdictsAlreadyMerged:
