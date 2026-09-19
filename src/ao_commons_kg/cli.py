@@ -654,9 +654,17 @@ def cmd_grow(args) -> int:
     def metadata(candidate) -> dict:
         """Only ever called for candidates that cleared the threshold, which
         is what keeps a run from costing one lookup per cited work."""
+        # Anything that fails to resolve becomes unresolvable, which `select`
+        # already reports, rather than ending the run. One candidate in 3,659
+        # carried a key with no colon, `split(":", 1)[1]` walked off the end
+        # of a one-element list, and the whole run died with nothing admitted
+        # — a bad string upstream should cost one candidate, not all of them.
+        identifier = candidate.key.split(":", 1)[-1] if candidate.key else ""
+        if not identifier:
+            return {}
         try:
-            work = resolve_work(candidate.key.split(":", 1)[1], fetch_oa)
-        except OpenAlexError:
+            work = resolve_work(identifier, fetch_oa)
+        except (OpenAlexError, ValueError, KeyError, IndexError):
             return {}
         return {"title": work.title, "abstract": work.abstract,
                 "date": work.publication_date}

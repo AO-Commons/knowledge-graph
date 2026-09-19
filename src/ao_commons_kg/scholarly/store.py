@@ -11,6 +11,8 @@ Bibliographic coupling and co-citation both read from here.
 
 from __future__ import annotations
 
+from .keys import normalize_key
+
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -70,7 +72,8 @@ class ReferenceStore:
     def references(self) -> dict[str, list[str]]:
         """Resource id -> canonical keys it cites."""
         return {
-            resource_id: entry.get("referenced_works", [])
+            resource_id: [k for k in (normalize_key(v)
+                                      for v in entry.get("referenced_works", [])) if k]
             for resource_id, entry in self.entries.items()
             if entry.get("referenced_works")
         }

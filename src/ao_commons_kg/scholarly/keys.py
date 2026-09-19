@@ -13,6 +13,8 @@ most likely to be shared across sources.
 
 from __future__ import annotations
 
+import re
+
 PREFERENCE = ("doi", "arxiv", "openalex", "semanticscholar")
 
 
@@ -85,3 +87,27 @@ def keys_for_corpus(resources) -> dict[str, str]:
         if key := key_for_resource(resource):
             index.setdefault(key, resource.id)
     return index
+
+
+def normalize_key(value: str | None) -> str | None:
+    """A bare OpenAlex work id is an OpenAlex key, and should say so.
+
+    518 keys in the reference store are stored as `W101716117` rather than
+    `openalex:W101716117`. Everything downstream assumes a prefix: a growth
+    run splits on the colon to recover the identifier, and a bare id sent
+    `candidate.key.split(":", 1)[1]` off the end of a one-element list,
+    taking the whole run with it — 3,659 candidates abandoned because of
+    the shape of one string.
+
+    They are also unjoinable as they stand: a held record keyed
+    `openalex:W101716117` and a citation keyed `W101716117` are the same
+    work and do not match, so the edge is silently missing.
+    """
+    text = (value or "").strip()
+    if not text:
+        return None
+    if ":" in text:
+        return text
+    if re.fullmatch(r"[Ww]\d+", text):
+        return f"openalex:{text.upper()}"
+    return text

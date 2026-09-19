@@ -396,3 +396,43 @@ class TestUnresolvable:
                            metadata=lambda c: {"title": "A real paper"})
         assert len(selection.admitted) == 1
         assert selection.unresolvable == []
+
+
+class TestOneBadCandidateDoesNotEndTheRun:
+    """A growth run found 3,659 candidates and admitted none of them: one key
+    had no colon, `split(":", 1)[1]` walked off a one-element list, and the
+    IndexError was not an OpenAlexError so nothing caught it."""
+
+    def test_a_bare_openalex_id_is_an_openalex_key(self):
+        from ao_commons_kg.scholarly.keys import normalize_key
+        assert normalize_key("W101716117") == "openalex:W101716117"
+        assert normalize_key("openalex:W55") == "openalex:W55"
+        assert normalize_key("doi:10.1/x") == "doi:10.1/x"
+        assert normalize_key("") is None
+
+    def test_the_store_hands_back_keys_that_can_be_split(self):
+        """They are also unjoinable while bare: a held record keyed
+        `openalex:W…` and a citation keyed `W…` are the same work and do not
+        match, so the edge is silently missing."""
+        from ao_commons_kg.cli import REFERENCES
+        from ao_commons_kg.scholarly.store import ReferenceStore
+        store = ReferenceStore.load(REFERENCES)
+        bare = [k for keys in store.references().values() for k in keys if ":" not in k]
+        assert not bare, bare[:5]
+
+    def test_a_candidate_that_cannot_be_resolved_is_reported_not_fatal(self):
+        from ao_commons_kg.expansion import Candidate, ScopeVerdict, select
+
+        def judge(candidate, facts):
+            return ScopeVerdict(admit=True, reasoning="in scope", judged_by="test")
+
+        def metadata(candidate):
+            return {} if "broken" in candidate.key else {"title": "A real paper"}
+
+        candidates = [
+            Candidate(key="broken", cited_by=("a", "b")),
+            Candidate(key="openalex:W1", cited_by=("a", "b")),
+        ]
+        selection = select(candidates, judge=judge, metadata=metadata, base=2, budget=10)
+        assert [c.key for c in selection.unresolvable] == ["broken"]
+        assert [c.key for c, _ in selection.admitted] == ["openalex:W1"]
