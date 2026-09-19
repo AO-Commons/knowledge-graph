@@ -82,6 +82,23 @@ class TestTheStatements:
         assert "Organizational" in quoted.text, "our sentence, our spelling"
 
 
+class TestTheDocs:
+    """The prose the project writes about itself.
+
+    Every doc was already American, and the rule only held because whoever
+    wrote them happened to be consistent. The first draft of `scouting.md`
+    arrived with `centre` and `judgement` in it, caught by running the
+    converter by hand — which is not a guard.
+    """
+
+    def test_the_docs_are_american(self):
+        offenders = {}
+        for path in sorted((ROOT / "docs").glob("*.md")):
+            if found := findings(path.read_text(encoding="utf-8")):
+                offenders[path.name] = sorted(set(found))
+        assert not offenders, offenders
+
+
 class TestTheAssertedRelations:
     def test_the_reasoning_is_american(self):
         raw = (ROOT / "data" / "claim-relations.yml").read_text(encoding="utf-8")
