@@ -120,6 +120,30 @@ the working vocabulary, both of which are in git and reviewable.
 **Cost per run.** Free sources have no per-call cost; the scope scan does. The
 budget bounds it, as it already does for growth.
 
+## What the first run taught
+
+Stage 1 is built, and running it corrected the design in one place.
+
+BM25 against the taxonomy measures **"is this about organizations"**, not
+"is this about organizations where machine agents hold authority". Our
+taxonomy is about organizations, so the first live sweep ranked *Organized
+Violence and Crime in Urban Nigeria* (116) and *The ecology of insolvency*
+(108) above everything else. Both are legitimately about organizational
+governance. Neither has a machine anywhere near it.
+
+So a find must now show the agent half too, by a generous local pattern —
+`agent`, `LLM`, `autonomous`, `automated`, and their neighbours. It is not
+deciding whether agents hold *authority*; that needs a model and is the
+scan's job. It refuses only the case no amount of organizational relevance
+can rescue. On the first sweep it removed 47 of 63 finds.
+
+Precision after that is still modest: healthcare information sharing and
+the Indian economy survive the bound. That is the intended division of
+labour — the bound is free and the scan is not, so the bound's job is to
+keep the scan's bill down rather than to be right on its own — but it is
+the number to watch. If most of what clears the bound is refused by the
+scan, the bound is too loose to be worth its own budget.
+
 ## Stages
 
 1. **arXiv and OpenAlex, queries from the corpus, scored locally.** No key, no
