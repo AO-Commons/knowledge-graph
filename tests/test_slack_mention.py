@@ -132,3 +132,42 @@ class TestABareTag:
         context = slack_mention.thread_context(messages, exclude="2.0")
         assert "approvals" in context
         assert "budgets" not in context
+
+
+class TestTheSlackCalls:
+    """chat.getPermalink takes query parameters despite the chat.* prefix, and
+    rejects a JSON body with invalid_arguments. It crashed every mention."""
+
+    @pytest.mark.parametrize("method", [
+        "conversations.replies", "conversations.history", "auth.test", "chat.getPermalink",
+    ])
+    def test_reads_go_as_query_parameters(self, method, monkeypatch):
+        seen = {}
+
+        class Response:
+            def read(self): return b'{"ok": true}'
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+
+        def urlopen(request, timeout=0):
+            seen["url"] = request.full_url
+            seen["data"] = request.data
+            return Response()
+
+        monkeypatch.setattr(slack_mention.urllib.request, "urlopen", urlopen)
+        slack_mention.call(method, {"channel": "C1"}, token="x")
+        assert seen["data"] is None, f"{method} must not carry a body"
+        assert "channel=C1" in seen["url"]
+
+    def test_writes_carry_a_json_body(self, monkeypatch):
+        seen = {}
+
+        class Response:
+            def read(self): return b'{"ok": true}'
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+
+        monkeypatch.setattr(slack_mention.urllib.request, "urlopen",
+                            lambda r, timeout=0: (seen.update(data=r.data), Response())[1])
+        slack_mention.call("chat.postMessage", {"channel": "C1", "text": "hi"}, token="x")
+        assert b'"text": "hi"' in seen["data"]
