@@ -1,0 +1,805 @@
+found_by: scout
+generated_on: '2026-09-22'
+threshold: 12.0
+queries:
+- text: bounded rationality replaced by different bounds context windows tool access latency
+  reason: deepen
+- text: evaluation gaming and answer key attacks
+  reason: deepen
+- text: oversight capacity as the binding constraint
+  reason: deepen
+- text: operator deployer and developer liability
+  reason: deepen
+- text: blame sanction and the non punishable actor
+  reason: widen
+- text: complementarity versus substitution
+  reason: widen
+- text: ungoverned infrastructure as escape path
+  reason: widen
+- text: automation bias and complacency
+  reason: widen
+scanned: true
+candidates:
+- key: doi:10.1108/tg-06-2026-0318
+  title: 'Responsible AI beyond compliance: governing everyday use in the public sector'
+  date: '2026-09-17'
+  url: https://doi.org/10.1108/tg-06-2026-0318
+  source: openalex
+  score: 180.14
+  topics:
+  - code: '12.4'
+    score: 32.81
+  - code: '16.1'
+    score: 32.78
+  - code: '4.1'
+    score: 32.45
+  - code: '16.4'
+    score: 30.75
+  - code: '1.1'
+    score: 25.75
+  - code: '4.5'
+    score: 25.6
+  concepts: []
+  found_via:
+  - automation bias and complacency
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: Nothing — the study explicitly finds AI use reinforces rather than displaces
+      human judgement, so no machine holds operational or decision authority anywhere in it.
+      This is an organizational case study of employees using AI tools as assistants, with
+      governance and accountability remaining wholly human; the high topic scores reflect
+      shared vocabulary about oversight, not delegated machine authority. It is not hybrid
+      decision-making in the admitted sense (a machine drafting or designing what humans ratify),
+      and it is not a method or evaluation the field builds on, so it is neither in scope
+      nor worth holding as a section 15 pointer.
+    judged_by: claude-opus-5
+- key: doi:10.56201/ijssmr.vol.11no8.2025.pg565.608
+  title: 'Human-In-The-Loop Decision Systems: Advances and Future Directions'
+  date: '2026-09-17'
+  url: https://doi.org/10.56201/ijssmr.vol.11no8.2025.pg565.608
+  source: openalex
+  score: 154.82
+  topics:
+  - code: '4.4'
+    score: 40.56
+  - code: '1.1'
+    score: 24.6
+  - code: '4.1'
+    score: 24.38
+  - code: '11.5'
+    score: 23.55
+  - code: '16.2'
+    score: 22.99
+  - code: '8.2'
+    score: 18.74
+  concepts: []
+  found_via:
+  - automation bias and complacency
+  scan:
+    admit: true
+    borrowed_background: true
+    reasoning: 'It supplies the authority-allocation vocabulary — levels of automation, adaptive
+      autonomy, calibrated reliance, automation bias, diffuse accountability, joint-system
+      evaluation — that oversight of machine agents holding real decision authority depends
+      on, even though the paper frames the machine as advisor rather than principal. No exclusion-register
+      line applies: this is human-machine hybrid authority allocation, explicitly in scope
+      under the deliberative-democracy reading, and removing the machine would void the findings
+      entirely. But it is a generic synthesis of supervised-automation literature rather than
+      a study of organizations where agents act, so it belongs as a pointer-level foundation
+      (section 15) alongside other borrowed method background rather than as a core record.'
+    judged_by: claude-opus-5
+- key: doi:10.1007/s10207-026-01336-9
+  title: 'From obligation to enforcement: mapping EU AI act and CRA cybersecurity requirements
+    to technical controls for LLM-based autonomous agents'
+  date: '2026-09-18'
+  url: https://doi.org/10.1007/s10207-026-01336-9
+  source: openalex
+  score: 151.89
+  topics:
+  - code: '10.1'
+    score: 38.58
+  - code: '11.10'
+    score: 26.67
+  - code: '10.5'
+    score: 25.16
+  - code: '14.4'
+    score: 21.96
+  - code: '10.3'
+    score: 20.31
+  - code: '12.4'
+    score: 19.21
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+  scan:
+    admit: true
+    borrowed_background: false
+    reasoning: 'It gives operators of agents that plan and act with limited supervision a
+      concrete obligation-to-control matrix and verification-evidence baseline for demonstrating
+      regulatory conformity, including controls for excessive agency and agent-specific attack
+      surfaces that only exist because the machine acts on its own authority. The regulatory-exclusion
+      line covers general entity concerns, but this qualifies under the carve-out for novel
+      exposure created by agent action: the threat model (prompt injection, tool/memory poisoning,
+      excessive agency, supply-chain) and the residual-gap analysis are specific to autonomous
+      agents rather than software generally. It directly changes how an agent-authority organization
+      is overseen and held accountable, so it is ingested rather than pointed at.'
+    judged_by: claude-opus-5
+- key: doi:10.56201/ijefm.v9.no9.2024.pg336.381
+  title: 'Bridging Legal, Financial, and Data Governance in Enterprise AI: Emerging Trends'
+  date: '2026-09-17'
+  url: https://doi.org/10.56201/ijefm.v9.no9.2024.pg336.381
+  source: openalex
+  score: 137.95
+  topics:
+  - code: '12.4'
+    score: 33.66
+  - code: '1.1'
+    score: 25.67
+  - code: '16.3'
+    score: 22.37
+  - code: '12.1'
+    score: 18.9
+  - code: '12.2'
+    score: 18.76
+  - code: '14.4'
+    score: 18.59
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: Nothing — the paper treats AI as a governed object (legal, financial, data
+      artefact) under human control catalogues, and its crosswalk would read identically for
+      a static credit-scoring model, so it says nothing about organizations where machine
+      agents hold operational or decision authority. This is a synthesis of existing compliance
+      frameworks (EU AI Act, NIST RMF, SR 11-7, DAMA-DMBOK, model cards) addressing general
+      enterprise entity governance rather than delegated machine authority — close to the
+      register's 'general entity concerns' line, admissible only where agent action creates
+      novel exposure, which this does not address. It is also not load-bearing method or evaluation
+      infrastructure for the field, so pointer status is unwarranted.
+    judged_by: claude-opus-5
+- key: doi:10.14738/tecs.1405.12205
+  title: 'From Model Risk Management to AI Assurance: Integrating AI Risk Management, Independent
+    Validation, and AI Auditing for Generative and Agentic AI'
+  date: '2026-09-19'
+  url: https://doi.org/10.14738/tecs.1405.12205
+  source: openalex
+  score: 134.46
+  topics:
+  - code: '14.4'
+    score: 37.25
+  - code: '9.4'
+    score: 24.94
+  - code: '14.5'
+    score: 20.0
+  - code: '12.4'
+    score: 18.16
+  - code: '9.2'
+    score: 17.33
+  - code: '2.4'
+    score: 16.78
+  concepts: []
+  found_via:
+  - automation bias and complacency
+  scan:
+    admit: true
+    borrowed_background: false
+    reasoning: It specifies how oversight functions — inventory, materiality, independent
+      validation, effective challenge, escalation — must be restructured when the system under
+      control has shifting boundaries and its own autonomy, giving concrete design criteria
+      (assurance boundary, sufficiency principle, autonomy-scaled assurance intensity) for
+      accountability over agents that act. The work is explicitly built for generative and
+      agentic AI, treats autonomy and topology as drivers of assurance intensity, and includes
+      an agentic-enterprise illustration, so it is about holding an agent-authority organization
+      accountable rather than generic entity compliance. No exclusion-register line applies;
+      it is not tax/IP/securities general entity concern but a socio-technical oversight architecture
+      for delegated machine action.
+    judged_by: claude-opus-5
+- key: doi:10.5281/zenodo.22075346
+  title: 'Field Condition: How the Governance Ecosystem Sustains Structural Absence'
+  date: '2026-08-24'
+  url: https://doi.org/10.5281/zenodo.22075346
+  source: openalex
+  score: 133.66
+  topics:
+  - code: '14.4'
+    score: 25.01
+  - code: '11.4'
+    score: 24.2
+  - code: '11.1'
+    score: 23.23
+  - code: '12.2'
+    score: 22.45
+  - code: '11.13'
+    score: 20.06
+  - code: '13.4'
+    score: 18.71
+  concepts: []
+  found_via:
+  - ungoverned infrastructure as escape path
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: It argues external forcing (insurance actuarial pricing, EU product liability)
+      will compel governance architecture inside the acting machine, but it offers no design,
+      operating, or oversight construct for an organization where agents hold authority —
+      its subject is the sociology of the human AI-governance industry. The empirical object
+      is the institutional and financial behavior of human governance bodies and consultancies,
+      which would read the same without any agent holding operational authority; that is the
+      excluded class of human collective/institutional dynamics rather than hybrid human-machine
+      authority. Unverifiable venue, no citation contact with the library, and a polemical
+      field-critique framing push this below the admission bar, and it is not load-bearing
+      method or evaluation infrastructure that Section 15 exists to point at.
+    judged_by: claude-opus-5
+- key: openalex:W7213372330
+  title: 'Trustworthy Agentic AI: A Comprehensive Cybersecurity and Systems Survey on Threat
+    Landscapes, Defense Architectures, and Open Challenges'
+  date: '2026-09-12'
+  url: https://openalex.org/W7213372330
+  source: openalex
+  score: 131.99
+  topics:
+  - code: '10.6'
+    score: 24.15
+  - code: '10.5'
+    score: 23.47
+  - code: '15.4'
+    score: 23.24
+  - code: '2.2'
+    score: 21.71
+  - code: '12.4'
+    score: 20.71
+  - code: '11.13'
+    score: 18.71
+  concepts: []
+  found_via:
+  - bounded rationality replaced by different bounds context windows tool access latency
+  scan:
+    admit: true
+    borrowed_background: true
+    reasoning: It catalogues the threat surfaces and containment primitives — capability-based
+      access control, dual-LLM isolation, sandboxed tool planes, kernel-level probes — that
+      bound what an agent with real execution authority can actually do and how its actions
+      can be audited after the fact. The work is a systems-security survey rather than a study
+      of organizations, so it is not itself about agentic organizations, but its defense architectures
+      and accountability mappings are the load-bearing substrate for any design that delegates
+      operational authority to machine agents. No exclusion-register line applies; it is held
+      as a pointer in section 15 alongside other adjacent method/evaluation literature rather
+      than ingested as an organizational record.
+    judged_by: claude-opus-5
+- key: doi:10.7759/s44404-026-00283-x
+  title: 'The Role of Management in Developing Seafarers’ Digital Skills for Artificial Intelligence-Driven
+    Maritime Transformation: A Systematic Literature Review'
+  date: '2026-09-17'
+  url: https://doi.org/10.7759/s44404-026-00283-x
+  source: openalex
+  score: 131.45
+  topics:
+  - code: '12.4'
+    score: 30.71
+  - code: '16.1'
+    score: 22.98
+  - code: '7.3'
+    score: 20.6
+  - code: '2.4'
+    score: 19.33
+  - code: '11.11'
+    score: 18.97
+  - code: '7.2'
+    score: 18.86
+  concepts: []
+  found_via:
+  - automation bias and complacency
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: Nothing — this is a workforce training and maritime education review about
+      human skill development for automated shipping, with no machine agent holding operational
+      or decision authority in the organization it studies. The paper concerns managerial
+      responsibility for seafarer upskilling and curriculum governance; the findings about
+      training architecture, regulatory lag, and instructor gaps would hold for any technological
+      transition and are not about delegating authority to machines. It is human workforce/education
+      material adjacent to the register's exclusions for participation and institutional depth,
+      and is not load-bearing method or evaluation infrastructure for the field.
+    judged_by: claude-opus-5
+- key: doi:10.22437/75fr5372
+  title: Addressing the Gap in International Criminal Liability through Layered Accountability
+    and Algoritmic Sanctions for Autonomous AI
+  date: '2026-09-19'
+  url: https://doi.org/10.22437/75fr5372
+  source: openalex
+  score: 114.75
+  topics:
+  - code: '16.4'
+    score: 20.42
+  - code: '14.4'
+    score: 19.59
+  - code: '11.1'
+    score: 19.55
+  - code: '1.4'
+    score: 19.05
+  - code: '12.4'
+    score: 18.44
+  - code: '15.5'
+    score: 17.7
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: 'Nothing: it addresses attribution of international criminal liability for
+      autonomous AI under ICL, not how an organization delegating authority to agents should
+      be designed, operated, or overseen. The paper is normative public-international-criminal-law
+      doctrine about a responsibility gap for AI-involved atrocity crimes, with no organizational
+      locus where machine agents hold operational or decision authority. It falls near the
+      register''s general legal-regulation exclusion, which is retained only where agent action
+      creates novel organizational exposure (12.6.3), and it is too doctrinally remote to
+      be load-bearing background.'
+    judged_by: claude-opus-5
+- key: arxiv:2609.10105
+  title: 'Beyond Training: A Feasibility Taxonomy for Inference-Time AI Governance'
+  date: '2026-09-09'
+  url: https://doi.org/10.48550/arxiv.2609.10105
+  source: openalex
+  score: 114.33
+  topics:
+  - code: '13.4'
+    score: 21.49
+  - code: '2.4'
+    score: 20.48
+  - code: '10.6'
+    score: 19.82
+  - code: '14.4'
+    score: 19.03
+  - code: '11.1'
+    score: 18.16
+  - code: '14.2'
+    score: 15.35
+  concepts: []
+  found_via:
+  - ungoverned infrastructure as escape path
+  scan:
+    admit: true
+    borrowed_background: true
+    reasoning: It maps which technical controls on the inference call — the substrate on which
+      agentic scaffolding actually runs — are mature enough to monitor, verify, or halt an
+      agent's actions, and shows that enforcement degrades to nothing against a capable self-hosting
+      deployer, which bounds what external oversight of an agent-authority organization can
+      rest on. The paper's unit of analysis is the regulator and the inference provider, not
+      an organization in which agents hold authority, so it is adjacent rather than in scope;
+      but it is load-bearing for the library's 'ungoverned infrastructure as escape path'
+      concern because it documents the readiness and adversarial limits of the enforcement
+      layer any agentic organization's oversight would depend on. No exclusion-register line
+      applies — it is not voting mechanism design, entity regulation, or human collective
+      decision-making — so hold it as borrowed background in section 15 rather than ingesting
+      it.
+    judged_by: claude-opus-5
+- key: doi:10.1088/2631-7990/aea9db
+  title: 'Towards Trustworthy and Scalable Agentic Smart Manufacturing: A Roadmap for Generative
+    AI-integrated MAS 2.0'
+  date: '2026-09-18'
+  url: https://doi.org/10.1088/2631-7990/aea9db
+  source: openalex
+  score: 107.87
+  topics:
+  - code: '15.6'
+    score: 23.62
+  - code: '12.4'
+    score: 19.59
+  - code: '11.1'
+    score: 16.58
+  - code: '8.3'
+    score: 16.16
+  - code: '14.1'
+    score: 16.09
+  - code: '5.1'
+    score: 15.83
+  concepts: []
+  found_via:
+  - bounded rationality replaced by different bounds context windows tool access latency
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: 'Nothing: it is a domain roadmap for generative-AI multi-agent architectures
+      in manufacturing, offering layer taxonomies and research priorities rather than any
+      account of how authority, oversight, or accountability is structured in an organization
+      where agents decide. The paper''s ''agentic'' framing is about cyber-physical task execution
+      and technical trustworthiness of MAS pipelines, not about delegated decision authority
+      within an organization, so it fails the scope test even though its vocabulary scores
+      high against organizational topics. It is also not load-bearing background the field
+      builds on — it is a domain-specific review whose removal would leave the library''s
+      design questions unchanged.'
+    judged_by: claude-opus-5
+- key: openalex:W7203805284
+  title: 'Efficiency vs. safety in AI-enabled medical education: an ethical analysis of AI
+    as a bridge or a wedge'
+  date: '2026-10-01'
+  url: https://openalex.org/W7203805284
+  source: openalex
+  score: 103.45
+  topics:
+  - code: '15.2'
+    score: 29.43
+  - code: '11.1'
+    score: 16.28
+  - code: '1.1'
+    score: 16.19
+  - code: '11.5'
+    score: 14.45
+  - code: '7.1'
+    score: 13.83
+  - code: '1.2'
+    score: 13.27
+  concepts: []
+  found_via:
+  - automation bias and complacency
+  scan:
+    admit: false
+    borrowed_background: false
+    reasoning: Nothing — it concerns curricular and professional-ethics design for human trainees
+      using AI tools, not organizations where machine agents hold operational or decision
+      authority. The paper is about medical education pedagogy and clinician role conflict;
+      AI is a decision-support tool the learner must calibrate or refuse, so no delegated
+      machine authority is at stake. Its themes (automation bias, deskilling) are adjacent
+      human-professional-development material rather than load-bearing method or evaluation
+      infrastructure for agentic organizations.
+    judged_by: claude-opus-5
+- key: doi:10.1186/s42400-026-00656-6
+  title: Camouflage-resistant graph neural networks for power grid anomaly detection
+  date: '2026-09-18'
+  url: https://doi.org/10.1186/s42400-026-00656-6
+  source: openalex
+  score: 99.1
+  topics:
+  - code: '15.6'
+    score: 25.4
+  - code: '9.3'
+    score: 19.51
+  - code: '3.2'
+    score: 15.6
+  - code: '14.1'
+    score: 14.65
+  - code: '6.2'
+    score: 13.29
+  - code: '15.1'
+    score: 10.65
+  concepts: []
+  found_via:
+  - evaluation gaming and answer key attacks
+- key: doi:10.5281/zenodo.22837121
+  title: 'The Third Clock: Engineering the Learning System Between Prototypes and Silicon'
+  date: '2026-09-10'
+  url: https://doi.org/10.5281/zenodo.22837121
+  source: openalex
+  score: 98.15
+  topics:
+  - code: '14.4'
+    score: 23.24
+  - code: '4.5'
+    score: 19.63
+  - code: '2.1'
+    score: 14.88
+  - code: '15.1'
+    score: 13.87
+  - code: '2.2'
+    score: 13.43
+  - code: '11.7'
+    score: 13.1
+  concepts: []
+  found_via:
+  - ungoverned infrastructure as escape path
+- key: doi:10.70917/ijcisim-2026-5434
+  title: 'Generative AI and Technical Debt in Software Development: Productivity Gains versus
+    Code Quality and Security Risk'
+  date: '2026-09-02'
+  url: https://doi.org/10.70917/ijcisim-2026-5434
+  source: openalex
+  score: 96.26
+  topics:
+  - code: '14.4'
+    score: 18.69
+  - code: '16.4'
+    score: 18.67
+  - code: '1.1'
+    score: 15.7
+  - code: '14.2'
+    score: 14.71
+  - code: '1.4'
+    score: 14.32
+  - code: '12.5'
+    score: 14.17
+  concepts: []
+  found_via:
+  - ungoverned infrastructure as escape path
+- key: arxiv:2009.12213
+  title: Towards a Systematic Computational Framework for Modeling Multi-Agent Decision-Making
+    at Micro Level for Smart Vehicles in a Smart World
+  date: '2020-09-25'
+  url: http://arxiv.org/abs/2009.12213v1
+  source: arxiv
+  score: 94.76
+  topics:
+  - code: '1.2'
+    score: 25.52
+  - code: '12.4'
+    score: 16.18
+  - code: '14.5'
+    score: 15.85
+  - code: '4.1'
+    score: 12.79
+  - code: '10.5'
+    score: 12.68
+  - code: '8.2'
+    score: 11.74
+  concepts: []
+  found_via:
+  - bounded rationality replaced by different bounds context windows tool access latency
+- key: doi:10.1007/s12525-026-00935-7
+  title: 'Sharing healthcare information with the public in electronic markets using blockchain:
+    Three experimental studies and a machine learning analysis'
+  date: '2026-09-19'
+  url: https://doi.org/10.1007/s12525-026-00935-7
+  source: openalex
+  score: 85.26
+  topics:
+  - code: '16.4'
+    score: 20.89
+  - code: '16.3'
+    score: 15.01
+  - code: '14.5'
+    score: 14.98
+  - code: '16.1'
+    score: 12.44
+  - code: '6.1'
+    score: 10.98
+  - code: '15.1'
+    score: 10.96
+  concepts: []
+  found_via:
+  - evaluation gaming and answer key attacks
+- key: doi:10.62036/isd.2026.176
+  title: 'Humanistic Competencies in AI-Driven ISD: A Project-Based Learning Architecture'
+  date: '2026-09-17'
+  url: https://doi.org/10.62036/isd.2026.176
+  source: openalex
+  score: 83.84
+  topics:
+  - code: '16.4'
+    score: 22.18
+  - code: '15.5'
+    score: 12.75
+  - code: '15.6'
+    score: 12.69
+  - code: '1.4'
+    score: 12.12
+  - code: '4.2'
+    score: 12.11
+  - code: '1.1'
+    score: 11.99
+  concepts: []
+  found_via:
+  - automation bias and complacency
+- key: openalex:W7213568563
+  title: 'Exploring The Role of Single Pilot Operations in Night Cargo Aviation: A Phenomenological
+    Study'
+  date: '2026-09-17'
+  url: https://openalex.org/W7213568563
+  source: openalex
+  score: 74.42
+  topics:
+  - code: '11.11'
+    score: 19.21
+  - code: '15.2'
+    score: 13.13
+  - code: '11.1'
+    score: 12.08
+  - code: '14.4'
+    score: 10.06
+  - code: '11.13'
+    score: 10.05
+  - code: '16.4'
+    score: 9.89
+  concepts: []
+  found_via:
+  - automation bias and complacency
+- key: doi:10.1177/09717218261480253
+  title: 'The Impact of Artificial Intelligence on Indian Economy: Prospects and Challenges'
+  date: '2026-09-19'
+  url: https://doi.org/10.1177/09717218261480253
+  source: openalex
+  score: 72.08
+  topics:
+  - code: '11.8'
+    score: 13.05
+  - code: '13.3'
+    score: 12.7
+  - code: '14.4'
+    score: 12.24
+  - code: '12.6'
+    score: 12.19
+  - code: '14.1'
+    score: 11.61
+  - code: '16.2'
+    score: 10.29
+  concepts: []
+  found_via:
+  - complementarity versus substitution
+- key: openalex:W7213373600
+  title: 'ForgeTrain: Forging Production-Grade Training Frameworks via Harness-Driven AI Development'
+  date: '2026-09-12'
+  url: https://openalex.org/W7213373600
+  source: openalex
+  score: 71.09
+  topics:
+  - code: '8.3'
+    score: 14.03
+  - code: '11.2'
+    score: 13.02
+  - code: '11.11'
+    score: 12.96
+  - code: '4.4'
+    score: 10.91
+  - code: '3.4'
+    score: 10.15
+  - code: '7.1'
+    score: 10.02
+  concepts: []
+  found_via:
+  - bounded rationality replaced by different bounds context windows tool access latency
+- key: openalex:W7213372146
+  title: 'Math for AI safety: an invitation for mathematicians'
+  date: '2026-09-14'
+  url: https://openalex.org/W7213372146
+  source: openalex
+  score: 69.45
+  topics:
+  - code: '15.6'
+    score: 20.25
+  - code: '1.2'
+    score: 11.5
+  - code: '11.1'
+    score: 10.5
+  - code: '10.6'
+    score: 10.23
+  - code: '15.3'
+    score: 8.96
+  - code: '15.2'
+    score: 8.01
+  concepts: []
+  found_via:
+  - bounded rationality replaced by different bounds context windows tool access latency
+- key: doi:10.1016/j.techfore.2026.124879
+  title: 'Co-creating responsible AI for public safety: A mixed-method approach toward understanding
+    stakeholder perceptions'
+  date: '2026-09-18'
+  url: https://doi.org/10.1016/j.techfore.2026.124879
+  source: openalex
+  score: 66.3
+  topics:
+  - code: '2.2'
+    score: 13.15
+  - code: '9.3'
+    score: 12.49
+  - code: '16.4'
+    score: 10.72
+  - code: '16.1'
+    score: 10.57
+  - code: '12.1'
+    score: 10.0
+  - code: '11.11'
+    score: 9.37
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+- key: doi:10.1007/978-3-032-39720-1_10
+  title: 'Regulatory Risk and Liability Allocation for AI-Controlled Power Systems: A Legal
+    Framework for Autonomous Grid Operations'
+  date: '2026-09-20'
+  url: https://doi.org/10.1007/978-3-032-39720-1_10
+  source: openalex
+  score: 60.11
+  topics:
+  - code: '12.2'
+    score: 15.21
+  - code: '12.4'
+    score: 12.76
+  - code: '11.12'
+    score: 10.12
+  - code: '12.3'
+    score: 8.08
+  - code: '8.1'
+    score: 7.34
+  - code: '11.15'
+    score: 6.6
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+- key: doi:10.1080/13523260.2026.2729298
+  title: 'Contesting control: Mechanisms of norm stagnation in the CCW debate on autonomous
+    weapon systems'
+  date: '2026-09-20'
+  url: https://doi.org/10.1080/13523260.2026.2729298
+  source: openalex
+  score: 57.81
+  topics:
+  - code: '1.1'
+    score: 13.0
+  - code: '11.15'
+    score: 9.34
+  - code: '15.1'
+    score: 9.25
+  - code: '3.2'
+    score: 9.14
+  - code: '5.2'
+    score: 8.63
+  - code: '11.10'
+    score: 8.45
+  concepts: []
+  found_via:
+  - oversight capacity as the binding constraint
+- key: doi:10.1080/10670564.2026.2733081
+  title: 'Redefining China’s Approach to AI Governance: Beyond Top-Down, Government-Led, and
+    Command-and-Control'
+  date: '2026-09-19'
+  url: https://doi.org/10.1080/10670564.2026.2733081
+  source: openalex
+  score: 53.25
+  topics:
+  - code: '5.2'
+    score: 11.53
+  - code: '14.4'
+    score: 9.53
+  - code: '10.4'
+    score: 8.62
+  - code: '3.1'
+    score: 8.31
+  - code: '13.1'
+    score: 7.98
+  - code: '10.6'
+    score: 7.28
+  concepts: []
+  found_via:
+  - oversight capacity as the binding constraint
+- key: doi:10.1017/9781009731904
+  title: The Geopolitics of Artificial Intelligence
+  date: '2026-09-18'
+  url: https://doi.org/10.1017/9781009731904
+  source: openalex
+  score: 33.52
+  topics:
+  - code: '9.4'
+    score: 10.4
+  - code: '14.4'
+    score: 10.4
+  - code: '16.4'
+    score: 4.49
+  - code: '12.1'
+    score: 4.14
+  - code: '1.4'
+    score: 4.09
+  concepts: []
+  found_via:
+  - operator deployer and developer liability
+  - blame sanction and the non punishable actor
+- key: doi:10.21203/rs.3.rs-10777064/v1
+  title: Systematic evidence mapping shows artificial intelligence dependence claims outnumber
+    corresponding assessments in health professions education
+  date: '2026-09-20'
+  url: https://doi.org/10.21203/rs.3.rs-10777064/v1
+  source: openalex
+  score: 20.93
+  topics:
+  - code: '14.4'
+    score: 7.27
+  - code: '5.3'
+    score: 4.9
+  - code: '15.5'
+    score: 4.62
+  - code: '8.2'
+    score: 4.14
+  concepts: []
+  found_via:
+  - automation bias and complacency
