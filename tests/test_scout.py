@@ -230,3 +230,20 @@ class TestTheScanSeesDifferentEvidence:
         from ao_commons_kg.scope_judge import anthropic_scout_judge
         with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
             anthropic_scout_judge(api_key="")
+
+
+class TestAMissingKeySaysSo:
+    """Both judges imported the Anthropic SDK before checking the key, so on
+    an install without the optional extra — which is what CI runs — a missing
+    key was reported as ModuleNotFoundError. The common case, with the useful
+    answer, hidden behind an install problem."""
+
+    def test_the_scout_judge(self):
+        from ao_commons_kg.scope_judge import anthropic_scout_judge
+        with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
+            anthropic_scout_judge(api_key="")
+
+    def test_and_the_growth_judge(self):
+        from ao_commons_kg.scope_judge import anthropic_judge
+        with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
+            anthropic_judge(api_key="")
