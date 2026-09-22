@@ -54,7 +54,12 @@ class SlackError(RuntimeError):
 
 def call(method: str, payload: dict, *, token: str) -> dict:
     """One Slack API call. GET for reads, POST for writes, as Slack wants."""
-    if method in ("conversations.replies", "conversations.history", "auth.test"):
+    # Slack's read methods take query parameters and reject a JSON body with
+    # `invalid_arguments`. chat.getPermalink is one of them despite the
+    # chat.* prefix, which is how it ended up on the wrong side of this and
+    # crashed every mention before a word was answered.
+    if method in ("conversations.replies", "conversations.history", "auth.test",
+                  "chat.getPermalink"):
         url = SLACK + method + "?" + urllib.parse.urlencode(payload)
         request = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
     else:
@@ -201,8 +206,15 @@ def main(argv: list[str] | None = None) -> int:
                         "whether it is already a record, what is filed near it, or that "
                         "it holds nothing on this.")
 
-    permalink = call("chat.getPermalink", {"channel": args.channel, "message_ts": args.ts},
-                     token=slack_token).get("permalink", "")
+    # Only ever quoted in an issue body. Worth having and not worth failing on:
+    # answering a question does not depend on being able to link back to it.
+    try:
+        permalink = call("chat.getPermalink",
+                         {"channel": args.channel, "message_ts": args.ts},
+                         token=slack_token).get("permalink", "")
+    except SlackError as error:
+        print(f"no permalink: {error}", file=sys.stderr)
+        permalink = ""
     who = f"<@{here.get('user')}>" if here.get("user") else "somebody"
 
     identifier = is_addition(question)
