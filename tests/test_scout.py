@@ -184,3 +184,49 @@ class TestTheSourcesParseWhatTheyAreGiven:
     def test_a_source_that_answers_with_rubbish_yields_nothing(self):
         assert OpenAlexSource.parse("not json") == []
         assert ArxivSource.parse("<feed></feed>") == []
+
+
+class TestTheScanSeesDifferentEvidence:
+    """A scout find has no citations, and the citation prompt would report
+    that as "cited by 0 papers" — which reads as weak evidence when the truth
+    is different evidence. The policy above it must not fork, though: one
+    scope test, one exclusion register, one standard of proof."""
+
+    def _both(self):
+        from ao_commons_kg.expansion import Candidate
+        from ao_commons_kg.scope_judge import build_prompt, build_scout_prompt
+        cited = build_prompt(Candidate(key="k", cited_by=("r1", "r2")),
+                             {"title": "T", "abstract": "A"}, ["Paper one"])
+        scouted = build_scout_prompt({"title": "T", "abstract": "A"},
+                                     queries=["agent reputation systems"],
+                                     topics=[("5.3", 12.0)], concepts=["agent-reputation"])
+        return cited, scouted
+
+    def test_the_policy_is_one_copy(self):
+        cited, scouted = self._both()
+        for section in ("THE SCOPE TEST", "EXCLUSION REGISTER", "borrowed\nbackground"):
+            assert section in cited and section in scouted, section
+
+    def test_they_ask_for_the_same_answer(self):
+        cited, scouted = self._both()
+        assert cited[-300:] == scouted[-300:]
+
+    def test_only_the_evidence_differs(self):
+        cited, scouted = self._both()
+        assert "cited by 2 papers" in cited
+        assert "cited by 2 papers" not in scouted
+        assert "Nothing in the library cites this paper" in scouted
+        assert "Nothing in the library cites this paper" not in cited
+
+    def test_the_scan_is_told_a_high_topic_score_is_not_the_thing(self):
+        """It scores words against a taxonomy about organizations. The first
+        sweep ranked a paper on violence in Nigeria at the top on that basis,
+        so the model has to be told what the number does and does not mean."""
+        _, scouted = self._both()
+        flat = " ".join(scouted.split())
+        assert "not evidence that machine agents hold authority" in flat
+
+    def test_a_scout_without_a_key_refuses_to_pretend(self):
+        from ao_commons_kg.scope_judge import anthropic_scout_judge
+        with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
+            anthropic_scout_judge(api_key="")

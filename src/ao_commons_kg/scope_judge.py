@@ -60,8 +60,56 @@ def _exclusion_register(taxonomy_path: Path = TAXONOMY) -> str:
 
 
 def build_prompt(candidate: Candidate, metadata: dict, citing_titles: list[str]) -> str:
-    """What the model is shown. One candidate, its abstract, and who cites it."""
+    """What the model is shown for a candidate the citation graph proposed."""
     citers = "\n".join(f"  - {t}" for t in citing_titles) or "  (titles unavailable)"
+    return _prompt(metadata, f"""It is cited by {candidate.support} papers already in the library:
+{citers}
+
+Being cited by several of our papers means the field treats it as part of this \
+conversation. It does not mean it passes the scope test — our papers cite optimization, \
+neural architectures and game theory generally, and none of that belongs here.""")
+
+
+def build_scout_prompt(metadata: dict, *, queries: list[str],
+                       topics: list[tuple[str, float]], concepts: list[str]) -> str:
+    """What the model is shown for a candidate a search proposed.
+
+    The policy above is identical and must stay that way — one scope test,
+    one exclusion register, one standard of proof. Only the evidence differs,
+    and it differs in a way the model needs told: nothing in the library
+    cites this paper, so the usual signal is absent rather than negative.
+
+    Saying "cited by 0 papers" instead, which reusing the citation prompt
+    would do, reads as weak evidence when the truth is different evidence.
+    """
+    asked = "\n".join(f"  - {q}" for q in queries) or "  (unknown)"
+    matched = "\n".join(f"  - {code} (score {score})" for code, score in topics[:5]) \
+        or "  (none above threshold)"
+    seen = ", ".join(concepts) or "none"
+    return _prompt(metadata, f"""Nothing in the library cites this paper and it cites nothing \
+in the library. It was not proposed by the citation graph at all — it was found by \
+searching for what the library is about, so the usual signal is absent rather than \
+negative. Judge it on the abstract.
+
+It was returned by these searches:
+{asked}
+
+Its text scores against these taxonomy topics:
+{matched}
+
+Concepts the library already uses that appear in it: {seen}
+
+A high topic score means the words match a taxonomy about organizations. It is not \
+evidence that machine agents hold authority in the work, which is the thing to check.""")
+
+
+def _prompt(metadata: dict, evidence: str) -> str:
+    """The standing policy, which both routes share.
+
+    Split out when the scout arrived so there is one scope test and one
+    exclusion register rather than two that drift apart — the second copy
+    being the one nobody remembers to update.
+    """
     return f"""You are deciding whether one paper belongs in a research library about \
 **agentic organizations**: organizations in which machine agents hold operational or \
 decision authority.
@@ -90,12 +138,7 @@ Title: {metadata.get('title') or '(unknown)'}
 Venue/date: {metadata.get('venue') or '?'} {metadata.get('date') or ''}
 Abstract: {metadata.get('abstract') or '(no abstract available)'}
 
-It is cited by {candidate.support} papers already in the library:
-{citers}
-
-Being cited by several of our papers means the field treats it as part of this \
-conversation. It does not mean it passes the scope test — our papers cite optimization, \
-neural architectures and game theory generally, and none of that belongs here.
+{evidence}
 
 Some work is neither in scope nor to be refused: it is **borrowed
 background** — adjacent literature the library points at rather than ingests,
@@ -174,6 +217,62 @@ def parse_verdict(body: str) -> dict:
     raise ScanUnreadable(
         "the JSON object never closed, which usually means the reply hit "
         f"max_tokens: {text[-160:]!r}")
+
+
+def anthropic_scout_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None):
+    """A scope judge for candidates a search proposed rather than a citation.
+
+    The same model, the same policy and the same refusal discipline: a judge
+    that cannot answer refuses, because "the API was down so everything got
+    in" is the drift this layer exists to prevent.
+    """
+    import anthropic
+
+    key = api_key or os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        raise RuntimeError(
+            "ANTHROPIC_API_KEY is not set. A scout without a scan lists what it "
+            "found and judges none of it, which is a sweep that proposes rather "
+            "than a sweep that approves.")
+    client = anthropic.Anthropic(api_key=key)
+
+    def judge(find) -> ScopeVerdict:
+        try:
+            response = client.messages.create(
+                model=model,
+                max_tokens=2000,
+                messages=[{"role": "user", "content": build_scout_prompt(
+                    {"title": find.title, "abstract": find.abstract, "date": find.date},
+                    queries=list(find.queries),
+                    topics=[(c, s) for c, s in find.topics],
+                    concepts=list(find.concepts))}],
+            )
+            body = "".join(block.text for block in response.content
+                           if getattr(block, "type", "") == "text")
+            payload = parse_verdict(body)
+        except Exception as error:  # noqa: BLE001 — any failure is a refusal
+            return ScopeVerdict(
+                admit=False,
+                reasoning=f"scope scan could not complete ({type(error).__name__}: "
+                          f"{error}); refused rather than admitted",
+                judged_by=model)
+
+        because = (payload.get("changes_because_agents_hold_authority") or "").strip()
+        reasoning = (payload.get("reasoning") or "").strip()
+        if not because or not reasoning:
+            return ScopeVerdict(
+                admit=False,
+                reasoning="scope scan returned no reasoning; refused, because an "
+                          "admission nobody can audit is how a corpus drifts",
+                judged_by=model)
+        return ScopeVerdict(
+            admit=bool(payload.get("admit")),
+            reasoning=f"{because} {reasoning}".strip(),
+            judged_by=model,
+            borrowed_background=bool(payload.get("borrowed_background")),
+        )
+
+    return judge
 
 
 def anthropic_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None,

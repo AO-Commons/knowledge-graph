@@ -53,6 +53,11 @@ def main(argv=None) -> int:
     parser.add_argument("--threshold", type=float, default=12.0)
     parser.add_argument("--per-query", type=int, default=10)
     parser.add_argument("--budget", type=int, default=40)
+    parser.add_argument("--scan", action="store_true",
+                        help="put what cleared the bound to the scope scan (costs a "
+                             "model call each, and needs ANTHROPIC_API_KEY)")
+    parser.add_argument("--scan-budget", type=int, default=25,
+                        help="most candidates to scan in one run")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
 
@@ -90,6 +95,24 @@ def main(argv=None) -> int:
         if find.concepts:
             print(f"          concepts: {', '.join(find.concepts)}")
 
+    verdicts = {}
+    if args.scan:
+        from ao_commons_kg.scope_judge import anthropic_scout_judge
+
+        judge = anthropic_scout_judge()
+        print(f"\nscanning {min(len(found.kept), args.scan_budget)} of "
+              f"{len(found.kept)}:")
+        for find in found.kept[: args.scan_budget]:
+            verdict = judge(find)
+            verdicts[find.key] = verdict
+            mark = "admit " if verdict.admit else "refuse"
+            if verdict.borrowed_background:
+                mark = "borrow"
+            print(f"  {mark}  {find.title[:56]}")
+            print(f"          {verdict.reasoning[:108]}")
+        admitted = [k for k, v in verdicts.items() if v.admit]
+        print(f"\nthe scan would admit {len(admitted)} of {len(verdicts)} scanned")
+
     if not args.write:
         print("\nRe-run with --write to record these as candidates.")
         return 0
@@ -101,12 +124,23 @@ def main(argv=None) -> int:
         "generated_on": date.today().isoformat(),
         "threshold": args.threshold,
         "queries": [{"text": q.text, "reason": q.reason} for q in queries],
+        "scanned": bool(verdicts),
         "candidates": [{
             "key": f.key, "title": f.title, "date": f.date, "url": f.url,
             "source": f.source, "score": round(f.score, 2),
             "topics": [{"code": c, "score": s} for c, s in f.topics],
             "concepts": list(f.concepts),
             "found_via": list(f.queries),
+            # The scan's verdict, when one was asked for. A candidate file
+            # that records only what was found says nothing about what was
+            # thought of it, and the refusals are the more useful half:
+            # they are the evidence for whether the bound is too loose.
+            **({"scan": {
+                "admit": verdicts[f.key].admit,
+                "borrowed_background": verdicts[f.key].borrowed_background,
+                "reasoning": verdicts[f.key].reasoning,
+                "judged_by": verdicts[f.key].judged_by,
+            }} if f.key in verdicts else {}),
         } for f in found.kept],
     }, sort_keys=False, allow_unicode=True, width=88), encoding="utf-8")
     print(f"\nwrote {path.relative_to(REPO)}")

@@ -1,0 +1,110 @@
+# Look for work the citation graph cannot see.
+#
+#   the corpus's own concepts and blind spots -> arXiv and OpenAlex
+#     -> scored against our taxonomy -> scope scan -> data/candidates/
+#
+# `grow` finds papers connected to ones we hold. This finds papers connected
+# to nothing we hold, which is invisible to expansion by construction: a paper
+# that neither cites us nor is cited by us scores zero against a citation
+# threshold however plainly it belongs.
+#
+# It proposes and never admits, which is the difference from `grow.yml`. That
+# workflow commits records to main because two held papers citing something is
+# the corpus voting for it. A search result has no such vote, so this one
+# writes a candidate file and opens an issue, and a person decides.
+#
+# Dispatch only, deliberately. A scout that runs unattended before anybody has
+# read its output is a scout whose precision nobody has measured.
+
+name: Scout for new work
+
+on:
+  workflow_dispatch:
+    inputs:
+      deepen:
+        description: "Queries from concepts statements have needed"
+        default: "6"
+      widen:
+        description: "Queries from taxonomy subpoints nothing is filed under"
+        default: "6"
+      seed:
+        description: "Which slice of the unreached subpoints to search"
+        default: "0"
+      scan_budget:
+        description: "Most candidates to put to the scope scan"
+        default: "25"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: scout
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    # The key lives on this environment, as it does for growth. Without the
+    # line the job finds no secret and the scan refuses everything it is
+    # asked, which would read as "nothing in scope" rather than "not asked".
+    environment: scope-scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[scholarly,scope]"
+
+      - name: Sweep
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 scripts/scout.py \
+            --deepen "${{ inputs.deepen }}" \
+            --widen "${{ inputs.widen }}" \
+            --seed "${{ inputs.seed }}" \
+            --scan --scan-budget "${{ inputs.scan_budget }}" \
+            --write | tee /tmp/scout.txt
+
+      - name: Commit what it proposed
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain data/candidates/)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/candidates/
+          git commit -m "Scout: candidates the citation graph could not see"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Say what it found
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/scout.txt', 'utf8');
+            await github.rest.issues.create({
+              ...context.repo,
+              title: `Scout: candidates for ${new Date().toISOString().slice(0, 10)}`,
+              labels: ['expansion'],
+              body: [
+                'Work found by searching rather than by following citations.',
+                '',
+                '**Nothing here is admitted.** A scout proposes: growth commits',
+                'records to main because two held papers citing something is the',
+                'corpus voting for it, and a search result has no such vote.',
+                '',
+                'The refusals are the more useful half. If most of what cleared',
+                'the local bound was refused by the scan, the bound is too loose',
+                'to be worth its own budget.',
+                '',
+                '```',
+                body.slice(-5000),
+                '```',
+              ].join('\n'),
+            });
