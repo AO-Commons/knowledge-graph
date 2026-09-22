@@ -59,6 +59,10 @@ jobs:
       - name: Sweep
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Optional. Absent, the sweep runs on arXiv and OpenAlex alone and
+          # says nothing about it — the free tier is 50 requests a month and
+          # the attention signal is worth having, not worth depending on.
+          EMERGENTMIND_API_KEY: ${{ secrets.EMERGENTMIND_API_KEY }}
         run: |
           python3 scripts/scout.py \
             --deepen "${{ inputs.deepen }}" \

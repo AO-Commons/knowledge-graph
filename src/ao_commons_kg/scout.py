@@ -217,6 +217,7 @@ def sweep(
     sources: list[Source],
     queries: list[Query],
     *,
+    standing: list | None = None,
     index: TopicIndex,
     concepts_in_use: Iterable[str],
     held_keys: dict[str, str],
@@ -235,6 +236,24 @@ def sweep(
     concepts_in_use = list(concepts_in_use)
     found: dict[str, Find] = {}
     result = Sweep()
+
+    # Sources asked once a run rather than once a query. Trending is the
+    # case: one request returns what is being read, and asking it per query
+    # would spend a month's free allowance in six runs while returning the
+    # same list each time.
+    for source in standing or []:
+        try:
+            hits = source.standing()
+        except Exception:  # noqa: BLE001 — one source failing is not the run failing
+            hits = []
+        if on_query:
+            on_query(Query(text="trending", reason="standing"), source.name, len(hits))
+        for hit in hits:
+            if not hit.key:
+                result.unusable.append(hit)
+                continue
+            hit.queries = ("trending",)
+            found.setdefault(hit.key, hit)
 
     for query in queries:
         for source in sources:

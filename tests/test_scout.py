@@ -247,3 +247,75 @@ class TestAMissingKeySaysSo:
         from ao_commons_kg.scope_judge import anthropic_judge
         with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):
             anthropic_judge(api_key="")
+
+
+class TestTrendingIsAskedOnceARun:
+    """The free tier is 50 requests a month. Asked per query that buys six
+    runs; asked once for trending it returns up to 50 papers for one request
+    and leaves the month almost untouched."""
+
+    def test_it_is_a_standing_source_not_a_per_query_one(self):
+        from ao_commons_kg.scout_sources import EmergentMindSource
+        source = EmergentMindSource(api_key="k", fetch=lambda: '{"papers": []}')
+        assert hasattr(source, "standing")
+        assert not hasattr(source, "search"), \
+            "a search method would put it back in the per-query loop"
+
+    def test_the_sweep_asks_it_exactly_once(self):
+        calls = []
+
+        class Trending:
+            name = "trending"
+
+            def standing(self):
+                calls.append(1)
+                return [Find(key="arxiv:1", title="agent governance delegation")]
+
+        found = sweep([], [Query("a", "deepen"), Query("b", "widen")],
+                      standing=[Trending()], index=FakeIndex(),
+                      concepts_in_use=[], held_keys={})
+        assert len(calls) == 1
+        assert [f.key for f in found.kept] == ["arxiv:1"]
+
+    def test_without_a_key_it_does_nothing_rather_than_failing(self):
+        from ao_commons_kg.scout_sources import EmergentMindSource
+        source = EmergentMindSource(api_key="")
+        assert not source.available
+        assert source.standing() == []
+
+    def test_it_stops_before_the_quota_is_gone(self):
+        """A month's allowance spent by a loop nobody noticed is a month with
+        no attention signal at all."""
+        from ao_commons_kg.scout_sources import EmergentMindSource
+        source = EmergentMindSource(api_key="k", min_remaining=5,
+                                    fetch=lambda: '{"papers": [{"arxiv_id": "1"}]}')
+        source.remaining = 4
+        assert source.standing() == []
+        source.remaining = 20
+        assert source.standing()
+
+    def test_it_keeps_a_pointer_and_not_their_text(self):
+        """Their terms forbid copying content out of the service. A find
+        carries an identifier; the abstract is resolved from arXiv."""
+        from ao_commons_kg.scout_sources import EmergentMindSource
+        found = EmergentMindSource.parse(
+            '{"papers": [{"arxiv_id": "2502.15840", "title": "T",'
+            ' "abstract": "their summary", "published_at": "2025-02-20"}]}')
+        assert found[0].key == "arxiv:2502.15840"
+        assert found[0].abstract == ""
+
+    def test_a_reply_it_does_not_recognize_costs_the_signal_not_the_run(self):
+        from ao_commons_kg.scout_sources import EmergentMindSource
+        assert EmergentMindSource.parse("not json") == []
+        assert EmergentMindSource.parse('{"unexpected": {"shape": 1}}') == []
+
+    def test_a_standing_source_that_raises_does_not_end_the_sweep(self):
+        class Broken:
+            name = "broken"
+
+            def standing(self):
+                raise RuntimeError("quota")
+
+        found = sweep([], [], standing=[Broken()], index=FakeIndex(),
+                      concepts_in_use=[], held_keys={})
+        assert found.kept == []

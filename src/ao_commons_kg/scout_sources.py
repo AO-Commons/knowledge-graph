@@ -155,3 +155,105 @@ def _abstract(inverted: dict | None) -> str:
         for position in positions:
             spots[position] = word
     return " ".join(spots[i] for i in sorted(spots))
+
+
+class EmergentMindSource:
+    """Trending papers, ranked by attention rather than by citations.
+
+    Asked once a run, not once a query, and the arithmetic is the reason.
+    The free tier is 50 requests a month: as a per-query source that buys
+    six runs, while `trending` returns up to 50 papers for one request and
+    leaves the month almost untouched. It is also the only thing here the
+    free sources cannot do — arXiv and OpenAlex can be asked what is new,
+    not what is being read.
+
+    Attention is a reachability signal, never a quality one. It earns a
+    paper a place in front of the scope scan, which then decides; a corpus
+    that admitted what trended would be the opposite of a curated library.
+
+    Their terms forbid copying content out of the service, so nothing here
+    keeps their text. A find carries an identifier and the fact that it was
+    trending; everything else is resolved from arXiv and OpenAlex, exactly
+    as every other path already does.
+    """
+
+    name = "emergentmind"
+    API = "https://api.emergentmind.com/v1/papers/trending"
+
+    def __init__(self, api_key: str | None = None, *, days: int = 14,
+                 min_remaining: int = 5, fetch=None):
+        import os
+
+        self.api_key = api_key or os.environ.get("EMERGENTMIND_API_KEY") or ""
+        self.days = days
+        self.min_remaining = min_remaining
+        """Stop before the quota is gone. A month's allowance spent by a loop
+        nobody noticed is a month with no attention signal at all, and the
+        header says how much is left on every reply."""
+        self.remaining: int | None = None
+        self._fetch = fetch
+
+    @property
+    def available(self) -> bool:
+        return bool(self.api_key)
+
+    def standing(self, *, limit: int = 50) -> list[Find]:
+        """One request. Everything it returns, or nothing and a reason."""
+        if not self.available:
+            return []
+        if self.remaining is not None and self.remaining <= self.min_remaining:
+            return []
+
+        if self._fetch is not None:
+            return self.parse(self._fetch())
+
+        import requests
+
+        response = requests.post(
+            self.API,
+            headers={"x-api-key": self.api_key, "User-Agent": AGENT},
+            json={"start_date": _since(self.days), "num_results": min(limit, 50)},
+            timeout=30,
+        )
+        left = response.headers.get("X-RateLimit-Remaining")
+        if left is not None and str(left).isdigit():
+            self.remaining = int(left)
+        response.raise_for_status()
+        return self.parse(response.text)
+
+    @staticmethod
+    def parse(payload: str) -> list[Find]:
+        """Tolerant on purpose.
+
+        The shape is documented rather than pinned, and a source whose reply
+        drifts should cost a sweep its attention signal rather than raise in
+        the middle of one.
+        """
+        try:
+            body = json.loads(payload) or {}
+        except json.JSONDecodeError:
+            return []
+        papers = body.get("papers") or body.get("results") or body.get("data") or []
+        if not isinstance(papers, list):
+            return []
+
+        finds = []
+        for paper in papers:
+            if not isinstance(paper, dict):
+                continue
+            arxiv_id = str(paper.get("arxiv_id") or paper.get("arxiv_paper_id")
+                           or paper.get("id") or "").strip()
+            arxiv_id = arxiv_id.rsplit("/", 1)[-1].removeprefix("arxiv:")
+            key = canonical_key({"arxiv": arxiv_id, "doi": paper.get("doi")})
+            if not key:
+                continue
+            # Their text is not kept. The title is the pointer a person reads
+            # in the candidate file; the abstract is resolved from arXiv when
+            # the record is built.
+            finds.append(Find(
+                key=key,
+                title=str(paper.get("title") or ""),
+                date=str(paper.get("published_at") or paper.get("date") or "")[:10],
+                url=f"https://arxiv.org/abs/{arxiv_id}" if arxiv_id else "",
+                source="emergentmind"))
+        return finds

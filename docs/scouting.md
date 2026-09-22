@@ -78,6 +78,15 @@ subscription.
 | Hacker News, GitHub | free, no key | attention on work too new to cite |
 | Emergent Mind | $0–12/month | semantic search and attention ranking |
 
+**Emergent Mind is asked for trending, once a run, and the free tier is why.**
+50 requests a month buys six runs if it is asked per query, and almost a year
+of weekly runs if it is asked once for what is trending — which returns up to
+50 papers for that one request. It is also the only thing here the free
+sources cannot do: arXiv and OpenAlex can be asked what is new, not what is
+being read. The source stops on its own when the month's remaining count
+approaches zero, because an allowance spent by a loop nobody noticed is a
+month with no attention signal at all.
+
 On Emergent Mind specifically: their terms forbid copying content out of the
 service, so a scout may keep **pointers** — an arXiv id — and must resolve and
 extract everything itself from arXiv, OpenAlex and Semantic Scholar, as every

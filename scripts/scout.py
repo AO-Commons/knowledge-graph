@@ -34,7 +34,9 @@ from ao_commons_kg.concepts import load_vocabulary  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
 from ao_commons_kg.scholarly.keys import keys_for_corpus  # noqa: E402
 from ao_commons_kg.scout import queries_from_corpus, sweep  # noqa: E402
-from ao_commons_kg.scout_sources import ArxivSource, OpenAlexSource  # noqa: E402
+from ao_commons_kg.scout_sources import (  # noqa: E402
+    ArxivSource, EmergentMindSource, OpenAlexSource,
+)
 from ao_commons_kg.taxonomy import load_taxonomy  # noqa: E402
 
 TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
@@ -79,14 +81,24 @@ def main(argv=None) -> int:
                        yaml.safe_load(ALIASES.read_text(encoding="utf-8")) or {})
 
     print()
+    # Asked once a run, and only when a key is present. Attention is the one
+    # thing the free sources cannot report, and the free tier is 50 requests
+    # a month — one a run leaves it almost untouched.
+    trending = EmergentMindSource()
+    if trending.available:
+        print("  emergentmind: trending, one request")
+    standing = [trending] if trending.available else []
+
     found = sweep(
-        [ArxivSource(), OpenAlexSource()], queries,
+        [ArxivSource(), OpenAlexSource()], queries, standing=standing,
         index=index, concepts_in_use=in_use,
         held_keys=keys_for_corpus(resources),
         threshold=args.threshold, per_query=args.per_query, budget=args.budget,
         on_query=lambda q, s, n: print(f"  {s:9} {n:3} for {q.text[:44]!r}"),
     )
     print(f"\n{found.summary()}\n")
+    if trending.available and trending.remaining is not None:
+        print(f"  emergentmind: {trending.remaining} requests left this month\n")
 
     for find in found.kept:
         topics = ", ".join(code for code, _ in find.topics[:3])
