@@ -21,7 +21,7 @@ authors:
 - Richard H. Willis
 - Yali Du
 - Joel Z. Leibo
-- G. Flucke
+- Michael Luck
 organizations:
 - Google
 - Google DeepMind
@@ -36,7 +36,7 @@ affiliations:
   - King's College London
   - Google DeepMind
   - Google
-  G. Flucke:
+  Michael Luck:
   - University of Sussex
 published_at: '2024-10-12'
 url: https://doi.org/10.1007/s10458-024-09675-4
@@ -47,7 +47,7 @@ is_retracted: false
 facets:
   artifact_type: peer-reviewed-paper
 review_status: unreviewed
-source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+source_provenance: 'Fourth author corrected 2026-09-22: OpenAlex gave "G. Flucke", Crossref and the published paper give Michael Luck (https://api.crossref.org/works/10.1007/s10458-024-09675-4). Admitted automatically at generation 1 by citation expansion: cited by
   3 records already held, which is at or above the threshold of 2 for this generation. Connected
   records: A Review of Cooperation in Multi-agent Learning; Principal-Agent Reinforcement
   Learning: Orchestrating AI Age; Quantifying the Self-Interest Level of Markov Social Dilemma.
