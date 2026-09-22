@@ -3327,6 +3327,7 @@
     ["graph", "How the graph fits together"],
     ["types", "The six kinds of statement"],
     ["pipeline", "From a paper to a statement"],
+    ["admission", "How anything gets in"],
     ["review", "What a reviewer is asked"],
     ["stack", "What it runs on"],
     ["changes", "What has changed"],
@@ -3630,12 +3631,28 @@
         + "guess.",
         s.with_references + " with references · " + s.citation_edges + " citations inside the corpus"),
       stageRow(3, "Admission", ["machine"],
-        "The only automatic gate. Citations are walked both ways — forward "
-        + "matters, because a paper published last month has been cited by nobody "
-        + "and can never clear a backward threshold however plainly it belongs. A "
-        + "rising threshold, a model reading each abstract against the scope test, "
-        + "and a hard budget of 40 a run.",
+        "Two routes in, and the difference between them is what evidence a "
+        + "candidate arrives with. Both end at the same scope scan.",
         "runs Tuesdays"),
+      stageRow("3a", "Growth \u2014 following citations", ["machine"],
+        "`aokg grow` walks the citation graph in both directions. Backward is "
+        + "free, read from the reference store. Forward costs a query per held "
+        + "record and is the only route by which recent research can arrive at "
+        + "all: a paper published last month has been cited by nobody and can "
+        + "never clear a backward threshold, however plainly it belongs, but it "
+        + "can cite three of ours on the day it appears. Growth admits to the "
+        + "corpus automatically, because two held papers citing something is the "
+        + "library already voting for it.",
+        s.records + " records, 40 a run"),
+      stageRow("3b", "Scouting \u2014 searching for the blind spots", ["machine"],
+        "`scripts/scout.py` looks for work the citation graph cannot see: a paper "
+        + "that neither cites us nor is cited by us scores zero against a citation "
+        + "threshold however plainly it belongs. Queries come from the corpus in "
+        + "two halves \u2014 the concepts statements have needed, which deepen, and "
+        + "a rotating sample of the taxonomy subpoints nothing is filed under, "
+        + "which widen. It proposes and never admits: a search result has no vote, "
+        + "so it writes a candidate file and a person decides.",
+        "dispatch only"),
       stageRow(4, "Extraction", ["machine", "a person"],
         "Statements read out of the full text, each with a verbatim quote. Five "
         + "gates: the quote is really in the paper, the claim is about the field and "
@@ -3683,6 +3700,53 @@
            + "The bottom line grows only when somebody reads something, which is "
            + "why the binding constraint has moved from “how do we find "
            + "papers” to “who decides whether any of this is right”."),
+    ]));
+
+    // --- how things get in -----------------------------------------------
+    wrap.append(section("admission", "How anything gets in", "the evaluation framework", [
+      para("Every route ends at the same gate, and none of them is a keyword "
+           + "score. What differs is the evidence a candidate arrives with and "
+           + "therefore what it has to clear first."),
+      docTable(["", "Growth", "Scouting"], [
+        ["Finds", "papers the corpus already cites, or that cite it",
+         "papers connected to nothing we hold"],
+        ["First bound", "a rising citation threshold \u2014 two held papers at one "
+         + "hop, three at two, each step from a human judgment strictly harder",
+         "topical support: BM25 against our own published taxonomy, plus overlap "
+         + "with concepts statements have needed"],
+        ["Then", "the scope scan", "the scope scan"],
+        ["Budget", "40 admitted a run", "25 scanned a run"],
+        ["On passing", "admitted to the corpus automatically",
+         "written to a candidate file for a person to promote"],
+      ]),
+      para(el("strong", {}, "The scope scan is the gate, and it is one gate. "),
+           "A model reads the abstract against the scope test \u2014 what changes "
+           + "because machine agents hold authority \u2014 and against a register of "
+           + "things deliberately excluded before. Both routes send it the same "
+           + "policy and the same standard of proof; only the evidence block "
+           + "differs, because a scouted paper has no citations and saying "
+           + "\u201ccited by 0 papers\u201d would read as weak evidence when the "
+           + "truth is different evidence."),
+      para("It must answer in one sentence what about designing, operating or "
+           + "overseeing an agent-authority organization is different because of "
+           + "the work. If it cannot, the answer is no. A scan that errors refuses: "
+           + "\u201cthe API was down so everything got in\u201d is the drift this "
+           + "layer exists to prevent."),
+      para(el("strong", {}, "Three answers, not two. "),
+           "Admit, refuse, or borrowed background \u2014 adjacent work the library "
+           + "points at rather than ingests, such as an evaluation suite or a "
+           + "foundational method the field builds on. Melting Pot is held that way."),
+      para(el("strong", {}, "What the numbers say so far. "),
+           "A growth run in September considered 3,659 works and admitted 40 "
+           + "against a budget of 40, refusing 119 as out of scope. The scout's "
+           + "first scan put 12 candidates to the gate and admitted 5 \u2014 two "
+           + "outright and three as borrowed background. Refusals are the more "
+           + "useful half of both: if most of what clears a bound is refused by "
+           + "the scan, the bound is too loose to be worth its budget."),
+      para("Every admission carries the scan's reasoning in its record, so a bad "
+           + "rule shows up as a readable pattern rather than a mystery pile. A "
+           + "refusal is remembered too, and a verdict that flips between runs is "
+           + "reported rather than quietly applied."),
     ]));
 
     // --- review ----------------------------------------------------------

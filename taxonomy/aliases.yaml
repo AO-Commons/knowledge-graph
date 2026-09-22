@@ -16,6 +16,27 @@
 - steganographic collusion
 - covert signaling
 - hidden coordination channel
+# The project's own word for its object. v3 says "agentic organization" and
+# AO Commons says "autonomous organization" — the scope test ("an organization
+# where agents act with real authority") and the glossary ("an organization in
+# which AI agents hold meaningful leadership, operational, or governance
+# roles") describe the same thing, so these are two names for one object and
+# only one of them was findable.
+#
+# Asked "what are autonomous organizations?", the library returned nothing and
+# the agent concluded the term was not used — to the person who named the
+# organization after it. An empty index reads exactly like an absent concept.
+#
+# 1.1 carries "terminology contests and competing definitions", so it is the
+# right home rather than a new node.
+'1.1':
+- autonomous organization
+- autonomous organizations
+- autonomous organisation
+- autonomous organisations
+- AO
+- AOs
+
 '12.1':
 - infrastructural sovereignty
 - diffused accountability
