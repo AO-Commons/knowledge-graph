@@ -133,6 +133,12 @@ def record_brief(corpus: Corpus, resource, *, with_claims: bool = False) -> dict
         "url": resource.url or "",
         "doi": resource.doi or "",
         "arxiv_id": resource.arxiv_id or "",
+        # One field that is a link if any link is possible, so a surface
+        # citing this record never has to fall back to printing its id.
+        # `resource:arxiv:2506.12469` is a key, not a citation.
+        "link": (resource.url
+                 or (f"https://arxiv.org/abs/{resource.arxiv_id}" if resource.arxiv_id else "")
+                 or (f"https://doi.org/{resource.doi}" if resource.doi else "")),
         "filed_under": resource.taxonomy_topics or [],
         "review_status": resource.review_status.value,
         "is_borrowed_background": resource.is_borrowed_background,
