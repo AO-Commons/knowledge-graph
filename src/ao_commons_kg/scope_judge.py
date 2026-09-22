@@ -226,14 +226,19 @@ def anthropic_scout_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = N
     that cannot answer refuses, because "the API was down so everything got
     in" is the drift this layer exists to prevent.
     """
-    import anthropic
-
+    # The key check comes before the import on purpose. A missing key is a
+    # configuration fact and the refusal is the same either way, but reaching
+    # for the SDK first turns it into ModuleNotFoundError — which reads as a
+    # broken install rather than an unset secret, and takes the test that
+    # asserts the refusal down with it.
     key = api_key or os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         raise RuntimeError(
             "ANTHROPIC_API_KEY is not set. A scout without a scan lists what it "
             "found and judges none of it, which is a sweep that proposes rather "
             "than a sweep that approves.")
+    import anthropic
+
     client = anthropic.Anthropic(api_key=key)
 
     def judge(find) -> ScopeVerdict:
@@ -286,14 +291,19 @@ def anthropic_judge(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
     an admission: the failure mode of "the API was down so everything got
     in" is exactly the drift this layer exists to prevent.
     """
-    import anthropic
-
+    # The key check comes before the import on purpose. A missing key is a
+    # configuration fact and the refusal is the same either way, but reaching
+    # for the SDK first turns it into ModuleNotFoundError — which reads as a
+    # broken install rather than an unset secret, and takes the test that
+    # asserts the refusal down with it.
     key = api_key or os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         raise RuntimeError(
             "ANTHROPIC_API_KEY is not set. Expansion admits nothing without a "
             "scope judge, so a run without this key is a run that does nothing "
             "rather than a run that approves everything.")
+    import anthropic
+
     client = anthropic.Anthropic(api_key=key)
     titles = titles or {}
 
