@@ -139,7 +139,7 @@ can rescue. On the first sweep it removed 47 of 63 finds.
 
 Precision after that is still modest: healthcare information sharing and
 the Indian economy survive the bound. That is the intended division of
-labour — the bound is free and the scan is not, so the bound's job is to
+labor — the bound is free and the scan is not, so the bound's job is to
 keep the scan's bill down rather than to be right on its own — but it is
 the number to watch. If most of what clears the bound is refused by the
 scan, the bound is too loose to be worth its own budget.
