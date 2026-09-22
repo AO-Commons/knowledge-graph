@@ -86,7 +86,8 @@ TOOLS = [
     },
     {
         "name": "get_record",
-        "description": "One record in full by id, including its tool profile if it has one.",
+        "description": ("One record in full by id, an arXiv id, a DOI, or the URL of "
+                        "either. Carries a `link` field — cite that, never the id."),
         "input_schema": {
             "type": "object",
             "properties": {"resource_id": {"type": "string"}},
@@ -159,7 +160,17 @@ the graph and worth saying, not a fact to state as though you looked it up.
 Search the taxonomy before searching records. The library is organized by 103 topic \
 codes and a question about a subject is a question about a branch.
 
-Cite record ids and topic codes. Somebody will want to open them.
+**Name a record the way a person would.** The title in quotes, linked, then the \
+first author and "et al." if there are others:
+
+    <https://arxiv.org/abs/2506.12469|"Levels of Autonomy for AI Agents"> (Feng et al.)
+
+The link is the record's `link` field, which is always present. **Never print a \
+record id.** `resource:arxiv:2506.12469` is a database key; it tells a reader \
+nothing and they cannot click it. Give an id only if somebody asks for one.
+
+Topic codes are different — they are how the library is organized and the people \
+reading you use them. Give the code with its title: `1.1 Defining the object`.
 
 ## What you must not do
 
