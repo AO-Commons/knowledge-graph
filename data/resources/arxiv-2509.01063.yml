@@ -1,0 +1,38 @@
+id: resource:arxiv:2509.01063
+resource_type: preprint
+title: An Economy of AI Agents
+abstract: In the coming decade, artificially intelligent agents with the ability to plan and
+  execute complex tasks over long time horizons with little direct oversight from humans may
+  be deployed across the economy. This chapter surveys recent developments and highlights
+  open questions for economists around how AI agents might interact with humans and with each
+  other, shape markets and organizations, and what institutions might be required for well-functioning
+  markets.
+authors:
+- Gillian K. Hadfield
+- Andrew Koh
+published_at: '2025-09-01'
+url: https://arxiv.org/abs/2509.01063
+doi: 10.48550/arXiv.2509.01063
+arxiv_id: '2509.01063'
+openalex_id: W4416169532
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Virtual Agent Economies. Scope scan by claude-opus-5:
+  The chapter''s subject is agents acting autonomously in markets and organizations and the
+  institutions needed to govern them, so removing the machine removes the finding entirely;
+  no exclusion-register line applies since this is not human collective decision-making, token
+  design, or general entity regulation. It is a survey but a substantive agenda-setting one
+  about agent authority itself, not adjacent background, and both citing library papers treat
+  it as core. What changes because agents hold authority: It maps the economic and institutional
+  requirements — contracting, liability, identity, delegation, market design — that only arise
+  once agents plan and transact with little human oversight, directly informing how an agent-authority
+  organization must be structured and overseen. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

@@ -1,0 +1,51 @@
+id: resource:arxiv:2302.00763
+resource_type: preprint
+title: Collaborating with language models for embodied reasoning
+abstract: 'Reasoning in a complex and ambiguous environment is a key goal for Reinforcement
+  Learning (RL) agents. While some sophisticated RL agents can successfully solve difficult
+  tasks, they require a large amount of training data and often struggle to generalize to
+  new unseen environments and new tasks. On the other hand, Large Scale Language Models (LSLMs)
+  have exhibited strong reasoning ability and the ability to to adapt to new tasks through
+  in-context learning. However, LSLMs do not inherently have the ability to interrogate or
+  intervene on the environment. In this work, we investigate how to combine these complementary
+  abilities in a single system consisting of three parts: a Planner, an Actor, and a Reporter.
+  The Planner is a pre-trained language model that can issue commands to a simple embodied
+  agent (the Actor), while the Reporter communicates with the Planner to inform its next command.
+  We present a set of tasks that require reasoning, test this system''s ability to generalize
+  zero-shot and investigate failure cases, and demonstrate how components of this system can
+  be trained with reinforcement-learning to improve performance.'
+authors:
+- Ishita Dasgupta
+- Christine Kaeser-Chen
+- Kenneth Marino
+- Arun Ahuja
+- Sheila Babayan
+- Felix Hill
+- Rob Fergus
+published_at: '2023-02-01'
+url: https://arxiv.org/abs/2302.00763
+doi: 10.48550/arXiv.2302.00763
+arxiv_id: '2302.00763'
+openalex_id: W4319165647
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Large Language Model based Multi-Agents:
+  A Survey of Progres. Scope scan by claude-opus-5: This is a foundational LLM-agent method
+  paper about delegating planning, acting and reporting across components, with no account
+  of operational or decision authority, oversight, or accountability in an organization. It
+  is load-bearing enough for the field''s architecture literature to be pointed at from Section
+  15 rather than ingested as in-scope. What changes because agents hold authority: Nothing
+  directly — it specifies an internal architecture (Planner/Actor/Reporter) for a single embodied
+  system, not authority held by agents within an organization, though its role decomposition
+  is the method precedent the library''s agent-architecture and multi-agent work builds on.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

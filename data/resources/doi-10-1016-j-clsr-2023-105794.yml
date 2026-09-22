@@ -1,0 +1,55 @@
+id: resource:doi:10-1016-j-clsr-2023-105794
+resource_type: peer-reviewed-paper
+title: The law and economics of AI liability
+abstract: The employment of AI systems presents challenges for liability rules. This paper
+  identifies these challenges and evaluates how liability rules should be adapted in response.
+  The paper discusses the gaps in liability that arise when AI systems are unpredictable or
+  act (semi)-autonomously. It considers the problems in proving fault and causality when errors
+  in AI systems are difficult to foresee for producers, and monitoring duties of users are
+  difficult to define. From an economic perspective, the paper considers what liability rules
+  would minimise costs of harm related to AI. Based on the analysis of risks and optimal liability
+  rules, the paper evaluates the recently published EU proposals for a Product Liability Directive
+  and for an AI Liability Directive.
+authors:
+- Miriam Buiten
+- Alexandre de Streel
+- Martin Peitz
+organizations:
+- European Remanufacturing Council
+- University of Mannheim
+- University of Namur
+- University of St.Gallen
+affiliations:
+  Miriam Buiten:
+  - University of St.Gallen
+  - European Remanufacturing Council
+  Alexandre de Streel:
+  - University of Namur
+  - European Remanufacturing Council
+  Martin Peitz:
+  - University of Mannheim
+  - European Remanufacturing Council
+published_at: '2023-02-18'
+url: https://doi.org/10.1016/j.clsr.2023.105794
+doi: 10.1016/j.clsr.2023.105794
+openalex_id: W4321337155
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Virtual Agent Economies.
+  Scope scan by claude-opus-5: The ''tax, IP, securities regulation'' exclusion covers general
+  entity concerns, but this is the retained exception — liability gaps arising specifically
+  from autonomous agent action create novel exposure, and the analysis collapses if the machine''s
+  autonomy is removed. It is directly load-bearing for oversight and monitoring-duty design
+  rather than adjacent method background. What changes because agents hold authority: It specifies
+  how fault, causality, and monitoring duties must be reallocated between producers and deploying
+  organizations precisely when systems act semi-autonomously and unpredictably, which is the
+  accountability regime an agent-authority organization must design around. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

@@ -1,0 +1,69 @@
+id: resource:doi:10-1007-s10458-024-09675-4
+resource_type: peer-reviewed-paper
+title: Resolving social dilemmas with minimal reward transfer
+abstract: Abstract Social dilemmas present a significant challenge in multi-agent cooperation
+  because individuals are incentivised to behave in ways that undermine socially optimal outcomes.
+  Consequently, self-interested agents often avoid collective behaviour. In response, we formalise
+  social dilemmas and introduce a novel metric, the general self-interest level, to quantify
+  the disparity between individual and group rationality in such scenarios. This metric represents
+  the maximum proportion of their individual rewards that agents can retain while ensuring
+  that a social welfare optimum becomes a dominant strategy. Our approach diverges from traditional
+  concepts of altruism, instead focusing on strategic reward redistribution. By transferring
+  rewards among agents in a manner that aligns individual and group incentives, rational agents
+  will maximise collective welfare while pursuing their own interests. We provide an algorithm
+  to compute efficient transfer structures for an arbitrary number of agents, and introduce
+  novel multi-player social dilemma games to illustrate the effectiveness of our method. This
+  work provides both a descriptive tool for analysing social dilemmas and a prescriptive solution
+  for resolving them via efficient reward transfer contracts. Applications include mechanism
+  design, where we can assess the impact on collaborative behaviour of modifications to models
+  of environments.
+authors:
+- Richard H. Willis
+- Yali Du
+- Joel Z. Leibo
+- G. Flucke
+organizations:
+- Google
+- Google DeepMind
+- King's College London
+- University of Sussex
+affiliations:
+  Richard H. Willis:
+  - King's College London
+  Yali Du:
+  - King's College London
+  Joel Z. Leibo:
+  - King's College London
+  - Google DeepMind
+  - Google
+  G. Flucke:
+  - University of Sussex
+published_at: '2024-10-12'
+url: https://doi.org/10.1007/s10458-024-09675-4
+doi: 10.1007/s10458-024-09675-4
+openalex_id: W4403361034
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Principal-Agent Reinforcement
+  Learning: Orchestrating AI Age; Quantifying the Self-Interest Level of Markov Social Dilemma.
+  Scope scan by claude-opus-5: This is general-purpose game-theoretic mechanism design rather
+  than a study of an organization in which agents wield authority, so it sits as load-bearing
+  adjacent method alongside Melting Pot in section 15 rather than as a core record; no exclusion-register
+  line applies since it concerns machine-agent incentives, not human collective decision-making
+  or token/monetary engineering. The library already holds its direct descendants (Quantifying
+  the Self-Interest Level of Markov Social Dilemmas, Principal-Agent RL with contracts), which
+  makes pointing at it necessary for those records to be intelligible. What changes because
+  agents hold authority: It supplies a computable measure of how far individual agent incentives
+  diverge from collective welfare and an algorithm for the minimal reward-transfer contracts
+  that make the welfare optimum dominant — the design primitive for setting incentive structure
+  among agents that hold operational authority. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

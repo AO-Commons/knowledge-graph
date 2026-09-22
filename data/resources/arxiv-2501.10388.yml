@@ -1,0 +1,51 @@
+id: resource:arxiv:2501.10388
+resource_type: preprint
+title: 'Beyond the Sum: Unlocking AI Agents Potential Through Market Forces'
+abstract: The emergence of Large Language Models has fundamentally transformed the capabilities
+  of AI agents, enabling a new class of autonomous agents capable of interacting with their
+  environment through dynamic code generation and execution. These agents possess the theoretical
+  capacity to operate as independent economic actors within digital markets, offering unprecedented
+  potential for value creation through their distinct advantages in operational continuity,
+  perfect replication, and distributed learning capabilities. However, contemporary digital
+  infrastructure, architected primarily for human interaction, presents significant barriers
+  to their participation. This work presents a systematic analysis of the infrastructure requirements
+  necessary for AI agents to function as autonomous participants in digital markets. We examine
+  four key areas - identity and authorization, service discovery, interfaces, and payment
+  systems - to show how existing infrastructure actively impedes agent participation. We argue
+  that addressing these infrastructure challenges represents more than a technical imperative;
+  it constitutes a fundamental step toward enabling new forms of economic organization. Much
+  as traditional markets enable human intelligence to coordinate complex activities beyond
+  individual capability, markets incorporating AI agents could dramatically enhance economic
+  efficiency through continuous operation, perfect information sharing, and rapid adaptation
+  to changing conditions. The infrastructure challenges identified in this work represent
+  key barriers to realizing this potential.
+authors:
+- Jordi Montes Sanabria
+- Pol Alvarez Vecino
+published_at: '2024-12-19'
+url: https://arxiv.org/abs/2501.10388
+doi: 10.48550/arXiv.2501.10388
+arxiv_id: '2501.10388'
+openalex_id: W4406692209
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Virtual Agent Economies. Scope scan by claude-opus-5:
+  The paper is squarely about enabling and bounding autonomous agent action in markets, so
+  its findings collapse if the machine actor is removed; it is not the excluded token-design/monetary-policy
+  material since it concerns authorization and payment rails for agent authority rather than
+  financial engineering. It is load-bearing design guidance for operating and overseeing agents
+  with spending and contracting authority, hence ingest rather than pointer. What changes
+  because agents hold authority: It specifies the concrete authority-bearing substrate an
+  agentic organization must provide — machine identity and delegated authorization, service
+  discovery, machine-usable interfaces, and agent-initiated payment — which determines what
+  an agent can actually be permitted and held to when it transacts on the organization''s
+  behalf. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

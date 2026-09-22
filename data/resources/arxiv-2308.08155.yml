@@ -1,0 +1,57 @@
+id: resource:arxiv:2308.08155
+resource_type: preprint
+title: AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+abstract: AutoGen is an open-source framework that allows developers to build LLM applications
+  via multiple agents that can converse with each other to accomplish tasks. AutoGen agents
+  are customizable, conversable, and can operate in various modes that employ combinations
+  of LLMs, human inputs, and tools. Using AutoGen, developers can also flexibly define agent
+  interaction behaviors. Both natural language and computer code can be used to program flexible
+  conversation patterns for different applications. AutoGen serves as a generic infrastructure
+  to build diverse applications of various complexities and LLM capacities. Empirical studies
+  demonstrate the effectiveness of the framework in many example applications, with domains
+  ranging from mathematics, coding, question answering, operations research, online decision-making,
+  entertainment, etc.
+authors:
+- Qingyun Wu
+- Gagan Bansal
+- Jieyu Zhang
+- Yiran Wu
+- Beibin Li
+- Erkang Zhu
+- Li Jiang
+- Xiaoyun Zhang
+- Shaokun Zhang
+- Jiale Liu
+- Ahmed Hassan Awadallah
+- Ryen W White
+- Doug Burger
+- Chi Wang
+published_at: '2023-08-16'
+url: https://arxiv.org/abs/2308.08155
+doi: 10.48550/arXiv.2308.08155
+arxiv_id: '2308.08155'
+openalex_id: W4385965642
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Architecting Agentic
+  Communities using Design Patterns; Multi-Agent Collaboration Mechanisms: A Survey of LLMs;
+  Securing AI Agents with Information-Flow Control. Scope scan by claude-opus-5: The abstract
+  is the AutoGen multi-agent framework, foundational infrastructure the field''s architecture
+  and security papers build on, which makes it load-bearing method precedent rather than a
+  study of agentic organizational authority; no exclusion-register line applies. Held at section
+  15 alongside Melting Pot, with the caveat that the record''s title and abstract do not match
+  and its provenance should be corrected before ingestion. What changes because agents hold
+  authority: It supplies the execution substrate — conversable agents, configurable human-in-the-loop
+  checkpoints, and tool invocation — that determines where operational authority can actually
+  be delegated to or withheld from machine agents, but it does not itself study organizations
+  where agents hold authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

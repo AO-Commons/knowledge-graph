@@ -1,0 +1,32 @@
+id: resource:doi:10-1016-0142-694x-81-90102-2
+resource_type: peer-reviewed-paper
+title: The social control of technology
+authors:
+- T.P.
+published_at: '1981-07-01'
+url: https://doi.org/10.1016/0142-694x(81)90102-2
+doi: 10.1016/0142-694x(81)90102-2
+openalex_id: W4249747241
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; Lessons from complex
+  systems science for AI governance; Solipsistic Superintelligence is Unlikely to be Cooperative.
+  Scope scan by claude-opus-5: Collingridge is foundational governance-timing method rather
+  than a study of organizations where machines hold authority, so it is a pointer in section
+  15 (like Melting Pot) rather than an ingested record. No exclusion-register line squarely
+  applies: it is not voting mechanism design or human collective decision theory, but technology-control
+  theory the field''s AI-governance papers visibly build on. What changes because agents hold
+  authority: It supplies the control-dilemma frame — that oversight is cheap while agent deployment
+  is malleable but ignorant, and costly once agent authority is entrenched — which directly
+  shapes when and how autonomy limits must be fixed for agents holding operational authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

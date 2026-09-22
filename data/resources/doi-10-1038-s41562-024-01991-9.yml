@@ -1,0 +1,81 @@
+id: resource:doi:10-1038-s41562-024-01991-9
+resource_type: peer-reviewed-paper
+title: Building machines that learn and think with people
+abstract: 'What do we want from machine intelligence? We envision machines that are not just
+  tools for thought but partners in thought: reasonable, insightful, knowledgeable, reliable
+  and trustworthy systems that think with us. Current artificial intelligence systems satisfy
+  some of these criteria, some of the time. In this Perspective, we show how the science of
+  collaborative cognition can be put to work to engineer systems that really can be called
+  ‘thought partners’, systems built to meet our expectations and complement our limitations.
+  We lay out several modes of collaborative thought in which humans and artificial intelligence
+  thought partners can engage, and we propose desiderata for human-compatible thought partnerships.
+  Drawing on motifs from computational cognitive science, we motivate an alternative scaling
+  path for the design of thought partners and ecosystems around their use through a Bayesian
+  lens, whereby the partners we construct actively build and reason over models of the human
+  and world. In this Perspective, the authors advance a view for the science of collaborative
+  cognition to engineer systems that can be considered thought partners, systems built to
+  meet our expectations and complement our limitations.'
+authors:
+- Katherine M. Collins
+- Ilia Sucholutsky
+- Umang Bhatt
+- Kartik Chandra
+- Lionel Wong
+- Mina Lee
+- Cedegao E. Zhang
+- Tan Zhi‐Xuan
+- Mark K. Ho
+- Vikash K. Mansinghka
+- Adrian Weller
+- Joshua B. Tenenbaum
+- Thomas L. Griffiths
+organizations:
+- Microsoft
+- Microsoft Research New York City
+- Princeton University
+- The Alan Turing Institute
+- University of Cambridge
+- University of Chicago
+affiliations:
+  Katherine M. Collins:
+  - University of Cambridge
+  Ilia Sucholutsky:
+  - Princeton University
+  Umang Bhatt:
+  - The Alan Turing Institute
+  Mina Lee:
+  - Microsoft
+  - University of Chicago
+  - Microsoft Research New York City
+  Adrian Weller:
+  - University of Cambridge
+  - The Alan Turing Institute
+  Thomas L. Griffiths:
+  - Princeton University
+published_at: '2024-10-22'
+url: https://doi.org/10.1038/s41562-024-01991-9
+doi: 10.1038/s41562-024-01991-9
+openalex_id: W4403637376
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Levels of Autonomy for AI Agents; Reliable agent engineering should integrate machine-compatib.
+  Scope scan by claude-opus-5: The paper is a framing/method piece on human-AI collaborative
+  cognition rather than on delegated operational or decision authority, so it fails the scope
+  test directly but is load-bearing for the hybrid-decision work the library treats as in
+  scope under the deliberative-democracy reading. Holding it in section 15 alongside Melting
+  Pot preserves the pointer without letting general cognitive-architecture material into the
+  curated core. What changes because agents hold authority: It supplies the design vocabulary
+  for machines as collaborative thought partners — modelling the human''s beliefs, knowing
+  when to ask, advise, or defer — which is the substrate on which hybrid human-agent authority
+  sharing is built, but it does not itself concern organizations where agents hold authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

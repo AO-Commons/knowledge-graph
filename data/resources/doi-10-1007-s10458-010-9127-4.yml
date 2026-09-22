@@ -1,0 +1,39 @@
+id: resource:doi:10-1007-s10458-010-9127-4
+resource_type: peer-reviewed-paper
+title: 'Multi-agent role allocation: issues, approaches, and multiple perspectives'
+authors:
+- Adam Campbell
+- Annie S. Wu
+organizations:
+- University of Central Florida
+affiliations:
+  Adam Campbell:
+  - University of Central Florida
+  Annie S. Wu:
+  - University of Central Florida
+published_at: '2010-04-12'
+url: https://doi.org/10.1007/s10458-010-9127-4
+doi: 10.1007/s10458-010-9127-4
+openalex_id: W2033588051
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: Classic multi-agent organizational
+  literature on role allocation is load-bearing for how authority is distributed to agents,
+  and it is cited here precisely for that, but as a 2010 MAS survey it is about allocation
+  mechanisms rather than about organizations in which agents hold real authority. No exclusion-register
+  line applies; it is held as borrowed background in section 15 alongside Melting Pot rather
+  than ingested as a core record. What changes because agents hold authority: It supplies
+  the foundational vocabulary and allocation mechanisms by which roles — and hence operational
+  authority and responsibility — are assigned among machine agents, which is the substrate
+  any agent-authority org chart and accountability trace is built on. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

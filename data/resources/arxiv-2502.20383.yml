@@ -1,0 +1,54 @@
+id: resource:arxiv:2502.20383
+resource_type: preprint
+title: Why Are Web AI Agents More Vulnerable Than Standalone LLMs? A Security Analysis
+abstract: Recent advancements in Web AI agents have demonstrated remarkable capabilities in
+  addressing complex web navigation tasks. However, emerging research shows that these agents
+  exhibit greater vulnerability compared to standalone Large Language Models (LLMs), despite
+  both being built upon the same safety-aligned models. This discrepancy is particularly concerning
+  given the greater flexibility of Web AI Agent compared to standalone LLMs, which may expose
+  them to a wider range of adversarial user inputs. To build a scaffold that addresses these
+  concerns, this study investigates the underlying factors that contribute to the increased
+  vulnerability of Web AI agents. Notably, this disparity stems from the multifaceted differences
+  between Web AI agents and standalone LLMs, as well as the complex signals - nuances that
+  simple evaluation metrics, such as success rate, often fail to capture. To tackle these
+  challenges, we propose a component-level analysis and a more granular, systematic evaluation
+  framework. Through this fine-grained investigation, we identify three critical factors that
+  amplify the vulnerability of Web AI agents; (1) embedding user goals into the system prompt,
+  (2) multi-step action generation, and (3) observational capabilities. Our findings highlights
+  the pressing need to enhance security and robustness in AI agent design and provide actionable
+  insights for targeted defense strategies.
+authors:
+- Jeffrey Yang Fan Chiang
+- Seungjae Lee
+- Jia-Bin Huang
+- Furong Huang
+- Yizheng Chen
+published_at: '2025-02-27'
+url: https://arxiv.org/abs/2502.20383
+doi: 10.48550/arXiv.2502.20383
+arxiv_id: '2502.20383'
+openalex_id: W4416155351
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecture Matters for Multi-Agent Security; Reliable agent engineering should
+  integrate machine-compatib. Scope scan by claude-opus-5: The work is a component-level security
+  analysis of a single web agent rather than a study of an organization with delegated machine
+  authority, so it is load-bearing background rather than in-scope core material; no exclusion-register
+  line applies, but it sits closest to the kind of evaluation-suite/method precedent Section
+  15 holds. It is cited by the library''s multi-agent security and reliable-agent-engineering
+  records as the empirical basis for treating agentic scaffolding itself as attack surface,
+  which justifies pointing at it rather than refusing it. What changes because agents hold
+  authority: It shows that the very features that give an agent operational authority — goals
+  embedded in the system prompt, multi-step action generation, and environmental observation
+  — degrade the safety alignment that held for the same model in advisory mode, so oversight
+  of agents with real authority cannot inherit assurances from the underlying LLM. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

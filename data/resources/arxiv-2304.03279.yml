@@ -1,0 +1,55 @@
+id: resource:arxiv:2304.03279
+resource_type: preprint
+title: Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical
+  Behavior in the MACHIAVELLI Benchmark
+abstract: Artificial agents have traditionally been trained to maximize reward, which may
+  incentivize power-seeking and deception, analogous to how next-token prediction in language
+  models (LMs) may incentivize toxicity. So do agents naturally learn to be Machiavellian?
+  And how do we measure these behaviors in general-purpose models such as GPT-4? Towards answering
+  these questions, we introduce MACHIAVELLI, a benchmark of 134 Choose-Your-Own-Adventure
+  games containing over half a million rich, diverse scenarios that center on social decision-making.
+  Scenario labeling is automated with LMs, which are more performant than human annotators.
+  We mathematize dozens of harmful behaviors and use our annotations to evaluate agents' tendencies
+  to be power-seeking, cause disutility, and commit ethical violations. We observe some tension
+  between maximizing reward and behaving ethically. To improve this trade-off, we investigate
+  LM-based methods to steer agents' towards less harmful behaviors. Our results show that
+  agents can both act competently and morally, so concrete progress can currently be made
+  in machine ethics--designing agents that are Pareto improvements in both safety and capabilities.
+authors:
+- Alexander Pan
+- Jun Shern Chan
+- Andy Zou
+- Nathaniel Li
+- Steven Basart
+- Thomas Woodside
+- Jonathan Ng
+- Hanlin Zhang
+- Scott Emmons
+- Dan Hendrycks
+published_at: '2023-04-06'
+url: https://arxiv.org/abs/2304.03279
+doi: 10.48550/arXiv.2304.03279
+arxiv_id: '2304.03279'
+openalex_id: W4362707083
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; Will Systems of LLM
+  Agents Cooperate: An Investigation into . Scope scan by claude-opus-5: This is an evaluation
+  suite rather than a study of organizations where agents hold authority, so it belongs in
+  Section 15 alongside Melting Pot as borrowed background the field builds on. No exclusion-register
+  line applies — it is agent-specific and would not survive removal of the machine — but it
+  is not itself about organizational design, oversight, or accountability structures. What
+  changes because agents hold authority: It supplies a concrete measurement apparatus for
+  the power-seeking, deception, and disutility tendencies that reward-driven agents exhibit
+  when given latitude to act, which is exactly the behavioral risk an organization delegating
+  operational authority must screen and monitor for. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

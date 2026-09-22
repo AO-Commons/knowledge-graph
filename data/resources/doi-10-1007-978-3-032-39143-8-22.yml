@@ -1,0 +1,32 @@
+id: resource:doi:10-1007-978-3-032-39143-8-22
+resource_type: peer-reviewed-paper
+title: 'Decoupling Reasoning from Execution: A Deterministic Runtime Architecture for Autonomous
+  LLM Agents'
+authors:
+- Huk Artur
+published_at: '2026-09-18'
+url: https://doi.org/10.1007/978-3-032-39143-8_22
+doi: 10.1007/978-3-032-39143-8_22
+openalex_id: W7213558421
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 2
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I. Scope scan by claude-opus-5: The paper is an agent runtime/architecture contribution
+  rather than a study of organizations where agents hold decision authority, so it is load-bearing
+  method the field builds on rather than in-scope material — held as a Section 15 pointer
+  alongside records like Melting Pot. No exclusion-register line applies; the risk is only
+  over-ingesting infrastructure, which the borrowed-background designation contains. What
+  changes because agents hold authority: A deterministic execution layer separated from probabilistic
+  reasoning is the substrate that makes an agent''s authorized actions replayable, bounded
+  and auditable, which is what oversight and after-the-fact accountability in an agent-authority
+  organization depend on. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

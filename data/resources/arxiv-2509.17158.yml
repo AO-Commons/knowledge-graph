@@ -1,0 +1,71 @@
+id: resource:arxiv:2509.17158
+resource_type: preprint
+title: 'ARE: Scaling Up Agent Environments and Evaluations'
+abstract: 'We introduce Meta Agents Research Environments (ARE), a research platform for scalable
+  creation of environments, integration of synthetic or real applications, and execution of
+  agentic orchestrations. ARE provides simple abstractions to build complex and diverse environments,
+  each with their own rules, tools, content, and verifiers, helping to bridge the gap between
+  model development and real-world deployment. We also propose Gaia2, a benchmark built in
+  ARE and designed to measure general agent capabilities. Beyond search and execution, Gaia2
+  requires agents to handle ambiguities and noise, adapt to dynamic environments, collaborate
+  with other agents, and operate under temporal constraints. Unlike prior benchmarks, Gaia2
+  runs asynchronously, surfacing new failure modes that are invisible in static settings.
+  Our experiments show that no system dominates across the intelligence spectrum: stronger
+  reasoning often comes at the cost of efficiency, and budget scaling curves plateau, highlighting
+  the need for new architectures and adaptive compute strategies. Perhaps more importantly,
+  ARE abstractions enable continuous extension of Gaia2 to other environments, empowering
+  the community to rapidly create new benchmarks tailored to their domains. In AI''s second
+  half, progress increasingly depends on defining meaningful tasks and robust evaluations
+  to drive frontier capabilities forward.'
+authors:
+- Romain Froger
+- Pierre Andrews
+- Matteo Bettini
+- Amar Budhiraja
+- Ricardo Silveira Cabral
+- Virginie Do
+- Emilien Garreau
+- Jean-Baptiste Gaya
+- Hugo Laurençon
+- Maxime Lecanu
+- Kunal Malkan
+- Dheeraj Mekala
+- Pierre Ménard
+- Gerard Moreno-Torres Bertran
+- Ulyana Piterbarg
+- Mikhail Plekhanov
+- Mathieu Rita
+- Andrey Rusakov
+- Vladislav Vorotilov
+- Mengjue Wang
+- Ian Yu
+- Amine Benhalloum
+- Grégoire Mialon
+- Thomas Scialom
+published_at: '2025-09-21'
+url: https://arxiv.org/abs/2509.17158
+doi: 10.48550/arXiv.2509.17158
+arxiv_id: '2509.17158'
+openalex_id: W4415253970
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Fully Autonomous AI Agents Should Not be Developed; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: ARE/Gaia2 is an evaluation
+  platform, not a study of organizations where agents hold authority, so it sits in section
+  15 alongside Melting Pot as borrowed background rather than as a core record. No exclusion-register
+  line bars it; it is load-bearing method infrastructure that the library''s papers on autonomy
+  limits and reliable agent engineering build directly upon. What changes because agents hold
+  authority: It supplies the asynchronous, multi-agent, noise-and-ambiguity evaluation substrate
+  needed to judge whether an agent is competent enough to be granted operational authority,
+  and surfaces failure modes (temporal, collaborative) that static benchmarks hide from overseers.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

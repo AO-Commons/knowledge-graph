@@ -1,0 +1,70 @@
+id: resource:doi:10-3390-systems14091174
+resource_type: peer-reviewed-paper
+title: 'Autonomous and Agentic AI with Digital Twins for Resilient Transportation and Smart
+  Logistics: A Systematic Review, Multi-Axis Taxonomy, and Evidence-Informed Human-in-the-Loop
+  Reference Architecture'
+abstract: Transportation and logistics systems are increasingly moving beyond predictive artificial
+  intelligence toward systems capable of selecting, coordinating, and initiating operational
+  decisions. The objective of this review is to systematically characterize autonomous and
+  agentic AI in transportation and smart logistics, examine its integration with digital twins
+  and trustworthiness mechanisms, and synthesize a multi-axis taxonomy and an evidence-informed
+  human-in-the-loop reference architecture. Following PRISMA 2020, we synthesized 27 full-text-reviewed
+  primary studies published from January 2021 through July 2026. For mutually exclusive descriptive
+  reporting under the predefined precedence rule, the corpus is represented by 11 single-agent
+  autonomous systems (40.7%), six LLM-agentic systems (22.2%), five MARL systems (18.5%),
+  and five twin-centred autonomous systems (18.5%). These reporting strata are used only to
+  prevent double counting and do not replace the multi-axis characterization of agency profile,
+  decision topology, reasoning mechanism, and digital-twin relation. Reinforcement learning
+  or MARL is used in 15 studies (55.6%), while digital twins are used in six (22.2%). Despite
+  substantial experimentation with autonomous decision-making, only three (11.1%) studies
+  reach operational validation. Cybersecurity is explicitly addressed in two studies (7.4%),
+  explainability in six (22.2%), and explicit human approval, override, or intervention in
+  three (11.1%). None of the LLM-core primary studies combines language-agent reasoning with
+  a synchronized operational digital twin, revealing an important corpus-level architectural
+  gap. Methodological rigor, validation strength, and trustworthiness are assessed as distinct
+  dimensions rather than combined into a composite quality score. Based on the evidence, the
+  review develops a ten-dimension taxonomy, proposes an explicitly unvalidated seven-layer
+  human-in-the-loop reference architecture with autonomy gating, and presents an author-developed
+  sixteen-threat mapping informed mainly by supporting cybersecurity literature. Overall,
+  the evidence indicates rapid diversification of autonomous and agentic systems but persistent
+  gaps in operational validation, integrated assurance, cybersecurity, and empirically tested
+  human oversight.
+authors:
+- Munid Alanazi
+- Bader Alsharif
+organizations:
+- Florida Atlantic University
+- King Khalid University
+affiliations:
+  Munid Alanazi:
+  - King Khalid University
+  Bader Alsharif:
+  - Florida Atlantic University
+published_at: '2026-09-19'
+url: https://doi.org/10.3390/systems14091174
+doi: 10.3390/systems14091174
+openalex_id: W7213932560
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Agentic AI: Autonomous
+  Intelligence for Complex Goals—A Comp; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I. Scope scan by claude-opus-5: The paper''s subject is systems that select, coordinate,
+  and initiate operational decisions and the gating structures that govern that authority,
+  so removing the machine removes the finding entirely; no exclusion-register line applies
+  (it is not voting design, commons governance, or human deliberation). Its domain specificity
+  to logistics limits generality but the taxonomy axes (agency profile, decision topology,
+  digital-twin relation) and the oversight-gap evidence are transferable to any agent-authority
+  organization. What changes because agents hold authority: It supplies a concrete autonomy-gating,
+  human-approval/override layered architecture plus a threat mapping and evidence that only
+  ~11% of deployed agentic systems have any tested human oversight — directly informing how
+  delegated machine decision authority should be bounded, escalated, and assured in operations.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 2

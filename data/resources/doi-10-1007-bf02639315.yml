@@ -1,0 +1,39 @@
+id: resource:doi:10-1007-bf02639315
+resource_type: peer-reviewed-paper
+title: Accountability in a computerized society
+authors:
+- Helen F. Nissenbaum
+organizations:
+- Center for Human Reproduction
+- Princeton University
+affiliations:
+  Helen F. Nissenbaum:
+  - Princeton University
+  - Center for Human Reproduction
+published_at: '1996-03-01'
+url: https://doi.org/10.1007/bf02639315
+doi: 10.1007/bf02639315
+openalex_id: W1976787862
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; Sovereign Agents:
+  Towards Infrastructural Sovereignty and Di. Scope scan by claude-opus-5: It is genuinely
+  load-bearing: both citing library papers build their diffused-accountability arguments directly
+  on it, so a pointer is warranted rather than refusal. But its subject is human moral responsibility
+  for software artifacts generally, not agent decision authority, so it is held as borrowed
+  background rather than ingested as in-scope. What changes because agents hold authority:
+  Nissenbaum''s diagnosis of accountability erosion in computational systems — the problem
+  of many hands, computer-as-scapegoat, ownership without liability, and the acceptance of
+  error as inevitable — supplies the vocabulary for why delegating operational authority to
+  agents diffuses responsibility, but it does not itself concern organizations where machines
+  hold that authority. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

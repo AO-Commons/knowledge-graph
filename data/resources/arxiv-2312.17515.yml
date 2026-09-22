@@ -1,0 +1,50 @@
+id: resource:arxiv:2312.17515
+resource_type: preprint
+title: 'Cooperation on the Fly: Exploring Language Agents for Ad Hoc Teamwork in the Avalon
+  Game'
+abstract: Multi-agent collaboration with Large Language Models (LLMs) demonstrates proficiency
+  in basic tasks, yet its efficiency in more complex scenarios remains unexplored. In gaming
+  environments, these agents often face situations without established coordination protocols,
+  requiring them to make intelligent inferences about teammates from limited data. This problem
+  motivates the area of ad hoc teamwork, in which an agent may potentially cooperate with
+  a variety of teammates to achieve a shared goal. Our study focuses on the ad hoc teamwork
+  problem where the agent operates in an environment driven by natural language. Our findings
+  reveal the potential of LLM agents in team collaboration, highlighting issues related to
+  hallucinations in communication. To address this issue, we develop CodeAct, a general agent
+  that equips LLM with enhanced memory and code-driven reasoning, enabling the repurposing
+  of partial information for rapid adaptation to new teammates.
+authors:
+- Zijing Shi
+- Meng Fang
+- Shunfeng Zheng
+- Shilong Deng
+- Ling Chen
+- Yali Du
+published_at: '2023-12-29'
+url: https://arxiv.org/abs/2312.17515
+doi: 10.48550/arXiv.2312.17515
+arxiv_id: '2312.17515'
+openalex_id: W4390489748
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: This is a benchmark/method
+  study of ad hoc multi-agent cooperation in a game environment, structurally the same kind
+  of load-bearing evaluation precedent as Melting Pot, which the library holds at section
+  15 rather than ingesting as agentic-organization material. No exclusion-register line bars
+  it, but nothing here concerns agents holding operational or decision authority, so it is
+  pointed at rather than treated as in-scope. What changes because agents hold authority:
+  It characterises how LLM agents coordinate with unfamiliar teammates absent an established
+  protocol — including communication hallucination as a failure mode — which informs how one
+  designs and monitors coordination among agents that must act together without pre-agreed
+  procedure, though the paper itself concerns game play rather than delegated authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

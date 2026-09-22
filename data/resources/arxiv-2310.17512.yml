@@ -1,0 +1,51 @@
+id: resource:arxiv:2310.17512
+resource_type: preprint
+title: 'CompeteAI: Understanding the Competition Dynamics in Large Language Model-based Agents'
+abstract: 'Large language models (LLMs) have been widely used as agents to complete different
+  tasks, such as personal assistance or event planning. While most of the work has focused
+  on cooperation and collaboration between agents, little work explores competition, another
+  important mechanism that promotes the development of society and economy. In this paper,
+  we seek to examine the competition dynamics in LLM-based agents. We first propose a general
+  framework for studying the competition between agents. Then, we implement a practical competitive
+  environment using GPT-4 to simulate a virtual town with two types of agents, restaurant
+  agents and customer agents. Specifically, the restaurant agents compete with each other
+  to attract more customers, where competition encourages them to transform, such as cultivating
+  new operating strategies. Simulation experiments reveal several interesting findings at
+  the micro and macro levels, which align well with existing market and sociological theories.
+  We hope that the framework and environment can be a promising testbed to study competition
+  that fosters understanding of society. Code is available at: https://github.com/microsoft/competeai.'
+authors:
+- Qinlin Zhao
+- Jindong Wang
+- Yixuan Zhang
+- Yiqiao Jin
+- Kaijie Zhu
+- Hao Chen
+- Xing Xie
+published_at: '2023-10-26'
+url: https://arxiv.org/abs/2310.17512
+doi: 10.48550/arXiv.2310.17512
+arxiv_id: '2310.17512'
+openalex_id: W4387994499
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: This is an environment/simulation
+  contribution rather than a study of authority, accountability or oversight inside an organization,
+  so it belongs alongside Melting Pot as a pointer rather than an ingested record. No exclusion-register
+  line bars it — it is agent-specific, not human collective decision-making — but it does
+  not itself describe an organization where agents hold delegated authority. What changes
+  because agents hold authority: It provides a testbed and early evidence on how LLM agents
+  given operational discretion (pricing, strategy, product decisions) behave under competitive
+  pressure, which informs what emergent dynamics to expect and monitor when machine agents
+  run business functions against other machine agents. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

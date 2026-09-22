@@ -1,0 +1,49 @@
+id: resource:doi:10-1016-j-artint-2018-07-007
+resource_type: peer-reviewed-paper
+title: 'Explanation in artificial intelligence: Insights from the social sciences'
+abstract: There has been a recent resurgence in the area of explainable artificial intelligence
+  as researchers and practitioners seek to make their algorithms more understandable. Much
+  of this research is focused on explicitly explaining decisions or actions to a human observer,
+  and it should not be controversial to say that looking at how humans explain to each other
+  can serve as a useful starting point for explanation in artificial intelligence. However,
+  it is fair to say that most work in explainable artificial intelligence uses only the researchers'
+  intuition of what constitutes a `good' explanation. There exists vast and valuable bodies
+  of research in philosophy, psychology, and cognitive science of how people define, generate,
+  select, evaluate, and present explanations, which argues that people employ certain cognitive
+  biases and social expectations towards the explanation process. This paper argues that the
+  field of explainable artificial intelligence should build on this existing research, and
+  reviews relevant papers from philosophy, cognitive psychology/science, and social psychology,
+  which study these topics. It draws out some important findings, and discusses ways that
+  these can be infused with work on explainable artificial intelligence.
+authors:
+- Tim Miller
+organizations:
+- The University of Melbourne
+affiliations:
+  Tim Miller:
+  - The University of Melbourne
+published_at: '2018-10-26'
+url: https://doi.org/10.1016/j.artint.2018.07.007
+doi: 10.1016/j.artint.2018.07.007
+openalex_id: W2670253439
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Designing Human-Agent Collaborations: Commitment, responsive; Towards Human-AI
+  Deliberation: Design and Evaluation of LLM-. Scope scan by claude-opus-5: Miller''s survey
+  is foundational method the oversight and human-AI decision literature in this library builds
+  on, but it is about explanation quality generally, not about organizations where agents
+  hold operational authority. No exclusion-register line applies; it fits the Section 15 pointer
+  role alongside Melting Pot rather than the core corpus. What changes because agents hold
+  authority: When a machine holds decision authority, the accountability record depends on
+  explanations humans can actually contest, and this work sets what counts as an adequate
+  explanation (contrastive, selected, social) rather than a model-internal trace. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

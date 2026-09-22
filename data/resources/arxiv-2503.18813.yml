@@ -1,0 +1,49 @@
+id: resource:arxiv:2503.18813
+resource_type: preprint
+title: Defeating Prompt Injections by Design
+abstract: Large Language Models (LLMs) are increasingly deployed in agentic systems that interact
+  with an untrusted environment. However, LLM agents are vulnerable to prompt injection attacks
+  when handling untrusted data. In this paper we propose CaMeL, a robust defense that creates
+  a protective system layer around the LLM, securing it even when underlying models are susceptible
+  to attacks. To operate, CaMeL explicitly extracts the control and data flows from the (trusted)
+  query; therefore, the untrusted data retrieved by the LLM can never impact the program flow.
+  To further improve security, CaMeL uses a notion of a capability to prevent the exfiltration
+  of private data over unauthorized data flows by enforcing security policies when tools are
+  called. We demonstrate effectiveness of CaMeL by solving $77\%$ of tasks with provable security
+  (compared to $84\%$ with an undefended system) in AgentDojo. We release CaMeL at https://github.com/google-research/camel-prompt-injection.
+authors:
+- Edoardo Debenedetti
+- Ilia Shumailov
+- Tianqi Fan
+- Jamie Hayes
+- Nicholas Carlini
+- Daniel Fabian
+- Christoph Kern
+- Chongyang Shi
+- Andreas Terzis
+- Florian Tramèr
+published_at: '2025-03-24'
+url: https://arxiv.org/abs/2503.18813
+doi: 10.48550/arXiv.2503.18813
+arxiv_id: '2503.18813'
+openalex_id: W6891874193
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecture Matters for Multi-Agent Security; Securing AI Agents with Information-Flow
+  Control. Scope scan by claude-opus-5: This is directly about constraining and enforcing
+  the scope of a machine agent''s action authority, which is the technical substrate of accountable
+  delegation rather than adjacent background; no exclusion-register line applies. Two in-library
+  security papers build on it, and unlike generic ML methods it is specifically about what
+  an agent is permitted to do when acting on the world. What changes because agents hold authority:
+  It provides a design pattern — control/data flow separation plus capability-based policies
+  enforced at tool-call time — that lets you grant an agent real operational authority over
+  tools and data while provably bounding what untrusted inputs can make it do. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

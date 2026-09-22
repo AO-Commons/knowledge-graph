@@ -1,0 +1,124 @@
+id: resource:arxiv:2601.11868
+resource_type: preprint
+title: 'Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces'
+abstract: 'AI agents may soon become capable of autonomously completing valuable, long-horizon
+  tasks in diverse domains. Current benchmarks either do not measure real-world tasks, or
+  are not sufficiently difficult to meaningfully measure frontier models. To this end, we
+  present Terminal-Bench 2.0: a carefully curated hard benchmark composed of 89 tasks in computer
+  terminal environments inspired by problems from real workflows. Each task features a unique
+  environment, human-written solution, and comprehensive tests for verification. We show that
+  frontier models and agents score less than 65\% on the benchmark and conduct an error analysis
+  to identify areas for model and agent improvement. We publish the dataset and evaluation
+  harness to assist developers and researchers in future work at https://www.tbench.ai/ .'
+authors:
+- Mike A. Merrill
+- Alexander G. Shaw
+- Nicholas Carlini
+- Boxuan Li
+- Harsh Raj
+- Ivan Bercovich
+- Lin Shi
+- Jeong Yeon Shin
+- Thomas Walshe
+- E. Kelly Buchanan
+- Junhong Shen
+- Guanghao Ye
+- Haowei Lin
+- Jason Poulos
+- Maoyu Wang
+- Marianna Nezhurina
+- Jenia Jitsev
+- Di Lu
+- Orfeas Menis Mastromichalakis
+- Zhiwei Xu
+- Zizhao Chen
+- Yue Liu
+- Robert Zhang
+- Leon Liangyu Chen
+- Anurag Kashyap
+- Jan-Lucas Uslu
+- Jeffrey Li
+- Jianbo Wu
+- Minghao Yan
+- Song Bian
+- Vedang Sharma
+- Ke Sun
+- Steven Dillmann
+- Akshay Anand
+- Andrew Lanpouthakoun
+- Bardia Koopah
+- Changran Hu
+- Etash Guha
+- Gabriel H. S. Dreiman
+- Jiacheng Zhu
+- Karl Krauth
+- Li Zhong
+- Niklas Muennighoff
+- Robert Amanfu
+- Shangyin Tan
+- Shreyas Pimpalgaonkar
+- Tushar Aggarwal
+- Xiangning Lin
+- Xin Lan
+- Xuandong Zhao
+- Yiqing Liang
+- Yuanli Wang
+- Zilong Wang
+- Changzhi Zhou
+- David Heineman
+- Hange Liu
+- Harsh Trivedi
+- John Yang
+- Junhong Lin
+- Manish Shetty
+- Michael Yang
+- Nabil Omi
+- Negin Raoof
+- Shanda Li
+- Terry Yue Zhuo
+- Wuwei Lin
+- Yiwei Dai
+- Yuxin Wang
+- Wenhao Chai
+- Shang Zhou
+- Dariush Wahdany
+- Ziyu She
+- Jiaming Hu
+- Zhikang Dong
+- Yuxuan Zhu
+- Sasha Cui
+- Ahson Saiyed
+- Arinbjörn Kolbeinsson
+- Jesse Hu
+- Christopher Michael Rytting
+- Ryan Marten
+- Yixin Wang
+- Alex Dimakis
+- Andy Konwinski
+- Ludwig Schmidt
+published_at: '2026-01-17'
+url: https://arxiv.org/abs/2601.11868
+doi: 10.48550/arXiv.2601.11868
+arxiv_id: '2601.11868'
+openalex_id: W7125193990
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agentic Harness Engineering: Observability-Driven Automatic ; CoffeeBench: Benchmarking
+  Long-Horizon LLM Agents in Heterog. Scope scan by claude-opus-5: Terminal-Bench is an evaluation
+  suite, not a study of organizations where agents hold authority, so it belongs in Section
+  15 as borrowed background alongside Melting Pot rather than as a core record. It is load-bearing
+  because the library''s harness-engineering and multi-agent-economy papers build capability
+  claims on it. What changes because agents hold authority: It supplies a capability floor
+  and error taxonomy for long-horizon autonomous terminal work, which informs how much operational
+  authority an agent can be delegated and where oversight must be placed — but it says nothing
+  about organizational structure itself. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

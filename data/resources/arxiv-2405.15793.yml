@@ -1,0 +1,53 @@
+id: resource:arxiv:2405.15793
+resource_type: preprint
+title: 'SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering'
+abstract: 'Language model (LM) agents are increasingly being used to automate complicated
+  tasks in digital environments. Just as humans benefit from powerful software applications,
+  such as integrated development environments, for complex tasks like software engineering,
+  we posit that LM agents represent a new category of end users with their own needs and abilities,
+  and would benefit from specially-built interfaces to the software they use. We investigate
+  how interface design affects the performance of language model agents. As a result of this
+  exploration, we introduce SWE-agent: a system that facilitates LM agents to autonomously
+  use computers to solve software engineering tasks. SWE-agent''s custom agent-computer interface
+  (ACI) significantly enhances an agent''s ability to create and edit code files, navigate
+  entire repositories, and execute tests and other programs. We evaluate SWE-agent on SWE-bench
+  and HumanEvalFix, achieving state-of-the-art performance on both with a pass@1 rate of 12.5%
+  and 87.7%, respectively, far exceeding the previous state-of-the-art achieved with non-interactive
+  LMs. Finally, we provide insight on how the design of the ACI can impact agents'' behavior
+  and performance.'
+authors:
+- John Yang
+- Carlos E. Jimenez
+- Alexander Wettig
+- Kilian Lieret
+- Shunyu Yao
+- Karthik Narasimhan
+- Ofir Press
+published_at: '2024-05-06'
+url: https://arxiv.org/abs/2405.15793
+doi: 10.48550/arXiv.2405.15793
+arxiv_id: '2405.15793'
+openalex_id: W4399114781
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agentic Harness Engineering:
+  Observability-Driven Automatic ; CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterog;
+  Levels of Autonomy for AI Agents. Scope scan by claude-opus-5: This is a systems/benchmark
+  method paper about single-agent task execution, not about organizations where agents hold
+  decision authority, so it fails the scope test as a primary record. But it is the canonical
+  agent-computer-interface reference that the library''s harness, autonomy-level and multi-agent-economy
+  papers build on, so it belongs in section 15 as borrowed background alongside Melting Pot.
+  What changes because agents hold authority: It shows that an agent''s effective operational
+  capability — and thus what authority can safely be delegated to it — is set by the interface
+  and tooling layer, not just the model, making harness design an organizational control surface
+  rather than an implementation detail. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

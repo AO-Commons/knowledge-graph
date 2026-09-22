@@ -1,0 +1,41 @@
+id: resource:arxiv:2302.08399
+resource_type: preprint
+title: Large Language Models Fail on Trivial Alterations to Theory-of-Mind Tasks
+abstract: Intuitive psychology is a pillar of common-sense reasoning. The replication of this
+  reasoning in machine intelligence is an important stepping-stone on the way to human-like
+  artificial intelligence. Several recent tasks and benchmarks for examining this reasoning
+  in Large-Large Models have focused in particular on belief attribution in Theory-of-Mind
+  tasks. These tasks have shown both successes and failures. We consider in particular a recent
+  purported success case, and show that small variations that maintain the principles of ToM
+  turn the results on their head. We argue that in general, the zero-hypothesis for model
+  evaluation in intuitive psychology should be skeptical, and that outlying failure cases
+  should outweigh average success rates. We also consider what possible future successes on
+  Theory-of-Mind tasks by more powerful LLMs would mean for ToM tasks with people.
+authors:
+- Tomer Ullman
+published_at: '2023-02-16'
+url: https://arxiv.org/abs/2302.08399
+doi: 10.48550/arXiv.2302.08399
+arxiv_id: '2302.08399'
+openalex_id: W4321277158
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Using Large Language
+  Models to Simulate Multiple Humans and . Scope scan by claude-opus-5: This is an evaluation-methodology
+  critique, not a study of organizations where agents hold authority, so it belongs in section
+  15 as borrowed background alongside Melting Pot rather than as a core record. No exclusion-register
+  line applies; it is held as a pointer because the library''s simulation and generative-agent
+  records build directly on the reliability question it raises. What changes because agents
+  hold authority: It sets the evidentiary bar for certifying that an agent has the social-inference
+  competence needed before delegating authority — average benchmark success is insufficient,
+  and brittle failure cases should govern the delegation decision. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

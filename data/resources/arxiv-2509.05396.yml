@@ -1,0 +1,47 @@
+id: resource:arxiv:2509.05396
+resource_type: preprint
+title: 'Talk Isn''t Always Cheap: Understanding Failure Modes in Multi-Agent Debate'
+abstract: While multi-agent debate has been proposed as a promising strategy for improving
+  AI reasoning ability, we find that debate can sometimes be harmful rather than helpful.
+  Prior work has primarily focused on debates within homogeneous groups of agents, whereas
+  we explore how diversity in model capabilities influences the dynamics and outcomes of multi-agent
+  interactions. Through a series of experiments, we demonstrate that debate can lead to a
+  decrease in accuracy over time - even in settings where stronger (i.e., more capable) models
+  outnumber their weaker counterparts. Our analysis reveals that models frequently shift from
+  correct to incorrect answers in response to peer reasoning, favoring agreement over challenging
+  flawed reasoning. We perform additional experiments investigating various potential contributing
+  factors to these harmful shifts - including sycophancy, social conformity, and model and
+  task type. These results highlight important failure modes in the exchange of reasons during
+  multi-agent debate, suggesting that naive applications of debate may cause performance degradation
+  when agents are neither incentivised nor adequately equipped to resist persuasive but incorrect
+  reasoning.
+authors:
+- Andrea Wynn
+- Harsh Satija
+- Gillian Hadfield
+published_at: '2025-09-05'
+url: https://arxiv.org/abs/2509.05396
+doi: 10.48550/arXiv.2509.05396
+arxiv_id: '2509.05396'
+openalex_id: W4415058938
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Reliable agent engineering should integrate machine-compatib; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: No exclusion-register
+  line applies: this is machine collective decision-making, not human deliberative democracy,
+  and the finding vanishes entirely if the machines are removed. It is directly load-bearing
+  for how one designs and oversees multi-agent decision procedures that carry real authority,
+  so it is ingested rather than held as background. What changes because agents hold authority:
+  It shows that aggregating decisions across a group of agents can systematically degrade
+  accuracy through conformity and sycophancy rather than improve it, so any organization that
+  delegates judgment to an agent committee or debate procedure needs incentives and safeguards
+  against persuasive-but-wrong peers. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

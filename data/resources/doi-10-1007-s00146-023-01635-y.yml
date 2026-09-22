@@ -1,0 +1,62 @@
+id: resource:doi:10-1007-s00146-023-01635-y
+resource_type: peer-reviewed-paper
+title: 'Accountability in artificial intelligence: what it is and how it works'
+abstract: Abstract Accountability is a cornerstone of the governance of artificial intelligence
+  (AI). However, it is often defined too imprecisely because its multifaceted nature and the
+  sociotechnical structure of AI systems imply a variety of values, practices, and measures
+  to which accountability in AI can refer. We address this lack of clarity by defining accountability
+  in terms of answerability, identifying three conditions of possibility (authority recognition,
+  interrogation, and limitation of power), and an architecture of seven features (context,
+  range, agent, forum, standards, process, and implications). We analyze this architecture
+  through four accountability goals (compliance, report, oversight, and enforcement). We argue
+  that these goals are often complementary and that policy-makers emphasize or prioritize
+  some over others depending on the proactive or reactive use of accountability and the missions
+  of AI governance.
+authors:
+- Claudio Novelli
+- Mariarosaria Taddeo
+- Luciano Floridi
+organizations:
+- The Alan Turing Institute
+- Turing Institute
+- University of Bologna
+- University of Oxford
+- Zambon (Italy)
+affiliations:
+  Claudio Novelli:
+  - Zambon (Italy)
+  - University of Bologna
+  Mariarosaria Taddeo:
+  - Turing Institute
+  - University of Oxford
+  - The Alan Turing Institute
+  Luciano Floridi:
+  - University of Oxford
+  - Zambon (Italy)
+  - University of Bologna
+published_at: '2023-02-07'
+url: https://doi.org/10.1007/s00146-023-01635-y
+doi: 10.1007/s00146-023-01635-y
+openalex_id: W4319348251
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; Sovereign Agents:
+  Towards Infrastructural Sovereignty and Di. Scope scan by claude-opus-5: The framework is
+  AI-specific: remove the machine and the question of how authority is recognized, interrogated
+  and limited over a non-human actor disappears, so the deliberative-democracy exclusion line
+  does not bite. It is directly load-bearing for the oversight and enforcement design of agent-authority
+  organizations, and is already cited as such by two library papers on diffused accountability.
+  What changes because agents hold authority: It supplies an explicit accountability architecture
+  — answerability conditions plus agent, forum, standards, process and implications — for
+  deciding who answers to whom when a machine rather than a person produced the consequential
+  action, which is the core design problem for organizations that delegate authority to agents.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

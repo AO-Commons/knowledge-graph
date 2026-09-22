@@ -1,0 +1,64 @@
+id: resource:doi:10-1177-002200277301700302
+resource_type: peer-reviewed-paper
+title: Hockey Helmets, Concealed Weapons, and Daylight Saving
+abstract: 'This paper is about binary choices with externalities. These are either-or situations,not
+  choices of degree or quantity. An externality is present when you care about my choice or
+  my choice affects yours. You may not care, but need to know-whether to pass on left or right
+  when we meet. You may not need to know, but care---you will drive whether or not I drive---
+  but prefer that I keep off the road.You may both care and need to know. The literature of
+  externalities has mostly to do with how much of a good or a bad should be produced,consumed,or
+  allowed.HereI consider only the interdependence of choices to do or not to do, to join or
+  not to join, to stay or to leave, to vote yes or no, to conform or not to conform to some
+  agreement or rule or restriction. Players will accept hockey helmets (or not) by individual
+  choice for several reasons. Chicago star Bobby Hull cites the simplest factor: vanity. But
+  many players honestly believe that helmets will cut their efficiency and put them at a disadvantage,
+  and others fear the ridicule of opponents. The use of helmets will spread only through fear
+  caused by injuries like Green''s-or through a rule making them mandatory. . . One player
+  summed up the feelings of many: It''s foolish not to wear a helmet. But I don''t because
+  the other guys don''t. I know that'' silly, but most of the players feel the same way. If
+  the league made us do it, though, we''d all wear them and nobody would mind. Shortly after
+  Teddy Green of the Bruins took a hockey stick in his brain, the player, Don Awrey, commented
+  to a Newsweek(1969) reporter, WhenI saw the way Teddy looked, it was an awful feeling .
+  . . I''m going to start wearing a helmet now, and I don''t care what anybody says. A voluntary
+  helmet may be seen as cowardly,but nobody thinks a baseball player timid when he dons the
+  batting helmet without which the league will not let him bat. Motorcycle helmets are not
+  only worn regularly,but probably worn more gladly, in states that require them. When ever
+  ascribed motives matter, the way a choice is organized or constrained will itself be a part
+  of the outcome and affect the payoffs.'
+authors:
+- Thomas C. Schelling
+organizations:
+- Harvard University
+- John F. Kennedy University
+affiliations:
+  Thomas C. Schelling:
+  - Harvard University
+  - John F. Kennedy University
+published_at: '1973-09-01'
+url: https://doi.org/10.1177/002200277301700302
+doi: 10.1177/002200277301700302
+openalex_id: W2121676185
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Quantifying the Self-Interest
+  Level of Markov Social Dilemma; SocialJax: An Evaluation Suite for Multi-agent Reinforcement;
+  Virtual Agent Economies. Scope scan by claude-opus-5: This is human-behavior economics with
+  no delegated machine authority, so it fails the scope test on its own, but four library
+  papers rest on its dilemma framing, making it genuinely load-bearing rather than refusable.
+  Held as a Section 15 pointer alongside Melting Pot; the institutional-economics compression
+  line applies but is overridden by its direct method lineage into agent-population dilemma
+  design. What changes because agents hold authority: Nothing about it is agent-specific —
+  it is the canonical source for binary-choice-with-externality dilemmas and the observation
+  that mandating a rule changes payoffs rather than merely constraining them, which is the
+  conceptual base the multi-agent social-dilemma and agent-economy work in the library builds
+  on. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

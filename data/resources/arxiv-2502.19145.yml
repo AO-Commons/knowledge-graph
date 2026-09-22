@@ -1,0 +1,52 @@
+id: resource:arxiv:2502.19145
+resource_type: preprint
+title: 'Multi-Agent Security Tax: Trading Off Security and Collaboration Capabilities in Multi-Agent
+  Systems'
+abstract: 'As AI agents are increasingly adopted to collaborate on complex objectives, ensuring
+  the security of autonomous multi-agent systems becomes crucial. We develop simulations of
+  agents collaborating on shared objectives to study these security risks and security trade-offs.
+  We focus on scenarios where an attacker compromises one agent, using it to steer the entire
+  system toward misaligned outcomes by corrupting other agents. In this context, we observe
+  infectious malicious prompts - the multi-hop spreading of malicious instructions. To mitigate
+  this risk, we evaluated several strategies: two "vaccination" approaches that insert false
+  memories of safely handling malicious input into the agents'' memory stream, and two versions
+  of a generic safety instruction strategy. While these defenses reduce the spread and fulfillment
+  of malicious instructions in our experiments, they tend to decrease collaboration capability
+  in the agent network. Our findings illustrate potential trade-off between security and collaborative
+  efficiency in multi-agent systems, providing insights for designing more secure yet effective
+  AI collaborations.'
+authors:
+- Pierre Peigne-Lefebvre
+- Mikolaj Kniejski
+- Filip Sondej
+- Matthieu David
+- Jason Hoelscher-Obermaier
+- Christian Schroeder de Witt
+- Esben Kran
+published_at: '2025-02-26'
+url: https://arxiv.org/abs/2502.19145
+doi: 10.48550/arXiv.2502.19145
+arxiv_id: '2502.19145'
+openalex_id: W4416130737
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecture Matters for Multi-Agent Security; Inherent and emergent liability
+  issues in LLM-based agentic . Scope scan by claude-opus-5: This is agent-specific operational
+  risk and containment design: the infectious-prompt failure mode and the security/collaboration
+  trade-off only exist because machine agents act on one another''s instructions, so no exclusion-register
+  line applies. It is directly load-bearing for overseeing agent-authority organizations rather
+  than adjacent background, and the library already builds on it via its multi-agent security
+  and principal-agent liability records. What changes because agents hold authority: Because
+  agents execute instructions from each other with real operational latitude, a single compromised
+  agent can propagate misaligned directives multi-hop through the organization, so designers
+  must budget an explicit security tax — defenses that contain contagion measurably degrade
+  the collaborative capability the organization was built for. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

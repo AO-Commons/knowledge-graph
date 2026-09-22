@@ -1,0 +1,36 @@
+id: resource:doi:10-1016-0005-1098-83-90046-8
+resource_type: peer-reviewed-paper
+title: Ironies of automation
+authors:
+- Lisanne Bainbridge
+organizations:
+- University College London
+affiliations:
+  Lisanne Bainbridge:
+  - University College London
+published_at: '1983-11-01'
+url: https://doi.org/10.1016/0005-1098(83)90046-8
+doi: 10.1016/0005-1098(83)90046-8
+openalex_id: W2008653298
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Fully Autonomous AI Agents Should Not be Developed; Intelligent AI Delegation.
+  Scope scan by claude-opus-5: No exclusion-register line applies — this is machine-authority
+  material, not human collective decision-making — but it concerns single-operator process
+  control rather than organizations in which agents hold authority, so it is foundational
+  literature the field builds on rather than an in-scope study. Hold it in section 15 alongside
+  Melting Pot as load-bearing borrowed background for oversight design. What changes because
+  agents hold authority: It establishes that delegating operational authority to machines
+  degrades the residual human supervisor''s situational awareness and skill precisely when
+  intervention is most needed, which directly constrains how human-in-the-loop oversight of
+  agent authority can be designed and staffed. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

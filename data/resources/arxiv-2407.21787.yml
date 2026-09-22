@@ -1,0 +1,54 @@
+id: resource:arxiv:2407.21787
+resource_type: preprint
+title: 'Large Language Monkeys: Scaling Inference Compute with Repeated Sampling'
+abstract: Scaling the amount of compute used to train language models has dramatically improved
+  their capabilities. However, when it comes to inference, we often limit models to making
+  only one attempt at a problem. Here, we explore inference compute as another axis for scaling,
+  using the simple technique of repeatedly sampling candidate solutions from a model. Across
+  multiple tasks and models, we observe that coverage -- the fraction of problems that are
+  solved by any generated sample -- scales with the number of samples over four orders of
+  magnitude. Interestingly, the relationship between coverage and the number of samples is
+  often log-linear and can be modelled with an exponentiated power law, suggesting the existence
+  of inference-time scaling laws. In domains like coding and formal proofs, where answers
+  can be automatically verified, these increases in coverage directly translate into improved
+  performance. When we apply repeated sampling to SWE-bench Lite, the fraction of issues solved
+  with DeepSeek-Coder-V2-Instruct increases from 15.9% with one sample to 56% with 250 samples,
+  outperforming the single-sample state-of-the-art of 43%. In domains without automatic verifiers,
+  we find that common methods for picking from a sample collection (majority voting and reward
+  models) plateau beyond several hundred samples and fail to fully scale with the sample budget.
+authors:
+- Bradley Brown
+- Jordan Juravsky
+- Ryan Ehrlich
+- Ronald Clark
+- Quoc V. Le
+- Christopher Ré
+- Azalia Mirhoseini
+published_at: '2024-07-31'
+url: https://arxiv.org/abs/2407.21787
+doi: 10.48550/arXiv.2407.21787
+arxiv_id: '2407.21787'
+openalex_id: W4402733601
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Bridging Inference-Time Scaling and Episodic Memory with Act; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: This is an inference-scaling
+  method paper, not a paper about organizations where agents hold authority, so it cannot
+  be ingested as in-scope; but the coverage-vs-verifiability result underpins how much autonomy
+  and compute one can safely delegate, making it genuinely load-bearing background of the
+  kind section 15 holds (cf. Melting Pot). No exclusion-register line applies; it is adjacent-method
+  material rather than excluded human-collective-decision material. What changes because agents
+  hold authority: It establishes that agent reliability is purchasable with inference compute
+  only where verification exists — and plateaus where it does not — which is directly load-bearing
+  for budgeting oversight and deciding which delegated tasks an agent can be trusted to close
+  on its own. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

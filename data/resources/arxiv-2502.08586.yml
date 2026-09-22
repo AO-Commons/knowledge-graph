@@ -1,0 +1,48 @@
+id: resource:arxiv:2502.08586
+resource_type: preprint
+title: Commercial LLM Agents Are Already Vulnerable to Simple Yet Dangerous Attacks
+abstract: A high volume of recent ML security literature focuses on attacks against aligned
+  large language models (LLMs). These attacks may extract private information or coerce the
+  model into producing harmful outputs. In real-world deployments, LLMs are often part of
+  a larger agentic pipeline including memory systems, retrieval, web access, and API calling.
+  Such additional components introduce vulnerabilities that make these LLM-powered agents
+  much easier to attack than isolated LLMs, yet relatively little work focuses on the security
+  of LLM agents. In this paper, we analyze security and privacy vulnerabilities that are unique
+  to LLM agents. We first provide a taxonomy of attacks categorized by threat actors, objectives,
+  entry points, attacker observability, attack strategies, and inherent vulnerabilities of
+  agent pipelines. We then conduct a series of illustrative attacks on popular open-source
+  and commercial agents, demonstrating the immediate practical implications of their vulnerabilities.
+  Notably, our attacks are trivial to implement and require no understanding of machine learning.
+authors:
+- Ang Li
+- Yin Zhou
+- Vethavikashini Chithrra Raghuram
+- Tom Goldstein
+- Micah Goldblum
+published_at: '2025-02-12'
+url: https://arxiv.org/abs/2502.08586
+doi: 10.48550/arXiv.2502.08586
+arxiv_id: '2502.08586'
+openalex_id: W4417315191
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Lessons from complex systems science for AI governance; Levels of Autonomy for
+  AI Agents. Scope scan by claude-opus-5: No exclusion-register line applies: this is agent-specific
+  security, not human collective decision-making, token design, or general entity regulation.
+  It is held as borrowed background because it studies vulnerabilities of agent pipelines
+  rather than organizations in which agents hold authority, but it is load-bearing for anyone
+  specifying controls over agents that can act. What changes because agents hold authority:
+  When an agent holds real operational authority, a trivially-executed injection through memory,
+  retrieval, web access or API calling becomes an unauthorized organizational action, so this
+  attack taxonomy defines the threat model any delegation boundary, approval gate or audit
+  trail must be designed against. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

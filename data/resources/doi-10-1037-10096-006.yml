@@ -1,0 +1,50 @@
+id: resource:doi:10-1037-10096-006
+resource_type: peer-reviewed-paper
+title: Grounding in communication.
+abstract: It takes two people working together to play a duet, shake hands, play chess, waltz,
+  teach, or make love. To succeed, the two of them have to coordinate both the content and
+  process of what they are doing. Alan and Barbara, on the piano, must come to play the same
+  Mozart duet. This is coordination of content. They must also synchronize their entrances
+  and exits, coordinate how loudly to play forte and pianissimo, and otherwise adjust to each
+  other's tempo and dynamics. This is coordination of process. They cannot even begin to coordinate
+  on content without assuming a vast amount of shared information or common ground-that is,
+  mutual knowledge, mutual beliefs, and mutual assumptions (Clark & Carlson, 1982; Clark &
+  Marshall, 1981; Lewis, 1969; Schelling, 1960). And to coordinate on process, they need to
+  update their common ground moment by moment. All collective actions are built on common
+  ground and its accumulation.
+authors:
+- Herbert H. Clark
+- Susan E. Brennan
+organizations:
+- Stanford Medicine
+affiliations:
+  Herbert H. Clark:
+  - Stanford Medicine
+published_at: '1991-01-01'
+url: https://doi.org/10.1037/10096-006
+doi: 10.1037/10096-006
+openalex_id: W1741471588
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Designing Human-Agent Collaborations: Commitment, responsive; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: Clark & Brennan''s
+  grounding theory is pre-agentic human communication theory, so it is not itself about organizations
+  where machines hold authority, but it is load-bearing foundational method for the human-agent
+  collaboration and agent-cooperation benchmark work in the corpus. Held as borrowed background
+  in section 15 rather than ingested as in-scope; the deliberative-democracy exclusion does
+  not apply since this is a theory of coordination mechanism, not human collective decision
+  procedure. What changes because agents hold authority: Common ground and grounding costs
+  explain why delegating authority to agents requires explicit mutual-belief maintenance —
+  an agent acting on ungrounded assumptions commits the organization to action no one confirmed
+  — and it underpins the human-agent collaboration and multi-agent coordination benchmarks
+  the library already holds. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

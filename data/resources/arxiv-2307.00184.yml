@@ -1,0 +1,55 @@
+id: resource:arxiv:2307.00184
+resource_type: preprint
+title: Personality Traits in Large Language Models
+abstract: 'The advent of large language models (LLMs) has revolutionized natural language
+  processing, enabling the generation of coherent and contextually relevant human-like text.
+  As LLMs increasingly powerconversational agents used by the general public world-wide, the
+  synthetic personality traits embedded in these models, by virtue of training on large amounts
+  of human data, is becoming increasingly important. Since personality is a key factor determining
+  the effectiveness of communication, we present a novel and comprehensive psychometrically
+  valid and reliable methodology for administering and validating personality tests on widely-used
+  LLMs, as well as for shaping personality in the generated text of such LLMs. Applying this
+  method to 18 LLMs, we found: 1) personality measurements in the outputs of some LLMs under
+  specific prompting configurations are reliable and valid; 2) evidence of reliability and
+  validity of synthetic LLM personality is stronger for larger and instruction fine-tuned
+  models; and 3) personality in LLM outputs can be shaped along desired dimensions to mimic
+  specific human personality profiles. We discuss the application and ethical implications
+  of the measurement and shaping method, in particular regarding responsible AI.'
+authors:
+- Greg Serapio-García
+- Mustafa Safdari
+- Clément Crepy
+- Luning Sun
+- Stephen Fitz
+- Peter Romero
+- Marwa Abdulhai
+- Aleksandra Faust
+- Maja Matarić
+published_at: '2023-07-01'
+url: https://arxiv.org/abs/2307.00184
+doi: 10.48550/arXiv.2307.00184
+arxiv_id: '2307.00184'
+openalex_id: W4383175795
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: The paper is about measuring
+  and steering synthetic personality in LLM outputs, not about organizations where machines
+  hold operational or decision authority, so it fails the scope test on its own terms. It
+  is, however, a foundational measurement method the field''s agent-modeling work (Concordia,
+  agent engineering) relies on, so it belongs in section 15 as borrowed background alongside
+  Melting Pot rather than being refused. What changes because agents hold authority: Nothing
+  directly — it does not concern authority, but it supplies the psychometric validation and
+  trait-shaping method that lets designers characterize and hold constant the dispositions
+  of agents placed in organizational roles, which is why generative-agent and agent-engineering
+  work in the library builds on it. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,57 @@
+id: resource:arxiv:2305.16291
+resource_type: preprint
+title: 'Voyager: An Open-Ended Embodied Agent with Large Language Models'
+abstract: 'We introduce Voyager, the first LLM-powered embodied lifelong learning agent in
+  Minecraft that continuously explores the world, acquires diverse skills, and makes novel
+  discoveries without human intervention. Voyager consists of three key components: 1) an
+  automatic curriculum that maximizes exploration, 2) an ever-growing skill library of executable
+  code for storing and retrieving complex behaviors, and 3) a new iterative prompting mechanism
+  that incorporates environment feedback, execution errors, and self-verification for program
+  improvement. Voyager interacts with GPT-4 via blackbox queries, which bypasses the need
+  for model parameter fine-tuning. The skills developed by Voyager are temporally extended,
+  interpretable, and compositional, which compounds the agent''s abilities rapidly and alleviates
+  catastrophic forgetting. Empirically, Voyager shows strong in-context lifelong learning
+  capability and exhibits exceptional proficiency in playing Minecraft. It obtains 3.3x more
+  unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to
+  15.3x faster than prior SOTA. Voyager is able to utilize the learned skill library in a
+  new Minecraft world to solve novel tasks from scratch, while other techniques struggle to
+  generalize. We open-source our full codebase and prompts at https://voyager.minedojo.org/.'
+authors:
+- Guanzhi Wang
+- Yuqi Xie
+- Yunfan Jiang
+- Ajay Mandlekar
+- Chaowei Xiao
+- Yuke Zhu
+- Linxi Fan
+- Anima Anandkumar
+published_at: '2023-05-25'
+url: https://arxiv.org/abs/2305.16291
+doi: 10.48550/arXiv.2305.16291
+arxiv_id: '2305.16291'
+openalex_id: W4378505261
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  6 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agentic Harness Engineering:
+  Observability-Driven Automatic ; Bridging Inference-Time Scaling and Episodic Memory with
+  Act; Cognitive Architectures for Language Agents; Levels of Autonomy for AI Agents; OpenLife:
+  Toward Open-World Artificial Life with Autonomous . Scope scan by claude-opus-5: Voyager
+  is about a single embodied agent''s lifelong learning, not about an organization in which
+  agents hold decision authority, so it fails the scope test on its own terms. But it is a
+  foundational method the field visibly builds on (skill libraries, self-verification loops,
+  autonomy levels), so it belongs in section 15 as borrowed background rather than as a curated
+  in-scope record. What changes because agents hold authority: It establishes the mechanics
+  — self-directed curriculum, a persistent executable skill library, and self-verification
+  — by which an agent accumulates and reuses capability without human intervention, which
+  is the substrate any delegation of real operational authority to an agent has to be designed
+  and audited around. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true

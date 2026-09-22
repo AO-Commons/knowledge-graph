@@ -1,0 +1,46 @@
+id: resource:doi:10-1007-s10676-017-9430-8
+resource_type: peer-reviewed-paper
+title: 'Society-in-the-loop: programming the algorithmic social contract'
+abstract: Recent rapid advances in Artificial Intelligence (AI) and Machine Learning have
+  raised many questions about the regulatory and governance mechanisms for autonomous machines.
+  Many commentators, scholars, and policy-makers now call for ensuring that algorithms governing
+  our lives are transparent, fair, and accountable. Here, I propose a conceptual framework
+  for the regulation of AI and algorithmic systems. I argue that we need tools to program,
+  debug and maintain an algorithmic social contract, a pact between various human stakeholders,
+  mediated by machines. To achieve this, we can adapt the concept of human-in-the-loop (HITL)
+  from the fields of modeling and simulation, and interactive machine learning. In particular,
+  I propose an agenda I call society-in-the-loop (SITL), which combines the HITL control paradigm
+  with mechanisms for negotiating the values of various stakeholders affected by AI systems,
+  and monitoring compliance with the agreement. In short, ‘SITL = HITL + Social Contract.’
+authors:
+- Iyad Rahwan
+organizations:
+- Massachusetts Institute of Technology
+affiliations:
+  Iyad Rahwan:
+  - Massachusetts Institute of Technology
+published_at: '2017-08-17'
+url: https://doi.org/10.1007/s10676-017-9430-8
+doi: 10.1007/s10676-017-9430-8
+openalex_id: W2738428139
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Human-centred mechanism design with Democratic AI; Is Decentralized AI Governable?
+  From Regulative Policy to Co. Scope scan by claude-opus-5: The piece is explicitly about
+  programming and holding accountable systems that exercise delegated decision authority over
+  affected parties, so removing the machine dissolves the finding; it is not human collective
+  decision theory of the kind compressed to 15.1. It is load-bearing conceptual framing for
+  oversight and value-negotiation design in agent-authority settings, so it belongs in the
+  corpus rather than as a pointer. What changes because agents hold authority: It reframes
+  oversight of machine decision authority from individual human-in-the-loop supervision to
+  negotiated, multi-stakeholder value tradeoffs and accountability mechanisms — the design
+  question that only arises once an algorithm, not a person, holds the decision. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1

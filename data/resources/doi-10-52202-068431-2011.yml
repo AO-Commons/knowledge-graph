@@ -1,0 +1,70 @@
+id: resource:doi:10-52202-068431-2011
+resource_type: peer-reviewed-paper
+title: Training Language Models to Follow Instructions with Human Feedback
+abstract: Making language models bigger does not inherently make them better at following
+  a user's intent. For example, large language models can generate outputs that are untruthful,
+  toxic, or simply not helpful to the user. In other words, these models are not aligned with
+  their users. In this paper, we show an avenue for aligning language models with user intent
+  on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written
+  prompts and prompts submitted through the OpenAI API, we collect a dataset of labeler demonstrations
+  of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning.
+  We then collect a dataset of rankings of model outputs, which we use to further fine-tune
+  this supervised model using reinforcement learning from human feedback. We call the resulting
+  models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B
+  parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having
+  100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and
+  reductions in toxic output generation while having minimal performance regressions on public
+  NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that
+  fine-tuning with human feedback is a promising direction for aligning language models with
+  human intent.
+authors:
+- Long Ouyang
+- Jeffrey Wu
+- Xu Jiang
+- Diogo Almeida
+- Carroll Wainwright
+- Pamela Mishkin
+- Chong Zhang
+- Sandhini Agarwal
+- Katarina Slama
+- Alex Ray
+- John Schulman
+- Jacob Hilton
+- Fraser Kelton
+- Luke Miller
+- Maddie Simens
+- Amanda Askell
+- Peter Welinder
+- Paul F. Christiano
+- Jan Leike
+- Ryan Lowe
+published_at: '2022-01-01'
+url: https://doi.org/10.52202/068431-2011
+doi: 10.52202/068431-2011
+openalex_id: W7133211372
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  8 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; Can Large Language
+  Model Agents Simulate Human Trust Behavio; Cognitive Architectures for Language Agents;
+  Discovering Language Model Behaviors with Model-Written Eval; Securing AI Agents with Information-Flow
+  Control; Solipsistic Superintelligence is Unlikely to be Cooperative; Using Large Language
+  Models to Simulate Multiple Humans and ; WebVoyager: Building an End-to-End Web Agent with
+  Large Mult. Scope scan by claude-opus-5: No exclusion-register line applies; this is a foundational
+  method the field builds on, cited by eight library papers as the basis for instruction-following
+  agent behavior. It is not about organizations where agents hold authority, so it belongs
+  in section 15 as borrowed background rather than as an ingested scope record. What changes
+  because agents hold authority: InstructGPT/RLHF is the foundational alignment method that
+  makes agents steerable enough to be delegated authority at all, so its failure modes (sycophancy,
+  reward-model misspecification, annotator-preference capture) are the inherited substrate
+  of any agent that holds operational power — but the paper itself is about model training,
+  not organizational authority. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-22'
+expansion_generation: 1
+is_borrowed_background: true
