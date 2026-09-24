@@ -395,7 +395,7 @@ answered. "We evaluated only on English" is the first; "whether this survives
 multilingual training remains an open question" is the second, and only the
 second is something somebody can go and work on.
 
-Gaps are what `Problem` nodes will be clustered from: one question, asked in
+Gaps are what `Question` nodes will be clustered from: one question, asked in
 several papers, each occurrence keeping its own quote. That layer is not built
 yet — this stage is the supply for it.
 

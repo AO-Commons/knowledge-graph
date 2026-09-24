@@ -509,7 +509,11 @@ class ClaimType(str, Enum):
         A gap is neither, and that is why it is not primary here. It is not
         an answer the library holds; it is a question the library can say
         nobody has answered, which is a different product built on the same
-        statements — see `Problem`.
+        statements — see `Question`, which is the node gaps cluster into.
+        That name is MIRA's rather than ours: their schema calls the node a
+        `Question` and the edge from a claim `addresses`, and adopting their
+        vocabulary for a layer we had not built yet cost nothing and means
+        this graph is already speaking a shared one. See ATTRIBUTION.md.
 
         The corpus bears it out. Ten of the first twelve asserted relations
         run between findings and positions; the argument the field is having

@@ -47,3 +47,32 @@ will be, and it is maintained by people closer to the building.
 
 Released under CC-BY-4.0, as recorded in every release's `metadata.json`.
 Attribution: AO Commons — https://github.com/AO-Commons/knowledge-graph
+
+## MIRA
+
+[mira-science/schema](https://github.com/mira-science/schema) — Apache License 2.0.
+Namespace `http://purl.org/mira-science/mira#`.
+
+MIRA is an open schema for research graphs: questions, the claims that answer
+them, and the evidence behind each. Nothing of theirs is copied into this
+repository. What we took is **two names**: their `Question` node, and the
+`addresses` edge from a claim to it.
+
+Both are for a layer this library had not built yet, which is the only reason
+it was free to take them. We had designed the same node under the name
+`Problem` and an edge called `ADDRESSES`; renaming it once the corpus held
+data would have been the expensive version. Adopting the vocabulary of a
+shared schema while a layer is still a sketch costs nothing and means the
+graph is already speaking a common one if MIRA becomes the standard it is
+trying to be.
+
+Their schema goes deeper than ours where they work and we do not — `Study`,
+`Protocol`, and `Evidence` tied to the activity that produced it, which is the
+shape of a lab recording its own experiments. Ours goes deeper on reading
+somebody else's published work: a verbatim quote for every claim, a verdict
+bound to the wording it was given, and a reviewer linked to a byline. The two
+are the same graph approached from opposite ends, which is the interesting
+part and the reason to keep watching it.
+
+We take the names and no obligations: Apache-2.0 asks for attribution when
+its work is redistributed, and this is credit rather than redistribution.
