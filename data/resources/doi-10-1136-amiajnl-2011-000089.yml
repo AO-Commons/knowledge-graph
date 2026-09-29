@@ -1,0 +1,65 @@
+id: resource:doi:10-1136-amiajnl-2011-000089
+resource_type: peer-reviewed-paper
+title: 'Automation bias: a systematic review of frequency, effect mediators, and mitigators'
+abstract: Automation bias (AB)--the tendency to over-rely on automation--has been studied
+  in various academic fields. Clinical decision support systems (CDSS) aim to benefit the
+  clinical decision-making process. Although most research shows overall improved performance
+  with use, there is often a failure to recognize the new errors that CDSS can introduce.
+  With a focus on healthcare, a systematic review of the literature from a variety of research
+  fields has been carried out, assessing the frequency and severity of AB, the effect mediators,
+  and interventions potentially mitigating this effect. This is discussed alongside automation-induced
+  complacency, or insufficient monitoring of automation output. A mix of subject specific
+  and freetext terms around the themes of automation, human-automation interaction, and task
+  performance and error were used to search article databases. Of 13 821 retrieved papers,
+  74 met the inclusion criteria. User factors such as cognitive style, decision support systems
+  (DSS), and task specific experience mediated AB, as did attitudinal driving factors such
+  as trust and confidence. Environmental mediators included workload, task complexity, and
+  time constraint, which pressurized cognitive resources. Mitigators of AB included implementation
+  factors such as training and emphasizing user accountability, and DSS design factors such
+  as the position of advice on the screen, updated confidence levels attached to DSS output,
+  and the provision of information versus recommendation. By uncovering the mechanisms by
+  which AB operates, this review aims to help optimize the clinical decision-making process
+  for CDSS developers and healthcare practitioners.
+authors:
+- Kate S. Goddard
+- Abdul Roudsari
+- Jeremy C Wyatt
+organizations:
+- City, University of London
+- University of Victoria
+- University of Warwick
+affiliations:
+  Kate S. Goddard:
+  - City, University of London
+  Abdul Roudsari:
+  - City, University of London
+  - University of Victoria
+  Jeremy C Wyatt:
+  - University of Warwick
+published_at: '2011-06-17'
+url: https://doi.org/10.1136/amiajnl-2011-000089
+doi: 10.1136/amiajnl-2011-000089
+openalex_id: W2281090488
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Designing Human-Agent Collaborations: Commitment, responsive; Fully Autonomous
+  AI Agents Should Not be Developed. Scope scan by claude-opus-5: The finding disappears without
+  the machine — automation bias is a property of human-machine hybrid decision-making, so
+  the deliberative-democracy exclusion line does not reach it as read on 2026-09-10. But it
+  studies clinical decision support rather than organizations where agents hold operational
+  authority, so it is load-bearing adjacent literature the library should point at (section
+  15) rather than an agentic-organization record. What changes because agents hold authority:
+  Human sign-off is the primary accountability control for agent decisions, and this review
+  shows that control degrades predictably — giving concrete mediators (workload, time pressure,
+  trust calibration) and mitigators (accountability emphasis, confidence disclosure, information-versus-recommendation
+  framing) to design oversight that actually binds rather than rubber-stamps. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

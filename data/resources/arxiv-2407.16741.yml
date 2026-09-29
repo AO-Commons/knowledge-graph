@@ -1,0 +1,69 @@
+id: resource:arxiv:2407.16741
+resource_type: preprint
+title: 'OpenHands: An Open Platform for AI Software Developers as Generalist Agents'
+abstract: 'Software is one of the most powerful tools that we humans have at our disposal;
+  it allows a skilled programmer to interact with the world in complex and profound ways.
+  At the same time, thanks to improvements in large language models (LLMs), there has also
+  been a rapid development in AI agents that interact with and affect change in their surrounding
+  environments. In this paper, we introduce OpenHands (f.k.a. OpenDevin), a platform for the
+  development of powerful and flexible AI agents that interact with the world in similar ways
+  to those of a human developer: by writing code, interacting with a command line, and browsing
+  the web. We describe how the platform allows for the implementation of new agents, safe
+  interaction with sandboxed environments for code execution, coordination between multiple
+  agents, and incorporation of evaluation benchmarks. Based on our currently incorporated
+  benchmarks, we perform an evaluation of agents over 15 challenging tasks, including software
+  engineering (e.g., SWE-BENCH) and web browsing (e.g., WEBARENA), among others. Released
+  under the permissive MIT license, OpenHands is a community project spanning academia and
+  industry with more than 2.1K contributions from over 188 contributors.'
+authors:
+- Xingyao Wang
+- Boxuan Li
+- Yufan Song
+- Frank F. Xu
+- Xiangru Tang
+- Mingchen Zhuge
+- Jiayi Pan
+- Yueqi Song
+- Bowen Li
+- Jaskirat Singh
+- Hoang H. Tran
+- Fuqiang Li
+- Ren Ma
+- Mingzhang Zheng
+- Bill Qian
+- Yanjun Shao
+- Niklas Muennighoff
+- Yizhe Zhang
+- Binyuan Hui
+- Junyang Lin
+- Robert Brennan
+- Hao Peng
+- Heng Ji
+- Graham Neubig
+published_at: '2024-07-23'
+url: https://arxiv.org/abs/2407.16741
+doi: 10.48550/arXiv.2407.16741
+arxiv_id: '2407.16741'
+openalex_id: W4403885061
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agentic Harness Engineering: Observability-Driven Automatic ; TheAgentCompany:
+  Benchmarking LLM Agents on Consequential Re. Scope scan by claude-opus-5: OpenHands is platform
+  and benchmark infrastructure the field builds on (the same posture as Melting Pot), load-bearing
+  for TheAgentCompany and harness-engineering work in the library but not a study of delegated
+  authority, accountability, or oversight. No exclusion-register line bars it; it simply sits
+  at the pointer tier rather than the core. What changes because agents hold authority: It
+  specifies the execution substrate — sandboxed action, tool/command authority, and multi-agent
+  coordination — that determines what an agent can actually do and how its actions can be
+  constrained and observed, but it does not itself address organizations where agents hold
+  decision authority. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,75 @@
+id: resource:arxiv:2112.04359
+resource_type: preprint
+title: Ethical and social risks of harm from Language Models
+abstract: 'This paper aims to help structure the risk landscape associated with large-scale
+  Language Models (LMs). In order to foster advances in responsible innovation, an in-depth
+  understanding of the potential risks posed by these models is needed. A wide range of established
+  and anticipated risks are analysed in detail, drawing on multidisciplinary expertise and
+  literature from computer science, linguistics, and social sciences. We outline six specific
+  risk areas: I. Discrimination, Exclusion and Toxicity, II. Information Hazards, III. Misinformation
+  Harms, V. Malicious Uses, V. Human-Computer Interaction Harms, VI. Automation, Access, and
+  Environmental Harms. The first area concerns the perpetuation of stereotypes, unfair discrimination,
+  exclusionary norms, toxic language, and lower performance by social group for LMs. The second
+  focuses on risks from private data leaks or LMs correctly inferring sensitive information.
+  The third addresses risks arising from poor, false or misleading information including in
+  sensitive domains, and knock-on risks such as the erosion of trust in shared information.
+  The fourth considers risks from actors who try to use LMs to cause harm. The fifth focuses
+  on risks specific to LLMs used to underpin conversational agents that interact with human
+  users, including unsafe use, manipulation or deception. The sixth discusses the risk of
+  environmental harm, job automation, and other challenges that may have a disparate effect
+  on different social groups or communities. In total, we review 21 risks in-depth. We discuss
+  the points of origin of different risks and point to potential mitigation approaches. Lastly,
+  we discuss organisational responsibilities in implementing mitigations, and the role of
+  collaboration and participation. We highlight directions for further research, particularly
+  on expanding the toolkit for assessing and evaluating the outlined risks in LMs.'
+authors:
+- Laura Weidinger
+- John W. Mellor
+- Maribeth Rauh
+- Conor Griffin
+- Jonathan Uesato
+- Po-Sen Huang
+- Myra Cheng
+- Mia Glaese
+- Borja Balle
+- Atoosa Kasirzadeh
+- Zac Kenton
+- Sasha Brown
+- Will Hawkins
+- Tom Stepleton
+- Courtney Biles
+- Abeba Birhane
+- Julia Haas
+- Laura Rimell
+- Lisa Anne Hendricks
+- William M. Isaac
+- Sean Legassick
+- Geoffrey Irving
+- Iason Gabriel
+published_at: '2021-12-08'
+url: https://arxiv.org/abs/2112.04359
+doi: 10.48550/arXiv.2112.04359
+arxiv_id: '2112.04359'
+openalex_id: W4226112058
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Training Language
+  Models to Follow Instructions with Human F. Scope scan by claude-opus-5: The paper is about
+  harms of language models in general, not about organizations where machine agents hold decision
+  authority, so it fails the scope test directly; removing the agentic-authority setting leaves
+  every finding intact. It is nonetheless load-bearing for the field''s risk and evaluation
+  vocabulary and is cited by in-library work, so it belongs in section 15 as a pointer rather
+  than as an ingested record. What changes because agents hold authority: It supplies the
+  canonical harm taxonomy and the organisational-responsibility framing that an overseer of
+  an agent-authority organisation would use to enumerate what could go wrong, but the risks
+  are model-level rather than arising from agents holding operational authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

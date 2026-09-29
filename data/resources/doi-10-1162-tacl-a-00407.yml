@@ -1,0 +1,61 @@
+id: resource:doi:10-1162-tacl-a-00407
+resource_type: peer-reviewed-paper
+title: How Can We Know When Language Models Know? On the Calibration of Language Models for
+  Question Answering
+abstract: Abstract Recent works have shown that language models (LM) capture different types
+  of knowledge regarding facts or common sense. However, because no model is perfect, they
+  still fail to provide appropriate answers in many cases. In this paper, we ask the question,
+  “How can we know when language models know, with confidence, the answer to a particular
+  query?” We examine this question from the point of view of calibration, the property of
+  a probabilistic model’s predicted probabilities actually being well correlated with the
+  probabilities of correctness. We examine three strong generative models—T5, BART, and GPT-2—and
+  study whether their probabilities on QA tasks are well calibrated, finding the answer is
+  a relatively emphatic no. We then examine methods to calibrate such models to make their
+  confidence scores correlate better with the likelihood of correctness through fine-tuning,
+  post-hoc probability modification, or adjustment of the predicted outputs or inputs. Experiments
+  on a diverse range of datasets demonstrate the effectiveness of our methods. We also perform
+  analysis to study the strengths and limitations of these methods, shedding light on further
+  improvements that may be made in methods for calibrating LMs. We have released the code
+  at https://github.com/jzbjyb/lm-calibration.
+authors:
+- Zhengbao Jiang
+- Jun Araki
+- Haibo Ding
+- Graham Neubig
+organizations:
+- Carnegie Mellon University
+- Robert Bosch
+affiliations:
+  Zhengbao Jiang:
+  - Carnegie Mellon University
+  Jun Araki:
+  - Robert Bosch
+  Haibo Ding:
+  - Robert Bosch
+  Graham Neubig:
+  - Carnegie Mellon University
+published_at: '2021-01-01'
+url: https://doi.org/10.1162/tacl_a_00407
+doi: 10.1162/tacl_a_00407
+openalex_id: W3199958362
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Intelligent AI Delegation; Personality
+  Traits in Large Language Models. Scope scan by claude-opus-5: This is a foundational method
+  paper on LM confidence estimation, not a study of organizations where agents hold authority,
+  so it is pointed at rather than ingested as in-scope — the same treatment as Melting Pot.
+  It is genuinely load-bearing because delegation, escalation and abstention policies for
+  agents with real authority all presuppose that a model''s stated confidence tracks correctness.
+  What changes because agents hold authority: If an agent''s expressed confidence gates when
+  it acts versus escalates to a human, calibration quality becomes the load-bearing property
+  of any delegation or autonomy threshold in an agent-authority organization. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

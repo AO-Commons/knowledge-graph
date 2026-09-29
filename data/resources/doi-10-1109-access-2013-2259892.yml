@@ -1,0 +1,66 @@
+id: resource:doi:10-1109-access-2013-2259892
+resource_type: peer-reviewed-paper
+title: A Survey of Multi-Agent Trust Management Systems
+abstract: In open and dynamic multiagent systems (MASs), agents often need to rely on resources
+  or services provided by other agents to accomplish their goals. During this process, agents
+  are exposed to the risk of being exploited by others. These risks, if not mitigated, can
+  cause serious breakdowns in the operation of MASs and threaten their long-term wellbeing.
+  To protect agents from the uncertainty in the behavior of their interaction partners, the
+  age-old mechanism of trust between human beings is re-contexted into MASs. The basic idea
+  is to let agents self-police the MAS by rating each other on the basis of their observed
+  behavior and basing future interaction decisions on such information. Over the past decade,
+  a large number of trust management models were proposed. However, there is a lack of research
+  effort in several key areas, which are critical to the success of trust management in MASs
+  where human beings and agents coexist. The purpose of this paper is to give an overview
+  of existing research in trust management in MASs. We analyze existing trust models from
+  a game theoretic perspective to highlight the special implications of including human beings
+  in an MAS, and propose a possible research agenda to advance the state of the art in this
+  field.
+authors:
+- Han Yu
+- Zhiqi Shen
+- Cyril Leung
+- Chunyan Miao
+- Victor Lesser
+organizations:
+- Nanyang Technological University
+- University of British Columbia
+- University of Massachusetts Amherst
+affiliations:
+  Han Yu:
+  - Nanyang Technological University
+  Zhiqi Shen:
+  - Nanyang Technological University
+  Cyril Leung:
+  - University of British Columbia
+  Chunyan Miao:
+  - Nanyang Technological University
+  Victor Lesser:
+  - University of Massachusetts Amherst
+published_at: '2013-01-01'
+url: https://doi.org/10.1109/access.2013.2259892
+doi: 10.1109/access.2013.2259892
+openalex_id: W2129633982
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecture Matters for Multi-Agent Security; Intelligent AI Delegation. Scope
+  scan by claude-opus-5: The register cuts reputation/sybil resistance to a pointer but flags
+  it as arguable precisely when agents accrue governance weight, which is the case here; as
+  a 2013 field survey it is a foundational method the library builds on rather than a study
+  of an organization where agents hold authority. Hold as borrowed background alongside Melting
+  Pot, cited by Intelligent AI Delegation and Architecture Matters for Multi-Agent Security.
+  What changes because agents hold authority: When agents choose which other agents to rely
+  on and delegate to, computational trust and reputation models become the substrate that
+  determines de facto authority allocation, so this survey supplies the vocabulary and failure
+  modes (exploitation, collusion, human-agent asymmetry) that any agent-delegation or multi-agent
+  security design must handle. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

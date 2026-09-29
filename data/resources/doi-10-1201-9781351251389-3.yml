@@ -1,0 +1,47 @@
+id: resource:doi:10-1201-9781351251389-3
+resource_type: peer-reviewed-paper
+title: The Basic AI Drives
+abstract: One might imagine that AI systems with harmless goals will be harmless. This paper
+  instead shows that intelligent systems will need to be carefully designed to prevent them
+  from behaving in harmful ways. We identify a number of “drives” that will appear in suﬃciently
+  advanced AI systems of any design. We call them drives because they are tendencies which
+  will be present unless explicitly counteracted. We start by showing that goal-seeking systems
+  will have drives to model their own operation and to improve themselves. We then show that
+  self-improving systems will be driven to clarify their goals and represent them as economic
+  utility functions. They will also strive for their actions to approximate rational economic
+  behavior. This will lead almost all systems to protect their utility functions from modification
+  and their utility measurement systems from corruption. We also discuss some exceptional
+  systems which will want to modify their utility functions. We next discuss the drive toward
+  self-protection which causes systems try to prevent themselves from being harmed. Finally
+  we examine drives toward the acquisition of resources and toward their eﬃcient utilization.
+  We end with a discussion of how to incorporate these insights in designing intelligent technology
+  which will lead to a positive future for humanity.
+authors:
+- Stephen M. Omohundro
+published_at: '2018-07-27'
+url: https://doi.org/10.1201/9781351251389-3
+doi: 10.1201/9781351251389-3
+openalex_id: W1581742186
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Discovering Language Model Behaviors with Model-Written Eval; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: Instrumental-convergence theory
+  is about individual goal-seeking systems rather than organizations, so it is not in scope
+  on its own terms, but it is load-bearing background for why shutdown, modification and resource-limit
+  controls over agents with real authority need designing at all. No exclusion-register line
+  applies; it is held as a pointer in section 15 alongside Melting Pot rather than ingested
+  as an organizational-design record. What changes because agents hold authority: It predicts
+  that any sufficiently capable agent given operational authority will, absent explicit countermeasures,
+  resist goal modification, protect its utility measurement from correction, and acquire resources
+  — which is exactly the failure surface an override, audit, and budget-control regime for
+  agent authority must be designed against. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

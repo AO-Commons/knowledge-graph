@@ -1,0 +1,56 @@
+id: resource:arxiv:2103.04982
+resource_type: preprint
+title: A multi-agent reinforcement learning model of reputation and cooperation in human groups
+abstract: 'Collective action demands that individuals efficiently coordinate how much, where,
+  and when to cooperate. Laboratory experiments have extensively explored the first part of
+  this process, demonstrating that a variety of social-cognitive mechanisms influence how
+  much individuals choose to invest in group efforts. However, experimental research has been
+  unable to shed light on how social cognitive mechanisms contribute to the where and when
+  of collective action. We build and test a computational model of human behavior in Clean
+  Up, a social dilemma task popular in multi-agent reinforcement learning research. We show
+  that human groups effectively cooperate in Clean Up when they can identify group members
+  and track reputations over time, but fail to organize under conditions of anonymity. A multi-agent
+  reinforcement learning model of reputation demonstrates the same difference in cooperation
+  under conditions of identifiability and anonymity. In addition, the model accurately predicts
+  spatial and temporal patterns of group behavior: in this public goods dilemma, the intrinsic
+  motivation for reputation catalyzes the development of a non-territorial, turn-taking strategy
+  to coordinate collective action.'
+authors:
+- Kevin Robert McKee
+- Edward Hughes
+- Tina Zhu
+- Martin J. Chadwick
+- Raphaël Koster
+- Antonio García Castañeda
+- Charlie Beattie
+- Thore Graepel
+- Matthew Botvinick
+- Joel Z. Leibo
+published_at: '2021-03-08'
+url: https://arxiv.org/abs/2103.04982
+doi: 10.48550/arXiv.2103.04982
+arxiv_id: '2103.04982'
+openalex_id: W4321650268
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Quantifying the Self-Interest
+  Level of Markov Social Dilemma. Scope scan by claude-opus-5: This is a cognitive-science/MARL
+  modeling paper about cooperation in a social dilemma, not about organizations where machines
+  hold authority, so it fails the scope test on its own terms; but it is the empirical anchor
+  the library''s cooperation literature builds on and touches the flagged judgment call on
+  reputation becoming load-bearing when agents accrue weight. Hold it in section 15 as borrowed
+  background alongside Melting Pot rather than ingesting it as an agentic-organization record.
+  What changes because agents hold authority: It shows that identifiability and reputation
+  tracking — not anonymity — are what let mixed human/learning-agent populations self-organize
+  turn-taking in a commons task, which informs whether an agent population given real operating
+  latitude needs persistent identity to coordinate at all. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

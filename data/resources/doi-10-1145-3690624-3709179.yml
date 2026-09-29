@@ -1,0 +1,66 @@
+id: resource:doi:10-1145-3690624-3709179
+resource_type: peer-reviewed-paper
+title: Benchmarking and Defending against Indirect Prompt Injection Attacks on Large Language
+  Models
+abstract: 'The integration of large language models (LLMs) with external content has enabled
+  applications such as Microsoft Copilot but also introduced vulnerabilities to indirect prompt
+  injection attacks. In these attacks, malicious instructions embedded within external content
+  can manipulate LLM outputs, causing deviations from user expectations. To address this critical
+  yet under-explored issue, we introduce the first benchmark for bindirect prompt injection
+  attacks, named BIPIA, to assess the risk of such vulnerabilities. Using BIPIA, we evaluate
+  existing LLMs and find them universally vulnerable. Our analysis identifies two key factors
+  contributing to their success: LLMs'' inability to distinguish between informational context
+  and actionable instructions, and their lack of awareness in avoiding the execution of instructions
+  within external content. Based on these findings, we propose two novel defense mechanisms
+  -- boundary awareness and explicit reminder -- to address these vulnerabilities in both
+  black-box and white-box settings. Extensive experiments demonstrate that our black-box defense
+  provides substantial mitigation, while our white-box defense reduces the attack success
+  rate to near-zero levels, all while preserving the output quality of LLMs. We hope this
+  work inspires further research into securing LLM applications and fostering their safe and
+  reliable use. Our code is available at https://github.com/microsoft/BIPIA.'
+authors:
+- Jingwei Yi
+- Yueqi Xie
+- Bin Zhu
+- Emre Kıcıman
+- Guangzhong Sun
+- Xing Xie
+- Fangzhao Wu
+organizations:
+- Hong Kong University of Science and Technology
+- Microsoft
+- University of Science and Technology of China
+affiliations:
+  Jingwei Yi:
+  - University of Science and Technology of China
+  Yueqi Xie:
+  - Hong Kong University of Science and Technology
+  Emre Kıcıman:
+  - Microsoft
+  Guangzhong Sun:
+  - University of Science and Technology of China
+published_at: '2025-04-04'
+url: https://doi.org/10.1145/3690624.3709179
+doi: 10.1145/3690624.3709179
+openalex_id: W4409150456
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Securing AI Agents with Information-Flow Control. Scope
+  scan by claude-opus-5: The work is a model-level benchmark and mitigation study, not a study
+  of organizations where agents hold authority, so it fails the scope test on its own terms;
+  but it is genuinely load-bearing for the library''s agent-security and delegation records
+  that cite it. Hold it as borrowed background in section 15 rather than ingesting it as an
+  agentic-organization record. What changes because agents hold authority: It supplies the
+  threat model and measurable defenses for the case where an agent with real authority ingests
+  untrusted external content, so any delegation boundary must assume instructions in data
+  can hijack the agent''s mandate. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

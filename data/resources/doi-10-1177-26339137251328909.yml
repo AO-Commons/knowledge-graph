@@ -1,0 +1,47 @@
+id: resource:doi:10-1177-26339137251328909
+resource_type: peer-reviewed-paper
+title: AI for collective intelligence
+abstract: 'AI has emerged as a transformative force in society, reshaping economies, work,
+  and everyday life. We argue that AI can not only improve short-term productivity but can
+  also enhance a group’s collective intelligence. Specifically, AI can be employed to enhance
+  three elements of collective intelligence: collective memory, collective attention, and
+  collective reasoning. This editorial reviews key emerging work in the area to suggest ways
+  in which AI can support the socio-cognitive architecture of collective intelligence. We
+  will then briefly introduce the articles in the “AI for Collective Intelligence” special
+  issue.'
+authors:
+- Christoph Riedl
+- David De Cremer
+organizations:
+- Northeastern University
+affiliations:
+  Christoph Riedl:
+  - Northeastern University
+  David De Cremer:
+  - Northeastern University
+published_at: '2025-04-01'
+url: https://doi.org/10.1177/26339137251328909
+doi: 10.1177/26339137251328909
+openalex_id: W4409126354
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: This is an editorial on
+  AI augmenting human collective intelligence: the machine advises and mediates rather than
+  exercising authority, so it sits at the edge of the hybrid-decision reading of the deliberative-democracy
+  line rather than squarely inside scope. It is load-bearing conceptual background cited by
+  library papers, so hold it as a section 15 pointer rather than ingest it as an agentic-organization
+  record. What changes because agents hold authority: It supplies the socio-cognitive framing
+  — collective memory, attention, and reasoning — that designers of hybrid organizations use
+  to decide which group cognitive functions a machine can take over, though it stops short
+  of machines holding decision authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

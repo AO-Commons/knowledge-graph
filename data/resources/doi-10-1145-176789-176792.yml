@@ -1,0 +1,46 @@
+id: resource:doi:10-1145-176789-176792
+resource_type: peer-reviewed-paper
+title: Agents that reduce work and information overload
+abstract: 'article Free Access Share on Agents that reduce work and information overload Author:
+  Pattie Maes MIT Media Lab., Cambridge, MA MIT Media Lab., Cambridge, MAView Profile Authors
+  Info & Claims Communications of the ACMVolume 37Issue 7July 1994 pp 30–40https://doi.org/10.1145/176789.176792Published:01
+  July 1994Publication History 26citation8,051DownloadsMetricsTotal Citations26Total Downloads8,051Last
+  12 Months137Last 6 weeks19 Get Citation AlertsNew Citation Alert added!This alert has been
+  successfully added and will be sent to:You will be notified whenever a record that you have
+  chosen has been cited.To manage your alert preferences, click on the button below.Manage
+  my Alerts New Citation Alert!Please log in to your account Save to BinderSave to BinderCreate
+  a New BinderNameCancelCreateExport CitationPublisher SiteeReaderPDF'
+authors:
+- Pattie Maes
+organizations:
+- MIT Media Lab
+- Massachusetts Institute of Technology
+affiliations:
+  Pattie Maes:
+  - MIT Media Lab
+  - Massachusetts Institute of Technology
+published_at: '1994-07-01'
+url: https://doi.org/10.1145/176789.176792
+doi: 10.1145/176789.176792
+openalex_id: W2113609601
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Fully Autonomous AI Agents Should Not be Developed; Levels of Autonomy for AI Agents.
+  Scope scan by claude-opus-5: Maes 1994 is foundational method the field builds on (cited
+  by the autonomy-levels and autonomy-limits work in the library) rather than a study of organizations
+  where agents hold operational or decision authority. No exclusion-register line bars it;
+  it belongs as a section 15 pointer, held the way Melting Pot is, not ingested as in-scope.
+  What changes because agents hold authority: It is the origin text for delegating tasks and
+  discretion to software agents and for the trust/competence conditions under which a principal
+  cedes control, which is the primitive that organizational agent authority is built from
+  — but it concerns a single user and assistant, not an organization. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

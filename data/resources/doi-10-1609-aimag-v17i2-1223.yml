@@ -1,0 +1,46 @@
+id: resource:doi:10-1609-aimag-v17i2-1223
+resource_type: peer-reviewed-paper
+title: Collaborative Systems (AAAI-94 Presidential Address)
+abstract: The construction of computer systems that are intelligent, collaborative problem-solving
+  partners is an important goal for both the science of AI and its application. From the scientific
+  perspective, the development of theories and mechanisms to enable building collaborative
+  systems presents exciting research challenges across AI subfields. From the applications
+  perspective, the capability to collaborate with users and other systems is essential if
+  large-scale information systems of the future are to assist users in finding the information
+  they need and solving the problems they have. In this address, it is argued that collaboration
+  must be designed into systems from the start; it cannot be patched on. Key features of collaborative
+  activity are described, the scientific base provided by recent AI research is discussed,
+  and several of the research challenges posed by collaboration are presented. It is further
+  argued that research on, and the development of, collaborative systems should itself be
+  a collaborative endeavor -- within AI, across subfields of computer science, and with researchers
+  in other fields.
+authors:
+- Barbara J. Grosz
+published_at: '1996-03-15'
+url: https://doi.org/10.1609/aimag.v17i2.1223
+doi: 10.1609/aimag.v17i2.1223
+openalex_id: W1507965568
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Designing Human-Agent Collaborations: Commitment, responsive; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: This is the origin
+  text for SharedPlans-style human-agent collaboration and is cited as such by in-library
+  work on commitment and responsiveness, so it is genuinely load-bearing rather than adjacent;
+  no exclusion-register line applies, since it concerns machine participation rather than
+  human collective decision-making. It is not itself about organizations where machines hold
+  operational or decision authority, so it belongs in section 15 as borrowed background rather
+  than as a scope-passing record. What changes because agents hold authority: Grosz''s account
+  of collaboration as requiring mutual commitment to a shared plan and to partners'' ability
+  to perform their parts supplies the foundational vocabulary for specifying what an agent
+  owes the organization when it holds a delegated task, but the work itself stops short of
+  agents holding authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

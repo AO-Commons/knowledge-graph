@@ -1,0 +1,57 @@
+id: resource:doi:10-1017-s0269888900008122
+resource_type: peer-reviewed-paper
+title: 'Intelligent agents: theory and practice'
+abstract: Abstract The concept of an agent has become important in both artificial intelligence
+  (AT) and mainstream computer science. Our aim in this paper is to point the reader at what
+  we perceive to be the most important theoretical and practical issues associated with the
+  design and construction of intelligent agents. For convenience, we divide these issues into
+  three areas (though as the reader will see, the divisions are at times somewhat arbitrary).
+  Agent theory is concerned with the question of what an agent is, and the use of mathematical
+  formalisms for representing and reasoning about the properties of agents. Agent architectures
+  can be thought of as software engineering models of agents; researchers in this area are
+  primarily concerned with the problem of designing software or hardware systems that will
+  satisfy the properties specified by agent theorists. Finally, agent languages are software
+  systems for programming and experimenting with agents; these languages may embody principles
+  proposed by theorists. The paper is not intended to serve as a tutorial introduction to
+  all the issues mentioned; we hope instead simply to identify the most important issues,
+  and point to work that elaborates on them. The article includes a short review of current
+  and potential applications of agent technology.
+authors:
+- Michael Wooldridge
+- Nicholas R. Jennings
+organizations:
+- Manchester Metropolitan University
+- Queen Mary University of London
+affiliations:
+  Michael Wooldridge:
+  - Manchester Metropolitan University
+  Nicholas R. Jennings:
+  - Queen Mary University of London
+published_at: '1995-06-01'
+url: https://doi.org/10.1017/s0269888900008122
+doi: 10.1017/s0269888900008122
+openalex_id: W2124344619
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Designing Human-Agent
+  Collaborations: Commitment, responsive; Fully Autonomous AI Agents Should Not be Developed;
+  Large Language Model based Multi-Agents: A Survey of Progres. Scope scan by claude-opus-5:
+  This is foundational agent theory and architecture, not a study of organizations in which
+  agents hold operational or decision authority, so it cannot be ingested as in-scope; but
+  it is load-bearing background that four library papers build their conceptions of autonomy
+  on. No exclusion-register line applies — it is not human collective decision-making — so
+  it belongs at section 15 as a pointer rather than being refused. What changes because agents
+  hold authority: It supplies the field''s canonical definition of agency — autonomy, proactiveness,
+  and delegated action without direct human intervention — which is the property that makes
+  an organization''s grant of authority to a machine meaningful and specifiable in the first
+  place. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,55 @@
+id: resource:doi:10-18653-v1-2022-acl-long-229
+resource_type: peer-reviewed-paper
+title: 'TruthfulQA: Measuring How Models Mimic Human Falsehoods'
+abstract: We propose a benchmark to measure whether a language model is truthful in generating
+  answers to questions.The benchmark comprises 817 questions that span 38 categories, including
+  health, law, finance and politics.We crafted questions that some humans would answer falsely
+  due to a false belief or misconception.To perform well, models must avoid generating false
+  answers learned from imitating human texts.We tested GPT-3, GPT-Neo/J, GPT-2 and a T5-based
+  model.The best model was truthful on 58% of questions, while human performance was 94%.Models
+  generated many false answers that mimic popular misconceptions and have the potential to
+  deceive humans.The largest models were generally the least truthful.This contrasts with
+  other NLP tasks, where performance improves with model size.However, this result is expected
+  if false answers are learned from the training distribution.We suggest that scaling up models
+  alone is less promising for improving truthfulness than finetuning using training objectives
+  other than imitation of text from the web."The enemy of truth is blind acceptance.
+authors:
+- Stephanie Lin
+- Jacob K. Hilton
+- Owain Evans
+organizations:
+- University of Oxford
+affiliations:
+  Stephanie Lin:
+  - University of Oxford
+  Jacob K. Hilton:
+  - University of Oxford
+  Owain Evans:
+  - University of Oxford
+published_at: '2022-01-01'
+url: https://doi.org/10.18653/v1/2022.acl-long.229
+doi: 10.18653/v1/2022.acl-long.229
+openalex_id: W3201174429
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; Discovering Language
+  Model Behaviors with Model-Written Eval; Do the Rewards Justify the Means? Measuring Trade-Offs
+  Betwe; Personality Traits in Large Language Models; Training Language Models to Follow Instructions
+  with Human F. Scope scan by claude-opus-5: TruthfulQA is a model-evaluation suite, not a
+  study of organizations where agents hold authority, so it fails the scope test on its own
+  terms; but it is load-bearing background for the evaluation-of-agent-reliability strand
+  the library already holds (Model-Written Evaluations, MACHIAVELLI), which is exactly the
+  Section 15 borrowed-background case alongside Melting Pot. What changes because agents hold
+  authority: It supplies a canonical truthfulness benchmark that oversight regimes can use
+  to screen agents before granting them information-producing or advisory authority, though
+  the benchmark itself says nothing about organizational structure. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 2
+is_borrowed_background: true

@@ -1,0 +1,36 @@
+id: resource:doi:10-2139-ssrn-4772956
+resource_type: preprint
+title: Governing AI Agents
+authors:
+- Noam Kolt
+organizations:
+- Hebrew University of Jerusalem
+- University of Toronto
+affiliations:
+  Noam Kolt:
+  - University of Toronto
+  - Hebrew University of Jerusalem
+published_at: '2024-01-01'
+url: https://doi.org/10.2139/ssrn.4772956
+doi: 10.2139/ssrn.4772956
+openalex_id: W4394828430
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: Kolt''s paper is about the
+  governance of delegated authority to AI agents themselves, not human collective decision-making,
+  so no exclusion-register line applies; it is core rather than adjacent. It is load-bearing
+  for accountability design in agent-authority organizations and is cited as such by two in-library
+  works. What changes because agents hold authority: It supplies agency-law and principal-agent
+  framings — loyalty, information asymmetry, discretion, and authority limits — for the case
+  where the agent acting on a principal''s behalf is a machine, directly shaping how delegated
+  machine authority is bounded and held accountable. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

@@ -1,0 +1,58 @@
+id: resource:doi:10-1126-science-adl0625
+resource_type: peer-reviewed-paper
+title: Regulating advanced artificial agents
+abstract: Governance frameworks should address the prospect of AI systems that cannot be safely
+  tested.
+authors:
+- Michael K. Cohen
+- Noam Kolt
+- Yoshua Bengio
+- Gillian K. Hadfield
+- Stuart Russell
+organizations:
+- Mila - Quebec Artificial Intelligence Institute
+- University of California, Berkeley
+- University of Toronto
+- Université de Montréal
+- Vector Institute
+affiliations:
+  Michael K. Cohen:
+  - University of California, Berkeley
+  Noam Kolt:
+  - University of Toronto
+  Yoshua Bengio:
+  - Mila - Quebec Artificial Intelligence Institute
+  - Université de Montréal
+  Gillian K. Hadfield:
+  - University of Toronto
+  - Vector Institute
+  - University of California, Berkeley
+  Stuart Russell:
+  - University of California, Berkeley
+published_at: '2024-04-04'
+url: https://doi.org/10.1126/science.adl0625
+doi: 10.1126/science.adl0625
+openalex_id: W4393928644
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: This is an AI policy/regulation
+  piece aimed at developers and regulators rather than at organizations in which agents hold
+  decision authority, so it is not itself in-scope organizational material; no exclusion-register
+  line bars it, since it concerns machine agency rather than human collective decision-making.
+  It is genuinely load-bearing for the field''s untestability premise, which the library''s
+  oversight and liability records build on, so it belongs at section 15 as a pointer rather
+  than ingested. What changes because agents hold authority: Its core claim — that agents
+  pursuing long-horizon goals cannot be safely tested in advance — bounds how much operational
+  authority can responsibly be delegated and shows that pre-deployment evaluation alone cannot
+  substitute for runtime containment and accountability structures. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

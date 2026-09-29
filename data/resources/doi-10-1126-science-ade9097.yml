@@ -1,0 +1,138 @@
+id: resource:doi:10-1126-science-ade9097
+resource_type: peer-reviewed-paper
+title: Human-level play in the game of Diplomacy by combining language models with strategic
+  reasoning
+abstract: Despite much progress in training artificial intelligence (AI) systems to imitate
+  human language, building agents that use language to communicate intentionally with humans
+  in interactive environments remains a major challenge. We introduce Cicero, the first AI
+  agent to achieve human-level performance in Diplomacy , a strategy game involving both cooperation
+  and competition that emphasizes natural language negotiation and tactical coordination between
+  seven players. Cicero integrates a language model with planning and reinforcement learning
+  algorithms by inferring players’ beliefs and intentions from its conversations and generating
+  dialogue in pursuit of its plans. Across 40 games of an anonymous online Diplomacy league,
+  Cicero achieved more than double the average score of the human players and ranked in the
+  top 10% of participants who played more than one game.
+authors:
+- Anton Bakhtin
+- Noam Brown
+- Emily Dinan
+- Gabriele Farina
+- Colin Flaherty
+- Daniel Fried
+- Andrew Goff
+- Jonathan Gray
+- Hengyuan Hu
+- Athul Paul Jacob
+- Mojtaba Komeili
+- Karthik Konath
+- Minae Kwon
+- Adam K. Lerer
+- Mike Lewis
+- Alexander Miller
+- Sasha Mitts
+- Adithya Renduchintala
+- Stephen Roller
+- Dirk Rowe
+- Weiyan Shi
+- Joe Spisak
+- Alexander Wei
+- David Wu
+- Hugh Zhang
+- Markus Zijlstra
+organizations:
+- Carnegie Mellon University
+- Columbia University
+- Harvard University
+- MIT Computer Science and Artificial Intelligence Laboratory
+- Massachusetts Institute of Technology
+- Meta
+- Stanford University
+- University of California, Berkeley
+affiliations:
+  Anton Bakhtin:
+  - Meta
+  Noam Brown:
+  - Meta
+  Emily Dinan:
+  - Meta
+  Gabriele Farina:
+  - Meta
+  Colin Flaherty:
+  - Meta
+  Daniel Fried:
+  - Meta
+  - Carnegie Mellon University
+  Andrew Goff:
+  - Meta
+  Jonathan Gray:
+  - Meta
+  Hengyuan Hu:
+  - Meta
+  - Stanford University
+  Athul Paul Jacob:
+  - Meta
+  - MIT Computer Science and Artificial Intelligence Laboratory
+  - Massachusetts Institute of Technology
+  Mojtaba Komeili:
+  - Meta
+  Karthik Konath:
+  - Meta
+  Minae Kwon:
+  - Meta
+  - Stanford University
+  Adam K. Lerer:
+  - Meta
+  Mike Lewis:
+  - Meta
+  Alexander Miller:
+  - Meta
+  Sasha Mitts:
+  - Meta
+  Adithya Renduchintala:
+  - Meta
+  Stephen Roller:
+  - Meta
+  Dirk Rowe:
+  - Meta
+  Weiyan Shi:
+  - Meta
+  - Columbia University
+  Joe Spisak:
+  - Meta
+  Alexander Wei:
+  - Meta
+  - University of California, Berkeley
+  David Wu:
+  - Meta
+  Hugh Zhang:
+  - Harvard University
+  - Meta
+  Markus Zijlstra:
+  - Meta
+published_at: '2022-11-22'
+url: https://doi.org/10.1126/science.ade9097
+doi: 10.1126/science.ade9097
+openalex_id: W4309663019
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Do the Rewards Justify the Means? Measuring Trade-Offs Betwe; The Collaboration
+  Gap: Exploration and Benchmarking of Open-; Towards Human-AI Deliberation: Design and Evaluation
+  of LLM-. Scope scan by claude-opus-5: Cicero is a capability and benchmark result about
+  a game, not about an organization in which agents hold operational or decision authority,
+  so it fails the scope test directly. But it is load-bearing background for agent negotiation
+  and human-AI strategic interaction across several library papers, so it belongs in section
+  15 as a pointer alongside Melting Pot rather than being refused. What changes because agents
+  hold authority: It is the canonical demonstration that a machine agent can negotiate, form
+  coalitions, infer intentions and make and break commitments with humans in a mixed-motive
+  setting — the capability premise behind giving agents bargaining or delegated authority,
+  and a warning about persuasion and deception exposure in oversight design. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

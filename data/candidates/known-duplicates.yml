@@ -7,6 +7,14 @@ duplicates:
   duplicates: resource:arxiv:2304.03442
   why: near-identical title (100%) — ACM version of the arXiv preprint already held
   found_on: '2026-09-10'
+- key: doi:10.1162/isal.a.838
+  duplicates: resource:arxiv:2511.03434
+  why: same byline across preprint and published (2 authors, 100% overlap)
+  found_on: '2026-09-29'
+- key: doi:10.18653/v1/2024.acl-long.810
+  duplicates: resource:arxiv:2307.07924
+  why: near-identical title (100%)
+  found_on: '2026-09-29'
 - key: doi:10.52202/075280-2264
   duplicates: resource:arxiv:2303.17760
   why: near-identical title (100%)

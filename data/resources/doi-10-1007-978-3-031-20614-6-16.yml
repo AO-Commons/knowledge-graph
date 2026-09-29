@@ -1,0 +1,66 @@
+id: resource:doi:10-1007-978-3-031-20614-6-16
+resource_type: peer-reviewed-paper
+title: A Survey of Ad Hoc Teamwork Research
+abstract: 'Ad hoc teamwork is the research problem of designing agents that can collaborate
+  with new teammates without prior coordination. This survey makes a two-fold contribution:
+  First, it provides a structured description of the different facets of the ad hoc teamwork
+  problem. Second, it discusses the progress that has been made in the field so far, and identifies
+  the immediate and long-term open problems that need to be addressed in ad hoc teamwork.'
+authors:
+- Reuth Mirsky
+- Ignacio Carlucho
+- Arrasy Rahman
+- Elliot Fosong
+- William Macke
+- Mohan Sridharan
+- Peter Stone
+- Stefano V. Albrecht
+organizations:
+- Bar-Ilan University
+- The University of Texas at Austin
+- University of Birmingham
+- University of Edinburgh
+affiliations:
+  Reuth Mirsky:
+  - Bar-Ilan University
+  - The University of Texas at Austin
+  Ignacio Carlucho:
+  - University of Edinburgh
+  Arrasy Rahman:
+  - University of Edinburgh
+  Elliot Fosong:
+  - University of Edinburgh
+  William Macke:
+  - The University of Texas at Austin
+  Mohan Sridharan:
+  - University of Birmingham
+  Peter Stone:
+  - The University of Texas at Austin
+  Stefano V. Albrecht:
+  - University of Edinburgh
+published_at: '2022-01-01'
+url: https://doi.org/10.1007/978-3-031-20614-6_16
+doi: 10.1007/978-3-031-20614-6_16
+openalex_id: W4312867245
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: A survey of coordination
+  methods, not of organizations where agents hold decision rights, so it fails the scope test
+  on its own terms but is load-bearing method precedent for the cooperation benchmarks the
+  library does ingest (hence a section 15 pointer alongside Melting Pot). No exclusion-register
+  line bars it; it is simply background rather than subject matter. What changes because agents
+  hold authority: It supplies the foundational problem formulation for how an agent must cooperate
+  with unfamiliar teammates without prior coordination — the technical substrate for onboarding
+  or delegating authority to agents an organization did not co-design — but it says nothing
+  about authority, oversight, or accountability itself. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

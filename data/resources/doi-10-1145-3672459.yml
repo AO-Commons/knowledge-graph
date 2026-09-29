@@ -1,0 +1,62 @@
+id: resource:doi:10-1145-3672459
+resource_type: peer-reviewed-paper
+title: Self-Collaboration Code Generation via ChatGPT
+abstract: Although large language models (LLMs) have demonstrated remarkable code-generation
+  ability, they still struggle with complex tasks. In real-world software development, humans
+  usually tackle complex tasks through collaborative teamwork, a strategy that significantly
+  controls development complexity and enhances software quality. Inspired by this, we present
+  a self-collaboration framework for code generation employing LLMs, exemplified by ChatGPT.
+  Specifically, through role instructions, (1) Multiple LLM agents act as distinct “experts,”
+  each responsible for a specific subtask within a complex task; (2) Specify the way to collaborate
+  and interact, so that different roles form a virtual team to facilitate each other’s work,
+  ultimately the virtual team addresses code generation tasks collaboratively without the
+  need for human intervention. To effectively organize and manage this virtual team, we incorporate
+  software-development methodology into the framework. Thus, we assemble an elementary team
+  consisting of three LLM roles (i.e., analyst, coder, and tester) responsible for software
+  development’s analysis, coding, and testing stages. We conduct comprehensive experiments
+  on various code-generation benchmarks. Experimental results indicate that self-collaboration
+  code generation relatively improves 29.9–47.1% Pass@1 compared to the base LLM agent. Moreover,
+  we showcase that self-collaboration could potentially enable LLMs to efficiently handle
+  complex repository-level tasks that are not readily solved by the single LLM agent.
+authors:
+- Yihong Dong
+- Xue Jiang
+- Zhi Gang Jin
+- Ge Li
+organizations:
+- Peking University
+affiliations:
+  Yihong Dong:
+  - Peking University
+  Xue Jiang:
+  - Peking University
+  Zhi Gang Jin:
+  - Peking University
+  Ge Li:
+  - Peking University
+published_at: '2024-06-12'
+url: https://doi.org/10.1145/3672459
+doi: 10.1145/3672459
+openalex_id: W4399557965
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Large Language Model based Multi-Agents:
+  A Survey of Progres. Scope scan by claude-opus-5: This is not a human collective-decision
+  study but a direct precedent for structuring machine agents with delegated operational roles
+  (analyst/coder/tester) and no human in the loop, which bears on how such an organization
+  is designed and supervised. No exclusion-register line applies; it is constitutive of the
+  agent-authority design literature rather than adjacent background, so it is ingested rather
+  than pointed at. What changes because agents hold authority: It shows that imposing explicit
+  role division and a staged software-development process on a team of LLM agents — which
+  then completes the work end-to-end without human intervention — materially changes output
+  quality, making organizational structure itself a design lever for agent teams holding operational
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

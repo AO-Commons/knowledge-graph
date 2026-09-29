@@ -1,0 +1,48 @@
+id: resource:doi:10-1038-s41586-023-06647-8
+resource_type: peer-reviewed-paper
+title: Role play with large language models
+abstract: By casting large-language-model-based dialogue-agent behaviour in terms of role play,
+  it is possible to describe dialogue-agent behaviour such as (apparent) deception and (apparent)
+  self-awareness without misleadingly ascribing human characteristics to the models. As dialogue
+  agents become increasingly human-like in their performance, we must develop effective ways
+  to describe their behaviour in high-level terms without falling into the trap of anthropomorphism.
+  Here we foreground the concept of role play. Casting dialogue-agent behaviour in terms of
+  role play allows us to draw on familiar folk psychological terms, without ascribing human
+  characteristics to language models that they in fact lack. Two important cases of dialogue-agent
+  behaviour are addressed this way, namely, (apparent) deception and (apparent) self-awareness.
+authors:
+- Murray Shanahan
+- Kyle McDonell
+- Laria Reynolds
+organizations:
+- Google DeepMind
+- Imperial College London
+affiliations:
+  Murray Shanahan:
+  - Google DeepMind
+  - Imperial College London
+published_at: '2023-11-08'
+url: https://doi.org/10.1038/s41586-023-06647-8
+doi: 10.1038/s41586-023-06647-8
+openalex_id: W4388488609
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative agent-based modeling with actions grounded in phy; Inherent and emergent
+  liability issues in LLM-based agentic . Scope scan by claude-opus-5: This is a conceptual/foundational
+  paper about LLM behavior, not about organizations where agents hold authority, so it fails
+  the scope test directly but is load-bearing for the liability and generative-agent work
+  the library already holds. No exclusion-register line applies; it belongs in Section 15
+  as borrowed background alongside Melting Pot, not as an ingested record. What changes because
+  agents hold authority: It supplies the conceptual frame — LLMs as simulators of characters
+  rather than agents with stable intentions — that determines how one attributes deception,
+  self-preservation and responsibility to a machine that holds operational authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

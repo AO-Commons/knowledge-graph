@@ -1,0 +1,58 @@
+id: resource:arxiv:2009.01325
+resource_type: preprint
+title: Learning to summarize from human feedback
+abstract: As language models become more powerful, training and evaluation are increasingly
+  bottlenecked by the data and metrics used for a particular task. For example, summarization
+  models are often trained to predict human reference summaries and evaluated using ROUGE,
+  but both of these metrics are rough proxies for what we really care about -- summary quality.
+  In this work, we show that it is possible to significantly improve summary quality by training
+  a model to optimize for human preferences. We collect a large, high-quality dataset of human
+  comparisons between summaries, train a model to predict the human-preferred summary, and
+  use that model as a reward function to fine-tune a summarization policy using reinforcement
+  learning. We apply our method to a version of the TL;DR dataset of Reddit posts and find
+  that our models significantly outperform both human reference summaries and much larger
+  models fine-tuned with supervised learning alone. Our models also transfer to CNN/DM news
+  articles, producing summaries nearly as good as the human reference without any news-specific
+  fine-tuning. We conduct extensive analyses to understand our human feedback dataset and
+  fine-tuned models We establish that our reward model generalizes to new datasets, and that
+  optimizing our reward model results in better summaries than optimizing ROUGE according
+  to humans. We hope the evidence from our paper motivates machine learning researchers to
+  pay closer attention to how their training loss affects the model behavior they actually
+  want.
+authors:
+- Nisan Stiennon
+- Long Ouyang
+- Jeff Wu
+- Daniel M. Ziegler
+- Ryan Lowe
+- Chelsea Voss
+- Alec Radford
+- Dario Amodei
+- Paul Christiano
+published_at: '2020-09-02'
+url: https://arxiv.org/abs/2009.01325
+doi: 10.48550/arXiv.2009.01325
+arxiv_id: '2009.01325'
+openalex_id: W3082115681
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Bridging Inference-Time Scaling and Episodic Memory with Act; Training Language
+  Models to Follow Instructions with Human F. Scope scan by claude-opus-5: This is a canonical
+  method paper (RLHF) that the library''s alignment and instruction-following records build
+  directly on, so it is load-bearing enough to point at but is not about organizations where
+  agents hold operational or decision authority. No exclusion-register line bars it; it is
+  held as borrowed background in section 15 rather than ingested as in-scope. What changes
+  because agents hold authority: It supplies the foundational preference-learning method by
+  which human principals shape agent objectives, which is the upstream control lever for any
+  organization delegating authority to a model — but the paper itself concerns summarization
+  quality, not organizational authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

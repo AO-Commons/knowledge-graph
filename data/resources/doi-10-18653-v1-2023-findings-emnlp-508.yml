@@ -1,0 +1,62 @@
+id: resource:doi:10-18653-v1-2023-findings-emnlp-508
+resource_type: peer-reviewed-paper
+title: 'Examining Inter-Consistency of Large Language Models Collaboration: An In-depth Analysis
+  via Debate'
+abstract: 'Large Language Models (LLMs) have shown impressive capabilities in various applications,
+  but they still face various inconsistency issues.Existing works primarily focus on the inconsistency
+  issues within a single LLM, while we complementarily explore the inter-consistency among
+  multiple LLMs for collaboration.To examine whether LLMs can collaborate effectively to achieve
+  a consensus for a shared goal, we focus on commonsense reasoning, and introduce a formal
+  debate framework (FORD) to conduct a three-stage debate among LLMs with real-world scenarios
+  alignment: fair debate, mismatched debate, and roundtable debate.Through extensive experiments
+  on various datasets, LLMs can effectively collaborate to reach a consensus despite noticeable
+  inter-inconsistencies, but imbalances in their abilities can lead to domination by superior
+  LLMs.Leveraging a more advanced LLM like GPT-4 as an authoritative judge can boost collaboration
+  performance.Our work contributes to understanding the inter-consistency among LLMs and lays
+  the foundation for developing future collaboration methods.'
+authors:
+- Kai Xiong
+- Xiao Hua Ding
+- Yixin Cao
+- Ting Liu
+- Bing Qin
+organizations:
+- Harbin Institute of Technology
+- Singapore Management University
+affiliations:
+  Kai Xiong:
+  - Harbin Institute of Technology
+  Xiao Hua Ding:
+  - Harbin Institute of Technology
+  Yixin Cao:
+  - Singapore Management University
+  Ting Liu:
+  - Harbin Institute of Technology
+  Bing Qin:
+  - Harbin Institute of Technology
+published_at: '2023-01-01'
+url: https://doi.org/10.18653/v1/2023.findings-emnlp.508
+doi: 10.18653/v1/2023.findings-emnlp.508
+openalex_id: W4389519889
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs. Scope scan by claude-opus-5: The finding disappears entirely
+  without the machines, so no exclusion-register line applies; but the paper evaluates consensus-reaching
+  as a reasoning-accuracy method on commonsense benchmarks, not as governance of an organization
+  where agents hold authority. It is load-bearing method precedent for multi-agent deliberation
+  and is best held as a pointer in section 15 alongside Melting Pot. What changes because
+  agents hold authority: It shows that when multiple agents jointly decide, capability asymmetry
+  produces domination by the stronger agent and an appointed judge agent alters the outcome
+  — a warning about de facto authority concentration in any multi-agent decision procedure.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

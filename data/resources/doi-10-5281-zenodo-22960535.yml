@@ -1,0 +1,44 @@
+id: resource:doi:10-5281-zenodo-22960535
+resource_type: peer-reviewed-paper
+title: Agent Knowledge Cycle (AKC)
+abstract: 'A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.
+  AKC is a six-phase knowledge cycle (Research → Extract → Curate → Promote → Measure → Maintain)
+  that keeps skills, rules, and documentation aligned with reality over time. Unlike one-directional
+  optimization frameworks, AKC is bidirectional: as the human curates and promotes knowledge,
+  their judgment about what makes good agent behavior also sharpens. AKC treats human cognitive
+  resources — attention and judgment — as the central constraint that does not scale with
+  the model, and shapes every phase to protect that budget. AKC is not a harness — it runs
+  on top of harnesses (like Everything Claude Code) to keep them coherent as understanding
+  evolves. AKC ships as specifications, JSON schemas, architecture decision records, design-pattern
+  skills, and a dependency-free Python reference implementation. The cycle is genre-neutral:
+  it is a mechanism, and content (behavioral patterns, domain expertise, or constitutional
+  values) is the downstream project''s concern.'
+authors:
+- Tatsuya Shimomoto
+published_at: '2026-09-25'
+url: https://doi.org/10.5281/zenodo.22960535
+doi: 10.5281/zenodo.22960535
+openalex_id: W7214334642
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Generative Agents: Interactive Simulacra
+  of Human Behavior; Ironies of automation; Voyager: An Open-Ended Embodied Agent with Large
+  Language Mo. Scope scan by claude-opus-5: This is hybrid human-machine authority maintenance:
+  agents act, humans curate and promote the governing artifacts, which is precisely the oversight-capacity
+  question the deliberative-democracy line was clarified to include rather than exclude. No
+  exclusion-register line applies — it is not voting mechanism design, token design, or human-only
+  collective decision-making — and removing the agents would leave nothing of the finding
+  intact. What changes because agents hold authority: It gives an explicit maintenance loop
+  for the skills, rules and documentation that constitute an agent''s operating authority,
+  and treats scarce human attention and judgment — not model capability — as the binding constraint
+  on how much delegated agent behavior can actually be curated and kept aligned over time.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

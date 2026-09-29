@@ -1,0 +1,85 @@
+id: resource:doi:10-1145-3630106-3658948
+resource_type: peer-reviewed-paper
+title: Visibility into AI Agents
+abstract: 'Increased delegation of commercial, scientific, governmental, and personal activities
+  to AI agents—systems capable of pursuing complex goals with limited supervision—may exacerbate
+  existing societal risks and introduce new risks. Understanding and mitigating these risks
+  involves critically evaluating existing governance structures, revising and adapting these
+  structures where needed, and ensuring accountability of key stakeholders. Information about
+  where, why, how, and by whom certain AI agents are used, which we refer to as visibility,
+  is critical to these objectives. In this paper, we assess three categories of measures to
+  increase visibility into AI agents: agent identifiers, real-time monitoring, and activity
+  logging. For each, we outline potential implementations that vary in intrusiveness and informativeness.
+  We analyze how the measures apply across a spectrum of centralized through decentralized
+  deployment contexts, accounting for various actors in the supply chain including hardware
+  and software service providers. Finally, we discuss the implications of our measures for
+  privacy and concentration of power. Further work into understanding the measures and mitigating
+  their negative impacts can help to build a foundation for the governance of AI agents.'
+authors:
+- Alan H. S. Chan
+- Carson Ezell
+- Max Kaufmann
+- Kevin Wei
+- Lewis Hammond
+- Herbie Bradley
+- Emma Bluemke
+- Nitarshan Rajkumar
+- David W. Krueger
+- Noam Kolt
+- Lennart Heim
+- Markus Anderljung
+organizations:
+- Centre for the Governance of AI
+- Harvard University
+- Mila - Quebec Artificial Intelligence Institute
+- University of Cambridge
+- University of Oxford
+- University of Toronto
+affiliations:
+  Alan H. S. Chan:
+  - Mila - Quebec Artificial Intelligence Institute
+  Carson Ezell:
+  - Harvard University
+  Kevin Wei:
+  - Harvard University
+  Lewis Hammond:
+  - University of Oxford
+  Herbie Bradley:
+  - University of Cambridge
+  Emma Bluemke:
+  - Centre for the Governance of AI
+  Nitarshan Rajkumar:
+  - University of Cambridge
+  David W. Krueger:
+  - University of Cambridge
+  Noam Kolt:
+  - University of Toronto
+  Lennart Heim:
+  - Centre for the Governance of AI
+  Markus Anderljung:
+  - Centre for the Governance of AI
+published_at: '2024-06-03'
+url: https://doi.org/10.1145/3630106.3658948
+doi: 10.1145/3630106.3658948
+openalex_id: W4399364360
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Inherent and emergent
+  liability issues in LLM-based agentic . Scope scan by claude-opus-5: This is directly about
+  the accountability and oversight mechanics of organizations that delegate authority to agents,
+  not about human collective decision-making, so no exclusion-register line applies. The measures
+  are actionable design requirements for operating and auditing agent authority, placing it
+  squarely in scope rather than as borrowed background. What changes because agents hold authority:
+  It specifies concrete oversight infrastructure — agent identifiers, real-time monitoring,
+  and activity logging across centralized-to-decentralized deployments — that an organization
+  delegating operational authority to agents must implement to attribute actions and hold
+  principals accountable. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

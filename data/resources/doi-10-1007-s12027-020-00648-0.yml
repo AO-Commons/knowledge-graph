@@ -1,0 +1,53 @@
+id: resource:doi:10-1007-s12027-020-00648-0
+resource_type: peer-reviewed-paper
+title: 'Liability for AI: public policy considerations'
+abstract: Abstract Liability for AI is the subject of a lively debate. Whether new liability
+  rules should be introduced or not and how these rules should be designed hinges on the function
+  of liability rules. Mainly, they create incentives for risk control, varying with their
+  requirements – especially negligence versus strict liability. In order to do so, they have
+  to take into account who is actually able to exercise control. In scenarios where a clear
+  allocation of risk control is no longer possible, social insurance might step in. This article
+  discusses public policy considerations concerning liability for artificial intelligence
+  (AI). It first outlines the major risks associated with current developments in information
+  technology (IT) (1.). Second, the implications for liability law are discussed. Liability
+  rules are seen conceptualized as an instrument for risk control (2.). Negligence liability
+  and strict liability serve different purposes making strict liability the rule of choice
+  for novel risks (3.). The key question is, however, who should be held liable (4.). Liability
+  should follow risk control. In future scenarios where individual risk attribution is no
+  longer feasible social insurance might be an alternative (5). Finally, the innovation function
+  of liability rules is stressed, affirming that appropriate liability rules serve as a stimulus
+  for innovation, not as an impediment (6.).
+authors:
+- Herbert Zech
+organizations:
+- Humboldt-Universität zu Berlin
+- Weizenbaum Institute
+affiliations:
+  Herbert Zech:
+  - Humboldt-Universität zu Berlin
+  - Weizenbaum Institute
+published_at: '2021-01-07'
+url: https://doi.org/10.1007/s12027-020-00648-0
+doi: 10.1007/s12027-020-00648-0
+openalex_id: W3120664440
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: The law and economics of AI liability; Virtual Agent Economies. Scope scan by claude-opus-5:
+  This is not general entity regulation (tax/IP/securities line) but the narrow case the register
+  preserves at 12.6.3: accountability exposure created by autonomous agent action, including
+  the scenario where control diffuses past the point of individual attribution. It is a direct
+  companion to the already-admitted ''The law and economics of AI liability'' and shapes how
+  an agent-authority organization must structure responsibility and insurance. What changes
+  because agents hold authority: It supplies the allocation principle — liability should track
+  who actually exercises risk control, with strict liability for novel autonomous risks and
+  social insurance where individual attribution fails — which is exactly the design problem
+  when machine agents rather than identifiable humans hold operational authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

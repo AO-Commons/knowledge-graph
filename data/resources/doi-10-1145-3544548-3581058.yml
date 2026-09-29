@@ -1,0 +1,67 @@
+id: resource:doi:10-1145-3544548-3581058
+resource_type: peer-reviewed-paper
+title: 'Who Should I Trust: AI or Myself? Leveraging Human and AI Correctness Likelihood to
+  Promote Appropriate Trust in AI-Assisted Decision-Making'
+abstract: In AI-assisted decision-making, it is critical for human decision-makers to know
+  when to trust AI and when to trust themselves. However, prior studies calibrated human trust
+  only based on AI confidence indicating AI’s correctness likelihood (CL) but ignored humans’
+  CL, hindering optimal team decision-making. To mitigate this gap, we proposed to promote
+  humans’ appropriate trust based on the CL of both sides at a task-instance level. We first
+  modeled humans’ CL by approximating their decision-making models and computing their potential
+  performance in similar instances. We demonstrated the feasibility and effectiveness of our
+  model via two preliminary studies. Then, we proposed three CL exploitation strategies to
+  calibrate users’ trust explicitly/implicitly in the AI-assisted decision-making process.
+  Results from a between-subjects experiment (N=293) showed that our CL exploitation strategies
+  promoted more appropriate human trust in AI, compared with only using AI confidence. We
+  further provided practical implications for more human-compatible AI-assisted decision-making.
+authors:
+- Shuai Ma
+- Ying Lei
+- Xinru Wang
+- Chengbo Zheng
+- Chuhan Shi
+- Ming Yin
+- Xiaojuan Ma
+organizations:
+- East China Normal University
+- Hong Kong University of Science and Technology
+- Purdue University West Lafayette
+affiliations:
+  Shuai Ma:
+  - Hong Kong University of Science and Technology
+  Ying Lei:
+  - East China Normal University
+  Xinru Wang:
+  - Purdue University West Lafayette
+  Chengbo Zheng:
+  - Hong Kong University of Science and Technology
+  Chuhan Shi:
+  - Hong Kong University of Science and Technology
+  Ming Yin:
+  - Purdue University West Lafayette
+  Xiaojuan Ma:
+  - Hong Kong University of Science and Technology
+published_at: '2023-04-19'
+url: https://doi.org/10.1145/3544548.3581058
+doi: 10.1145/3544548.3581058
+openalex_id: W4366547597
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Towards Human-AI Deliberation: Design and Evaluation
+  of LLM-. Scope scan by claude-opus-5: This is human-AI hybrid decision-making in the sense
+  settled 2026-09-10: remove the machine and the finding vanishes entirely, so the deliberative-democracy
+  exclusion line does not apply. It is upstream of two in-library delegation papers and supplies
+  the trust-calibration mechanism they build on, making it substantive rather than mere background.
+  What changes because agents hold authority: It gives an instance-level basis for allocating
+  decision authority between a human and a machine advisor — modeling both sides'' correctness
+  likelihood so deference is earned rather than habitual — which is directly how hybrid agent-authority
+  is calibrated and audited. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

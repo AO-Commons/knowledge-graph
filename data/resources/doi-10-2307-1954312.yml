@@ -1,0 +1,45 @@
+id: resource:doi:10-2307-1954312
+resource_type: peer-reviewed-paper
+title: 'Moral Responsibility of Public Officials: The Problem of Many Hands'
+abstract: That many different officials contribute in many different ways to decisions and
+  policies in the modern state makes it difficult to ascribe moral responsibility to any official.
+  The usual responses to this problem—based on concepts of hierarchical and collective responsibility—distort
+  the notion of responsibility. The idea of personal responsibility—based on causal and volitional
+  criteria—constitutes a better approach to the problem of ascribing responsibility to public
+  officials. Corresponding to each of these criteria are types of excuses that officials use
+  in defending the decisions they make. An analysis of the conditions under which the excuses
+  eliminate or mitigate responsibility provides a foundation for accountability in a democracy.
+authors:
+- Dennis Frank Thompson
+organizations:
+- Princeton University
+affiliations:
+  Dennis Frank Thompson:
+  - Princeton University
+published_at: '1980-12-01'
+url: https://doi.org/10.2307/1954312
+doi: 10.2307/1954312
+openalex_id: W2017558343
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; Sovereign Agents:
+  Towards Infrastructural Sovereignty and Di. Scope scan by claude-opus-5: Thompson''s many-hands
+  problem is the conceptual ancestor of the diffused-accountability arguments in the citing
+  library papers, so it is load-bearing background rather than refusable, but it concerns
+  human officials only and would read identically without any machine agent. Held as a pointer
+  in section 15 rather than ingested as an agentic-organization record; it is adjacent political/moral
+  theory of the kind the register compresses. What changes because agents hold authority:
+  It supplies the causal/volitional criteria and excuse taxonomy that agentic organizations
+  must adapt when an agent occupies a contributing role that can satisfy neither criterion,
+  making the responsibility gap a design constraint rather than an afterthought — but the
+  analysis itself is about human officials and is unchanged by machines. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

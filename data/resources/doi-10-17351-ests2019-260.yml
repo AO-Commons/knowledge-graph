@@ -1,0 +1,50 @@
+id: resource:doi:10-17351-ests2019-260
+resource_type: peer-reviewed-paper
+title: 'Moral Crumple Zones: Cautionary Tales in Human-Robot Interaction'
+abstract: As debates about the policy and ethical implications of AI systems grow, it will
+  be increasingly important to accurately locate who is responsible when agency is distributed
+  in a system and control over an action is mediated through time and space. Analyzing several
+  high-profile accidents involving complex and automated socio-technical systems and the media
+  coverage that surrounded them, I introduce the concept of a moral crumple zone to describe
+  how responsibility for an action may be misattributed to a human actor who had limited control
+  over the behavior of an automated or autonomous system. Just as the crumple zone in a car
+  is designed to absorb the force of impact in a crash, the human in a highly complex and
+  automated system may become simply a component—accidentally or intentionally—that bears
+  the brunt of the moral and legal responsibilities when the overall system malfunctions.
+  While the crumple zone in a car is meant to protect the human driver, the moral crumple
+  zone protects the integrity of the technological system, at the expense of the nearest human
+  operator. The concept is both a challenge to and an opportunity for the design and regulation
+  of human-robot systems. At stake in articulating moral crumple zones is not only the misattribution
+  of responsibility but also the ways in which new forms of consumer and worker harm may develop
+  in new complex, automated, or purported autonomous technologies.
+authors:
+- Madeleine Clare Elish
+organizations:
+- Data & Society Research Institute
+affiliations:
+  Madeleine Clare Elish:
+  - Data & Society Research Institute
+published_at: '2019-03-23'
+url: https://doi.org/10.17351/ests2019.260
+doi: 10.17351/ests2019.260
+openalex_id: W2922720375
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Is Decentralized AI Governable? From Regulative Policy
+  to Co. Scope scan by claude-opus-5: This is directly about attributing responsibility when
+  machines hold operational control and humans retain only nominal oversight — a core design
+  and accountability concern for agentic organizations, not human collective decision-making.
+  No exclusion-register line applies; it is not general entity regulation but an analysis
+  of novel exposure created specifically by delegated machine action. What changes because
+  agents hold authority: It shows that nominal human-in-the-loop roles over automated decision
+  systems become liability sinks, so accountability structures in agent-authority organizations
+  must match responsibility to actual control rather than to the nearest human operator. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

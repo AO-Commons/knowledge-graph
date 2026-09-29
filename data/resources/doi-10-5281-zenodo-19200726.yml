@@ -1,0 +1,43 @@
+id: resource:doi:10-5281-zenodo-19200726
+resource_type: peer-reviewed-paper
+title: Agent Knowledge Cycle (AKC)
+abstract: 'A knowledge cycle for AI agents — agent behavior compounds, human judgment sharpens.
+  AKC is a six-phase knowledge cycle (Research → Extract → Curate → Promote → Measure → Maintain)
+  that keeps skills, rules, and documentation aligned with reality over time. Unlike one-directional
+  optimization frameworks, AKC is bidirectional: as the human curates and promotes knowledge,
+  their judgment about what makes good agent behavior also sharpens. AKC treats human cognitive
+  resources — attention and judgment — as the central constraint that does not scale with
+  the model, and shapes every phase to protect that budget. AKC is not a harness — it runs
+  on top of harnesses (like Everything Claude Code) to keep them coherent as understanding
+  evolves. AKC ships as specifications, JSON schemas, architecture decision records, design-pattern
+  skills, and a dependency-free Python reference implementation. The cycle is genre-neutral:
+  it is a mechanism, and content (behavioral patterns, domain expertise, or constitutional
+  values) is the downstream project''s concern.'
+authors:
+- Tatsuya Shimomoto
+published_at: '2026-09-25'
+url: https://doi.org/10.5281/zenodo.19200726
+doi: 10.5281/zenodo.19200726
+openalex_id: W7140307500
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Generative Agents: Interactive Simulacra
+  of Human Behavior; Ironies of automation; Voyager: An Open-Ended Embodied Agent with Large
+  Language Mo. Scope scan by claude-opus-5: This is human-AI hybrid authority maintenance:
+  the human curates and promotes the behavioral rules the agent then executes under, so removing
+  the machine dissolves the finding, and the deliberative-democracy exclusion line does not
+  apply. It is in-scope rather than borrowed background because it is directly about governing
+  delegated agent behavior over time, not an adjacent method the field merely builds on. What
+  changes because agents hold authority: It supplies a maintenance mechanism for the skills,
+  rules, and documentation that constitute an agent''s operating mandate, and treats scarce
+  human attention and judgment as the binding oversight constraint — both of which only matter
+  because machines are acting on that mandate between reviews. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

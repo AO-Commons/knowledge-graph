@@ -1,0 +1,68 @@
+id: resource:doi:10-1017-pan-2023-2
+resource_type: peer-reviewed-paper
+title: 'Out of One, Many: Using Language Models to Simulate Human Samples'
+abstract: Abstract We propose and explore the possibility that language models can be studied
+  as effective proxies for specific human subpopulations in social science research. Practical
+  and research applications of artificial intelligence tools have sometimes been limited by
+  problematic biases (such as racism or sexism), which are often treated as uniform properties
+  of the models. We show that the “algorithmic bias” within one such tool—the GPT-3 language
+  model—is instead both fine-grained and demographically correlated, meaning that proper conditioning
+  will cause it to accurately emulate response distributions from a wide variety of human
+  subgroups. We term this property algorithmic fidelity and explore its extent in GPT-3. We
+  create “silicon samples” by conditioning the model on thousands of sociodemographic backstories
+  from real human participants in multiple large surveys conducted in the United States. We
+  then compare the silicon and human samples to demonstrate that the information contained
+  in GPT-3 goes far beyond surface similarity. It is nuanced, multifaceted, and reflects the
+  complex interplay between ideas, attitudes, and sociocultural context that characterize
+  human attitudes. We suggest that language models with sufficient algorithmic fidelity thus
+  constitute a novel and powerful tool to advance understanding of humans and society across
+  a variety of disciplines.
+authors:
+- Lisa P. Argyle
+- Ethan C. Busby
+- Nancy Fulda
+- Joshua R. Gubler
+- Christopher Rytting
+- David Wingate
+organizations:
+- Brigham Young University
+affiliations:
+  Lisa P. Argyle:
+  - Brigham Young University
+  Ethan C. Busby:
+  - Brigham Young University
+  Nancy Fulda:
+  - Brigham Young University
+  Joshua R. Gubler:
+  - Brigham Young University
+  Christopher Rytting:
+  - Brigham Young University
+  David Wingate:
+  - Brigham Young University
+published_at: '2023-02-21'
+url: https://doi.org/10.1017/pan.2023.2
+doi: 10.1017/pan.2023.2
+openalex_id: W4321455981
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Generative agent-based
+  modeling with actions grounded in phy; Using Large Language Models to Simulate Multiple
+  Humans and . Scope scan by claude-opus-5: This is a foundational method paper the library''s
+  simulation work (Concordia, trust-behavior, replication studies) explicitly builds on, so
+  it is load-bearing but not about organizations where machines hold operational or decision
+  authority. No exclusion-register line bars it; it belongs as a Section 15 pointer alongside
+  Melting Pot rather than as an in-scope record. What changes because agents hold authority:
+  It establishes the algorithmic-fidelity basis for using language models as stand-ins for
+  human populations, which underwrites simulation-based testing of governance rules and agent–human
+  decision settings before real authority is delegated, but it says nothing itself about agents
+  holding authority. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

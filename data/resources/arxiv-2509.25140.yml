@@ -1,0 +1,66 @@
+id: resource:arxiv:2509.25140
+resource_type: preprint
+title: 'ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory'
+abstract: With the growing adoption of large language model agents in persistent real-world
+  roles, they naturally encounter continuous streams of tasks. A key limitation, however,
+  is their failure to learn from the accumulated interaction history, forcing them to discard
+  valuable insights and repeat past errors. We propose ReasoningBank, a novel memory framework
+  that distills generalizable reasoning strategies from an agent's self-judged successful
+  and failed experiences. At test time, an agent retrieves relevant memories from ReasoningBank
+  to inform its interaction and then integrates new learnings back, enabling it to become
+  more capable over time. Building on this powerful experience learner, we further introduce
+  memory-aware test-time scaling (MaTTS), which accelerates and diversifies this learning
+  process by scaling up the agent's interaction experience. By allocating more compute to
+  each task, the agent generates abundant, diverse experiences that provide rich contrastive
+  signals for synthesizing higher-quality memory. The better memory in turn guides more effective
+  scaling, establishing a powerful synergy between memory and test-time scaling. Across web
+  browsing and software engineering benchmarks, ReasoningBank consistently outperforms existing
+  memory mechanisms that store raw trajectories or only successful task routines, improving
+  both effectiveness and efficiency; MaTTS further amplifies these gains. These findings establish
+  memory-driven experience scaling as a new scaling dimension, enabling agents to self-evolve
+  with emergent behaviors naturally arise. Our code can be found at https://github.com/google-research/reasoning-bank.
+authors:
+- Siru Ouyang
+- Jun Yan
+- I-Hung Hsu
+- Yanfei Chen
+- Ke Jiang
+- Zifeng Wang
+- Rujun Han
+- Long T. Le
+- Samira Daruki
+- Xiangru Tang
+- Vishy Tirumalashetty
+- George Lee
+- Mahsan Rofouei
+- Hangfei Lin
+- Jiawei Han
+- Chen-Yu Lee
+- Tomas Pfister
+published_at: '2025-09-29'
+url: https://arxiv.org/abs/2509.25140
+doi: 10.48550/arXiv.2509.25140
+arxiv_id: '2509.25140'
+openalex_id: W4415337833
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Bridging Inference-Time Scaling and Episodic Memory with Act; Reliable agent engineering
+  should integrate machine-compatib. Scope scan by claude-opus-5: This is a foundational self-evolving-memory
+  method that two library papers build directly on, so it is load-bearing for reasoning about
+  persistent agent behavior and its oversight, yet it says nothing about organizations, delegation
+  or accountability structures. No exclusion-register line bars it; it belongs as a pointer
+  in section 15 alongside Melting Pot rather than as an in-scope record. What changes because
+  agents hold authority: If an agent holding operational authority rewrites its own reasoning
+  memory between tasks, its effective decision policy drifts outside code review, making the
+  memory store itself an object of audit, versioning and rollback — but the paper itself is
+  a single-agent method, not an account of organizational authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

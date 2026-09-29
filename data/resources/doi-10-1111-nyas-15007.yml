@@ -1,0 +1,57 @@
+id: resource:doi:10-1111-nyas-15007
+resource_type: peer-reviewed-paper
+title: Holistic Evaluation of Language Models
+abstract: 'Language models (LMs) like GPT-3, PaLM, and ChatGPT are the foundation for almost
+  all major language technologies, but their capabilities, limitations, and risks are not
+  well understood. We present Holistic Evaluation of Language Models (HELM) to improve the
+  transparency of LMs. LMs can serve many purposes and their behavior should satisfy many
+  desiderata. To navigate the vast space of potential scenarios and metrics, we taxonomize
+  the space and select representative subsets. We evaluate models on 16 core scenarios and
+  7 metrics, exposing important trade-offs. We supplement our core evaluation with seven targeted
+  evaluations to deeply analyze specific aspects (including world knowledge, reasoning, regurgitation
+  of copyrighted content, and generation of disinformation). We benchmark 30 LMs, from OpenAI,
+  Microsoft, Google, Meta, Cohere, AI21 Labs, and others. Prior to HELM, models were evaluated
+  on just 17.9% of the core HELM scenarios, with some prominent models not sharing a single
+  scenario in common. We improve this to 96.0%: all 30 models are now benchmarked under the
+  same standardized conditions. Our evaluation surfaces 25 top-level findings. For full transparency,
+  we release all raw model prompts and completions publicly. HELM is a living benchmark for
+  the community, continuously updated with new scenarios, metrics, and models https://crfm.stanford.edu/helm/latest/.'
+authors:
+- Rishi Bommasani
+- Percy Liang
+- Tong Lee
+organizations:
+- Stanford University
+affiliations:
+  Rishi Bommasani:
+  - Stanford University
+  Percy Liang:
+  - Stanford University
+  Tong Lee:
+  - Stanford University
+published_at: '2023-05-25'
+url: https://doi.org/10.1111/nyas.15007
+doi: 10.1111/nyas.15007
+openalex_id: W4378189609
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Do the Rewards Justify the Means? Measuring Trade-Offs Betwe; Solipsistic Superintelligence
+  is Unlikely to be Cooperative; Using Large Language Models to Simulate Multiple Humans and
+  . Scope scan by claude-opus-5: This is a general-purpose LM benchmark suite rather than
+  work about organizations where agents hold decision authority, so it belongs as borrowed
+  background in section 15 alongside Melting Pot. It is genuinely load-bearing — assurance
+  and oversight regimes for agent authority rest on evaluation infrastructure of this kind
+  — but no exclusion-register line forces it out and admitting it as in-scope would misrepresent
+  it. What changes because agents hold authority: HELM supplies the standardized, multi-metric
+  evaluation methodology an organization would need to qualify and monitor the models it delegates
+  authority to, but it evaluates model capability, not organizational authority itself. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

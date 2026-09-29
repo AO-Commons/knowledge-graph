@@ -1,0 +1,129 @@
+id: resource:doi:10-26599-cvm-2025-9450460
+resource_type: peer-reviewed-paper
+title: Mindstorms in Natural Language-Based Societies of Mind
+abstract: Inspired by Minsky's Society of Mind, Schmidhuber's Learning to Think, and other
+  more recent works, this paper proposes and advocates for the concept of natural language-based
+  societies of mind (NLSOMs). We imagine these societies as consisting of a collection of
+  multimodal neural networks, including large language models, which engage in a “mindstorm”
+  to solve problems using a shared natural language interface. Here, we work to identify and
+  discuss key questions about the social structure, governance, and economic principles for
+  NLSOMs, emphasizing their impact on the future of AI. Our demonstrations with NLSOMs-which
+  feature up to 129 agents-show their effectiveness in various tasks, including visual question
+  answering, image captioning, and prompt generation for text-to-image synthesis.
+authors:
+- Mingchen Zhuge
+- Haozhe Liu
+- Francesco Faccio
+- Dylan R. Ashley
+- Róbert Csordás
+- Anand Gopalakrishnan
+- Abdullah Hamdi
+- Hasan Abed Al Kader Hammoud
+- Vincent Herrmann
+- Kazuki Irie
+- Louis Kirsch
+- Bing Li
+- Guohao Li
+- Shuming Liu
+- Jinjie Mai
+- Piotr Piękos
+- Aditya A. Ramesh
+- Imanol Schlag
+- Weimin Shi
+- Aleksandar Stanić
+- Wenyi Wang
+- Yuhui Wang
+- Mengmeng Xu
+- Deng-Ping Fan
+- Bernard Ghanem
+- Jürgen Schmidhuber
+organizations:
+- Beihang University
+- Dalle Molle Institute for Artificial Intelligence Research
+- ETH Zurich
+- Harvard University
+- King Abdullah University of Science and Technology
+- Nankai University
+- Stanford University
+- University of Oxford
+affiliations:
+  Mingchen Zhuge:
+  - King Abdullah University of Science and Technology
+  Haozhe Liu:
+  - King Abdullah University of Science and Technology
+  Francesco Faccio:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Dylan R. Ashley:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Róbert Csordás:
+  - Stanford University
+  Anand Gopalakrishnan:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Abdullah Hamdi:
+  - University of Oxford
+  Hasan Abed Al Kader Hammoud:
+  - King Abdullah University of Science and Technology
+  Vincent Herrmann:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Kazuki Irie:
+  - Harvard University
+  Louis Kirsch:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Bing Li:
+  - King Abdullah University of Science and Technology
+  Guohao Li:
+  - King Abdullah University of Science and Technology
+  Shuming Liu:
+  - King Abdullah University of Science and Technology
+  Jinjie Mai:
+  - King Abdullah University of Science and Technology
+  Piotr Piękos:
+  - King Abdullah University of Science and Technology
+  Aditya A. Ramesh:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Imanol Schlag:
+  - ETH Zurich
+  Weimin Shi:
+  - Beihang University
+  Aleksandar Stanić:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  Wenyi Wang:
+  - King Abdullah University of Science and Technology
+  Yuhui Wang:
+  - Dalle Molle Institute for Artificial Intelligence Research
+  - King Abdullah University of Science and Technology
+  Mengmeng Xu:
+  - King Abdullah University of Science and Technology
+  Deng-Ping Fan:
+  - Nankai University
+  Bernard Ghanem:
+  - King Abdullah University of Science and Technology
+  Jürgen Schmidhuber:
+  - King Abdullah University of Science and Technology
+published_at: '2025-02-01'
+url: https://doi.org/10.26599/cvm.2025.9450460
+doi: 10.26599/cvm.2025.9450460
+openalex_id: W4407938709
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Multi-Agent Collaboration Mechanisms: A Survey of LLMs; The Collaboration Gap:
+  Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: The paper''s core contribution
+  is organizational — who leads, how agents are rewarded, how collective problem-solving is
+  structured among autonomous machine agents — and removing the machines would leave nothing
+  of the finding. No exclusion-register line applies; this is not human collective decision-making,
+  mechanism/voting design, or token economics in the financial-engineering sense, though its
+  ''economy of minds'' discussion is the agent-incentive case the register flags as arguably
+  in-scope. What changes because agents hold authority: It directly proposes and examines
+  the social structure, leadership/governance, and reward-economy design for societies of
+  many machine agents (up to 129) that coordinate and decide via a shared natural-language
+  interface, which is the design problem of an agent-authority organization rather than a
+  human one. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

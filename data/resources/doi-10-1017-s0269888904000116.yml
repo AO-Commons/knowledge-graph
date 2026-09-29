@@ -1,0 +1,53 @@
+id: resource:doi:10-1017-s0269888904000116
+resource_type: peer-reviewed-paper
+title: Trust in multi-agent systems
+abstract: Trust is a fundamental concern in large-scale open distributed systems. It lies
+  at the core of all interactions between the entities that have to operate in such uncertain
+  and constantly changing environments. Given this complexity, these components, and the ensuing
+  system, are increasingly being conceptualised, designed, and built using agent-based techniques
+  and, to this end, this paper examines the specific role of trust in multi-agent systems.
+  In particular, we survey the state of the art and provide an account of the main directions
+  along which research efforts are being focused. In so doing, we critically evaluate the
+  relative strengths and weaknesses of the main models that have been proposed and show how,
+  fundamentally, they all seek to minimise the uncertainty in interactions. Finally, we outline
+  the areas that require further research in order to develop a comprehensive treatment of
+  trust in complex computational settings.
+authors:
+- Sarvapali D. Ramchurn
+- DONG HUYNH
+- Nicholas R. Jennings
+organizations:
+- University of Southampton
+affiliations:
+  Sarvapali D. Ramchurn:
+  - University of Southampton
+  DONG HUYNH:
+  - University of Southampton
+  Nicholas R. Jennings:
+  - University of Southampton
+published_at: '2004-03-01'
+url: https://doi.org/10.1017/s0269888904000116
+doi: 10.1017/s0269888904000116
+openalex_id: W1623588239
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Intelligent AI Delegation.
+  Scope scan by claude-opus-5: This is a foundational MAS survey rather than a study of an
+  organization where agents hold authority, so it sits as a pointer in section 15 alongside
+  the reputation/sybil-resistance line the register flagged as an arguable cut. Holding it
+  as borrowed background keeps the boundary honest: it is the method substrate our trust-and-delegation
+  papers build on, not itself a treatment of agentic organizational authority. What changes
+  because agents hold authority: It supplies the canonical taxonomy of computational trust
+  and reputation models by which agents decide whom to rely on and how much weight to give
+  them — machinery that becomes load-bearing once delegated agents select counterparties or
+  accrue standing within an organization. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true

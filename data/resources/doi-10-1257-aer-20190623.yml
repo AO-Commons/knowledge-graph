@@ -1,0 +1,58 @@
+id: resource:doi:10-1257-aer-20190623
+resource_type: peer-reviewed-paper
+title: Artificial Intelligence, Algorithmic Pricing, and Collusion
+abstract: Increasingly, algorithms are supplanting human decision-makers in pricing goods
+  and services. To analyze the possible consequences, we study experimentally the behavior
+  of algorithms powered by Artificial Intelligence (Q-learning) in a workhorse oligopoly model
+  of repeated price competition. We find that the algorithms consistently learn to charge
+  supracompetitive prices, without communicating with one another. The high prices are sustained
+  by collusive strategies with a finite phase of punishment followed by a gradual return to
+  cooperation. This finding is robust to asymmetries in cost or demand, changes in the number
+  of players, and various forms of uncertainty. (JEL D21, D43, D83, L12, L13)
+authors:
+- Emilio Calvano
+- Giacomo Calzolari
+- Vincenzo Denicolò
+- Sergio Pastorello
+organizations:
+- Centre for Economic Policy Research
+- Toulouse School of Economics
+- University of Bologna
+affiliations:
+  Emilio Calvano:
+  - Toulouse School of Economics
+  - University of Bologna
+  Giacomo Calzolari:
+  - Toulouse School of Economics
+  - University of Bologna
+  Vincenzo Denicolò:
+  - Centre for Economic Policy Research
+  - University of Bologna
+  Sergio Pastorello:
+  - University of Bologna
+published_at: '2020-09-28'
+url: https://doi.org/10.1257/aer.20190623
+doi: 10.1257/aer.20190623
+openalex_id: W2921123283
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; Solipsistic Superintelligence
+  is Unlikely to be Cooperative. Scope scan by claude-opus-5: This is not excluded market
+  microstructure or financial engineering: the finding disappears entirely if humans rather
+  than Q-learning agents set the prices, so it is squarely about what changes when machines
+  hold operational decision authority. It is load-bearing for accountability design (novel
+  exposure created by agent action, 12.6.3) rather than adjacent background, and two library
+  papers build on it directly. What changes because agents hold authority: It shows that delegating
+  pricing authority to learning agents can produce supracompetitive, collusion-like conduct
+  that no human authorized or communicated, so oversight and liability controls in an agent-authority
+  organization must monitor emergent joint behavior rather than only individual agent instructions.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1

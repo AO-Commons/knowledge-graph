@@ -1,0 +1,65 @@
+id: resource:doi:10-1073-pnas-092080099
+resource_type: peer-reviewed-paper
+title: Learning dynamics in social dilemmas
+abstract: The Nash equilibrium, the main solution concept in analytical game theory, cannot
+  make precise predictions about the outcome of repeated mixed-motive games. Nor can it tell
+  us much about the dynamics by which a population of players moves from one equilibrium to
+  another. These limitations, along with concerns about the cognitive demands of forward-looking
+  rationality, have motivated efforts to explore backward-looking alternatives to analytical
+  game theory. Most of the effort has been invested in evolutionary models of population dynamics.
+  We shift attention to a learning-theoretic alternative. Computational experiments with adaptive
+  agents identify a fundamental solution concept for social dilemmas--stochastic collusion--based
+  on a random walk from a self-limiting noncooperative equilibrium into a self-reinforcing
+  cooperative equilibrium. However, we show that this solution is viable only within a narrow
+  range of aspiration levels. Below the lower threshold, agents are pulled into a deficient
+  equilibrium that is a stronger attractor than mutual cooperation. Above the upper threshold,
+  agents are dissatisfied with mutual cooperation. Aspirations that adapt with experience
+  (producing habituation to stimuli) do not gravitate into the window of viability; rather,
+  they are the worst of both worlds. Habituation destabilizes cooperation and stabilizes defection.
+  Results from the two-person problem suggest that applications to multiplex and embedded
+  relationships will yield unexpected insights into the global dynamics of cooperation in
+  social dilemmas.
+authors:
+- Michael Walton Macy
+- Andreas Flache
+organizations:
+- Cornell University
+- Interuniversity Center for Social Science Theory and Methodology
+- University of Groningen
+affiliations:
+  Michael Walton Macy:
+  - University of Groningen
+  - Cornell University
+  - Interuniversity Center for Social Science Theory and Methodology
+  Andreas Flache:
+  - University of Groningen
+  - Cornell University
+  - Interuniversity Center for Social Science Theory and Methodology
+published_at: '2002-05-14'
+url: https://doi.org/10.1073/pnas.092080099
+doi: 10.1073/pnas.092080099
+openalex_id: W2132979098
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Collective cooperative intelligence;
+  Multi-agent Reinforcement Learning in Sequential Social Dile. Scope scan by claude-opus-5:
+  This is a foundational learning-theoretic result on adaptive-agent cooperation that the
+  library''s multi-agent cooperation records (Melting Pot, SSD, cooperative AI reviews) build
+  directly upon, so it is load-bearing method precedent rather than an account of delegated
+  machine authority. No exclusion-register line bars it — it is agent-specific, not human
+  collective decision-making — but it belongs at section 15 as a pointer, not as an in-scope
+  record. What changes because agents hold authority: It does not itself concern organizations
+  where machines hold authority, but it supplies the learning-dynamics result — that cooperation
+  among adaptive agents is viable only in a narrow band of aspiration levels and is destabilized
+  by habituation — that designers of populations of autonomous agents must reckon with when
+  tuning reward/satisficing targets. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-09-29'
+expansion_generation: 1
+is_borrowed_background: true
