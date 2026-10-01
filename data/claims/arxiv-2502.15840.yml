@@ -10,11 +10,13 @@ claims:
   claim_type: finding
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
-  - slow-onset-degradation
+  - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:2
@@ -29,12 +31,13 @@ claims:
     task.'
   claim_type: finding
   concept_tags:
-  - slow-onset-degradation
-  - silent-failure-detection
+  - tool-and-api-failures-mishandled-by-agents
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:3
@@ -42,9 +45,12 @@ claims:
     their memory is already full.
   quote: We show that the breakdowns are not directly related to the context of the LLMs being
     filled, as models generally stagnate well after their memory is full.
-  standalone: The authors test whether long input length explains the degradation by comparing
-    when each model's memory fills against when it stops selling. Degradation arrives long
-    afterwards — 51 days later for one model — and the correlation across runs is 0.167.
+  standalone: The authors test whether long input length explains the degradation by comparing,
+    per model, the day memory fills (30k tokens, after which the context stops growing) with
+    the day sales stop. Some models stop selling well after memory is full (Claude 3.5 Sonnet
+    51 days later, o3-mini 34), others within days, and two stop before it fills. Across the
+    nine models' means the Pearson correlation is 0.167, and degradation also appears with
+    10k memory, so the authors conclude growing input length alone does not explain it.
   claim_type: finding
   concept_tags:
   - bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency
@@ -52,7 +58,9 @@ claims:
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:4
@@ -64,9 +72,11 @@ claims:
   concept_tags:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: results
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:5
@@ -79,9 +89,11 @@ claims:
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: results
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:6
@@ -132,8 +144,10 @@ claims:
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: results
   extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own

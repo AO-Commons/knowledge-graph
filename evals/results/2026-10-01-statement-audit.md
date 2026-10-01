@@ -168,3 +168,29 @@ was written.
   held-out background populations. Melting Pot answers it with two findings,
   through the method it actually used. `held-out-background-populations` is a
   new concept, defined by Melting Pot's own statement.
+
+### The three reviewed papers
+
+Corrected only where a statement misled a reader as it stood, and only in
+fields a verdict does not cover. A verdict is bound to a fingerprint of the
+statement's text and quote. Neither changed, so all 23 verdicts stand
+(12 by helenarong2703, 8 by Axelmannen, 3 by ankeliu), and nobody is asked
+to review again.
+
+- **Inter-Agent Trust Models.** Statement 4 is a position. Statement 1 is
+  credited to Raskar et al. (2025), whom the paper cites for it. Tags on
+  2, 4 and 6 now say what each statement is about, among them the
+  "stake-based trust" that sat on "where stakes are high".
+- **Dissociative Identity.** Statements 2, 3 and 4 are positions.
+  Statement 7 is credited to Reuel et al. (2024), whom the paper cites, and
+  no longer carries the paper's own coinage. Statement 9's context no longer
+  says the authors proposed insurance. Statement 8's tag is corrected. The
+  record's evidence facet is argumentative-essay.
+- **Vending-Bench.** Tags on 1 and 2 no longer say "slow onset" about an
+  abrupt failure. Statement 3's context gives the correlation across the
+  nine models' means, not across runs.
+
+Left as they are, because fixing them would change reviewed wording: two
+Trust Models paraphrases that drop "relatively" and "in open multi-agent
+environments", and Dissociative Identity 6's "should" for the paper's
+"must". No missing statements were added to these papers.

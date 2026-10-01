@@ -154,8 +154,8 @@ relations:
     confidence_class: INFERRED
     because: >-
       Within one paper: agents being assemblages of mutable modules is the
-      observation; the loss of grounding for identifiability, predictability,
-      credibility and rehabilitability is the consequence drawn from it.
+      premise; the loss of grounding for identifiability, predictability,
+      credibility and rehabilitability is the consequence argued from it.
     asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-10"
 
