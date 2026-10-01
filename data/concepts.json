@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 46,
+    "vocabulary": 49,
     "vocabulary_from_claims": 13,
-    "vocabulary_from_taxonomy": 33,
-    "on_exactly_one_statement": 16,
-    "suggestions_available": 481
+    "vocabulary_from_taxonomy": 36,
+    "on_exactly_one_statement": 21,
+    "suggestions_available": 478
   },
   "looks_like_one_idea": [
     {
@@ -52,15 +52,26 @@
   ],
   "vocabulary": [
     {
+      "id": "agent-identity-standards-and-registries",
+      "label": "Agent identity standards and registries",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:7"
+      ]
+    },
+    {
       "id": "agent-reputation-systems",
       "label": "Agent reputation systems",
       "topics": [
         "5.3"
       ],
       "origin": "taxonomy",
-      "statements": 7,
+      "statements": 6,
       "claims": [
-        "claim:arxiv:2511.03434:2",
         "claim:arxiv:2511.03434:3",
         "claim:arxiv:2511.03434:4",
         "claim:arxiv:2605.30169:1",
@@ -166,11 +177,10 @@
         "6.3"
       ],
       "origin": "claim",
-      "statements": 4,
+      "statements": 3,
       "claims": [
         "claim:arxiv:2605.30169:2",
         "claim:arxiv:2605.30169:3",
-        "claim:arxiv:2605.30169:7",
         "claim:arxiv:2605.30169:8"
       ],
       "note": "An LLM agent is an assemblage of swappable modules, so the persistent identity reputation presumes may not exist. 5.3 covers reputation systems and 6.1 covers identity issuance; neither names the case where identity fails to persist at all."
@@ -428,10 +438,9 @@
         "12.2"
       ],
       "origin": "taxonomy",
-      "statements": 2,
+      "statements": 1,
       "claims": [
-        "claim:arxiv:2605.30169:6",
-        "claim:arxiv:2605.30169:8"
+        "claim:arxiv:2605.30169:6"
       ]
     },
     {
@@ -470,6 +479,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:10"
+      ]
+    },
+    {
+      "id": "prompt-injection",
+      "label": "Prompt injection",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:2"
       ]
     },
     {
@@ -513,8 +534,9 @@
         "14.1"
       ],
       "origin": "taxonomy",
-      "statements": 2,
+      "statements": 3,
       "claims": [
+        "claim:arxiv:2502.15840:1",
         "claim:arxiv:2502.15840:5",
         "claim:arxiv:2502.15840:8"
       ]
@@ -552,6 +574,18 @@
       "note": "The researcher studying an organization builds part of the system being studied, so observation feeds back into it. The observer inside the system, as second-order cybernetics has it, made infrastructural."
     },
     {
+      "id": "responsibility-gaps-and-their-allocation",
+      "label": "Responsibility gaps and their allocation",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:8"
+      ]
+    },
+    {
       "id": "reward-design-and-what-optimizing-a-proxy-does-to-a-population",
       "label": "Reward design, and what optimizing a proxy does to a population",
       "topics": [
@@ -565,6 +599,18 @@
       ]
     },
     {
+      "id": "risk-proportional-oversight-allocation",
+      "label": "Risk-proportional oversight allocation",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:6"
+      ]
+    },
+    {
       "id": "sanction-sensitivity",
       "label": "Sanction sensitivity",
       "topics": [
@@ -572,25 +618,12 @@
         "2.7"
       ],
       "origin": "claim",
-      "statements": 3,
+      "statements": 2,
       "claims": [
-        "claim:arxiv:2511.03434:6",
         "claim:arxiv:2605.30169:1",
         "claim:arxiv:2605.30169:5"
       ],
       "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
-    },
-    {
-      "id": "silent-failure-detection",
-      "label": "Silent failure detection",
-      "topics": [
-        "9.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2502.15840:2"
-      ]
     },
     {
       "id": "skill-atrophy-under-automation",
@@ -602,19 +635,6 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:18"
-      ]
-    },
-    {
-      "id": "slow-onset-degradation",
-      "label": "Slow-onset degradation",
-      "topics": [
-        "11.13"
-      ],
-      "origin": "taxonomy",
-      "statements": 2,
-      "claims": [
-        "claim:arxiv:2502.15840:1",
-        "claim:arxiv:2502.15840:2"
       ]
     },
     {
@@ -636,14 +656,24 @@
         "5.3"
       ],
       "origin": "claim",
-      "statements": 4,
+      "statements": 2,
       "claims": [
         "claim:arxiv:2511.03434:3",
-        "claim:arxiv:2511.03434:4",
-        "claim:arxiv:2511.03434:5",
-        "claim:arxiv:2511.03434:6"
+        "claim:arxiv:2511.03434:5"
       ],
       "note": "Trust backed by something forfeitable. Sits alongside the reputation systems already at 5.3 and is the mechanism 2511.03434 recommends in their place for high-impact actions."
+    },
+    {
+      "id": "tool-and-api-failures-mishandled-by-agents",
+      "label": "Tool and API failures mishandled by agents",
+      "topics": [
+        "11.10"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2502.15840:2"
+      ]
     },
     {
       "id": "train-test-deploy-gap",
@@ -903,15 +933,6 @@
       "label": "Agent-held reputation and accrued weight",
       "topics": [
         "2.7"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "agent-identity-standards-and-registries",
-      "label": "Agent identity standards and registries",
-      "topics": [
-        "6.3"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3878,15 +3899,6 @@
       "statements": 0
     },
     {
-      "id": "prompt-injection",
-      "label": "Prompt injection",
-      "topics": [
-        "10.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "proof-of-authorized-execution",
       "label": "Proof of authorized execution",
       "topics": [
@@ -4112,15 +4124,6 @@
       "statements": 0
     },
     {
-      "id": "responsibility-gaps-and-their-allocation",
-      "label": "Responsibility gaps and their allocation",
-      "topics": [
-        "1.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "restitution-and-loss-allocation",
       "label": "Restitution and loss allocation",
       "topics": [
@@ -4242,15 +4245,6 @@
       "label": "Revocation propagation across chains",
       "topics": [
         "2.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "risk-proportional-oversight-allocation",
-      "label": "Risk-proportional oversight allocation",
-      "topics": [
-        "4.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4454,6 +4448,15 @@
       "statements": 0
     },
     {
+      "id": "silent-failure-detection",
+      "label": "Silent failure detection",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
       "id": "silent-failures-with-no-signal",
       "label": "Silent failures with no signal",
       "topics": [
@@ -4485,6 +4488,15 @@
       "label": "Slashing where the punishable party is human",
       "topics": [
         "13.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "slow-onset-degradation",
+      "label": "Slow-onset degradation",
+      "topics": [
+        "11.13"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4764,15 +4776,6 @@
       "label": "Tool and API cost management",
       "topics": [
         "8.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "tool-and-api-failures-mishandled-by-agents",
-      "label": "Tool and API failures mishandled by agents",
-      "topics": [
-        "11.10"
       ],
       "origin": "taxonomy",
       "statements": 0

@@ -28,13 +28,15 @@ claims:
   standalone: 'The authors characterize language model agents as ontologically dissociative:
     assemblages of mutable modules — foundation model, system prompt, tool-access policy,
     external memory — any of which may change the agent''s behavior.'
-  claim_type: finding
+  claim_type: position
   concept_tags:
   - dissociative-agent-identity
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:3
@@ -46,14 +48,16 @@ claims:
   standalone: The authors argue that the dissociativity of language model agents leaves them
     without grounding for identifiability, predictability, credibility and rehabilitability
     — the properties reputation mechanisms exist to sustain.
-  claim_type: finding
+  claim_type: position
   concept_tags:
   - dissociative-agent-identity
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:4
@@ -63,13 +67,15 @@ claims:
     but actively harmful
   standalone: The authors describe a credibility trap in which reputation signals for dissociative
     language model agents become not merely uninformative but actively harmful.
-  claim_type: finding
+  claim_type: position
   concept_tags:
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
+    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:5
@@ -108,19 +114,23 @@ claims:
 - id: claim:arxiv:2605.30169:7
   text: Identity and reputation are unsolved problems in technical AI governance.
   quote: identity and reputation remain open problems in technical AI governance
-  standalone: The authors place their account of agent identity instability alongside multi-agent
-    safety, asserting that identity and reputation are still open problems in technical AI
-    governance.
+  standalone: Citing Reuel et al.'s survey of open problems in technical AI governance, the
+    authors note that agent identity and reputation remain unsolved there, and connect their
+    credibility-trap argument to multi-agent safety, where collective dynamics among interacting
+    agents are recognized as a distinct source of risk.
   claim_type: gap
   concept_tags:
   - agent-reputation-systems
-  - dissociative-agent-identity
+  - agent-identity-standards-and-registries
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: discussion
   extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
+    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
-  attribution: own
+  attribution: other
+  attributed_to: Reuel et al. (2024), Open Problems in Technical AI Governance
 - id: claim:arxiv:2605.30169:8
   text: How to assign accountability under fragmented identity is unresolved, and has been
     for centuries in the law that has tried longest.
@@ -132,26 +142,32 @@ claims:
   claim_type: gap
   concept_tags:
   - dissociative-agent-identity
-  - operator-deployer-and-developer-liability
+  - responsibility-gaps-and-their-allocation
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: discussion
   extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
+    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:9
   text: How ex ante constraint mechanisms interact in practice has not been studied.
   quote: And the interaction of these mechanisms in practice is unexplored.
-  standalone: Having proposed configuration binding, behavioral fingerprinting and insurance
-    as ex ante alternatives to reputation, the authors state that each faces its own difficulty
-    and that how the three interact in practice has not been examined.
+  standalone: 'Closing their proposal of ex ante harnesses (configuration binding, real-time
+    behavioral monitoring using behavioral fingerprinting, and automated intervention), the
+    authors list open questions: configuration binding faces a granularity problem, fingerprinting
+    an arms race, and insurance models lack actuarial frameworks for agentic AI. How these
+    mechanisms interact in practice is unexplored.'
   claim_type: gap
   concept_tags:
   - ex-ante-behavioral-harness
   - insurance-for-autonomous-action
   confidence_class: EXTRACTED
-  extracted_from: other
+  extracted_from: discussion
   extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
+    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
+    text and quote unchanged, so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
