@@ -17,8 +17,10 @@ later.
 *Findings and positions are the product.* They are what a researcher comes
 looking for — what has been shown, and what has been argued — and ten of the
 first twelve asserted relations run between them. A paper's yield is its
-primary count, not its statement count: Melting Pot gives three primaries
-and two context, Building the Loop gives one and two.
+primary count, not its statement count. Drafted from their abstracts and
+conclusions, Melting Pot gave three primaries and two context statements and
+Building the Loop one and two. Read in full, they give nine and four, and eight
+and twelve.
 
 *Method statements are a query dimension, not filler.* "Who has found this,
 working that way" joins a subject on a finding to a technique on a method
@@ -413,7 +415,7 @@ def undeclared_definitions(candidates: list[dict]) -> list[str]:
 
     "We introduce Artificial Organizational Intelligence: the capacity for
     ..." was a method for a month, and "a dynamic evaluation is the one in
-    which ..." still is. Partial, like every check here that reads form for
+    which ..." until the audit. Partial, like every check here that reads form for
     meaning: "we identify and compare six distinct trust models" introduces a
     typology without saying so.
     """

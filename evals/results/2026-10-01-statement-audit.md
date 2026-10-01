@@ -2,9 +2,10 @@
 
 **2026-10-01.** Every paper holding statements was re-read against its full
 text. Building the Loop was re-read and corrected first (#55). The other six
-were audited the same way, and nothing in them has been changed yet. This
-records what the audit found, what the checks added afterwards would and
-would not have caught, and what needs a person.
+were audited the same way. The three that no person had reviewed were then
+corrected from their audits (see "Applied", below). The three with author
+verdicts are unchanged. This records what the audit found, what the checks
+added afterwards would and would not have caught, and what needs a person.
 
 ## How
 
@@ -134,6 +135,36 @@ above. Its report goes to the person reviewing.
 - **Vending-Bench:** the tag and standalone changes go to its
   author-reviewer (Axelmannen). None touches a verdict.
 - **Melting Pot, Beyond the High Score and Solipsistic Superintelligence:**
-  these have no verdicts. The fixes are ready to apply as drafts, then review.
-- **The flagship query and its test:** a decision about what the example
-  should demonstrate.
+  corrected; see below. Their statements are machine-checked drafts like any
+  other, waiting for review.
+
+## Applied
+
+The three papers without verdicts were corrected from their audits. Each
+auditor turned its report into a patch. Every quote was re-checked against
+the cached full text, and every patch passed the drafting gates before it
+was written.
+
+| Paper | Statements | Retyped | Rewritten | Added | Primary |
+|---|---|---|---|---|---|
+| Melting Pot | 6 → 13 | 0 (1 attribution) | 4 | 7 | 4 → 9 |
+| Beyond the High Score | 7 → 14 | 1 | 5 | 7 | 4 → 9 |
+| Solipsistic Superintelligence | 12 → 18 | 5 | 7 | 6 | 9 → 12 |
+
+- **New statements number past every id the file has held.** A cut
+  statement's id never comes back pointing at a new sentence.
+- **Five machine-drafted relations were corrected.**
+  - Two `DISAGREES_WITH` became `QUALIFIES`: once the hedges were restored,
+    both statements could hold.
+  - One was rewritten from "disagrees" to "qualifies", because Solipsistic
+    Superintelligence cites Melting Pot as a step forward.
+  - One was reversed: the finding supports the inference, not the other way
+    round.
+  - One `EXTENDS_CLAIM` was deleted. The two statements describe different
+    failures.
+- **The flagship joined query moved.** Dynamic evaluation is a definition,
+  and a definition is not a method. The query now asks what has been found
+  about generalization to unfamiliar partners by people testing against
+  held-out background populations. Melting Pot answers it with two findings,
+  through the method it actually used. `held-out-background-populations` is a
+  new concept, defined by Melting Pot's own statement.

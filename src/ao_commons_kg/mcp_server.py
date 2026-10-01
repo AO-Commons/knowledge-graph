@@ -122,9 +122,9 @@ def who_found(subject: str = "", method: str = "", claim_type: str = "",
     Two questions asked of different statements and joined through the paper.
     The subject is a tag on a finding or a position — what was shown or
     argued. The method is a tag on a method statement in the same paper — how
-    it was done. "What has been found about the train-test-deploy gap, by
-    people doing dynamic evaluation" is one query, not two searches and a
-    manual intersection.
+    it was done. "What has been found about generalization to unfamiliar
+    partners, by people testing against held-out background populations" is
+    one query, not two searches and a manual intersection.
 
     `claim_type` narrows to findings or to positions; left empty it returns
     both and nothing else, because background and limitation are how you

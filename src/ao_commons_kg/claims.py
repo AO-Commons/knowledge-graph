@@ -435,14 +435,22 @@ def by_subject_and_method(claims, *, subject: str = "", method: str = "",
     The method is a tag on a method statement in the same paper — how it was
     done. Joining them through the paper is what makes the pair answerable,
     and it is the shape of the question a researcher actually brings: not
-    "what is about reputation" but "what has been *found* about reputation,
-    by people doing dynamic evaluation".
+    "what is about generalization" but "what has been *found* about
+    generalization to unfamiliar partners, by people testing against
+    held-out background populations". Melting Pot answers it with two
+    findings, through the method it actually used.
+
+    The first example of this query joined on `dynamic-evaluation`, through
+    a statement that defined the term in a paper that never performed one.
+    It answered because a definition was filed as a method, which is what
+    the `definition` type now prevents. A method statement has to be how the
+    work was done.
 
     No second vocabulary is needed for this, and adding one would be a
-    mistake. Eight of the seventeen terms in use already sit on more than
-    one statement type — `dynamic-evaluation` is a method in one paper, what
-    a finding is about in another, and what a position argues about in a
-    third. Splitting it into a subject term and a method term would make two
+    mistake. Twenty-two of the forty-six terms in use sit on more than one
+    statement type: `held-out-background-populations` is Melting Pot's
+    method, the term its definition fixes, and what one of its positions is
+    about. Splitting it into a subject term and a method term would make two
     names for one idea, which is the failure this vocabulary is built to
     avoid. The statement's type already says which role its tag is playing.
     """

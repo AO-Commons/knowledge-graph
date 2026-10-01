@@ -228,12 +228,18 @@ class TestDerivedTopics:
         assert derived["5.3"] > 1, "weight is information, not just membership"
 
     def test_it_finds_categories_the_filer_missed(self):
-        """Melting Pot was filed 14.1 and 14.5. One of its own statements
-        predicts the suite will be gamed, which is 14.3 — evaluation
-        integrity — and nobody filed it there."""
+        """Melting Pot was filed 14.1 and 14.5. Two of its own statements argue
+        that a population whose agents specialize on expected partners is less
+        robust, and that successful populations need redundancy, which is 3.1
+        — organizational architecture — and nobody filed it there.
+
+        This test used to assert 14.3, from a `dynamic-evaluation` tag on a
+        statement about fixed background bots. The audit of 2026-10-01 found
+        the tag contradicted its statement; a test should not hold a mis-tag
+        in place."""
         from ao_commons_kg.concepts import derived_topics, load_vocabulary
         claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2107.06857"]
-        assert "14.3" in derived_topics(claims, load_vocabulary())
+        assert "3.1" in derived_topics(claims, load_vocabulary())
 
     def test_it_cannot_see_a_paper_s_framing(self):
         """The finding that keeps this additive rather than replacing. A
@@ -509,8 +515,9 @@ class TestSubjectAndMethod:
 
     def test_a_subject_and_a_method_are_joined_through_the_paper(self):
         from ao_commons_kg.claims import by_subject_and_method
-        hits = by_subject_and_method(load_claims(), subject="train-test-deploy-gap",
-                                     method="dynamic-evaluation")
+        hits = by_subject_and_method(
+            load_claims(), subject="generalization-to-unfamiliar-partners-and-novel-social-situations",
+            method="held-out-background-populations")
         assert hits
         for hit in hits:
             assert hit["claim"].claim_type.is_primary
@@ -520,7 +527,7 @@ class TestSubjectAndMethod:
     def test_a_method_nobody_used_returns_nothing(self):
         from ao_commons_kg.claims import by_subject_and_method
         assert not by_subject_and_method(load_claims(), subject="agent-reputation-systems",
-                                         method="dynamic-evaluation")
+                                         method="held-out-background-populations")
 
     def test_it_returns_primaries_unless_asked_otherwise(self):
         """Background and limitation are how you judge an answer, not what

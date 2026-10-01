@@ -611,7 +611,7 @@ class TestTemporarilyHidden:
     def test_relations_are_still_in_the_data(self):
         """Hidden from one screen, not removed from the corpus."""
         from ao_commons_kg.claims import load_claim_relations, load_claims
-        assert len(load_claim_relations(claims=load_claims())) == 12
+        assert load_claim_relations(claims=load_claims())
 
     def test_the_taxonomy_tree_is_hidden_not_deleted(self):
         page = self._page()

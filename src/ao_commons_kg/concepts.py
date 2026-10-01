@@ -255,15 +255,15 @@ def derived_topics(claims, vocabulary: Vocabulary) -> dict[str, int]:
     multiple topic codes on the container.
 
     Counts rather than a set, because weight is information: Melting Pot
-    derives 14.1 eight times and 5.3 once, and those are not the same claim on
-    the topic.
+    derives 15.6 ten times and 5.2 three times, and those are not the same
+    claim on the topic.
 
     What this cannot see is the paper's framing. Measured over the first six
     papers, derivation gains codes the filer missed — Melting Pot picks up
-    evaluation integrity because one of its own statements predicts the suite
-    will be gamed — and loses codes describing what kind of move the paper
-    makes: agency theory, borrowed background, research method. No individual
-    sentence carries a reframing. So this augments a hand-filed list rather
+    organizational architecture because two of its statements argue that a
+    population specialized on expected partners is less robust — and loses
+    codes describing what kind of move the paper makes: agency theory,
+    borrowed background. No individual sentence carries a reframing. So this augments a hand-filed list rather
     than replacing it.
     """
     counts: dict[str, int] = {}

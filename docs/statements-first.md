@@ -78,6 +78,13 @@ at the level of the whole, and no individual sentence in it carries the frame.
 That is the thing to design around, and it is the argument against a pure
 switch.
 
+**Two of the gains were mis-tags** (2026-10-01). The audit of every paper
+against its full text found Melting Pot's 14.3 came from a `dynamic-evaluation`
+tag on a statement about fixed background bots, and Inter-Agent Trust Models'
+2.7 from `stake-based-trust` on "where stakes are high". The table needs
+re-measuring on the corrected statements; see
+[the audit](../evals/results/2026-10-01-statement-audit.md).
+
 **One of the four losses was a reading gap, and that gain was a mis-filed
 concept** (2026-10-01). Building the Loop's statements had been drawn from its
 abstract, its review of the theory of the firm and its conclusion. The methods,

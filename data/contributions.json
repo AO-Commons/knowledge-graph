@@ -14,11 +14,11 @@
  "counts": {
   "people": 1626,
   "machines": 3,
-  "contributions": 2323,
+  "contributions": 2342,
   "by_kind": {
    "admitted": 161,
-   "asserted-relation": 12,
-   "drafted": 68,
+   "asserted-relation": 11,
+   "drafted": 88,
    "proposed": 29,
    "reviewed-filing": 1,
    "reviewed-statement": 23,
@@ -1358,7 +1358,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -1394,7 +1394,7 @@
      "source": "data/resources/arxiv-2606.03237.yml",
      "date": "2026-06-02",
      "used_by": {
-      "statements drawn from it": 12
+      "statements drawn from it": 18
      }
     }
    ]
@@ -4872,7 +4872,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     }
    ]
@@ -7400,7 +7400,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     }
    ]
@@ -10796,7 +10796,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -11845,7 +11845,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -12963,7 +12963,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -13047,7 +13047,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 7
+      "statements drawn from it": 14
      }
     },
     {
@@ -13056,7 +13056,7 @@
      "source": "data/resources/arxiv-2606.03237.yml",
      "date": "2026-06-02",
      "used_by": {
-      "statements drawn from it": 12
+      "statements drawn from it": 18
      }
     },
     {
@@ -13198,7 +13198,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -13643,7 +13643,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 7
+      "statements drawn from it": 14
      }
     }
    ]
@@ -15932,7 +15932,7 @@
      "source": "data/resources/arxiv-2606.03237.yml",
      "date": "2026-06-02",
      "used_by": {
-      "statements drawn from it": 12
+      "statements drawn from it": 18
      }
     }
    ]
@@ -16917,7 +16917,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 7
+      "statements drawn from it": 14
      }
     }
    ]
@@ -18958,7 +18958,7 @@
      "source": "data/resources/arxiv-2606.03237.yml",
      "date": "2026-06-02",
      "used_by": {
-      "statements drawn from it": 12
+      "statements drawn from it": 18
      }
     }
    ]
@@ -20406,7 +20406,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -21147,7 +21147,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 7
+      "statements drawn from it": 14
      }
     },
     {
@@ -21156,7 +21156,7 @@
      "source": "data/resources/arxiv-2606.03237.yml",
      "date": "2026-06-02",
      "used_by": {
-      "statements drawn from it": 12
+      "statements drawn from it": 18
      }
     }
    ]
@@ -21251,7 +21251,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -25436,7 +25436,7 @@
      "date": "2021-07-14",
      "used_by": {
       "cited by records": 6,
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -29503,7 +29503,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 7
+      "statements drawn from it": 14
      }
     }
    ]
@@ -33137,51 +33137,11 @@
   {
    "contributor": "claude-opus-5",
    "counts": {
-    "asserted-relation": 12,
+    "asserted-relation": 6,
     "drafted": 59
    },
    "since": "2026-09-10",
    "contributions": [
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2509.14485:2 DISAGREES_WITH claim:arxiv:2107.06857:4",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-11",
-     "builds_on": [
-      "claim:arxiv:2509.14485:2",
-      "claim:arxiv:2107.06857:4"
-     ]
-    },
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2509.14485:3 QUALIFIES claim:arxiv:2107.06857:3",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-10",
-     "builds_on": [
-      "claim:arxiv:2509.14485:3",
-      "claim:arxiv:2107.06857:3"
-     ]
-    },
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2509.14485:4 DISAGREES_WITH claim:arxiv:2107.06857:5",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-10",
-     "builds_on": [
-      "claim:arxiv:2509.14485:4",
-      "claim:arxiv:2107.06857:5"
-     ]
-    },
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2509.14485:4 SUPPORTS claim:arxiv:2509.14485:3",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-10",
-     "builds_on": [
-      "claim:arxiv:2509.14485:4",
-      "claim:arxiv:2509.14485:3"
-     ]
-    },
     {
      "kind": "asserted-relation",
      "on": "claim:arxiv:2605.30169:1 QUALIFIES claim:arxiv:2511.03434:3",
@@ -33240,26 +33200,6 @@
      "builds_on": [
       "claim:arxiv:2606.03237:3",
       "claim:arxiv:2606.03237:6"
-     ]
-    },
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2606.03237:6 DISAGREES_WITH claim:arxiv:2107.06857:5",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-11",
-     "builds_on": [
-      "claim:arxiv:2606.03237:6",
-      "claim:arxiv:2107.06857:5"
-     ]
-    },
-    {
-     "kind": "asserted-relation",
-     "on": "claim:arxiv:2606.03237:6 EXTENDS_CLAIM claim:arxiv:2509.14485:4",
-     "source": "data/claim-relations.yml",
-     "date": "2026-09-10",
-     "builds_on": [
-      "claim:arxiv:2606.03237:6",
-      "claim:arxiv:2509.14485:4"
      ]
     },
     {
@@ -33463,7 +33403,7 @@
       "resource:arxiv:2509.14485"
      ],
      "used_by": {
-      "relations": 3
+      "relations": 2
      }
     },
     {
@@ -33765,7 +33705,7 @@
       "resource:arxiv:2606.03237"
      ],
      "used_by": {
-      "relations": 3
+      "relations": 2
      }
     },
     {
@@ -33899,10 +33839,241 @@
   {
    "contributor": "claude-opus-5-5",
    "counts": {
-    "drafted": 9
+    "asserted-relation": 5,
+    "drafted": 29
    },
    "since": "2026-10-01",
    "contributions": [
+    {
+     "kind": "asserted-relation",
+     "on": "claim:arxiv:2509.14485:2 QUALIFIES claim:arxiv:2107.06857:4",
+     "source": "data/claim-relations.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "claim:arxiv:2509.14485:2",
+      "claim:arxiv:2107.06857:4"
+     ]
+    },
+    {
+     "kind": "asserted-relation",
+     "on": "claim:arxiv:2509.14485:3 QUALIFIES claim:arxiv:2107.06857:3",
+     "source": "data/claim-relations.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "claim:arxiv:2509.14485:3",
+      "claim:arxiv:2107.06857:3"
+     ]
+    },
+    {
+     "kind": "asserted-relation",
+     "on": "claim:arxiv:2509.14485:3 SUPPORTS claim:arxiv:2509.14485:4",
+     "source": "data/claim-relations.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "claim:arxiv:2509.14485:3",
+      "claim:arxiv:2509.14485:4"
+     ]
+    },
+    {
+     "kind": "asserted-relation",
+     "on": "claim:arxiv:2509.14485:4 QUALIFIES claim:arxiv:2107.06857:5",
+     "source": "data/claim-relations.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "claim:arxiv:2509.14485:4",
+      "claim:arxiv:2107.06857:5"
+     ]
+    },
+    {
+     "kind": "asserted-relation",
+     "on": "claim:arxiv:2606.03237:6 QUALIFIES claim:arxiv:2107.06857:5",
+     "source": "data/claim-relations.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "claim:arxiv:2606.03237:6",
+      "claim:arxiv:2107.06857:5"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:15",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:16",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:17",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:18",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:19",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:20",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2107.06857:21",
+     "source": "data/claims/arxiv-2107.06857.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2107.06857"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:13",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:14",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:15",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:16",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:17",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:18",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:19",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:13",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:14",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:15",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:16",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:17",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2606.03237:18",
+     "source": "data/claims/arxiv-2606.03237.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2606.03237"
+     ]
+    },
     {
      "kind": "drafted",
      "on": "claim:doi:10-1111-epic-70009:12",

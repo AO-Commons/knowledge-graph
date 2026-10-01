@@ -10,27 +10,34 @@ claims:
     benchmarks.
   claim_type: background
   concept_tags:
-  - benchmarks-relevant-to-organizational-roles
+  - evaluation-environments-and-benchmark-suites
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
-  attribution: other
-  attributed_to: prior MARL evaluation literature
+  attribution: own
 - id: claim:arxiv:2107.06857:2
-  text: Automated generation of multi-agent test scenarios is possible because one agent's
-    behavior forms part of another agent's environment.
-  quote: This works because one agent’s behavior constitutes (part of) another agent’s environment
-  standalone: Melting Pot's authors argue that reinforcement learning can generate novel multi-agent
-    test scenarios because one agent's behavior is itself part of another agent's environment.
+  text: Melting Pot uses reinforcement learning to reduce the human labor required to create
+    novel test scenarios, which works because one agent's behavior is part of another agent's
+    environment.
+  quote: uses reinforcement learning to reduce the human labor required to create novel test
+    scenarios. This works because one agent’s behavior constitutes (part of) another agent’s
+    environment
+  standalone: Melting Pot's authors pre-train populations of agents and hold them out for
+    evaluation only, so that a test scenario pairs a familiar environment with unfamiliar
+    co-players. Because one agent's behavior is part of another agent's environment, training
+    new agents yields new tests. Designers still specify, train and quality-check the bots,
+    so the human labor of building test environments is reduced, not removed.
   claim_type: method
   concept_tags:
-  - agent-generated-evaluation-and-scoring
+  - held-out-background-populations
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:3
@@ -38,20 +45,23 @@ claims:
     does not show.
   quote: demonstrate how Melting Pot reveals weaknesses not apparent from training performance
     alone
-  standalone: The Melting Pot authors report that their suite reveals weaknesses in standard
-    MARL training algorithms which are not apparent from training performance alone.
+  standalone: In the authors' benchmark of A3C, V-MPO and OPRE, and of prosocial variants
+    of each, agents often had high self-play (training) scores but low scores on held-out
+    test scenarios populated by unfamiliar background bots. Universalization tests also exposed
+    populations whose agents had specialized on partners behaving in a particular way.
   claim_type: finding
   concept_tags:
-  - reliability-and-consistency-measurement
+  - generalization-to-unfamiliar-partners-and-novel-social-situations
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:4
-  text: Solving novel social situations appears to require agents that model trust, reciprocity
-    and deception.
+  text: Solving Melting Pot's test scenarios seems to require agents that understand trust,
+    generosity, forgiveness, reciprocity, stubbornness and deception.
   quote: Solutions to the problems posed here seem to require agents that understand trust,
     generosity, and forgiveness, as well as reciprocity, stubbornness, and deception
   standalone: Melting Pot's authors conclude that solving their test scenarios seems to require
@@ -62,29 +72,35 @@ claims:
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:5
-  text: An evaluation suite improves over time by folding improved agents into its background
-    populations.
-  quote: Melting Pot will likewise improve over time by reincorporating the latest agent technology
-    into new background populations and test scenarios
-  standalone: Melting Pot's authors expect the suite to get harder over time, because improvements
-    in agent performance are folded back into the background populations its test scenarios
-    are built from.
+  text: Because the effectiveness of its bots advances with improvements in learning systems,
+    Melting Pot will improve over time by reincorporating the latest agent technology into
+    new background populations and test scenarios.
+  quote: since the effectiveness of the bots in test scenarios is itself advanced by improvements
+    in the performance of learning systems, Melting Pot will likewise improve over time by
+    reincorporating the latest agent technology into new background populations and test scenarios
+  standalone: The authors expect Melting Pot to improve over time. The bots in its test scenarios
+    are trained agents, so they become more effective as learning systems improve, and the
+    latest agent technology can be folded into new background populations and test scenarios.
+    At test time the bots are fixed; they do not adapt to the agent being evaluated.
   claim_type: position
   concept_tags:
-  - dynamic-evaluation
+  - held-out-background-populations
+  - evaluation-environments-and-benchmark-suites
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2107.06857:6
-  text: A multi-agent population must generalize to unfamiliar individuals and pass a universalization
-    test, not only perform well on the situations it trained on.
+  text: Agents sampled from a multi-agent population must generalize to interact with unfamiliar
+    individuals not seen during training, who may be human, and pass a universalization test.
   quote: generalize to interact effectively with unfamiliar individuals not seen during training
     (who may well be human), and pass a universalization test
   standalone: 'The authors set three desiderata for a population of agents acting as decentralized
@@ -97,6 +113,165 @@ claims:
   confidence_class: EXTRACTED
   extracted_from: other
   extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
-    2026-09-18; every quote verified verbatim against the source
+    2026-09-18; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:15
+  text: A background population is the part of a multi-agent simulation that is imbued with
+    agency, excluding the focal population of agents being tested.
+  quote: The term background population refers to the part of the simulation that is imbued
+    with agency—excluding the focal population of agents being tested.
+  standalone: Melting Pot's central equation is Substrate + Background Population = Scenario.
+    The substrate is the physical part of the world (the map, the objects, the rules of physics).
+    The background population is a set of agents pre-trained separately, which the agents
+    under test never train with. The resulting scenario is used only for testing, as held-out
+    test images are in supervised learning.
+  claim_type: definition
+  concept_tags:
+  - held-out-background-populations
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:16
+  text: Maximizing collective reward often produces policies that are less robust to novel
+    social situations than the policies obtained by maximizing individual reward.
+  quote: Intriguingly, we find that maximizing collective reward often produces policies that
+    are less robust to novel social situations than the policies obtained by maximizing individual
+    reward.
+  standalone: 'In the authors'' benchmark of A3C, V-MPO and OPRE on Melting Pot''s held-out
+    test scenarios, prosocial variants trained on per-capita return (reward shared between
+    players during training) underperformed their selfish counterparts overall. The result
+    was not uniform: in the Clean Up social dilemma, only the prosocial agents learned policies
+    significantly better than random.'
+  claim_type: finding
+  concept_tags:
+  - reward-design-and-what-optimizing-a-proxy-does-to-a-population
+  - prosocial-capability
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:17
+  text: To perform well on Melting Pot's test scenarios, trained agents should be generalists.
+    Division of labor is possible but works best when it self-organizes at test time, and
+    where specialization is most important, successful populations should feature significant
+    redundancy.
+  quote: To perform well on test scenarios, trained agents should be generalists. Division
+    of labor is possible in Melting Pot, but it works best when it self-organizes at test
+    time with individuals taking on their roles in response to the ongoing behavior of others.
+    In the cases where specialization is most important, successful populations should feature
+    significant redundancy in order to be robust enough to do well in Melting Pot.
+  standalone: Melting Pot samples each test-time agent independently from the trained population,
+    so a training algorithm cannot control which agents end up playing together and cannot
+    prescribe a fixed division of labor. The authors conclude that agents should be generalists,
+    that roles should be taken up at test time in response to what others are doing, and that
+    where specialization matters most a population needs significant redundancy to be robust.
+  claim_type: position
+  concept_tags:
+  - function-to-agent-mapping-and-role-decomposition
+  - redundancy-and-diversity-in-agent-assignment
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:18
+  text: Ranking agents by skill is complicated and depends on how much each test scenario
+    contributes to the overall score, and the authors' simple evaluation is far from the only
+    option.
+  quote: However, ranking agents’ by skill is complicated, and dependent on the contribution
+    of each test scenario to the overall score. Here we did only a simple evaluation which
+    is far from the only option.
+  standalone: On average test-scenario score, V-MPO ranked first, then OPRE, then A3C. All
+    three were similar in mixed-motivation games, and V-MPO was ahead in competitive ones
+    such as King of the Hill. The authors caution that this ordering depends on how the scenarios
+    are weighted in the aggregate score, and that their simple evaluation is one option among
+    many.
+  claim_type: limitation
+  concept_tags:
+  - capability-profiling
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:19
+  text: Prosocial OPRE and A3C matched regular OPRE and A3C in self-play but scored closer
+    to random in test scenarios, an overfitting the authors attribute to prosocial agents
+    learning only cooperation strategies and so becoming exploitable by defectors at test
+    time.
+  quote: For example, in Bach or Stravinsky in the Matrix and Stag Hunt in the Matrix, prosocial
+    OPRE and prosocial A3C achieve a similar self-play score to regular OPRE and A3C, but
+    obtain a closer to random score in the test scenarios. This overfitting is due to prosocial
+    agents only learning cooperation strategies during self-play training, and so becoming
+    exploitable by defectors at test time.
+  standalone: In two Melting Pot coordination games, Bach or Stravinsky in the Matrix and
+    Stag Hunt in the Matrix, agents trained on reward shared across players (prosocial OPRE
+    and prosocial A3C) reached self-play training scores similar to their selfish counterparts.
+    Against the unfamiliar background bots of the test scenarios they scored closer to random.
+    The authors attribute the gap to the prosocial agents having learned only to cooperate,
+    which leaves them exploitable by defectors.
+  claim_type: finding
+  concept_tags:
+  - generalization-to-unfamiliar-partners-and-novel-social-situations
+  - reward-design-and-what-optimizing-a-proxy-does-to-a-population
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:20
+  text: The results suggest that doing well on Melting Pot will require agents able to balance
+    selfishness and prosociality contingently.
+  quote: This suggests that doing well on Melting Pot will require agents to be able to contingently
+    balance selfishness and prosociality.
+  standalone: Drawn from two results together. Prosocial (reward-sharing) agents were overall
+    less robust than selfish ones in Melting Pot's test scenarios, yet in the Clean Up social
+    dilemma only prosocial agents learned policies significantly better than random.
+  claim_type: position
+  concept_tags:
+  - prosocial-capability
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2107.06857:21
+  text: Agents that learn specialized policies expecting others to behave in a particular
+    way form a division of labor that can create efficiency but also makes populations less
+    robust.
+  quote: This means that some agents in the population learned specialized policies that expect
+    other agents to behave in a particular way. Although such division of labour can create
+    efficiency, it also makes populations less robust.
+  standalone: 'Observed with Melting Pot''s universalization test, in which every player runs
+    the same sampled policy. In Chemistry: Metabolic Cycles, OPRE did well in self-play and
+    other scenarios but had low universalization scores, which the authors read as some agents
+    in the population having learned specialized policies that expect other agents to behave
+    in a particular way. The general lesson is drawn from this one case.'
+  claim_type: position
+  concept_tags:
+  - function-to-agent-mapping-and-role-decomposition
+  - redundancy-and-diversity-in-agent-assignment
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
   review_status: machine-checked
   attribution: own

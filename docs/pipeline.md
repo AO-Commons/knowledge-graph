@@ -307,7 +307,10 @@ Measured against hand-filing on the six: derivation **gains** codes the filer
 missed — Melting Pot picks up evaluation integrity because one of its own
 statements predicts the suite will be gamed — and **loses** codes describing
 what kind of move the paper makes: agency theory, borrowed background,
-research method.
+research method. (2026-10-01: the audit found that gain and some of these
+losses rested on wrong tags and unread bodies. See
+[the audit](../evals/results/2026-10-01-statement-audit.md). The comparison
+needs re-measuring on the corrected statements.)
 
 So it adds and never removes. What stays hand-filed is the remainder:
 the framing codes, saying what kind of move a paper makes.

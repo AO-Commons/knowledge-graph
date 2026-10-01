@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 37,
-    "vocabulary_from_claims": 12,
-    "vocabulary_from_taxonomy": 25,
-    "on_exactly_one_statement": 15,
-    "suggestions_available": 489
+    "vocabulary": 46,
+    "vocabulary_from_claims": 13,
+    "vocabulary_from_taxonomy": 33,
+    "on_exactly_one_statement": 16,
+    "suggestions_available": 481
   },
   "looks_like_one_idea": [
     {
@@ -52,18 +52,6 @@
   ],
   "vocabulary": [
     {
-      "id": "agent-generated-evaluation-and-scoring",
-      "label": "Agent-generated evaluation and scoring",
-      "topics": [
-        "8.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2107.06857:2"
-      ]
-    },
-    {
       "id": "agent-reputation-systems",
       "label": "Agent reputation systems",
       "topics": [
@@ -97,18 +85,6 @@
         "claim:doi:10-1111-epic-70009:8"
       ],
       "note": "An organization's capacity to make its own knowledge (routines, rules, boundaries, tacit know-how) machine-readable and governable, so that one can query the organization rather than somebody who speaks for it, and organizations can query each other. Coined by Rennie et al.; the statements that define it are typed `definition`."
-    },
-    {
-      "id": "benchmarks-relevant-to-organizational-roles",
-      "label": "Benchmarks relevant to organizational roles",
-      "topics": [
-        "14.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2107.06857:1"
-      ]
     },
     {
       "id": "bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency",
@@ -145,9 +121,12 @@
         "14.1"
       ],
       "origin": "claim",
-      "statements": 4,
+      "statements": 7,
       "claims": [
+        "claim:arxiv:2107.06857:18",
         "claim:arxiv:2509.14485:1",
+        "claim:arxiv:2509.14485:13",
+        "claim:arxiv:2509.14485:14",
         "claim:arxiv:2509.14485:5",
         "claim:arxiv:2509.14485:6",
         "claim:arxiv:2509.14485:7"
@@ -164,6 +143,19 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:9"
+      ]
+    },
+    {
+      "id": "cooperation-without-shared-objectives",
+      "label": "Cooperation without shared objectives",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2606.03237:1",
+        "claim:arxiv:2606.03237:13"
       ]
     },
     {
@@ -191,13 +183,24 @@
         "14.3"
       ],
       "origin": "claim",
-      "statements": 3,
+      "statements": 2,
       "claims": [
-        "claim:arxiv:2107.06857:5",
         "claim:arxiv:2606.03237:5",
         "claim:arxiv:2606.03237:6"
       ],
       "note": "Evaluation whose test distribution depends on the policy being evaluated. The proposed answer to endogenous non-stationarity, and what 2606.03237 argues no current suite achieves."
+    },
+    {
+      "id": "emergent-collusion",
+      "label": "Emergent collusion",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:15"
+      ]
     },
     {
       "id": "endogenous-non-stationarity",
@@ -207,15 +210,13 @@
         "14.3"
       ],
       "origin": "claim",
-      "statements": 7,
+      "statements": 5,
       "claims": [
-        "claim:arxiv:2606.03237:1",
-        "claim:arxiv:2606.03237:10",
-        "claim:arxiv:2606.03237:12",
+        "claim:arxiv:2606.03237:14",
+        "claim:arxiv:2606.03237:16",
         "claim:arxiv:2606.03237:2",
         "claim:arxiv:2606.03237:3",
-        "claim:arxiv:2606.03237:4",
-        "claim:arxiv:2606.03237:7"
+        "claim:arxiv:2606.03237:4"
       ],
       "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
     },
@@ -226,9 +227,12 @@
         "15.6"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 4,
       "claims": [
-        "claim:arxiv:2502.15840:6"
+        "claim:arxiv:2107.06857:1",
+        "claim:arxiv:2107.06857:5",
+        "claim:arxiv:2502.15840:6",
+        "claim:arxiv:2509.14485:18"
       ]
     },
     {
@@ -238,8 +242,11 @@
         "14.3"
       ],
       "origin": "taxonomy",
-      "statements": 2,
+      "statements": 5,
       "claims": [
+        "claim:arxiv:2509.14485:16",
+        "claim:arxiv:2509.14485:17",
+        "claim:arxiv:2509.14485:19",
         "claim:arxiv:2509.14485:3",
         "claim:arxiv:2509.14485:4"
       ]
@@ -260,16 +267,59 @@
       "note": "Constraining and monitoring an agent in real time, rather than rating and punishing it afterwards. The alternative 2605.30169 proposes once it argues reputation is structurally inapplicable — and the distinction its whole argument turns on, which nothing in the pool named."
     },
     {
+      "id": "feedback-loops-between-agents",
+      "label": "Feedback loops between agents",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:4"
+      ]
+    },
+    {
+      "id": "function-to-agent-mapping-and-role-decomposition",
+      "label": "Function-to-agent mapping and role decomposition",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:17",
+        "claim:arxiv:2107.06857:21"
+      ]
+    },
+    {
       "id": "generalization-to-unfamiliar-partners-and-novel-social-situations",
       "label": "Generalization to unfamiliar partners and novel social situations",
       "topics": [
         "15.6"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 3,
       "claims": [
+        "claim:arxiv:2107.06857:19",
+        "claim:arxiv:2107.06857:3",
         "claim:arxiv:2107.06857:6"
       ]
+    },
+    {
+      "id": "held-out-background-populations",
+      "label": "Held-out background populations",
+      "topics": [
+        "14.1",
+        "15.6"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:arxiv:2107.06857:15",
+        "claim:arxiv:2107.06857:2",
+        "claim:arxiv:2107.06857:5"
+      ],
+      "note": "Agents pre-trained separately and used only at test time as unfamiliar co-players, so that a test scenario is a familiar environment with unfamiliar others in it. Coined by Melting Pot (Leibo et al. 2021). Not dynamic evaluation: the background agents are fixed and do not adapt to the policy under test."
     },
     {
       "id": "human-in-the-loop-on-the-loop-and-out-of-the-loop",
@@ -281,6 +331,18 @@
       "statements": 1,
       "claims": [
         "claim:doi:10-1111-epic-70009:15"
+      ]
+    },
+    {
+      "id": "institutional-design-for-agent-economies",
+      "label": "Institutional design for agent economies",
+      "topics": [
+        "5.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:7"
       ]
     },
     {
@@ -335,6 +397,18 @@
       ]
     },
     {
+      "id": "meaningful-human-control-criteria",
+      "label": "Meaningful human control criteria",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:18"
+      ]
+    },
+    {
       "id": "memory-architectures-and-persistence",
       "label": "Memory architectures and persistence",
       "topics": [
@@ -375,18 +449,6 @@
       ]
     },
     {
-      "id": "oversight-capacity-as-the-binding-constraint",
-      "label": "Oversight capacity as the binding constraint",
-      "topics": [
-        "3.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:arxiv:2606.03237:11"
-      ]
-    },
-    {
       "id": "oversight-theater-process-present-function-absent",
       "label": "Oversight theater -- process present, function absent",
       "topics": [
@@ -399,6 +461,18 @@
       ]
     },
     {
+      "id": "phase-transitions-in-agent-system-behavior",
+      "label": "Phase transitions in agent system behavior",
+      "topics": [
+        "5.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:10"
+      ]
+    },
+    {
       "id": "prosocial-capability",
       "label": "Prosocial capability",
       "topics": [
@@ -406,14 +480,31 @@
         "14.1"
       ],
       "origin": "claim",
-      "statements": 4,
+      "statements": 8,
       "claims": [
+        "claim:arxiv:2107.06857:16",
+        "claim:arxiv:2107.06857:20",
         "claim:arxiv:2107.06857:4",
+        "claim:arxiv:2509.14485:15",
+        "claim:arxiv:2509.14485:17",
         "claim:arxiv:2509.14485:2",
         "claim:arxiv:2509.14485:3",
         "claim:arxiv:2509.14485:6"
       ],
       "note": "Cooperation, reciprocity and restraint measured as a capability in its own right, separately from task score. The distinction 2509.14485 shows a leaderboard collapses."
+    },
+    {
+      "id": "redundancy-and-diversity-in-agent-assignment",
+      "label": "Redundancy and diversity in agent assignment",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:17",
+        "claim:arxiv:2107.06857:21"
+      ]
     },
     {
       "id": "reliability-and-consistency-measurement",
@@ -422,9 +513,8 @@
         "14.1"
       ],
       "origin": "taxonomy",
-      "statements": 3,
+      "statements": 2,
       "claims": [
-        "claim:arxiv:2107.06857:3",
         "claim:arxiv:2502.15840:5",
         "claim:arxiv:2502.15840:8"
       ]
@@ -462,6 +552,19 @@
       "note": "The researcher studying an organization builds part of the system being studied, so observation feeds back into it. The observer inside the system, as second-order cybernetics has it, made infrastructural."
     },
     {
+      "id": "reward-design-and-what-optimizing-a-proxy-does-to-a-population",
+      "label": "Reward design, and what optimizing a proxy does to a population",
+      "topics": [
+        "15.6"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2107.06857:16",
+        "claim:arxiv:2107.06857:19"
+      ]
+    },
+    {
       "id": "sanction-sensitivity",
       "label": "Sanction sensitivity",
       "topics": [
@@ -487,6 +590,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2502.15840:2"
+      ]
+    },
+    {
+      "id": "skill-atrophy-under-automation",
+      "label": "Skill atrophy under automation",
+      "topics": [
+        "4.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2606.03237:18"
       ]
     },
     {
@@ -537,8 +652,10 @@
         "14.3"
       ],
       "origin": "claim",
-      "statements": 2,
+      "statements": 4,
       "claims": [
+        "claim:arxiv:2606.03237:12",
+        "claim:arxiv:2606.03237:17",
         "claim:arxiv:2606.03237:3",
         "claim:arxiv:2606.03237:6"
       ],
@@ -563,9 +680,22 @@
         "5.1"
       ],
       "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2606.03237:10",
+        "claim:arxiv:2606.03237:15"
+      ]
+    },
+    {
+      "id": "what-breaks-as-agent-count-grows",
+      "label": "What breaks as agent count grows",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
       "statements": 1,
       "claims": [
-        "claim:arxiv:2606.03237:10"
+        "claim:arxiv:2606.03237:11"
       ]
     }
   ],
@@ -755,6 +885,15 @@
       "label": "Agent fleet topologies -- flat, hierarchical, market-based",
       "topics": [
         "3.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "agent-generated-evaluation-and-scoring",
+      "label": "Agent-generated evaluation and scoring",
+      "topics": [
+        "8.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -1219,6 +1358,15 @@
       "statements": 0
     },
     {
+      "id": "benchmarks-relevant-to-organizational-roles",
+      "label": "Benchmarks relevant to organizational roles",
+      "topics": [
+        "14.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
       "id": "bias-and-systematic-error-in-machine-evaluation",
       "label": "Bias and systematic error in machine evaluation",
       "topics": [
@@ -1655,15 +1803,6 @@
       "label": "Control effectiveness measurement",
       "topics": [
         "14.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "cooperation-without-shared-objectives",
-      "label": "Cooperation without shared objectives",
-      "topics": [
-        "5.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -2155,15 +2294,6 @@
       "statements": 0
     },
     {
-      "id": "emergent-collusion",
-      "label": "Emergent collusion",
-      "topics": [
-        "11.6"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "emergent-structure-in-large-agent-populations",
       "label": "Emergent structure in large agent populations",
       "topics": [
@@ -2335,15 +2465,6 @@
       "statements": 0
     },
     {
-      "id": "feedback-loops-between-agents",
-      "label": "Feedback loops between agents",
-      "topics": [
-        "5.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "financial-algorithmic-trading-controls",
       "label": "Financial algorithmic trading controls",
       "topics": [
@@ -2375,15 +2496,6 @@
       "label": "Forensic reconstruction of agent action",
       "topics": [
         "11.15"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "function-to-agent-mapping-and-role-decomposition",
-      "label": "Function-to-agent mapping and role decomposition",
-      "topics": [
-        "3.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -2812,15 +2924,6 @@
       "statements": 0
     },
     {
-      "id": "institutional-design-for-agent-economies",
-      "label": "Institutional design for agent economies",
-      "topics": [
-        "5.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "instruction-conflict-resolution",
       "label": "Instruction conflict resolution",
       "topics": [
@@ -3158,15 +3261,6 @@
       "label": "Market-based task allocation",
       "topics": [
         "5.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "meaningful-human-control-criteria",
-      "label": "Meaningful human control criteria",
-      "topics": [
-        "4.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3559,6 +3653,15 @@
       "statements": 0
     },
     {
+      "id": "oversight-capacity-as-the-binding-constraint",
+      "label": "Oversight capacity as the binding constraint",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
       "id": "oversight-cost-as-a-fraction-of-operating-cost",
       "label": "Oversight cost as a fraction of operating cost",
       "topics": [
@@ -3653,15 +3756,6 @@
       "label": "Permission review cycles and drift detection",
       "topics": [
         "2.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "phase-transitions-in-agent-system-behavior",
-      "label": "Phase transitions in agent system behavior",
-      "topics": [
-        "5.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3946,15 +4040,6 @@
       "statements": 0
     },
     {
-      "id": "redundancy-and-diversity-in-agent-assignment",
-      "label": "Redundancy and diversity in agent assignment",
-      "topics": [
-        "3.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "registered-agent-and-service-of-process-problems",
       "label": "Registered agent and service of process problems",
       "topics": [
@@ -4157,15 +4242,6 @@
       "label": "Revocation propagation across chains",
       "topics": [
         "2.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "reward-design-and-what-optimizing-a-proxy-does-to-a-population",
-      "label": "Reward design, and what optimizing a proxy does to a population",
-      "topics": [
-        "15.6"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4400,15 +4476,6 @@
       "label": "Skill atrophy leaving no capable human fallback",
       "topics": [
         "11.11"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "skill-atrophy-under-automation",
-      "label": "Skill atrophy under automation",
-      "topics": [
-        "4.4"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4931,15 +4998,6 @@
       "label": "What agents should and should not retain",
       "topics": [
         "7.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "what-breaks-as-agent-count-grows",
-      "label": "What breaks as agent count grows",
-      "topics": [
-        "3.4"
       ],
       "origin": "taxonomy",
       "statements": 0

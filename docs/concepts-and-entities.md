@@ -65,16 +65,15 @@ obvious next step, and it is not worth building before then.
 
 - **Building the Loop:** three definitions retyped. Its KOI statement became
   `background`, attributed to BlockScience.
-- **`arxiv:2606.03237:5` (dynamic evaluation): left as a method on purpose.**
-  It is a definition. The paper argues that no existing evaluation meets the
-  requirements for dynamic evaluation, and it never performs one. But it is
-  the method statement behind this library's flagship joined query: what has
-  been found about the train-test-deploy gap by people doing dynamic
-  evaluation. That query answers only because a definition is filed as a
-  method. Retyping it would correctly make the example return nothing, and
-  the example, its test and the MCP docstring would have to change with it.
-  That is a judgment about what the flagship query should demonstrate, so it
-  is a person's call.
+- **`arxiv:2606.03237:5` (dynamic evaluation): retyped on 2026-10-01.** It
+  was left as a method at first, because it was the method statement behind
+  the library's flagship joined query: what has been found about the
+  train-test-deploy gap by people doing dynamic evaluation. That query
+  answered only because a definition was filed as a method. The paper argues
+  that no existing evaluation meets the requirements for dynamic evaluation,
+  and it never performs one. The example now joins Melting Pot's findings on
+  generalization to the method Melting Pot actually used: testing against
+  held-out background populations.
 - **`arxiv:2511.03434:3` (six trust models): borderline.** A comparative
   typology can be the framework a paper works through, which is method-shaped.
   It is left as a method until reviewed.
