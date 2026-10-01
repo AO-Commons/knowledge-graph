@@ -1,0 +1,100 @@
+id: resource:tool:langgraph
+resource_type: code-tool
+title: LangGraph
+description: 'LangGraph is LangChain Inc''s open-source graph orchestration library for long-running
+  stateful agents, whose governance-relevant primitive is `interrupt()`: a checkpointed pause
+  that suspends a run at a developer-chosen point and waits indefinitely for a human to approve,
+  reject, or rewrite the pending action — including the arguments of a tool call. It is interesting
+  to an organization designer precisely because the oversight is a library call rather than
+  a policy surface: the framework supplies durable pause/resume, state inspection and replay,
+  but who may approve, what must be approved, and any budget or allowlist are left for the
+  deploying team to build.'
+url: https://github.com/langchain-ai/langgraph
+repository_url: https://github.com/langchain-ai/langgraph
+license: MIT
+facets:
+  artifact_type: code-tool
+  autonomy_level_addressed:
+  - mixed-unspecified
+  source_independence: tooling-vendor
+  maturity_of_subject: production-at-scale
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: 'LangGraph itself grants no domain authority; it is a "low-level orchestration
+    framework for building, managing, and deploying long-running, stateful agents" in which
+    the developer wires nodes into a graph and the model decides the path. Its own docs are
+    explicit that what runs can be consequential: interrupts exist to "pause before executing
+    critical actions (API calls, database changes, financial transactions)", and the worked
+    examples are an agent that calls a `send_email` tool on its own initiative ("The LLM can
+    call the tool naturally", `agent_node`: "LLM may decide to call the tool") and an approval
+    graph whose payload is `{"action_details": "Transfer $500"}`. Absent an explicitly placed
+    `interrupt()`, execution is continuous and unattended — "durable execution" means agents
+    "persist through failures and can run for extended periods, automatically resuming from
+    exactly where they left off." Memory is both short-term working state and "long-term persistent
+    memory across sessions", and graphs can fan out to parallel branches and subgraphs.'
+  human_controls: 'The ships-in-the-box control is the `interrupt()` function plus the persistence
+    layer: it "pause[s] graph execution at specific points and wait[s] for external input
+    before continuing", checkpointing "the exact graph state" and waiting **indefinitely**
+    until someone resumes with `Command(resume=...)`. This is opt-in code, not a default:
+    the developer must call `interrupt()` at each point they want gated, and interrupts are
+    "dynamic: they can be placed anywhere in your code and can be conditional based on your
+    application logic." Documented patterns are approve/reject (`Command(resume=True)` routes
+    to `proceed`, `False` to `cancel`), review-and-edit of state before continuing, input
+    validation loops, and interrupts inside tool bodies where "the resume value can override
+    inputs before executing" (e.g. the human can rewrite the email''s `to`/`subject`/`body`).
+    Parallel pending interrupts must be resumed by mapping each `interrupt.id` to its resume
+    value. Separately there are static breakpoints (`interrupt_before` / `interrupt_after`
+    at compile or run time, settable in LangSmith Studio''s UI), but the docs say these "are
+    not recommended for human-in-the-loop workflows" — they are for debugging. Prerequisites:
+    a checkpointer ("use a durable checkpointer in production") and a `thread_id`, which is
+    "effectively your persistent cursor." Observability is a separate product: LangSmith is
+    recommended for tracing "execution paths, capture state transitions, and... detailed runtime
+    metrics", plus time travel to replay/fork past executions. The docs also impose correctness
+    discipline on gating code — no bare try/except around `interrupt()` (it pauses by raising),
+    no conditionally skipped or non-deterministically looped interrupts (resume matching is
+    "strictly index-based"), and side effects before an interrupt must be idempotent because
+    the node re-runs from the top on every resume.'
+  maintainer: LangChain Inc
+  open_source: 'yes'
+  self_hostable: 'yes'
+  model_agnostic: 'yes'
+  status: active
+  languages:
+  - Python
+  - JavaScript/TypeScript
+sources:
+- url: https://github.com/langchain-ai/langgraph
+  title: LangGraph — repository README
+  accessed: '2026-09-30'
+  supports:
+  - agent_model
+  - human_controls
+- url: https://docs.langchain.com/oss/python/langgraph/interrupts
+  title: 'LangGraph — Docs: interrupts'
+  accessed: '2026-09-30'
+  supports:
+  - agent_model
+  - human_controls
+source_provenance: 'profiled by claude-opus-5 from the tool''s own documentation on 2026-09-30,
+  promoted from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about
+  what agents may do and what constrains them cites the document it came from. Not documented:
+  Who is allowed to approve is entirely absent: possession of the `thread_id` is the only
+  thing shown to be needed to resume a paused run, and no authentication, authorization, role
+  or separation-of-duties for the resumer is documented here. There are no budgets, spend
+  caps, per-tool or per-recipient allowlists, scopes, quotas, rate limits, or kill switch
+  in these documents. Interrupts "wait indefinitely" — there is no veto window, timeout, expiry,
+  escalation or auto-deny/auto-proceed semantics documented, and nothing about what happens
+  to a pending approval if the approver never answers. Audit logging is not a framework feature:
+  the only audit log in the docs is `db.create_audit_log(...)` written by the application
+  author as an example side effect, and the scope, retention, tamper-resistance and contents
+  of LangSmith traces/checkpoints are not described here. Nothing states whether any tool
+  call is gated by default (the documents imply the opposite), and there is no documented
+  policy layer, default-deny mode, or way to assert that every sensitive tool is covered by
+  an interrupt — coverage is left to code review. Also undocumented in these pages: sandboxing
+  or egress control for tool execution, secret/credential handling, multi-party or quorum
+  approval, and whether resume values are validated against the original tool schema (the
+  `send_email` example lets the human substitute arbitrary arguments). Unreviewed: no person
+  has checked this against the source.'
+ingested_at: '2026-09-30'
+review_status: unreviewed

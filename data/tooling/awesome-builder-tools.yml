@@ -32,6 +32,7 @@ entries:
     34.5M monthly downloads. Steeper learning curve; pays back at production scale — reach
     for this once you need durable state or an audit trail.
   stars: 24.8k+
+  promoted_to: resource:tool:langgraph
 - name: CrewAI
   url: https://github.com/crewAIInc/crewAI
   section: Managing the Company
