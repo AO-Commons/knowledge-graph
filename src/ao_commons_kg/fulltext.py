@@ -1,7 +1,7 @@
 """Full text, split into the sections claims actually live in.
 
-Extraction ran on abstracts until now, and the literature is blunt about the
-cost: restricting extraction to abstracts "overlooks many key claims
+Reading ran on abstracts until now, and the literature is blunt about the
+cost: restricting reading to abstracts "overlooks many key claims
 distributed throughout the full text" (Echoes of Citations, AAAI 2026). An
 abstract states conclusions and drops the evidence for them, which is exactly
 the half a knowledge graph needs.
@@ -163,7 +163,7 @@ def fetch(arxiv_id: str, *, cache: Path = CACHE, refresh: bool = False) -> str:
     """The LaTeXML HTML for an arXiv id, cached on disk.
 
     Cached because a run over the corpus otherwise re-downloads tens of
-    megabytes from arXiv every time an extraction prompt changes, which is
+    megabytes from arXiv every time a reading prompt changes, which is
     rude to them and slow for us.
     """
     cache.mkdir(parents=True, exist_ok=True)

@@ -15,7 +15,7 @@ give it.
 > `resource:arxiv:2608.23642` argues current designs "do not support effective
 > human oversight — they contribute to its degradation."
 >
-> 0 of 141 records reviewed by a person, and these have 0 claims extracted.
+> 0 of 141 records reviewed by a person, and these have 0 claims drafted.
 
 It reads the graph through `queries.py` — the same tools the MCP server
 exposes, so an answer here and an answer in Claude Desktop come from one place.

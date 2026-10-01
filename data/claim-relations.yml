@@ -6,7 +6,7 @@
 #
 # Every relation here is an INFERRED edge. No source says "claim A disagrees
 # with claim B" — somebody read both and decided. So each carries a
-# confidence class and its reasoning in `because`, exactly as an extraction
+# confidence class and its reasoning in `because`, exactly as a drafted statement
 # carries its quote. An edge here that looked deterministic would be
 # asserting a judgment nobody made.
 #

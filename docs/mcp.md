@@ -1,8 +1,8 @@
 # Querying the library from Claude
 
 The knowledge graph exposes a read-only MCP server, so Claude can search the
-taxonomy, look up records and people, and read extracted claims *with the
-sentence each came from*.
+taxonomy, look up records and people, and read the statements drawn from papers *with
+the sentence each came from*.
 
 It runs on the reader's own machine and reads the checked-out repository. There
 is no hosted endpoint yet — see [If you want people to add it by URL](#if-you-want-people-to-add-it-by-url).

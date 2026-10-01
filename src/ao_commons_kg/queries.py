@@ -11,7 +11,7 @@ carries the verbatim sentence it came from and who, if anyone, verified it.
 Every computed edge says it was computed and by what method.
 
 That is not decoration. At the time of writing the corpus holds 61 records of
-which none have been reviewed, and 45 machine-extracted claims of which none
+which none have been reviewed, and 45 machine-drafted claims of which none
 have been verified. An agent asking this server a question is entitled to know
 that, and a response shaped like a settled fact would be a lie the caller has
 no way to detect.
@@ -449,7 +449,7 @@ def coverage(corpus: Corpus) -> dict:
         "computed_similarity_edges": len(corpus.similar),
         "what_this_means": (
             "Topic tags are a first pass unless a record says otherwise, and claims are "
-            "machine-extracted until verified. Treat both as leads to check rather than "
+            "machine-drafted until verified. Treat both as leads to check rather than "
             "as findings, and prefer the quoted sentence over the paraphrase."
         ),
     }

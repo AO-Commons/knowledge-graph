@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""An independent pass over extracted statements, by somebody who did not
-extract them.
+"""An independent pass over drafted statements, by somebody who did not
+draft them.
 
 The five gates in `extract.py` are mechanical and they run inside the
-extraction. What none of them measures is the thing the extractor is least
+reading. What none of them measures is the thing the drafting model is least
 able to judge about itself: whether the paraphrase says what the quote says.
 `extract.py` says so in as many words and leaves it to the reviewer — and the
 reviewer is the scarce good, so in practice it went unmeasured.
 
 Paper2Agent's rule is the fix, and it is a rule about *who*, not about what:
 every verifier is a fresh agent, distinct from every implementer. Applied
-here that means a second pass that never sees the extractor's reasoning. So
+here that means a second pass that never sees the drafting model's reasoning. So
 this script hands out a packet with the statement, the quote and the section
 it came from, and nothing else — no `standalone` gloss written to justify the
-reading, no tags, no attribution, no extraction method, and the statements in
+reading, no tags, no attribution, no reading method, and the statements in
 an order that is not the order they were produced in. A verifier answering
 from that packet is answering the question, not grading its own homework.
 
@@ -82,9 +82,9 @@ def packet(paper: str | None, seed: int) -> str:
     if not claims:
         raise SystemExit(f"no statements found for {paper!r}")
 
-    # Shuffled, so the order carries none of the extractor's sequence — a
+    # Shuffled, so the order carries none of the drafting model's sequence — a
     # verifier reading them in production order infers a narrative that the
-    # extractor wrote rather than one the paper supports.
+    # drafting model wrote rather than one the paper supports.
     random.Random(seed).shuffle(claims)
 
     lines = [BRIEF, "", f"{len(claims)} statement(s) to check.", ""]
@@ -128,7 +128,7 @@ def record(answers: dict, by: str) -> dict:
             "verdict": verdict,
             "because": because,
             # Bound to the wording judged, exactly as a human verdict is. A
-            # re-extraction must invalidate this pass too, or the corpus would
+            # re-reading must invalidate this pass too, or the corpus would
             # carry a machine check of a sentence that no longer exists.
             "saw": claim.fingerprint,
             "by": by,
@@ -183,7 +183,7 @@ def main(argv=None) -> int:
     result = record(answers, args.by)
     print(f"recorded {result['recorded']}, {result['total']} in the file")
     if result["disputed"]:
-        print("\nthe verifier did not agree with extraction on:")
+        print("\nthe verifier did not agree with the draft on:")
         for claim_id in result["disputed"]:
             print(f"  {claim_id}")
     return 0

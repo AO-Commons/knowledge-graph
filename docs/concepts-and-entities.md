@@ -106,7 +106,7 @@ patterns:
    as concept tags do. An id pointing at nothing is an edge with no end.
 3. Entities emitted in the release as `kind: entity`, which the data model
    already lists.
-4. Extraction asked to name the systems and organizations a statement is
+4. The drafting model asked to name the systems and organizations a statement is
    about, checked against the entity list the way tags are checked against the
    vocabulary.
 

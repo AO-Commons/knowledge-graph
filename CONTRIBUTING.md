@@ -43,7 +43,7 @@ pytest
 
 Keep it small and boring. A new dependency needs a reason, and "it's more elegant" is not one. The taxonomy tests run against the real v3 file rather than only a fixture, so a change that breaks the actual source fails loudly.
 
-If you add an edge type, it must be able to say where it came from. Anything non-deterministic carries a `confidence_class` and the source it was extracted from — a relationship nobody can trace is worse than a missing one.
+If you add an edge type, it must be able to say where it came from. Anything non-deterministic carries a `confidence_class` and the source it was drawn from — a relationship nobody can trace is worse than a missing one.
 
 ## Terms
 

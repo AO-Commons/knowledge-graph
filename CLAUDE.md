@@ -51,7 +51,7 @@ Every non-deterministic edge records how it was made. `CITES` from scholarly met
 
 - deterministic (`CITES`, `PARENT_OF`) — no confidence class; adding one implies a judgment nobody made
 - computed (`SIMILAR_TO`) — always a named `method` and a `score`; a hidden method makes a score uninterpretable
-- extracted or inferred — `confidence_class` plus the source text
+- read from the source or inferred — `confidence_class` plus the source text
 
 If you cannot say where an edge came from, do not add the edge.
 
@@ -70,7 +70,7 @@ rather than invisible.
 
 The division is meant to hold as trust moves. Machines resolve, deduplicate,
 propose and now admit. People decide what a record is *about*, whether a
-claim is accurately extracted, and what the taxonomy is — the judgments
+statement represents its paper faithfully, and what the taxonomy is — the judgments
 where being wrong is expensive and quiet. Reviewing auto-admitted records is
 how the scan earns a looser threshold; until that evidence exists the
 settings stay conservative.
@@ -89,7 +89,7 @@ Prefer deleting complexity over preserving an elegant architecture.
 
 ## Cost discipline
 
-Graph first, source second. For an ordinary query: search the taxonomy and graph, return compact metadata, identify 5–15 candidate sources, and only then fetch text for those. Never send the corpus to a model. Cache metadata, classifications, similarity, and extractions.
+Graph first, source second. For an ordinary query: search the taxonomy and graph, return compact metadata, identify 5–15 candidate sources, and only then fetch text for those. Never send the corpus to a model. Cache metadata, classifications, similarity, and readings.
 
 MCP tools return compact structured records — enough for an agent to decide what deserves deeper reading, not the papers themselves.
 

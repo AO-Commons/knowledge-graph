@@ -67,7 +67,7 @@ server = MCPServer(
     instructions=(
         "The AO Commons research library: a taxonomy of agentic-organization "
         "research, the records filed under it, the people who wrote them, and "
-        "machine-extracted claims with the sentence each came from.\n\n"
+        "machine-drafted claims with the sentence each came from.\n\n"
         "Two things to hold onto when using it. Topic tags are a first pass "
         "unless a record says it was reviewed, and claims are a model's reading "
         "of a quoted sentence until a person has verified them — so prefer the "
@@ -262,14 +262,14 @@ def search_records(term: str, limit: int = 10) -> str:
 
 @server.tool()
 def get_record(record_id: str) -> str:
-    """One record in full, with every claim extracted from it and its source sentence."""
+    """One record in full, with every claim drawn from it and its source sentence."""
     return as_text(queries.get_record(corpus(), record_id))
 
 
 @server.tool()
 def get_claims(record: str = "", claim_type: str = "", only_unverified: bool = False,
                limit: int = 50) -> str:
-    """Claims extracted from the corpus, each with the sentence it was read from.
+    """Claims drawn from the corpus, each with the sentence it was read from.
 
     `claim_type` is one of finding, method, definition, limitation, gap, position,
     background.

@@ -40,7 +40,7 @@ Three structures live in that one file, and they are implemented differently on 
 ## How a paper gets from arriving to citable
 
 [docs/pipeline.md](docs/pipeline.md) walks the ten stages — intake,
-resolution, admission, filing, extraction, tagging, linking, derivation,
+resolution, admission, filing, reading, tagging, linking, derivation,
 review, release — with what runs unattended, what waits for a person, and
 measured coverage at each step.
 
@@ -126,8 +126,8 @@ See [docs/slack-agent.md](docs/slack-agent.md) for the app and relay setup.
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the
-taxonomy, look up people and records, and read extracted claims with the
-sentence each came from.
+taxonomy, look up people and records, and read the statements drawn from papers, each
+with the sentence it came from.
 
 ```bash
 python3 -m pip install -e '.[mcp]'
@@ -215,7 +215,7 @@ Every relationship says where it came from, because "this paper cites that one" 
 |---|---|---|
 | Deterministic | `CITES`, `PARENT_OF` | Nothing extra — read from structured metadata |
 | Computed | `SIMILAR_TO` | `method` and `score`, always. A similarity whose method is hidden can't be interpreted |
-| Extracted or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
+| Read from the source, or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
 
 The schema refuses to let these blur: labeling a citation with a confidence class is an error, because it implies a judgment nobody made.
 
