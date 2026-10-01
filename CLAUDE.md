@@ -8,6 +8,16 @@ A researcher — human or agent — should reach the right small set of primary 
 
 Judge every proposed change against that. A feature that makes the graph more elegant without making a real research question cheaper to answer is not an improvement.
 
+It is also answerable to the researchers it reads. A statement represents somebody's work to strangers, so:
+
+- **Quote, don't replace.** The quote is the authority and the paraphrase never says more than it.
+- **Keep the hedges.** A "may", "seems to" or "plausible" stays in the paraphrase.
+- **Keep shown and argued apart.** An implication is not a finding.
+- **Credit the right people.** Prior work is credited to whoever did it.
+- **Let the author correct it.** An author's correction outranks a machine's reading.
+
+Say *reading* and *drafting* rather than *extraction*. A model drafts statements from a paper, and people check them against it.
+
 ## The taxonomy is the source of truth
 
 [`taxonomy/agentic-org-research-library-taxonomy-v3.md`](taxonomy/agentic-org-research-library-taxonomy-v3.md) is authoritative. Do not invent a parallel taxonomy, do not collapse it into generic AI categories, and do not renumber existing codes — a code is a stable identifier and old tags must stay resolvable.
