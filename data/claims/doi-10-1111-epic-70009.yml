@@ -9,82 +9,92 @@ claims:
   standalone: The authors define Artificial Organizational Intelligence as an organization's
     capacity to make its knowledge — routines, practices, rules, boundaries and tacit know-how
     — legible and governable.
-  claim_type: method
+  claim_type: definition
   concept_tags:
-  - organizational-knowledge-legibility
+  - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+    2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
+    against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
+    2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:2
   text: Artificial Organizational Intelligence is about organizations talking to themselves
-    through regulated feedback loops, not about replacing them with AI.
+    and to each other through regulated feedback loops, not about replacing them with AI.
   quote: AOI is not about replacing organisations with AI, but about enabling them to talk
     to themselves and to each other through regulated feedback loops
-  standalone: The authors position Artificial Organizational Intelligence as enabling organizations
-    to talk to themselves and each other through regulated feedback loops, rather than as
-    replacing organizations with AI.
-  claim_type: position
+  standalone: 'The authors scope Artificial Organizational Intelligence by contrast: it enables
+    organizations to talk to themselves and to each other through regulated feedback loops,
+    and is not about replacing organizations with AI.'
+  claim_type: definition
   concept_tags:
-  - organizational-knowledge-legibility
+  - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+    2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
+    against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
+    2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:3
   text: Knowledge Organization Infrastructure is a protocol for connecting disparate systems
-    without homogenising them.
+    without homogenizing them.
   quote: develops Knowledge Organisation Infrastructure (KOI), a protocol for stitching together
     disparate systems and practices without homogenisation
-  standalone: The authors describe Knowledge Organization Infrastructure as a protocol for
-    stitching together disparate organizational systems and practices without homogenising
-    them, so rules and context become machine-readable.
-  claim_type: method
+  standalone: KOI was designed by BlockScience and is used by the authors' project with BlockScience
+    and Metagov. Nodes exchange reference identifiers for knowledge objects and a small set
+    of signals (new, update, forget), so organizations can share knowledge without a shared
+    database or ontology. The paper describes KOI and builds on it; it does not introduce
+    it.
+  claim_type: background
   concept_tags:
-  - shared-schemas-for-agentic-organization-data
+  - knowledge-graph-and-ontology-construction
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+    2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
+    against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
+    2026-10-01
   review_status: machine-checked
-  attribution: own
+  attribution: other
+  attributed_to: BlockScience, which designed KOI (Sisson et al. 2024)
 - id: claim:doi:10-1111-epic-70009:4
   text: Ethnography changes from observing an organization's hidden practices to building
     the loops that make them computable.
   quote: 'We describe how our ethnographic practice both informs and is transformed by this
     work: from observing hidden practices to actively building the loops that make organisational
     knowledge accessible and computable.'
-  standalone: 'The authors'' claim about their own method, and the one the paper is named
-    for: in making organizational knowledge legible, the ethnographer stops being an observer
-    of practices and becomes a builder of the infrastructure that carries them.'
+  standalone: 'From the abstract: the authors'' ethnographic practice both informs the infrastructure
+    work and is changed by it, moving from observing practices nobody has written down to
+    building the knowledge pipelines that make them accessible and computable.'
   claim_type: position
   concept_tags:
-  - organizational-knowledge-legibility
+  - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: abstract
   extraction_method: claude-opus-5, re-read of the abstract, 2026-09-18; quote verified against
-    the abstract, which is all this record holds
+    the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:5
   text: Most organizational routines are opaque to outsiders and only weakly documented inside
     the organization itself.
   quote: most routines remain opaque to outsiders and only weakly documented internally
-  standalone: Summarizing the evolutionary theory of the firm, in which a firm is a population
-    of routines carrying know-how across time, the authors note that those routines are partly
-    tacit — enacted without full articulation — and that a firm's distinction lies in this
-    cryptic stock of operational knowledge.
+  standalone: Summarizing Nelson and Winter's evolutionary theory of the firm, in which a
+    firm is a population of routines carrying know-how across time, the authors note that
+    most of those routines are opaque to outsiders and only weakly documented inside the firm
+    itself.
   claim_type: background
   concept_tags:
-  - organizational-knowledge-legibility
+  - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: other
   attributed_to: Nelson and Winter's evolutionary theory of the firm
@@ -93,15 +103,17 @@ claims:
     improvisation.
   quote: what appears as systematic procedure in formal manuals manifests on the shop floor
     as situated improvisations coordinated through talk, gestures, and artefacts
-  standalone: One of two ethnographies the authors cite for how routines actually materialize
-    in everyday work, against the documented version of them.
+  standalone: Citing Lucy Suchman's work on plans and situated action, the authors note that
+    work which manuals describe as systematic procedure is carried out as improvisation in
+    the situation, coordinated through talk, gesture and artifacts.
   claim_type: background
   concept_tags:
-  - organizational-knowledge-legibility
+  - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: other
   attributed_to: Lucy Suchman (1987, 2007)
@@ -114,11 +126,12 @@ claims:
     the knowledge an organization runs on is not the knowledge it has written down.
   claim_type: background
   concept_tags:
-  - organizational-knowledge-legibility
+  - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: other
   attributed_to: Julian Orr's ethnography of Xerox technicians (1996)
@@ -131,29 +144,32 @@ claims:
   standalone: 'The authors'' sharpest statement of what AOI is for: not applying AI to an
     organization''s data, and not replacing the organization, but making its knowledge addressable
     so that an outsider can query the organization rather than a person who speaks for it.'
-  claim_type: position
+  claim_type: definition
   concept_tags:
-  - organizational-knowledge-legibility
+  - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:9
   text: 'Under this infrastructure the stages of ethnography stop being sequential: a fieldnote
-    can sync to a dataset and be acted on immediately.'
+    can sync to a dataset at once, then be interpreted and fed back into the organization.'
   quote: data collection, analysis, and output are no longer staged sequentially
   standalone: 'The first of three implications the authors draw for ethnographic practice,
-    this one about temporality: a fieldnote syncs to a dataset, which is interpreted and fed
-    back to enhance the legibility of the organization.'
-  claim_type: finding
+    about temporality: a fieldnote can sync to a dataset immediately, and that dataset can
+    then be interpreted, fed back into the organization and acted on. An implication argued
+    from their own tooling, not a measured result.'
+  claim_type: position
   concept_tags:
-  - organizational-knowledge-legibility
+  - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:10
@@ -167,28 +183,205 @@ claims:
     expert at changes.'
   claim_type: position
   concept_tags:
-  - organizational-knowledge-legibility
+  - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
   attribution: own
 - id: claim:doi:10-1111-epic-70009:11
-  text: Machines belong in participatory ethnography as collaborators in interpretation, under
-    rules and permissions that are collectively governed.
+  text: Participatory ethnography can include machines as collaborators in interpretation
+    rather than tools of extraction, under rules and permissions that can be collectively
+    governed.
   quote: Participatory ethnography is extended to include machines, not as tools of extraction
     but as collaborators in interpretation where the rules and permissions for how that occurs
     can be collectively governed
-  standalone: 'The authors'' closing argument, and the one the paper is named for: a move
-    from “human in the loop” to “human building the loop”, designing systems that are ethically
-    aware and epistemically accountable.'
+  standalone: 'The authors'' closing argument: ethnography adapted to human-machine hybridity
+    co-produces interpretation with moderators, stewards and AI agents, and the terms on which
+    machines take part are themselves open to collective governance.'
   claim_type: position
   concept_tags:
-  - organizational-knowledge-legibility
+  - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
   extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
-    2026-09-18; every quote verified verbatim against that text
+    2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
+    the publisher PDF, claude-opus-5-5, 2026-10-01
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:12
+  text: The authors' method is a design-oriented, participatory ethnography whose research
+    tools are built together with collaborators and field participants.
+  quote: Our approach is best described as a design-oriented, participatory ethnography in
+    which the research instruments and tools have been co-developed with collaborators and
+    field participants.
+  standalone: 'Built in three phases: a bot that automates consent and collects approved posts;
+    a plugin that pulls consented posts into ethnographers'' local note vaults for annotation;
+    and an extension that sends annotated notes back into the organization, where participants
+    can see additions, changes and deletions in real time.'
+  claim_type: method
+  concept_tags:
+  - researcher-as-system-builder
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:13
+  text: 'Building the loop is the authors'' name for regulating AI through a local, group
+    process: specifying where and how AI systems connect into existing systems, and deciding
+    collectively on boundaries such as permissions.'
+  quote: The “regulability” of AI in this context occurs as a localised, group process for
+    specifying where and how AI systems are connected into existing systems, as well as the
+    ability to make collective decisions, including boundary-setting (permissioning, etc.).
+    We call this “building the loop”.
+  standalone: Where the term in the title comes from. The introduction gives the same idea
+    as the deliberate assembling of knowledge pipelines that organize an organization's context,
+    governance and interpretability, making the loop itself a co-governed system.
+  claim_type: definition
+  concept_tags:
+  - building-the-loop
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:14
+  text: Human oversight of automated decisions rarely corrects algorithmic bias and often
+    works as a performative check that neither improves decisions nor redistributes responsibility.
+  quote: Empirical studies show that human oversight rarely corrects algorithmic bias and
+    often functions as a performative check that neither ensures better decisions nor redistributes
+    responsibility meaningfully.
+  standalone: The premise the authors' alternative argues from, reported in their discussion
+    of Jake Goldenfein's critique of the human in the loop as a conceptual shortcut or last
+    line of defense. The paper does not name the empirical studies it summarizes.
+  claim_type: background
+  concept_tags:
+  - oversight-theater-process-present-function-absent
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: other
+  attributed_to: Empirical studies of human oversight, as reported via Jake Goldenfein (2024)
+- id: claim:doi:10-1111-epic-70009:15
+  text: 'The question for AI oversight is not whether a human is in the loop at the moment
+    of decision but how the loop is built: how organizations set context, permissions and
+    the flow of meaning between people and machines.'
+  quote: In our approach, the question is not whether a human is “in the loop” at the moment
+    of decision, but how loops are built (how organisations construct systems for contextualising
+    knowledge, setting permissions, and shaping the flow of meaning across human and machine
+    actors).
+  standalone: The argument the paper is named for. Following Goldenfein's critique, the authors
+    move the oversight question from an individual reviewer at the point of decision to how
+    an organization builds the pipelines, permissions and context its AI operates within.
+    They say this does not settle questions of liability or regulation.
+  claim_type: position
+  concept_tags:
+  - building-the-loop
+  - human-in-the-loop-on-the-loop-and-out-of-the-loop
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:16
+  text: Building the loop does not answer questions of liability or regulation, though it
+    opens organizational approaches, such as shared rules, to mitigating AI harms.
+  quote: While not an answer to questions of liability or regulation, it does open the door
+    to possibilities for organisational-level approaches (including shared rules) in the mitigation
+    of AI harms.
+  standalone: 'The boundary the authors put on their alternative to human-in-the-loop oversight:
+    it moves the oversight question to how organizations build their pipelines and permissions,
+    and leaves who is liable for an AI harm where it was.'
+  claim_type: limitation
+  concept_tags:
+  - building-the-loop
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:17
+  text: Telescope gathers research data by letting community members flag a message and then
+    asking its author for consent before the message enters the dataset.
+  quote: Upon detecting this reaction, the Telescope bot automatically initiates a consent
+    workflow by privately messaging the original author, informing them of the research, and
+    requesting permission to include their message in the dataset.
+  standalone: Participants in a Slack or Discord community flag a message with a telescope
+    emoji, the bot privately asks its author for consent, and only approved messages are archived.
+    Built for ethnography of decentralized online communities, where passive logging raises
+    consent problems, and later connected to KOI as a sensor node.
+  claim_type: method
+  concept_tags:
+  - research-ethics-with-autonomous-systems
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:18
+  text: 'In the authors'' deployment, consent worked as a live governance surface rather than
+    a one-time form: a participant''s revocation was enforced across the system as it happened.'
+  quote: 'The episode demonstrated that KOI’s ethics layer is not a static consent form but
+    a live governance surface: participants can continually redraw what counts as data, and
+    the infrastructure enforces those decisions in real time.'
+  standalone: One episode. A Metagov contributor revoked consent for a Slack post they had
+    approved; the deletion propagated through the post's reference identifier and removed
+    it from the ethnographer's notes, while a record that the boundary had changed stayed
+    queryable and the message stayed in Metagov's Slack.
+  claim_type: finding
+  concept_tags:
+  - research-ethics-with-autonomous-systems
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:19
+  text: Knowledge Organization Infrastructure is one architecture that makes Artificial Organizational
+    Intelligence possible, by letting people connect and govern otherwise disparate sites
+    of knowledge.
+  quote: The BlockScience-developed Knowledge Organisation Infrastructure is an example of
+    an architecture that makes this possible by enabling people to connect and govern over
+    otherwise disparate sites of knowledge
+  standalone: 'Where the paper joins its concept to a system: AOI is the capacity, and KOI
+    is one implementation of it, which in the process makes the organization''s boundaries
+    and practices machine-readable.'
+  claim_type: position
+  concept_tags:
+  - artificial-organizational-intelligence
+  - knowledge-graph-and-ontology-construction
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
+  review_status: machine-checked
+  attribution: own
+- id: claim:doi:10-1111-epic-70009:20
+  text: Coordinated sensors, curators and machine agents free the ethnographer from the limit
+    of what one person can perceive or track.
+  quote: Second, in terms of scale, the ethnographer is no longer bounded by what they can
+    physically perceive or manually track and parse.
+  standalone: 'The second of three implications the authors draw for ethnographic practice,
+    about scale: bots such as Telescope, human curators and KOI-connected language models
+    form a distributed attention infrastructure that extends the ethnographer''s reach, and
+    demand a new literacy in maintaining it.'
+  claim_type: position
+  concept_tags:
+  - researcher-as-system-builder
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+    2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own

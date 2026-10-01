@@ -16,7 +16,10 @@ facets:
 review_status: unreviewed
 source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,
-  and not reviewed.
+  and not reviewed. Affiliations corrected by hand from the paper's byline on 2026-10-01, because
+  OpenAlex had resolved the ARC Centre of Excellence for Automated Decision-Making and Society
+  to an unrelated company, Automated Precision, and left Zargham and Miller of BlockScience
+  without one.
 ingested_at: '2026-08-11'
 description: Method paper on studying artificial organisational intelligence ethnographically
   — squarely section 16, which is thin.
@@ -40,19 +43,24 @@ authors:
 - Luke Miller
 - Matthew Green
 organizations:
-- Automated Precision
+- ARC Centre of Excellence for Automated Decision-Making and Society
+- BlockScience
 is_open_access: true
 is_retracted: false
 semantic_scholar_id: 1eda0d82fe7c6d5e928b1fa26cf62c44b978b4e5
 affiliations:
   Ellie Rennie:
-  - Automated Precision
+  - ARC Centre of Excellence for Automated Decision-Making and Society
   Kelsie Nabben:
-  - Automated Precision
+  - ARC Centre of Excellence for Automated Decision-Making and Society
+  Michael Zargham:
+  - BlockScience
   Jason Potts:
-  - Automated Precision
+  - ARC Centre of Excellence for Automated Decision-Making and Society
   Brooke Ann Coco:
-  - Automated Precision
+  - ARC Centre of Excellence for Automated Decision-Making and Society
+  Luke Miller:
+  - BlockScience
   Matthew Green:
-  - Automated Precision
+  - ARC Centre of Excellence for Automated Decision-Making and Society
 text_coverage: full-text

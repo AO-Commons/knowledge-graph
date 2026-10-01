@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 31,
-    "vocabulary_from_claims": 10,
-    "vocabulary_from_taxonomy": 21,
-    "on_exactly_one_statement": 14,
-    "suggestions_available": 493
+    "vocabulary": 37,
+    "vocabulary_from_claims": 12,
+    "vocabulary_from_taxonomy": 25,
+    "on_exactly_one_statement": 15,
+    "suggestions_available": 489
   },
   "looks_like_one_idea": [
     {
@@ -82,6 +82,23 @@
       ]
     },
     {
+      "id": "artificial-organizational-intelligence",
+      "label": "Artificial organizational intelligence",
+      "topics": [
+        "7.1",
+        "7.2"
+      ],
+      "origin": "claim",
+      "statements": 4,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:1",
+        "claim:doi:10-1111-epic-70009:19",
+        "claim:doi:10-1111-epic-70009:2",
+        "claim:doi:10-1111-epic-70009:8"
+      ],
+      "note": "An organization's capacity to make its own knowledge (routines, rules, boundaries, tacit know-how) machine-readable and governable, so that one can query the organization rather than somebody who speaks for it, and organizations can query each other. Coined by Rennie et al.; the statements that define it are typed `definition`."
+    },
+    {
       "id": "benchmarks-relevant-to-organizational-roles",
       "label": "Benchmarks relevant to organizational roles",
       "topics": [
@@ -104,6 +121,22 @@
       "claims": [
         "claim:arxiv:2502.15840:3"
       ]
+    },
+    {
+      "id": "building-the-loop",
+      "label": "Building the loop",
+      "topics": [
+        "2.2",
+        "4.1"
+      ],
+      "origin": "claim",
+      "statements": 3,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:13",
+        "claim:doi:10-1111-epic-70009:15",
+        "claim:doi:10-1111-epic-70009:16"
+      ],
+      "note": "Governing AI by deciding, as a group, where and how AI systems connect into an organization's existing systems and what they may see, rather than by placing a human at the moment of decision. Offered by Rennie et al. as the alternative to human-in-the-loop oversight."
     },
     {
       "id": "capability-profiling",
@@ -239,6 +272,18 @@
       ]
     },
     {
+      "id": "human-in-the-loop-on-the-loop-and-out-of-the-loop",
+      "label": "Human-in-the-loop, on-the-loop, and out-of-the-loop",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:15"
+      ]
+    },
+    {
       "id": "insurance-for-autonomous-action",
       "label": "Insurance for autonomous action",
       "topics": [
@@ -248,6 +293,19 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2605.30169:9"
+      ]
+    },
+    {
+      "id": "knowledge-graph-and-ontology-construction",
+      "label": "Knowledge graph and ontology construction",
+      "topics": [
+        "7.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:19",
+        "claim:doi:10-1111-epic-70009:3"
       ]
     },
     {
@@ -303,27 +361,18 @@
       ]
     },
     {
-      "id": "organizational-knowledge-legibility",
-      "label": "Organizational knowledge legibility",
+      "id": "organizational-learning-and-memory",
+      "label": "Organizational learning and memory",
       "topics": [
-        "16.1",
-        "2.4"
+        "15.3"
       ],
-      "origin": "claim",
-      "statements": 10,
+      "origin": "taxonomy",
+      "statements": 3,
       "claims": [
-        "claim:doi:10-1111-epic-70009:1",
-        "claim:doi:10-1111-epic-70009:10",
-        "claim:doi:10-1111-epic-70009:11",
-        "claim:doi:10-1111-epic-70009:2",
-        "claim:doi:10-1111-epic-70009:4",
         "claim:doi:10-1111-epic-70009:5",
         "claim:doi:10-1111-epic-70009:6",
-        "claim:doi:10-1111-epic-70009:7",
-        "claim:doi:10-1111-epic-70009:8",
-        "claim:doi:10-1111-epic-70009:9"
-      ],
-      "note": "Making an organization's routines, rules and tacit know-how machine-readable so they can be governed. The core construct of the Artificial Organizational Intelligence work."
+        "claim:doi:10-1111-epic-70009:7"
+      ]
     },
     {
       "id": "oversight-capacity-as-the-binding-constraint",
@@ -335,6 +384,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:11"
+      ]
+    },
+    {
+      "id": "oversight-theater-process-present-function-absent",
+      "label": "Oversight theater -- process present, function absent",
+      "topics": [
+        "11.5"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:14"
       ]
     },
     {
@@ -369,6 +430,38 @@
       ]
     },
     {
+      "id": "research-ethics-with-autonomous-systems",
+      "label": "Research ethics with autonomous systems",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:17",
+        "claim:doi:10-1111-epic-70009:18"
+      ]
+    },
+    {
+      "id": "researcher-as-system-builder",
+      "label": "Researcher as system builder",
+      "topics": [
+        "16.1",
+        "16.4"
+      ],
+      "origin": "claim",
+      "statements": 6,
+      "claims": [
+        "claim:doi:10-1111-epic-70009:10",
+        "claim:doi:10-1111-epic-70009:11",
+        "claim:doi:10-1111-epic-70009:12",
+        "claim:doi:10-1111-epic-70009:20",
+        "claim:doi:10-1111-epic-70009:4",
+        "claim:doi:10-1111-epic-70009:9"
+      ],
+      "note": "The researcher studying an organization builds part of the system being studied, so observation feeds back into it. The observer inside the system, as second-order cybernetics has it, made infrastructural."
+    },
+    {
       "id": "sanction-sensitivity",
       "label": "Sanction sensitivity",
       "topics": [
@@ -383,18 +476,6 @@
         "claim:arxiv:2605.30169:5"
       ],
       "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
-    },
-    {
-      "id": "shared-schemas-for-agentic-organization-data",
-      "label": "Shared schemas for agentic organization data",
-      "topics": [
-        "16.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 1,
-      "claims": [
-        "claim:doi:10-1111-epic-70009:3"
-      ]
     },
     {
       "id": "silent-failure-detection",
@@ -2515,15 +2596,6 @@
       "statements": 0
     },
     {
-      "id": "human-in-the-loop-on-the-loop-and-out-of-the-loop",
-      "label": "Human-in-the-loop, on-the-loop, and out-of-the-loop",
-      "topics": [
-        "4.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "human-oversight-mandates-and-who-bears-them",
       "label": "Human oversight mandates and who bears them",
       "topics": [
@@ -2888,15 +2960,6 @@
       "label": "Knowledge base staleness",
       "topics": [
         "11.7"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "knowledge-graph-and-ontology-construction",
-      "label": "Knowledge graph and ontology construction",
-      "topics": [
-        "7.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3469,15 +3532,6 @@
       "statements": 0
     },
     {
-      "id": "organizational-learning-and-memory",
-      "label": "Organizational learning and memory",
-      "topics": [
-        "15.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "organizational-pressure-to-expand-autonomy-prematurely",
       "label": "Organizational pressure to expand autonomy prematurely",
       "topics": [
@@ -3545,15 +3599,6 @@
       "label": "Oversight of oversight -- who watches the reviewers",
       "topics": [
         "4.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "oversight-theater-process-present-function-absent",
-      "label": "Oversight theater -- process present, function absent",
-      "topics": [
-        "11.5"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3964,15 +4009,6 @@
       "statements": 0
     },
     {
-      "id": "research-ethics-with-autonomous-systems",
-      "label": "Research ethics with autonomous systems",
-      "topics": [
-        "16.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "resource-and-compute-markets",
       "label": "Resource and compute markets",
       "topics": [
@@ -4319,6 +4355,15 @@
       "label": "Shared prompt or framework patterns",
       "topics": [
         "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 0
+    },
+    {
+      "id": "shared-schemas-for-agentic-organization-data",
+      "label": "Shared schemas for agentic organization data",
+      "topics": [
+        "16.3"
       ],
       "origin": "taxonomy",
       "statements": 0

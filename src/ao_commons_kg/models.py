@@ -449,7 +449,34 @@ class ClaimType(str, Enum):
     FINDING = "finding"
     """Something the work reports as observed or measured."""
     METHOD = "method"
-    """A technique, architecture, or mechanism the work introduces."""
+    """A technique, architecture, or mechanism the work introduces or uses —
+    how something is done. A term the work introduces is a `DEFINITION`."""
+    DEFINITION = "definition"
+    """A term the work introduces or fixes the meaning of. "We introduce
+    Artificial Organizational Intelligence: the capacity for organizations to
+    make their knowledge legible and governable" is one.
+
+    **The line against `method` is what the statement is about.** A method is
+    how something is done; a definition is what a word means. Before this type
+    existed, three of the corpus's six method statements were definitions or
+    typologies, filed as methods because the paper was introducing
+    *something* and method was the type for introductions. That cost the
+    method layer its meaning: "who has found this, working that way" joins
+    through method statements, and a paper that defines a technique without
+    using it answers as though it had.
+
+    **The line against `position` is whether anything is argued.** A
+    definition stipulates. It can be useful or useless, but the paper's own
+    evidence cannot show it false. "AOI is not about replacing organizations
+    with AI" sounds like an argument and is scoping a term.
+
+    Tag a definition with the concept it defines. That is the whole join:
+    "who coined this, and how did they define it" is the definition
+    statements carrying the tag, and a later paper redefining the term
+    carries the same one.
+
+    Not primary, for the reason a gap is not: it is not an answer the library
+    holds. It says what a word in the answers means."""
     LIMITATION = "limitation"
     """A boundary the authors themselves put on their result. Rare in
     abstracts and disproportionately useful, because it is the part a
@@ -514,6 +541,10 @@ class ClaimType(str, Enum):
         `Question` and the edge from a claim `addresses`, and adopting their
         vocabulary for a layer we had not built yet cost nothing and means
         this graph is already speaking a shared one. See ATTRIBUTION.md.
+
+        A definition is not primary either. Nobody searches the library for
+        what a term means in place of what has been shown about it; they find
+        the definition through the concept it defines.
 
         The corpus bears it out. Ten of the first twelve asserted relations
         run between findings and positions; the argument the field is having
