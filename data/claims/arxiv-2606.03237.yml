@@ -1,18 +1,19 @@
 resource_id: resource:arxiv:2606.03237
 claims:
 - id: claim:arxiv:2606.03237:1
-  text: The binding constraint on beneficial AI is shifting from capability to coexistence.
+  text: The binding constraint on AI is shifting from capability to coexistence.
   quote: AI’s central challenge is shifting from capability to coexistence
   standalone: The authors contend that AI's central challenge is shifting from capability
     to coexistence, and that coexistence rather than capability is the binding constraint
     on beneficial AI.
   claim_type: position
   concept_tags:
-  - endogenous-non-stationarity
+  - cooperation-without-shared-objectives
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:2
@@ -27,7 +28,7 @@ claims:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
     2026-09-12; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -36,34 +37,44 @@ claims:
     gap.
   quote: Deploying AI systems induces endogenous non-stationarity, resulting in a train–test–deploy
     gap where historical distributions diverge from the deployment context
-  standalone: The authors argue that deploying AI systems induces endogenous non-stationarity,
-    producing a train-test-deploy gap in which historical distributions diverge from the deployment
-    context.
-  claim_type: finding
+  standalone: 'The authors argue that deploying AI systems induces endogenous non-stationarity:
+    humans, institutions and other AI systems adapt in response to the deployed system, so
+    historical distributions diverge from the deployment context. They call the result the
+    train-test-deploy gap. They add that for weakly capable systems the induced adaptations
+    may be small and the performance gap could stay within bounds.'
+  claim_type: position
   concept_tags:
   - endogenous-non-stationarity
   - train-test-deploy-gap
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:4
-  text: The more aggressively a system exploits historical regularities, the faster other
-    actors render them obsolete.
-  quote: The more aggressively it exploits historical regularities, the faster other actors
-    adapt in ways that render those regularities obsolete
-  standalone: 'The authors state the self-undermining property of unilateral optimization:
-    the more aggressively a system exploits historical regularities, the faster other actors
-    adapt in ways that make those regularities obsolete.'
-  claim_type: finding
+  text: For an AI operating among other adaptive actors, the more aggressively it exploits
+    historical regularities, the faster those actors adapt in ways that render the regularities
+    obsolete.
+  quote: For any AI operating in such environments, unilateral optimization is self-undermining.
+    The more aggressively it exploits historical regularities, the faster other actors adapt
+    in ways that render those regularities obsolete.
+  standalone: 'Arguing from two hypothetical scenarios, competing AI restaurant-reservation
+    systems and AI-assisted radiology, the authors hold that for any AI deployed among other
+    intelligent actors unilateral optimization is self-undermining: the more aggressively
+    it exploits historical regularities, the faster other actors adapt in ways that render
+    those regularities obsolete. Section 3.2 adds that the effect varies with capability,
+    and that for weakly capable systems the adaptations induced may be small.'
+  claim_type: position
   concept_tags:
   - endogenous-non-stationarity
+  - feedback-loops-between-agents
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:5
@@ -71,47 +82,66 @@ claims:
     through adaptive counterparties.
   quote: A dynamic evaluation is the one in which depends on through the responses of adaptive
     counterparties whose policies update as a function of ’s behavior
-  standalone: The authors define a dynamic evaluation as one whose test distribution depends
-    on the policy being evaluated, through adaptive counterparties that update in response
-    to its behavior.
-  claim_type: method
+  standalone: 'The authors model an evaluation as a pair (D, μ): a test distribution D over
+    interaction trajectories and a scoring functional μ. It is static if D is fixed independently
+    of the evaluated policy π. It is dynamic if the test distribution D_π depends on π through
+    the responses of adaptive counterparties whose policies update as a function of π''s behavior,
+    so that the score μ(π; D_π) reflects the coupled system rather than π alone.'
+  claim_type: definition
   concept_tags:
   - dynamic-evaluation
   confidence_class: EXTRACTED
-  extracted_from: results
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extracted_from: other
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:6
-  text: No existing evaluation approach meets all the requirements for valid dynamic evaluation.
+  text: No existing evaluation approach yet meets, in combination, all the requirements the
+    authors set out for a valid dynamic evaluation.
   quote: Recently evaluation research has engaged with dynamic evaluation but no approach
     yet meets all the requirements we articulate in combination
-  standalone: The authors survey recent evaluation research engaging with dynamic evaluation
-    and find that no existing approach meets all the requirements they articulate in combination.
-  claim_type: finding
+  standalone: 'The authors set out four requirements for a valid dynamic evaluation: counterparties
+    that adapt strategically rather than randomly, in a pattern that keeps the score interpretable;
+    a truncation of the regress in which counterparties model the system that models them;
+    a specified equilibrium concept for the evaluation to target; and protocols that make
+    scores comparable across runs, systems and counterparty populations. They judge that recent
+    work meets these only in part: holistic and sociotechnical frameworks broaden metrics
+    and scenarios; dangerous-capability and autonomous-task evaluations use counterparties
+    that are typically scripted; and multi-agent testbeds, agentic economies and open-ended
+    environments take a step forward by letting the system interact with a population of agents.'
+  claim_type: gap
   concept_tags:
   - dynamic-evaluation
   - train-test-deploy-gap
   confidence_class: EXTRACTED
-  extracted_from: results
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extracted_from: other
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:7
-  text: Institutions should be treated as design primitives rather than as context.
+  text: The shift the authors call for entails treating institutions as design primitives
+    that restructure incentives at the pace of the systems they govern.
   quote: treating institutions as design primitives that restructure incentives at the pace
     of the systems they govern
-  standalone: The authors call for treating institutions as design primitives that restructure
-    incentives at the pace of the systems they govern, rather than as fixed context.
+  standalone: 'The authors call for treating institutions as design primitives that restructure
+    incentives at the pace of the AI systems they govern, one of three directions alongside
+    dynamic evaluation and preserving human agency. Section 5.2 gives instances within current
+    AI pipelines: rubrics that co-evolve with the agent in place of RLHF''s fixed rewards;
+    bidding, reputation and communication protocols in agentic marketplaces, which can be
+    co-learned with mechanism-design objectives; and prediction markets that anchor a training
+    signal to realized events rather than to a metric the system can game.'
   claim_type: position
   concept_tags:
-  - endogenous-non-stationarity
+  - institutional-design-for-agent-economies
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:8
@@ -127,7 +157,7 @@ claims:
   - sources-of-legitimate-machine-authority
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
+  extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -136,58 +166,72 @@ claims:
     due process.
   quote: Even when an AI’s predictions or decisions are technically correct, the absence of
     due process delegitimizes the result, undermining the coordination that legal order provides.
-  standalone: The authors argue that a functioning legal order depends on open, public procedures
-    through which affected parties contest outcomes and demand justification, and that unilateral
-    optimization bypasses them.
+  standalone: The authors argue that a functioning legal order rests on open, public and neutral
+    procedures through which affected parties introduce private information, contest outcomes
+    and demand justifications. Unilateral optimization by an AI system bypasses those procedures,
+    imposing outcomes based on predictive accuracy and opaque logic rather than on public
+    reasoning. So even when an AI's predictions or decisions are technically correct, the
+    absence of due process delegitimizes the result and undermines the coordination that legal
+    order provides.
   claim_type: position
   concept_tags:
   - contestability-as-a-legitimacy-condition
   - legitimacy-erosion-through-automation
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
+    2026-09-18; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:10
-  text: A social system tipped into a degraded equilibrium may not be able to escape it at
-    any acceptable cost.
+  text: Once a system tips into a degraded equilibrium, escaping it may be costly or impossible.
   quote: Once a system tips into a degraded equilibrium, escaping may be costly or impossible.
-  standalone: The authors argue that introducing a powerful optimizer reshapes the payoff
-    landscape of a social system, that small deployment differences can decide which equilibrium
-    it settles into, and that network effects and infrastructure dependencies can then lock
-    it there.
+  standalone: Drawing on threshold and tipping-point models, which suggest that small differences
+    can determine which equilibrium basin a coupled system settles into, the authors argue
+    that introducing a powerful optimizer into a social system reshapes its payoff landscape,
+    that deployment details such as timing, scale and interface design may shape which equilibrium
+    is selected, and that once the system tips into a degraded equilibrium, network effects,
+    infrastructure dependencies and behavioral habits may create lock-in, so that escaping
+    may be costly or impossible.
   claim_type: position
   concept_tags:
-  - endogenous-non-stationarity
   - unintended-coordination-and-convergence
+  - phase-transitions-in-agent-system-behavior
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
+    2026-09-18; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2606.03237:11
-  text: Multi-agent designs multiply the points of failure and make oversight harder than
-    a single aligned optimizer would.
+  text: Decentralizing capability across many agents leaves the coordination problem in place,
+    multiplies the points of failure and makes oversight harder.
   quote: Decentralizing capability across many agents does not eliminate the coordination
     problem; it multiplies the points of failure and makes oversight harder.
-  standalone: 'This is an objection the authors state in their Alternative Views section in
-    order to rebut it: that economies of interacting actors can race to the bottom, collude
-    or deadlock, and that a well-aligned monolithic system offers more tractable safety guarantees.'
-  claim_type: background
+  standalone: 'An objection to multi-actor design that the authors state in order to rebut:
+    economies of interacting actors introduce coordination failures that single aligned optimizers
+    avoid, since they can race to the bottom, collude or deadlock; decentralizing capability
+    multiplies the points of failure and makes oversight harder; so a well-aligned monolithic
+    system offers more tractable safety guarantees than a poorly understood ecosystem of interacting
+    ones.'
+  claim_type: position
   concept_tags:
-  - oversight-capacity-as-the-binding-constraint
+  - what-breaks-as-agent-count-grows
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
+    2026-09-18; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: other
-  attributed_to: an alternative view the authors state in order to rebut it
+  attributed_to: Objection the authors state and rebut (Section 6, Argument 1); its monolithic-safety
+    sentence is cited to Bostrom (2014)
 - id: claim:arxiv:2606.03237:12
-  text: The real choice is between designs that acknowledge strategic interdependence and
-    designs that defer it to deployment, when it is least tractable.
+  text: The actual choice is between systems that acknowledge strategic interdependence in
+    their design and systems that defer reckoning with it until deployment, when the dynamics
+    are least tractable.
   quote: The actual choice is between systems that acknowledge strategic interdependence in
     their design and systems that defer this reckoning until deployment, when the dynamics
     are least tractable.
@@ -196,10 +240,149 @@ claims:
     having been designed as if they did not exist.'
   claim_type: position
   concept_tags:
+  - train-test-deploy-gap
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first reading never reached,
+    2026-09-18; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:13
+  text: A superintelligence born of the solipsistic approach to AI design, however capable
+    a task solver, is unlikely to be cooperative.
+  quote: We contend that superintelligence, an extremely capable task solver, born out of
+    such a solipsistic approach to AI design, is unlikely to be cooperative.
+  standalone: 'The authors contend that superintelligence, meaning an extremely capable task
+    solver, is unlikely to be cooperative if it is built under the solipsistic approach to
+    AI design: one anchored in the assumptions that the environment is exogenous to the agent''s
+    policy, that the data distribution stays stationary from training to deployment, and that
+    other agents are absorbed into the state space to be predicted rather than treated as
+    strategic actors. Cooperation, for them, is the process by which a society coordinates
+    to select beneficial equilibria and avoid harmful ones.'
+  claim_type: position
+  concept_tags:
+  - cooperation-without-shared-objectives
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:14
+  text: The authors expect solipsistic methods to remain effective in narrow domains; their
+    argument targets sociotechnical settings where advanced AI deployment will be heavily
+    exposed to response dynamics.
+  quote: While we expect solipsistic methods to remain effective in narrow domains, our paper
+    targets sociotechnical settings where advanced AI deployment will be heavily exposed to
+    response dynamics (“push back”).
+  standalone: 'The authors scope their argument. They set aside capability-threshold definitions
+    of superintelligence and address the methodological assumptions of environmental exogeneity,
+    objective stationarity and singleton framing. They expect methods built on those assumptions
+    to remain effective in narrow domains, and aim their claims at sociotechnical settings
+    where deployment meets heavy push back from adaptive actors. Section 3.2 draws a related
+    boundary: for weakly capable systems, the adaptations induced by exploitation may be small
+    and the performance gap could stay within bounds.'
+  claim_type: limitation
+  concept_tags:
+  - endogenous-non-stationarity
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:15
+  text: An individual system may be perfectly aligned with a specification of desired behavior
+    and still take part in collective dynamics that produce harm, instability or illegitimacy,
+    even without overt misuse.
+  quote: an individual may be perfectly aligned with such a specification and still participate
+    in collective dynamics that produce harm, instability, or illegitimacy, even without overt
+    misuse
+  standalone: 'The authors argue that alignment research frames the hard problem as getting
+    the objective right, and that this framing is unhelpful: a system may be aligned with
+    its specification, values included, and still make things worse once it acts among other
+    adaptive systems. Their examples, from the introduction, are recommenders optimized for
+    engagement producing polarization, pricing algorithms that learn supracompetitive prices
+    without explicit communication, and interacting automated order flow and liquidity provision
+    of the kind seen in the Flash Crash.'
+  claim_type: position
+  concept_tags:
+  - unintended-coordination-and-convergence
+  - emergent-collusion
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:16
+  text: A learning problem exhibits endogenous non-stationarity when deploying a policy changes
+    the transition dynamics or reward proxy through the response adaptations of other agents.
+  quote: A learning problem exhibits endogenous non-stationarity when the deployment of policy
+    induces changes in the transition dynamics or reward proxy through response adaptations
+    of other agents.
+  standalone: 'The authors'' Definition 3.1: a learning problem exhibits endogenous non-stationarity
+    when deploying policy π induces changes in the transition dynamics P or the reward proxy
+    R through the response adaptations of other agents, so that P_π(s′|s,a) ≠ P(s′|s,a). Physical
+    laws may stay constant; what shifts is the state evolution the deployed system observes,
+    as humans, institutions and algorithms adapt to it, and the environment becomes a Markov
+    game rather than an exogenous Markov decision process.'
+  claim_type: definition
+  concept_tags:
   - endogenous-non-stationarity
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, deep pass over sections the first extraction never read,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:17
+  text: The train-test-deploy gap is the systematic divergence between performance on exogenous
+    historical data and performance on the endogenous data produced by responses to the deployed
+    policy.
+  quote: The train-test-deploy gap is the systematic divergence between performance under
+    exogenous historical data and performance under endogenous data produced by responses
+    to the deployed policy.
+  standalone: 'The authors'' Definition 3.2: the divergence between a policy''s performance
+    J_train, measured on exogenous historical data, and its performance J_deploy, under the
+    endogenous data that other agents'' responses to the deployed policy produce. They argue
+    that static evaluation, however broadened, leaves the gap in place as long as it does
+    not account for the effect of the policy being evaluated.'
+  claim_type: definition
+  concept_tags:
+  - train-test-deploy-gap
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.03237:18
+  text: Keeping humans in the loop requires that they retain the skills, information and cognitive
+    engagement needed to exercise meaningful authority, not only the formal authority to intervene.
+  quote: Keeping humans in the loop requires that they retain the skills, information, and
+    cognitive engagement needed to exercise meaningful authority, rather than only the formal
+    authority to intervene.
+  standalone: Part of the authors' case for preserving human agency as a design constraint.
+    What humans learn, practice and come to rely on is shaped by the AI's presence, so the
+    human capabilities a system meets on its next deployment are partly produced by its previous
+    deployments. Systems that present options and defer to human judgment preserve the deliberative
+    role that legitimacy requires; systems that optimize end to end risk making human participation
+    nominal.
+  claim_type: position
+  concept_tags:
+  - meaningful-human-control-criteria
+  - skill-atrophy-under-automation
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
   review_status: machine-checked
   attribution: own

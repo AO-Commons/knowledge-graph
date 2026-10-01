@@ -48,7 +48,7 @@ Approaches, methods, implementations, benchmarks, systems. **One** generic type 
 |---|---|---|
 | `CITES`, `PARENT_OF` | Deterministic | Nothing — read from structured metadata |
 | `SIMILAR_TO` | Computed | `method` and `score` |
-| `TAGGED_WITH`, `DISCUSSES`, `PROPOSES`, `EVALUATES`, `IMPLEMENTS`, `DESCRIBES_FAILURE_OF`, `BELONGS_TO_TOPIC`, `RELATED_TO`, `EXTENDS` | Extracted or inferred | `confidence_class`, plus provenance |
+| `TAGGED_WITH`, `DISCUSSES`, `PROPOSES`, `EVALUATES`, `IMPLEMENTS`, `DESCRIBES_FAILURE_OF`, `BELONGS_TO_TOPIC`, `RELATED_TO`, `EXTENDS` | Read from the source, or inferred | `confidence_class`, plus provenance |
 
 `confidence_class` is one of `EXTRACTED`, `INFERRED`, `AMBIGUOUS` — the distinction Graphify makes, and the reason a reader can trust the graph at all. Attaching one to a `CITES` edge is an error: it implies a judgment that was never made.
 

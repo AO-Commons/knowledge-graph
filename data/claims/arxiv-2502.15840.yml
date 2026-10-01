@@ -13,7 +13,7 @@ claims:
   - slow-onset-degradation
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -33,7 +33,7 @@ claims:
   - silent-failure-detection
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -51,7 +51,7 @@ claims:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -65,7 +65,7 @@ claims:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -80,7 +80,7 @@ claims:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -98,7 +98,7 @@ claims:
   - evaluation-environments-and-benchmark-suites
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
@@ -114,7 +114,7 @@ claims:
   - long-horizon-and-multi-step-task-evaluation
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: other
@@ -133,7 +133,7 @@ claims:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5, extracted from arXiv full text under the gated process,
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
     2026-09-18; every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own

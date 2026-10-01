@@ -1,77 +1,96 @@
 resource_id: resource:arxiv:2509.14485
 claims:
 - id: claim:arxiv:2509.14485:1
-  text: Hierarchical Bayesian capability profiles predict future performance within a multi-agent
-    evaluation suite.
+  text: Capability profiles inferred with Measurement Layouts for Melting Pot contest entries
+    predict the entries' future performance within the Melting Pot suite.
   quote: We show that these capability profiles not only predict future performance within
     the Melting Pot suite but also reveal the underlying prosocial abilities of agents
-  standalone: Applying Measurement Layouts to the Melting Pot contest, the authors show inferred
-    capability profiles predict future performance within the suite and reveal agents' underlying
-    prosocial abilities.
+  standalone: The authors fit a Measurement Layout, a hierarchical Bayesian model from prior
+    work (Burden et al. 2023), to each Melting Pot contest entry using 80% of its scores,
+    averaged over five-episode blocks across 51 held-out scenarios, and predict the remaining
+    20%. The profiles beat a mean-score baseline for most entries and give predictive accuracy
+    the authors call competitive with linear-regression, XGBoost and tabPFN assessors, but
+    predictive power is low for several entries.
   claim_type: finding
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:2
   text: Higher prosocial capability does not reliably accompany higher contest score.
   quote: while higher prosocial capabilities sometimes correlate with better performance,
     this is not a universal trend—some lower-scoring agents exhibit stronger cooperation abilities
-  standalone: 'In the Melting Pot contest, higher prosocial capability correlated with better
-    performance only sometimes: some lower-scoring agents showed stronger cooperation abilities
-    than higher-scoring ones.'
+  standalone: 'Among Melting Pot contest entries whose Measurement Layouts reached R² > 0.25,
+    higher-scoring entries tended to have higher probabilities of some abilities, but not
+    consistently: some lower-scoring entries had significantly higher convention-following
+    and reciprocity ability than some higher-scoring entries, some had higher prosocial-newcomers
+    ability, and teaching, forgiveness and time-pressure abilities did not differ significantly
+    between entries.'
   claim_type: finding
   concept_tags:
   - prosocial-capability
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:3
-  text: Top-performing submissions score highest in scenarios where prosocial capability is
-    not required.
-  quote: we find that top-performing contest submissions are more likely to achieve high scores
-    in scenarios where prosocial capabilities are not required
-  standalone: The authors find that top-performing Melting Pot contest submissions were more
-    likely to score highly in precisely those scenarios where prosocial capability was not
-    demanded.
+  text: 'Higher-scoring Melting Pot contest entries have significantly higher base-chance
+    rates: they are more likely to perform better when prosocial demands are absent.'
+  quote: The plot shows that higher-scoring entries have significantly higher base chance
+    rates; that is, they are more likely to perform better when prosocial demands are absent.
+  standalone: 'In the Measurement Layout fitted to each Melting Pot contest entry, base chance
+    is the entry''s inferred probability of success when no specific cooperation demand is
+    present. Among entries whose layouts reached R² > 0.25, higher-scoring entries had significantly
+    higher base chance: they were more likely to perform better in scenarios where the modeled
+    prosocial demands were absent.'
   claim_type: finding
   concept_tags:
   - prosocial-capability
   - evaluation-gaming-and-answer-key-attacks
   confidence_class: EXTRACTED
-  extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extracted_from: results
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:4
-  text: Leading submissions gained much of their advantage by exploiting a weakness in the
-    evaluation framework.
+  text: It is plausible that leading Melting Pot contest submissions gained much of their
+    edge by excelling in scenarios that did not reward prosocial ability, thereby exploiting
+    a weakness in the evaluation framework.
   quote: It is then plausible that the leading submissions gained much of their edge by excelling
     in scenarios that did not reward prosocial ability, thereby exploiting a weakness in the
     evaluation framework
-  standalone: The authors conclude it is plausible that leading Melting Pot contest submissions
-    gained much of their advantage by excelling where prosocial ability was not rewarded,
-    exploiting a weakness in the framework.
-  claim_type: finding
+  standalone: 'The authors'' inference from three observations: higher-scoring contest entries
+    had significantly higher base-chance rates, so they did better when prosocial demands
+    were absent; the competition report says the single top-ranked entry used a hand-crafted
+    policy tuned to each substrate; and several learning-based entries had similarly high
+    base-chance rates. From these they judge it plausible that leading entries gained much
+    of their edge in scenarios that did not reward prosocial ability. The abstract puts it
+    more cautiously: at least one top-performing team may have optimized for conditions where
+    cooperation was not necessary.'
+  claim_type: position
   concept_tags:
   - evaluation-gaming-and-answer-key-attacks
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:5
-  text: Some capabilities fail to differentiate between systems when the corresponding task
-    demands are sparse.
+  text: In the Melting Pot contest analysis, some inferred capabilities did not differentiate
+    between submissions, possibly because the corresponding demands were sparsely present
+    in the competition.
   quote: some capabilities did not differentiate between submissions, possibly due to the
     sparse presence of the corresponding demands in the competition
   standalone: The authors report that some inferred capabilities did not distinguish between
@@ -82,8 +101,9 @@ claims:
   - capability-profiling
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, re-extracted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
+    2026-09-12; every quote verified verbatim against the source. Revised after an independent
+    audit against the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:6
@@ -105,17 +125,180 @@ claims:
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2509.14485:7
-  text: How the choice of substrate biases an agent's measured capability has not been modeled.
-  quote: This study did not consider how different substrates might influence an agent’s performance.
-  standalone: The authors note that their study did not model substrates, and that substrates
-    could introduce systematic biases so that a capability is more or less expressed depending
-    on which one an entry is tested on.
+  text: Future models could treat Melting Pot substrates as bias factors that influence the
+    estimation of agents' latent abilities.
+  quote: Future models could treat substrates as bias factors that influence the estimation
+    of latent abilities.
+  standalone: In Melting Pot a substrate is the physical environment a scenario is built on.
+    The authors did not consider how substrates might influence an agent's performance. They
+    suggest substrates could introduce systematic biases, so that a capability is more or
+    less expressed depending on the substrate an entry is tested on, say they lacked the data
+    to model this, and leave treating substrates as bias factors on ability estimates to future
+    work.
   claim_type: gap
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
   extracted_from: discussion
   extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source
+    every quote verified verbatim against the source. Revised after an independent audit against
+    the full text, claude-opus-5-5, 2026-10-01 (evals/results/2026-10-01-statement-audit.md)
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:13
+  text: 'To infer the cooperation capabilities of Melting Pot contest entries, the authors
+    construct a measurement layout: a hierarchical Bayesian model that estimates an entry''s
+    normalized score in different scenarios from the demands those scenarios impose.'
+  quote: To infer the cooperation capabilities of submitted entries, we construct measurement
+    layout, i.e. a hierarchical Bayesian model, that estimates the Min-Max normalised score
+    in different scenarios based on the demands they impose.
+  standalone: 'The authors fit a separate measurement layout to each contest entry. It has
+    one latent ability per retained binary cooperation demand (seven of the sixteen the contest
+    annotated: prosocial newcomers, visitor, time pressure, convention following, teaching,
+    forgiveness and reciprocity), plus a base-chance parameter that sets the probability of
+    success where a demand is absent. Abilities are non-compensatory, so the per-demand success
+    probabilities are multiplied. Observed min-max normalized scores are modeled as Beta-distributed,
+    and the model is fit with PyMC''s No-U-Turn Sampler. Measurement Layouts come from prior
+    work (Burden et al. 2023); this paper applies them to a multi-agent contest.'
+  claim_type: method
+  concept_tags:
+  - capability-profiling
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:14
+  text: For several Melting Pot contest submissions, both the assessor models and the Measurement
+    Layouts have low predictive power.
+  quote: We also observe that for several submissions, both the assessor models and the measurement
+    layouts exhibit low predictive power.
+  standalone: The authors compare Measurement Layouts with three assessor models (linear regression,
+    XGBoost and tabPFN) that take the same binary cooperation demands as input, on held-out
+    score data from the Melting Pot contest. Both kinds of model beat a mean-score baseline
+    for most entries, but for several entries both predict poorly. The authors suggest the
+    demands may not be informative enough for those entries, or that other latent factors
+    drive their performance, and analyze ability profiles only for entries where the measurement
+    layout reached R² > 0.25.
+  claim_type: finding
+  concept_tags:
+  - capability-profiling
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:15
+  text: Some high-scoring Melting Pot contest agents may succeed not because of their prosocial
+    abilities but because of general competence, or an ability to complete tasks without the
+    specific prosocial capabilities the measurement layouts capture.
+  quote: This suggests that some high-scoring agents succeed not because of their prosocial
+    abilities but rather because of general competence or an ability to complete tasks without
+    relying on the specific prosocial capabilities captured by the measurement layouts.
+  standalone: The authors' reading of their base-chance result. Higher-scoring contest entries
+    are significantly more likely to perform better when prosocial demands are absent, which
+    the authors take to suggest that some high-scoring agents succeed through general competence,
+    or by completing tasks without the specific prosocial capabilities their models capture,
+    rather than through prosocial ability.
+  claim_type: position
+  concept_tags:
+  - prosocial-capability
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:16
+  text: The single top-ranked Melting Pot contest submission used a hand-crafted policy tuned
+    to each substrate.
+  quote: The competition report observes that the single top-ranked submission used a hand-crafted
+    policy tuned to each substrate.
+  standalone: 'Reported from the Melting Pot contest report (Trivedi et al. 2024): the winning
+    entry used a hand-crafted policy tuned to each substrate, the physical environment a Melting
+    Pot scenario is built on. The paper''s introduction gives the same report as a hard-coded
+    policy tailored to specific substrates.'
+  claim_type: background
+  concept_tags:
+  - evaluation-gaming-and-answer-key-attacks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: other
+  attributed_to: Trivedi et al. (2024), the Melting Pot contest report; Trivedi and Leibo
+    are also authors of this paper
+- id: claim:arxiv:2509.14485:17
+  text: Several learning-based Melting Pot contest submissions show similarly high base-chance
+    rates, suggesting that they too might have narrowly specialized for situations in which
+    cooperation conferred no additional advantage.
+  quote: Our analysis reveals that several learning-based submissions show similarly high
+    base-chance rates, suggesting that they too might have narrowly specialised for situations
+    in which cooperation conferred no additional advantage.
+  standalone: Base chance is a contest entry's inferred probability of success when no cooperation
+    demand is present. Higher-scoring entries have significantly higher base chance, and the
+    top-ranked entry used a hand-crafted policy tuned to each substrate. The authors find
+    several learning-based entries with similarly high base chance, and suggest they too might
+    have specialized narrowly for situations where cooperation gave no additional advantage,
+    so the pattern is not confined to the hand-crafted winner.
+  claim_type: finding
+  concept_tags:
+  - prosocial-capability
+  - evaluation-gaming-and-answer-key-attacks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:18
+  text: The authors recommend that future competitions incorporate better-formulated meta-features
+    to characterize task demands while avoiding duplicate demands.
+  quote: Based on our findings, we recommend that future competitions incorporate better-formulated
+    meta-features to characterise task demands while avoiding duplicate demands.
+  standalone: Drawn from the Melting Pot contest, whose 51 test scenarios were annotated with
+    16 binary cooperation demands. Some of those demands mark exactly the same scenarios (partner
+    choice, time pressure and ostracism; teaching and sanctioning), and after removing duplicates
+    and the demands not negatively correlated with score, seven remained. The authors recommend
+    that future competitions characterize task demands with better-formulated meta-features
+    that avoid duplicates, are negatively correlated with performance if they are to indicate
+    task difficulty, and are less sparse.
+  claim_type: position
+  concept_tags:
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.14485:19
+  text: Reducing the sparsity of the meta-features that annotate task demands would increase
+    confidence in inferred capabilities and reduce the risk of competitors exploiting weaknesses
+    in the evaluation framework.
+  quote: Reducing sparsity would increase confidence in inferred capabilities and reduce the
+    risk of competitors exploiting weaknesses in the evaluation framework.
+  standalone: In the Melting Pot contest only a handful of scenarios exercise some cooperation
+    demands, which leaves the corresponding ability estimates broad. The authors argue that
+    annotating future competitions' scenarios with less sparse demand meta-features would
+    make inferred capabilities more certain and reduce the risk of competitors exploiting
+    weaknesses in the evaluation framework.
+  claim_type: position
+  concept_tags:
+  - evaluation-gaming-and-answer-key-attacks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5-5, drafted from the arXiv full text, body read, 2026-10-01,
+    after an independent audit (evals/results/2026-10-01-statement-audit.md); every quote
+    verified verbatim against the source
   review_status: machine-checked
   attribution: own

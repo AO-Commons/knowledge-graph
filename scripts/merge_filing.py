@@ -137,7 +137,7 @@ def validate_claims(payload: dict, *, known_claims: set[str],
 
         # What the reviewer was looking at. The site ships each statement's
         # fingerprint and the submission echoes it back, so a statement
-        # re-extracted between the reviewer opening the page and sending the
+        # re-read between the reviewer opening the page and sending the
         # filing is caught here rather than recorded as judged. The filing
         # says which statement changed, which is a reviewer's question; the
         # alternative is a verdict on a sentence nobody read.
@@ -232,8 +232,8 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
     """Write claim verdicts to their own gold file.
 
     Separate from the tag gold set on purpose. Tags are what classifier
-    accuracy is measured against; a claim verdict measures whether extraction
-    read a sentence correctly. One file holding both would give a number that
+    accuracy is measured against; a claim verdict measures whether a draft
+    represents its sentence faithfully. One file holding both would give a number that
     answers neither question.
     """
     existing = {}
@@ -263,7 +263,7 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
         "flagged": [c for c, e in cleaned.items()
                     if e["verdict"] in ("overstated", "not-in-source")],
         # An adjustment is the one verdict that carries work for somebody
-        # else: the reviewer's wording has to replace the extracted sentence
+        # else: the reviewer's wording has to replace the drafted sentence
         # in the corpus, and nobody will do that from a gold file they never
         # open. It goes in the pull request where the change is being made.
         "adjusted": [(c, e["text"], e.get("concepts") or [])
@@ -332,7 +332,7 @@ def merge_new_statements(cleaned: dict[str, list], author: str, issue: int = 0) 
 
     Verified against the paper's full text where we can reach it. A quote that
     is not in the source stops the merge and says so, exactly as it does for
-    the machine's own extraction — the standard cannot depend on who wrote it.
+    the machine's own reading — the standard cannot depend on who wrote it.
 
     They enter `unreviewed`, like everything else. Writing a statement is not
     the same as a second person agreeing with it, and letting an author confirm
@@ -520,8 +520,8 @@ def summarize_claims(result: dict) -> list[str]:
     if result["flagged"]:
         lines += [
             "",
-            "**Extraction got these wrong** — the paraphrase says more than the source, "
-            "or is not in it. Worth a look at the extractor, not just the claim:",
+            "**The drafts got these wrong** — the paraphrase says more than the source, "
+            "or is not in it. Worth a look at the drafting model, not just the claim:",
             "",
         ]
         lines += [f"- `{claim_id}`" for claim_id in result["flagged"]]

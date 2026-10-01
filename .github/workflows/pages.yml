@@ -50,6 +50,9 @@ jobs:
       # list that is quietly out of date is worse than not having one,
       # because people will check it and believe the answer.
       - run: python3 scripts/build_concepts.py
+      # Who made the library, read from the records that say so. Rebuilt for
+      # the same reason: a stale list of contributors leaves somebody out.
+      - run: python3 scripts/build_contributions.py
       # The graph page reads this; it is derived from the same corpus and
       # would otherwise go stale the moment a record is added.
       - run: python3 scripts/build_graph.py

@@ -8,6 +8,16 @@ A researcher — human or agent — should reach the right small set of primary 
 
 Judge every proposed change against that. A feature that makes the graph more elegant without making a real research question cheaper to answer is not an improvement.
 
+It is also answerable to the researchers it reads. A statement represents somebody's work to strangers, so:
+
+- **Quote, don't replace.** The quote is the authority and the paraphrase never says more than it.
+- **Keep the hedges.** A "may", "seems to" or "plausible" stays in the paraphrase.
+- **Keep shown and argued apart.** An implication is not a finding.
+- **Credit the right people.** Prior work is credited to whoever did it.
+- **Let the author correct it.** An author's correction outranks a machine's reading.
+
+Say *reading* and *drafting* rather than *extraction*. A model drafts statements from a paper, and people check them against it.
+
 ## The taxonomy is the source of truth
 
 [`taxonomy/agentic-org-research-library-taxonomy-v3.md`](taxonomy/agentic-org-research-library-taxonomy-v3.md) is authoritative. Do not invent a parallel taxonomy, do not collapse it into generic AI categories, and do not renumber existing codes — a code is a stable identifier and old tags must stay resolvable.
@@ -51,7 +61,7 @@ Every non-deterministic edge records how it was made. `CITES` from scholarly met
 
 - deterministic (`CITES`, `PARENT_OF`) — no confidence class; adding one implies a judgment nobody made
 - computed (`SIMILAR_TO`) — always a named `method` and a `score`; a hidden method makes a score uninterpretable
-- extracted or inferred — `confidence_class` plus the source text
+- read from the source or inferred — `confidence_class` plus the source text
 
 If you cannot say where an edge came from, do not add the edge.
 
@@ -70,7 +80,7 @@ rather than invisible.
 
 The division is meant to hold as trust moves. Machines resolve, deduplicate,
 propose and now admit. People decide what a record is *about*, whether a
-claim is accurately extracted, and what the taxonomy is — the judgments
+statement represents its paper faithfully, and what the taxonomy is — the judgments
 where being wrong is expensive and quiet. Reviewing auto-admitted records is
 how the scan earns a looser threshold; until that evidence exists the
 settings stay conservative.
@@ -89,7 +99,7 @@ Prefer deleting complexity over preserving an elegant architecture.
 
 ## Cost discipline
 
-Graph first, source second. For an ordinary query: search the taxonomy and graph, return compact metadata, identify 5–15 candidate sources, and only then fetch text for those. Never send the corpus to a model. Cache metadata, classifications, similarity, and extractions.
+Graph first, source second. For an ordinary query: search the taxonomy and graph, return compact metadata, identify 5–15 candidate sources, and only then fetch text for those. Never send the corpus to a model. Cache metadata, classifications, similarity, and readings.
 
 MCP tools return compact structured records — enough for an agent to decide what deserves deeper reading, not the papers themselves.
 

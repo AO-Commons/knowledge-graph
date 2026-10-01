@@ -17,7 +17,7 @@ taxonomy_topics:
 - '15.3'
 facets:
   artifact_type: preprint
-  evidence_strength: empirical-single-study
+  evidence_strength: argumentative-essay
   source_independence: independent-academic
   temporal_relevance: current
   applicability: background

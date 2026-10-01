@@ -6,6 +6,29 @@ Browse the field through a purpose-built taxonomy, discover related work through
 
 The point is to help a researcher — human or machine — reach the right **small set of primary sources** faster and more cheaply than starting from a search engine. The graph decides *what to read*. It does not replace reading.
 
+## Why this helps researchers
+
+Two researchers meet in this library: the one looking for what the field has shown, and the one whose paper is being read. It has to work for both, and libraries usually forget the second.
+
+**For someone looking.** Search finds papers, but a researcher usually needs something narrower. Has anyone already shown what I am about to assume? Who disagrees? What did the authors say their result does not cover? The library answers with statements. Each one is a sentence from a paper, with:
+
+- the paper's own words beside our summary,
+- what kind of statement it is (shown, argued, defined, bounded or left open),
+- whose result it is.
+
+Every answer ends at a paper.
+
+**For someone whose work is here.** A model drafts statements from a paper, and people check them against the paper's own words. Read that way, the paper's authors are owed the following, and the library holds itself to it:
+
+- **Your words are quoted, not replaced.** Every statement carries the exact sentence it was drawn from, so a reader sees what you said and not only what we said you said.
+- **Your hedges travel.** A "may" stays a "may". A limitation you put on your result stays beside the finding, because it is the part a summary most often drops.
+- **What you showed and what you argued stay apart.** An implication you draw is not filed as a result you measured.
+- **Credit goes where it belongs.** A statement is credited to its paper and authors, and a result you report from someone else is credited to them.
+- **You can correct it.** An author's verdict is recorded as an author's, and a statement you mark as overstated goes back to be redrafted.
+- **Readers are sent to you.** The graph exists to point readers at the right few papers, and to link the record to the paper itself.
+
+Where the library falls short of this, that is a defect to fix, not a cost of doing business. How contributions to the library are recorded and credited, including the authors' own, is in [docs/contributions.md](docs/contributions.md).
+
 ## Status
 
 Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports as a portable release.
@@ -40,7 +63,7 @@ Three structures live in that one file, and they are implemented differently on 
 ## How a paper gets from arriving to citable
 
 [docs/pipeline.md](docs/pipeline.md) walks the ten stages — intake,
-resolution, admission, filing, extraction, tagging, linking, derivation,
+resolution, admission, filing, reading, tagging, linking, derivation,
 review, release — with what runs unattended, what waits for a person, and
 measured coverage at each step.
 
@@ -126,8 +149,8 @@ See [docs/slack-agent.md](docs/slack-agent.md) for the app and relay setup.
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the
-taxonomy, look up people and records, and read extracted claims with the
-sentence each came from.
+taxonomy, look up people and records, and read the statements drawn from papers, each
+with the sentence it came from.
 
 ```bash
 python3 -m pip install -e '.[mcp]'
@@ -215,7 +238,7 @@ Every relationship says where it came from, because "this paper cites that one" 
 |---|---|---|
 | Deterministic | `CITES`, `PARENT_OF` | Nothing extra — read from structured metadata |
 | Computed | `SIMILAR_TO` | `method` and `score`, always. A similarity whose method is hidden can't be interpreted |
-| Extracted or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
+| Read from the source, or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
 
 The schema refuses to let these blur: labeling a citation with a confidence class is an error, because it implies a judgment nobody made.
 

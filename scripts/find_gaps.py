@@ -7,8 +7,8 @@ question", "we leave to future work", "it is not yet known whether" — because
 an author stating one wants it found and worked on.
 
 So this is the opposite of the gates in `extract.py`, which reject. This
-finds, and hands the passages to an extractor to read. It does not decide what
-the statement is and it does not write the quote: those are the extractor's
+finds, and hands the passages to a drafting model to read. It does not decide what
+the statement is and it does not write the quote: those are the drafting model's
 job, and keeping them apart is what stops a regex from becoming the author of
 a claim.
 

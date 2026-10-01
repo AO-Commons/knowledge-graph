@@ -10,7 +10,7 @@ For how the corpus is processed today, stage by stage, see
 
 A paper is a container. The answerable thing is inside it.
 
-Today the library files papers on a taxonomy and, separately, extracts
+Today the library files papers on a taxonomy and, separately, draws
 statements from a few of them. The proposal is to make statements the unit
 that carries meaning — tags, relations, retrieval — and let a paper's place in
 the taxonomy be **derived from the statements it contains** rather than
@@ -78,7 +78,14 @@ at the level of the whole, and no individual sentence in it carries the frame.
 That is the thing to design around, and it is the argument against a pure
 switch.
 
-**One of the four losses was an extraction gap, and that gain was a mis-filed
+**Two of the gains were mis-tags** (2026-10-01). The audit of every paper
+against its full text found Melting Pot's 14.3 came from a `dynamic-evaluation`
+tag on a statement about fixed background bots, and Inter-Agent Trust Models'
+2.7 from `stake-based-trust` on "where stakes are high". The table needs
+re-measuring on the corrected statements; see
+[the audit](../evals/results/2026-10-01-statement-audit.md).
+
+**One of the four losses was a reading gap, and that gain was a mis-filed
 concept** (2026-10-01). Building the Loop's statements had been drawn from its
 abstract, its review of the theory of the firm and its conclusion. The methods,
 the KOI architecture and the Telescope deployment, most of the paper, carried
@@ -170,9 +177,9 @@ both have statements is `2509.14485 → 2107.06857`, worth 63 candidate pairs,
 and two of the relations we found by hand are exactly that pair. The signal is
 real and starved of coverage rather than of ideas.
 
-## Extraction becomes the load-bearing process
+## Reading becomes the load-bearing process
 
-If statements are the unit, extraction quality is the whole product, and it is
+If statements are the unit, reading quality is the whole product, and it is
 currently a one-off: 40 claims from 6 papers, three-pass over full text, one
 model, one afternoon, unreviewed. That does not scale and it has never been
 measured.
@@ -181,27 +188,27 @@ What the process needs before it carries the library:
 
 1. **A stated unit.** One assertion, one subject. SciFact's criteria — fluent,
    atomic, decontextualized, faithful — are already cited in the model and
-   should become the extraction contract rather than a docstring.
+   should become the reading contract rather than a docstring.
 2. **A yield target.** Melting Pot produced 14 claims and Building the Loop
    4; after the editorial pass, 9 and 4. The variance tracked how much methods
    detail a paper had, not how much it contributed. Five of the 45 were cut as
    artifact trivia — *"contains more than 80 scenarios"* — and a process that
    produces 11% waste needs a rule about what is not a claim.
-3. **Attribution at extraction time.** Five of 40 were the paper reporting
+3. **Attribution asked while drafting.** Five of 40 were the paper reporting
    prior work, and were found by a person rereading them afterwards. The
-   extractor should be asked the OWN/OTHER question directly.
-4. **Tagging as part of extraction, checked against the vocabulary.** A
+   drafting model should be asked the OWN/OTHER question directly.
+4. **Tagging as part of drafting, checked against the vocabulary.** A
    concept that does not resolve should fail loudly, as it does now, rather
    than quietly producing a statement nothing can link to.
-5. **Measurement.** The gold set has one entry. Until extraction has an
+5. **Measurement.** The gold set has one entry. Until reading has an
    accuracy number, "statements are first class" is an aspiration with 40
    examples.
 
 ## Sequencing, and the thing that makes this hard
 
-Statement extraction is roughly seven judgments per paper against one for
-filing. The Tuesday bot admits about eight papers a week. **Extraction cannot
-keep pace with intake unless it is automated, and automated extraction is
+Statement reading is roughly seven judgments per paper against one for
+filing. The Tuesday bot admits about eight papers a week. **Reading cannot
+keep pace with intake unless it is automated, and automated reading is
 unreviewed by definition** — which is the same bind the scope scan is in, and
 should be answered the same way: let the machine produce, mark clearly what is
 unconfirmed, and let human review of the output be both the quality signal and
@@ -214,7 +221,7 @@ The order that avoids a cliff:
    immediately, changes no existing data.
 2. Add citations as a second relation-proposal signal. One edge today, free
    later.
-3. Fix extraction as a measured process, and run it over the next twenty
+3. Fix reading as a measured process, and run it over the next twenty
    papers rather than six.
 4. Only when statement coverage is broad enough that derived categories cover
    most of the corpus, let hand-filing wither — for the codes derivation can

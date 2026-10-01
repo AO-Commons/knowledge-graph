@@ -183,3 +183,15 @@ concepts:
       reputation is structurally inapplicable — and the distinction its whole
       argument turns on, which nothing in the pool named.
     added: "2026-09-12"
+
+  - id: held-out-background-populations
+    label: Held-out background populations
+    topics: ["14.1", "15.6"]
+    origin: claim
+    note: >-
+      Agents pre-trained separately and used only at test time as
+      unfamiliar co-players, so that a test scenario is a familiar
+      environment with unfamiliar others in it. Coined by Melting Pot
+      (Leibo et al. 2021). Not dynamic evaluation: the background agents
+      are fixed and do not adapt to the policy under test.
+    added: "2026-10-01"

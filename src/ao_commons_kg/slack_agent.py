@@ -18,7 +18,7 @@ name five to fifteen sources. Never send the corpus to a model — the tool
 results are briefs, the same ones MCP returns, and the papers stay where they
 are.
 
-**Nothing here is reviewed.** Zero records reviewed, forty claims extracted out
+**Nothing here is reviewed.** Zero records reviewed, forty claims drafted out
 of a hundred and forty records. An answer that does not say so is a confident
 answer assembled from unchecked parts, and the confidence is the part that
 travels. `coverage` and `claims_caveat` exist for this and the prompt makes
@@ -97,7 +97,7 @@ TOOLS = [
     {
         "name": "get_claims",
         "description": (
-            "Statements extracted from records, each with the sentence it came from. "
+            "Statements drawn from records, each with the sentence it came from. "
             "A claim is a machine's reading of that sentence until a person has "
             "verified it — quote the sentence, not the paraphrase."),
         "input_schema": {

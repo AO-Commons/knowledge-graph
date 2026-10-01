@@ -13,7 +13,7 @@ actually go" — the scaffolding is complete and thins sharply toward the top.
   1  INTAKE          three doors                101 records
   2  RESOLUTION      metadata, references        45 with references
   3  ADMISSION       scope, duplicates          automatic since 10 Sep
-  4  EXTRACTION      statements out of text       6 records · proposed as process
+  4  READING         statements out of text       6 records · proposed as process
   5  TAGGING         concepts on statements      40 of 40 statements
   6  LINKING         relations between them      12 relations
   7  FILING          categories, derived          6 derived · 73 legacy hand-filed
@@ -21,7 +21,7 @@ actually go" — the scaffolding is complete and thins sharply toward the top.
   9  RELEASE         a fixed, citable version     3 releases
 ```
 
-**Filing moved.** It used to sit at stage 4, before extraction, and it is now
+**Filing moved.** It used to sit at stage 4, before reading, and it is now
 stage 7 and mostly computed. Asking somebody to name what a paper is "about"
 before anything has said what it contains is the wrong question in the wrong
 order — which is why two thirds of the filed records carry more than one code
@@ -135,7 +135,7 @@ between runs is visible rather than invisible.
 
 ---
 
-## 4 · Extraction — proposed as a process
+## 4 · Reading — proposed as a process
 
 **This is the stage that decides whether statements can carry the library, and
 it is currently not a process.** 40 claims, six papers, one model, one
@@ -143,7 +143,7 @@ afternoon, three passes over full text, never measured.
 
 What it produces per statement: `text` (the paraphrase), `quote` (verbatim
 source), `standalone` (enough context to judge it cold), a type, the section it
-came from, and the extraction method.
+came from, and the reading method.
 
 What it has to become:
 
@@ -152,18 +152,38 @@ What it has to become:
 2. **A waste rule.** Five of the first 45 were artifact trivia — *"contains
    more than 80 scenarios"* — useful for reproduction, useless for "who has
    already said X". 11% waste, found only because a person reread them.
-3. **Attribution asked at extraction, not found later.** Five of 40 were the
+3. **Attribution asked while drafting, not found later.** Five of 40 were the
    paper reporting prior work. Without that axis, "who has already said X"
    returns the most recent repeater.
 4. **Yield calibration.** 14 claims from Melting Pot and 4 from Building the
    Loop tracked how much methods detail each had, not how much each
    contributed.
-5. **A measurement.** Until extraction has an accuracy number against the gold
+5. **A measurement.** Until reading has an accuracy number against the gold
    set, "statements are first class" is an aspiration with 40 examples.
 
+**What it is now (2026-10-01).** A brief, checks, and an audit.
+
+- **The brief.** [reading-a-paper.md](reading-a-paper.md) is what a drafting
+  model is given. Read the whole body, keep every hedge, keep shown and
+  argued apart, credit prior work, and use seven types including
+  `definition`.
+- **The checks.** The gates now report six things rather than refusing them,
+  among them a body section with no statement and a paraphrase surer than
+  its quote. `scripts/check_statements.py` runs them over what is already
+  held.
+- **The audit.** A model that did not draft the statements audits each paper
+  against its full text, using
+  [evals/machine/audit-brief.md](../evals/machine/audit-brief.md), before a
+  person reviews.
+
+The first audit, of all seven papers, is
+[evals/results/2026-10-01-statement-audit.md](../evals/results/2026-10-01-statement-audit.md).
+It found that 42 of 48 statements need a change, and that no paper's
+statements had reached its body.
+
 **The bind:** ~7 judgments per paper against 1 for filing, and admission runs
-at ~8 papers a week. Extraction cannot keep pace unless it is machine-led —
-and machine-led extraction is unreviewed by definition. Same shape as the
+at ~8 papers a week. Reading cannot keep pace unless it is machine-led —
+and machine-led reading is unreviewed by definition. Same shape as the
 scope scan, and it should be answered the same way: let the machine produce,
 mark clearly what is unconfirmed, and let review of the output be both the
 quality signal and the evidence for loosening the rules.
@@ -287,7 +307,10 @@ Measured against hand-filing on the six: derivation **gains** codes the filer
 missed — Melting Pot picks up evaluation integrity because one of its own
 statements predicts the suite will be gamed — and **loses** codes describing
 what kind of move the paper makes: agency theory, borrowed background,
-research method.
+research method. (2026-10-01: the audit found that gain and some of these
+losses rested on wrong tags and unread bodies. See
+[the audit](../evals/results/2026-10-01-statement-audit.md). The comparison
+needs re-measuring on the corrected statements.)
 
 So it adds and never removes. What stays hand-filed is the remainder:
 the framing codes, saying what kind of move a paper makes.
@@ -316,7 +339,7 @@ including machine drafts asking for exactly this judgment.
 Verdicts: `accurate`, `overstated`, `not-in-source`, `ambiguous`.
 `overstated` is the one worth having — the claim is in the paper but the
 paraphrase says more than the source does, which is the characteristic failure
-of extraction and invisible in a yes/no.
+of reading and invisible in a yes/no.
 
 Filings become pull requests. The gold set they build is what every
 classification number is measured against.
@@ -348,7 +371,7 @@ make every other release less trustworthy.
 
 ```
 machine, unattended      intake · resolution · admission · filing · release
-machine, then confirmed  extraction · tagging · linking          ← proposed
+machine, then confirmed  reading · tagging · linking          ← proposed
 human, irreducible       review · the framing codes filing cannot derive
 ```
 
@@ -364,7 +387,7 @@ Five of the six statement types have to be recognized in prose. The sixth
 announces itself: an author writing "remains an open question", "we leave to
 future work" or "it is not yet known whether" wants it found and worked on.
 So `scripts/find_gaps.py` scans the full text for those markers and hands the
-passages to the extractor, which decides what the statement is and writes the
+passages to the drafting model, which decides what the statement is and writes the
 quote — a pattern that finds is not allowed to become the author of a claim.
 
 Measured over the first twelve records we hold full text for: 19 passages,
@@ -399,6 +422,6 @@ Gaps are what `Question` nodes will be clustered from: one question, asked in
 several papers, each occurrence keeping its own quote. That layer is not built
 yet — this stage is the supply for it.
 
-## Verification, by somebody who did not extract
+## Verification, by somebody who did not draft the statements
 
 `scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `evals/machine/extraction.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.

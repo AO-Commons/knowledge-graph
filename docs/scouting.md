@@ -89,7 +89,7 @@ month with no attention signal at all.
 
 On Emergent Mind specifically: their terms forbid copying content out of the
 service, so a scout may keep **pointers** — an arXiv id — and must resolve and
-extract everything itself from arXiv, OpenAlex and Semantic Scholar, as every
+fetch everything itself from arXiv, OpenAlex and Semantic Scholar, as every
 other path already does. Their free tier is 50 requests a month, which covers
 a weekly run of ten queries; Pro is 2,500 for $10–12. Optional by design: if
 their terms or pricing change, the tool loses a source rather than stopping.

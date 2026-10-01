@@ -8,7 +8,7 @@ phone, and inlining a second copy of the corpus into index.html would slow the
 filing site down for everyone who never looks at the graph.
 
 Kept honest about what each edge *is*. A citation and a bibliographic-coupling
-score and a machine-extracted claim are three different kinds of assertion, and
+score and a machine-drafted claim are three different kinds of assertion, and
 a picture that draws them identically invites the viewer to read a resemblance
 as a fact. They are separately colored and separately switchable.
 

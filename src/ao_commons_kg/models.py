@@ -62,7 +62,7 @@ class ReviewStatus(str, Enum):
     UNREVIEWED = "unreviewed"
     MACHINE_CHECKED = "machine-checked"
     """Mechanically verified and not reviewed. For a statement it means the
-    extraction gates passed — the quote was found verbatim in the source, the
+    reading gates passed — the quote was found verbatim in the source, the
     claim is about the field rather than the instrument, attribution is
     stated, and every tag resolves.
 
@@ -94,15 +94,15 @@ class ConfidenceClass(str, Enum):
 
 
 class RelationType(str, Enum):
-    # Deterministic — from scholarly metadata, not extraction.
+    # Deterministic — from scholarly metadata, not reading.
     CITES = "CITES"
     TAGGED_WITH = "TAGGED_WITH"
     PARENT_OF = "PARENT_OF"
     # Computed, with a named method and a score.
     SIMILAR_TO = "SIMILAR_TO"
-    # Extracted or inferred; always carries provenance.
+    # Read from the source or inferred; always carries provenance.
     MAKES_CLAIM = "MAKES_CLAIM"
-    """A resource to something it says. Added with the extraction that
+    """A resource to something it says. Added with the reading that
     populates it — the relation types below have sat here unpopulated since the
     first release, and a vocabulary that promises edges the graph does not have
     is worse than a smaller one."""
@@ -138,7 +138,7 @@ CLAIM_RELATIONS = frozenset({
 })
 """Relations that hold between two claims. Every one is an inference — no
 source states "claim A disagrees with claim B" — so each must carry a
-confidence class and its reasoning, exactly like an extraction. An edge here
+confidence class and its reasoning, exactly like a drafted statement. An edge here
 that looked deterministic would be asserting a judgment nobody made."""
 
 
@@ -308,7 +308,7 @@ class Resource:
     shrinking to the codes derivation cannot see: the framing ones, saying
     what kind of move a paper makes rather than what it asserts.
 
-    Filing before extraction is no longer a stage. See docs/pipeline.md.
+    Filing before reading is no longer a stage. See docs/pipeline.md.
     """
     facets: dict[str, list[str]] = field(default_factory=dict)
     is_borrowed_background: bool = False
@@ -344,7 +344,7 @@ class Resource:
     text_coverage: str = "unknown"
     """How much of this paper anyone has actually been able to read.
 
-    `full-text` means the body was available and extraction saw it.
+    `full-text` means the body was available and reading saw it.
     `abstract-only` means the record holds a few hundred words and the
     statements drawn from it cannot be more than that abstract states.
     `none` means not even an abstract. `unknown` is the default and means
@@ -569,11 +569,11 @@ class Claim:
 
     Two fields carry the weight. `quote` is verbatim source text and is what
     makes a claim checkable in seconds rather than by re-reading the paper —
-    without it, review costs as much as extraction and nobody does it. `text`
+    without it, review costs as much as reading and nobody does it. `text`
     is our paraphrase, which is where distortion enters, so the pair is always
     stored together and shown together.
 
-    A claim is never promoted by the extraction that produced it. It arrives
+    A claim is never promoted by the reading that produced it. It arrives
     `unreviewed` exactly like a first-pass tag, for the same reason: a machine
     reading of a sentence is a navigational aid until a person has checked it.
     """
@@ -629,7 +629,7 @@ class Claim:
     verdict: str | None = None
     """How review landed. `overstated` is the one worth having: the claim is
     in the paper but the paraphrase says more than the source does, which is
-    the characteristic failure of extraction and is invisible in a yes/no."""
+    the characteristic failure of reading and is invisible in a yes/no."""
     note: str | None = None
     reviewed_by_author: bool = False
     """Whether the verdict came from somebody on this paper's byline.
@@ -641,7 +641,7 @@ class Claim:
     it folded invisibly into a count."""
     machine_check: str | None = None
     """What an independent pass made of this, when one disagreed with the
-    extraction. A machine cannot review a statement, but it can say which ones
+    reading. A machine cannot review a statement, but it can say which ones
     a person should look at first — which is the only part of review that
     scales."""
     stale_review: str | None = None
@@ -662,11 +662,11 @@ class Claim:
         """What a reviewer actually judged, in twelve hex characters.
 
         A verdict is stored against a claim id, and an id outlives the
-        sentence it points at: re-extraction can leave the id in place and
+        sentence it points at: re-reading can leave the id in place and
         change the wording under it. Without something recording *what* was
         judged, a verdict from August silently applies to a sentence written
         in November — and for an adjustment, the stored rewrite overwrites the
-        new extraction outright. So the verdict carries this, and a mismatch
+        new reading outright. So the verdict carries this, and a mismatch
         is treated as unreviewed rather than reviewed.
 
         Whitespace is collapsed before hashing because the text is stored as a

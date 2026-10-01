@@ -8,7 +8,7 @@ Env: AIRTABLE_TOKEN, AIRTABLE_PUBLIC_BASE_ID
 
 **The repository is the source of truth. This base is a way to view it.**
 
-Everything here is extracted from `data/resources/` and from the registry's
+Everything here is drawn from `data/resources/` and from the registry's
 published JSON. Nothing is ever read back. An edit typed into the base survives
 until the next run and no longer, which is why every table says so in its
 description and why this script has no `sync` counterpart.

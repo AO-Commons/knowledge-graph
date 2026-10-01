@@ -377,7 +377,7 @@
   }
   .concept.still { border-style: dashed; cursor: default; }
   /* A tag your wording suggested, sitting alongside the ones the
-     extraction gave. Marked so the two are not mistaken for each other. */
+     reading gave. Marked so the two are not mistaken for each other. */
   .concept.still.added { border-style: solid; border-color: var(--accent); }
   .claim-add { margin-top: 16px; }
   .claim-add textarea { min-height: 62px; }
@@ -728,7 +728,7 @@
     <nav class="docs-nav" id="docs-nav" hidden aria-label="On this page"></nav>
     <div class="ready" id="ready"></div>
     <!-- Hidden for now, not removed. Categories derive from the concepts on
-         a paper's statements, and while extraction and tagging are being
+         a paper's statements, and while reading and tagging are being
          settled the tree is a view of an answer that is still moving —
          browsing it invites filing against it, which is the judgment this
          screen no longer asks for. Unhide both when the vocabulary has
@@ -792,7 +792,7 @@
     note: "",
     noteOpen: false,
     decisions: {},
-    // Verdicts on extracted claims. Kept apart from `decisions` the whole way
+    // Verdicts on drafted claims. Kept apart from `decisions` the whole way
     // through, because they answer a different question and are measured
     // against a different thing.
     claims: {},
@@ -1244,8 +1244,8 @@
     // machine does.
     if (!hasClaims) {
       ask.append(el("p", { className: "hint", style: "margin-top:18px" },
-        "No statements have been extracted from this one yet, so there is nothing here "
-        + "to check. It is waiting on extraction, not on you."));
+        "No statements have been drawn from this one yet, so there is nothing here "
+        + "to check. It is waiting to be read, not on you."));
     }
 
     // Navigation, not a decision. Each statement is judged on its own card
@@ -1359,7 +1359,7 @@
   // Three actions, because a reviewer is deciding what the library should
   // hold, not filling in a diagnostic form. The old set asked for a
   // classification — accurate, overstated, not-in-source, can't tell — which
-  // is a useful signal about the extractor and a slow way to fix a sentence.
+  // is a useful signal about the drafting model and a slow way to fix a sentence.
   // Adjusting is now the middle path it was missing: most statements that
   // are not right are not wrong either, they are a hedge away from right.
   const VERDICTS = [
@@ -1415,7 +1415,7 @@
   // so an edit that changes the subject cannot silently keep the old tag.
   //
   // It proposes, and only for statements a person is editing. Tags on
-  // unedited statements are left exactly as extracted.
+  // unedited statements are left exactly as drafted.
   const STOPWORDS = new Set(["the","a","an","of","to","in","for","and","or","is","are",
     "was","were","be","been","that","this","it","its","as","by","on","with","not","no",
     "than","from","their","them","they","which","when","what","how","do","does","can"]);
@@ -1439,9 +1439,9 @@
     });
     scored.sort((a, b) => b[0] - a[0] || b[1] - a[1]);
     const picked = scored.filter(s => s[0] >= 0.5).slice(0, 2).map(s => s[2]);
-    // A suggestion is added to the extracted tags, never swapped for them.
+    // A suggestion is added to the drafted tags, never swapped for them.
     //
-    // The extracted tags come from a model that read the paper; these come
+    // The drafted tags come from a model that read the paper; these come
     // from counting words, which is much weaker evidence and does not get to
     // overrule the stronger kind. Swapping was the first version and it was
     // wrong in the ordinary case: rewording "the binding constraint is
@@ -1599,7 +1599,7 @@
       // statements right. They are still in the data, still on the graph,
       // and still proposed by `aokg relate`.
       //
-      // This comes back when extraction and tagging are settled and there
+      // This comes back when reading and tagging are settled and there
       // are enough relations that seeing one is informative rather than
       // incidental.
       // Already merged means somebody else settled it. Shown rather than
@@ -1681,7 +1681,7 @@
             const concept = (DATA.concepts || {})[id] || { label: id };
             tagHost.append(el("span", {
               className: added.includes(id) ? "concept still added" : "concept still",
-              title: added.includes(id) ? "suggested by your wording" : "from the extraction",
+              title: added.includes(id) ? "suggested by your wording" : "from the draft",
             }, concept.label));
           });
           if (!current.length) tagHost.append(el("span", { className: "hint" }, "none match"));
@@ -1702,7 +1702,7 @@
           const draft = (entry.draft !== undefined ? entry.draft
                        : (committed !== null ? committed : claim.text)).trim();
           const settled = committed !== null && entry.draft === undefined;
-          // Confirming the sentence exactly as extracted is not an
+          // Confirming the sentence exactly as drafted is not an
           // adjustment — it is "Add as is" reached the long way round, and
           // filing it as an adjustment would put a reviewer's name on a
           // rewording nobody did.
@@ -1727,7 +1727,7 @@
         card.append(el("div", { className: "actions confirm-row" }, [confirm, revert]));
       } else if (mine && mine.verdict === "not-in-source") {
         const area = el("textarea", {
-          placeholder: "Optional: what is wrong with it? One line is what an extractor "
+          placeholder: "Optional: what is wrong with it? One line is what a drafting model "
                        + "can be fixed against.",
           value: mine.note || "",
         });
@@ -1767,7 +1767,7 @@
 
   const mine = record => state.newClaims[record.id] || [];
 
-  // The extractor misses things, and the person who has just read the paper is
+  // The drafting model misses things, and the person who has just read the paper is
   // the only one positioned to notice. Asking for the quote alongside the
   // statement is not bureaucracy: it is the same standard the machine's
   // statements are held to, and a statement without a source cannot be checked
@@ -2772,7 +2772,7 @@
     const settled = claimed.filter(([, c]) => settledVerdict(c));
     const unconfirmed = claimed.length - settled.length;
 
-    // A statement can be re-extracted while a reviewer's judgement sits in
+    // A statement can be re-read while a reviewer's judgement sits in
     // their browser, and their verdict would then be filed against wording
     // they never read. The page is rebuilt on every deploy, so it knows: if
     // the fingerprint it holds is not the one the statement has now, the
@@ -3500,6 +3500,13 @@
            + "demonstrated. ", el("strong", {}, "For an agent"), ", it is a "
            + "queryable substrate: structured claims with provenance, which is what "
            + "a model needs to answer carefully rather than plausibly."),
+      para(el("strong", {}, "For the authors whose work is here"), ", the library owes "
+           + "something back. Your sentence is quoted, not replaced. Your hedges and "
+           + "the limits you put on a result stay beside it. What you argued is never "
+           + "filed as something you measured. A result you report from someone else "
+           + "is credited to them. Your verdict on a statement is recorded as an "
+           + "author's, and one you mark as overstated goes back to be redrafted. "
+           + "Every answer ends at your paper."),
       para(el("strong", {}, "What makes it trustworthy is the same thing that makes "
            + "it slow. "),
            "Machines find, resolve, admit and tag. Every statement here has been "
@@ -3555,8 +3562,8 @@
         ["Person", "an author, one spelling per person", "derived from bylines"],
       ]),
       docTable(["Edge", "Runs between", "Made by"], [
-        [mono("MAKES_CLAIM"), "a resource and its statements", "extraction"],
-        [mono("TAGGED_WITH"), "a statement and a concept", "extraction, checked at review"],
+        [mono("MAKES_CLAIM"), "a resource and its statements", "drafted from the paper"],
+        [mono("TAGGED_WITH"), "a statement and a concept", "drafted, checked at review"],
         [mono("ABOUT"), "a resource and a topic", "computed from its statements' concepts"],
         [mono("CITES"), "two resources we both hold", "OpenAlex and Semantic Scholar"],
         [mono("SUPPORTS"), "two statements", "a person, with reasoning"],
@@ -3595,7 +3602,7 @@
           + "is done.",
           "Tagged with the technique, never the paper's subject — that is what "
           + "makes “who found this, working that way” answerable. A method "
-          + "carrying only its paper's subject is flagged at extraction."));
+          + "carrying only its paper's subject is flagged while drafting."));
         host.append(kindCard("definition", "context", false, t.definition || 0,
           "A term the work introduces or fixes the meaning of. Before this type, "
           + "definitions were filed as methods, and a paper that defined a technique "
@@ -3607,7 +3614,7 @@
           + "contribution. Usually somebody else's result, asserted without evidence, "
           + "and it dates badly.",
           "Attribution matters more than the tag: whose result is it. Asked at "
-          + "extraction, because finding it later means rereading."));
+          + "drafting, because finding it later means rereading."));
         host.append(kindCard("gap", "open question", false, t.gap || 0,
           "A question the paper says is open — one it leaves open itself, or one it "
           + "reports the field has not answered. Where a limitation bounds this result, "
@@ -3665,7 +3672,7 @@
         + "which widen. It proposes and never admits: a search result has no vote, "
         + "so it writes a candidate file and a person decides.",
         "dispatch only"),
-      stageRow(4, "Extraction", ["machine", "a person"],
+      stageRow(4, "Reading", ["machine", "a person"],
         "Statements read out of the full text, each with a verbatim quote. Five "
         + "gates: the quote is really in the paper, the claim is about the field and "
         + "not the instrument, attribution is stated, a method is tagged with its "
@@ -3694,7 +3701,7 @@
       stageRow(8, "Review", ["a person"],
         "The scarce good, and the one thing here no machine does: is each statement "
         + "what its quote says. A verdict binds to the wording it was given, so "
-        + "re-extracting a sentence sends it back to the queue rather than carrying "
+        + "re-reading a sentence sends it back to the queue rather than carrying "
         + "somebody's name onto words they never read. An independent machine pass "
         + "can triage — it moves a doubtful statement up the queue and never marks "
         + "one reviewed.",
@@ -3707,7 +3714,7 @@
         (s.releases || []).length + " cut, latest " + ((s.releases || []).slice(-1)[0] || "—")),
       para(el("strong", {}, "Where the effort goes. "),
            "Intake, resolution, admission, filing and release run unattended. "
-           + "Extraction, tagging and linking are machine-produced and marked "
+           + "Reading, tagging and linking are machine-produced and marked "
            + "unconfirmed until somebody says otherwise. Review is irreducible. "
            + "The bottom line grows only when somebody reads something, which is "
            + "why the binding constraint has moved from “how do we find "
@@ -3773,7 +3780,7 @@
         ["Adjust", "nearly right — rewrite it in your words",
          "you retype it and press Confirm wording; the tags follow"],
         ["Remove", "the paper does not say this",
-         "records " + "not-in-source, and the extractor is the thing at fault"],
+         "records " + "not-in-source, and the drafting model is the thing at fault"],
       ]),
       para("Adjusting is faster than describing what is wrong and waiting for "
            + "somebody to fix it, which is why it is there. A draft is not a "
@@ -3808,7 +3815,7 @@
         ["Identity and citations", "OpenAlex", "the backbone: ids, citation counts, institutions"],
         ["Preprint text", "Semantic Scholar", "abstracts and references OpenAlex does not carry for preprints"],
         ["Bylines", "arXiv", "the submission itself, not an index's guess"],
-        ["Judgment", "Claude — scope scans, extraction, tagging drafts",
+        ["Judgment", "Claude — scope scans, statement and tagging drafts",
          "marked unconfirmed, never readable as a person's judgment"],
         ["Automation", "GitHub Actions", "intake, growth, filings-to-pull-requests, deploys"],
         ["This site", "one static HTML file, data injected at build",
@@ -3827,11 +3834,11 @@
         + "corpus, with nobody in the middle.",
       "A verdict now binds to the wording it was given. An id outlives the sentence under it, so "
         + "a verdict from August could silently land on a sentence written in November, and an "
-        + "adjustment's stored rewrite could overwrite a fresh extraction.",
+        + "adjustment's stored rewrite could overwrite a fresh reading.",
       "Machine-checked now sits between unreviewed and reviewed: every statement's quote has been "
         + "verified verbatim against its source, which is real and is not review.",
-      "Extraction can be checked by somebody who did not extract — a packet with the statement, "
-        + "its quote and its section, and nothing of the extractor's reasoning.",
+      "Reading can be checked by somebody who did not draft the statements — a packet with the statement, "
+        + "its quote and its section, and nothing of the drafting model's reasoning.",
       "A gap is a sixth kind of statement: a question a paper says is open. Five so far, and a "
         + "rule for telling them from background — does the paper then close it?",
       "Two papers joined the golden set: Vending-Bench, and Building the Loop read in full for "
@@ -3842,7 +3849,7 @@
 
     log.append(logEntry("September 2026", "Statements become the main character", [
       "Papers stopped being the unit. Tags moved onto statements, and a paper's categories are now computed from them.",
-      "Extraction became a process with five gates, and the first six papers were re-read under it.",
+      "Reading became a process with five gates, and the first six papers were re-read under it.",
       "The vocabulary was rebuilt bottom-up: a term is in it because a statement needed it. The taxonomy's subpoints became a suggestion pool.",
       "Citation expansion walks both directions, with a rising threshold, a model scope scan, and a hard budget — no human in the loop.",
       "The review screen became one question per statement, with add / adjust / remove, and adjustments that carry the reviewer's wording all the way into the corpus.",
@@ -3877,10 +3884,10 @@
       "Record for every record what anyone was able to read, so the shape of the problem is "
         + "visible rather than found one paper at a time.",
     ], ["planned", ""]));
-    road.append(logEntry("Then", "Extraction across the corpus", [
+    road.append(logEntry("Then", "Reading across the corpus", [
       "Run the gated process over the rest, tiered by what a paper is: argument papers repay a "
         + "deep read, benchmark papers mostly yield instrument detail the gates refuse.",
-      "Publish an extraction accuracy figure against the reviewed set.",
+      "Publish a reading accuracy figure against the reviewed set.",
     ], ["planned", ""]));
     road.append(logEntry("After that", "Problems, linking, and incentives", [
       "Cluster gaps into Question nodes — one question, asked in several papers, each "

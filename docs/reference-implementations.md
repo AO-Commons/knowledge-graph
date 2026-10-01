@@ -41,7 +41,7 @@ A design reference and a candidate component to benchmark — **not** the canoni
 
 Adopted wholesale: the **`EXTRACTED` / `INFERRED` / `AMBIGUOUS` distinction**. It is the single most important thing in the edge model. Every non-deterministic edge declares which it is and where it came from, and the schema refuses to construct one that cannot. This is the gap in the LC model, and closing it is what makes the graph checkable by someone who doubts a specific claim.
 
-Also adopted: a small extraction contract (`{nodes, edges}`), scoped queries over repeated corpus reads, incremental processing keyed on content hashes, and the advice to avoid a vector database until it demonstrably improves the workload.
+Also adopted: a small reading contract (`{nodes, edges}`), scoped queries over repeated corpus reads, incremental processing keyed on content hashes, and the advice to avoid a vector database until it demonstrably improves the workload.
 
 ## OpenAlex
 

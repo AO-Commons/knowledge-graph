@@ -14,7 +14,7 @@ claims:
   - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+  extraction_method: claude-opus-5, re-drafted from the abstract under the gated process,
     2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
     against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
     2026-10-01
@@ -33,7 +33,7 @@ claims:
   - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+  extraction_method: claude-opus-5, re-drafted from the abstract under the gated process,
     2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
     against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
     2026-10-01
@@ -54,7 +54,7 @@ claims:
   - knowledge-graph-and-ontology-construction
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-extracted from the abstract under the gated process,
+  extraction_method: claude-opus-5, re-drafted from the abstract under the gated process,
     2026-09-12 (first recorded as arXiv full text; the paper is not on arXiv); quote verified
     against the abstract. Retyped and retagged against the publisher PDF, claude-opus-5-5,
     2026-10-01
@@ -92,7 +92,7 @@ claims:
   - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -111,7 +111,7 @@ claims:
   - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -129,7 +129,7 @@ claims:
   - organizational-learning-and-memory
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -149,7 +149,7 @@ claims:
   - artificial-organizational-intelligence
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -167,7 +167,7 @@ claims:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -186,7 +186,7 @@ claims:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -206,7 +206,7 @@ claims:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-09-18; every quote verified verbatim against that text. Retyped and retagged against
     the publisher PDF, claude-opus-5-5, 2026-10-01
   review_status: machine-checked
@@ -226,7 +226,7 @@ claims:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: method
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -246,7 +246,7 @@ claims:
   - building-the-loop
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -264,7 +264,7 @@ claims:
   - oversight-theater-process-present-function-absent
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: other
@@ -287,7 +287,7 @@ claims:
   - human-in-the-loop-on-the-loop-and-out-of-the-loop
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -305,7 +305,7 @@ claims:
   - building-the-loop
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -324,7 +324,7 @@ claims:
   - research-ethics-with-autonomous-systems
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -343,7 +343,7 @@ claims:
   - research-ethics-with-autonomous-systems
   confidence_class: EXTRACTED
   extracted_from: other
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -363,7 +363,7 @@ claims:
   - knowledge-graph-and-ontology-construction
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own
@@ -381,7 +381,7 @@ claims:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5-5, extracted from the publisher PDF (13 pages, 48k characters)
+  extraction_method: claude-opus-5-5, drafted from the publisher PDF (13 pages, 48k characters)
     2026-10-01; every quote verified verbatim against that text
   review_status: machine-checked
   attribution: own

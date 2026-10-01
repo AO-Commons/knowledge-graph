@@ -12,7 +12,7 @@ body:
 
         Two kinds of filing come through here, and one issue can carry both:
 
-        - **Golden-set review** — verdicts on extracted statements. The block
+        - **Golden-set review** — verdicts on drafted statements. The block
           starts with `claims:`.
         - **Filing** — taxonomy codes on records. The block starts with `records:`.
 
