@@ -76,3 +76,21 @@ part and the reason to keep watching it.
 
 We take the names and no obligations: Apache-2.0 asks for attribution when
 its work is redistributed, and this is credit rather than redistribution.
+
+## Design principles for contribution systems
+
+Ellie Rennie and Jason Potts, *Design Principles for Contribution Systems*,
+SSRN 5190625.
+
+How [contributions](docs/contributions.md) are recorded follows four of their
+nine principles:
+
+- value travels through dependencies, so authors come first and every
+  contribution says what it builds on;
+- valuation is continuous, so use is recomputed on every build;
+- contributors can see how they are recognized, so nothing is hidden or
+  weighted;
+- machine-readable contributions keep a place for human judgment, so
+  machine work is kept apart from it.
+
+Nothing of theirs is copied. What we took is the design.
