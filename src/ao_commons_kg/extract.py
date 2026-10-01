@@ -27,6 +27,18 @@ finding: **tag a method with the technique, not with the paper's subject.**
 A method tagged with what the paper is about answers nothing that its
 findings do not already answer, and the gate below catches the common case.
 
+*A term the paper introduces is a definition, not a method.* "We introduce
+X: the capacity for ..." names something without saying how anything is
+done, and filed as a method it answers "working that way" for a paper that
+never worked that way. Tag a definition with the concept it defines; a term
+the paper coins is a new concept, and its definition is where the concept
+comes from.
+
+*A system the paper builds on is background.* When the paper describes
+infrastructure somebody else designed, even a co-author's firm, that is
+prior work and its attribution says whose. The paper's own method is what
+the authors did with it.
+
 *Background is where attribution concentrates.* It is usually somebody
 else's result, asserted without evidence and dating badly — so the OWN/OTHER
 question is asked hardest here.
@@ -261,20 +273,24 @@ def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
     legitimately tag both the same way.
 
     On the first six papers it flagged three of five method statements,
-    which is high and is mostly telling you about the papers rather than
-    about the tagging. These are conceptual works — a taxonomy of trust
-    models, a definition of dynamic evaluation, a construct called
-    Artificial Organizational Intelligence — and for a paper whose
-    contribution *is* the mechanism, subject and technique genuinely
-    coincide. An empirical paper separates them cleanly: Melting Pot's
-    method is scenario generation and its findings are about evaluation,
-    and that one came back clean.
+    which is high and was mostly telling you about the types rather than
+    the tagging. These are conceptual works — a taxonomy of trust models, a
+    definition of dynamic evaluation, a construct called Artificial
+    Organizational Intelligence — and two of the three flags were not
+    methods at all but definitions, which are tagged with what they define
+    and so trip this gate every time. That type now exists and the gate
+    does not look at it. An empirical paper separates subject and technique
+    cleanly: Melting Pot's method is scenario generation and its findings
+    are about evaluation, and that one came back clean.
 
-    So read a flag as a question rather than a defect. The one it caught
-    that was a real mistake was Knowledge Organization Infrastructure,
-    tagged with the legibility it serves rather than the schema-sharing it
-    does — invisible to "who has done this, working that way", which is the
-    query methods exist to answer.
+    So read a flag as a question rather than a defect, and ask first
+    whether the statement is a method at all. Knowledge Organization
+    Infrastructure was flagged too, and was retagged at the time to
+    `shared-schemas-for-agentic-organization-data` — the opposite of what
+    it does, since KOI joins systems *without* a shared schema. It was
+    never this paper's method. It is a system the paper builds on, which
+    makes it background, and a wrong type invites a wrong tag because the
+    tagger is answering a question the statement was never asking.
     """
     subject_tags: set[str] = set()
     for candidate in candidates:

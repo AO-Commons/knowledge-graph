@@ -1373,7 +1373,7 @@
      + "quote itself is wrong."],
   ];
 
-  // All five, because the one that was missing is the one that most needs
+  // All of them, because the one that was missing is the one that most needs
   // saying. A `background` statement fell through to the raw value with no
   // explanation, so a reviewer got less help on exactly the type where the
   // hardest question lives — background is usually somebody else's result,
@@ -1384,7 +1384,12 @@
                + "\"Agents with budget caps overspent less in our trials\" and \"agents "
                + "should have budget caps\" look alike in an abstract and answer different "
                + "questions — one is evidence, the other is advocacy."],
-    method: ["method", "A technique or mechanism the work introduces."],
+    method: ["method", "A technique or mechanism the work introduces or uses — how "
+             + "something is done. A term the work introduces is a definition."],
+    definition: ["definition", "A term the work introduces or fixes the meaning of. "
+                 + "Not a method: a method is how something is done, a definition is what "
+                 + "a word means. Not a position either: a definition stipulates rather "
+                 + "than argues, so “X is not about replacing Y” can still be one."],
     background: ["background", "An assertion about the state of the field or about prior "
                  + "work, rather than about this paper's own contribution. Usually somebody "
                  + "else's result, routinely asserted without evidence, and it dates badly — "
@@ -3325,7 +3330,7 @@
     ["for", "What it is for"],
     ["why", "Why statements, not papers"],
     ["graph", "How the graph fits together"],
-    ["types", "The six kinds of statement"],
+    ["types", "The seven kinds of statement"],
     ["pipeline", "From a paper to a statement"],
     ["admission", "How anything gets in"],
     ["review", "What a reviewer is asked"],
@@ -3569,9 +3574,9 @@
 
     // --- types -----------------------------------------------------------
     const t = s.by_type || {};
-    wrap.append(section("types", "The six kinds of statement", "and why tagging differs by kind", [
+    wrap.append(section("types", "The seven kinds of statement", "and why tagging differs by kind", [
       para("Findings and positions are what somebody came for: what has been shown, "
-           + "and what has been argued. The other three give a reader what they need "
+           + "and what has been argued. The rest give a reader what they need "
            + "to judge those. The review screen groups them that way for the same "
            + "reason."),
       (() => {
@@ -3586,10 +3591,17 @@
           + "different questions.",
           "Tagged with its subject, like a finding."));
         host.append(kindCard("method", "context", false, t.method || 0,
-          "A technique or mechanism the work introduces.",
+          "A technique or mechanism the work introduces or uses — how something "
+          + "is done.",
           "Tagged with the technique, never the paper's subject — that is what "
           + "makes “who found this, working that way” answerable. A method "
           + "carrying only its paper's subject is flagged at extraction."));
+        host.append(kindCard("definition", "context", false, t.definition || 0,
+          "A term the work introduces or fixes the meaning of. Before this type, "
+          + "definitions were filed as methods, and a paper that defined a technique "
+          + "answered “who found this, working that way” as though it had used it.",
+          "Tagged with the concept it defines, so “who coined this, and how did they "
+          + "define it” is the definitions carrying that tag."));
         host.append(kindCard("background", "context", false, t.background || 0,
           "An assertion about the field or prior work rather than this paper's own "
           + "contribution. Usually somebody else's result, asserted without evidence, "
