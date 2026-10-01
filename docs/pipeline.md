@@ -161,6 +161,26 @@ What it has to become:
 5. **A measurement.** Until reading has an accuracy number against the gold
    set, "statements are first class" is an aspiration with 40 examples.
 
+**What it is now (2026-10-01).** A brief, checks, and an audit.
+
+- **The brief.** [reading-a-paper.md](reading-a-paper.md) is what a drafting
+  model is given. Read the whole body, keep every hedge, keep shown and
+  argued apart, credit prior work, and use seven types including
+  `definition`.
+- **The checks.** The gates now report six things rather than refusing them,
+  among them a body section with no statement and a paraphrase surer than
+  its quote. `scripts/check_statements.py` runs them over what is already
+  held.
+- **The audit.** A model that did not draft the statements audits each paper
+  against its full text, using
+  [evals/machine/audit-brief.md](../evals/machine/audit-brief.md), before a
+  person reviews.
+
+The first audit, of all seven papers, is
+[evals/results/2026-10-01-statement-audit.md](../evals/results/2026-10-01-statement-audit.md).
+It found that 42 of 48 statements need a change, and that no paper's
+statements had reached its body.
+
 **The bind:** ~7 judgments per paper against 1 for filing, and admission runs
 at ~8 papers a week. Reading cannot keep pace unless it is machine-led —
 and machine-led reading is unreviewed by definition. Same shape as the
