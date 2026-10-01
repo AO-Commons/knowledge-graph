@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from ao_commons_kg.claims import load_claims  # noqa: E402
 from ao_commons_kg.models import ClaimType  # noqa: E402
 
 
@@ -49,3 +50,20 @@ class TestTheMethodGate:
              "text": "Building the loop is ..."},
         ])
 
+
+class TestACoinedTermSaysWhereItCameFrom:
+    """A concept a paper coined is joined to its coinage by a definition
+    statement carrying the tag. Without one, "who introduced this term, and
+    what did they mean by it" has no answer in the graph."""
+
+    def test_the_terms_building_the_loop_coined_are_defined(self):
+        defined = {tag for claim in load_claims()
+                   if claim.claim_type is ClaimType.DEFINITION
+                   for tag in claim.concept_tags}
+        for term in ("artificial-organizational-intelligence", "building-the-loop"):
+            assert term in defined, f"{term} has no definition statement"
+
+    def test_a_definition_carries_the_concept_it_defines(self):
+        untagged = [c.id for c in load_claims()
+                    if c.claim_type is ClaimType.DEFINITION and not c.concept_tags]
+        assert not untagged, untagged

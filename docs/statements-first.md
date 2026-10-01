@@ -78,6 +78,18 @@ at the level of the whole, and no individual sentence in it carries the frame.
 That is the thing to design around, and it is the argument against a pure
 switch.
 
+**One of the four losses was an extraction gap, and that gain was a mis-filed
+concept** (2026-10-01). Building the Loop's statements had been drawn from its
+abstract, its review of the theory of the firm and its conclusion. The methods,
+the KOI architecture and the Telescope deployment, most of the paper, carried
+none. Nearly every statement it did have was tagged with one concept, and that
+concept was filed under 2.4, graduated autonomy, which the paper does not
+discuss. Re-read against the full text, it derives 16.1 and 16.4 and both
+agree; it gains 7.1, 7.2, 4.1, 2.2, 15.3 and 11.5, and loses nothing. So 16.4
+is not a framing code that no sentence carries. A method paper states its
+method, and this one had not been read where it does. The other three losses
+stand as evidence until their papers get the same reading.
+
 ## Two kinds of statement
 
 Not all five types do the same work, and the corpus says which.

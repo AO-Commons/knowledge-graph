@@ -116,19 +116,19 @@ class TestExtractionSettlesItEarly:
         from ao_commons_kg.extract import check
 
         vocab = load_vocabulary()
-        assert "organizational-knowledge-legibility" in vocab.concepts
+        assert "artificial-organizational-intelligence" in vocab.concepts
 
         result = check(
             [{
-                "text": "Organisational knowledge legibility is what the work is after.",
+                "text": "Organisational intelligence is what the work is after.",
                 "quote": "x", "claim_type": "finding", "attribution": "own",
-                "concept_tags": ["organisational-knowledge-legibility"],
+                "concept_tags": ["artificial-organisational-intelligence"],
             }],
             vocabulary=vocab,
         )
         assert not result.new_concepts, (
             "a British spelling of an existing tag entered as a new concept")
-        assert result.kept[0]["concept_tags"] == ["organizational-knowledge-legibility"]
+        assert result.kept[0]["concept_tags"] == ["artificial-organizational-intelligence"]
         assert result.kept[0]["text"].startswith("Organizational")
 
     def test_the_quote_keeps_the_paper_s_spelling(self):

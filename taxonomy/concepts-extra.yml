@@ -137,15 +137,41 @@ concepts:
       their place for high-impact actions.
     added: "2026-09-10"
 
-  - id: organizational-knowledge-legibility
-    label: Organizational knowledge legibility
-    topics: ["16.1", "2.4"]
+  # Replaces `organizational-knowledge-legibility` (2026-09-10), which named
+  # this idea generically, sat on all but one statement of the one paper that
+  # used it, and was filed under 2.4, graduated autonomy, by mistake.
+  - id: artificial-organizational-intelligence
+    label: Artificial organizational intelligence
+    topics: ["7.1", "7.2"]
     origin: claim
     note: >-
-      Making an organization's routines, rules and tacit know-how
-      machine-readable so they can be governed. The core construct of the
-      Artificial Organizational Intelligence work.
-    added: "2026-09-10"
+      An organization's capacity to make its own knowledge (routines, rules,
+      boundaries, tacit know-how) machine-readable and governable, so that
+      one can query the organization rather than somebody who speaks for
+      it, and organizations can query each other. Coined by Rennie et al.;
+      the statements that define it are typed `definition`.
+    added: "2026-10-01"
+
+  - id: building-the-loop
+    label: Building the loop
+    topics: ["2.2", "4.1"]
+    origin: claim
+    note: >-
+      Governing AI by deciding, as a group, where and how AI systems connect
+      into an organization's existing systems and what they may see, rather
+      than by placing a human at the moment of decision. Offered by Rennie
+      et al. as the alternative to human-in-the-loop oversight.
+    added: "2026-10-01"
+
+  - id: researcher-as-system-builder
+    label: Researcher as system builder
+    topics: ["16.1", "16.4"]
+    origin: claim
+    note: >-
+      The researcher studying an organization builds part of the system
+      being studied, so observation feeds back into it. The observer inside
+      the system, as second-order cybernetics has it, made infrastructural.
+    added: "2026-10-01"
 
   - id: ex-ante-behavioral-harness
     label: Ex ante behavioral harness
