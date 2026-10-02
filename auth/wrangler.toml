@@ -1,0 +1,16 @@
+name = "aokg-auth"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+# Non-secret. SITE_ORIGIN is the single origin allowed to read a session — a
+# wildcard would let any page anywhere ask who is signed in.
+[vars]
+SITE_ORIGIN = "https://ao-commons.github.io"
+
+# Secrets, set with `wrangler secret put` and never in this file:
+#
+#   GITHUB_CLIENT_ID       from the OAuth app
+#   GITHUB_CLIENT_SECRET   from the OAuth app — the reason this Worker exists
+#   SESSION_SECRET         any long random string; signs the session cookie.
+#                          Rotating it signs everybody out, which is the
+#                          intended way to sign everybody out.
