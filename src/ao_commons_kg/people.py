@@ -60,6 +60,31 @@ def uninvert(name: str) -> str:
     return f"{given} {surname}"
 
 
+# U+2010 HYPHEN and U+2011 NON-BREAKING HYPHEN, which OpenAlex returns where
+# arXiv returns an ordinary one. Not the dashes: U+2013 and U+2014 can carry
+# meaning in a name, and folding them would merge people rather than spellings.
+TYPOGRAPHIC_HYPHENS = str.maketrans({"\u2010": "-", "\u2011": "-"})
+
+
+def normalize_hyphens(name: str) -> str:
+    """One hyphen, the ordinary one.
+
+    `fold` already treats the variants as the same person, so this changes no
+    matching — it decides which spelling is *stored*, and that is where the
+    variants did damage. `canonical` ranks by accents, then punctuation count,
+    then length, and two hyphens tie on all three, so the winner fell to
+    lexicographic order and U+2010 won by codepoint. That is backwards: a
+    typographic hyphen is a rendering of an ordinary one and carries no extra
+    information, where "Duéñez-Guzmán" genuinely carries more than
+    "Duenez-Guzman".
+
+    Twelve bylines reached the corpus this way before anything noticed, and
+    nothing did notice until arXiv supplied the ASCII spelling of one of them
+    and the same researcher appeared twice.
+    """
+    return (name or "").translate(TYPOGRAPHIC_HYPHENS)
+
+
 def fold(name: str) -> str:
     """The key two spellings of one person share.
 
@@ -164,7 +189,7 @@ def apply_index(names: list[str], index: dict[str, str]) -> list[str]:
     """
     seen, out = set(), []
     for name in names or []:
-        resolved = index.get(name, name)
+        resolved = normalize_hyphens(index.get(name, name))
         if resolved not in seen:
             seen.add(resolved)
             out.append(resolved)

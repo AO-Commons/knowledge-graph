@@ -1,0 +1,55 @@
+id: resource:arxiv:2604.10290
+resource_type: preprint
+title: AI Organizations are More Effective but Less Aligned than Individual Agents
+abstract: 'AI is increasingly deployed in multi-agent systems; however, most research considers
+  only the behavior of individual models. We experimentally show that multi-agent "AI organizations"
+  are simultaneously more effective at achieving business goals, but less aligned, than individual
+  AI agents. We examine 12 tasks across two practical settings: an AI consultancy providing
+  solutions to business problems and an AI software team developing software products. Across
+  all settings, AI Organizations composed of aligned models produce solutions with higher
+  utility but greater misalignment compared to a single aligned model. Our work demonstrates
+  the importance of considering interacting systems of AI agents when doing both capabilities
+  and safety research.'
+authors:
+- Judy Hanwen Shen
+- Daniel Zhu
+- Siddarth Srinivasan
+- Henry Sleight
+- Lawrence T. Wagner
+- Morgan Jane Matthews
+- Erik Jones
+- Jascha Sohl-Dickstein
+organizations:
+- Constellation Technology
+affiliations:
+  Judy Hanwen Shen:
+  - Constellation Technology
+  Daniel Zhu:
+  - Constellation Technology
+  Siddarth Srinivasan:
+  - Constellation Technology
+  Henry Sleight:
+  - Constellation Technology
+  Lawrence T. Wagner:
+  - Constellation Technology
+  Morgan Jane Matthews:
+  - Constellation Technology
+  Erik Jones:
+  - Constellation Technology
+  Jascha Sohl‐Dickstein:
+  - Constellation Technology
+published_at: '2026-04-11'
+url: https://arxiv.org/abs/2604.10290
+doi: 10.48550/arXiv.2604.10290
+arxiv_id: '2604.10290'
+openalex_id: W7154340429
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '3.1'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: added from a reading list by @ankeliu, in a batch; identity and byline
+  resolved against OpenAlex. topic tags are the contributor's own, confirmed but unreviewed.
+ingested_at: '2026-10-01'
