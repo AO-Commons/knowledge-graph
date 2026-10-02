@@ -52,7 +52,25 @@ class TestTheLink:
     def test_the_committed_links_load(self):
         for login, identity in load_identities().items():
             assert identity.name and login == login.lower()
-            assert identity.link_status in ("claimed", "verified")
+            assert identity.attestation in Identity.RUNGS
+
+    def test_nothing_claims_to_be_verified(self):
+        """`verified` means a proof a stranger could re-check without trusting
+        the maintainer. Nothing can produce one yet, so the rung stays empty —
+        and a link that quietly climbed into it would make the ladder
+        decorative, which is the failure it exists to prevent."""
+        for identity in load_identities().values():
+            assert identity.attestation != "verified", (
+                f"{identity.name} claims a rung nothing can reach yet")
+
+    def test_the_old_spelling_still_loads_as_a_vouch(self):
+        """`link_status: verified` meant a maintainer confirmed it. Reading it
+        as this ladder's `verified` would promote every old link to a rung
+        nothing has reached."""
+        legacy = Identity(name="X", github="x", link_status="verified",
+                          verified_by="ankeliu", verified_how="checked")
+        assert legacy.attestation == "vouched"
+        assert legacy.verified
 
 
 class TestItIsDerivedNotClaimed:
