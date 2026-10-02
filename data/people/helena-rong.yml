@@ -1,9 +1,12 @@
 name: Helena Rong
 github: helenarong2703
+github_id: 217204813
 orcid: null
-link_status: verified
-verified_by: ankeliu
-verified_how: >-
+attestation: vouched
+attested_by: ankeliu
+attested_how: >-
   Confirmed by Anke on 2026-09-18, who invited her to review: the account
-  helenarong2703 belongs to Helena Rong, an author of Inter-Agent Trust
-  Models and of Dissociative Identity.
+  helenarong2703 belongs to Helena Rong, an author of Inter-Agent Trust Models
+  and of Dissociative Identity. Recorded as `link_status: verified` until
+  2026-10-01, which overclaimed — a maintainer's word is a vouch. Nothing about
+  the link changed, only what the corpus says it is.

@@ -56,6 +56,37 @@ ABSTRACT_LIMIT = 1100
 SUGGESTIONS = 14
 
 
+def contributions_payload() -> dict:
+    """Who made the library, for the People view.
+
+    Split at the surface because the two kinds of contribution are different in
+    kind and summing them would bury the smaller one. Four people have worked
+    on the library; 1,628 wrote the papers it holds. Both are real, and a
+    single ranked list would make the second group look like the whole story
+    and the first like a rounding error.
+
+    Authors ship trimmed — a name and a count. Their full entries are 600KB and
+    the view does not read them; `data/contributions.json` is the file for
+    that, and it is committed.
+    """
+    path = REPO / "data" / "contributions.json"
+    if not path.exists():
+        return {}
+    ledger = json.loads(path.read_text(encoding="utf-8"))
+    workers = [p for p in ledger["people"] if any(k != "wrote" for k in p["counts"])]
+    authors = [p for p in ledger["people"] if list(p["counts"]) == ["wrote"]]
+    return {
+        "kinds": ledger["kinds"],
+        "counts": ledger["counts"],
+        "how_to_read": ledger["how_to_read"],
+        "workers": workers,
+        "machines": ledger["machines"],
+        "authors": sorted(
+            ({"name": a["contributor"], "wrote": a["counts"]["wrote"]} for a in authors),
+            key=lambda a: a["name"]),
+    }
+
+
 def build_payload() -> dict:
     topics = load_taxonomy(TAXONOMY)
     aliases = yaml.safe_load(ALIASES.read_text(encoding="utf-8")) if ALIASES.exists() else {}
@@ -260,6 +291,7 @@ def build_payload() -> dict:
     return {
         "generated_for": "AO Commons knowledge graph",
         "stats": stats,
+        "contributions": contributions_payload(),
         # Injected rather than copied. The page scores queries against the
         # index built here, so every one of these existing twice was a way for
         # the two to drift apart in silence.

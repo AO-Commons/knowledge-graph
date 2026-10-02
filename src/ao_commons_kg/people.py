@@ -60,6 +60,31 @@ def uninvert(name: str) -> str:
     return f"{given} {surname}"
 
 
+# U+2010 HYPHEN and U+2011 NON-BREAKING HYPHEN, which OpenAlex returns where
+# arXiv returns an ordinary one. Not the dashes: U+2013 and U+2014 can carry
+# meaning in a name, and folding them would merge people rather than spellings.
+TYPOGRAPHIC_HYPHENS = str.maketrans({"\u2010": "-", "\u2011": "-"})
+
+
+def normalize_hyphens(name: str) -> str:
+    """One hyphen, the ordinary one.
+
+    `fold` already treats the variants as the same person, so this changes no
+    matching — it decides which spelling is *stored*, and that is where the
+    variants did damage. `canonical` ranks by accents, then punctuation count,
+    then length, and two hyphens tie on all three, so the winner fell to
+    lexicographic order and U+2010 won by codepoint. That is backwards: a
+    typographic hyphen is a rendering of an ordinary one and carries no extra
+    information, where "Duéñez-Guzmán" genuinely carries more than
+    "Duenez-Guzman".
+
+    Twelve bylines reached the corpus this way before anything noticed, and
+    nothing did notice until arXiv supplied the ASCII spelling of one of them
+    and the same researcher appeared twice.
+    """
+    return (name or "").translate(TYPOGRAPHIC_HYPHENS)
+
+
 def fold(name: str) -> str:
     """The key two spellings of one person share.
 
@@ -164,7 +189,7 @@ def apply_index(names: list[str], index: dict[str, str]) -> list[str]:
     """
     seen, out = set(), []
     for name in names or []:
-        resolved = index.get(name, name)
+        resolved = normalize_hyphens(index.get(name, name))
         if resolved not in seen:
             seen.add(resolved)
             out.append(resolved)
@@ -190,20 +215,47 @@ class Identity:
 
     name: str
     github: str | None = None
+    github_id: int | None = None
     orcid: str | None = None
-    link_status: str = "claimed"
+    attestation: str | None = None
+    link_status: str | None = None   # what `attestation` used to be called
     verified_by: str | None = None
     verified_how: str | None = None
 
+    #: How strongly anybody knows this link is real. A ladder rather than a
+    #: boolean, because the previous shape said `verified` for what both links
+    #: in this repository actually are: Anke confirming on her own word that an
+    #: account belongs to a paper's author. That is a vouch. It was not wrong
+    #: about the link, only about what kind of evidence stood behind it, and
+    #: saying so cost nothing while overclaiming badly.
+    RUNGS = ("claimed", "vouched", "verified")
+
+    def __post_init__(self) -> None:
+        if self.attestation is None:
+            # `link_status: verified` meant "a named maintainer confirmed it",
+            # which is this ladder's `vouched`. Reading it as `verified` would
+            # promote every existing link to a rung nothing has reached.
+            self.attestation = {"verified": "vouched"}.get(
+                self.link_status or "", self.link_status or "claimed")
+        if self.attestation not in self.RUNGS:
+            raise ValueError(f"{self.name}: {self.attestation!r} is not one of {self.RUNGS}")
+        # A rung with nobody behind it is NOT refused here, deliberately.
+        # `verified` returns False for it already, and that is the contract the
+        # review path was built on: a hollow link does not count, rather than
+        # stopping the load of every other link in the directory.
+
     @property
     def verified(self) -> bool:
-        """A matching name is a coincidence until somebody says otherwise.
+        """Whether a named party has stood behind this link.
 
-        `claimed` is the honest default and it does not carry weight: the link
-        has to be confirmed by a named person before a verdict filed from that
-        account counts as an author's.
+        True for `vouched` as well as `verified`, and that is what this has
+        always meant: a matching name is a coincidence until somebody says
+        otherwise, and the question here is whether anybody said so. What the
+        upper rung adds is whether a stranger could re-check it without
+        trusting that somebody — which changes what the link is worth, not
+        whether it exists. Nothing has reached it.
         """
-        return self.link_status == "verified" and bool(self.verified_by)
+        return self.attestation in ("vouched", "verified") and bool(self.verified_by)
 
 
 def load_identities(directory: str | Path = IDENTITIES) -> dict[str, Identity]:
@@ -216,8 +268,16 @@ def load_identities(directory: str | Path = IDENTITIES) -> dict[str, Identity]:
         payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         if not payload.get("name"):
             raise ValueError(f"{path.name}: an identity link with no name links nothing")
-        identity = Identity(**{k: payload.get(k) for k in Identity.__dataclass_fields__
-                               if payload.get(k) is not None})
+        # `attested_by` / `attested_how` are the names the ladder uses; the
+        # older `verified_*` spellings still load, because a rename that
+        # silently dropped who vouched would be worse than the old word.
+        fields = {k: payload.get(k) for k in Identity.__dataclass_fields__
+                  if payload.get(k) is not None}
+        for new_name, old_name in (("verified_by", "attested_by"),
+                                   ("verified_how", "attested_how")):
+            if payload.get(old_name) is not None:
+                fields[new_name] = payload[old_name]
+        identity = Identity(**fields)
         if identity.github:
             found[identity.github.lower()] = identity
     return found

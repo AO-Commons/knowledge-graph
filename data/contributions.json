@@ -12,18 +12,18 @@
   "admitted": "admitted a record because the corpus cites it"
  },
  "counts": {
-  "people": 1626,
+  "people": 1632,
   "machines": 3,
-  "contributions": 2342,
+  "contributions": 2374,
   "by_kind": {
    "admitted": 161,
    "asserted-relation": 11,
-   "drafted": 88,
+   "drafted": 112,
    "proposed": 29,
    "reviewed-filing": 1,
    "reviewed-statement": 23,
    "verified-identity": 2,
-   "wrote": 2027
+   "wrote": 2035
   }
  },
  "people": [
@@ -43,7 +43,7 @@
      "source": "data/resources/arxiv-2511.03434.yml",
      "date": "2026-08-13",
      "used_by": {
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -3247,7 +3247,7 @@
      "date": "2025-02-20",
      "used_by": {
       "cited by records": 2,
-      "statements drawn from it": 8
+      "statements drawn from it": 14
      }
     }
    ]
@@ -3998,7 +3998,7 @@
      "source": "data/resources/arxiv-2511.03434.yml",
      "date": "2025-11-05",
      "used_by": {
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -4019,7 +4019,7 @@
      "source": "data/resources/arxiv-2605.30169.yml",
      "date": "2026-05-28",
      "used_by": {
-      "statements drawn from it": 9
+      "statements drawn from it": 17
      }
     }
    ]
@@ -6149,6 +6149,20 @@
    ]
   },
   {
+   "contributor": "Daniel Zhu",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
+    }
+   ]
+  },
+  {
    "contributor": "Daniela Amodei",
    "counts": {
     "wrote": 2
@@ -7896,7 +7910,7 @@
   {
    "contributor": "Erik Jones",
    "counts": {
-    "wrote": 1
+    "wrote": 2
    },
    "contributions": [
     {
@@ -7907,6 +7921,12 @@
      "used_by": {
       "cited by records": 2
      }
+    },
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
     }
    ]
   },
@@ -10168,7 +10188,7 @@
      "source": "data/resources/arxiv-2511.03434.yml",
      "date": "2025-11-05",
      "used_by": {
-      "statements drawn from it": 6
+      "statements drawn from it": 13
      }
     },
     {
@@ -10189,7 +10209,7 @@
      "source": "data/resources/arxiv-2605.30169.yml",
      "date": "2026-05-28",
      "used_by": {
-      "statements drawn from it": 9
+      "statements drawn from it": 17
      }
     }
    ]
@@ -10225,6 +10245,20 @@
      "used_by": {
       "cited by records": 3
      }
+    }
+   ]
+  },
+  {
+   "contributor": "Henry Sleight",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
     }
    ]
   },
@@ -11671,9 +11705,9 @@
    ]
   },
   {
-   "contributor": "Jascha Sohl‐Dickstein",
+   "contributor": "Jascha Sohl-Dickstein",
    "counts": {
-    "wrote": 1
+    "wrote": 2
    },
    "contributions": [
     {
@@ -11684,6 +11718,12 @@
      "used_by": {
       "cited by records": 3
      }
+    },
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
     }
    ]
   },
@@ -13047,7 +13087,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 14
+      "statements drawn from it": 17
      }
     },
     {
@@ -13623,7 +13663,7 @@
    ]
   },
   {
-   "contributor": "José Hernández‐Orallo",
+   "contributor": "José Hernández-Orallo",
    "counts": {
     "wrote": 2
    },
@@ -13643,7 +13683,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 14
+      "statements drawn from it": 17
      }
     }
    ]
@@ -13705,6 +13745,20 @@
      "used_by": {
       "cited by records": 3
      }
+    }
+   ]
+  },
+  {
+   "contributor": "Judy Hanwen Shen",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
     }
    ]
   },
@@ -15274,6 +15328,20 @@
    ]
   },
   {
+   "contributor": "Lawrence T. Wagner",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
+    }
+   ]
+  },
+  {
    "contributor": "Leander Maben",
    "counts": {
     "wrote": 1
@@ -16024,7 +16092,7 @@
    ]
   },
   {
-   "contributor": "Louis‐Philippe Morency",
+   "contributor": "Louis-Philippe Morency",
    "counts": {
     "wrote": 1
    },
@@ -16175,7 +16243,7 @@
      "date": "2025-02-20",
      "used_by": {
       "cited by records": 2,
-      "statements drawn from it": 8
+      "statements drawn from it": 14
      }
     }
    ]
@@ -16917,7 +16985,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 14
+      "statements drawn from it": 17
      }
     }
    ]
@@ -17361,7 +17429,7 @@
    ]
   },
   {
-   "contributor": "Max Kleiman‐Weiner",
+   "contributor": "Max Kleiman-Weiner",
    "counts": {
     "wrote": 1
    },
@@ -17406,7 +17474,7 @@
      "source": "data/resources/arxiv-2605.30169.yml",
      "date": "2026-05-28",
      "used_by": {
-      "statements drawn from it": 9
+      "statements drawn from it": 17
      }
     }
    ]
@@ -18109,7 +18177,7 @@
    ]
   },
   {
-   "contributor": "Michal Shur‐Ofry",
+   "contributor": "Michal Shur-Ofry",
    "counts": {
     "wrote": 1
    },
@@ -18601,6 +18669,20 @@
    ]
   },
   {
+   "contributor": "Morgan Jane Matthews",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
+    }
+   ]
+  },
+  {
    "contributor": "Moritz Hardt",
    "counts": {
     "wrote": 1
@@ -18808,7 +18890,7 @@
    ]
   },
   {
-   "contributor": "Nael Abu‐Ghazaleh",
+   "contributor": "Nael Abu-Ghazaleh",
    "counts": {
     "wrote": 1
    },
@@ -20646,6 +20728,23 @@
    ]
   },
   {
+   "contributor": "Po-Yu Huang",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2401.13649",
+     "source": "data/resources/arxiv-2401.13649.yml",
+     "date": "2024-01-24",
+     "used_by": {
+      "cited by records": 2
+     }
+    }
+   ]
+  },
+  {
    "contributor": "Pol Alvarez Vecino",
    "counts": {
     "wrote": 1
@@ -20656,23 +20755,6 @@
      "on": "resource:arxiv:2501.10388",
      "source": "data/resources/arxiv-2501.10388.yml",
      "date": "2024-12-19",
-     "used_by": {
-      "cited by records": 2
-     }
-    }
-   ]
-  },
-  {
-   "contributor": "Po‐Yu Huang",
-   "counts": {
-    "wrote": 1
-   },
-   "contributions": [
-    {
-     "kind": "wrote",
-     "on": "resource:arxiv:2401.13649",
-     "source": "data/resources/arxiv-2401.13649.yml",
-     "date": "2024-01-24",
      "used_by": {
       "cited by records": 2
      }
@@ -21147,7 +21229,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 14
+      "statements drawn from it": 17
      }
     },
     {
@@ -23994,6 +24076,20 @@
    ]
   },
   {
+   "contributor": "Siddarth Srinivasan",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2604.10290",
+     "source": "data/resources/arxiv-2604.10290.yml",
+     "date": "2026-04-11"
+    }
+   ]
+  },
+  {
    "contributor": "Sihao Huang",
    "counts": {
     "wrote": 1
@@ -24287,7 +24383,7 @@
    ]
   },
   {
-   "contributor": "Song‐Chun Zhu",
+   "contributor": "Song-Chun Zhu",
    "counts": {
     "wrote": 1
    },
@@ -24997,7 +25093,7 @@
    ]
   },
   {
-   "contributor": "Tan Zhi‐Xuan",
+   "contributor": "Tan Zhi-Xuan",
    "counts": {
     "wrote": 1
    },
@@ -29156,6 +29252,23 @@
    ]
   },
   {
+   "contributor": "Yong-Jin Liu",
+   "counts": {
+    "wrote": 1
+   },
+   "contributions": [
+    {
+     "kind": "wrote",
+     "on": "resource:arxiv:2308.10144",
+     "source": "data/resources/arxiv-2308.10144.yml",
+     "date": "2023-08-20",
+     "used_by": {
+      "cited by records": 3
+     }
+    }
+   ]
+  },
+  {
    "contributor": "Yongting Zhang",
    "counts": {
     "wrote": 1
@@ -29185,23 +29298,6 @@
      "date": "2023-09-14",
      "used_by": {
       "cited by records": 10
-     }
-    }
-   ]
-  },
-  {
-   "contributor": "Yong‐Jin Liu",
-   "counts": {
-    "wrote": 1
-   },
-   "contributions": [
-    {
-     "kind": "wrote",
-     "on": "resource:arxiv:2308.10144",
-     "source": "data/resources/arxiv-2308.10144.yml",
-     "date": "2023-08-20",
-     "used_by": {
-      "cited by records": 3
      }
     }
    ]
@@ -29503,7 +29599,7 @@
      "source": "data/resources/arxiv-2509.14485.yml",
      "date": "2025-09-17",
      "used_by": {
-      "statements drawn from it": 14
+      "statements drawn from it": 17
      }
     }
    ]
@@ -30002,7 +30098,7 @@
    ]
   },
   {
-   "contributor": "Zeb Kurth‐Nelson",
+   "contributor": "Zeb Kurth-Nelson",
    "counts": {
     "wrote": 1
    },
@@ -33138,7 +33234,7 @@
    "contributor": "claude-opus-5",
    "counts": {
     "asserted-relation": 6,
-    "drafted": 59
+    "drafted": 83
    },
    "since": "2026-09-10",
    "contributions": [
@@ -33279,6 +33375,51 @@
     },
     {
      "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:10",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:11",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:12",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:13",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:14",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
      "on": "claim:arxiv:2502.15840:2",
      "source": "data/claims/arxiv-2502.15840.yml",
      "date": "2026-09-18",
@@ -33363,6 +33504,15 @@
     },
     {
      "kind": "drafted",
+     "on": "claim:arxiv:2502.15840:9",
+     "source": "data/claims/arxiv-2502.15840.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2502.15840"
+     ]
+    },
+    {
+     "kind": "drafted",
      "on": "claim:arxiv:2509.14485:1",
      "source": "data/claims/arxiv-2509.14485.yml",
      "date": "2026-09-12",
@@ -33381,6 +33531,33 @@
      "used_by": {
       "relations": 1
      }
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:20",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:21",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2509.14485:22",
+     "source": "data/claims/arxiv-2509.14485.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2509.14485"
+     ]
     },
     {
      "kind": "drafted",
@@ -33447,6 +33624,42 @@
     },
     {
      "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:10",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:11",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:12",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:13",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
      "on": "claim:arxiv:2511.03434:2",
      "source": "data/claims/arxiv-2511.03434.yml",
      "date": "2026-09-12",
@@ -33510,6 +33723,33 @@
     },
     {
      "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:7",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:8",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2511.03434:9",
+     "source": "data/claims/arxiv-2511.03434.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2511.03434"
+     ]
+    },
+    {
+     "kind": "drafted",
      "on": "claim:arxiv:2605.30169:1",
      "source": "data/claims/arxiv-2605.30169.yml",
      "date": "2026-09-12",
@@ -33520,6 +33760,78 @@
       "relations": 2,
       "verdicts": 1
      }
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:10",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:11",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:12",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:13",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:14",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:15",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:16",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
+    },
+    {
+     "kind": "drafted",
+     "on": "claim:arxiv:2605.30169:17",
+     "source": "data/claims/arxiv-2605.30169.yml",
+     "date": "2026-10-01",
+     "builds_on": [
+      "resource:arxiv:2605.30169"
+     ]
     },
     {
      "kind": "drafted",

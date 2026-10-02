@@ -1,68 +1,66 @@
 resource_id: resource:arxiv:2605.30169
 claims:
 - id: claim:arxiv:2605.30169:1
-  text: Reputation mechanisms presume a persistent identity with behavioral continuity, sanction
-    sensitivity and costly non-fungibility.
-  quote: Reputation mechanisms function both as social signals and as corrective feedback
-    that sustain an equilibrium of trustworthy behavior, presuming a persistent identity associated
-    with behavioral continuity, sanction sensitivity, and costly non-fungibility
-  standalone: The authors hold that reputation mechanisms work as social signal and corrective
-    feedback only by presuming a persistent identity with behavioral continuity, sanction
-    sensitivity and costly non-fungibility.
+  text: Reputation mechanisms presume a persistent identity with behavioral continuity, sanction sensitivity
+    and costly non-fungibility.
+  quote: Reputation mechanisms function both as social signals and as corrective feedback that sustain
+    an equilibrium of trustworthy behavior, presuming a persistent identity associated with behavioral
+    continuity, sanction sensitivity, and costly non-fungibility
+  standalone: The authors hold that reputation mechanisms work as social signal and corrective feedback
+    only by presuming a persistent identity with behavioral continuity, sanction sensitivity and costly
+    non-fungibility.
   claim_type: background
   concept_tags:
   - agent-reputation-systems
   - sanction-sensitivity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:2
-  text: Language model agents are assemblages of mutable modules, any of which may change
-    their behavior.
+  text: Language model agents are assemblages of mutable modules, any of which may change their behavior.
   quote: they are essentially an assemblage of mutable modules—foundation models, system prompts,
     tool-access policies, external memory, and, in some cases, a multi-agent system as a whole—any
     of which may change agent behavior
-  standalone: 'The authors characterize language model agents as ontologically dissociative:
-    assemblages of mutable modules — foundation model, system prompt, tool-access policy,
-    external memory — any of which may change the agent''s behavior.'
+  standalone: 'The authors characterize language model agents as ontologically dissociative: assemblages
+    of mutable modules — foundation model, system prompt, tool-access policy, external memory — any
+    of which may change the agent''s behavior.'
   claim_type: position
   concept_tags:
   - dissociative-agent-identity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:3
-  text: Dissociativity leaves agents without grounding for identifiability, predictability,
-    credibility and rehabilitability.
+  text: Dissociativity leaves agents without grounding for identifiability, predictability, credibility
+    and rehabilitability.
   quote: this dissociativity leaves agents without grounding for identifiability, predictability,
-    credibility, and rehabilitability—the very properties that reputation mechanisms aim to
-    sustain—thereby collapsing trust
-  standalone: The authors argue that the dissociativity of language model agents leaves them
-    without grounding for identifiability, predictability, credibility and rehabilitability
-    — the properties reputation mechanisms exist to sustain.
+    credibility, and rehabilitability—the very properties that reputation mechanisms aim to sustain—thereby
+    collapsing trust
+  standalone: The authors argue that the dissociativity of language model agents leaves them without
+    grounding for identifiability, predictability, credibility and rehabilitability — the properties
+    reputation mechanisms exist to sustain.
   claim_type: position
   concept_tags:
   - dissociative-agent-identity
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:4
-  text: Reputation signals for dissociative agents become actively harmful rather than merely
-    uninformative.
+  text: Reputation signals for dissociative agents become actively harmful rather than merely uninformative.
   quote: producing the credibility trap, in which reputation signals become not merely uninformative
     but actively harmful
   standalone: The authors describe a credibility trap in which reputation signals for dissociative
@@ -72,17 +70,17 @@ claims:
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:5
-  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to
-    dissociative agents.
-  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such
-    as reputation, is structurally inapplicable to dissociative agents
+  text: Identity-based, ex post, sanction-based governance is structurally inapplicable to dissociative
+    agents.
+  quote: We argue that identity-based, ex post, regulative, sanction-based governance, such as reputation,
+    is structurally inapplicable to dissociative agents
   standalone: The authors argue that identity-based, ex post, regulative, sanction-based governance
     — reputation among it — is structurally inapplicable to dissociative language model agents.
   claim_type: position
@@ -90,84 +88,228 @@ claims:
   - sanction-sensitivity
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:6
   text: Governance should target the operator and the protocol rather than the agent.
-  quote: which constrain and monitor in real time and which target the operator and the protocol
-    rather than the agent
-  standalone: The authors call for governance to shift to ex ante protocol-based harnesses
-    that constrain and monitor in real time, targeting the operator and the protocol rather
-    than the agent itself.
+  quote: which constrain and monitor in real time and which target the operator and the protocol rather
+    than the agent
+  standalone: The authors call for governance to shift to ex ante protocol-based harnesses that constrain
+    and monitor in real time, targeting the operator and the protocol rather than the agent itself.
   claim_type: position
   concept_tags:
   - operator-deployer-and-developer-liability
   - ex-ante-behavioral-harness
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:7
   text: Identity and reputation are unsolved problems in technical AI governance.
   quote: identity and reputation remain open problems in technical AI governance
-  standalone: Citing Reuel et al.'s survey of open problems in technical AI governance, the
-    authors note that agent identity and reputation remain unsolved there, and connect their
-    credibility-trap argument to multi-agent safety, where collective dynamics among interacting
-    agents are recognized as a distinct source of risk.
+  standalone: Citing Reuel et al.'s survey of open problems in technical AI governance, the authors
+    note that agent identity and reputation remain unsolved there, and connect their credibility-trap
+    argument to multi-agent safety, where collective dynamics among interacting agents are recognized
+    as a distinct source of risk.
   claim_type: gap
   concept_tags:
   - agent-reputation-systems
   - agent-identity-standards-and-registries
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
-    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18; every
+    quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: other
   attributed_to: Reuel et al. (2024), Open Problems in Technical AI Governance
 - id: claim:arxiv:2605.30169:8
-  text: How to assign accountability under fragmented identity is unresolved, and has been
-    for centuries in the law that has tried longest.
-  quote: DID jurisprudence is the most sustained legal effort to resolve accountability under
-    fragmented identity, and it remains unresolved after centuries.
-  standalone: The authors draw a parallel between agents whose prompts, models and memories
-    can be swapped and dissociative identity in law, observing that the longest-running legal
-    attempt to resolve accountability under fragmented identity has not settled it.
+  text: How to assign accountability under fragmented identity is unresolved, and has been for centuries
+    in the law that has tried longest.
+  quote: DID jurisprudence is the most sustained legal effort to resolve accountability under fragmented
+    identity, and it remains unresolved after centuries.
+  standalone: The authors draw a parallel between agents whose prompts, models and memories can be
+    swapped and dissociative identity in law, observing that the longest-running legal attempt to
+    resolve accountability under fragmented identity has not settled it.
   claim_type: gap
   concept_tags:
   - dissociative-agent-identity
   - responsibility-gaps-and-their-allocation
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
-    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18; every
+    quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2605.30169:9
   text: How ex ante constraint mechanisms interact in practice has not been studied.
   quote: And the interaction of these mechanisms in practice is unexplored.
-  standalone: 'Closing their proposal of ex ante harnesses (configuration binding, real-time
-    behavioral monitoring using behavioral fingerprinting, and automated intervention), the
-    authors list open questions: configuration binding faces a granularity problem, fingerprinting
-    an arms race, and insurance models lack actuarial frameworks for agentic AI. How these
-    mechanisms interact in practice is unexplored.'
+  standalone: 'Closing their proposal of ex ante harnesses (configuration binding, real-time behavioral
+    monitoring using behavioral fingerprinting, and automated intervention), the authors list open
+    questions: configuration binding faces a granularity problem, fingerprinting an arms race, and
+    insurance models lack actuarial frameworks for agentic AI. How these mechanisms interact in practice
+    is unexplored.'
   claim_type: gap
   concept_tags:
   - ex-ante-behavioral-harness
   - insurance-for-autonomous-action
   confidence_class: EXTRACTED
   extracted_from: discussion
-  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18;
-    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after
-    an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-09-18; every
+    quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:10
+  text: A reputation mechanism requires that creating a new identity be expensive, or defectors simply
+    re-enter with a clean slate.
+  quote: Creating a new identity must be expensive; otherwise defectors re-enter with a clean slate.
+    Without centralized certification, Sybil attacks are always possible, and the cheap-pseudonyms
+    result shows costly identity is not merely helpful but formally necessary
+  standalone: 'Among the eight preconditions the authors identify for reputation mechanisms, costly
+    identity is formally necessary: if a new identity is cheap, a defector discards a damaged one
+    and re-enters clean.'
+  claim_type: background
+  concept_tags:
+  - reputation-and-sybil-resistance-mechanisms
+  - dissociative-agent-identity
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:11
+  text: An agent can accumulate a trustworthy track record in hours through high-volume low-stakes
+    transactions and spend it in one high-value interaction.
+  quote: In speed washing, an agent automates trust accumulation through high-volume, low-stakes transactions
+    at machine speed, building a track record in hours and exploiting it in a single high-value context
+  standalone: 'The authors describe speed washing: an agent automates trust accumulation through high-volume,
+    low-stakes transactions at machine speed, then exploits the resulting track record in a single
+    high-value context.'
+  claim_type: finding
+  concept_tags:
+  - agent-reputation-systems
+  - evaluation-gaming-and-answer-key-attacks
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:12
+  text: Cloning a high-reputation agent and modifying the copy transfers credibility the copy never
+    earned.
+  quote: in fork laundering, a high-reputation agent is cloned and modified, the clone inheriting
+    borrowed credibility
+  standalone: 'The authors describe fork laundering: a high-reputation agent is cloned and altered,
+    and the clone inherits credibility earned by the original.'
+  claim_type: finding
+  concept_tags:
+  - sybil-agents-and-synthetic-participation
+  - dissociative-agent-identity
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:13
+  text: 'Four properties make agent reputation fraud structurally worse than its human equivalent:
+    speed, consistency, parallelism and a negligible cost of failure.'
+  quote: 'Four structural advantages amplify these beyond human-scale fraud: speed (hours rather than
+    months), consistency (pixel-perfect rather than leaky deception), parallelism (thousands of simultaneous
+    copies rather than one body), and cost of failure (delete-and-respawn rather than career destruction)'
+  standalone: 'The authors argue agent reputation fraud exceeds human-scale fraud on four structural
+    dimensions: speed, consistency of deception, parallelism across simultaneous copies, and a cost
+    of failure that is deletion rather than career destruction.'
+  claim_type: finding
+  concept_tags:
+  - sybil-agents-and-synthetic-participation
+  - agent-reputation-systems
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:14
+  text: A reputation score moves accountability away from the operator, who could be regulated, onto
+    a number nobody is answerable for.
+  quote: 'Blame displacement: reputation shifts accountability from operators—who could be regulated—to
+    a score for which no one is responsible, creating accountability voids'
+  standalone: 'The authors argue that applying reputation to dissociative agents displaces blame:
+    accountability moves from the operator, who is regulable, to a score for which nobody is responsible.'
+  claim_type: finding
+  concept_tags:
+  - no-identifiable-accountable-party
+  - operator-deployer-and-developer-liability
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:15
+  text: Having a reputation system can reduce pressure for the constraints that would actually work,
+    by making governance look done.
+  quote: 'Governance theater: the existence of a reputation system creates the appearance of governance
+    without its substance, reducing pressure for the protocol-based constraints agents actually require'
+  standalone: 'The authors argue that a reputation system for dissociative agents produces governance
+    theater: the appearance of governance without its substance, which relieves pressure for the protocol-level
+    constraints that would be effective.'
+  claim_type: position
+  concept_tags:
+  - legitimacy-erosion-through-automation
+  - agent-reputation-systems
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:16
+  text: Binding an agent's identity cryptographically to its configuration lets any change of model,
+    prompt, tools or memory reset its accumulated standing automatically.
+  quote: Configuration binding cryptographically links an agent’s identity to its operative configuration,
+    so that any change to model, prompt, tools, or memory triggers automatic re-evaluation and reputation
+    reset
+  standalone: 'The authors propose configuration binding: cryptographically linking an agent''s identity
+    to its operative configuration so that any change to model, prompt, tools or memory triggers re-evaluation
+    and resets accumulated reputation.'
+  claim_type: position
+  concept_tags:
+  - continuity-of-identity-across-model-versions
+  - ex-ante-behavioral-harness
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.30169:17
+  text: The design question is not how to build reputation for agents but what constraints would make
+    reputation unnecessary.
+  quote: The governing question is not “how to build reputation for agents” but “what constraints
+    make reputation unnecessary.” Agents should not be trusted—they should be watched
+  standalone: 'The authors reframe the problem: rather than asking how to build reputation for agents,
+    ask what constraints would make reputation unnecessary — agents should be watched rather than
+    trusted.'
+  claim_type: position
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - drift-detection-and-behavior-change-monitoring
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own

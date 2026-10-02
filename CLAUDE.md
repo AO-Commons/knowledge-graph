@@ -65,6 +65,15 @@ Every non-deterministic edge records how it was made. `CITES` from scholarly met
 
 If you cannot say where an edge came from, do not add the edge.
 
+**Three intake shapes, not two.** A paper with a scholarly identifier, a tool,
+and a written work with neither — a lab write-up, a research blog post, an open
+proceedings page. The third reads its own text at intake and commits a
+snapshot, because a web page can change or vanish and a quote that cannot be
+re-checked is worthless. Such a record has no references and no citations, so
+it can never be admitted by expansion and can never help admit anything else:
+prefer the paper whenever the page names one. See
+[docs/web-sources.md](docs/web-sources.md).
+
 ## Machines admit, humans judge
 
 The corpus grows from its own citations without a person promoting each

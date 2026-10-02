@@ -189,3 +189,33 @@ class TestUninvert:
         offenders = [(r.id, a) for r in load_resources()
                      for a in (r.authors or []) if "," in a]
         assert not offenders, offenders
+class TestTypographicHyphens:
+    """OpenAlex returns U+2010 where arXiv returns an ordinary hyphen. Twelve
+    bylines held one before anything noticed, and nothing did until arXiv
+    supplied the ASCII spelling of one of them and a researcher appeared twice.
+    """
+
+    def test_a_typographic_hyphen_is_stored_as_an_ordinary_one(self):
+        from ao_commons_kg.people import normalize_hyphens
+        assert normalize_hyphens("Jascha Sohl‐Dickstein") == "Jascha Sohl-Dickstein"
+        assert normalize_hyphens("Jascha Sohl‑Dickstein") == "Jascha Sohl-Dickstein"
+
+    def test_dashes_are_left_alone(self):
+        """U+2013 and U+2014 can carry meaning in a name; folding them would
+        merge people rather than spellings."""
+        from ao_commons_kg.people import normalize_hyphens
+        assert normalize_hyphens("Smith–Jones") == "Smith–Jones"
+
+    def test_ingestion_normalizes_without_being_asked(self):
+        """The index only rewrites spellings it has seen twice, so a first
+        sighting of a variant would otherwise be stored as it arrived."""
+        from ao_commons_kg.people import apply_index
+        assert apply_index(["Jascha Sohl‐Dickstein"], {}) == ["Jascha Sohl-Dickstein"]
+
+    def test_the_corpus_holds_no_typographic_hyphens(self):
+        from ao_commons_kg.resources import load_resources
+
+        for resource in load_resources():
+            for author in resource.authors or []:
+                assert "\u2010" not in author and "\u2011" not in author, \
+                    f"{resource.id}: {author!r}"

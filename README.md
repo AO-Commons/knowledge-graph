@@ -261,6 +261,8 @@ The schema refuses to let these blur: labeling a citation with a confidence clas
 | [data/releases/](data/releases/) | Published graph releases |
 | [tests/](tests/) | Run with `pytest` |
 | [evals/](evals/) | Research questions and results for benchmarking against baselines |
+| [data/snapshots/](data/snapshots/) | Committed text of web sources, so a quote stays checkable |
+| [auth/](auth/) | GitHub sign-in, written and not switched on — [docs/sign-in.md](docs/sign-in.md) |
 | [docs/](docs/) | Data model and architecture notes |
 
 ## Contributing

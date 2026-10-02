@@ -35,6 +35,8 @@ import yaml
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
+from ao_commons_kg import article  # noqa: E402
+from ao_commons_kg.fulltext import FullTextError  # noqa: E402
 from ao_commons_kg.models import Resource  # noqa: E402
 from ao_commons_kg.people import apply_index, build_index, same_person  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
@@ -538,6 +540,91 @@ def thing_record(ident: dict, fields: dict, *, topics: list[str], author: str,
     return payload, gaps
 
 
+# A companion paper, if the page names one. Preferring the paper is not a
+# style preference: a DOI or arXiv id gives the record references, citations
+# and a byline, and a web page gives none of those.
+COMPANION = re.compile(
+    r'(?:arxiv\.org/abs/(\d{4}\.\d{4,5})|doi\.org/(10\.\d{4,9}/[^\s"<),]+))', re.I)
+
+
+def _looks_like_a_tool(ident: dict, fields: dict) -> bool:
+    """Whether this link is software rather than something written.
+
+    Decided on what the contributor filled in and on where the link points,
+    never on reading the page: a tool's landing page is prose too, and a
+    heuristic over its wording would misfile the awkward cases silently. The
+    tool form asks questions that make no sense about an essay — how agents
+    participate, what oversight it ships — so answering any of them is the
+    signal, and a code host is the other.
+    """
+    url = (ident.get("url") or "").lower()
+    if any(host in url for host in ("github.com", "gitlab.com", "huggingface.co")):
+        return True
+    return any(fields.get(key) for key in ("agents", "controls", "maintainer", "license"))
+
+
+def written_work_record(ident: dict, fields: dict, *, topics: list[str], author: str,
+                        issue: int, read=article.read) -> tuple[dict, list[str]]:
+    """Build the record for a written work with no scholarly identifier.
+
+    A lab write-up, a research blog post, an open proceedings page. The text is
+    read at intake rather than described by hand, because a contributor asked
+    to summarize a post they have read is being asked to do the work twice, and
+    because an extraction later needs the text anyway.
+
+    Reading it here has a second effect worth stating: the snapshot is written
+    now, so the quote an extraction takes next month is checked against the
+    page as it was on the day it entered, not as it stands when somebody
+    happens to look.
+    """
+    url = ident["url"]
+    try:
+        piece = read(url)
+    except FullTextError as error:
+        raise ProposalError(
+            f"{url} could not be read as an article: {error}. If it is a tool "
+            "or a platform rather than something written, describe it with the "
+            "Add tab's tool fields instead."
+        ) from error
+
+    title = fields.get("title") or fields.get("name") or piece.title
+    if not title:
+        raise ProposalError(
+            f"{url} has no title, in the page or in the issue. Give one — a "
+            "record nobody can name is a record nobody will find."
+        )
+
+    gaps = []
+    if found := COMPANION.search(piece.text):
+        identifier = found.group(1) or found.group(2)
+        gaps.append(
+            f"the page names a companion paper ({identifier}); prefer that record "
+            "if it covers the same work, because it carries references and citations "
+            "and this does not"
+        )
+    if not fields.get("why"):
+        gaps.append("no reason given for why it belongs")
+
+    resource_id = f"resource:web:{_slug(title)}"
+    lead = piece.sections[0].text if piece.sections else ""
+    payload = {
+        "id": resource_id,
+        "resource_type": "written-work",
+        "title": title,
+        "abstract": " ".join(lead.split())[:1200] or None,
+        "url": url,
+        "taxonomy_topics": topics,
+        "facets": {"artifact_type": "written-work"},
+        "review_status": "unreviewed",
+        "text_coverage": "full-text",
+        "source_provenance": provenance(author, issue, resolved=False, topics=topics),
+        "ingested_at": date.today().isoformat(),
+    }
+    article.save(piece, resource_id)
+    return payload, gaps
+
+
+
 def provenance(author: str, issue: int, *, resolved: bool, topics: list[str],
                described: bool = False) -> str:
     """Say where the record came from and how far to trust each part of it.
@@ -651,8 +738,11 @@ def process(body: str, *, author: str, issue: int, resources: list, known_topics
             fetch_openalex=fetch_openalex, fetch_s2=fetch_s2, fetch_arxiv=fetch_arxiv,
             known_names=known_names,
         )
-    else:
+    elif _looks_like_a_tool(ident, fields):
         payload, gaps = thing_record(ident, fields, topics=topics, author=author, issue=issue)
+    else:
+        payload, gaps = written_work_record(
+            ident, fields, topics=topics, author=author, issue=issue)
 
     if any(r.id == payload["id"] for r in resources):
         return (

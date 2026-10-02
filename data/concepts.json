@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from statements. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a statement uses one.",
   "counts": {
-    "vocabulary": 49,
+    "vocabulary": 62,
     "vocabulary_from_claims": 13,
-    "vocabulary_from_taxonomy": 36,
-    "on_exactly_one_statement": 21,
-    "suggestions_available": 478
+    "vocabulary_from_taxonomy": 49,
+    "on_exactly_one_statement": 24,
+    "suggestions_available": 465
   },
   "looks_like_one_idea": [
     {
@@ -58,8 +58,9 @@
         "6.3"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 2,
       "claims": [
+        "claim:arxiv:2511.03434:7",
         "claim:arxiv:2605.30169:7"
       ]
     },
@@ -70,11 +71,15 @@
         "5.3"
       ],
       "origin": "taxonomy",
-      "statements": 6,
+      "statements": 10,
       "claims": [
         "claim:arxiv:2511.03434:3",
         "claim:arxiv:2511.03434:4",
+        "claim:arxiv:2511.03434:9",
         "claim:arxiv:2605.30169:1",
+        "claim:arxiv:2605.30169:11",
+        "claim:arxiv:2605.30169:13",
+        "claim:arxiv:2605.30169:15",
         "claim:arxiv:2605.30169:3",
         "claim:arxiv:2605.30169:4",
         "claim:arxiv:2605.30169:7"
@@ -132,12 +137,13 @@
         "14.1"
       ],
       "origin": "claim",
-      "statements": 7,
+      "statements": 8,
       "claims": [
         "claim:arxiv:2107.06857:18",
         "claim:arxiv:2509.14485:1",
         "claim:arxiv:2509.14485:13",
         "claim:arxiv:2509.14485:14",
+        "claim:arxiv:2509.14485:20",
         "claim:arxiv:2509.14485:5",
         "claim:arxiv:2509.14485:6",
         "claim:arxiv:2509.14485:7"
@@ -154,6 +160,18 @@
       "statements": 1,
       "claims": [
         "claim:arxiv:2606.03237:9"
+      ]
+    },
+    {
+      "id": "continuity-of-identity-across-model-versions",
+      "label": "Continuity of identity across model versions",
+      "topics": [
+        "6.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:16"
       ]
     },
     {
@@ -177,13 +195,27 @@
         "6.3"
       ],
       "origin": "claim",
-      "statements": 3,
+      "statements": 5,
       "claims": [
+        "claim:arxiv:2605.30169:10",
+        "claim:arxiv:2605.30169:12",
         "claim:arxiv:2605.30169:2",
         "claim:arxiv:2605.30169:3",
         "claim:arxiv:2605.30169:8"
       ],
       "note": "An LLM agent is an assemblage of swappable modules, so the persistent identity reputation presumes may not exist. 5.3 covers reputation systems and 6.1 covers identity issuance; neither names the case where identity fails to persist at all."
+    },
+    {
+      "id": "drift-detection-and-behavior-change-monitoring",
+      "label": "Drift detection and behavior change monitoring",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:17"
+      ]
     },
     {
       "id": "dynamic-evaluation",
@@ -237,12 +269,15 @@
         "15.6"
       ],
       "origin": "taxonomy",
-      "statements": 4,
+      "statements": 7,
       "claims": [
         "claim:arxiv:2107.06857:1",
         "claim:arxiv:2107.06857:5",
+        "claim:arxiv:2502.15840:11",
         "claim:arxiv:2502.15840:6",
-        "claim:arxiv:2509.14485:18"
+        "claim:arxiv:2509.14485:18",
+        "claim:arxiv:2509.14485:21",
+        "claim:arxiv:2509.14485:22"
       ]
     },
     {
@@ -252,13 +287,14 @@
         "14.3"
       ],
       "origin": "taxonomy",
-      "statements": 5,
+      "statements": 6,
       "claims": [
         "claim:arxiv:2509.14485:16",
         "claim:arxiv:2509.14485:17",
         "claim:arxiv:2509.14485:19",
         "claim:arxiv:2509.14485:3",
-        "claim:arxiv:2509.14485:4"
+        "claim:arxiv:2509.14485:4",
+        "claim:arxiv:2605.30169:11"
       ]
     },
     {
@@ -269,8 +305,10 @@
         "4.1"
       ],
       "origin": "claim",
-      "statements": 2,
+      "statements": 4,
       "claims": [
+        "claim:arxiv:2605.30169:16",
+        "claim:arxiv:2605.30169:17",
         "claim:arxiv:2605.30169:6",
         "claim:arxiv:2605.30169:9"
       ],
@@ -381,14 +419,27 @@
       ]
     },
     {
+      "id": "least-privilege-for-agent-principals",
+      "label": "Least privilege for agent principals",
+      "topics": [
+        "2.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:12"
+      ]
+    },
+    {
       "id": "legitimacy-erosion-through-automation",
       "label": "Legitimacy erosion through automation",
       "topics": [
         "1.3"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 2,
       "claims": [
+        "claim:arxiv:2605.30169:15",
         "claim:arxiv:2606.03237:9"
       ]
     },
@@ -399,9 +450,11 @@
         "14.1"
       ],
       "origin": "taxonomy",
-      "statements": 3,
+      "statements": 5,
       "claims": [
         "claim:arxiv:2502.15840:1",
+        "claim:arxiv:2502.15840:11",
+        "claim:arxiv:2502.15840:14",
         "claim:arxiv:2502.15840:6",
         "claim:arxiv:2502.15840:7"
       ]
@@ -425,10 +478,23 @@
         "7.1"
       ],
       "origin": "taxonomy",
-      "statements": 2,
+      "statements": 3,
       "claims": [
+        "claim:arxiv:2502.15840:13",
         "claim:arxiv:2502.15840:3",
         "claim:arxiv:2502.15840:4"
+      ]
+    },
+    {
+      "id": "no-identifiable-accountable-party",
+      "label": "No identifiable accountable party",
+      "topics": [
+        "11.12"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:14"
       ]
     },
     {
@@ -438,8 +504,10 @@
         "12.2"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 3,
       "claims": [
+        "claim:arxiv:2511.03434:11",
+        "claim:arxiv:2605.30169:14",
         "claim:arxiv:2605.30169:6"
       ]
     },
@@ -458,6 +526,19 @@
       ]
     },
     {
+      "id": "oversight-capacity-as-the-binding-constraint",
+      "label": "Oversight capacity as the binding constraint",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2502.15840:10",
+        "claim:arxiv:2511.03434:12"
+      ]
+    },
+    {
       "id": "oversight-theater-process-present-function-absent",
       "label": "Oversight theater -- process present, function absent",
       "topics": [
@@ -467,6 +548,19 @@
       "statements": 1,
       "claims": [
         "claim:doi:10-1111-epic-70009:14"
+      ]
+    },
+    {
+      "id": "performance-measurement-for-agents",
+      "label": "Performance measurement for agents",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2509.14485:21",
+        "claim:arxiv:2509.14485:22"
       ]
     },
     {
@@ -494,6 +588,18 @@
       ]
     },
     {
+      "id": "proof-of-authorized-execution",
+      "label": "Proof of authorized execution",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:11"
+      ]
+    },
+    {
       "id": "prosocial-capability",
       "label": "Prosocial capability",
       "topics": [
@@ -501,7 +607,7 @@
         "14.1"
       ],
       "origin": "claim",
-      "statements": 8,
+      "statements": 9,
       "claims": [
         "claim:arxiv:2107.06857:16",
         "claim:arxiv:2107.06857:20",
@@ -509,6 +615,7 @@
         "claim:arxiv:2509.14485:15",
         "claim:arxiv:2509.14485:17",
         "claim:arxiv:2509.14485:2",
+        "claim:arxiv:2509.14485:20",
         "claim:arxiv:2509.14485:3",
         "claim:arxiv:2509.14485:6"
       ],
@@ -534,11 +641,24 @@
         "14.1"
       ],
       "origin": "taxonomy",
-      "statements": 3,
+      "statements": 4,
       "claims": [
         "claim:arxiv:2502.15840:1",
+        "claim:arxiv:2502.15840:12",
         "claim:arxiv:2502.15840:5",
         "claim:arxiv:2502.15840:8"
+      ]
+    },
+    {
+      "id": "reputation-and-sybil-resistance-mechanisms",
+      "label": "Reputation and sybil resistance mechanisms",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2605.30169:10"
       ]
     },
     {
@@ -626,6 +746,19 @@
       "note": "Whether a principal can be made worse off by a penalty. A precondition for every ex post governance mechanism, and the thing that is missing when the agent is cheap to replace."
     },
     {
+      "id": "silent-failure-detection",
+      "label": "Silent failure detection",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2502.15840:10",
+        "claim:arxiv:2502.15840:9"
+      ]
+    },
+    {
       "id": "skill-atrophy-under-automation",
       "label": "Skill atrophy under automation",
       "topics": [
@@ -638,14 +771,28 @@
       ]
     },
     {
+      "id": "slow-onset-degradation",
+      "label": "Slow-onset degradation",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2502.15840:9"
+      ]
+    },
+    {
       "id": "sources-of-legitimate-machine-authority",
       "label": "Sources of legitimate machine authority",
       "topics": [
         "1.3"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 3,
       "claims": [
+        "claim:arxiv:2511.03434:13",
+        "claim:arxiv:2511.03434:8",
         "claim:arxiv:2606.03237:8"
       ]
     },
@@ -662,6 +809,19 @@
         "claim:arxiv:2511.03434:5"
       ],
       "note": "Trust backed by something forfeitable. Sits alongside the reputation systems already at 5.3 and is the mechanism 2511.03434 recommends in their place for high-impact actions."
+    },
+    {
+      "id": "sybil-agents-and-synthetic-participation",
+      "label": "Sybil agents and synthetic participation",
+      "topics": [
+        "10.4"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2605.30169:12",
+        "claim:arxiv:2605.30169:13"
+      ]
     },
     {
       "id": "tool-and-api-failures-mishandled-by-agents",
@@ -698,9 +858,12 @@
         "5.3"
       ],
       "origin": "taxonomy",
-      "statements": 1,
+      "statements": 4,
       "claims": [
-        "claim:arxiv:2511.03434:1"
+        "claim:arxiv:2511.03434:1",
+        "claim:arxiv:2511.03434:10",
+        "claim:arxiv:2511.03434:13",
+        "claim:arxiv:2511.03434:7"
       ]
     },
     {
@@ -714,6 +877,31 @@
       "claims": [
         "claim:arxiv:2606.03237:10",
         "claim:arxiv:2606.03237:15"
+      ]
+    },
+    {
+      "id": "verifiable-computation-and-proof-of-inference",
+      "label": "Verifiable computation and proof of inference",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "statements": 1,
+      "claims": [
+        "claim:arxiv:2511.03434:8"
+      ]
+    },
+    {
+      "id": "verification-of-agent-claims-by-other-agents",
+      "label": "Verification of agent claims by other agents",
+      "topics": [
+        "5.3"
+      ],
+      "origin": "taxonomy",
+      "statements": 2,
+      "claims": [
+        "claim:arxiv:2511.03434:10",
+        "claim:arxiv:2511.03434:9"
       ]
     },
     {
@@ -1757,15 +1945,6 @@
       "statements": 0
     },
     {
-      "id": "continuity-of-identity-across-model-versions",
-      "label": "Continuity of identity across model versions",
-      "topics": [
-        "6.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "continuity-when-agents-are-the-operational-capacity",
       "label": "Continuity when agents are the operational capacity",
       "topics": [
@@ -2202,15 +2381,6 @@
       "label": "Domain restrictions and scope fencing",
       "topics": [
         "2.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "drift-detection-and-behavior-change-monitoring",
-      "label": "Drift detection and behavior change monitoring",
-      "topics": [
-        "6.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3116,15 +3286,6 @@
       "statements": 0
     },
     {
-      "id": "least-privilege-for-agent-principals",
-      "label": "Least privilege for agent principals",
-      "topics": [
-        "2.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "legal-constraint-blocking-incident-response",
       "label": "Legal constraint blocking incident response",
       "topics": [
@@ -3512,15 +3673,6 @@
       "statements": 0
     },
     {
-      "id": "no-identifiable-accountable-party",
-      "label": "No identifiable accountable party",
-      "topics": [
-        "11.12"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "non-exploitation-commitments-for-agent-discovered-vulnerabilities",
       "label": "Non-exploitation commitments for agent-discovered vulnerabilities",
       "topics": [
@@ -3674,15 +3826,6 @@
       "statements": 0
     },
     {
-      "id": "oversight-capacity-as-the-binding-constraint",
-      "label": "Oversight capacity as the binding constraint",
-      "topics": [
-        "3.4"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "oversight-cost-as-a-fraction-of-operating-cost",
       "label": "Oversight cost as a fraction of operating cost",
       "topics": [
@@ -3741,15 +3884,6 @@
       "label": "Partial execution and inconsistent state",
       "topics": [
         "11.8"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "performance-measurement-for-agents",
-      "label": "Performance measurement for agents",
-      "topics": [
-        "6.2"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -3894,15 +4028,6 @@
       "label": "Promotion equivalent -- scope expansion criteria",
       "topics": [
         "6.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "proof-of-authorized-execution",
-      "label": "Proof of authorized execution",
-      "topics": [
-        "9.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4083,15 +4208,6 @@
       "label": "Reproducibility of failure conditions",
       "topics": [
         "11.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "reputation-and-sybil-resistance-mechanisms",
-      "label": "Reputation and sybil resistance mechanisms",
-      "topics": [
-        "15.1"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4448,15 +4564,6 @@
       "statements": 0
     },
     {
-      "id": "silent-failure-detection",
-      "label": "Silent failure detection",
-      "topics": [
-        "9.3"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
       "id": "silent-failures-with-no-signal",
       "label": "Silent failures with no signal",
       "topics": [
@@ -4488,15 +4595,6 @@
       "label": "Slashing where the punishable party is human",
       "topics": [
         "13.2"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "slow-onset-degradation",
-      "label": "Slow-onset degradation",
-      "topics": [
-        "11.13"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4632,15 +4730,6 @@
       "label": "Swiss cheese model and latent conditions",
       "topics": [
         "11.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "sybil-agents-and-synthetic-participation",
-      "label": "Sybil agents and synthetic participation",
-      "topics": [
-        "10.4"
       ],
       "origin": "taxonomy",
       "statements": 0
@@ -4920,24 +5009,6 @@
       "label": "Vendor safety filters obstructing incident response",
       "topics": [
         "10.6"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "verifiable-computation-and-proof-of-inference",
-      "label": "Verifiable computation and proof of inference",
-      "topics": [
-        "9.1"
-      ],
-      "origin": "taxonomy",
-      "statements": 0
-    },
-    {
-      "id": "verification-of-agent-claims-by-other-agents",
-      "label": "Verification of agent claims by other agents",
-      "topics": [
-        "5.3"
       ],
       "origin": "taxonomy",
       "statements": 0
