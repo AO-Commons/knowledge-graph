@@ -1,119 +1,241 @@
 resource_id: resource:arxiv:2511.03434
 claims:
 - id: claim:arxiv:2511.03434:1
-  text: Traditional internet trust mechanisms assume static human-operated services and cannot
-    meet the coordination needs of large-scale agent ecosystems.
-  quote: Traditional internet trust mechanisms (e.g., DNS names, TLS certificates) assume
-    relatively static, human-operated services and an ownership-based trust model, which cannot
-    meet the millisecond-by-millisecond dynamic coordination and verification needs of large-scale
-    AI agentic ecosystems
-  standalone: Citing Raskar et al. (2025), the authors open by noting that DNS names and TLS
-    certificates assume relatively static, human-operated services and an ownership-based
-    trust model, and cannot meet the millisecond-scale coordination and verification needs
-    of large-scale AI agent ecosystems.
+  text: Traditional internet trust mechanisms assume static human-operated services and cannot meet
+    the coordination needs of large-scale agent ecosystems.
+  quote: Traditional internet trust mechanisms (e.g., DNS names, TLS certificates) assume relatively
+    static, human-operated services and an ownership-based trust model, which cannot meet the millisecond-by-millisecond
+    dynamic coordination and verification needs of large-scale AI agentic ecosystems
+  standalone: Citing Raskar et al. (2025), the authors open by noting that DNS names and TLS certificates
+    assume relatively static, human-operated services and an ownership-based trust model, and cannot
+    meet the millisecond-scale coordination and verification needs of large-scale AI agent ecosystems.
   claim_type: background
   concept_tags:
   - trust-bootstrapping-for-new-agents
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: other
-  attributed_to: 'Raskar et al. (2025), Beyond DNS: Unlocking the Internet of AI Agents via
-    the NANDA Index and Verified AgentFacts'
+  attributed_to: 'Raskar et al. (2025), Beyond DNS: Unlocking the Internet of AI Agents via the NANDA
+    Index and Verified AgentFacts'
 - id: claim:arxiv:2511.03434:2
   text: State-of-the-art LLM agent frameworks exhibit prompt injection, sycophancy, hallucination,
     deception and misalignment.
   quote: even state-of-the-art large language model (LLM)-based agent frameworks exhibit fragilities
-    and untrustworthiness such as prompt injection, sycophancy, biases, nudge-susceptibility,
-    hallucination, deception, and misalignment
-  standalone: The paper reports, citing recent AI safety studies, that state-of-the-art LLM
-    agent frameworks exhibit prompt injection, sycophancy, bias, nudge-susceptibility, hallucination,
-    deception and misalignment.
+    and untrustworthiness such as prompt injection, sycophancy, biases, nudge-susceptibility, hallucination,
+    deception, and misalignment
+  standalone: The paper reports, citing recent AI safety studies, that state-of-the-art LLM agent
+    frameworks exhibit prompt injection, sycophancy, bias, nudge-susceptibility, hallucination, deception
+    and misalignment.
   claim_type: background
   concept_tags:
   - prompt-injection
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: other
   attributed_to: recent AI safety studies cited by the paper
 - id: claim:arxiv:2511.03434:3
-  text: 'Six trust models are available to inter-agent protocol design: Brief, Claim, Proof,
-    Stake, Reputation and Constraint.'
-  quote: 'This paper presents a comparative study of trust models in inter‑agent protocol
-    design: Brief (self‑ or third‑party verifiable claims), Claim (self-proclaimed capabilities
-    and identity, e.g. AgentCard), Proof (cryptographic verification'
-  standalone: The paper compares six trust models available to inter-agent protocol design
-    — Brief, Claim, Proof, Stake, Reputation and Constraint — analyzing each for assumptions,
-    attack surfaces and trade-offs.
+  text: 'Six trust models are available to inter-agent protocol design: Brief, Claim, Proof, Stake,
+    Reputation and Constraint.'
+  quote: 'This paper presents a comparative study of trust models in inter‑agent protocol design:
+    Brief (self‑ or third‑party verifiable claims), Claim (self-proclaimed capabilities and identity,
+    e.g. AgentCard), Proof (cryptographic verification'
+  standalone: The paper compares six trust models available to inter-agent protocol design — Brief,
+    Claim, Proof, Stake, Reputation and Constraint — analyzing each for assumptions, attack surfaces
+    and trade-offs.
   claim_type: method
   concept_tags:
   - agent-reputation-systems
   - stake-based-trust
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:4
   text: No single inter-agent trust mechanism is sufficient on its own.
   quote: Our findings indicate no single mechanism suffices
-  standalone: Comparing six inter-agent trust models, the authors find that no single mechanism
-    suffices on its own.
+  standalone: Comparing six inter-agent trust models, the authors find that no single mechanism suffices
+    on its own.
   claim_type: position
   concept_tags:
   - agent-reputation-systems
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:5
-  text: High-impact agent actions should be gated by cryptographic proof and bonded stake
-    rather than by reputation or self-declared claims.
-  quote: We argue for trustless‑by‑default architectures anchored in Proof and Stake to gate
-    high‑impact actions, augmented by Brief for identity and discovery and Reputation overlays
-    for flexibility and social signals
-  standalone: The authors argue for trustless-by-default inter-agent architectures anchored
-    in Proof and Stake to gate high-impact actions, with reputation relegated to an overlay
-    for flexibility and social signal.
+  text: High-impact agent actions should be gated by cryptographic proof and bonded stake rather than
+    by reputation or self-declared claims.
+  quote: We argue for trustless‑by‑default architectures anchored in Proof and Stake to gate high‑impact
+    actions, augmented by Brief for identity and discovery and Reputation overlays for flexibility
+    and social signals
+  standalone: The authors argue for trustless-by-default inter-agent architectures anchored in Proof
+    and Stake to gate high-impact actions, with reputation relegated to an overlay for flexibility
+    and social signal.
   claim_type: position
   concept_tags:
   - stake-based-trust
   confidence_class: EXTRACTED
   extracted_from: abstract
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2511.03434:6
-  text: 'Verification should be tiered to stakes: low friction where impact is negligible,
-    relentless verification where it is high.'
-  quote: A tiered, composable, and continuously recalibrated approach enables low-friction
-    exploration where impact is negligible and “verify relentlessly” where stakes are high
-  standalone: 'The authors recommend a tiered, composable and continuously recalibrated trust
-    approach: low-friction exploration where impact is negligible, and relentless verification
-    where the stakes are high.'
+  text: 'Verification should be tiered to stakes: low friction where impact is negligible, relentless
+    verification where it is high.'
+  quote: A tiered, composable, and continuously recalibrated approach enables low-friction exploration
+    where impact is negligible and “verify relentlessly” where stakes are high
+  standalone: 'The authors recommend a tiered, composable and continuously recalibrated trust approach:
+    low-friction exploration where impact is negligible, and relentless verification where the stakes
+    are high.'
   claim_type: position
   concept_tags:
   - risk-proportional-oversight-allocation
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process,
-    2026-09-12; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, re-drafted from arXiv full text under the gated process, 2026-09-12;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:7
+  text: An on-chain identity registry can give an agent a persistent handle that makes its identity
+    portable across contexts.
+  quote: An on-chain Identity Registry assigns each agent a persistent handle (typically an NFT) that
+    links to off-chain metadata such as an AgentCard, enabling portable identification across contexts
+  standalone: Describing Ethereum's ERC-8004 proposal, the authors note that an on-chain identity
+    registry gives each agent a persistent handle linked to off-chain metadata, making identification
+    portable across contexts.
+  claim_type: background
+  concept_tags:
+  - agent-identity-standards-and-registries
+  - trust-bootstrapping-for-new-agents
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: other
+  attributed_to: the ERC-8004 (Trustless Agents) proposal
+- id: claim:arxiv:2511.03434:8
+  text: A proof can establish what a computation did but not whether doing it was desirable, so correct-but-misaligned
+    behavior remains a governance problem.
+  quote: proofs attest properties of computations, not normative desirability, so misaligned but formally
+    correct behavior remains a governance problem
+  standalone: The authors argue that cryptographic proofs attest properties of a computation rather
+    than its normative desirability, leaving formally correct but misaligned agent behavior as a governance
+    problem rather than a technical one.
+  claim_type: limitation
+  concept_tags:
+  - verifiable-computation-and-proof-of-inference
+  - sources-of-legitimate-machine-authority
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:9
+  text: Trust guarantees in an open agent protocol stay optional unless counterparties insist on them.
+  quote: the benefits are optional unless counterparties require validation or minimum reputation
+    thresholds
+  standalone: 'The authors observe that ERC-8004''s assurances are opt-in: they take effect only where
+    counterparties require validation or a minimum reputation threshold, not by virtue of the protocol
+    existing.'
+  claim_type: finding
+  concept_tags:
+  - verification-of-agent-claims-by-other-agents
+  - agent-reputation-systems
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:10
+  text: A protocol that identifies agents by unverified self-description rests on declarations rather
+    than evidence.
+  quote: unverified AgentCards place weight on declarations rather than evidence
+  standalone: Assessing Google's A2A protocol, the authors note that because its AgentCards are self-described
+    and unverified, the protocol's identity layer rests on declarations rather than on evidence.
+  claim_type: limitation
+  concept_tags:
+  - verification-of-agent-claims-by-other-agents
+  - trust-bootstrapping-for-new-agents
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:11
+  text: A signed authorization proves that an action was permitted, not that the reasoning which produced
+    it was sound.
+  quote: mandate proofs attest authorization, not correctness of upstream agent reasoning (so LLM
+    hallucinations must be contained by separate constraints)
+  standalone: Assessing the Agent Payments Protocol, the authors note that its signed mandates prove
+    an action was authorized but say nothing about whether the agent's upstream reasoning was correct,
+    so hallucination has to be contained by separate constraints.
+  claim_type: limitation
+  concept_tags:
+  - proof-of-authorized-execution
+  - operator-deployer-and-developer-liability
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:12
+  text: 'Two requirements hold at every level of assurance: least privilege at the capability boundary
+    and evidence-first accountability at the audit boundary.'
+  quote: 'Two invariants span all tiers: (i) least privilege at the capability boundary (minimal,
+    time-boxed powers), and (ii) evidence-first accountability at the audit boundary (signed state
+    and reproducible logs enabling independent verification)'
+  standalone: 'The authors propose that across all four risk tiers of their blueprint, two invariants
+    hold: least privilege at the capability boundary, and evidence-first accountability at the audit
+    boundary through signed state and reproducible logs.'
+  claim_type: position
+  concept_tags:
+  - least-privilege-for-agent-principals
+  - oversight-capacity-as-the-binding-constraint
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2511.03434:13
+  text: Curating who may participate buys early safety at the cost of onboarding friction and concentrated
+    platform power.
+  quote: early reliance on curated allow-lists creates onboarding friction and may concentrate platform
+    power
+  standalone: Assessing the Agent Payments Protocol, the authors note that its curated allow-lists
+    create onboarding friction and risk concentrating power in whoever maintains the list.
+  claim_type: limitation
+  concept_tags:
+  - sources-of-legitimate-machine-authority
+  - trust-bootstrapping-for-new-agents
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own

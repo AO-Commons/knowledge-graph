@@ -1,153 +1,249 @@
 resource_id: resource:arxiv:2502.15840
 claims:
 - id: claim:arxiv:2502.15840:1
-  text: Every model tested has runs that lose coherence over a long horizon, including the
-    strongest.
+  text: Every model tested has runs that lose coherence over a long horizon, including the strongest.
   quote: all models struggle with consistent long-horizon coherence
-  standalone: Testing LLM agents on a simulated vending-machine business run over more than
-    20M tokens, the authors report that although individual runs can show effective management,
-    no model held coherence consistently — the strongest model included.
+  standalone: Testing LLM agents on a simulated vending-machine business run over more than 20M tokens,
+    the authors report that although individual runs can show effective management, no model held
+    coherence consistently — the strongest model included.
   claim_type: finding
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:2
-  text: A long-horizon failure typically begins with the agent misreading its own operational
-    state, after which it loops or abandons the task.
-  quote: Failures typically arise when the agent misinterprets its operational status (e.g.,
-    believing an order arrived prematurely) and then veers into tangential loops or abandons
-    the task.
-  standalone: 'Across runs the authors find a recurring failure shape: the agent forms a wrong
-    belief about its own situation — that an order had arrived, that the business had been
-    closed — and the subsequent behavior follows from the wrong belief rather than from the
-    task.'
+  text: A long-horizon failure typically begins with the agent misreading its own operational state,
+    after which it loops or abandons the task.
+  quote: Failures typically arise when the agent misinterprets its operational status (e.g., believing
+    an order arrived prematurely) and then veers into tangential loops or abandons the task.
+  standalone: 'Across runs the authors find a recurring failure shape: the agent forms a wrong belief
+    about its own situation — that an order had arrived, that the business had been closed — and the
+    subsequent behavior follows from the wrong belief rather than from the task.'
   claim_type: finding
   concept_tags:
   - tool-and-api-failures-mishandled-by-agents
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:3
-  text: The breakdown is not explained by context length, because models degrade well after
-    their memory is already full.
-  quote: We show that the breakdowns are not directly related to the context of the LLMs being
-    filled, as models generally stagnate well after their memory is full.
-  standalone: The authors test whether long input length explains the degradation by comparing,
-    per model, the day memory fills (30k tokens, after which the context stops growing) with
-    the day sales stop. Some models stop selling well after memory is full (Claude 3.5 Sonnet
-    51 days later, o3-mini 34), others within days, and two stop before it fills. Across the
-    nine models' means the Pearson correlation is 0.167, and degradation also appears with
-    10k memory, so the authors conclude growing input length alone does not explain it.
+  text: The breakdown is not explained by context length, because models degrade well after their
+    memory is already full.
+  quote: We show that the breakdowns are not directly related to the context of the LLMs being filled,
+    as models generally stagnate well after their memory is full.
+  standalone: The authors test whether long input length explains the degradation by comparing, per
+    model, the day memory fills (30k tokens, after which the context stops growing) with the day sales
+    stop. Some models stop selling well after memory is full (Claude 3.5 Sonnet 51 days later, o3-mini
+    34), others within days, and two stop before it fills. Across the nine models' means the Pearson
+    correlation is 0.167, and degradation also appears with 10k memory, so the authors conclude growing
+    input length alone does not explain it.
   claim_type: finding
   concept_tags:
   - bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
   extracted_from: conclusion
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:4
   text: Giving an agent more memory made it perform worse, not better.
   quote: agents with larger memory capacities performed worse than those with less memory
-  standalone: 'In the authors'' configuration experiments, capacity for retained context was
-    not a monotonic benefit: the larger-memory condition scored below the smaller-memory one.'
+  standalone: 'In the authors'' configuration experiments, capacity for retained context was not a
+    monotonic benefit: the larger-memory condition scored below the smaller-memory one.'
   claim_type: finding
   concept_tags:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
   extracted_from: results
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:5
   text: Every model tested had runs that ended in bankruptcy, however well it did on average.
   quote: All models had runs where they went bankrupt.
-  standalone: Comparing against a single human baseline, the authors note that the strongest
-    model beat the human on mean performance while showing very high variance, and that bankruptcy
-    appeared somewhere in every model's runs.
+  standalone: Comparing against a single human baseline, the authors note that the strongest model
+    beat the human on mean performance while showing very high variance, and that bankruptcy appeared
+    somewhere in every model's runs.
   claim_type: finding
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: results
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:6
-  text: Long-term coherence can be measured on its own by making each task simple and the
-    horizon long.
-  quote: By formulating tasks that are more simple (but long-running), one could measure the
-    capability of long-term coherence in a more isolated manner.
-  standalone: 'The authors'' design argument for the benchmark: prior evaluations of long
-    time budgets used very complex tasks, which confounds coherence with difficulty, so simple
-    tasks over a long run isolate the thing being measured.'
+  text: Long-term coherence can be measured on its own by making each task simple and the horizon
+    long.
+  quote: By formulating tasks that are more simple (but long-running), one could measure the capability
+    of long-term coherence in a more isolated manner.
+  standalone: 'The authors'' design argument for the benchmark: prior evaluations of long time budgets
+    used very complex tasks, which confounds coherence with difficulty, so simple tasks over a long
+    run isolate the thing being measured.'
   claim_type: method
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
   - evaluation-environments-and-benchmark-suites
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
 - id: claim:arxiv:2502.15840:7
   text: LLMs gain far less from a larger time budget than humans do.
-  quote: found that LLMs gain far less in performance from increased time budgets compared
-    to humans
-  standalone: The authors cite METR, an AI safety organization evaluating LLMs, for this result,
-    and note that METR's investigation covered very complex tasks — which is the premise their
-    own simpler benchmark is built to test.
+  quote: found that LLMs gain far less in performance from increased time budgets compared to humans
+  standalone: The authors cite METR, an AI safety organization evaluating LLMs, for this result, and
+    note that METR's investigation covered very complex tasks — which is the premise their own simpler
+    benchmark is built to test.
   claim_type: background
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
   confidence_class: EXTRACTED
   extracted_from: introduction
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source
   review_status: machine-checked
   attribution: other
   attributed_to: METR
 - id: claim:arxiv:2502.15840:8
-  text: The human baseline rests on a single sample, so the variance that separates humans
-    from models is not measured.
-  quote: We only have a single sample for the human baseline and therefore cannot compare
-    variances.
-  standalone: 'Variance is the paper''s central result about models, and the comparison against
-    humans is the one place it cannot be computed: the human was run once, and the authors''
-    expectation that human variance is lower rests on the human''s own estimate rather than
-    on measurement.'
+  text: The human baseline rests on a single sample, so the variance that separates humans from models
+    is not measured.
+  quote: We only have a single sample for the human baseline and therefore cannot compare variances.
+  standalone: 'Variance is the paper''s central result about models, and the comparison against humans
+    is the one place it cannot be computed: the human was run once, and the authors'' expectation
+    that human variance is lower rests on the human''s own estimate rather than on measurement.'
   claim_type: limitation
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
   extracted_from: results
-  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process,
-    2026-09-18; every quote verified verbatim against the source. Retyped and retagged 2026-10-01
-    after an independent audit against the full text (evals/results/2026-10-01-statement-audit.md);
-    text and quote unchanged, so the reviewer's verdict stands
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-09-18;
+    every quote verified verbatim against the source. Retyped and retagged 2026-10-01 after an independent
+    audit against the full text (evals/results/2026-10-01-statement-audit.md); text and quote unchanged,
+    so the reviewer's verdict stands
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:9
+  text: Agents across different models fail in the same way, by assuming an order has arrived once
+    its expected delivery date is reached.
+  quote: the way they fail is usually the same. The agent receives a delivery confirmation email with
+    an expected arrival date when placing an order. It then assumes the order has arrived as soon
+    as that date is reached
+  standalone: 'Vending-Bench''s authors report that although models differ in how they react to perceived
+    failure, the triggering mistake is the same across them: the agent assumes an order has arrived
+    as soon as its stated delivery date is reached.'
+  claim_type: finding
+  concept_tags:
+  - silent-failure-detection
+  - slow-onset-degradation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:10
+  text: A situation that derails an agent for the rest of a run would be fully recoverable by a human.
+  quote: although the situation would be fully recoverable for a human, for example by simply waiting
+    for the fulfillment email, or by checking the inventory at a later time
+  standalone: Vending-Bench's authors observe that the inventory mismatch which sends agents into
+    unrecoverable tangents would be trivially recoverable by a human, who could wait for the fulfillment
+    email or re-check the inventory later.
+  claim_type: finding
+  concept_tags:
+  - silent-failure-detection
+  - oversight-capacity-as-the-binding-constraint
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:11
+  text: Removing the recurring cost from the environment did not increase sales, because the agent
+    idled without the pressure of a daily fee.
+  quote: setting the daily fee to zero does not increase sales. Without the pressure of a recurring
+    cost, the model appears to get stuck in loops, waiting for the next day instead of actively working
+    towards making sales
+  standalone: In Vending-Bench, removing the $2 daily fee did not improve the agent's sales; without
+    a recurring cost the model got stuck waiting for the next day rather than acting.
+  claim_type: finding
+  concept_tags:
+  - evaluation-environments-and-benchmark-suites
+  - long-horizon-and-multi-step-task-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:12
+  text: The best model beat the human baseline on mean performance while varying far more between
+    runs.
+  quote: Claude 3.5 Sonnet outperformed the human baseline in mean performance, but its variance was
+    very high
+  standalone: Vending-Bench reports that Claude 3.5 Sonnet beat the five-hour human baseline on mean
+    performance, but with very high variance between its runs.
+  claim_type: finding
+  concept_tags:
+  - reliability-and-consistency-measurement
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:13
+  text: An agent wrote a detailed daily summary to its scratchpad throughout a run and never read
+    any of it back.
+  quote: creating a long daily summary each day including what items have been sold, what the inventory
+    status is, and even a comment on if it was a good or bad day, but never retrieves the information
+  standalone: Vending-Bench's authors note that Claude 3.5 Sonnet wrote a long structured summary
+    to its scratchpad every simulated day and never retrieved that information.
+  claim_type: finding
+  concept_tags:
+  - memory-architectures-and-persistence
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, deep pass over sections the first extraction never read, 2026-10-01;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.15840:14
+  text: Whether the finding that agents gain less than humans from longer time budgets holds for simple
+    tasks is unknown.
+  quote: METR’s investigation focused on very complex tasks (specifically, AI R&D), but it is not
+    clear if this trend holds for more simple tasks
+  standalone: Vending-Bench's authors note as an open question whether METR's finding — that LLMs
+    gain far less than humans from larger time budgets — also holds for simpler, long-running tasks.
+  claim_type: gap
+  concept_tags:
+  - long-horizon-and-multi-step-task-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, gap pass over arXiv full text with find_gaps.py, 2026-10-01; every
+    quote verified verbatim against the source
   review_status: machine-checked
   attribution: own
