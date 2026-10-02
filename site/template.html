@@ -201,6 +201,18 @@
 
 
   main { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; align-items: start; }
+  /* People uses the whole width. Hiding the sidebar's contents without
+     collapsing its column left a 380px blank gutter down the left of the page,
+     which reads as a rendering fault rather than a choice. */
+  main.wide { grid-template-columns: 1fr; }
+  /* `.stage` caps at 780px and pads 30px, which is right beside a sidebar and
+     wrong without one: the page hugged the left edge with half the window
+     empty. Centred, and wider, because the card grid and the researcher list
+     want the room. Running prose keeps its own 62ch and does not widen. */
+  main.wide .stage { max-width: 1180px; margin-inline: auto;
+                     padding-inline: clamp(20px, 4vw, 64px); }
+  .docs.people { max-width: none; }
+
   @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
 
   /* ---------- the tree ---------- */
@@ -619,23 +631,23 @@
   .people .tally-cell span { font-family: var(--mono); font-size: 10.5px;
                              text-transform: uppercase; letter-spacing: .08em;
                              color: var(--faint); }
-  .people .who-grid { display: grid; gap: 14px; margin: 6px 0 10px;
+  .people .maker-grid { display: grid; gap: 14px; margin: 6px 0 10px;
                       grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); }
-  .people .who { border: 1px solid var(--rule); border-radius: 2px;
+  .people .maker { border: 1px solid var(--rule); border-radius: 2px;
                  background: var(--card); padding: 14px 15px; }
   /* A machine is a contributor here and saying so plainly is the point: a list
      of only the humans would describe a library that built itself. The dashed
      edge is what keeps it from being read as a person. */
-  .people .who.machine { border-style: dashed; border-color: var(--rule-hard); }
-  .people .who-name { font-family: var(--serif); font-size: 17px; font-weight: 500;
+  .people .maker.machine { border-style: dashed; border-color: var(--rule-hard); }
+  .people .maker-name { font-family: var(--serif); font-size: 17px; font-weight: 500;
                       letter-spacing: -.02em; }
-  .people .who-since { font-family: var(--mono); font-size: 11px; color: var(--faint);
+  .people .maker-since { font-family: var(--mono); font-size: 11px; color: var(--faint);
                        margin-top: 2px; }
-  .people .who-acts { list-style: none; margin: 9px 0 0; padding: 0; }
-  .people .who-acts li { font-size: 13px; color: var(--muted); line-height: 1.8; }
-  .people .who-acts b { font-family: var(--mono); color: var(--ink); font-weight: 500;
+  .people .maker-acts { list-style: none; margin: 9px 0 0; padding: 0; }
+  .people .maker-acts li { font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .people .maker-acts b { font-family: var(--mono); color: var(--ink); font-weight: 500;
                         display: inline-block; min-width: 2.4em; }
-  .people .who-find { font: inherit; font-size: 13px; width: 100%; max-width: 380px;
+  .people .maker-find { font: inherit; font-size: 13px; width: 100%; max-width: 380px;
                       padding: 8px 11px; border: 1px solid var(--rule-hard);
                       border-radius: 2px; background: var(--card); color: var(--ink);
                       margin: 4px 0 14px; }
@@ -4039,12 +4051,12 @@
       "Everyone who has proposed a record, judged a statement, filed one "
       + "against the taxonomy, or confirmed who a reviewer is."));
 
-    const grid = el("div", { className: "who-grid" });
+    const grid = el("div", { className: "maker-grid" });
     (C.workers || []).forEach(person => {
-      const card = el("div", { className: "who" });
-      card.append(el("div", { className: "who-name" }, person.contributor));
-      if (person.since) card.append(el("div", { className: "who-since" }, "since " + person.since));
-      const acts = el("ul", { className: "who-acts" });
+      const card = el("div", { className: "maker" });
+      card.append(el("div", { className: "maker-name" }, person.contributor));
+      if (person.since) card.append(el("div", { className: "maker-since" }, "since " + person.since));
+      const acts = el("ul", { className: "maker-acts" });
       Object.entries(person.counts).forEach(([kind, n]) => {
         const row = el("li", {});
         row.append(el("b", {}, String(n)));
@@ -4064,11 +4076,11 @@
       + "are real work the library rests on, so they are recorded. They are "
       + "never counted as a person's judgment — that is the line this project "
       + "already draws: machines admit, people judge."));
-    const machines = el("div", { className: "who-grid" });
+    const machines = el("div", { className: "maker-grid" });
     (C.machines || []).forEach(m => {
-      const card = el("div", { className: "who machine" });
-      card.append(el("div", { className: "who-name" }, m.contributor));
-      const acts = el("ul", { className: "who-acts" });
+      const card = el("div", { className: "maker machine" });
+      card.append(el("div", { className: "maker-name" }, m.contributor));
+      const acts = el("ul", { className: "maker-acts" });
       Object.entries(m.counts).forEach(([kind, n]) =>
         acts.append(el("li", {}, [el("b", {}, String(n)), " " + kind.replace(/-/g, " ")])));
       card.append(acts);
@@ -4087,7 +4099,7 @@
       + "would flatter the pipeline and bury the research, so they are kept "
       + "apart and neither is turned into a number."));
 
-    const find = el("input", { className: "who-find", type: "search",
+    const find = el("input", { className: "maker-find", type: "search",
                                placeholder: "find a researcher…" });
     wrap.append(find);
     const list = el("ul", { className: "author-list" });
@@ -4173,9 +4185,16 @@
     // Docs borrows the sidebar for its own contents. The paper list is not
     // wrong there, it is just answering a question nobody reading this screen
     // is asking.
-    const reading = mode === "docs";
-    document.getElementById("docs-nav").hidden = !reading;
-    document.getElementById("ready").hidden = reading;
+    // Docs borrows the sidebar for its own contents; People wants it gone
+    // entirely. In both cases the paper list is not wrong, it is answering a
+    // question nobody reading this screen is asking.
+    document.getElementById("docs-nav").hidden = mode !== "docs";
+    document.getElementById("ready").hidden = mode === "docs" || mode === "people";
+    // The pane itself goes, not just its contents. Collapsing the column while
+    // leaving an empty <aside> in the grid makes it a full-width row above the
+    // page, which is worse than the gutter it was meant to fix.
+    document.querySelector(".tree-pane").hidden = mode === "people";
+    document.querySelector("main").classList.toggle("wide", mode === "people");
     renderStage(); renderTree();
   }
   document.getElementById("concept-close").addEventListener("click", () => {

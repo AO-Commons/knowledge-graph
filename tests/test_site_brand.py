@@ -104,6 +104,30 @@ class TestThePeopleView:
         for rule in re.findall(r"(?m)^  (\.[\w.\- ]+?) \{", block):
             assert rule.startswith(".people"), f"{rule} is not scoped to the people view"
 
+    def test_no_class_it_uses_is_already_styled_by_docs(self):
+        """Scoping my own rules is not enough. The view's wrapper is
+        `class="docs people"`, so a `.docs .x` rule anywhere reaches an element
+        this view calls `x` — and `.docs .who` already existed, uppercasing
+        every contributor name. CSS does not warn, and the rule that wins is
+        whichever set the property, not whichever is more specific.
+        """
+        # Deliberately shared with Docs: this view wants the reading styles
+        # that page already defines, and inheriting them is the point. Anything
+        # NOT on this list sharing a name with a `.docs` rule is an accident.
+        BORROWED = {"lede", "body", "caption"}
+        block = TEMPLATE.split("function renderPeople()")[1].split("\n  function ")[0]
+        mine = set(re.findall(r'className: "([\w\- ]+)"', block))
+        names = {part for value in mine for part in value.split()
+                 if part not in ("docs", "people") and part not in BORROWED}
+        for name in sorted(names):
+            assert f".docs .{name} " not in TEMPLATE and f".docs .{name}{{" not in TEMPLATE, (
+                f".docs .{name} already exists and will reach this view")
+
+    def test_the_sidebar_is_not_left_showing(self):
+        """The paper list belongs to Explore. It is not wrong on this screen,
+        it is answering a question nobody reading it is asking."""
+        assert 'mode === "docs" || mode === "people"' in TEMPLATE
+
     def test_the_tab_is_in_the_masthead_and_wired(self):
         assert '<button id="mode-people"' in TEMPLATE
         assert '"mode-people").addEventListener' in TEMPLATE
@@ -146,7 +170,7 @@ class TestThePeopleView:
         assert "machines" in self._payload()
         block = TEMPLATE.split("/* ---------- people ---------- */")[1] \
                         .split("/* ---- Docs ---")[0]
-        assert ".people .who.machine" in block
+        assert ".people .maker.machine" in block
 
     def test_it_computes_no_score(self):
         """String literals are stripped first: the view's own copy says there
