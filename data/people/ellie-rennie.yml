@@ -1,0 +1,12 @@
+name: Ellie Rennie
+github: ellierennie
+github_id: 59681556
+orcid: null
+attestation: vouched
+attested_by: ankeliu
+attested_how: >-
+  Confirmed by Anke on 2026-10-06, who invited her to review: the account
+  ellierennie belongs to Ellie Rennie, first author of Building the Loop. She
+  filed twenty verdicts on that paper in issue #59 before this link existed,
+  so they merged with `by_author` unset; recording the link is what makes them
+  count as an author's.
