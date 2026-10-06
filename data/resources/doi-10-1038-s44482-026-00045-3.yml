@@ -1,0 +1,102 @@
+id: resource:doi:10-1038-s44482-026-00045-3
+resource_type: peer-reviewed-paper
+title: 'Reframing epidemic early warning: toward AI-native decision intelligence for public
+  health governance'
+abstract: Epidemic early warning has been framed mainly as prediction, yet sophisticated forecasts
+  often fail to translate into timely, coordinated action. We propose reframing early warning
+  as the perceptual foundation of AI-native decision intelligence for public health governance,
+  and introduce ACCESS—integrating situational sensing, cognitive reasoning, scenario simulation,
+  collective coordination, explainable accountability, and adaptive evolution. This conceptual
+  framework prioritizes decision robustness, transparency, and human accountability over predictive
+  accuracy alone.
+authors:
+- Jiaojiao Wang
+- Quanyi Wang
+- Peng Yang
+- Gang Li
+- Xiaoli Wang
+- Ying Sun
+- Zhaomin Feng
+- Yanlin Gao
+- Yuan Li
+- Wenzhang Guo
+- Zhongjie Li
+- Ting Zhang
+- Jiaqi Ma
+- Cheewei Tan
+- Zhidong Cao
+- Daniel Dajun Zeng
+organizations:
+- Beijing Academy of Artificial Intelligence
+- Beijing Center for Disease Prevention and Control
+- Chinese Academy of Medical Sciences & Peking Union Medical College
+- Chinese Center For Disease Control and Prevention
+- Institute of Automation
+- Nanyang Technological University
+- Shandong Institute of Automation
+affiliations:
+  Jiaojiao Wang:
+  - Shandong Institute of Automation
+  - Beijing Academy of Artificial Intelligence
+  - Institute of Automation
+  Quanyi Wang:
+  - Beijing Center for Disease Prevention and Control
+  Peng Yang:
+  - Beijing Center for Disease Prevention and Control
+  Gang Li:
+  - Beijing Center for Disease Prevention and Control
+  Xiaoli Wang:
+  - Beijing Center for Disease Prevention and Control
+  Ying Sun:
+  - Beijing Center for Disease Prevention and Control
+  Zhaomin Feng:
+  - Beijing Center for Disease Prevention and Control
+  Yanlin Gao:
+  - Beijing Center for Disease Prevention and Control
+  Yuan Li:
+  - Beijing Center for Disease Prevention and Control
+  Wenzhang Guo:
+  - Beijing Center for Disease Prevention and Control
+  Zhongjie Li:
+  - Chinese Academy of Medical Sciences & Peking Union Medical College
+  Ting Zhang:
+  - Chinese Academy of Medical Sciences & Peking Union Medical College
+  Jiaqi Ma:
+  - Chinese Center For Disease Control and Prevention
+  Cheewei Tan:
+  - Nanyang Technological University
+  Zhidong Cao:
+  - Shandong Institute of Automation
+  - Beijing Academy of Artificial Intelligence
+  - Institute of Automation
+  Daniel Dajun Zeng:
+  - Shandong Institute of Automation
+  - Beijing Academy of Artificial Intelligence
+  - Institute of Automation
+published_at: '2026-10-01'
+url: https://doi.org/10.1038/s44482-026-00045-3
+doi: 10.1038/s44482-026-00045-3
+openalex_id: W7215069972
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Accountability in artificial intelligence: what
+  it is and ho; Mindstorms in Natural Language-Based Societies of Mind. Scope scan by claude-opus-5:
+  Removing the machine does not leave the framework intact: it is AI-native by construction,
+  so the deliberative-democracy exclusion line does not apply under the settled hybrid reading.
+  It is domain-specific (public health) rather than general, but its contribution is organizational
+  — how agent-performed reasoning and coordination are governed and held accountable — which
+  is the library''s subject, not borrowed method. What changes because agents hold authority:
+  It specifies an architecture in which machine components do the sensing, reasoning, scenario
+  simulation and cross-actor coordination that drive a public health response, and pairs that
+  delegation with explicit explainability and human-accountability requirements — a template
+  for how authority is split and audited in a hybrid agent-run institution. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

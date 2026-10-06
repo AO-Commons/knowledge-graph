@@ -1,0 +1,64 @@
+id: resource:doi:10-1080-08839514-2026-2739513
+resource_type: peer-reviewed-paper
+title: Making Enterprise AI Explainable through Calibrated Confidence and Provenance
+abstract: 'Enterprise AI systems cannot earn stakeholder trust without genuine transparency:
+  the ability to trace reasoning, communicate uncertainty accurately, and adapt explanations
+  to user expertise. This paper presents a framework treating provenance tracking and uncertainty
+  communication as foundational requirements. The framework maintains complete reasoning chains
+  with explanation adaptation across four stakeholder levels. Uncertainty decomposition separates
+  epistemic from aleatoric components, enabling users to understand what actions might improve
+  results. Confidence-based routing translates uncertainty into actionable decisions: validation
+  bypass, mandatory review, or expert escalation. We evaluated the framework on 143 financial
+  controlling queries. The first version was more confident on the predictions it got wrong
+  than on the ones it got right, a gap of −2.42%. A confidence value like this misreports
+  when a pattern choice is reliable, and a complete provenance record does not fix it on its
+  own. Four improvement iterations raised pattern-selection accuracy from 68.53% to 84.62%
+  (95% CI 77.7% to 89.8%) on that development set and moved the confidence gap to +17.93%.
+  The same queries drove those iterations, so we then ran the selector unchanged on an independent
+  set of 200 queries. Accuracy there was 77.0% and the gap stayed positive at +12.2 pp, next
+  to an expected calibration error of 0.182 and a Brier score of 0.190. These are the figures
+  that say how the method generalizes. A positive gap is one sign of calibration and not the
+  whole of it, and every calibration figure reported here is for the pattern-selection confidence.
+  The response confidence is future work.'
+authors:
+- Sofija Krstev
+- Vladan Devedžić
+- Dragoljub Krneta
+organizations:
+- University of Belgrade
+affiliations:
+  Sofija Krstev:
+  - University of Belgrade
+  Vladan Devedžić:
+  - University of Belgrade
+published_at: '2026-10-02'
+url: https://doi.org/10.1080/08839514.2026.2739513
+doi: 10.1080/08839514.2026.2739513
+openalex_id: W7216240290
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 7
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Explanation in artificial intelligence: Insights
+  from the so; Humans and Automation: Use, Misuse, Disuse, Abuse; MetaGPT: Meta Programming
+  for A Multi-Agent Collaborative Fr; Multi-Agent Collaboration Mechanisms: A Survey of LLMs;
+  Self-Refine: Iterative Refinement with Self-Feedback. Scope scan by claude-opus-5: Confidence-based
+  routing is an operational authority-delegation rule: it determines when the machine acts
+  unreviewed versus when a human must intervene, and the paper gives both a failure mode and
+  an evaluation protocol for that rule, plus provenance as the accountability trace. No exclusion-register
+  line applies; this is not generic XAI background because the contribution is the escalation
+  gate and its stakeholder-tiered audit trail, which only matter where an agent has operational
+  latitude. What changes because agents hold authority: It shows that the confidence signal
+  used to decide whether an agent''s output bypasses validation, gets mandatory review, or
+  escalates to a human can be anti-calibrated — more confident when wrong — so the gating
+  mechanism that allocates autonomy to the agent must itself be measured (ECE, Brier, confidence
+  gap) on held-out data rather than assumed, and provenance records alone do not repair it.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

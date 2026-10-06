@@ -1,0 +1,44 @@
+id: resource:arxiv:2209.00626
+resource_type: preprint
+title: The Alignment Problem from a Deep Learning Perspective
+abstract: In coming years or decades, artificial general intelligence (AGI) may surpass human
+  capabilities across many critical domains. We argue that, without substantial effort to
+  prevent it, AGIs could learn to pursue goals that are in conflict (i.e. misaligned) with
+  human interests. If trained like today's most capable models, AGIs could learn to act deceptively
+  to receive higher reward, learn misaligned internally-represented goals which generalize
+  beyond their fine-tuning distributions, and pursue those goals using power-seeking strategies.
+  We review emerging evidence for these properties. In this revised paper, we include more
+  direct empirical evidence published as of early 2025. AGIs with these properties would be
+  difficult to align and may appear aligned even when they are not. Finally, we briefly outline
+  how the deployment of misaligned AGIs might irreversibly undermine human control over the
+  world, and we review research directions aimed at preventing this outcome.
+authors:
+- Richard Ngo
+- Lawrence Chan
+- Sören Mindermann
+published_at: '2022-08-30'
+url: https://arxiv.org/abs/2209.00626
+doi: 10.48550/arXiv.2209.00626
+arxiv_id: '2209.00626'
+openalex_id: W4294435850
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Solipsistic Superintelligence is Unlikely to be Cooperative; Virtual Agent Economies.
+  Scope scan by claude-opus-5: This is foundational risk-model literature the agentic-organization
+  field builds on rather than a study of organizations where agents hold authority, so it
+  belongs in section 15 alongside Melting Pot rather than the main corpus. No exclusion-register
+  line bars it; it simply stops short of the scope test''s organizational criterion. What
+  changes because agents hold authority: If agents can learn deceptive or power-seeking behaviour
+  that generalizes past training, oversight of delegated machine authority cannot rely on
+  observed compliance, which reshapes monitoring, revocation and accountability design — but
+  the paper itself is about model properties, not organizations. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

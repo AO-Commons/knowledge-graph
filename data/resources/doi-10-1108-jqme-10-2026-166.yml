@@ -1,0 +1,74 @@
+id: resource:doi:10-1108-jqme-10-2026-166
+resource_type: peer-reviewed-paper
+title: 'Editorial: From copilot to autonomous agent: agentic AI in maintenance and the limits
+  of delegation'
+abstract: 'From copilot to autonomous agent: agentic AI in maintenance and the limits of delegation
+  1.The delegation moment Consider a scenario that is closer than it appears.At 03:40, an
+  anomaly detection model flags a bearing degradation signature on a critical compressor.An
+  AI agent picks up the alert, queries the digital twin to estimate remaining useful life,
+  generates a work order, checks inventory and finds the bearing out of stock, places a purchase
+  requisition with the preferred supplier, reschedules two lower-priority jobs to free a qualified
+  technician for the projected delivery window, and posts a summary to the planning board.The
+  planner reads it over morning coffee.Everything worked.The component capabilities required
+  for this scenario already exist, and recent studies are beginning to integrate them into
+  agent-like predictive-maintenance workflows, although evidence of robust end-to-end industrial
+  autonomy remains limited (Di Maggio, 2025;Wang et al., 2026).Commercial pressure to expand
+  the scope of such autonomy is considerable and is likely to intensify.The question this
+  editorial poses is therefore not whether agents can act but which of those actions ought
+  to have required a human signature before execution, who in the organization decides that
+  and on what basis.That is a question about delegation, and it admits a proposition that
+  should guide everything that follows: decision authority may be delegated to an agent but
+  organizational accountability cannot be.This editorial is the fourth in a sequence.The first
+  addressed representation and prediction, through digital twins and the gap between insight
+  and prescription.The second addressed reasoning, asking whether generative AI in maintenance
+  decision-making was hype, hazard, or genuine capability.The third addressed human capability,
+  examining skills transfer in an era of AI-mediated work.The fourth addresses decision authority:
+  what happens when the loop closes without a person inside it.This journal''s readership,
+  concerned with the quality and reliability of maintenance processes rather than merely their
+  speed, is precisely the community that should define where the boundary of delegated authority
+  belongs. What "agentic" actually means in maintenanceMaintenance has automated decisions
+  for decades.Condition-based triggers have long generated work orders, min-max inventory
+  rules have reordered spare parts without human intervention and rule-based scheduling systems
+  routinely resequence maintenance backlogs.A vendor demonstration that labels these established
+  functions as "agentic" should therefore be assessed carefully.When the system merely executes
+  predefined rules or workflows through a conversational interface, it represents conventional
+  automation rather than a substantive advance in autonomous agency.A genuinely agentic system
+  is distinguished by a combination of characteristics that classical automation lacks.Classical
+  agent theory emphasizes autonomy, reactivity, proactiveness and social ability (Wooldridge
+  and Jennings, 1995).Contemporary large language model (LLM)-based agent architectures extend
+  these characteristics through goaldirected planning, autonomous selection and sequencing
+  of actions, access to multiple tools and enterprise systems, persistence of state and memory
+  across tasks and adaptation in response to feedback (Di Maggio, 2025).In maintenance, a
+  single decision episode may therefore span the computerized maintenance management system
+  (CMMS), enterprise resource planning (ERP), digital twin and procurement systems.Such action
+  must occur within a defined authority boundary.An agent without an explicit authority boundary
+  is not more capable; it is merely ungoverned.The requirements literature on digital twin-driven
+  Journal of Quality in Maintenance Engineering'
+authors:
+- Mohamed Ben-Daya
+published_at: '2026-09-30'
+url: https://doi.org/10.1108/jqme-10-2026-166
+doi: 10.1108/jqme-10-2026-166
+openalex_id: W7214889517
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Humans and Automation: Use, Misuse, Disuse, Abuse; Intelligent agents: theory and
+  practice; Ironies of automation; The responsibility gap: Ascribing responsibility for the
+  act. Scope scan by claude-opus-5: The piece is about an agent holding real operational authority
+  (issuing work orders, placing requisitions, rescheduling labor) across enterprise systems
+  and the governance question of which of those acts require human authorization, so no exclusion-register
+  line applies. It is not adjacent background: removing the machine removes the entire question
+  it poses. What changes because agents hold authority: It supplies a domain-grounded framing
+  of where the boundary of delegated execution authority should sit — distinguishing genuine
+  agentic autonomy from rule-based automation and asserting that decision authority can be
+  delegated to an agent while organizational accountability cannot — which directly informs
+  authority-boundary and sign-off design in operational settings. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

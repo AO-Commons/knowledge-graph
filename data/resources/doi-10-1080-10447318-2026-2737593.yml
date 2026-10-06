@@ -1,0 +1,62 @@
+id: resource:doi:10-1080-10447318-2026-2737593
+resource_type: peer-reviewed-paper
+title: 'Cognitive Friction and the Illusion of Control: An Empirical Study on Sense of Agency
+  and Responsibility Attribution in Medical AI Interactions'
+abstract: Medical AI interfaces can shape physicians’ agency, diagnostic behavior, and responsibility
+  judgments. In a 2 × 2 within-subjects experiment, 60 radiologists interacted with prescriptive
+  or dialectical interfaces featuring instrumental or placebo controls. We assessed explicit
+  agency, intentional binding, rejection of erroneous AI recommendations, and responsibility
+  allocation, supplemented by interviews. Placebo control was associated with high explicit
+  agency but attenuated intentional binding. In the prescriptive-placebo condition, physicians
+  attributed 62.0% of responsibility to themselves. Dialectical interaction increased rejection
+  of erroneous AI recommendations from 31.8% to 70.3%. These findings show condition-dependent
+  differences in agency measures, diagnostic decisions, and responsibility attribution. Because
+  functional control and feedback predictability varied together, the cause of attenuated
+  intentional binding remains uncertain. Intentional binding and responsibility attribution
+  were analyzed separately; their co-occurrence does not establish mediation. The results
+  support further testing of how interface design affects control and accountability in medical
+  AI.
+authors:
+- Liwen Fan
+- Aojie Feng
+- Yuxuan Li
+- Zhifeng Zhao
+organizations:
+- Soochow University
+affiliations:
+  Liwen Fan:
+  - Soochow University
+  Aojie Feng:
+  - Soochow University
+  Yuxuan Li:
+  - Soochow University
+  Zhifeng Zhao:
+  - Soochow University
+published_at: '2026-09-30'
+url: https://doi.org/10.1080/10447318.2026.2737593
+doi: 10.1080/10447318.2026.2737593
+openalex_id: W7214911138
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Automation bias: a systematic review of frequency, effect me; Explanation in artificial
+  intelligence: Insights from the so; Humans and Automation: Use, Misuse, Disuse, Abuse. Scope
+  scan by claude-opus-5: This is hybrid human-AI decision-making where the machine advises
+  or prescribes and the human ratifies, which the settled reading of the deliberative-democracy
+  line explicitly admits: remove the machine and the findings on agency attenuation, erroneous-recommendation
+  rejection, and responsibility allocation vanish entirely. It is not human community dynamics
+  or voting mechanism design, and it supplies direct evidence on the reliability of the oversight
+  and accountability mechanisms such organizations depend on. What changes because agents
+  hold authority: It shows that human oversight of agent recommendations can be placebo —
+  operators report high felt agency while actually deferring — and that interface design (dialectical
+  vs. prescriptive) more than doubles rejection of erroneous agent outputs, which directly
+  governs how accountable-human-in-the-loop controls should be built and audited in agent-authority
+  organizations. Unreviewed, like everything that has not been through the review queue —
+  and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

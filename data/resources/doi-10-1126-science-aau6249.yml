@@ -1,0 +1,97 @@
+id: resource:doi:10-1126-science-aau6249
+resource_type: peer-reviewed-paper
+title: Human-level performance in 3D multiplayer games with population-based reinforcement
+  learning
+abstract: Artificial teamwork Artificially intelligent agents are getting better and better
+  at two-player games, but most real-world endeavors require teamwork. Jaderberg et al. designed
+  a computer program that excels at playing the video game Quake III Arena in Capture the
+  Flag mode, where two multiplayer teams compete in capturing the flags of the opposing team.
+  The agents were trained by playing thousands of games, gradually learning successful strategies
+  not unlike those favored by their human counterparts. Computer agents competed successfully
+  against humans even when their reaction times were slowed to match those of humans. Science
+  , this issue p. 859
+authors:
+- Max Jaderberg
+- Wojciech Marian Czarnecki
+- Iain Dunning
+- Luke Marris
+- Guy Lever
+- Antonio García Castañeda
+- Charles Beattie
+- Neil C. Rabinowitz
+- Ari S. Morcos
+- Avraham Ruderman
+- Nicolas Sonnerat
+- Tim Green
+- Louise Deason
+- Joel Z. Leibo
+- David Silver
+- Demis Hassabis
+- Koray Kavukcuoglu
+- Thore Graepel
+organizations:
+- Google DeepMind
+affiliations:
+  Max Jaderberg:
+  - Google DeepMind
+  Wojciech Marian Czarnecki:
+  - Google DeepMind
+  Iain Dunning:
+  - Google DeepMind
+  Luke Marris:
+  - Google DeepMind
+  Guy Lever:
+  - Google DeepMind
+  Antonio García Castañeda:
+  - Google DeepMind
+  Charles Beattie:
+  - Google DeepMind
+  Neil C. Rabinowitz:
+  - Google DeepMind
+  Ari S. Morcos:
+  - Google DeepMind
+  Avraham Ruderman:
+  - Google DeepMind
+  Nicolas Sonnerat:
+  - Google DeepMind
+  Tim Green:
+  - Google DeepMind
+  Louise Deason:
+  - Google DeepMind
+  Joel Z. Leibo:
+  - Google DeepMind
+  David Silver:
+  - Google DeepMind
+  Demis Hassabis:
+  - Google DeepMind
+  Koray Kavukcuoglu:
+  - Google DeepMind
+  Thore Graepel:
+  - Google DeepMind
+published_at: '2019-05-30'
+url: https://doi.org/10.1126/science.aau6249
+doi: 10.1126/science.aau6249
+openalex_id: W2810602713
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Generative agent-based modeling
+  with actions grounded in phy; Virtual Agent Economies. Scope scan by claude-opus-5: This
+  is a landmark multi-agent RL method paper, not a study of organizations where agents hold
+  authority, so it fails the scope test on its own terms; it is held as borrowed background
+  in section 15 alongside Melting Pot because the library''s cooperation and agent-economy
+  records build on it. No exclusion-register line applies — it is adjacent method, not excluded
+  human-collective-decision material. What changes because agents hold authority: Nothing
+  directly — it demonstrates that populations of trained agents can acquire coordinated team
+  behaviour and roles without human instruction, which is the capability premise underneath
+  delegating operational authority to multi-agent systems, but it says nothing about authority,
+  oversight, or accountability itself. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

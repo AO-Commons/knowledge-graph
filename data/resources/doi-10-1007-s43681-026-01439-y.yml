@@ -1,0 +1,44 @@
+id: resource:doi:10-1007-s43681-026-01439-y
+resource_type: peer-reviewed-paper
+title: 'Beyond one-size-fits-all: how adaptability and autonomy shape responsible AI governance'
+authors:
+- Mohammad Hossein Jarrahi
+- Vern Glaser
+- Joel Gehman
+organizations:
+- George Washington University
+- University of Alberta
+- University of North Carolina at Chapel Hill
+affiliations:
+  Mohammad Hossein Jarrahi:
+  - University of North Carolina at Chapel Hill
+  Vern Glaser:
+  - University of Alberta
+  Joel Gehman:
+  - George Washington University
+published_at: '2026-10-01'
+url: https://doi.org/10.1007/s43681-026-01439-y
+doi: 10.1007/s43681-026-01439-y
+openalex_id: W7220462644
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Accountability in artificial intelligence: what it is and ho; Agentic profiles
+  for effective AI governance; Visibility into AI Agents. Scope scan by claude-opus-5: No
+  exclusion-register line applies: this is not human collective decision-making but a framework
+  for grading oversight by machine autonomy level, which is precisely the design question
+  for organizations delegating authority to agents. Admitted with the caveat that the record
+  is thin (no abstract/venue), but its citation by three in-library papers and its explicit
+  autonomy axis make it substantive rather than adjacent. What changes because agents hold
+  authority: It argues governance and oversight obligations should be calibrated to a system''s
+  degree of autonomy and adaptability, which directly determines how much control, monitoring
+  and accountability machinery an organization must build around agents that act on its behalf.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

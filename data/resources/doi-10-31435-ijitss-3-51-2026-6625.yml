@@ -1,0 +1,56 @@
+id: resource:doi:10-31435-ijitss-3-51-2026-6625
+resource_type: peer-reviewed-paper
+title: 'ALGORITHMIC SECOND OPINIONS IN PRIMARY CARE DERMATOLOGY: TRUST DYNAMICS AND AUTOMATION
+  BIAS ACROSS SKIN LESIONS AND ERUPTIONS'
+abstract: Dermatological complaints constitute a significant portion of primary care consultations,
+  encompassing a broad spectrum from infectious exanthems and inflammatory rashes to malignant
+  neoplasms. The recent integration of Artificial Intelligence (AI) into primary care settings
+  promises to bridge the diagnostic accuracy gap between General Practitioners (GPs) and board-certified
+  dermatologists. However, the socio-technical dynamics of how GPs calibrate trust in AI diagnostic
+  suggestions remain poorly understood. This study investigates human-computer interaction,
+  focusing on diagnostic confidence and automation bias, when physicians are provided with
+  an AI-generated "second opinion." Utilizing an explanatory mixed-methods design, 50 clinicians—comprising
+  25 GPs (Novices in specialized dermatology) and 25 Dermatologists (Experts)—evaluated a
+  curated dataset of 40 diverse macroscopic and dermoscopic clinical cases, including viral
+  rashes, fungal infections, inflammatory dermatoses, and skin tumors. To assess automation
+  bias, the AI assistant was programmed to provide deliberately incorrect diagnostic prompts
+  in 20% of the cases. Quantitative results demonstrate a profound experience-based divergence.
+  GPs, operating under higher diagnostic uncertainty, exhibited severe automation bias, frequently
+  overturning correct initial diagnoses to align with erroneous AI prompts. Conversely, dermatologists
+  demonstrated resilient diagnostic confidence but exhibited instances of algorithmic aversion,
+  often rejecting the AI entirely due to its "black box" nature. The findings emphasize that
+  deploying AI in primary care requires shifting focus from algorithmic accuracy to human-centered
+  interface design, specifically integrating Explainable AI (XAI) paradigms to ensure safe
+  and synergistic clinical decision-making.
+authors:
+- Jakub Klepacz
+- Radosław Swędrak
+- Zuzanna Dobrakowska
+published_at: '2026-09-25'
+url: https://doi.org/10.31435/ijitss.3(51).2026.6625
+doi: 10.31435/ijitss.3(51).2026.6625
+openalex_id: W7214488556
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Automation bias: a systematic review of frequency, effect me; Humans and Automation:
+  Use, Misuse, Disuse, Abuse; Ironies of automation; Moral Crumple Zones: Cautionary Tales
+  in Human-Robot Interac. Scope scan by claude-opus-5: This is hybrid human-machine decision-making
+  where removing the machine destroys the finding entirely, so the deliberative-democracy
+  exclusion line does not apply; it is about the calibration of human authority over machine
+  recommendations, which is the load-bearing question for oversight design. Its clinical setting
+  is incidental — the finding is about when deference and aversion corrupt the review layer
+  that agentic organizations rely on for accountability. What changes because agents hold
+  authority: It shows that an agent nominally holding only advisory status acquires de facto
+  decision authority through expertise-dependent automation bias, so human-in-the-loop review
+  is a reliable control only where the reviewer''s domain expertise exceeds the agent''s —
+  a direct constraint on how oversight roles and escalation thresholds are staffed in agentic
+  organizations. Unreviewed, like everything that has not been through the review queue —
+  and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

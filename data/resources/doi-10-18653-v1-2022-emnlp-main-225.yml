@@ -1,0 +1,63 @@
+id: resource:doi:10-18653-v1-2022-emnlp-main-225
+resource_type: peer-reviewed-paper
+title: Red Teaming Language Models with Language Models
+abstract: Ethan Perez, Saffron Huang, Francis Song, Trevor Cai, Roman Ring, John Aslanides,
+  Amelia Glaese, Nat McAleese, Geoffrey Irving. Proceedings of the 2022 Conference on Empirical
+  Methods in Natural Language Processing. 2022.
+authors:
+- Ethan Perez
+- Saffron Huang
+- Francis Song
+- Trevor Y. Cai
+- Roman Ring
+- John Aslanides
+- Amelia Glaese
+- Nat McAleese
+- Geoffrey Irving
+organizations:
+- New York University
+affiliations:
+  Ethan Perez:
+  - New York University
+  Saffron Huang:
+  - New York University
+  Francis Song:
+  - New York University
+  Trevor Y. Cai:
+  - New York University
+  Roman Ring:
+  - New York University
+  John Aslanides:
+  - New York University
+  Amelia Glaese:
+  - New York University
+  Nat McAleese:
+  - New York University
+  Geoffrey Irving:
+  - New York University
+published_at: '2022-01-01'
+url: https://doi.org/10.18653/v1/2022.emnlp-main.225
+doi: 10.18653/v1/2022.emnlp-main.225
+openalex_id: W4385894687
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Discovering Language Model Behaviors with Model-Written Eval; Lessons from complex
+  systems science for AI governance. Scope scan by claude-opus-5: The paper is about model
+  evaluation technique, not about organizations where agents hold authority, so it fails the
+  scope test on its own terms but is load-bearing method infrastructure for pre-deployment
+  and ongoing oversight of agents that do. Held as borrowed background in section 15 alongside
+  Melting Pot, as an evaluation/assurance method the field builds on rather than an ingested
+  organizational record. What changes because agents hold authority: If an organization delegates
+  operational authority to language-model agents, assurance cannot be done by hand at scale,
+  and this paper is the method precedent for machines auditing machines — automated adversarial
+  probing to surface failure modes before an agent is given authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

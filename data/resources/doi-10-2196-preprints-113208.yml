@@ -1,0 +1,48 @@
+id: resource:doi:10-2196-preprints-113208
+resource_type: preprint
+title: The reply is ready. Is the site? False operational closure in AI-assisted clinical
+  trial workflows (Preprint)
+abstract: UNSTRUCTURED Generative artificial intelligence (AI) can faithfully reproduce a
+  status that no longer reflects the operational state of a clinical trial. A reply confirming
+  that a site is "ready" can be accurate about its source and wrong about the world. We define
+  false operational closure as the adoption of a completion or readiness status when the evidence
+  required to support it is absent or no longer current. Unlike model error or automation
+  bias, it is defined at the level of the workflow and can be identified without inferring
+  why anyone accepted the status. The key distinction is between verifying a document and
+  verifying the state it represents. The failure mode is not new, but we hypothesize that
+  generative AI may increase its frequency by making closure-ready messages instant and fluent
+  while the evidence behind them still takes hours or days, and while that evidence remains
+  scattered across systems the tool cannot see. We propose evidence-based closure for statuses
+  that bear on critical-to-quality factors and outline observational and experimental tests
+  of the construct.
+authors:
+- Simona Wójcik
+- Anna Rulkiewicz
+- Marcin Jarząbek
+- Justyna Domienik-Karłowicz
+published_at: '2026-09-28'
+url: https://doi.org/10.2196/preprints.113208
+doi: 10.2196/preprints.113208
+openalex_id: W7214963305
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Automation bias: a systematic review of frequency, effect me; Ironies of automation;
+  Moral Crumple Zones: Cautionary Tales in Human-Robot Interac. Scope scan by claude-opus-5:
+  This is squarely the hybrid human-AI case the deliberative-democracy line explicitly admits:
+  the hypothesis is that the machine''s speed and fluency change the rate of premature closure,
+  so removing the machine does not leave the finding intact. It is about designing verification
+  and accountability for machine-generated operational status rather than about clinical-trial
+  practice that would be the same without AI. What changes because agents hold authority:
+  It names and operationalizes a failure mode — status assertions that are faithful to their
+  source but false about the world — that arises specifically when a generative agent produces
+  the closure-ready attestation an organization then acts on, and proposes evidence-based
+  closure as an oversight control for such workflows. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

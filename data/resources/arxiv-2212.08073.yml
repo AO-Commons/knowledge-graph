@@ -1,0 +1,107 @@
+id: resource:arxiv:2212.08073
+resource_type: preprint
+title: AI-to-AI Code Reviews of GitHub Pull Requests
+abstract: 'AI coding agents are increasingly integrated into software development workflows,
+  operating on both sides of the pull request (PR) process: AI authoring agents, which create
+  or modify PRs, and AI reviewers, which evaluate them. This creates a closed loop where one
+  AI coding agent reviews contributions of another AI coding agent. In this paper, we construct
+  an AI-to-AI code review dataset by linking AI-authored pull requests with AI-attributed
+  review events from CodAGE, a public dataset of coding agent–generated GitHub events. Our
+  dataset contains νm{248641} PRs across 12 AI coding agents with at least one AI review,
+  including νm{45269} reviewed by a different AI product and νm{208145} by the same product.
+  We observe that cross-product AI-to-AI code review occurs in only about 1.6% of identified
+  agent-authored PRs but is substantial in absolute terms: 45k PRs written by one identifiable
+  AI product and reviewed by another. This activity grows by more than two orders of magnitude
+  from 2025-Q1 to 2025-Q3. We measure reviewer behavior using CodeRabbit comment categories,
+  per-PR comment volume, and time to first review, and find that it varies across author–reviewer
+  pairs. For example, Claude-Code PRs receive more refactor comments from CodeRabbit than
+  Copilot PRs (35.0% vs. 10.5%), a difference that may stem from PRs themselves rather than
+  the reviewer. For three of four dual-role reviewers, mean comments per PR were 58-65% higher
+  in the same-product group, though effect sizes were small or negligible and the difference
+  was concentrated in the upper tail. Median time from PR creation to first AI review was
+  1.2 minutes for cross-product pairs and 4.7 minutes for same-product pairs, reflecting which
+  reviewer bots are in each group rather than the product pairing. Overall, our large-scale
+  characterization shows that closed-loop AI-to-AI code review is on the rise but remains
+  a minority phenomenon, with review output varying across authoring-agent groups and author-reviewer
+  configurations.'
+authors:
+- Yuntao Bai
+- Saurav Kadavath
+- Sandipan Kundu
+- Amanda Askell
+- Jackson Kernion
+- Andy Jones
+- Anna Chen
+- Anna Goldie
+- Azalia Mirhoseini
+- Cameron McKinnon
+- Carol Chen
+- Catherine Olsson
+- Christopher Olah
+- Danny Hernandez
+- Dawn Drain
+- Deep Ganguli
+- Dustin Li
+- Eli Tran-Johnson
+- Ethan Perez
+- Jamie Kerr
+- Jared Mueller
+- Jeffrey Ladish
+- Joshua Landau
+- Kamal Ndousse
+- Kamile Lukosuite
+- Liane Lovitt
+- Michael Sellitto
+- Nelson Elhage
+- Nicholas Schiefer
+- Noemí Mercado
+- Nova DasSarma
+- Robert Lasenby
+- Robin Larson
+- Sam Ringer
+- Scott Johnston
+- Shauna Kravec
+- Sheer El Showk
+- Stanislav Fort
+- Tamera Lanham
+- Timothy Telleen-Lawton
+- Tom Conerly
+- Tom Henighan
+- Tristan Hume
+- Samuel R. Bowman
+- Zac Hatfield-Dodds
+- Ben Mann
+- Dario Amodei
+- Nicholas Joseph
+- Sam McCandlish
+- Tom Brown
+- Jared Kaplan
+published_at: '2022-12-15'
+url: https://arxiv.org/abs/2212.08073
+doi: 10.48550/arXiv.2212.08073
+arxiv_id: '2212.08073'
+openalex_id: W4311991106
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; Architecting Agentic
+  Communities using Design Patterns; Cognitive Architectures for Language Agents. Scope scan
+  by claude-opus-5: Remove the machines and nothing of the finding survives: the entire phenomenon
+  is agents evaluating agents'' work in a control function that normally carries accountability
+  weight, so no exclusion-register line applies (it is not human collective decision-making,
+  nor DAO empirics). It is ingested rather than held as borrowed background because it is
+  about an operational authority agents actually hold, not a method or benchmark the field
+  merely builds on. What changes because agents hold authority: It gives empirical base rates
+  and behavioral signatures for a deployed closed loop in which one machine agent exercises
+  the review/gatekeeping function over another agent''s contributions — including evidence
+  that same-product reviewer–author pairings behave differently — which directly informs how
+  you design and audit agent-on-agent quality gates and when a human must remain in the loop.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

@@ -1,0 +1,55 @@
+id: resource:doi:10-1109-icra57147-2024-10610855
+resource_type: peer-reviewed-paper
+title: 'RoCo: Dialectic Multi-Robot Collaboration with Large Language Models'
+abstract: We propose a novel approach to multi-robot collaboration that harnesses the power
+  of pre-trained large language models (LLMs) for both high-level communication and low-level
+  path planning. Robots are equipped with LLMs to discuss and collectively reason task strategies.
+  They generate sub-task plans and task space waypoint paths, which are used by a multi-arm
+  motion planner to accelerate trajectory planning. We also provide feedback from the environment,
+  such as collision checking, and prompt the LLM agents to improve their plan and waypoints
+  in-context. For evaluation, we introduce RoCoBench, a 6-task benchmark covering a wide range
+  of multi-robot collaboration scenarios, accompanied by a text-only dataset that evaluates
+  LLMs’ agent representation and reasoning capability. We experimentally demonstrate the effectiveness
+  of our approach — it achieves high success rates across all tasks in RoCoBench and adapts
+  to variations in task semantics. Our dialog setup offers high interpretability and flexibility
+  — in real world experiments, we show RoCo easily incorporates human-in-the-loop, where a
+  user can communicate and collaborate with a robot agent to complete tasks together.
+authors:
+- Zhao Mandi
+- Shreeya Jain
+- Shuran Song
+organizations:
+- Columbia University
+affiliations:
+  Zhao Mandi:
+  - Columbia University
+  Shreeya Jain:
+  - Columbia University
+  Shuran Song:
+  - Columbia University
+published_at: '2024-05-13'
+url: https://doi.org/10.1109/icra57147.2024.10610855
+doi: 10.1109/icra57147.2024.10610855
+openalex_id: W4401416363
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Large Language Model based Multi-Agents: A Survey of Progres; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: RoCo is a coordination
+  method plus evaluation suite (RoCoBench) that the multi-agent collaboration literature in
+  this library builds on, so it belongs in Section 15 alongside Melting Pot rather than as
+  a core record. No exclusion-register line bars it; it simply does not itself concern an
+  organization where agents hold operational or decision authority. What changes because agents
+  hold authority: It demonstrates and benchmarks machine agents negotiating a joint plan through
+  dialogue — with environment feedback and optional human intervention — which is method precedent
+  for how delegated task authority gets exercised and inspected among agents, but the work
+  itself is robot task planning, not organizational authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

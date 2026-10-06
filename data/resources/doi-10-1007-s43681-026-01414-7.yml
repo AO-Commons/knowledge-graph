@@ -1,0 +1,37 @@
+id: resource:doi:10-1007-s43681-026-01414-7
+resource_type: peer-reviewed-paper
+title: Meaningful human authority in AI mediated decision making an authority vector and bottleneck
+  principle
+authors:
+- Connor Nitchals
+organizations:
+- Arizona State University
+affiliations:
+  Connor Nitchals:
+  - Arizona State University
+published_at: '2026-09-22'
+url: https://doi.org/10.1007/s43681-026-01414-7
+doi: 10.1007/s43681-026-01414-7
+openalex_id: W7214003416
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Accountability in a computerized society; Automation bias: a systematic review
+  of frequency, effect me; Humans and Automation: Use, Misuse, Disuse, Abuse; Ironies of automation;
+  Moral Crumple Zones: Cautionary Tales in Human-Robot Interac. Scope scan by claude-opus-5:
+  The deliberative-democracy exclusion does not apply under the 2026-09-10 reading: this is
+  human-AI hybrid authority, and removing the machine would void the finding entirely rather
+  than leave it intact. Its citation by five library papers is consistent with it being treated
+  as a core framework for oversight design rather than generic background. What changes because
+  agents hold authority: It gives a structured account — an authority vector and a bottleneck
+  principle — of which decision stages must remain under human control when machines mediate
+  or draft the decision, which is exactly the allocation-of-authority question an agentic
+  organization must settle to claim meaningful oversight. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

@@ -1,0 +1,47 @@
+id: resource:arxiv:1811.07871
+resource_type: preprint
+title: 'Scalable agent alignment via reward modeling: a research direction'
+abstract: 'One obstacle to applying reinforcement learning algorithms to real-world problems
+  is the lack of suitable reward functions. Designing such reward functions is difficult in
+  part because the user only has an implicit understanding of the task objective. This gives
+  rise to the agent alignment problem: how do we create agents that behave in accordance with
+  the user''s intentions? We outline a high-level research direction to solve the agent alignment
+  problem centered around reward modeling: learning a reward function from interaction with
+  the user and optimizing the learned reward function with reinforcement learning. We discuss
+  the key challenges we expect to face when scaling reward modeling to complex and general
+  domains, concrete approaches to mitigate these challenges, and ways to establish trust in
+  the resulting agents.'
+authors:
+- Jan Leike
+- David Krueger
+- Tom Everitt
+- Miljan Martic
+- Vishal Maini
+- Shane Legg
+published_at: '2018-11-19'
+url: https://arxiv.org/abs/1811.07871
+doi: 10.48550/arXiv.1811.07871
+arxiv_id: '1811.07871'
+openalex_id: W2901707424
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Training Language Models to Follow Instructions with Human F; Virtual Agent Economies.
+  Scope scan by claude-opus-5: This is alignment methodology, not a study of organizations
+  where agents hold operational authority, so it fails the scope test on its own terms; no
+  exclusion-register line applies. It is load-bearing background for the RLHF and oversight
+  literature the library already ingests (e.g. InstructGPT, Virtual Agent Economies), so it
+  belongs in section 15 as a pointer rather than as a curated organizational record. What
+  changes because agents hold authority: It supplies the foundational method by which an agent''s
+  objective is learned from principals rather than hand-specified, plus the recursive-oversight
+  and trust-establishment framing that any organization delegating authority to agents must
+  rely on to say what the agent is supposed to be optimizing and how that is checked. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

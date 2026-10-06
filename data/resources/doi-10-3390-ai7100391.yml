@@ -1,0 +1,54 @@
+id: resource:doi:10-3390-ai7100391
+resource_type: peer-reviewed-paper
+title: 'Technical Limitations of LLM-Based AI Agents and Their Links to Bias and Governance
+  Challenges: A Narrative Review'
+abstract: Large language model (LLM)-based AI agents combine reasoning and planning, memory,
+  external knowledge use, tool calling, and multi-agent collaboration to perform complex tasks.
+  However, they face planning failures, context-maintenance limitations, collaboration instability,
+  vulnerabilities arising from external interactions, bias, unclear attribution of responsibility,
+  and difficulties in oversight and incident tracing. This narrative literature review examined
+  the technological evolution and technical limitations of AI agents and developed a conceptual
+  mapping relating these limitations to selected issues of bias and governance. Selected early
+  theoretical studies were included; the main focus was post-2022 scholarly literature and
+  official institutional and corporate materials through July 2026, with publication-status
+  and evidence updates during revision in September 2026. Sources were categorized into concepts
+  and trends, single- and multi-agent architectures, technical limitations, and socio-ethical
+  issues; limitations were compared using a problem addressed–mitigation approach–residual
+  limitation framework. The analysis suggests that autonomous actions performed on behalf
+  of users, ambiguity in the scope of authority, multi-agent interactions, external knowledge
+  use, observation of external environments, and tool calling may be linked to unclear attribution
+  of responsibility, bias propagation and amplification, and difficulties in oversight and
+  incident tracing. Potential mediators include multiple actors, miscoordination and conformity,
+  inherited external-source biases, and new attack surfaces. This conceptual mapping provides
+  a basis for future research on trustworthy AI-agent design, operation, and governance.
+authors:
+- Sewoong Lee
+- Jungyub Woo
+- Sangsu Choi
+published_at: '2026-09-28'
+url: https://doi.org/10.3390/ai7100391
+doi: 10.3390/ai7100391
+openalex_id: W7214622621
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents vs. Agentic
+  AI: A Conceptual taxonomy, application; Intelligent agents: theory and practice. Scope scan
+  by claude-opus-5: The paper is not about human collective decision-making and so no exclusion-register
+  line applies; its subject is the oversight and accountability of agents acting autonomously
+  on behalf of principals, which is the core of the scope test. It is more than borrowed background
+  because the limitations→governance mapping is itself a design input for agent-authority
+  organizations, not merely a method or benchmark the field builds on. What changes because
+  agents hold authority: It maps specific technical failure modes of LLM agents — ambiguous
+  scope of delegated authority, multi-agent miscoordination, tool-calling and external-knowledge
+  attack surfaces — onto the accountability problems they cause (unclear responsibility attribution,
+  failed oversight, untraceable incidents), which is directly what you must design around
+  when agents act on an organization''s behalf. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

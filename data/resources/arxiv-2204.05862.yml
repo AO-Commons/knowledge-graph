@@ -1,0 +1,76 @@
+id: resource:arxiv:2204.05862
+resource_type: preprint
+title: Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback
+abstract: We apply preference modeling and reinforcement learning from human feedback (RLHF)
+  to finetune language models to act as helpful and harmless assistants. We find this alignment
+  training improves performance on almost all NLP evaluations, and is fully compatible with
+  training for specialized skills such as python coding and summarization. We explore an iterated
+  online mode of training, where preference models and RL policies are updated on a weekly
+  cadence with fresh human feedback data, efficiently improving our datasets and models. Finally,
+  we investigate the robustness of RLHF training, and identify a roughly linear relation between
+  the RL reward and the square root of the KL divergence between the policy and its initialization.
+  Alongside our main results, we perform peripheral analyses on calibration, competing objectives,
+  and the use of OOD detection, compare our models with human writers, and provide samples
+  from our models using prompts appearing in recent related work.
+authors:
+- Yuntao Bai
+- Andy Jones
+- Kamal Ndousse
+- Amanda Askell
+- Anna Chen
+- Nova DasSarma
+- Dawn Drain
+- Stanislav Fort
+- Deep Ganguli
+- Tom Henighan
+- Nicholas Joseph
+- Saurav Kadavath
+- Jackson Kernion
+- Tom Conerly
+- Sheer El-Showk
+- Nelson Elhage
+- Zac Hatfield-Dodds
+- Danny Hernandez
+- Tristan Hume
+- Scott Johnston
+- Shauna Kravec
+- Liane Lovitt
+- Neel Nanda
+- Catherine Olsson
+- Dario Amodei
+- Tom Brown
+- Jack Clark
+- Sam McCandlish
+- Chris Olah
+- Ben Mann
+- Jared Kaplan
+published_at: '2022-04-12'
+url: https://arxiv.org/abs/2204.05862
+doi: 10.48550/arXiv.2204.05862
+arxiv_id: '2204.05862'
+openalex_id: W4223908421
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Discovering Language Model Behaviors with Model-Written Eval; Solipsistic Superintelligence
+  is Unlikely to be Cooperative; The Collaboration Gap: Exploration and Benchmarking of Open-;
+  Training Language Models to Follow Instructions with Human F. Scope scan by claude-opus-5:
+  This is a training-method paper, not a paper about organizations where agents hold authority,
+  so it cannot be admitted on the scope test directly; but it is load-bearing background that
+  the library''s alignment and agent-cooperation records build on, parallel to the already-held
+  InstructGPT paper. No exclusion-register line applies — it is neither human collective decision-making
+  nor adjacent-institution material — so it belongs in Section 15 as borrowed background rather
+  than refused. What changes because agents hold authority: It is the foundational method
+  by which an agent''s dispositions (helpfulness, harm-avoidance) are instilled and tuned,
+  which is the substrate any organization relies on when delegating operational authority
+  to a machine — including the KL/reward robustness finding that bounds how far an optimized
+  agent drifts from its vetted initialization. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

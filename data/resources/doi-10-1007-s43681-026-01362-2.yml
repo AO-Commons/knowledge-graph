@@ -1,0 +1,56 @@
+id: resource:doi:10-1007-s43681-026-01362-2
+resource_type: peer-reviewed-paper
+title: 'Triarchic corrigibility: a role-separated governance design pattern for AI-assisted
+  decision-making'
+abstract: 'Abstract Artificial intelligence (AI) alignment is often framed as the problem
+  of making a model reliably pursue human intentions or values. That work is indispensable,
+  but deployed systems also raise a governance problem: who controls information, private
+  context, correction, escalation, and action? This conceptual article proposes triarchic
+  corrigibility as a role-separated governance design pattern for AI-assisted decision-making.
+  The pattern combines (1) an embodied and answerable human, or an accountable human decision
+  body; (2) a strictly isolated local AI layer for private contextual continuity; and (3)
+  an externally connected AI layer for current public-world evidence. Final authorization
+  of consequential action remains human, while epistemic and procedural competences are deliberately
+  distributed so that no component can unilaterally control framing, memory, procedure, and
+  execution. The article specifies a normative basis, trust-domain separation, decision rights,
+  human-mediated data flows, reciprocal challenge, escalation, affected-party recourse, proportionate
+  audit, and exit procedures. It distinguishes personal and organizational instantiations,
+  compares the pattern with single-assistant, local-only, edge–cloud, multi-agent, human-in-the-loop,
+  meaningful-human-control, and polycentric approaches, and provides criteria and rejection
+  conditions for evaluating its value. It also advances an evolutionary-symbiotic hypothesis:
+  repeated, bounded dependence on complementary roles may make correction and cooperative
+  continuity preferable to unilateral control while preserving interruption, replacement,
+  and exit. A worked case illustrates the protocol. The result is a testable governance hypothesis
+  whose capacity to reduce correlated failure, preserve privacy and human judgment, and sustain
+  correction under residual uncertainty requires empirical evaluation.'
+authors:
+- Markus C. Kolodziej
+published_at: '2026-09-30'
+url: https://doi.org/10.1007/s43681-026-01362-2
+doi: 10.1007/s43681-026-01362-2
+openalex_id: W7214898500
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 7
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Agentic Misalignment: How LLMs Could Be Insider Threats; Alignment faking in large
+  language models; Examining Inter-Consistency of Large Language Models Collabo; Improving
+  Factuality and Reasoning in Language Models throug; Large Language Models can Strategically
+  Deceive their Users ; Not What You''ve Signed Up For: Compromising Real-World LLM-I; Society-in-the-loop:
+  programming the algorithmic social cont. Scope scan by claude-opus-5: This is hybrid human-AI
+  authority design, which the settled reading of the deliberative-democracy line explicitly
+  keeps in scope: removing the machine layers collapses the entire pattern, so the finding
+  is not intact without agents. It is prescriptive about corrigibility, trust-domain separation
+  and accountability structures, which is exactly the material that changes how one designs
+  and oversees an agent-bearing organization. What changes because agents hold authority:
+  It supplies an explicit allocation of decision rights, escalation paths, recourse, audit
+  and exit between accountable humans and distinct AI layers, so that no machine component
+  simultaneously controls framing, memory, procedure and execution — a concrete architectural
+  constraint for organizations delegating operational competences to agents. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

@@ -1,0 +1,61 @@
+id: resource:doi:10-1177-2053951716679679
+resource_type: peer-reviewed-paper
+title: 'The ethics of algorithms: Mapping the debate'
+abstract: In information societies, operations, decisions and choices previously left to humans
+  are increasingly delegated to algorithms, which may advise, if not decide, about how data
+  should be interpreted and what actions should be taken as a result. More and more often,
+  algorithms mediate social processes, business transactions, governmental decisions, and
+  how we perceive, understand, and interact among ourselves and with the environment. Gaps
+  between the design and operation of algorithms and our understanding of their ethical implications
+  can have severe consequences affecting individuals as well as groups and whole societies.
+  This paper makes three contributions to clarify the ethical importance of algorithmic mediation.
+  It provides a prescriptive map to organise the debate. It reviews the current discussion
+  of ethical aspects of algorithms. And it assesses the available literature in order to identify
+  areas requiring further work to develop the ethics of algorithms.
+authors:
+- Brent Mittelstadt
+- Patrick Allo
+- Mariarosaria Taddeo
+- Sandra Wachter
+- Luciano Floridi
+organizations:
+- The Alan Turing Institute
+- University of Oxford
+affiliations:
+  Brent Mittelstadt:
+  - University of Oxford
+  Patrick Allo:
+  - University of Oxford
+  Mariarosaria Taddeo:
+  - University of Oxford
+  - The Alan Turing Institute
+  Sandra Wachter:
+  - The Alan Turing Institute
+  Luciano Floridi:
+  - University of Oxford
+  - The Alan Turing Institute
+published_at: '2016-12-01'
+url: https://doi.org/10.1177/2053951716679679
+doi: 10.1177/2053951716679679
+openalex_id: W2557671501
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Is Decentralized AI Governable? From Regulative Policy to Co; The law and economics
+  of AI liability. Scope scan by claude-opus-5: This is foundational algorithm-ethics scaffolding
+  that the library''s liability and AI-governance records explicitly build on, so it is load-bearing
+  but is about algorithmic mediation generally rather than organizations where agents hold
+  authority. Held as a Section 15 pointer rather than ingested as in-scope material. What
+  changes because agents hold authority: It supplies the canonical six-concern map (inconclusive/inscrutable/misguided
+  evidence, unfair outcomes, transformative effects, traceability) that oversight and accountability
+  regimes for delegated machine decision authority are built on, though it says nothing specific
+  about organizations. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

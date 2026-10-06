@@ -1,0 +1,50 @@
+id: resource:doi:10-1177-00491241261492203
+resource_type: peer-reviewed-paper
+title: How Model Choice and Memory Shape Preference Consistency in Large Language Models
+abstract: 'When a language model answers a sequence of questions, researchers report the model
+  and temperature but rarely what or how it was told about its own earlier answers. I show
+  that this underreported setting behaves as a mode effect. Testing four large language model
+  (LLM) families with revealed preference theory (GARP) across moral, economic, and social
+  tasks ( N = 5,926 ), I find that how prior choices re-enter the prompt, the memory condition
+  , moves the share of internally consistent subjects by up to 48 percentage points, mostly
+  where that share starts lowest. Memory also influences which preferences the models express
+  and, in a silicon-sampling extension, it brings the answers closer to the human distribution.
+  Nonetheless, gains in consistency and surface fidelity do not necessarily translate into
+  representativeness: a consistent, human-looking model may not represent any human population.
+  For LLMs as social-science instruments, this study offers promise, caution, and a method
+  for testing the stability of sequential outputs.'
+authors:
+- Yick Chung
+organizations:
+- University of Milan
+affiliations:
+  Yick Chung:
+  - University of Milan
+published_at: '2026-09-29'
+url: https://doi.org/10.1177/00491241261492203
+doi: 10.1177/00491241261492203
+openalex_id: W7214744109
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Out of One, Many: Using Language Models to Simulate Human Sa; Simulating Subjects:
+  The Promise and Peril of Artificial Int; Training Language Models to Follow Instructions
+  with Human F. Scope scan by claude-opus-5: The paper is framed as instrument validation
+  for LLMs as social-science subjects (silicon sampling), not as a study of organizations
+  where agents hold authority, so it fails the scope test on its own terms. But the GARP-based
+  method for testing stability of sequential model outputs is load-bearing for anyone evaluating
+  whether a delegated agent decides coherently over time; hold it in section 15 alongside
+  Melting Pot rather than ingest it as a core record. What changes because agents hold authority:
+  If an agent holds standing decision authority, its rationality across a sequence of decisions
+  is a configuration artifact — how prior choices re-enter context shifts internal consistency
+  by up to 48 points — so memory architecture becomes an auditable governance parameter, not
+  an implementation detail. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

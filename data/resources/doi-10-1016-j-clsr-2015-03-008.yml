@@ -1,0 +1,39 @@
+id: resource:doi:10-1016-j-clsr-2015-03-008
+resource_type: peer-reviewed-paper
+title: Liability for damages caused by artificial intelligence
+authors:
+- Paulius Čerka
+- Jurgita Grigienė
+- Gintarė Sirbikytė
+organizations:
+- Vytautas Magnus University
+affiliations:
+  Paulius Čerka:
+  - Vytautas Magnus University
+  Jurgita Grigienė:
+  - Vytautas Magnus University
+published_at: '2015-04-22'
+url: https://doi.org/10.1016/j.clsr.2015.03.008
+doi: 10.1016/j.clsr.2015.03.008
+openalex_id: W2031611431
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Virtual Agent Economies.
+  Scope scan by claude-opus-5: The register excludes general entity legal concerns (tax, IP,
+  securities) but explicitly retains material where agent action creates novel exposure, which
+  is exactly this paper''s subject. It is foundational legal background rather than a study
+  of organizations where agents hold authority, so it is held as a pointer in section 15 rather
+  than ingested as core. What changes because agents hold authority: It supplies the doctrinal
+  frame — vicarious/strict liability, legal personhood, foreseeability — for allocating responsibility
+  when an autonomous agent''s action causes harm, which is the novel exposure an organization
+  delegating authority to machines must plan for. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

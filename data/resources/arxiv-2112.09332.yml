@@ -1,0 +1,60 @@
+id: resource:arxiv:2112.09332
+resource_type: preprint
+title: 'WebGPT: Browser-assisted question-answering with human feedback'
+abstract: We fine-tune GPT-3 to answer long-form questions using a text-based web-browsing
+  environment, which allows the model to search and navigate the web. By setting up the task
+  so that it can be performed by humans, we are able to train models on the task using imitation
+  learning, and then optimize answer quality with human feedback. To make human evaluation
+  of factual accuracy easier, models must collect references while browsing in support of
+  their answers. We train and evaluate our models on ELI5, a dataset of questions asked by
+  Reddit users. Our best model is obtained by fine-tuning GPT-3 using behavior cloning, and
+  then performing rejection sampling against a reward model trained to predict human preferences.
+  This model's answers are preferred by humans 56% of the time to those of our human demonstrators,
+  and 69% of the time to the highest-voted answer from Reddit.
+authors:
+- Reiichiro Nakano
+- Jacob Hilton
+- Suchir Balaji
+- Jeff Wu
+- Long Ouyang
+- Christina Kim
+- Christopher Hesse
+- Shantanu Jain
+- Vineet Kosaraju
+- William Saunders
+- Xu Jiang
+- Karl Cobbe
+- Tyna Eloundou
+- Gretchen Krueger
+- Kevin Button
+- Matthew Knight
+- Benjamin Chess
+- John Schulman
+published_at: '2021-12-17'
+url: https://arxiv.org/abs/2112.09332
+doi: 10.48550/arXiv.2112.09332
+arxiv_id: '2112.09332'
+openalex_id: W4226227340
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Training Language Models to Follow
+  Instructions with Human F; WebVoyager: Building an End-to-End Web Agent with Large Mult.
+  Scope scan by claude-opus-5: WebGPT is a foundational method the field builds on (tool-using
+  browser agents trained from human feedback, with evidence collection for human oversight)
+  and is cited as such by three library records, but it says nothing about agents holding
+  operational or decision authority within an organization. It therefore belongs as a Section
+  15 pointer rather than an ingested in-scope record; no exclusion-register line applies.
+  What changes because agents hold authority: It establishes the pattern of an agent taking
+  autonomous actions in an external environment while being required to surface citations
+  that make its outputs humanly verifiable — a precedent for auditable agent action, though
+  the paper itself concerns a single model answering questions, not an organization. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2
+is_borrowed_background: true

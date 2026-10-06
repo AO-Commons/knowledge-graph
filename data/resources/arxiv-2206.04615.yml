@@ -1,0 +1,507 @@
+id: resource:arxiv:2206.04615
+resource_type: preprint
+title: 'Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language
+  models'
+abstract: 'Language models demonstrate both quantitative improvement and new qualitative capabilities
+  with increasing scale. Despite their potentially transformative impact, these new capabilities
+  are as yet poorly characterized. In order to inform future research, prepare for disruptive
+  new model capabilities, and ameliorate socially harmful effects, it is vital that we understand
+  the present and near-future capabilities and limitations of language models. To address
+  this challenge, we introduce the Beyond the Imitation Game benchmark (BIG-bench). BIG-bench
+  currently consists of 204 tasks, contributed by 450 authors across 132 institutions. Task
+  topics are diverse, drawing problems from linguistics, childhood development, math, common-sense
+  reasoning, biology, physics, social bias, software development, and beyond. BIG-bench focuses
+  on tasks that are believed to be beyond the capabilities of current language models. We
+  evaluate the behavior of OpenAI''s GPT models, Google-internal dense transformer architectures,
+  and Switch-style sparse transformers on BIG-bench, across model sizes spanning millions
+  to hundreds of billions of parameters. In addition, a team of human expert raters performed
+  all tasks in order to provide a strong baseline. Findings include: model performance and
+  calibration both improve with scale, but are poor in absolute terms (and when compared with
+  rater performance); performance is remarkably similar across model classes, though with
+  benefits from sparsity; tasks that improve gradually and predictably commonly involve a
+  large knowledge or memorization component, whereas tasks that exhibit "breakthrough" behavior
+  at a critical scale often involve multiple steps or components, or brittle metrics; social
+  bias typically increases with scale in settings with ambiguous context, but this can be
+  improved with prompting.'
+authors:
+- Aarohi Srivastava
+- Abhinav Rastogi
+- Abhishek Rao
+- Abu Awal Md Shoeb
+- Abubakar Abid
+- Adam Fisch
+- Adam R. Brown
+- Adam Santoro
+- Aditya Gupta
+- Adrià Garriga-Alonso
+- Agnieszka Kluska
+- Aitor Lewkowycz
+- Akshat Agarwal
+- Alethea Power
+- Alex Ray
+- Alex Warstadt
+- Alexander W. Kocurek
+- Ali Safaya
+- Ali Tazarv
+- Alice Xiang
+- Alicia Parrish
+- Allen Nie
+- Aman Hussain
+- Amanda Askell
+- Amanda Dsouza
+- Ambrose Slone
+- Ameet Rahane
+- Anantharaman S. Iyer
+- Anders Andreassen
+- Andrea Madotto
+- Andrea Santilli
+- Andreas Stuhlmüller
+- Andrew Dai
+- Andrew La
+- Andrew Lampinen
+- Andy Zou
+- Angela Jiang
+- Angelica Chen
+- Anh Vuong
+- Animesh Gupta
+- Anna Gottardi
+- Antonio Norelli
+- Anu Venkatesh
+- Arash Gholamidavoodi
+- Arfa Tabassum
+- Arul Menezes
+- Arun Kirubarajan
+- Asher Mullokandov
+- Ashish Sabharwal
+- Austin Herrick
+- Avia Efrat
+- Aykut Erdem
+- Ayla Karakaş
+- B. Ryan Roberts
+- Bao Sheng Loe
+- Barret Zoph
+- Bartłomiej Bojanowski
+- Batuhan Özyurt
+- Behnam Hedayatnia
+- Behnam Neyshabur
+- Benjamin Inden
+- Benno Stein
+- Berk Ekmekci
+- Bill Yuchen Lin
+- Blake Howald
+- Bryan Orinion
+- Cameron Diao
+- Cameron Dour
+- Catherine Stinson
+- Cedrick Argueta
+- César Ferri Ramírez
+- Chandan Singh
+- Charles Rathkopf
+- Chenlin Meng
+- Chitta Baral
+- Chiyu Wu
+- Chris Callison-Burch
+- Chris Waites
+- Christian Voigt
+- Christopher D. Manning
+- Christopher Potts
+- Cindy Ramirez
+- Clara E. Rivera
+- Clemencia Siro
+- Colin Raffel
+- Courtney Ashcraft
+- Cristina Garbacea
+- Damien Sileo
+- Dan Garrette
+- Dan Hendrycks
+- Dan Kilman
+- Dan Roth
+- Daniel Freeman
+- Daniel Khashabi
+- Daniel Levy
+- Daniel Moseguí González
+- Danielle Perszyk
+- Danny Hernandez
+- Danqi Chen
+- Daphne Ippolito
+- Dar Gilboa
+- David Dohan
+- David Drakard
+- David Jurgens
+- Debajyoti Datta
+- Deep Ganguli
+- Denis Emelin
+- Denis Kleyko
+- Deniz Yuret
+- Derek Chen
+- Derek Tam
+- Dieuwke Hupkes
+- Diganta Misra
+- Dilyar Buzan
+- Dimitri Coelho Mollo
+- Diyi Yang
+- Dong-Ho Lee
+- Dylan Schrader
+- Ekaterina Shutova
+- Ekin Dogus Cubuk
+- Elad Segal
+- Eleanor Hagerman
+- Elizabeth Barnes
+- Elizabeth Donoway
+- Ellie Pavlick
+- Emanuele Rodola
+- Emma Lam
+- Eric Chu
+- Eric Tang
+- Erkut Erdem
+- Ernie Chang
+- Ethan A. Chi
+- Ethan Dyer
+- Ethan Jerzak
+- Ethan Kim
+- Eunice Engefu Manyasi
+- Evgenii Zheltonozhskii
+- Fanyue Xia
+- Fatemeh Siar
+- Fernando Martínez-Plumed
+- Francesca Happé
+- Francois Chollet
+- Frieda Rong
+- Gaurav Mishra
+- Genta Indra Winata
+- Gerard de Melo
+- Germán Kruszewski
+- Giambattista Parascandolo
+- Giorgio Mariani
+- Gloria Wang
+- Gonzalo Jaimovitch-López
+- Gregor Betz
+- Guy Gur-Ari
+- Hana Galijasevic
+- Hannah Kim
+- Hannah Rashkin
+- Hannaneh Hajishirzi
+- Harsh Mehta
+- Hayden Bogar
+- Henry Shevlin
+- Hinrich Schütze
+- Hiromu Yakura
+- Hongming Zhang
+- Hugh Mee Wong
+- Ian Ng
+- Isaac Noble
+- Jaap Jumelet
+- Jack Geissinger
+- Jackson Kernion
+- Jacob Hilton
+- Jaehoon Lee
+- Jaime Fernández Fisac
+- James B. Simon
+- James Koppel
+- James Zheng
+- James Zou
+- Jan Kocoń
+- Jana Thompson
+- Janelle Wingfield
+- Jared Kaplan
+- Jarema Radom
+- Jascha Sohl-Dickstein
+- Jason Phang
+- Jason Wei
+- Jason Yosinski
+- Jekaterina Novikova
+- Jelle Bosscher
+- Jennifer Marsh
+- Jeremy Kim
+- Jeroen Taal
+- Jesse Engel
+- Jesujoba Alabi
+- Jiacheng Xu
+- Jiaming Song
+- Jillian Tang
+- Joan Waweru
+- John Burden
+- John Miller
+- John U. Balis
+- Jonathan Batchelder
+- Jonathan Berant
+- Jörg Frohberg
+- Jos Rozen
+- José Hernández-Orallo
+- Joseph Boudeman
+- Joseph Guerr
+- Joseph Jones
+- Joshua B. Tenenbaum
+- Joshua S. Rule
+- Joyce Chua
+- Kamil Kanclerz
+- Karen Livescu
+- Karl Krauth
+- Karthik Gopalakrishnan
+- Katerina Ignatyeva
+- Katja Markert
+- Kaustubh D. Dhole
+- Kevin Gimpel
+- Kevin Omondi
+- Kory Mathewson
+- Kristen Chiafullo
+- Ksenia Shkaruta
+- Kumar Shridhar
+- Kyle McDonell
+- Kyle Richardson
+- Laria Reynolds
+- Leo Gao
+- Li Zhang
+- Liam Dugan
+- Lianhui Qin
+- Lidia Contreras-Ochando
+- Louis-Philippe Morency
+- Luca Moschella
+- Lucas Lam
+- Lucy Noble
+- Ludwig Schmidt
+- Luheng He
+- Luis Oliveros Colón
+- Luke Metz
+- Lütfi Kerem Şenel
+- Maarten Bosma
+- Maarten Sap
+- Maartje ter Hoeve
+- Maheen Farooqi
+- Manaal Faruqui
+- Mantas Mazeika
+- Marco Baturan
+- Marco Marelli
+- Marco Maru
+- Maria Jose Ramírez Quintana
+- Marie Tolkiehn
+- Mario Giulianelli
+- Martha Lewis
+- Martin Potthast
+- Matthew L. Leavitt
+- Matthias Hagen
+- Mátyás Schubert
+- Medina Orduna Baitemirova
+- Melody Arnaud
+- Melvin McElrath
+- Michael A. Yee
+- Michael Cohen
+- Michael Gu
+- Michael Ivanitskiy
+- Michael Starritt
+- Michael Strube
+- Michał Swędrowski
+- Michele Bevilacqua
+- Michihiro Yasunaga
+- Mihir Kale
+- Mike Cain
+- Mimee Xu
+- Mirac Suzgun
+- Mitch Walker
+- Mo Tiwari
+- Mohit Bansal
+- Moin Aminnaseri
+- Mor Geva
+- Mozhdeh Gheini
+- Mukund Varma T
+- Nanyun Peng
+- Nathan A. Chi
+- Nayeon Lee
+- Neta Gur-Ari Krakover
+- Nicholas Cameron
+- Nicholas Roberts
+- Nick Doiron
+- Nicole Martinez
+- Nikita Nangia
+- Niklas Deckers
+- Niklas Muennighoff
+- Nitish Shirish Keskar
+- Niveditha S. Iyer
+- Noah Constant
+- Noah Fiedel
+- Nuan Wen
+- Oliver Zhang
+- Omar Agha
+- Omar Elbaghdadi
+- Omer Levy
+- Owain Evans
+- Pablo Antonio Moreno Casares
+- Parth Doshi
+- Pascale Fung
+- Paul Pu Liang
+- Paul Vicol
+- Pegah Alipoormolabashi
+- Peiyuan Liao
+- Percy Liang
+- Peter Chang
+- Peter Eckersley
+- Phu Mon Htut
+- Pinyu Hwang
+- Piotr Miłkowski
+- Piyush Patil
+- Pouya Pezeshkpour
+- Priti Oli
+- Qiaozhu Mei
+- Qing Lyu
+- Qinlang Chen
+- Rabin Banjade
+- Rachel Etta Rudolph
+- Raefer Gabriel
+- Rahel Habacker
+- Ramon Risco
+- Raphaël Millière
+- Rhythm Garg
+- Richard Barnes
+- Rif A. Saurous
+- Riku Arakawa
+- Robbe Raymaekers
+- Robert Frank
+- Rohan Sikand
+- Roman Novak
+- Roman Sitelew
+- Ronan LeBras
+- Rosanne Liu
+- Rowan Jacobs
+- Rui Zhang
+- Ruslan Salakhutdinov
+- Ryan Chi
+- Ryan Lee
+- Ryan Stovall
+- Ryan Teehan
+- Rylan Yang
+- Sahib Singh
+- Saif M. Mohammad
+- Sajant Anand
+- Sam Dillavou
+- Sam Shleifer
+- Sam Wiseman
+- Samuel Gruetter
+- Samuel R. Bowman
+- Samuel S. Schoenholz
+- Sanghyun Han
+- Sanjeev Kwatra
+- Sarah A. Rous
+- Sarik Ghazarian
+- Sayan Ghosh
+- Sean Casey
+- Sebastian Bischoff
+- Sebastian Gehrmann
+- Sebastian Schuster
+- Sepideh Sadeghi
+- Shadi Hamdan
+- Sharon Zhou
+- Shashank Srivastava
+- Sherry Shi
+- Shikhar Singh
+- Shima Asaadi
+- Shixiang Shane Gu
+- Shubh Pachchigar
+- Shubham Toshniwal
+- Shyam Upadhyay
+- Shyamolima
+- Debnath
+- Siamak Shakeri
+- Simon Thormeyer
+- Simone Melzi
+- Siva Reddy
+- Sneha Priscilla Makini
+- Soo-Hwan Lee
+- Spencer Torene
+- Sriharsha Hatwar
+- Stanislas Dehaene
+- Stefan Divic
+- Stefano Ermon
+- Stella Biderman
+- Stephanie Lin
+- Stephen Prasad
+- Steven T. Piantadosi
+- Stuart M. Shieber
+- Summer Misherghi
+- Svetlana Kiritchenko
+- Swaroop Mishra
+- Tal Linzen
+- Tal Schuster
+- Tao Li
+- Tao Yu
+- Tariq Ali
+- Tatsu Hashimoto
+- Te-Lin Wu
+- Théo Desbordes
+- Theodore Rothschild
+- Thomas Phan
+- Tianle Wang
+- Tiberius Nkinyili
+- Timo Schick
+- Timofei Kornev
+- Titus Tunduny
+- Tobias Gerstenberg
+- Trenton Chang
+- Trishala Neeraj
+- Tushar Khot
+- Tyler Shultz
+- Uri Shaham
+- Vedant Misra
+- Vera Demberg
+- Victoria Nyamai
+- Vikas Raunak
+- Vinay Ramasesh
+- Vinay Uday Prabhu
+- Vishakh Padmakumar
+- Vivek Srikumar
+- William Fedus
+- William Saunders
+- William Zhang
+- Wout Vossen
+- Xiang Ren
+- Xiaoyu Tong
+- Xinran Zhao
+- Xinyi Wu
+- Xudong Shen
+- Yadollah Yaghoobzadeh
+- Yair Lakretz
+- Yangqiu Song
+- Yasaman Bahri
+- Yejin Choi
+- Yichi Yang
+- Yiding Hao
+- Yifu Chen
+- Yonatan Belinkov
+- Yu Hou
+- Yufang Hou
+- Yuntao Bai
+- Zachary Seid
+- Zhuoye Zhao
+- Zijian Wang
+- Zijie J. Wang
+- Zirui Wang
+- Ziyi Wu
+published_at: '2022-06-09'
+url: https://arxiv.org/abs/2206.04615
+doi: 10.48550/arXiv.2206.04615
+arxiv_id: '2206.04615'
+openalex_id: W4281690148
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Discovering Language Model Behaviors with Model-Written Eval; Do the Rewards Justify
+  the Means? Measuring Trade-Offs Betwe; Encouraging Divergent Thinking in Large Language
+  Models thro; Solipsistic Superintelligence is Unlikely to be Cooperative; Using Large Language
+  Models to Simulate Multiple Humans and . Scope scan by claude-opus-5: BIG-bench is a general
+  language-model evaluation suite, not a study of agents holding authority, so it fails the
+  scope test on its own terms; but it is the canonical benchmark precedent that library items
+  such as Model-Written Evaluations and MACHIAVELLI build directly upon, making it exactly
+  the kind of load-bearing evaluation infrastructure Section 15 holds as a pointer. No exclusion-register
+  line applies; it is held as borrowed background rather than ingested as in-scope. What changes
+  because agents hold authority: It supplies the capability-measurement and scale-extrapolation
+  evidence base — including unpredictable ''breakthrough'' capabilities and poor calibration
+  — that any decision about how much operational authority to delegate to a model must rest
+  on, though it says nothing about organizations itself. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

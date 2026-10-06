@@ -1,0 +1,45 @@
+id: resource:doi:10-4018-979-8-3373-9594-4-ch004
+resource_type: peer-reviewed-paper
+title: Adaptive Governance of Autonomous AI Agents
+abstract: The introduction of autonomous AI agents as active participants in the institutions
+  is a qualitative change in the governance requirements facing organisations in the public
+  sector, financial services and critical infrastructure. In contrast to the earlier generations
+  of decision-support systems, AI agents do not simply enlighten human choices; they take
+  consequential actions, coordinate multi-step work processes, and increasingly act in distributed
+  multi-agent systems that decentralize responsibility and make it harder to monitor. The
+  chapter states that the governance of AI agents is not appropriate to be addressed through
+  compliance-oriented, checklist-driven approaches that are designed to be applicable to the
+  systems that are static and rule-based
+authors:
+- Nashat Ali Almasria
+organizations:
+- A'Sharqiyah University
+affiliations:
+  Nashat Ali Almasria:
+  - A'Sharqiyah University
+published_at: '2026-09-29'
+url: https://doi.org/10.4018/979-8-3373-9594-4.ch004
+doi: 10.4018/979-8-3373-9594-4.ch004
+openalex_id: W7214783077
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agentic AI: Autonomous Intelligence for Complex Goals—A Comp; Governing AI Agents;
+  Trustworthy agentic AI systems: a cross-layer review of arch. Scope scan by claude-opus-5:
+  The work is explicitly about organizations in the public sector, finance and critical infrastructure
+  where AI agents act rather than advise, so the finding collapses if the machine is removed
+  — no exclusion-register line applies. Admitted despite a thin, imprecise abstract and unidentified
+  venue, since the subject is core rather than adjacent; a reviewer may wish to verify publication
+  provenance. What changes because agents hold authority: It argues that oversight of agents
+  that take consequential actions and coordinate multi-step workflows across distributed multi-agent
+  systems requires adaptive, continuous governance rather than static checklist compliance,
+  which directly reshapes how an agent-authority organization structures its control and accountability
+  regime. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

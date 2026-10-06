@@ -1,0 +1,72 @@
+id: resource:doi:10-1038-s41562-025-02172-y
+resource_type: peer-reviewed-paper
+title: Playing repeated games with large language models
+abstract: Large language models (LLMs) are increasingly used in applications where they interact
+  with humans and other agents. We propose to use behavioural game theory to study LLMs' cooperation
+  and coordination behaviour. Here we let different LLMs play finitely repeated 2 × 2 games
+  with each other, with human-like strategies, and actual human players. Our results show
+  that LLMs perform particularly well at self-interested games such as the iterated Prisoner's
+  Dilemma family. However, they behave suboptimally in games that require coordination, such
+  as the Battle of the Sexes. We verify that these behavioural signatures are stable across
+  robustness checks. We also show how GPT-4's behaviour can be modulated by providing additional
+  information about its opponent and by using a 'social chain-of-thought' strategy. This also
+  leads to better scores and more successful coordination when interacting with human players.
+  These results enrich our understanding of LLMs' social behaviour and pave the way for a
+  behavioural game theory for machines.
+authors:
+- Elif Akata
+- Lion Schulz
+- Julian Coda-Forno
+- Seong Joon Oh
+- Matthias Bethge
+- Eric Schulz
+organizations:
+- Helmholtz Munich
+- Max Planck Institute for Biological Cybernetics
+- University of Tübingen
+affiliations:
+  Elif Akata:
+  - Helmholtz Munich
+  - Max Planck Institute for Biological Cybernetics
+  - University of Tübingen
+  Lion Schulz:
+  - Max Planck Institute for Biological Cybernetics
+  Julian Coda-Forno:
+  - Helmholtz Munich
+  - Max Planck Institute for Biological Cybernetics
+  Seong Joon Oh:
+  - University of Tübingen
+  Matthias Bethge:
+  - University of Tübingen
+  Eric Schulz:
+  - Helmholtz Munich
+  - Max Planck Institute for Biological Cybernetics
+published_at: '2025-05-08'
+url: https://doi.org/10.1038/s41562-025-02172-y
+doi: 10.1038/s41562-025-02172-y
+openalex_id: W4410251374
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Can Large Language Model Agents Simulate Human Trust Behavio; Large Language Model
+  based Multi-Agents: A Survey of Progres; Solipsistic Superintelligence is Unlikely to be
+  Cooperative; Will Systems of LLM Agents Cooperate: An Investigation into . Scope scan by
+  claude-opus-5: This is a behavioural-evaluation method paper about LLM strategic behaviour,
+  not about an organization where agents hold decision authority, so it belongs alongside
+  Melting Pot as borrowed background in section 15 rather than as a core record. No exclusion-register
+  line bars it: it is agent-specific (the finding vanishes without the machine), but it is
+  foundational method the field builds on rather than organizational design guidance. What
+  changes because agents hold authority: If agents are given operational authority, their
+  documented reliability at self-interested play but systematic failure at pure coordination
+  — and the fact that this can be modulated by opponent information and social chain-of-thought
+  prompting — tells designers where multi-agent delegation will break and what scaffolding
+  is needed. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true

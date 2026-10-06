@@ -1,0 +1,64 @@
+id: resource:doi:10-1365-s40702-026-01331-7
+resource_type: peer-reviewed-paper
+title: 'Agentic AI in der Unternehmenspraxis: Vom Werkzeug zum Akteur'
+abstract: Zusammenfassung Künstliche Intelligenz entwickelt sich von einfacher Automatisierung
+  und Inhaltsgenerierung hin zu Systemen, die komplexe Ziele über heterogene Unternehmenslandschaften
+  hinweg verfolgen. Ermöglicht durch Fortschritte bei generativer künstlicher Intelligenz,
+  großen Sprachmodellen, dem Erlernen und Nutzen von Werkzeugen sowie großen Aktionsmodellen
+  entstehen in Forschung und Praxis sogenannte Agentic-AI-Systeme. Trotz des wachsenden Interesses
+  bleibt offen, ob sich der Begriff auf einzelne Agenten, auf Verbünde interagierender Agenten
+  oder auf eine eigenständige Systemklasse bezieht. Der vorliegende Grundlagenbeitrag entwickelt
+  eine fähigkeitsbasierte Begriffsbestimmung der Agentic AI und ordnet sie in die langjährige
+  Forschung zu autonomen Agenten und Multi-Agenten-Systemen ein. Wir bestimmen Agentic AI
+  über sechs Kernfähigkeiten – Ziele, Umgebungsinteraktion, Schlussfolgern, Gedächtnis, Werkzeuge
+  und Handeln – und unterscheiden agentische Systeme erster Ordnung (einzelne KI-Agenten)
+  von Systemen zweiter Ordnung (Kollaboration mehrerer Agenten). Auf dieser Grundlage grenzen
+  wir agentenbasierte Workflows von herkömmlichen und nicht-agentenbasierten Workflows ab
+  und erläutern zentrale Architekturmuster. Abschließend leiten wir Implikationen für die
+  Praxis ab, die Gestaltung und Einführung, agentenbasierte Workflows und Prozessmanagement,
+  Governance, die Zusammenarbeit von Mensch und Agent sowie Plattform-Ökosysteme betreffen.
+  Der Beitrag bietet Fach- und Führungskräften eine strukturierte Grundlage, um Agentic AI
+  einzuordnen, Potenziale zu bewerten und den verantwortungsvollen Einsatz im Unternehmen
+  zu gestalten.
+authors:
+- Mahei Manhai Li
+- Philipp Reinhard
+- Jan Marco Leimeister
+organizations:
+- University of Kassel
+- University of St.Gallen
+affiliations:
+  Mahei Manhai Li:
+  - University of Kassel
+  - University of St.Gallen
+  Philipp Reinhard:
+  - University of Kassel
+  Jan Marco Leimeister:
+  - University of Kassel
+  - University of St.Gallen
+published_at: '2026-10-05'
+url: https://doi.org/10.1365/s40702-026-01331-7
+doi: 10.1365/s40702-026-01331-7
+openalex_id: W7220370105
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agentic AI: Autonomous
+  Intelligence for Complex Goals—A Comp; Intelligent agents: theory and practice. Scope scan
+  by claude-opus-5: The paper is explicitly about agents moving from tool to actor inside
+  firms, with architecture patterns and governance implications for agent-executed workflows,
+  so removing the machine would void the finding entirely. No exclusion-register line applies;
+  it is not human collective decision theory, token design, or general entity regulation.
+  What changes because agents hold authority: It supplies a capability-based definition (goals,
+  environment interaction, reasoning, memory, tools, action) and a first-order vs. second-order
+  distinction that lets a designer classify which enterprise workflows are actually delegated
+  to agents and derive the matching governance, human-agent collaboration and process-management
+  arrangements. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1

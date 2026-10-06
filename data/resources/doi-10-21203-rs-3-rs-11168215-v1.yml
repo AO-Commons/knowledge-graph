@@ -1,0 +1,45 @@
+id: resource:doi:10-21203-rs-3-rs-11168215-v1
+resource_type: preprint
+title: Legal Status of the AI-Transparency Duties at the Consumer-Facing Interface
+authors:
+- Maxim Osovsky
+- Ekaterina Krikunova
+- Ruth Shonubi
+organizations:
+- Bishkek Academy of Finance and Economics
+- Libera Università Internazionale degli Studi Sociali Guido Carli
+- University of Lagos
+affiliations:
+  Maxim Osovsky:
+  - Bishkek Academy of Finance and Economics
+  Ekaterina Krikunova:
+  - Libera Università Internazionale degli Studi Sociali Guido Carli
+  Ruth Shonubi:
+  - University of Lagos
+published_at: '2026-09-30'
+url: https://doi.org/10.21203/rs.3.rs-11168215/v1
+doi: 10.21203/rs.3.rs-11168215/v1
+openalex_id: W7214987924
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Four Responsibility Gaps with Artificial Intelligence: Why t; Ironies of automation;
+  Moral Crumple Zones: Cautionary Tales in Human-Robot Interac. Scope scan by claude-opus-5:
+  The duty arises from the machine''s presence, so it survives the ''remove the machine''
+  test and is not caught by the general tax/IP/securities exclusion, which is lifted where
+  agent action creates novel exposure (12.6.3). But the paper concerns an AI at a consumer-facing
+  interface rather than an agent holding operational or decision authority, and no abstract
+  is available to confirm otherwise, so it is held as a pointer in section 15 rather than
+  ingested. What changes because agents hold authority: It sets the disclosure and labelling
+  duties an organization owes when a machine rather than a person is the one transacting with
+  counterparties, which is a compliance constraint that only exists because an agent occupies
+  the interface. Unreviewed, like everything that has not been through the review queue —
+  and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2
+is_borrowed_background: true

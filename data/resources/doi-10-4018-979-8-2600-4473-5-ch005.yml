@@ -1,0 +1,48 @@
+id: resource:doi:10-4018-979-8-2600-4473-5-ch005
+resource_type: peer-reviewed-paper
+title: Human–AI Collaboration in Agentic Systems
+abstract: 'The emergence of agentic artificial intelligence systems presents organizations
+  with a profound governance challenge: how to preserve meaningful human oversight without
+  negating the efficiency benefits that motivated adoption in the first place. This chapter
+  examines the design principles, frameworks, and organizational practices that enable productive
+  human–AI collaboration within agentic systems. The chapter develops an integrated conceptual
+  model encompassing three interdependent design imperatives: guardrails that constrain autonomous
+  action within acceptable boundaries; escalation protocols that route consequential decisions
+  to appropriately qualified human agents; and trust architectures that calibrate the degree
+  of reliance placed on AI judgment relative to task characteristics, organizational context,
+  and demonstrated system performance. The chapter further examines how organizations should
+  structure roles, accountability mechanisms, and cultural norms to sustain human agency in
+  progressively automated environments.'
+authors:
+- Kunal Khashu
+organizations:
+- Sinai Health System
+affiliations:
+  Kunal Khashu:
+  - Sinai Health System
+published_at: '2026-09-30'
+url: https://doi.org/10.4018/979-8-2600-4473-5.ch005
+doi: 10.4018/979-8-2600-4473-5.ch005
+openalex_id: W7214991688
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Distributing Accountability,
+  Not Capability: Phase Separatio; Humans and Automation: Use, Misuse, Disuse, Abuse. Scope
+  scan by claude-opus-5: The chapter is about how authority is shared between humans and machine
+  agents holding operational discretion, which is the live design question the deliberative-democracy
+  line explicitly preserves rather than excludes; removing the machine would void the entire
+  argument. No exclusion-register line applies, and its subject is organizational oversight
+  and accountability structures rather than adjacent human collective decision-making. What
+  changes because agents hold authority: It specifies the concrete control surfaces — guardrails
+  bounding autonomous action, escalation routing of consequential decisions to humans, and
+  calibrated trust architectures — that an organization must install precisely because machine
+  agents, not people, are executing decisions. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 2

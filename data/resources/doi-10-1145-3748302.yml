@@ -1,0 +1,76 @@
+id: resource:doi:10-1145-3748302
+resource_type: peer-reviewed-paper
+title: A Survey on the Memory Mechanism of Large Language Model-based Agents
+abstract: Large language model (LLM)-based agents have recently attracted much attention from
+  the research and industry communities. Compared with original LLMs, LLM-based agents are
+  featured in their self-evolving capability, which is the basis for solving real-world problems
+  that need long-term and complex agent-environment interactions. The key component to support
+  agent-environment interactions is the memory of the agents. While previous studies have
+  proposed many promising memory mechanisms, they are scattered in different papers, and there
+  lacks a systematical review to summarize and compare these works from a holistic perspective,
+  failing to abstract common and effective designing patterns for inspiring future studies.
+  To bridge this gap, in this article, we propose a comprehensive survey on the memory mechanism
+  of LLM-based agents. In specific, we first discuss “what is” and “why do we need” the memory
+  in LLM-based agents. Then, we systematically review previous studies on how to design and
+  evaluate the memory module. In addition, we also present many agent applications, where
+  the memory module plays an important role. At last, we analyze the limitations of existing
+  work and show important future directions. To keep up with the latest advances in this field,
+  we create a repository at https://github.com/nuster1128/LLM_Agent_Memory_Survey .
+authors:
+- Zeyu Zhang
+- Quanyu Dai
+- Xiaohe Bo
+- Chen Ma
+- Rui Ling Li
+- Xu Chen
+- Jieming Zhu
+- Zhenhua Dong
+- Ji-Rong Wen
+organizations:
+- Huawei Technologies (China)
+- Renmin University of China
+affiliations:
+  Zeyu Zhang:
+  - Renmin University of China
+  Quanyu Dai:
+  - Huawei Technologies (China)
+  Xiaohe Bo:
+  - Renmin University of China
+  Chen Ma:
+  - Renmin University of China
+  Rui Ling Li:
+  - Renmin University of China
+  Xu Chen:
+  - Renmin University of China
+  Jieming Zhu:
+  - Huawei Technologies (China)
+  Zhenhua Dong:
+  - Huawei Technologies (China)
+  Ji-Rong Wen:
+  - Renmin University of China
+published_at: '2025-07-11'
+url: https://doi.org/10.1145/3748302
+doi: 10.1145/3748302
+openalex_id: W4412203333
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  2 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Multi-Agent Collaboration Mechanisms: A Survey of LLMs.
+  Scope scan by claude-opus-5: This is a technical capability survey of agent internals, not
+  a study of delegated authority or organizational design, so it fails the scope test as a
+  core record; no exclusion-register line applies directly. It is load-bearing background
+  for the field — persistence and recall underpin any claim about agents acting with continuity
+  and accountability — so it belongs at section 15 as borrowed background rather than ingested.
+  What changes because agents hold authority: Agent memory is the substrate for institutional
+  record, precedent, and auditability — what an agent remembers determines what its decisions
+  can be reconstructed from and held accountable to — but this survey is about memory architecture,
+  not about organizations where agents hold authority. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-06'
+expansion_generation: 1
+is_borrowed_background: true
