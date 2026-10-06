@@ -41,7 +41,13 @@ jobs:
         # GitHub closes the issue when the pull request merges, so a filing
         # stops leaving an open issue behind it forever. Five had piled up
         # before anybody noticed, four of them already merged.
-        run: printf 'Closes #%s\n\n' "$ISSUE" > /tmp/closes.md
+        # A block scalar, not a plain one. `#` after a space opens a YAML
+        # comment, so written inline this step reached the shell as
+        # `printf 'Closes` — an unbalanced quote that killed the job before
+        # the filing was read. It had been broken since 18 September and the
+        # first filing to arrive after that is the one that found it.
+        run: |
+          printf 'Closes #%s\n\n' "$ISSUE" > /tmp/closes.md
 
       - name: Read the filing
         env:
