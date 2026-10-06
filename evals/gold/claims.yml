@@ -134,3 +134,127 @@ claims:
     reviewed_on: '2026-09-18'
     saw: 7db90c7988f1
     reviewer: ankeliu
+  claim:doi:10-1111-epic-70009:1:
+    verdict: adjusted
+    reviewed_on: '2026-10-06'
+    saw: 3dfc984f0455
+    text: Artificial Organizational Intelligence is an organization's capacity to make its
+      own knowledge legible, machine-readable, and governable.
+    concepts:
+    - artificial-organizational-intelligence
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:10:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 5433b2767469
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:11:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 8ad01d22cff4
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:12:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 75629ec3f532
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:13:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 429766e6b55a
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:14:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: b3232935cdcc
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:15:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 4e8cf6927c26
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:16:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: de6ab5535197
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:17:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 9fd4a74fcb2b
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:18:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: d1683894ea1d
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:19:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: c7e342b2dfb6
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:2:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 1b8cc45bac7a
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:20:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: f4a07e2cbc57
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:3:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: c9ea7462f49c
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:4:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: cf3b927af348
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:5:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: cb22122b046b
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:6:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 33c6929d19c9
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:7:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 44a07d86bf3e
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:8:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 0d019da8239e
+    by_author: true
+    reviewer: ellierennie
+  claim:doi:10-1111-epic-70009:9:
+    verdict: accurate
+    reviewed_on: '2026-10-06'
+    saw: 3536a5324bec
+    by_author: true
+    reviewer: ellierennie
