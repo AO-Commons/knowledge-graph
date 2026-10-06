@@ -21,6 +21,27 @@ from verify_extraction import packet, record  # noqa: E402
 PAPER = "resource:doi:10-1111-epic-70009"
 
 
+def unjudged():
+    """A statement no person has ruled on.
+
+    What a machine pass does to a statement is only defined before a human has
+    judged it — a human verdict outranks the machine, which is the point of
+    keeping the two files apart. These tests used to take the first statement
+    of PAPER, and that stopped being unjudged the moment its own author filed
+    twenty verdicts on it. Picked from the corpus rather than pinned, so
+    reviewing a statement never breaks a test about machine checking.
+    """
+    from ao_commons_kg.claims import load_claims
+
+    for claim in load_claims():
+        if claim.verdict is None:
+            return claim
+    raise AssertionError(
+        "every statement in the corpus is reviewed — this test needs one that is not"
+    )
+
+
+
 class TestThePacket:
     def test_it_carries_the_question_and_nothing_else(self):
         """The statement, the sentence it came from, and the section. A
@@ -57,8 +78,7 @@ class TestThePacket:
 
 class TestRecording:
     def _claim(self):
-        from ao_commons_kg.claims import load_claims
-        return [c for c in load_claims() if c.resource_id == PAPER][0]
+        return unjudged()
 
     def test_a_verdict_needs_a_reason(self, tmp_path, monkeypatch):
         import verify_extraction
@@ -90,7 +110,7 @@ class TestWhatItChanges:
 
     def _corpus(self, tmp_path, verdict, because="the quote does not carry it"):
         from ao_commons_kg.claims import load_claims
-        claim = [c for c in load_claims() if c.resource_id == PAPER][0]
+        claim = unjudged()
         path = tmp_path / "extraction.yml"
         path.write_text(yaml.safe_dump({"statements": {claim.id: {
             "verdict": verdict, "because": because, "saw": claim.fingerprint,
@@ -119,7 +139,7 @@ class TestWhatItChanges:
         """Once somebody has actually read the thing, a machine's opinion of
         it is no longer the interesting fact."""
         from ao_commons_kg.claims import load_claims
-        claim = [c for c in load_claims() if c.resource_id == PAPER][0]
+        claim = unjudged()
         machine = tmp_path / "extraction.yml"
         machine.write_text(yaml.safe_dump({"statements": {claim.id: {
             "verdict": "overstated", "because": "too strong", "saw": claim.fingerprint,
@@ -134,7 +154,7 @@ class TestWhatItChanges:
 
     def test_a_pass_over_wording_that_changed_is_ignored(self, tmp_path):
         from ao_commons_kg.claims import load_claims
-        claim = [c for c in load_claims() if c.resource_id == PAPER][0]
+        claim = unjudged()
         path = tmp_path / "extraction.yml"
         path.write_text(yaml.safe_dump({"statements": {claim.id: {
             "verdict": "not-in-source", "because": "stale", "saw": "deadbeef1234",

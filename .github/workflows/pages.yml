@@ -9,7 +9,12 @@ name: Publish the site
 on:
   push:
     branches: [main]
-    paths: ["site/**", "data/resources/**", "data/claims/**", "taxonomy/**", "src/**"]
+    # `evals/**` is here because a merged filing touches nothing else. Without
+    # it the one file that records a human verdict did not trigger the page
+    # that displays review status, so a reviewer's work landed on main and the
+    # site kept saying `unreviewed` until some unrelated push happened to
+    # rebuild it. Eventually consistent by accident is not consistent.
+    paths: ["site/**", "data/**", "evals/**", "taxonomy/**", "src/**"]
   workflow_dispatch:
 
 permissions:
