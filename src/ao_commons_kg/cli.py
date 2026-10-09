@@ -420,6 +420,49 @@ def cmd_people(args) -> int:
     return 0
 
 
+def cmd_questions(args) -> int:
+    """Show the questions, or the concepts that might become one.
+
+    `--propose` proposes and never admits, exactly as the scout does for
+    papers. A concept several papers argue about and none has shown anything
+    on is a reasonable place to look for a question; it is not a question,
+    because a question is the sentence somebody writes after reading the
+    statements, and no counting produces that sentence.
+    """
+    from .questions import load_questions, propose, reach
+
+    claims = list(load_claims())
+    questions, edges = load_questions(claims=claims)
+
+    if not args.propose:
+        counts = reach(questions, edges, claims)
+        for question in questions:
+            count = counts[question.id]
+            papers = "paper " if count["papers"] == 1 else "papers"
+            print(f"{count['papers']:>3} {papers}  {count['occurrences']:>2} asking  "
+                  f"{question.text}")
+        crossing = sum(1 for c in counts.values() if c["papers"] > 1)
+        print(f"\n{len(questions)} questions, {crossing} asked by more than one paper")
+        return 0
+
+    candidates = propose(claims, questions,
+                         min_papers=args.min_papers, min_argued=args.min_argued)
+    for candidate in candidates:
+        papers = "paper " if len(candidate["papers"]) == 1 else "papers"
+        print(f"{len(candidate['papers']):>3} {papers}  {candidate['argued']:>2} arguing  "
+              f"{candidate['concept']}")
+        for claim_id in candidate["statements"]:
+            print(f"              {claim_id}")
+    if not candidates:
+        print("nothing to propose: every concept argued about is already a question,"
+              " or has a finding on it")
+        return 0
+    print(f"\n{len(candidates)} concepts worth reading as a question. Read the "
+          "statements, and if they are one question, write it into "
+          "data/questions.yml with the reasoning.")
+    return 0
+
+
 def cmd_build(args) -> int:
     topics = load_taxonomy(args.taxonomy)
     codes = {topic.code for topic in topics}
@@ -1023,6 +1066,15 @@ def main(argv: list[str] | None = None) -> int:
     people = sub.add_parser("people", help="find one person spelled two ways")
     people.add_argument("--fix", action="store_true", help="rewrite the records")
     people.set_defaults(func=cmd_people)
+
+    questions = sub.add_parser(
+        "questions", help="list the open questions, or propose candidates")
+    questions.add_argument(
+        "--propose", action="store_true",
+        help="concepts that look like a question nobody has clustered yet")
+    questions.add_argument("--min-papers", type=int, default=2)
+    questions.add_argument("--min-argued", type=int, default=2)
+    questions.set_defaults(func=cmd_questions)
 
     args = parser.parse_args(argv)
     try:

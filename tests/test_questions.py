@@ -117,3 +117,44 @@ def test_every_gap_statement_is_accounted_for():
     _, edges = load_questions(claims=claims)
     addressed = {e.source_id for e in edges}
     assert gaps <= addressed, f"gap statements with no question: {sorted(gaps - addressed)}"
+
+
+# --- proposing ----------------------------------------------------------
+
+def test_propose_leaves_out_what_is_already_clustered():
+    """Noise in a proposal list is what stops anybody reading it."""
+    from ao_commons_kg.questions import propose
+
+    claims = list(load_claims())
+    questions, _ = load_questions(claims=claims)
+    covered = {tag for q in questions for tag in q.concept_tags}
+    for candidate in propose(claims, questions):
+        assert candidate["concept"] not in covered
+
+
+def test_propose_refuses_a_concept_something_has_been_shown_on():
+    """The bound that separates "nobody has shown this" from "you have not read it".
+
+    Loosening it would produce a longer list of weaker proposals, which is the
+    failure the repository exists to avoid.
+    """
+    from ao_commons_kg.questions import propose
+
+    claims = list(load_claims())
+    has_finding = {
+        tag
+        for c in claims
+        if (c.claim_type.value if hasattr(c.claim_type, "value") else c.claim_type) == "finding"
+        for tag in (c.concept_tags or ())
+    }
+    for candidate in propose(claims, ()):
+        assert candidate["concept"] not in has_finding
+
+
+def test_propose_needs_more_than_one_paper():
+    from ao_commons_kg.questions import propose
+
+    claims = list(load_claims())
+    for candidate in propose(claims, ()):
+        assert len(candidate["papers"]) >= 2
+        assert candidate["argued"] >= 2

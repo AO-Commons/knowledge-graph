@@ -157,3 +157,69 @@ def reach(questions: Iterable[Question], edges: Iterable[Relationship],
         qid: {"papers": len(v["papers"]), "occurrences": v["occurrences"]}
         for qid, v in out.items()
     }
+
+
+# --- proposing ----------------------------------------------------------
+
+#: A concept must be argued about by at least this many distinct papers before
+#: it is worth proposing as a question. Two is the lowest number that makes a
+#: proposal a statement about a field rather than about one author's framing,
+#: and it is the same bound the questions themselves are judged by.
+MIN_PAPERS = 2
+
+#: And by at least this many statements. A concept two papers mention once
+#: each is a shared word, not a shared question.
+MIN_ARGUED = 2
+
+ARGUING = frozenset({"position", "gap", "limitation"})
+
+
+def propose(claims, questions=(), *, min_papers: int = MIN_PAPERS,
+            min_argued: int = MIN_ARGUED) -> list[dict]:
+    """Concepts that look like questions nobody has clustered yet.
+
+    Proposes and never admits, exactly as the scout does for papers. A concept
+    several papers argue about and none has shown anything on is a reasonable
+    place to look for a question — it is not a question, because a question is
+    the sentence somebody writes after reading the statements, and no counting
+    produces that sentence.
+
+    The zero-findings bound is the one worth arguing about. It separates
+    "nobody has shown this" from "somebody has, and you have not read it",
+    and loosening it would produce a longer list of weaker proposals, which
+    is the failure this repository exists to avoid.
+
+    Concepts already covered by a question are left out: proposing what is
+    already clustered is noise, and noise in a proposal list is what stops
+    anybody reading it.
+    """
+    covered = {tag for q in questions for tag in q.concept_tags}
+
+    by_tag: dict[str, dict] = {}
+    for claim in claims:
+        kind = claim.claim_type.value if hasattr(claim.claim_type, "value") else claim.claim_type
+        for tag in claim.concept_tags or ():
+            bucket = by_tag.setdefault(tag, {"papers": set(), "argued": 0, "found": 0, "claims": []})
+            bucket["papers"].add(claim.resource_id)
+            if kind in ARGUING:
+                bucket["argued"] += 1
+                bucket["claims"].append(claim.id)
+            elif kind == "finding":
+                bucket["found"] += 1
+
+    out = []
+    for tag, bucket in sorted(by_tag.items()):
+        if tag in covered:
+            continue
+        if bucket["found"]:
+            continue
+        if len(bucket["papers"]) < min_papers or bucket["argued"] < min_argued:
+            continue
+        out.append({
+            "concept": tag,
+            "papers": sorted(bucket["papers"]),
+            "argued": bucket["argued"],
+            "statements": sorted(bucket["claims"]),
+        })
+    out.sort(key=lambda c: (-len(c["papers"]), -c["argued"], c["concept"]))
+    return out

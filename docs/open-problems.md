@@ -154,12 +154,37 @@ missing from the first draft of `questions.yml`.
 Every change is a diff against one file, reviewable the way everything else
 here is.
 
+## Proposing one
+
+```
+aokg questions            the questions, with how far each reaches
+aokg questions --propose  concepts that look like a question nobody has clustered
+```
+
+`--propose` proposes and never admits, exactly as the scout does for papers.
+A concept is proposed when at least two distinct papers argue about it — in
+`position`, `gap` or `limitation` statements — and **nothing has been shown on
+it**: one `finding` carrying the concept and it is not proposed at all.
+
+That last bound is the one worth arguing about. It separates "nobody has shown
+this" from "somebody has, and you have not read it", and loosening it would
+produce a longer list of weaker proposals, which is the failure this
+repository exists to avoid. Concepts already covered by a question are left
+out, because noise in a proposal list is what stops anybody reading it.
+
+A proposal is not a question. A question is the sentence somebody writes after
+reading the statements, and no amount of counting produces that sentence. The
+command prints the statement ids so the reading can start.
+
+Two concepts qualify today: `sources-of-legitimate-machine-authority` and
+`legitimacy-erosion-through-automation`.
+
 ## What is not built
 
 - **Answering.** Nothing marks a question answered, and nothing proposes that
   a finding closes one. `status` is hand-set.
-- **Proposing clusters.** Every question here was drafted by hand-reading the
-  gaps. Concept tags are the obvious signal for proposing candidates, and
-  none of that is written.
 - **Review.** No question has been confirmed by a person, so every one of them
   says so in `asserted_by`.
+- **Proposals as files.** `--propose` prints; the scout writes a candidate
+  file with `--write`. When proposals are acted on by somebody other than
+  whoever ran the command, they should be written down the same way.
