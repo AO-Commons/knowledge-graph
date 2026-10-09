@@ -14,6 +14,7 @@ from collections import Counter
 from pathlib import Path
 
 from .claims import claim_edges, load_claims
+from .questions import load_questions
 from .export import write_release
 from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
@@ -436,19 +437,26 @@ def cmd_build(args) -> int:
     # addressable outside of.
     claims = load_claims()
 
+    # Questions are nodes too, and the edges to them are the layer's whole
+    # output. Loaded with the claims so a question pointing at a statement we
+    # no longer hold fails the build rather than shipping an edge to nothing.
+    questions, addresses = load_questions(claims=claims)
+
     out = write_release(
         args.out,
         version=args.version,
         topics=topics,
         resources=resources,
         claims=claims,
+        questions=questions,
         relationships=(_parent_edges(topics) + tagged_edges(resources, codes)
                        + _scholarly_edges(resources)
-                       + claim_edges(claims, topic_codes=codes)),
+                       + claim_edges(claims, topic_codes=codes)
+                       + addresses),
         built_at=args.built_at,
     )
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
-          f"{len(claims)} claims)")
+          f"{len(claims)} claims, {len(questions)} questions)")
     for path in sorted(out.iterdir()):
         print(f"  {path.name:<22} {path.stat().st_size:>9,} bytes")
     return 0
