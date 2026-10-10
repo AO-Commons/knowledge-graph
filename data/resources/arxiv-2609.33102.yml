@@ -1,0 +1,45 @@
+id: resource:arxiv:2609.33102
+resource_type: preprint
+title: 'ORBIT: A Framework for Multi-Agent Safety and Security Evaluations'
+abstract: 'Multi-agent LLM systems are increasingly deployed for complex, long-horizon tasks
+  or emerge as a natural consequence of agents interacting in the wild. Yet they give rise
+  to significant safety and security risks: the flexible protocols that enable task generalization
+  also expose novel threats, from cascading prompt injection to inter-agent collusion. Progress
+  in defending against these threats has been slowed by a lack of shared empirical infrastructure,
+  which forces bespoke environment development for every new defense and makes standardized
+  comparison impossible. Existing evaluations address isolated threat models or single-agent
+  settings, but none jointly vary attack, defense, and architecture across realistic multi-agent
+  environments. To address this gap, we introduce ORBIT, a configurable evaluation framework
+  for empirical multi-agent safety and security research, built on UK AISI''s Inspect. ORBIT
+  lets researchers configure communication topologies, memory, scheduling, and agent roles.
+  It supports four threat types and four defense strategies, as well as non-adversarial failures,
+  with a benchmark suite spanning five scenario families covering browser use, computer use,
+  agentic coding, customer service, and cooperative allocation. Our central finding is a gap
+  in defense transferability across threats: per-action defenses that cut a compromised agent''s
+  attack success by 60 points on multi-issue coding give no measurable protection against
+  colluding agents, and none of the defenses we tested generalized over all attacks tested.
+  We further demonstrate security-performance tradeoffs and interactions between architecture
+  and defense effectiveness. We make ORBIT available open-source at https://github.com/wlanderson0/orbit.'
+authors:
+- Ben Hagag
+- William L. Anderson
+- Srija Chakraborty
+- Christian Schroeder de Witt
+organizations:
+- University of Oxford
+affiliations:
+  Christian Schroeder de Witt:
+  - University of Oxford
+published_at: '2026-09-27'
+url: https://arxiv.org/abs/2609.33102
+doi: 10.48550/arXiv.2609.33102
+arxiv_id: '2609.33102'
+openalex_id: W7214782110
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #68 by @ao-commons-graph[bot]; identity
+  and byline resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-10-10'
