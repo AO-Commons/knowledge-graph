@@ -1,27 +1,56 @@
 # Agents
 
-Who may act here, on whose behalf, and what an act is allowed to be.
+Who may act here, on whose behalf, and how somebody connects an agent of their
+own.
 
 **Status:** Koga is live. Connected agents are a proposal, argued here before
 any code moves, because they change who can touch the corpus rather than how.
 
-For what an agent may read, see [mcp.md](mcp.md). For what review is and why
-it is the scarce good, see [pipeline.md](pipeline.md), stage 8.
+See also [mcp.md](mcp.md) for the read surface this extends, and
+[pipeline.md](pipeline.md) stage 8 for what review is.
 
-## Two kinds of agent
+## Start from what is already possible
 
-**Koga** is the library's own, one per person who signs in. It runs on models
-we pay for, which is why it meters credits: 20 a month, spent on the tokens an
-answer actually read and wrote. It is the only agent that spends them.
+A capable agent can clone this repository today. It can read every statement
+and quote, write a filing by hand, open an issue, open a pull request. Nothing
+stops it and nothing should: the corpus is public and that is the point.
 
-**A connected agent** is somebody else's, brought with its own model and its
-own bill. It costs the library nothing per act, so it meters nothing. The
-asymmetry is not a favour to us or to them; it is just what is true. Credits
-exist to bound our inference spend, and an agent we do not run does not touch
-it.
+So a connected-agent surface cannot be justified as access. It has to be
+justified as **shape** — and it is, on four counts.
 
-Everything below is about connected agents. Koga's permissions are the same
-minus the ones that need a key we do not hold.
+**It knows what needs doing.** The scarce information is not the statements,
+it is which of them are waiting on *you*: drawn out of papers carrying your
+byline, not yet judged, with their quotes beside them. That list does not
+exist in the repository. It is computed from the corpus joined to an
+authorship claim, and an agent with a clone has no way to derive it.
+
+**It fails before the corpus does.** A hand-written filing that names a claim
+id that was re-extracted last week, or a tag that no longer resolves, becomes
+a bad issue, then a bot comment, then somebody's afternoon. The same filing
+through a typed call fails in the agent's own loop, with a message saying
+which id is wrong, before anything is opened.
+
+**It carries attribution it cannot forge.** An agent with a clone opens a pull
+request as whoever's GitHub token it holds, and the corpus learns nothing
+about what made it. Through this surface every act carries both ids, because
+the server writes them rather than the client asserting them.
+
+**It is a day of work less.** No clone, no YAML schema, no knowledge of how
+`data/claims/` is laid out, no bot protocol to reverse-engineer. A token and
+five calls.
+
+None of that is capability. All of it is the difference between something a
+determined agent could do and something an ordinary one will.
+
+## What an agent gets out of it
+
+For the person: the reviewing their own papers need gets read, not judged, by
+something tireless, and arrives as a queue of decisions rather than a pile of
+PDFs. The judgment stays theirs and takes a click.
+
+For the library: review is the binding constraint on every other number here,
+and this is the only idea anybody has had that moves it without moving who is
+accountable for it.
 
 ## Identity
 
@@ -32,91 +61,100 @@ actor:agent:<name>      who performed it
 actor:person:<login>    on whose behalf
 ```
 
-An agent cannot exist without a person behind it, cannot be transferred
-between people, and cannot act with only one of the two recorded. This is the
-same rule the extraction pipeline already follows when a model drafts a
-statement: a machine's act is attributable to a machine, and the person who
-pointed it at the corpus is attributable too.
+The server writes both from the token. An agent cannot assert its own
+identity, cannot act for a person who has not connected it, and cannot act
+with one id missing.
 
 ## Connecting one
 
-1. **Name it**, on the Agents page. The name is part of its id and does not
-   change, because ids outlive the sentences under them.
-2. **Take the token.** Shown once, scoped to `actor:agent:<name>` acting for
-   you, revocable at any time. It authenticates to the MCP server, which is
-   already how an assistant reads the corpus; this adds a write surface beside
-   the read one.
-3. **Point your model at it.** We do not host, proxy, or see the model. What
-   reaches us is the acts it takes.
-4. **Watch it.** Every act appears in a log on your profile with its
-   timestamp. Revoking kills the token and leaves the log, because a record of
-   what something did is not undone by taking away its ability to do more.
+```
+  your agent ──token──▶ MCP server ──▶ validation ──▶ GitHub issue
+                            │                              │
+                            │                        the existing bot
+                            ▼                              ▼
+                      queue, statements,            pull request
+                      quotes (read)                        │
+                                                   you merge it
+                                                           ▼
+                                                   verdict in the corpus
+```
 
-## What a connected agent may do
+1. **Name it** on the Agents page. The name is part of its id and does not
+   change; ids outlive the sentences under them.
+2. **Take the token.** Shown once, scoped to that agent acting for you,
+   revocable. It authenticates to the MCP server, which already serves the
+   corpus read-only; this adds a handful of write calls beside the read ones.
+3. **Point your model at it.** We do not host, proxy, meter or see the model.
+   What reaches us is the calls it makes.
+4. **Watch it.** Every act lands in a log on your profile. Revoking kills the
+   token and keeps the log, because a record of what something did is not
+   undone by stopping it doing more.
 
-**Read everything.** The corpus is public and a release is a file. Nothing is
-gained by making an agent scrape what it could clone.
+## The surface
 
-**See its person's review queue.** The statements drawn out of papers carrying
-your byline, which are yours to judge and nobody else's. An agent that cannot
-see them cannot help with the one job that matters.
+Five calls, on top of the read tools already in [mcp.md](mcp.md).
 
-**Draft a recommendation.** For any statement in that queue, an agent may
-attach a proposed verdict — accurate, adjust with this wording, or
-not-in-source — with its reasoning. A recommendation is a draft addressed to
-its person. It is marked as the agent's, it is never counted as review, and it
-changes nothing until that person files it under their own name.
+| Call | Does | Returns |
+| --- | --- | --- |
+| `queue.list` | the statements waiting on this agent's person | ids, text, quote, kind, paper, what is missing |
+| `statement.get` | one of them, in full | text, quote, section, tags, extraction method |
+| `filing.draft` | validate a verdict without opening anything | ok, or exactly which id or tag is wrong |
+| `filing.open` | open the filing issue on its person's behalf | the issue url |
+| `record.propose` | put a paper or tool to the scope scan | the candidate, and the scan's verdict |
 
-This is the whole point of connecting one. Reading twelve statements against
-their quotes is exactly the kind of work a model is good at and a person finds
-tedious, and the bottleneck is not the reading. It is the judging. A
-recommendation moves the reading off the person and leaves the judgment where
-it belongs.
+`filing.draft` is the one that earns its place. An agent should be able to
+check its work against the live corpus as many times as it likes and open
+nothing, which is both kinder to the repository and the only way an agent can
+tell a disagreement from a mistake.
 
-**Propose a record.** Same path as the Add form, same scope scan, same
-refusal. It proposes and never admits, exactly as the scout does.
+## Where the line is
 
-**File an issue on its person's behalf.** Feedback, a correction, a wrongly
-clustered question. The issue body carries both ids, so a reader of the
-repository can see that a machine wrote it and which person is answerable for
-it.
+**An agent may open the filing issue. A person merges the pull request.**
 
-## What it may not do
+That is the whole boundary, and it falls where it does because merging is
+already the act that records a verdict against a name. Nothing has to be
+invented to keep judgment human: the existing flow has a human step in it, and
+this puts the agent on the near side of it.
 
-**File a verdict.** This is the one that matters and the one that will be
-argued about. Review is the only thing in this pipeline no machine does, and
-the whole trust model rests on a judgment being a named person's: a verdict is
-recorded against a human name in a pull request anybody can read, and that is
-what the number means. An agent filing on your behalf converts "machines
-admit, people judge" into a slogan, and leaves the ledger unable to tell a
-statement somebody read from one somebody's script approved. A recommendation
-is one click from a verdict. That click is the product.
+Two consequences worth stating. The bot must read `acting for` and attribute
+the verdict to the person rather than to whatever opened the issue, and it
+must refuse an issue from an agent that person has not connected. And the
+person merging is the consent — so the pull request has to show the quote and
+the proposed wording, not just a claim id, or the click is not a judgment.
 
-**Confirm authorship.** An identity claim about a person is made by that
-person.
+**Also refused:**
 
-**Earn credits.** Koga's credits are ours to grant, and granting them for acts
-a machine performed would be paying for volume. Reviewing earns, because
-reviewing is scarce and a person did it. Proposing does not, from an agent or
-otherwise: a corpus that pays for proposals is a corpus with a spam incentive
-and a public repository at the end of it.
+- **Confirming authorship.** An identity claim about a person is made by that
+  person.
+- **Earning credits.** Reviewing earns because reviewing is scarce and a
+  person did it. Proposing earns nothing from anyone: a corpus that pays for
+  proposals has a spam incentive and a public repository at the end of it.
+- **Acting anonymously.** No act without both ids.
+- **Reading somebody else's queue.** There is no design for this and there
+  should not be one until somebody asks with a reason.
 
-**Act anonymously.** No act without both ids.
+## Credits, and why a connected agent has none
 
-## Rate and abuse
+Koga runs on models the library pays for, which is the only reason it meters
+anything: 20 credits a month, spent on the tokens an answer read and wrote.
 
-A connected agent costs us nothing per act and therefore has no credit bound,
-which means it needs a different one. Proposals are capped per person per day,
-at the same budget a person has, because the scope scan is ours to run and
-refusals are the expensive half. A proposal rate that rises without the
-refusal rate falling is the signal worth watching.
+A connected agent brings its own model and its own bill. It costs us nothing
+per act, so it meters nothing. This is not generosity, it is just what is
+true — credits bound our inference spend, and an agent we do not run does not
+touch it.
+
+Which leaves it unbounded, so it needs a different bound. Proposals and
+filings are capped per person per day at the same budget a person has. The
+scope scan is ours to run and refusals are its expensive half, so the number
+to watch is not the proposal rate but the proposal rate rising while the
+refusal rate does not fall.
 
 ## What is not built
 
-- Agent tokens, the write surface on MCP, and the act log.
-- Recommendations: the storage, the review screen's second column, and the
-  one-click path from a recommendation to a filed verdict.
-- The per-person proposal cap.
-- Anything that lets an agent see another person's queue. There is no design
-  for this and there should not be one until somebody asks for it with a
-  reason.
+- Agent tokens, the five calls, and the act log.
+- `queue.list` at all: the queue is currently a page, not a value.
+- Attribution through `acting for` in the filing bot, and its refusal of
+  unconnected agents.
+- Quote and proposed wording in the pull request body, which the merge-as-
+  consent argument depends on.
+- The per-person cap.
