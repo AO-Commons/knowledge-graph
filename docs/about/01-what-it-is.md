@@ -1,20 +1,30 @@
 ---
 id: what
 title: The corpus
-kicker: what it is, in one paragraph
+kicker: what it is, and who it is for
 order: 1
 ---
 
-A curated, versioned, machine-readable record of what has been shown and what
-has been argued about organizations run partly by machines. The unit is the
-**statement**: one assertion, carrying the sentence from the paper it was read
-out of, the kind of claim it is, whose result it is, and tags specific enough
-to be worth joining on. Papers are containers for those. Currently
-{{statements}} statements read out of {{read}} papers, inside a corpus of
-{{records}} records.
+A library for people building and studying **autonomous organizations**:
+organizations where machine agents hold real authority, rather than only
+advising someone who does.
+
+It holds {{records}} records. Most are research: preprints, peer-reviewed
+papers, technical reports and articles. The rest are the things the research
+is about, held as records in their own right so a claim can point at one — the
+tools people build, the evaluation suites they are measured with, and the
+deployments where any of it is actually running.
+
+**The unit is not the paper. It is the statement.** One thing a paper
+asserts, stored with the exact sentence it was read out of, what kind of claim
+it is, whose result it is, and tags fine enough to be worth joining on. There
+are {{statements}} statements so far, read out of {{read}} of those records.
+
+That is what lets you check a claim rather than trust it. Every statement
+carries its quote, so what the paper actually said is on the screen next to
+what we say it said, and you can disagree with us without opening the PDF.
 
 Everything is a file in a public git repository. There is no database and no
-account: the corpus can be read, diffed, forked, cited at a fixed version, and
-queried by an assistant through a read-only MCP server. Every statement
-carries its quote, so anything it says can be checked against the source
-without re-reading the paper.
+account: it can be read, diffed, forked, cited at a fixed version, and queried
+by an assistant through a read-only MCP server. A release is checksummed and
+keeps its mistakes, so a citation to one means the same thing next year.
