@@ -5,7 +5,7 @@ kicker: most recent first
 order: 10
 ---
 
-**October 2026 — questions, and a guide that covers both surfaces.**
+**October 2026. Questions, and a guide that covers both surfaces.**
 
 - Gap statements cluster into **questions**, the layer the roadmap had carried
   for months under MIRA's names. Seven gaps from four papers make four
@@ -18,7 +18,7 @@ order: 10
 - This documentation moved out of the site's JavaScript and into markdown
   here, so one set of words serves the repository and the app.
 
-**September 2026 — statements become the main character.**
+**September 2026. Statements become the main character.**
 
 - Papers stopped being the unit. Tags moved onto statements, and a paper's
   categories are now computed from them.
@@ -36,7 +36,7 @@ order: 10
 - Machine-checked sits between unreviewed and reviewed: the quote has been
   verified verbatim against its source, which is real and is not review.
 
-**August 2026 — the corpus and the surfaces.**
+**August 2026. The corpus and the surfaces.**
 
 - The filing site, with filings becoming pull requests so the audit trail is
   the pull request list.
@@ -45,5 +45,7 @@ order: 10
 - The scholarly pipeline: resolve, expand, and citation edges.
 - The taxonomy's leaf layer demoted to notes — 568 codes became {{topics}}.
 
-**Earlier — foundations.** The taxonomy, the data model, portable releases,
-and tooling folded in as resources with their own profile.
+**Earlier. Foundations.**
+
+- The taxonomy, the data model, and portable releases.
+- Tooling folded in as resources with their own profile.
