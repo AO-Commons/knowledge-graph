@@ -1,7 +1,7 @@
 ---
 id: pipeline
-title: From a paper to a statement
-kicker: nine stages
+title: The extraction pipeline
+kicker: from a paper to a statement, in nine stages
 order: 6
 ---
 

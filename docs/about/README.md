@@ -22,3 +22,25 @@ statement kind `{{kind.finding}}` `{{kind.position}}` `{{kind.method}}`
 
 Front matter sets `id` (the anchor), `title`, `kicker` and `order`. Tables,
 lists and emphasis render; anything fancier does not, on purpose.
+
+## Naming a section
+
+A title is read in four places and only one of them has any context: the nav
+here, a search result, an agent's retrieval snippet, and a link somebody
+pasted. Titles like "How anything gets in" and "What has changed" work in the
+first and fail in the other three, because they withhold the subject and put
+the distinctive word last or nowhere.
+
+1. **Lead with the subject noun.** The first two words should answer "what is
+   this about?", because that is all a nav row and a snippet show.
+2. **Use the word somebody would type.** *Admission*, *Review*, *Changelog*,
+   *Roadmap*. The conventional term beats the clever one, for people and for
+   retrieval alike.
+3. **One subject per section, and the title is that subject.** A title that
+   needs an "and" is usually two sections.
+4. **Keep the voice in the kicker.** The kicker above the title is where a
+   sentence can be a sentence. Several of these kickers are the old titles,
+   which is where they were doing their best work.
+
+`id` is the anchor and part of every link anybody has shared, so renaming a
+title does not rename its `id`. They diverge, and that is the right trade.

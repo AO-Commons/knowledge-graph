@@ -1,6 +1,6 @@
 ---
 id: stack
-title: What it runs on
+title: The stack
 kicker: no server, no database
 order: 9
 ---

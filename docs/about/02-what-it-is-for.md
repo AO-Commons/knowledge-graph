@@ -1,7 +1,7 @@
 ---
 id: for
-title: What it is for
-kicker: the questions it answers
+title: Questions it answers
+kicker: and why a search does not
 order: 2
 ---
 

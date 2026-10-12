@@ -1,7 +1,7 @@
 ---
 id: admission
-title: How anything gets in
-kicker: the evaluation framework
+title: Admission
+kicker: how anything gets in
 order: 7
 ---
 

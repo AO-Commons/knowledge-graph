@@ -1,7 +1,7 @@
 ---
 id: types
-title: The seven kinds of statement
-kicker: and why tagging differs by kind
+title: Statement kinds
+kicker: seven, and why tagging differs by kind
 order: 5
 ---
 

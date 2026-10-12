@@ -1,7 +1,7 @@
 ---
 id: graph
-title: How the graph fits together
-kicker: nodes and edges
+title: Nodes and edges
+kicker: how the graph fits together
 order: 4
 ---
 

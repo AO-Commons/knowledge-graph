@@ -1,7 +1,7 @@
 ---
 id: feedback
-title: How to say something is wrong
-kicker: and where it goes
+title: Reporting a problem
+kicker: where it goes, and what it becomes
 order: 12
 ---
 

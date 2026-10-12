@@ -1,7 +1,7 @@
 ---
 id: what
-title: What it is
-kicker: in one paragraph
+title: The corpus
+kicker: what it is, in one paragraph
 order: 1
 ---
 

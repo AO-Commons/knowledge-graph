@@ -1,6 +1,6 @@
 ---
 id: changes
-title: What has changed
+title: Changelog
 kicker: most recent first
 order: 10
 ---

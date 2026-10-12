@@ -1,7 +1,7 @@
 ---
 id: review
-title: What a reviewer is asked
-kicker: one question
+title: Review
+kicker: one question per statement
 order: 8
 ---
 

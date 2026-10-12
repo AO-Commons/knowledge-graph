@@ -1,6 +1,6 @@
 ---
 id: why
-title: Why statements, not papers
+title: Statements, not papers
 kicker: the design choice
 order: 3
 ---
