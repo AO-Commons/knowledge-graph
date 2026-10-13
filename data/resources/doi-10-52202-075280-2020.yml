@@ -1,0 +1,56 @@
+id: resource:doi:10-52202-075280-2020
+resource_type: peer-reviewed-paper
+title: Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+abstract: 'Evaluating large language model (LLM) based chat assistants is challenging due
+  to their broad capabilities and the inadequacy of existing benchmarks in measuring human
+  preferences. To address this, we explore using strong LLMs as judges to evaluate these models
+  on more open-ended questions. We examine the usage and limitations of LLM-as-a-judge, including
+  position, verbosity, and self-enhancement biases, as well as limited reasoning ability,
+  and propose solutions to mitigate some of them. We then verify the agreement between LLM
+  judges and human preferences by introducing two benchmarks: MT-bench, a multi-turn question
+  set; and Chatbot Arena, a crowdsourced battle platform. Our results reveal that strong LLM
+  judges like GPT-4 can match both controlled and crowdsourced human preferences well, achieving
+  over 80% agreement, the same level of agreement between humans. Hence, LLM-as-a-judge is
+  a scalable and explainable way to approximate human preferences, which are otherwise very
+  expensive to obtain. Additionally, we show our benchmark and traditional benchmarks complement
+  each other by evaluating several variants of LLaMA and Vicuna. The MT-bench questions, 3K
+  expert votes, and 30K conversations with human preferences are publicly available at https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge.'
+authors:
+- Lianmin Zheng
+- Wei-Lin Chiang
+- Ying Sheng
+- Siyuan Zhuang
+- Zhanghao Wu
+- Yonghao Zhuang
+- Zi Lin
+- Dacheng Li
+- Eric Xing
+- Hao Zhang
+- Joseph Gonzalez
+- Ion Stoica
+published_at: '2023-01-01'
+url: https://doi.org/10.52202/075280-2020
+doi: 10.52202/075280-2020
+openalex_id: W7133239970
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; TheAgentCompany:
+  Benchmarking LLM Agents on Consequential Re; Virtual Agent Economies. Scope scan by claude-opus-5:
+  This is an evaluation methodology paper, not a study of organizations where agents hold
+  authority, so it belongs in section 15 as borrowed background alongside Melting Pot rather
+  than as an in-scope record. No exclusion-register line bars it; it is held as adjacent-but-foundational
+  because agent-grading-agent is the substrate of automated review and allocation pipelines
+  the library does cover. What changes because agents hold authority: It documents the systematic
+  biases (position, verbosity, self-enhancement) and the human-agreement ceiling of machine
+  evaluators, which is directly load-bearing wherever an agent is delegated evaluative or
+  review authority over other agents'' output. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1
+is_borrowed_background: true

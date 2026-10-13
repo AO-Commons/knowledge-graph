@@ -1,0 +1,64 @@
+id: resource:doi:10-1016-j-dsm-2026-100205
+resource_type: peer-reviewed-paper
+title: 'Generative AI as a process of socio-technical co-evolution: a structured review of
+  the transition from content generation to operational intelligence'
+abstract: 'In the era of the digital economy, generative artificial intelligence (GenAI) has
+  become a transformative force, and its impact extends far beyond the scope of content creation.
+  GenAI has rapidly evolved from generating text, images, and code to assuming operational
+  roles across industries, science, healthcare, and governance. Tracing this evolution requires
+  more than a catalog of technical milestones. A dedicated analytical framework is therefore
+  needed. This study constructs a comprehensive analytical framework organized around three
+  intertwined axes: technology generation, operational intelligence, and socio-technical co-evolution.
+  The framework is applied comparatively across five domains: industry, healthcare, education,
+  finance, and public governance. Three cross-cutting principles emerge from this cross-domain
+  analysis. These are situation-sensitive anchoring, dynamic trust calibration, and responsibility-aware
+  delegation. Risk tolerance, cultural background, and the depth of domain-specific knowledge
+  are identified as key moderators that shape the transition from generative tools to operational
+  intelligence. By synthesizing evidence across these dimensions, this review identifies future
+  directions for research, design, and governance of GenAI systems.'
+authors:
+- Haowei Zhang
+- Ruobing Wu
+- Wenjie Hou
+- Ping Lan
+- Senchang Hu
+organizations:
+- Tibet University
+- Tsinghua University
+affiliations:
+  Haowei Zhang:
+  - Tibet University
+  Ruobing Wu:
+  - Tibet University
+  Wenjie Hou:
+  - Tibet University
+  Ping Lan:
+  - Tibet University
+  Senchang Hu:
+  - Tsinghua University
+published_at: '2026-10-01'
+url: https://doi.org/10.1016/j.dsm.2026.100205
+doi: 10.1016/j.dsm.2026.100205
+openalex_id: W7220745453
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Holistic Evaluation of Language Models; Red Teaming Language Models with Language
+  Models; The ethics of algorithms: Mapping the debate. Scope scan by claude-opus-5: No exclusion-register
+  line applies: this is about machines assuming operational roles, not human collective decision-making.
+  But it is a diffuse structured review offering framing rather than findings about any specific
+  agent-authority organization, so it is held as borrowed background in section 15 rather
+  than ingested as a core record. What changes because agents hold authority: It supplies
+  a cross-domain framing for the shift from generative tools to systems holding operational
+  roles — notably responsibility-aware delegation and dynamic trust calibration — which is
+  vocabulary for deciding how much authority to hand an agent and how to keep accountability
+  attached to it. Unreviewed, like everything that has not been through the review queue —
+  and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2
+is_borrowed_background: true

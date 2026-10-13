@@ -1,0 +1,59 @@
+id: resource:doi:10-1007-s43681-026-01436-1
+resource_type: peer-reviewed-paper
+title: 'Semantic indeterminacy in agentic negotiation: agreement after the recession of the
+  principal'
+abstract: 'Abstract Agentic AI systems increasingly do not merely respond within negotiations
+  but participate in constituting them: they can add issues, instantiate participant agents,
+  and modify procedural rules while an interaction is under way. Human action can be compositionally
+  produced without thereby becoming authorless, and legal institutions routinely attach consequences
+  to conduct without identifying an author of every contribution. Our claim is therefore limited:
+  agentic generation can separate three relations that institutions often treat as aligned:
+  causal production, intentional expression, and institutional attribution. We call the resulting
+  condition semantic indeterminacy . An added element may result from several generative influences,
+  including principal intention, agent-side optimization, training distributions, and interactional
+  contingency, while information about its causal production does not, by itself, determine
+  whose intention it expresses or how it is institutionally attributed. We show how this condition
+  can appear across three sites of bargaining: issues, participants, and procedural rules.
+  We then trace two implications. First, causal analysis alone does not determine who is responsible
+  for a generated element or on what basis, although contract, agency, and product-liability
+  doctrines can assign legal consequences under specified conditions. Second, as a limiting
+  case, agentic interactions may occur in post-principal agentic spaces , where no human provides
+  move-specific direction and no identifiable human or institution occupies a legally or institutionally
+  recognized role. Existing governance frameworks remain grounded in identifiable human authority
+  and accountability; their limits become visible where that ground is no longer reliably
+  available. The paper provides a conceptual framework for identifying this residual problem
+  rather than claiming to solve it.'
+authors:
+- Shun Okuhara
+organizations:
+- Mie University
+affiliations:
+  Shun Okuhara:
+  - Mie University
+published_at: '2026-10-07'
+url: https://doi.org/10.1007/s43681-026-01436-1
+doi: 10.1007/s43681-026-01436-1
+openalex_id: W7220833881
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Artificial Intelligence, Algorithmic Pricing, and Collusion; Four Responsibility
+  Gaps with Artificial Intelligence: Why t; The responsibility gap: Ascribing responsibility
+  for the act. Scope scan by claude-opus-5: This is directly about machine agents exercising
+  constitutive authority over a binding interaction and the resulting accountability gap,
+  which is the library''s core concern; no exclusion-register line applies, since the legal-doctrine
+  discussion is invoked precisely where agent action creates novel exposure (cf. 12.6.3) rather
+  than as general entity law. Removing the machine dissolves the finding entirely, so it passes
+  the test. What changes because agents hold authority: When agents can add issues, spawn
+  participants, and alter procedural rules mid-negotiation, causal tracing no longer fixes
+  whose intention an outcome expresses, so accountability regimes must assign attribution
+  by stipulated rule rather than by discovering a human author — including in the limiting
+  case where no principal is present at all. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

@@ -1,0 +1,79 @@
+id: resource:arxiv:1803.08884
+resource_type: preprint
+title: Inequity aversion improves cooperation in intertemporal social dilemmas
+abstract: Groups of humans are often able to find ways to cooperate with one another in complex,
+  temporally extended social dilemmas. Models based on behavioral economics are only able
+  to explain this phenomenon for unrealistic stateless matrix games. Recently, multi-agent
+  reinforcement learning has been applied to generalize social dilemma problems to temporally
+  and spatially extended Markov games. However, this has not yet generated an agent that learns
+  to cooperate in social dilemmas as humans do. A key insight is that many, but not all, human
+  individuals have inequity averse social preferences. This promotes a particular resolution
+  of the matrix game social dilemma wherein inequity-averse individuals are personally pro-social
+  and punish defectors. Here we extend this idea to Markov games and show that it promotes
+  cooperation in several types of sequential social dilemma, via a profitable interaction
+  with policy learnability. In particular, we find that inequity aversion improves temporal
+  credit assignment for the important class of intertemporal social dilemmas. These results
+  help explain how large-scale cooperation may emerge and persist.
+authors:
+- Edward Hughes
+- Joel Z. Leibo
+- Matthew G. Phillips
+- Karl Tuyls
+- Edgar A. Duéñez-Guzmán
+- Antonio García Castañeda
+- Iain Dunning
+- Tina Zhu
+- Kevin R. McKee
+- Raphaël Koster
+- Heather Roff
+- Thore Graepel
+organizations:
+- Google
+- Massachusetts Institute of Technology
+- University College London
+- University of Liverpool
+affiliations:
+  Edward Hughes:
+  - Google
+  Joel Z. Leibo:
+  - Google
+  Karl Tuyls:
+  - University of Liverpool
+  Edgar A. Duéñez‐Guzmán:
+  - Google
+  Iain Dunning:
+  - Massachusetts Institute of Technology
+  Kevin R. McKee:
+  - Google
+  Raphaël Koster:
+  - University College London
+  Thore Graepel:
+  - Google
+published_at: '2018-03-23'
+url: https://arxiv.org/abs/1803.08884
+doi: 10.48550/arXiv.1803.08884
+arxiv_id: '1803.08884'
+openalex_id: W2891661335
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Principal-Agent Reinforcement
+  Learning: Orchestrating AI Age; Quantifying the Self-Interest Level of Markov Social Dilemma;
+  SocialJax: An Evaluation Suite for Multi-agent Reinforcement. Scope scan by claude-opus-5:
+  This is foundational MARL mechanism work on cooperation in sequential social dilemmas, load-bearing
+  for the library''s multi-agent incentive literature but not itself about machine agents
+  holding operational or decision authority. Held like Melting Pot as a pointer in section
+  15 rather than ingested as an agentic-organization record. What changes because agents hold
+  authority: It shows that intrinsic preference shaping (inequity aversion) in learning agents
+  can sustain cooperation and punishment of defectors in temporally extended dilemmas — a
+  mechanism designers may rely on when many agents act autonomously, but it concerns agent
+  populations rather than organizations where agents hold delegated authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1
+is_borrowed_background: true

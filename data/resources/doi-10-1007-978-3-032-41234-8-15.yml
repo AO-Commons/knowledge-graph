@@ -1,0 +1,38 @@
+id: resource:doi:10-1007-978-3-032-41234-8-15
+resource_type: peer-reviewed-paper
+title: 'Sovereign Multi-Agent Collaboration: A Compliance-Aware Guardrail Architecture for
+  Resilient B2B Networks'
+authors:
+- Thomas Schuster
+- Marian Lambert
+organizations:
+- Pforzheim University of Applied Sciences
+affiliations:
+  Thomas Schuster:
+  - Pforzheim University of Applied Sciences
+published_at: '2026-10-09'
+url: https://doi.org/10.1007/978-3-032-41234-8_15
+doi: 10.1007/978-3-032-41234-8_15
+openalex_id: W7221081006
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; AI-to-AI Code Reviews
+  of GitHub Pull Requests; Not What You''ve Signed Up For: Compromising Real-World LLM-I.
+  Scope scan by claude-opus-5: The paper''s subject is architectural control and compliance
+  over machine agents acting operationally in inter-firm networks, so the work would not exist
+  without agents holding authority and no exclusion-register line applies. It is ingestible
+  rather than borrowed background because it is about the governance structure of the agent-acting
+  organization itself, not an adjacent method or benchmark. What changes because agents hold
+  authority: It specifies a guardrail and compliance-enforcement layer that constrains what
+  autonomous agents may commit to on a firm''s behalf when transacting across organizational
+  boundaries, which is directly a design pattern for bounding and auditing delegated machine
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

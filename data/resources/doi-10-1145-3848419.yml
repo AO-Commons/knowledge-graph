@@ -1,0 +1,57 @@
+id: resource:doi:10-1145-3848419
+resource_type: peer-reviewed-paper
+title: Foundations for Investigations of Agentic AI Systems from the Forensic Analysis of
+  OpenClaw
+abstract: 'Agentic AI systems are increasingly deployed as personal assistants and virtual
+  employees, and are likely to become a common object of digital investigations and incident
+  response. Yet little is known about how their internal state and actions can be reconstructed
+  during forensic analysis, and systematic forensic approaches remain largely unexplored.
+  We present the first empirical forensic study of a personal AI assistant, with OpenClaw
+  as a case study. We examine its technical design via static code analysis and apply differential
+  forensic analysis to identify recoverable traces across stages of the agent interaction
+  loop. We classify and correlate these traces, structuring the examination around representative
+  investigative questions. We propose a five-plane agent artifact taxonomy that captures recurring
+  investigative patterns; its structural completeness is assessed by cross-mapping against
+  published artifact inventories of two related AI systems. To aid investigations, we release
+  an open-source artifact-extraction tool with a machine-readable schema. Finally, we highlight
+  a foundational challenge: LLM-mediated execution adds both an abstraction layer and substantial
+  nondeterminism to trace generation. Because tool selection and state transitions are co-determined
+  by the model, the execution environment, and the evolving context, identical inputs need
+  not yield identical traces.'
+authors:
+- Jan Gruber
+- Jan-Niclas Hilgert
+organizations:
+- Fraunhofer Institute for Communication, Information Processing and Ergonomics
+- Karlsruhe Institute of Technology
+affiliations:
+  Jan Gruber:
+  - Karlsruhe Institute of Technology
+  Jan-Niclas Hilgert:
+  - Fraunhofer Institute for Communication, Information Processing and Ergonomics
+published_at: '2026-10-11'
+url: https://doi.org/10.1145/3848419
+doi: 10.1145/3848419
+openalex_id: W7221435216
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agent Traps; AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Agents
+  of Chaos. Scope scan by claude-opus-5: This is agent-specific accountability infrastructure:
+  the artifact taxonomy and extraction tooling are the substrate for reconstructing what a
+  delegated agent did and why, and the finding collapses entirely if the machine is removed,
+  so no exclusion-register line applies. It is not merely borrowed background because reconstructability
+  of agent action is constitutive of oversight in agentic organizations rather than an adjacent
+  method the field happens to build on. What changes because agents hold authority: It establishes
+  what evidentiary traces an agent''s actions actually leave and shows that LLM-mediated nondeterminism
+  means identical inputs need not produce identical traces — a hard constraint on any after-the-fact
+  audit, incident review, or liability attribution in an organization where agents act with
+  real authority. Unreviewed, like everything that has not been through the review queue —
+  and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

@@ -1,0 +1,58 @@
+id: resource:arxiv:2205.06760
+resource_type: preprint
+title: Emergent Bartering Behaviour in Multi-Agent Reinforcement Learning
+abstract: Advances in artificial intelligence often stem from the development of new environments
+  that abstract real-world situations into a form where research can be done conveniently.
+  This paper contributes such an environment based on ideas inspired by elementary Microeconomics.
+  Agents learn to produce resources in a spatially complex world, trade them with one another,
+  and consume those that they prefer. We show that the emergent production, consumption, and
+  pricing behaviors respond to environmental conditions in the directions predicted by supply
+  and demand shifts in Microeconomics. We also demonstrate settings where the agents' emergent
+  prices for goods vary over space, reflecting the local abundance of goods. After the price
+  disparities emerge, some agents then discover a niche of transporting goods between regions
+  with different prevailing prices -- a profitable strategy because they can buy goods where
+  they are cheap and sell them where they are expensive. Finally, in a series of ablation
+  experiments, we investigate how choices in the environmental rewards, bartering actions,
+  agent architecture, and ability to consume tradable goods can either aid or inhibit the
+  emergence of this economic behavior. This work is part of the environment development branch
+  of a research program that aims to build human-like artificial general intelligence through
+  multi-agent interactions in simulated societies. By exploring which environment features
+  are needed for the basic phenomena of elementary microeconomics to emerge automatically
+  from learning, we arrive at an environment that differs from those studied in prior multi-agent
+  reinforcement learning work along several dimensions. For example, the model incorporates
+  heterogeneous tastes and physical abilities, and agents negotiate with one another as a
+  grounded form of communication.
+authors:
+- Michael Bradley Johanson
+- Edward Hughes
+- Finbarr Timbers
+- Joel Z. Leibo
+published_at: '2022-05-13'
+url: https://arxiv.org/abs/2205.06760
+doi: 10.48550/arXiv.2205.06760
+arxiv_id: '2205.06760'
+openalex_id: W4280592194
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Generative agent-based modeling
+  with actions grounded in phy; Solipsistic Superintelligence is Unlikely to be Cooperative;
+  Virtual Agent Economies. Scope scan by claude-opus-5: Like Melting Pot, this is an environment/method
+  paper the agent-economy literature builds on rather than a study of organizations where
+  machine agents hold operational or decision authority. No exclusion-register line bars it
+  (token design and market microstructure are excluded as financial engineering, but this
+  is emergent agent behaviour, not instrument design), so it is held as borrowed background
+  in section 15. What changes because agents hold authority: It supplies the environment and
+  empirical precedent showing that agents given trading authority spontaneously develop prices,
+  arbitrage and intermediary niches — behaviour an operator of an agent-run economic unit
+  would have to anticipate and oversee — but it does not itself study organizational authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1
+is_borrowed_background: true

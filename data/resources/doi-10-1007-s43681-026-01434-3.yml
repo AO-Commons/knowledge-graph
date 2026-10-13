@@ -1,0 +1,57 @@
+id: resource:doi:10-1007-s43681-026-01434-3
+resource_type: peer-reviewed-paper
+title: 'Accountability in smart contracts and agentic AI: How to address the responsibility
+  gap and retain meaningful human control?'
+abstract: Abstract This conceptual paper examines the ethical challenges of ascribing responsibility
+  when an Agentic AI embedded within a smart contract leads to harm or an unintended and undesirable
+  outcome. It becomes exceedingly difficult in such scenarios to definitively assign moral
+  or legal blame to any human actor (e.g., the programmer, deployer, or user). Applying the
+  tripartite framework (attributability, answerability, and accountability) of responsibility
+  and developing accountability as an institutional concept, we demonstrate how this challenge
+  can be addressed. Separating attributability, answerability, and accountability yields an
+  asymmetry that has gone unremarked. Accountability, being constituted by practices that
+  can be designed in advance, with our four conditions under which such design is legitimate
+  rather than arbitrary, emerges to be the sense where the gap can be closed. We also propose
+  the visionary human-in-the-lead (HITL*) approach to related AI governance. Practical strategies
+  such as implementing tailored smart contract regulations, and making accountability distributed
+  across legal and organizational structures, offer an actionable path to bridge the responsibility
+  gap and maintain meaningful human control in the governance of smart contracts and Agentic
+  AI.
+authors:
+- Kwok Tung Cheung
+- Sridhar Ramamoorti
+organizations:
+- University of Dayton
+affiliations:
+  Kwok Tung Cheung:
+  - University of Dayton
+  Sridhar Ramamoorti:
+  - University of Dayton
+published_at: '2026-10-08'
+url: https://doi.org/10.1007/s43681-026-01434-3
+doi: 10.1007/s43681-026-01434-3
+openalex_id: W7221064485
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Accountability in a computerized society; Four Responsibility Gaps with Artificial
+  Intelligence: Why t; Moral Responsibility of Public Officials: The Problem of Man; The responsibility
+  gap: Ascribing responsibility for the act. Scope scan by claude-opus-5: The paper is specifically
+  about accountability structures for machine agents holding autonomous execution authority,
+  which is the core of the scope test rather than general entity liability; the register''s
+  tax/IP/securities line is the only near-miss and it explicitly retains work where agent
+  action creates novel exposure (12.6.3). Its claim that accountability practices must be
+  engineered ex ante into organizational and legal structures directly changes how such an
+  organization is designed and overseen. What changes because agents hold authority: It gives
+  a design-time framework — separating attributability, answerability and accountability,
+  with four legitimacy conditions and a human-in-the-lead posture — for allocating blame and
+  retaining meaningful human control when an agent embedded in a self-executing smart contract
+  causes harm with no identifiable human decision-maker. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

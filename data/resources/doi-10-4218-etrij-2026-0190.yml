@@ -1,0 +1,63 @@
+id: resource:doi:10-4218-etrij-2026-0190
+resource_type: peer-reviewed-paper
+title: 'Lost in the comments: Social context as a single‐pass jailbreak and defense on agentic
+  platforms'
+abstract: 'Abstract As LLM‐based agents move onto multiagent platforms, they process direct
+  prompts and surrounding social context—posts, comments, and upvotes—an attack surface that
+  single‐turn alignment never addressed. We built a simulation of Moltbook, a social network
+  for AI agents, and a pipeline turning 100 JailBreakBench goals into platform‐native posts
+  with bystander comments of three valences: aggressive, ethical, and measured. Platform‐context
+  reformatting alone raises the attack success rate (ASR) of GPT‐4o‐mini from 7% to 71%, beating
+  a twenty‐query optimization baseline in one pass. Valence then acts as a bidirectional safety
+  modulator: Ethical comments sharply suppress ASR, aggressive endorsements paradoxically
+  reduce it by exposing intent, and measured, intellectually toned comments prove most dangerous,
+  sustaining or elevating ASR. An ablation identifies valence rather than volume as key—a
+  35‐fold rise in upvotes leaves ASR unchanged—and every finding reproduces under an independent
+  safety classifier with human adjudication. Ambiguous social context thus poses a greater
+  threat than explicit pressure, while safety‐valenced signals offer a deployable defense
+  for agentic platforms.'
+authors:
+- Taehyeon Yun
+- Seonhee Jeon
+- Geonwoo Kim
+- Jeongsu Park
+- Moohong Min
+organizations:
+- Sungkyunkwan University
+affiliations:
+  Taehyeon Yun:
+  - Sungkyunkwan University
+  Seonhee Jeon:
+  - Sungkyunkwan University
+  Geonwoo Kim:
+  - Sungkyunkwan University
+  Jeongsu Park:
+  - Sungkyunkwan University
+  Moohong Min:
+  - Sungkyunkwan University
+published_at: '2026-10-09'
+url: https://doi.org/10.4218/etrij.2026-0190
+doi: 10.4218/etrij.2026-0190
+openalex_id: W7221174778
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Not What You''ve Signed Up For: Compromising Real-World LLM-I; Red Teaming Language
+  Models with Language Models; Training Language Models to Follow Instructions with Human
+  F. Scope scan by claude-opus-5: This is agent-specific: the finding disappears entirely
+  without machine agents acting on multiagent platform context, so no exclusion-register line
+  applies (it is not human collective decision-making, nor general ML optimization). It is
+  substantive operational guidance for overseeing agents with real autonomy on shared infrastructure
+  rather than a mere benchmark the field borrows. What changes because agents hold authority:
+  It shows that when agents act on a shared platform, ambient peer content (comments, upvotes)
+  is itself an authority-hijacking channel — so platform-level context curation and safety-valenced
+  signaling become control surfaces an operator must design, not just per-prompt alignment.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

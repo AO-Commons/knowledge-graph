@@ -1,0 +1,55 @@
+id: resource:doi:10-1145-3832783-3837535
+resource_type: peer-reviewed-paper
+title: Safeguarding LLM Agents from Misalignment through Provenance Analysis
+abstract: As LLM agents gain increasing access to powerful tools, ensuring that their actions
+  align with the user’s intent becomes critical. When an agent’s proposed action deviates
+  from that intent—a phenomenon called misalignment— it may cause harm that is difficult to
+  undo. Existing runtime guardrails rely on an LLM-as-a-judge paradigm that lacks a systematic
+  framework for reasoning about alignment, often producing inconsistent or difficult-to-audit
+  judgments. Motivated by provenance analysis, we propose a conceptual framework that formalizes
+  misalignment detection as determining whether a proposed tool call is supported by traceable
+  evidence in the agent’s context. Based on this framework, we build ProvenanceGuard, a multi-stage
+  pipeline that analyzes the agent’s action for three types of misalignment before its execution
+  and only allows aligned actions. We evaluated ProvenanceGuard on AgentSafetyBench and WorkBench,
+  across 11 backbone LLMs. Compared to the LLM-as-a-judge baseline, ProvenanceGuard reduces
+  error rate on misaligned traces from 44.3
+authors:
+- Yining She
+- Y Liang
+- Eunsuk Kang
+organizations:
+- Carnegie Mellon University
+affiliations:
+  Yining She:
+  - Carnegie Mellon University
+  Y Liang:
+  - Carnegie Mellon University
+  Eunsuk Kang:
+  - Carnegie Mellon University
+published_at: '2026-10-07'
+url: https://doi.org/10.1145/3832783.3837535
+doi: 10.1145/3832783.3837535
+openalex_id: W7167248074
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Agentic Misalignment: How LLMs Could Be Insider Threats; Defeating Prompt Injections
+  by Design; Distributing Accountability, Not Capability: Phase Separatio; GuardAgent: Safeguard
+  LLM Agents by a Guard Agent via Knowle; Training Language Models to Follow Instructions
+  with Human F; Training a Helpful and Harmless Assistant with Reinforcement. Scope scan by
+  claude-opus-5: This is squarely about the control surface for machines that hold operational
+  authority: what an agent is permitted to execute, on what evidentiary basis, and whether
+  the decision can be audited afterward. No exclusion-register line applies; it is not human
+  collective decision-making, mechanism design, or an adjacent institution, and it is substantive
+  enough to ingest rather than merely point at. What changes because agents hold authority:
+  It supplies a pre-execution gating mechanism — grounding each proposed tool call in traceable
+  evidence from the agent''s context — that turns agent action authority into something auditable
+  and revocable before harm occurs, rather than judged post hoc by an opaque LLM judge. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

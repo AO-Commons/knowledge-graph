@@ -1,0 +1,64 @@
+id: resource:doi:10-1145-3832783-3834637
+resource_type: peer-reviewed-paper
+title: Introducing Safe LLM-Agent Execution via Typed Tool Mediation and World-Effect Evaluation
+abstract: LLM-based agents are increasingly used as action-taking systems that operate over
+  files, databases, networks, and external services. In this setting, safety failures can
+  become unauthorized world effects, such as data deletion, protected-resource modification,
+  or secret exfiltration, rather than merely unsafe text outputs. We present AgentOS, a Buildroot-based
+  execution environment for safe tool-using LLM agents. Its core component, the Verified Toolchain
+  Reference Monitor (VTRM), mediates model-generated tool requests before execution by converting
+  untrusted model outputs into typed requests and enforcing capability-aware and label-aware
+  decisions over filesystem, database, and network operations. AgentOS further includes a
+  host-side World Effect Judge (WEJ) for evaluation. WEJ measures task completion and safety
+  using filesystem snapshots, database diffs, audit logs, and network observations rather
+  than model self-report. We evaluate AgentOS on benign and adversarial task suites using
+  two LLMs. Across both models, AgentOS matches prompt-only and naive baselines on benign-task
+  utility. On adversarial tasks, AgentOS blocks all evaluated harmful cases, while both baselines
+  leave substantially more unsafe effects unblocked. We also model the core VTRM decision
+  path in TLA+ and check representative confidentiality and fail-closed properties. These
+  results suggest that typed tool mediation and host-side world-effect evaluation can improve
+  LLM-agent execution safety while preserving benign-task utility. The source code and documentation
+  are publicly available under the MIT License at https://github.com/zhoujune/AgentOS, with
+  an archived artifact at https://doi.org/10.5281/zenodo.20046861; the demonstration screencast
+  is available at https://youtu.be/bqJsTRJbIkU.
+authors:
+- Jun Zhou
+- Tao Jia
+organizations:
+- Chongqing Electric Power College
+- Chongqing Normal University
+- Southwest University
+affiliations:
+  Jun Zhou:
+  - Chongqing Normal University
+  - Chongqing Electric Power College
+  Tao Jia:
+  - Chongqing Normal University
+  - Southwest University
+published_at: '2026-10-07'
+url: https://doi.org/10.1145/3832783.3834637
+doi: 10.1145/3832783.3834637
+openalex_id: W7220942542
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Defeating Prompt Injections by Design; Not What You''ve Signed Up For: Compromising
+  Real-World LLM-I; Securing AI Agents with Information-Flow Control. Scope scan by claude-opus-5:
+  No exclusion-register line applies: this is agent-specific enforcement and evidence machinery
+  that vanishes entirely if you remove the machine agent, not human collective decision-making
+  or general entity concerns. It is core rather than borrowed background because permission
+  scoping, fail-closed guarantees, and non-self-reported effect auditing are exactly the operating
+  and oversight controls an agent-authority organization must design around. What changes
+  because agents hold authority: It supplies the concrete mechanism by which an organization
+  can grant an agent bounded operational authority — typed, capability- and label-aware mediation
+  of every tool call — and verify what the agent actually did through filesystem/database/network
+  evidence and audit logs rather than the agent''s self-report, which is the substrate of
+  enforceable delegation and after-the-fact accountability. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

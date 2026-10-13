@@ -1,0 +1,89 @@
+id: resource:arxiv:2311.10537
+resource_type: preprint
+title: 'MedAgents: Large Language Models as Collaborators for Zero-shot Medical Reasoning'
+abstract: 'Large language models (LLMs), despite their remarkable progress across various
+  general domains, encounter significant barriers in medicine and healthcare.This field faces
+  unique challenges such as domain-specific terminologies and reasoning over specialized knowledge.To
+  address these issues, we propose MEDAGENTS, a novel multi-disciplinary collaboration framework
+  for the medical domain.MedAgents leverages LLM-based agents in a role-playing setting that
+  participate in a collaborative multi-round discussion, thereby enhancing LLM proficiency
+  and reasoning capabilities.This training-free framework encompasses five critical steps:
+  gathering domain experts, proposing individual analyses, summarising these analyses into
+  a report, iterating over discussions until a consensus is reached, and ultimately making
+  a decision.Our work focuses on the zeroshot setting, which is applicable in realworld scenarios.Experimental
+  results on nine datasets (MedQA, MedMCQA, PubMedQA, and six subtasks from MMLU) establish
+  that our proposed MEDAGENTS framework excels at mining and harnessing the medical expertise
+  within LLMs, as well as extending its reasoning abilities.Our code can be found at https:
+  //github.com/gersteinlab/MedAgents.① Expert Gathering ② Analysis Proposition ③ Report Summarization
+  ④ Collaborative Consultation ⑤ Decision Making A 66-year-old male with a history of heart
+  attack and recurrent stomach ulcers is experiencing persistent cough and chest pain, and
+  recent CT scans indicate a possible lung tumor.Designing a treatment plan that minimizes
+  risk and maximizes outcomes is the current concern due to his deteriorating health and medical
+  history....... ...... .'
+authors:
+- Xiangru Tang
+- Anni Zou
+- Zhuosheng Zhang
+- Ziming Li
+- Yilun Zhao
+- Xingyao Zhang
+- Arman Cohan
+- Mark Gerstein
+organizations:
+- Shanghai Jiao Tong University
+- Yale University
+affiliations:
+  Xiangru Tang:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Anni Zou:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Zhuosheng Zhang:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Ziming Li:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Yilun Zhao:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Xingyao Zhang:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Arman Cohan:
+  - Shanghai Jiao Tong University
+  - Yale University
+  Mark Gerstein:
+  - Shanghai Jiao Tong University
+  - Yale University
+published_at: '2024-01-01'
+url: https://arxiv.org/abs/2311.10537
+doi: 10.48550/arXiv.2311.10537
+arxiv_id: '2311.10537'
+openalex_id: W4402670791
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  4 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Inherent and emergent liability issues in LLM-based agentic ; Large Language Model
+  based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration Mechanisms: A Survey
+  of LLMs; Reliable agent engineering should integrate machine-compatib. Scope scan by claude-opus-5:
+  MedAgents is a training-free prompting architecture evaluated on medical QA benchmarks,
+  so it is a method precedent rather than a study of an organization where agents hold operational
+  or decision authority. It is load-bearing for the collaboration-mechanism literature already
+  in the library (two surveys cite it as a canonical consensus pattern), which is exactly
+  the Section 15 borrowed-background case rather than an admission or a refusal. What changes
+  because agents hold authority: Nothing directly about authority: it supplies a structural
+  precedent for how a multi-agent panel assigns roles, deliberates, and converges on a consensus
+  decision — a mechanism designers of agent decision bodies build on, but the paper itself
+  only produces benchmark answers, not organizational decisions anyone is accountable for.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1
+is_borrowed_background: true

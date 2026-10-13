@@ -1,0 +1,47 @@
+id: resource:doi:10-3389-fcomp-2026-1919950
+resource_type: peer-reviewed-paper
+title: 'From model trust to software topology: a Perspective on structurally governed agentic
+  AI systems'
+abstract: 'Large language models are increasingly embedded in agentic software systems that
+  retrieve information, plan subtasks, call tools, modify code, execute tests, and adapt through
+  memory or feedback. This transition changes the safety problem: when a model acts through
+  software tools, failure can alter external state. This Perspective argues that agentic AI
+  safety should move beyond exclusive reliance on model trust, alignment, or prompt-level
+  defenses and should also be treated as a software-architecture problem. We propose software
+  topology as a design lens for structurally governed autonomy and develop a five-plane reference
+  topology comprising intent, orchestration, execution, oversight, and adaptation. Its core
+  invariant is that components that decide should not directly act, and components that act
+  should not act without supervision. The topology is realized in Polos, an open reference
+  specification that encodes role contracts, message schemas, declared flow graphs, bounded
+  loops, governed self-improvement, and validator-checked invariants. We argue that this approach
+  complements model alignment and empirical red teaming by providing an inspectable substrate
+  for evaluating, constraining, and governing tool-using AI agents.'
+authors:
+- Michai Morin
+- Fahim K Sufi
+published_at: '2026-10-08'
+url: https://doi.org/10.3389/fcomp.2026.1919950
+doi: 10.3389/fcomp.2026.1919950
+openalex_id: W7220960503
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Not What You''ve Signed
+  Up For: Compromising Real-World LLM-I; Training Language Models to Follow Instructions with
+  Human F. Scope scan by claude-opus-5: This is agent-specific control and oversight design:
+  remove the machine agent and the entire five-plane topology and its invariants vanish, so
+  no exclusion-register line applies. It is load-bearing for operating and holding accountable
+  organizations where agents execute tools and modify state, so it is ingested rather than
+  held as background. What changes because agents hold authority: It gives a concrete separation-of-duties
+  architecture — deciding components cannot act, acting components cannot act unsupervised,
+  with declared flow graphs, bounded loops and validator-checked invariants — which is directly
+  how one would structurally bound and audit an agent''s operational authority rather than
+  trusting the model. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

@@ -1,0 +1,58 @@
+id: resource:doi:10-3390-systems14101282
+resource_type: peer-reviewed-paper
+title: 'From Artifacts to Actors: A Design Theory for Modeling Algorithmic Actors in Agentic
+  Service Systems'
+abstract: 'Agentic AI is reconfiguring service systems by introducing computational entities
+  that interpret situations, select among alternatives, and shape service trajectories with
+  varying degrees of decision authority. Established service-design representations lack a
+  category for such entities, treating them either as passive artifacts or as human actors.
+  Following design science research, this paper develops a design theory for modeling algorithmic
+  actors in agentic service systems. It comprises a four-level framework—service-system embedding,
+  actor differentiation, decision authority, and responsible AI governance—with operational
+  classification rules, five design principles for materiality, and testable propositions.
+  The theory is instantiated as an extension of service blueprinting and formatively evaluated
+  in three real-world configurations whose primary algorithmic actors hold assistive, delegated,
+  and autonomous authority with different forms of embodiment. Interviews with six informants,
+  documents, and observations provide preliminary evidence that the extended blueprint can
+  represent algorithmic actors, authority allocations, authority transitions, and governance
+  mechanisms at the process-step level. The cases illustrate that the same algorithmic actor
+  can hold different authority levels across process steps and suggest two propositions for
+  future testing: that risk types vary with embodiment and that escalation architectures become
+  more elaborate as authority increases.'
+authors:
+- Nick Tugarin
+- Christian van Husen
+organizations:
+- Furtwangen University
+affiliations:
+  Nick Tugarin:
+  - Furtwangen University
+  Christian van Husen:
+  - Furtwangen University
+published_at: '2026-10-11'
+url: https://doi.org/10.3390/systems14101282
+doi: 10.3390/systems14101282
+openalex_id: W7221522001
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents vs. Agentic
+  AI: A Conceptual taxonomy, application; Agentic AI: Autonomous Intelligence for Complex
+  Goals—A Comp. Scope scan by claude-opus-5: The entire contribution is a design theory for
+  entities that hold varying degrees of decision authority inside operating service systems,
+  including escalation and responsible-governance mechanisms; removing the machine actor collapses
+  the theory entirely, so no exclusion-register line applies. It is directly usable for designing
+  and overseeing agent-authority organizations rather than adjacent background, so it is ingested
+  rather than pointed at. What changes because agents hold authority: It gives an operational
+  representation — extended service blueprints with authority levels, authority transitions,
+  escalation architectures and governance checkpoints at the process-step level — for designing
+  and auditing where a machine actor holds assistive, delegated, or autonomous decision authority
+  within an organization''s workflows. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

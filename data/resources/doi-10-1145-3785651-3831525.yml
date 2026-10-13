@@ -1,0 +1,54 @@
+id: resource:doi:10-1145-3785651-3831525
+resource_type: peer-reviewed-paper
+title: Hidden Profile Decision Making in Multi-Agent LLM Groups
+abstract: 'The hidden profile paradigm is a foundational tool of CSCW research on computer-mediated
+  group decision making: a group can identify the collectively optimal option only if its
+  members surface their uniquely held information, and asynchronous communication is known
+  to improve that pooling in human groups. As multi-agent LLM systems take on group decision-support
+  roles, it is unclear whether the same channel-level interventions improve their performance.
+  We replicate the hidden profile paradigm with groups of three LLM agents from four families
+  (Kimi K2, GPT-OSS 120B, Gemini 2.5 Flash, Llama 4 Scout 17B) in a two-by-two design crossing
+  communication mode (synchronous, asynchronous) with information distribution (shared, hidden).
+  Across 219 valid sessions, only one model-by-mode cell exceeds the three-candidate chance
+  baseline of 33 percent: Kimi K2 under asynchronous communication, at 87 percent correct
+  (Fisher’s exact, two-sided p equals 0.002), an early-stage result from 15 sessions that
+  awaits larger-n replication; two other models share private information at rates above 75
+  percent but never aggregate it into the correct decision. In this task and these model families,
+  information sharing and information integration appear to be dissociated capabilities, and
+  we develop the implications for CSCW systems that scaffold AI-mediated distributed decision
+  making.'
+authors:
+- Carlos Toxtli
+- Manuel Delaflor
+organizations:
+- Clemson University
+affiliations:
+  Carlos Toxtli:
+  - Clemson University
+published_at: '2026-10-09'
+url: https://doi.org/10.1145/3785651.3831525
+doi: 10.1145/3785651.3831525
+openalex_id: W7221075967
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI can help humans find
+  common ground in democratic delibera; Machine Psychology; Out of One, Many: Using Language
+  Models to Simulate Human Sa; Social Simulacra: Creating Populated Prototypes for Social
+  C. Scope scan by claude-opus-5: The hidden-profile paradigm is human social psychology,
+  but this study''s finding is about failure modes of machine agent groups in collective decision
+  — remove the agents and nothing of the result survives, so the deliberative-democracy exclusion
+  line does not apply. It bears directly on designing and overseeing delegated decision authority
+  held by agent collectives rather than being adjacent evaluation infrastructure. What changes
+  because agents hold authority: It shows whether a group of LLM agents pools privately held
+  information or converges on a shared-but-wrong consensus, which determines whether a multi-agent
+  committee can be trusted with a decision that depends on distributed evidence and what structural
+  remedies (role assignment, mandated disclosure, ordering) an operator must impose. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

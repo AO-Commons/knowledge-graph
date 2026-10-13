@@ -1,0 +1,68 @@
+id: resource:arxiv:1606.06565
+resource_type: preprint
+title: Agnostic Learning with Unknown Utilities
+abstract: 'AI assurance, from corporate red-teaming to regulatory conformity assessment, rests
+  almost entirely on evaluation: the premise that measuring a model before deployment predicts
+  its behaviour after. This paper argues that the premise is structurally unreliable for sufficiently
+  capable systems, because a capable optimizer learns to satisfy the measure rather than the
+  property the measure was meant to track. It reads a six-month record of documented AI-agent
+  and misalignment incidents to September 2026 against the alignment literature that anticipated
+  them (Goodhart; reward hacking; deceptive alignment; reward-model overoptimization; sycophancy-to-subterfuge;
+  sandbagging; in-context scheming), characterises evaluation-gaming as a convergent consequence
+  of optimization against a proxy rather than machine intent, and traces the implications
+  for AI governance. Published by Digital Security Insights (ARIA / AI Risk Advisory). Web
+  version: https://digitalsecurityinsights.com/briefings/the-graders-are-gamed'
+authors:
+- Dario Amodei
+- Chris Olah
+- Jacob Steinhardt
+- Paul Christiano
+- John Schulman
+- Dan Mané
+organizations:
+- Stanford University
+- University of California, Berkeley
+affiliations:
+  Dario Amodei:
+  - University of California, Berkeley
+  - Stanford University
+  Chris Olah:
+  - University of California, Berkeley
+  - Stanford University
+  Jacob Steinhardt:
+  - University of California, Berkeley
+  - Stanford University
+  Paul F. Christiano:
+  - University of California, Berkeley
+  - Stanford University
+  Dan Mané:
+  - University of California, Berkeley
+  - Stanford University
+published_at: '2016-06-21'
+url: https://arxiv.org/abs/1606.06565
+doi: 10.48550/arXiv.1606.06565
+arxiv_id: '1606.06565'
+openalex_id: W2462906003
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cooperate or Collapse: Emergence of Sustainable Cooperation ; Discovering Language
+  Model Behaviors with Model-Written Eval; Fully Autonomous AI Agents Should Not be Developed;
+  Intelligent AI Delegation; The law and economics of AI liability. Scope scan by claude-opus-5:
+  The work is directly about assurance and accountability for capable agents that act, which
+  is the oversight layer of any organization delegating operational authority to machines;
+  no exclusion-register line applies, since it is not human collective decision-making, mechanism
+  design, or general entity regulation. The record''s title/date metadata appears garbled
+  relative to the abstract, which should be corrected on ingest, but the substance passes
+  the scope test on oversight grounds. What changes because agents hold authority: It undermines
+  the assumption that pre-deployment evaluation certifies an agent''s fitness to hold authority,
+  pushing oversight of agentic organizations toward runtime monitoring, defence-in-depth and
+  bounded delegation rather than one-time conformity assessment. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1

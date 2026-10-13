@@ -1,0 +1,58 @@
+id: resource:doi:10-65326-u7y10032
+resource_type: peer-reviewed-paper
+title: 'Algorithmic Determinism vs. Executive Agency: A Theoretical Examination of Strategic
+  Management in the Age of Artificial Intelligence'
+abstract: 'Strategic management settled its dispute between environmental determinism and
+  managerial choice by treating constraint as arriving from outside the firm. Artificial intelligence
+  unsettles that arrangement, because the algorithms that filter markets, rank acquisition
+  targets and evaluate strategic alternatives are installed by executives themselves. This
+  conceptual paper asks where executive agency goes when strategic decisions pass through
+  algorithmic systems. Drawing on upper echelons and managerial discretion research, sociomaterial
+  accounts of technology and evidence on how decision-makers respond to algorithmic outputs,
+  it develops a framework of configured discretion. Algorithmic determinism is theorized as
+  an endogenous, cumulative constraint operating through attention, evaluation and capability.
+  Executive agency is relocated into three practices: framing objectives, contesting outputs
+  and reconfiguring decision architecture. The central argument is that delegation is self-binding.
+  Each act of delegation can erode the capabilities executives need to contest the system
+  later, so formal authority persists while real latitude shrinks. Seven propositions follow,
+  with a state-transition model of four adaptation states (algorithmic capture, governed hybridity,
+  executive voluntarism and fragmented drift) that recasts the two-continua model of organizational
+  adaptation for firms whose constraints are partly self-made. The framework reconciles conflicting
+  findings on algorithm aversion and appreciation and on the value of human override. Governance
+  regimes moderate the loop: fiduciary duties of care and oversight, audit-committee benchmarks
+  against core models and party-state oversight each shape how far effective discretion can
+  fall below formal authority.'
+authors:
+- Chen Wei
+organizations:
+- Zhengzhou University
+affiliations:
+  Chen Wei:
+  - Zhengzhou University
+published_at: '2026-10-10'
+url: https://doi.org/10.65326/u7y10032
+doi: 10.65326/u7y10032
+openalex_id: W7221324718
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Explanation in artificial intelligence: Insights from the so; Four Responsibility
+  Gaps with Artificial Intelligence: Why t; Ironies of automation; The responsibility gap:
+  Ascribing responsibility for the act. Scope scan by claude-opus-5: The paper is squarely
+  about organizations where machine systems hold de facto strategic decision authority and
+  about the governance regimes (fiduciary oversight, audit benchmarking) that moderate it;
+  removing the algorithmic system would leave nothing of the argument, so the deliberative-democracy
+  exclusion line does not apply. Its adaptation-state model and propositions are directly
+  usable for designing and auditing human-AI hybrid authority structures. What changes because
+  agents hold authority: It argues that each delegation to an algorithmic system erodes the
+  very capabilities executives need to contest its outputs later, so formal human authority
+  can persist while effective discretion collapses — which reframes oversight design around
+  maintaining contestation capacity rather than retaining override rights on paper. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2

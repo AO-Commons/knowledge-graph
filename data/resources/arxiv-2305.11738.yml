@@ -1,0 +1,67 @@
+id: resource:arxiv:2305.11738
+resource_type: preprint
+title: 'CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing'
+abstract: Recent developments in large language models (LLMs) have been impressive. However,
+  these models sometimes show inconsistencies and problematic behavior, such as hallucinating
+  facts, generating flawed code, or creating offensive and toxic content. Unlike these models,
+  humans typically utilize external tools to cross-check and refine their initial content,
+  like using a search engine for fact-checking, or a code interpreter for debugging. Inspired
+  by this observation, we introduce a framework called CRITIC that allows LLMs, which are
+  essentially "black boxes" to validate and progressively amend their own outputs in a manner
+  similar to human interaction with tools. More specifically, starting with an initial output,
+  CRITIC interacts with appropriate tools to evaluate certain aspects of the text, and then
+  revises the output based on the feedback obtained during this validation process. Comprehensive
+  evaluations involving free-form question answering, mathematical program synthesis, and
+  toxicity reduction demonstrate that CRITIC consistently enhances the performance of LLMs.
+  Meanwhile, our research highlights the crucial importance of external feedback in promoting
+  the ongoing self-improvement of LLMs.
+authors:
+- Zhibin Gou
+- Zhihong Shao
+- Yeyun Gong
+- Yelong Shen
+- Yujiu Yang
+- Nan Duan
+- Weizhu Chen
+organizations:
+- Microsoft
+- Microsoft Research Asia (China)
+- Tsinghua University
+affiliations:
+  Yeyun Gong:
+  - Microsoft Research Asia (China)
+  Yelong Shen:
+  - Microsoft
+  Yujiu Yang:
+  - Tsinghua University
+  Nan Duan:
+  - Microsoft Research Asia (China)
+  Weizhu Chen:
+  - Microsoft
+published_at: '2023-05-19'
+url: https://arxiv.org/abs/2305.11738
+doi: 10.48550/arXiv.2305.11738
+arxiv_id: '2305.11738'
+openalex_id: W4377372007
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Encouraging Divergent Thinking in Large Language Models thro; Intelligent AI Delegation;
+  Reliable agent engineering should integrate machine-compatib. Scope scan by claude-opus-5:
+  CRITIC is a single-model self-correction method, not a study of organizations where agents
+  hold decision authority, so it fails the scope test on its own terms. It is, however, a
+  foundational method that three library records build on for agent reliability and delegation
+  design, which is exactly the Section 15 borrowed-background case (as with Melting Pot).
+  What changes because agents hold authority: It does not itself address agent authority,
+  but it supplies the tool-grounded self-verification primitive that any agent acting without
+  a human in the loop must rely on to catch its own errors before they become organizational
+  actions. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-13'
+expansion_generation: 1
+is_borrowed_background: true

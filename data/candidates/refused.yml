@@ -138,6 +138,25 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 5
   first_refused_on: '2026-09-15'
+- key: arxiv:1706.03762
+  generation: 1
+  support: 4
+  cited_by:
+  - resource:arxiv:2212.09251
+  - resource:arxiv:2307.00184
+  - resource:arxiv:2309.02427
+  - resource:arxiv:2501.06322
+  reasoning: 'This is a neural architecture paper with no organizational, authority, or oversight
+    content, analogous to the excluded ''optimization, neural architectures and game theory generally''
+    that our papers routinely cite. It is genuinely load-bearing foundational method for the field,
+    so it is best held as a pointer in section 15 rather than ingested. What changes because agents
+    hold authority: Nothing about designing, operating, or holding an agent-authority organization
+    accountable changes because of this architecture paper; it is the substrate the field''s agents
+    happen to be built on, not guidance about delegated authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: arxiv:1707.01068
   generation: 1
   support: 2
@@ -156,6 +175,26 @@ refused:
   refused_on: '2026-09-15'
   times_refused: 1
   first_refused_on: '2026-09-15'
+- key: arxiv:1707.06347
+  generation: 1
+  support: 5
+  cited_by:
+  - resource:arxiv:2305.16291
+  - resource:arxiv:2312.05162
+  - resource:arxiv:2501.16138
+  - resource:arxiv:2503.14576
+  - resource:doi:10-52202-068431-2011
+  reasoning: 'The paper is a robotics engineering case study on quantifying simulation-to-reality
+    divergence for an octorotor RL controller, with no organizational, delegation, or oversight
+    dimension. Its citation by library papers reflects generic RL/method lineage rather than topical
+    fit, and it is too narrow to serve as load-bearing borrowed background in Section 15. What changes
+    because agents hold authority: Nothing: this is a single-vehicle sim-to-real control diagnostics
+    case study and says nothing about designing, operating, or holding accountable an organization
+    in which agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: arxiv:1802.01561
   generation: 1
   support: 2
@@ -236,16 +275,16 @@ refused:
   - resource:arxiv:2304.03279
   - resource:doi:10-1016-j-patter-2025-101341
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is a general-purpose language understanding benchmark, cited by library papers
-    only as standard NLP background, akin to the ''optimization, neural architectures and game theory''
-    citations the brief warns are not in scope. Unlike Melting Pot, it evaluates no multi-agent
-    or delegated-authority behavior, so it is not load-bearing enough to hold as borrowed background
-    in section 15. What changes because agents hold authority: Nothing — SuperGLUE measures NLU
-    task accuracy and says nothing about how agents hold or exercise operational authority, nor
-    about overseeing them.'
+  reasoning: 'This is a general NLP capability benchmark, cited by library papers only as standard
+    background for model evaluation, not as an evaluation suite for agentic conduct (unlike Melting
+    Pot, which measures multi-agent social behavior). It is too far upstream to be load-bearing
+    borrowed background for organizational design, oversight, or accountability. What changes because
+    agents hold authority: Nothing — SuperGLUE measures static language-understanding accuracy on
+    NLP tasks and says nothing about agents holding operational or decision authority, nor about
+    evaluating such authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: arxiv:1907.04534
   generation: 1
@@ -272,16 +311,15 @@ refused:
   - resource:arxiv:2305.16291
   - resource:arxiv:2401.13919
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'This is foundational NLP model architecture work, the kind of general method our papers
-    routinely cite without it belonging here; it is upstream infrastructure rather than load-bearing
-    for the design or oversight of agentic organizations. Not even borrowed background, since it
-    offers no evaluation suite or governance-relevant construct the library would need to point
-    at. What changes because agents hold authority: Nothing — T5 is a general pre-training and transfer-learning
-    methodology paper that says nothing about agents holding operational or decision authority in
-    an organization.'
+  reasoning: 'This is foundational NLP model architecture work, the same class as ''optimization,
+    neural architectures and game theory'' that the brief explicitly says does not belong despite
+    being cited. It is not even load-bearing in the Section 15 sense (an evaluation suite or agent-specific
+    method); it is generic model-building background available anywhere. What changes because agents
+    hold authority: Nothing — T5 is a general pre-training and transfer-learning methodology paper
+    that says nothing about agents holding operational or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:1910.14472
   generation: 1
@@ -310,17 +348,19 @@ refused:
   - resource:arxiv:2501.06322
   - resource:arxiv:2512.07665
   - resource:doi:10-1016-j-patter-2025-101341
-  reasoning: 'The record is internally incoherent — the title is the 2020 scaling-laws paper while
-    the abstract describes a transport-validity framework for scale-up decisions in agentic AI research
-    — so I cannot responsibly curate it as either an in-scope item or a clean section 15 pointer.
-    On its abstract''s own terms it is research-portfolio methodology rather than organizational
-    authority, and a corrupted record sitting in the corpus looking curated is exactly the expensive,
-    quiet error to avoid. What changes because agents hold authority: Nothing: it concerns methodology
-    for extrapolating small-scale experimental gains to frontier-scale AI research budgets, not
-    the design, operation, or accountability of organizations in which agents hold authority.'
+  reasoning: 'The record is internally inconsistent — a title for the Kaplan et al. scaling-laws
+    paper attached to an abstract about transport validity of agentic-intervention trials — so I
+    cannot verify what would actually be ingested, and the standing instruction is to refuse anything
+    uncertain. Even taking the abstract at face value, it is research-budget allocation and extrapolation
+    methodology, load-bearing for building agents but not for governing organizations in which they
+    hold authority, and not distinctive enough to warrant a Section 15 pointer. What changes because
+    agents hold authority: Nothing here changes how an agent-authority organization is designed,
+    operated, overseen or held accountable; the work concerns when a small-scale research result
+    about an intervention transports to frontier scale, which is an experimental-methodology question
+    rather than one about machine agents holding operational or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2003.02979
   generation: 1
@@ -349,18 +389,18 @@ refused:
   - resource:arxiv:2402.01680
   - resource:doi:10-1016-j-inffus-2025-103599
   - resource:doi:10-1145-3706598-3713423
-  reasoning: 'No exclusion-register line applies — the topic (authority scopes, validators, auditable
-    receipts for LLM systems) is squarely agentic — but the record is anachronistic (a 2020-05-22
-    date for ''LLM-integrated systems''), has no venue, and reads as unverifiable neologism-dense
-    pseudo-formalism. Under the instruction to refuse anything uncertain, a questionable record
-    sitting in the corpus looking curated is the expensive error; a human can add it by hand if
-    the citation is real. What changes because agents hold authority: On its face it would offer
-    a scoping-and-audit vocabulary (typed action handles, authority scopes, rollback, receipts)
-    for bounding what an agent may do and proving what it did, but the record''s provenance is too
-    unreliable to treat that as a finding.'
+  reasoning: 'No exclusion-register line applies; the content is squarely agent-authority infrastructure
+    rather than human collective decision-making. I refuse on provenance: a 2020-05-22 date with
+    no venue for a paper about ''LLM-integrated systems,'' paired with an abstract that is an unbroken
+    chain of undefined coinages, is internally inconsistent enough that I cannot verify this is
+    a real work, and a wrong admission sits silently in the corpus looking curated. What changes
+    because agents hold authority: Its subject matter — typed action handles, authority scopes,
+    validators, rollback modes, and auditable receipts as world-side constraints on a fixed model-policy
+    — would bear directly on how an agent''s operational authority is bounded and audited, but the
+    record itself is not trustworthy enough to ingest.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2005.14165
   generation: 1
@@ -377,17 +417,15 @@ refused:
   - resource:doi:10-1016-j-inffus-2025-103599
   - resource:doi:10-1016-j-patter-2025-101341
   - resource:doi:10-52202-068431-2011
-  reasoning: 'GPT-3 is a model-capability paper, not a paper about organizations in which agents
-    hold operational or decision authority; removing it leaves no organizational design, oversight,
-    or accountability finding behind. It is genuinely load-bearing background for the entire agent
-    literature, so it belongs as a Section 15 pointer rather than an admitted record. What changes
-    because agents hold authority: Nothing about agent authority within organizations changes from
-    this paper directly; it is the foundational capability result (in-context few-shot learning)
-    that makes general-purpose machine agents possible at all, so the library points at it rather
-    than ingests it.'
+  reasoning: 'GPT-3 is a foundational capability paper, load-bearing for the field but not about
+    organizations where agents hold operational or decision authority; it is the kind of foundational
+    method the library points at rather than ingests. Hold as borrowed background in Section 15
+    alongside Melting Pot rather than admitting to scope. What changes because agents hold authority:
+    Nothing directly — it establishes the few-shot capability that makes general-purpose agents
+    feasible at all, but says nothing about organizations, delegated authority, or oversight.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2008.01062
   generation: 1
@@ -430,15 +468,16 @@ refused:
   - resource:arxiv:2304.03279
   - resource:arxiv:2309.02427
   - resource:arxiv:2607.27415
-  reasoning: 'ALFWorld is a task simulator and benchmark for grounded instruction-following, analogous
-    to Melting Pot in being load-bearing evaluation infrastructure rather than organizational material.
-    Hold as a Section 15 pointer only; it says nothing about delegation, oversight, or accountability.
-    What changes because agents hold authority: Nothing about organizational authority changes from
-    this work; it is an embodied-agent benchmark/simulator that underpins agent capability evaluation
-    the field builds on, not a study of agents holding operational or decision authority.'
+  reasoning: 'This is a simulator/benchmark for grounded language-agent learning, load-bearing infrastructure
+    the agent field builds on (hence citation by MACHIAVELLI and CoALA) but not about delegated
+    authority, oversight, or accountability. Hold it as borrowed background in section 15 alongside
+    Melting Pot rather than ingesting it. What changes because agents hold authority: Nothing about
+    organizational authority changes — ALFWorld is an embodied/text agent benchmark that underpins
+    agent capability evaluation but says nothing about agents holding operational or decision authority
+    in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2010.14701
   generation: 1
@@ -465,18 +504,17 @@ refused:
   - resource:arxiv:2312.05162
   - resource:arxiv:2501.16138
   - resource:doi:10-1073-pnas-2319947121
-  reasoning: 'The paper is a method contribution to cooperative multi-agent learning, not a study
-    of organizations with delegated machine authority, so it fails the scope test; no exclusion-register
-    line applies since it is agent-specific rather than human collective decision-making. It is
-    genuinely load-bearing for the cooperation-and-emergent-reputation literature the library''s
-    own records build on, so it belongs as a section 15 pointer alongside Melting Pot rather than
-    as an ingested record. What changes because agents hold authority: Nothing directly — it is
-    a MARL training augmentation showing that reciprocity, reputation and team formation can emerge
-    among learning agents, which informs what multi-agent populations do but says nothing about
-    agents holding operational or decision authority in an organization.'
+  reasoning: 'The paper is about inducing cooperative dispositions in learned agents, not about
+    organizations where agents hold operational or decision authority, so it fails the scope test
+    directly. It is genuinely load-bearing for the multi-agent cooperation strand (cited by three
+    library records, including the cooperation review) and should be held at section 15 as borrowed
+    background alongside Melting Pot rather than ingested. What changes because agents hold authority:
+    It does not change how an agent-authority organization is designed or overseen; it is a training-environment
+    augmentation showing that reciprocity, reputation and coalition behavior can emerge in MARL,
+    which the library''s cooperation literature builds on as method background.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2012.09421
   generation: 1
@@ -538,17 +576,16 @@ refused:
   - resource:arxiv:2307.00184
   - resource:arxiv:2309.02427
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is an LM fairness benchmark and mitigation method, not a study of organizations
-    where machines hold operational or decision authority; it is the kind of evaluation-suite foundation
-    Section 15 points at (as with Melting Pot) rather than ingests. No exclusion-register line bars
-    it outright, but it fails the scope test because its findings are unchanged by whether the model
-    holds any delegated authority. What changes because agents hold authority: Nothing specific
-    to agent authority — it measures and mitigates representational bias in text generation generally,
-    though it is load-bearing background for anyone evaluating whether agents that make consequential
-    decisions encode stereotypes.'
+  reasoning: 'Representational bias measurement and mitigation in language models is model-level
+    safety/fairness work that would read identically absent any organizational delegation of authority,
+    so it fails the scope test. It is widely cited as foundational NLP method work but is not load-bearing
+    for agentic organization design, so it is not even borrowed background. What changes because
+    agents hold authority: Nothing: this is general LM fairness benchmarking and debiasing at the
+    text-generation level, with no bearing on how authority is delegated, exercised, or overseen
+    in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: arxiv:2107.03374
   generation: 2
@@ -560,17 +597,16 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2401.13919
   - resource:doi:10-52202-068431-2011
-  reasoning: 'The paper is a software-engineering cost/correctness evaluation of code LLMs; it concerns
-    model selection economics, not organizational authority, and its title and abstract are mismatched
-    and date-implausible, which further undermines confidence. Not even borrowed background: it
-    is not load-bearing infrastructure for the agentic-organization literature, and the citation
-    signal is the generic ''our papers cite optimization and benchmarks'' pattern the brief warns
-    about. What changes because agents hold authority: Nothing — this is a model-efficiency benchmark
-    on bug-fixing cost and correctness, with no bearing on how authority is delegated to, exercised
-    by, or overseen in an agent-run organization.'
+  reasoning: 'This is software-engineering model evaluation: no delegated decision authority, no
+    organizational design implication, and the metadata is internally inconsistent (title says code
+    translation, abstract says bug repair, 2021 date predates the cited works). Not even borrowed
+    background, since the library''s agentic work does not build on its inference-cost findings.
+    What changes because agents hold authority: Nothing — it is a model-efficiency benchmark on
+    Python bug-fixing, concerning correctness-versus-energy trade-offs of code LLMs, not how authority
+    is delegated, exercised, or overseen in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: arxiv:2107.12808
   generation: 1
@@ -597,17 +633,17 @@ refused:
   - resource:arxiv:2305.16291
   - resource:doi:10-1016-j-patter-2025-101341
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is a survey of the technical and societal properties of foundation models, not
-    of organizational authority; removing the agentic-organization framing leaves every finding
-    intact. It is genuinely load-bearing for the field''s vocabulary (homogenization, emergence,
-    sociotechnical risk), so it belongs as a section 15 pointer rather than an ingested record.
-    What changes because agents hold authority: Nothing directly — it characterizes the model substrate
-    (emergent capability, homogenization and inherited defects) that agents are built from, which
-    informs correlated-failure reasoning but does not itself address organizations where agents
-    hold operational or decision authority.'
+  reasoning: 'This is the canonical survey of the substrate the whole field builds on, genuinely
+    load-bearing and cited by three library items, but it says nothing about delegated machine authority,
+    decision rights, or organizational accountability. Hold it as borrowed background in section
+    15 as a pointer to the underlying model layer, not ingest it. What changes because agents hold
+    authority: Its homogenization thesis — that a single foundation model''s defects propagate to
+    every downstream adaptation — implies correlated failure across all agents in an organization
+    built on one base model, which is a real oversight concern, but the report itself is about model
+    capabilities and societal impact rather than organizations where agents hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: arxiv:2109.01652
   generation: 2
@@ -617,17 +653,16 @@ refused:
   - resource:arxiv:2212.09251
   - resource:arxiv:2307.00184
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is a pure NLP capability/benchmark result — model scale, task count, and template
-    ablations — with no organizational, oversight, or authority content, so it fails the scope test
-    outright. It is genuinely load-bearing as the foundational method behind instruction-following
-    (and behind InstructGPT, which the library holds), so it belongs as a section 15 pointer rather
-    than an ingested record. What changes because agents hold authority: Nothing about delegated
-    machine authority changes here; instruction tuning is the capability substrate that makes directive-following
-    agents possible, but the paper says nothing about how authority is delegated, overseen, or accounted
-    for.'
+  reasoning: 'This is a pure model-training method paper with no claim about organizations, authority,
+    or oversight, so it fails the scope test outright. It is nonetheless the direct methodological
+    ancestor of InstructGPT and the model-written-evaluation work already held here, so it belongs
+    as a pointer in section 15 rather than as an ingested record. What changes because agents hold
+    authority: Nothing about overseeing or holding an agent-authority organization accountable changes
+    from this paper; it is the capability precursor (instruction-following without task-specific
+    examples) that the library''s delegation and alignment records build on.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: arxiv:2110.08176
   generation: 1
@@ -636,17 +671,17 @@ refused:
   - resource:arxiv:2312.05162
   - resource:arxiv:2509.10147
   - resource:doi:10-1038-s41562-022-01383-x
-  reasoning: 'This is a multi-agent RL training method (Fictitious Co-Play) evaluated in a cooking
-    game; the finding concerns generalization of coordination policies, not how machine agents hold
-    or exercise operational authority. It is genuinely load-bearing for the human-AI teaming work
-    the library does ingest (Democratic AI, Virtual Agent Economies), so it belongs as a Section
-    15 pointer alongside Melting Pot rather than as an ingested record. What changes because agents
-    hold authority: It supplies a training-side precondition — producing partners that generalize
-    to unseen humans rather than overfitting to co-training partners — that matters for any hybrid
-    deployment, but it says nothing about authority, delegation, or accountability within an organization.'
+  reasoning: 'This is a multi-agent RL training technique evaluated in a two-player cooking game
+    — a foundational method the field builds on rather than a study of agents holding operational
+    or decision authority, so it belongs in Section 15 alongside Melting Pot. No exclusion-register
+    line applies directly; it fails the scope test because removing it would not change any design,
+    operation, oversight or accountability decision for an agent-authority organization. What changes
+    because agents hold authority: It supplies a training method (fictitious co-play) for agents
+    that coordinate with unfamiliar human partners, which underpins human-agent teaming but says
+    nothing about how authority is delegated, exercised, or overseen in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2110.14168
   generation: 1
@@ -656,17 +691,17 @@ refused:
   - resource:arxiv:2305.19118
   - resource:arxiv:2402.01680
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is general capability/benchmark methodology of the same kind as the optimization
-    and architecture work the brief warns is cited without belonging; its verifier idea concerns
-    answer selection within one model, not oversight of agents holding operational authority. It
-    is too far from organizational design to even serve as a pointer in section 15, which holds
-    agent-interaction evaluation suites like Melting Pot rather than task benchmarks. What changes
-    because agents hold authority: Nothing: it is a math-reasoning benchmark and a sample-and-rank
-    verification trick for single-model completions, with no bearing on how authority is delegated,
-    exercised, or overseen in an organization.'
+  reasoning: 'GSM8K and the verifier method are a benchmark plus a foundational capability technique
+    that the agent literature builds on, which is exactly the borrowed-background category Section
+    15 holds (as with Melting Pot). No exclusion-register line bars it, but it is about model reasoning
+    accuracy, not about organizations where machines hold authority, so it should be pointed at
+    rather than ingested. What changes because agents hold authority: It establishes verifier-based
+    checking of agent-generated outputs — a generate-then-verify pattern that underlies later oversight
+    and self-checking machinery — but says nothing itself about agents holding operational or decision
+    authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2112.09332
   generation: 2
@@ -696,16 +731,18 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2502.02649
   - resource:arxiv:2601.03624
-  reasoning: 'This is a single-agent embodied planning method paper with no organizational, delegation,
-    or accountability content, so it fails the scope test on its own terms. It is load-bearing foundational
-    method for the agent-architecture line (Voyager, CoALA) that the library does ingest, so it
-    belongs as a Section 15 pointer rather than a refusal. What changes because agents hold authority:
-    Nothing directly about organizational authority changes, but it is the foundational demonstration
-    that LLMs can decompose goals into executable action sequences, which is the capability precondition
-    the library''s agent-architecture papers build on.'
+  reasoning: 'This is a foundational capability/method paper on grounding language-model plans in
+    an embodied simulator, with no organizational, authority, or accountability content — it is
+    the kind of upstream method the field builds on, like Melting Pot, so it belongs as a Section
+    15 pointer rather than an ingested record. No specific exclusion-register line applies; it fails
+    the scope test directly because removing any organizational framing leaves the finding fully
+    intact. What changes because agents hold authority: Nothing about organizational design, oversight
+    or accountability changes from this work; it establishes the prior capability result that LLMs
+    can decompose goals into executable steps, which is the technical precondition agentic organizations
+    assume rather than a claim about delegated authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2203.11171
   generation: 1
@@ -715,17 +752,17 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2501.16173
   - resource:arxiv:2607.27415
-  reasoning: 'This is a prompting/decoding technique with no organizational content; it is load-bearing
-    method background cited by several library papers rather than a study of agents holding authority.
-    No exclusion-register line applies directly; it is held as borrowed background under section
-    15 like Melting Pot. What changes because agents hold authority: Nothing about agent authority
-    changes: self-consistency is a decoding strategy that improves single-model reasoning accuracy,
-    not a method for allocating or overseeing operational authority, though it is the foundational
-    sampling-and-aggregation primitive that multi-agent debate and ensemble-based agent designs
-    build on.'
+  reasoning: 'This is a foundational inference method, not a treatment of organizations where machines
+    hold operational or decision authority; no exclusion-register line fits exactly, but it is the
+    same category as a method the field builds on rather than an organizational finding. Hold it
+    as a pointer in section 15 since multi-agent debate and cognitive-architecture papers in the
+    corpus build directly on its marginalization-over-reasoning-paths construct. What changes because
+    agents hold authority: Nothing about agent authority changes: it is a decoding strategy that
+    improves single-model reasoning accuracy, though its majority-vote-over-samples idea is the
+    technical ancestor of ensemble and debate-based agent architectures the library does cover.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2203.13474
   generation: 1
@@ -755,17 +792,18 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2511.02687
   - resource:arxiv:2601.03624
-  reasoning: 'SayCan is a foundational grounding method the embodied-agent literature in this library
-    builds on (cited by Voyager, CoALA, Collaboration Gap and others), not a study of organizational
-    authority, oversight or accountability. It belongs as a section 15 pointer alongside Melting
-    Pot rather than as an ingested record. What changes because agents hold authority: It supplies
-    the canonical mechanism for constraining what an agent is permitted to attempt to what it is
-    actually capable of doing in its environment — an affordance filter that prefigures capability-bounded
-    delegation — but it concerns a single robot executing instructions, not an organization in which
-    agents hold authority.'
+  reasoning: 'SayCan is a single-robot capability paper about grounding language-model plans in
+    executable skills; no exclusion-register line applies, but it fails the scope test because it
+    concerns one agent''s task execution rather than any organization in which agents hold operational
+    or decision authority. It is genuinely load-bearing method precedent cited across the library''s
+    embodied-agent records, so it belongs in section 15 as a pointer rather than being refused outright.
+    What changes because agents hold authority: It establishes the affordance-grounding pattern
+    — an agent''s proposed actions filtered by learned feasibility values — which is the technical
+    ancestor of constraining what an agent with delegated authority is actually permitted and able
+    to execute, but it says nothing about organizations, delegation, or oversight itself.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2204.02311
   generation: 1
@@ -777,16 +815,16 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2401.13919
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'PaLM is a model/training-systems paper whose findings concern scaling and benchmark
-    performance, not organizations where machines hold operational or decision authority. It is
-    load-bearing background that the field builds on, so it is best held as a Section 15 pointer
-    rather than ingested. What changes because agents hold authority: Nothing about designing or
-    overseeing an agent-authority organization changes because of this work; it is a foundation-model
-    scaling and benchmark report that underwrites the capability of the agents the library studies
-    but says nothing about delegated authority.'
+  reasoning: 'This is a model training and benchmark result, not a study of organizations where
+    agents act with authority; it is load-bearing background that many library papers build on,
+    so it belongs as a pointer in section 15 rather than an ingested record. No specific exclusion-register
+    line applies, but the scope test fails since removing it changes model capability, not organizational
+    design. What changes because agents hold authority: Nothing directly — PaLM is a foundation-model
+    scaling paper that supplies the capability substrate agents are built on, but says nothing about
+    delegating operational or decision authority to them.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2204.05862
   generation: 1
@@ -873,16 +911,18 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2511.02687
   - resource:doi:10-1016-j-patter-2025-101341
-  reasoning: 'This is a foundational capability-scaling result about models, not about organizations
-    in which machines hold operational or decision authority, so it fails the scope test as written.
-    It is nonetheless load-bearing for the field''s assumptions about unpredictable capability jumps
-    and is best held as a section 15 pointer alongside Melting Pot rather than ingested. What changes
-    because agents hold authority: It does not itself concern agent authority, but its claim that
-    capabilities appear discontinuously with scale means delegation limits and oversight thresholds
-    for agentic organizations cannot be set by extrapolating from smaller models.'
+  reasoning: 'This is a foundational ML scaling-behavior result with no claim about delegated authority,
+    oversight, or accountability structures; no exclusion-register line applies directly, but it
+    fails the scope test as a paper about model properties. It is genuinely load-bearing background
+    for agent-capability and governance arguments in the corpus, so it belongs as a Section 15 pointer
+    like Melting Pot rather than an ingested record. What changes because agents hold authority:
+    If capability gains are discontinuous and unpredictable from smaller-model extrapolation, pre-deployment
+    certification of an agent''s scope of authority cannot rely on scaling forecasts — but that
+    implication is drawn by downstream governance work, not by this paper, which is about model
+    capabilities rather than organizations.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2207.05608
   generation: 1
@@ -892,16 +932,16 @@ refused:
   - resource:arxiv:2305.16291
   - resource:arxiv:2309.02427
   - resource:arxiv:2312.03664
-  reasoning: 'This is agent capability research (embodied planning with environment feedback), not
-    material about organizations where machines hold operational or decision authority; its human-feedback
-    channel is task-level correction, not organizational oversight. Admitting it would open the
-    library to the general LLM-agent capability literature that our in-scope papers routinely cite
-    without that literature being about agentic organizations. What changes because agents hold
-    authority: Nothing — it improves a single robot''s closed-loop task planning from language feedback
-    and says nothing about delegated authority, oversight structures, or accountability in an organization.'
+  reasoning: 'This is a capability/method paper on closed-loop embodied planning — the same class
+    as the optimization and neural-architecture work the library deliberately does not ingest despite
+    citations from in-scope papers. Its human-interaction feedback is task-level correction, not
+    shared decision authority, so it is not load-bearing enough for a section 15 pointer either.
+    What changes because agents hold authority: Nothing: it shows a single robot''s LLM planner
+    can incorporate environment and human feedback mid-task, which improves individual task execution
+    but says nothing about how authority is delegated, bounded, or accounted for in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2209.00626
   generation: 1
@@ -1060,17 +1100,17 @@ refused:
   - resource:arxiv:2506.12469
   - resource:arxiv:2601.03624
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'This is a model-training method paper about tool-use capability, not about organizations
-    in which machine agents hold operational or decision authority, so it fails the scope test directly.
-    It is nonetheless the foundational method much of the agent-architecture literature in the library
-    builds on, so it belongs as a section 15 pointer rather than an ingested record. What changes
-    because agents hold authority: It does not itself change how an agent-authority organization
-    is designed or overseen; it supplies the underlying capability — self-supervised API invocation
-    — that turns a language model into something that can take consequential external action at
-    all.'
+  reasoning: 'This is a foundational capability method (API tool use), analogous to the optimization
+    and architecture work the library cites without ingesting; it contains no organizational, authority,
+    or accountability content. Hold it as borrowed background in Section 15 as the canonical reference
+    for agent action-taking via tools, since downstream records on autonomy levels and information-flow
+    control build directly on it. What changes because agents hold authority: It establishes the
+    self-supervised tool-invocation capability by which a model''s outputs become external actions
+    — the technical precondition for an agent holding operational authority — but says nothing about
+    how such authority is delegated, bounded, or audited.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2302.08399
   generation: 1
@@ -1099,17 +1139,16 @@ refused:
   - resource:arxiv:2607.27415
   - resource:doi:10-1016-j-inffus-2025-103599
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is a foundation-model training paper with no claim about organizations, delegated
-    authority, oversight or accountability; it is the kind of general method (like optimization
-    or architectures) the brief warns against admitting merely because library papers cite it. It
-    qualifies as borrowed background at section 15 because the field materially builds on open-weight
-    foundation models, but it should be a pointer, not an ingested record. What changes because
-    agents hold authority: Nothing about agent authority changes — LLaMA is a base model release,
-    though it is the substrate many agentic systems in the library are built on, so it is worth
-    a pointer rather than an entry.'
+  reasoning: 'LLaMA is a foundation-model training paper — a method the field builds on, not a study
+    of organizations where agents decide, so it is borrowed background of the same kind as an evaluation
+    suite or architecture. Admitting it would open the corpus to the general model and optimization
+    literature that the library explicitly declines to ingest. What changes because agents hold
+    authority: Nothing about agent authority changes because of this work; it is a base model release
+    that supplies the substrate many agent systems are built on, but says nothing about how agents
+    hold or exercise operational authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2303.03378
   generation: 1
@@ -1118,17 +1157,40 @@ refused:
   - resource:arxiv:2305.16291
   - resource:arxiv:2309.02427
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'This is a foundational capability paper on multimodal grounding for robotic planning
-    — the field builds on it (Voyager, CoALA cite it), so it is load-bearing background rather than
-    a refusal, but it is about model architecture, not organizations where agents hold decision
-    authority. Hold as a Section 15 pointer alongside other foundational methods. What changes because
-    agents hold authority: Nothing about organizational authority changes: PaLM-E is a grounding/model-architecture
-    result that enables embodied agents to act in the world, but says nothing about delegation,
-    oversight, or accountability structures.'
+  reasoning: 'This is a capability/architecture contribution of the same kind as the ''neural architectures''
+    the brief explicitly says do not belong merely because library papers cite them; its citations
+    by Voyager and CoALA are as a model substrate, not as governance-relevant evidence. It is not
+    load-bearing for organizational design in the way an evaluation suite like Melting Pot is, so
+    even a section 15 pointer would overstate its role. What changes because agents hold authority:
+    Nothing — it reports a model architecture for grounding language in sensor streams and says
+    nothing about how authority is delegated to, bounded, or audited for agents within an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
+- key: arxiv:2303.08774
+  generation: 1
+  support: 7
+  cited_by:
+  - resource:arxiv:2305.19118
+  - resource:arxiv:2307.00184
+  - resource:arxiv:2309.02427
+  - resource:arxiv:2312.03664
+  - resource:arxiv:2402.04559
+  - resource:doi:10-1016-j-inffus-2025-103599
+  - resource:doi:10-52202-079017-3548
+  reasoning: 'The title says ''GPT-4 Technical Report'' but the abstract describes an unrelated
+    ''MFOUR Vibe Framework'' specification, so the record is corrupted and cannot be curated as-is.
+    Even on the most charitable reading — a foundation-model capability report — it would at best
+    be borrowed background at 15, and the determinism/auditability framing in the abstract is an
+    architectural style guide, not a claim about delegated machine authority; refuse rather than
+    admit an incoherent entry. What changes because agents hold authority: Nothing reliable: the
+    record''s title and abstract describe two different works, so it establishes no finding about
+    designing or overseeing an organization where agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: arxiv:2303.12712
   generation: 1
   support: 4
@@ -1137,16 +1199,17 @@ refused:
   - resource:arxiv:2305.16291
   - resource:arxiv:2312.03664
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is a capability assessment of a single model, not a study of organizations in
-    which agents hold authority; the field builds on it heavily (cited by MACHIAVELLI, Voyager,
-    Concordia, Cooperate or Collapse), so it is load-bearing adjacent literature best held as a
-    pointer in section 15 alongside Melting Pot rather than ingested. What changes because agents
-    hold authority: It establishes the general-capability baseline that makes delegating real operational
-    authority to LLM agents plausible at all, but it says nothing about how such authority is structured,
-    bounded, or held accountable.'
+  reasoning: 'This is a capability assessment of a single foundation model, not a study of delegated
+    authority, oversight or accountability — closest to the ''foundational method the field builds
+    on'' category, like Melting Pot, so it belongs as a Section 15 pointer rather than an ingested
+    record. Its heavy citation by our agent papers reflects its role as the general capability baseline,
+    which the brief explicitly warns is not itself grounds for admission. What changes because agents
+    hold authority: It does not itself address organizations where agents hold authority; it documents
+    the general capability ceiling of the underlying models that makes delegating authority to agents
+    conceivable at all, which is background rather than design guidance.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2303.16434
   generation: 1
@@ -1246,15 +1309,17 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2607.27415
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'This is a foundational prompting/search method that agent architectures build on (hence
-    the citations), but it says nothing about delegated authority, oversight, or accountability
-    within an organization. It fits Section 15 as borrowed background — load-bearing method precedent
-    the library points at rather than ingests. What changes because agents hold authority: Nothing
-    about organizational authority changes — ToT is a single-model inference technique for improving
-    reasoning quality, not a treatment of how agents hold or exercise operational or decision authority.'
+  reasoning: 'This is a prompting/inference method paper with no organizational, delegation, or
+    oversight content, so it fails the scope test directly. It is genuinely load-bearing background
+    for the agent-architecture work the library does hold, which places it in section 15 as borrowed
+    background rather than an admission. What changes because agents hold authority: Nothing directly
+    — ToT is a single-model inference technique that improves reasoning quality, not a change in
+    how authority is delegated, exercised, or overseen in an organization, though it is the foundational
+    search-over-reasoning method that agent planning and multi-agent deliberation architectures
+    in the library build upon.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2305.11738
   generation: 1
@@ -1338,17 +1403,17 @@ refused:
   - resource:arxiv:2505.23643
   - resource:arxiv:2511.03434
   - resource:arxiv:2602.11865
-  reasoning: 'HouYi is the canonical empirical demonstration of the threat model that in-library
-    defense work (information-flow control, inter-agent trust protocols) builds on, making it genuinely
-    load-bearing background rather than scope-passing material. No exclusion-register line applies;
-    it fails only the organizational-authority test, so it belongs as a Section 15 pointer rather
-    than an ingested record. What changes because agents hold authority: It establishes that any
-    instruction channel reaching an agent is an untrusted control surface, so delegating real authority
-    to an LLM requires treating third-party content as potential commands — but the paper itself
-    studies applications, not organizations where agents hold authority.'
+  reasoning: 'The paper itself is an application-security study of LLM-integrated apps, not about
+    organizations where agents hold decision authority, so it fails the scope test directly; but
+    it is the canonical empirical grounding for the hijack threat that agent-authority designs must
+    assume, so it belongs as a section 15 pointer rather than an ingested record. What changes because
+    agents hold authority: It establishes that any agent granted operational authority over tools
+    and data can have that authority hijacked by untrusted input it merely reads, which is the threat
+    model that delegation boundaries, information-flow controls and inter-agent trust mechanisms
+    in this library are built to contain.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2307.00184
   generation: 1
@@ -1398,16 +1463,16 @@ refused:
   - resource:arxiv:2605.17698
   - resource:arxiv:2606.16613
   - resource:doi:10-52202-079017-3548
-  reasoning: 'The citations attached here almost certainly belong to the WebArena paper itself rather
-    than to this infrastructure mirror, which contains no findings or methods of its own. Even the
-    underlying benchmark measures single-agent web task competence rather than organizational authority,
-    so at most it would be a pointer in section 15; this packaging artifact is not even that. What
-    changes because agents hold authority: Nothing — this record is a Docker/OpenStreetMap hosting
-    artifact for reproducing the WebArena environment, not a study or benchmark design that bears
-    on how agents with authority are designed, operated, or overseen.'
+  reasoning: 'The record is infrastructure packaging for a web-agent capability benchmark, mislabeled
+    with a paper-like title; even the underlying WebArena work measures task competence rather than
+    delegated authority, and this artifact carries none of that content. No exclusion-register line
+    is needed — it fails the scope test outright, and admitting a Docker-file record as borrowed
+    background would put a non-document in the corpus looking curated. What changes because agents
+    hold authority: Nothing — this is a hosting artifact (OpenStreetMap Docker images for self-hosting
+    WebArena), not a study of agents holding operational or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2307.14984
   generation: 1
@@ -1487,18 +1552,17 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2401.13919
   - resource:arxiv:2602.11865
-  reasoning: 'The substance (ToolLLM/ToolBench/ToolEval — the title appears mismatched to the abstract)
-    is a capability benchmark and instruction-tuning corpus, not work about organizations where
-    agents hold operational or decision authority, so it fails the scope test. It is nonetheless
-    load-bearing method and evaluation infrastructure that library papers (CoALA, WebVoyager, Intelligent
-    AI Delegation) build on, so it belongs as a section 15 pointer rather than an ingested record;
-    the metadata inconsistency should be resolved before it is filed. What changes because agents
-    hold authority: Nothing about delegated authority changes here — it is a tool-use training dataset
-    and evaluator that determines whether an agent can reliably execute API actions at all, which
-    is a capability precondition rather than an organizational design question.'
+  reasoning: 'The abstract is ToolLLM/ToolBench — a capability dataset and evaluator — which is
+    model capability work rather than organizational authority, and the title (''Counterfactually
+    Auditable Lifecycle Certification'') does not match the abstract at all, so the record is untrustworthy
+    and should not be ingested even as a pointer. If a clean ToolBench record is wanted later as
+    an evaluation suite, it can be added by hand under section 15. What changes because agents hold
+    authority: Nothing: this is tool-use instruction tuning and benchmarking for a single model''s
+    API-calling capability, which says nothing about how authority is delegated, bounded, or audited
+    inside an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: arxiv:2308.03427
   generation: 1
@@ -1507,16 +1571,16 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2509.10147
   - resource:arxiv:2602.11865
-  reasoning: 'This is a foundational agent-capability/evaluation paper the field builds on, analogous
-    to how Melting Pot is held as borrowed background rather than ingested. It is not about organizations
-    where agents hold operational or decision authority, so it fails the scope test despite being
-    widely cited by library papers. What changes because agents hold authority: Nothing about organizational
-    authority changes here; it is a capability framework and evaluation of LLM agents'' task planning
-    and tool use, which is the substrate agentic organizations are built on but says nothing about
-    delegated authority, oversight or accountability.'
+  reasoning: 'TPTU is an agent capability framework and evaluation of planning/tool-use, not a study
+    of organizations where agents hold decision authority, so it fails the scope test directly.
+    It is load-bearing capability groundwork that several library papers build on, so it is best
+    held as a Section 15 pointer rather than ingested. What changes because agents hold authority:
+    Nothing about authority, oversight or accountability changes from this work; it characterizes
+    the task-planning and tool-use capability ceiling that determines what operational work can
+    be delegated to an agent at all.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2308.04030
   generation: 1
@@ -1556,6 +1620,25 @@ refused:
   refused_on: '2026-09-19'
   times_refused: 2
   first_refused_on: '2026-09-15'
+- key: arxiv:2308.10848
+  generation: 1
+  support: 3
+  cited_by:
+  - resource:arxiv:2402.01680
+  - resource:arxiv:2511.02687
+  - resource:doi:10-1016-j-inffus-2025-103599
+  reasoning: 'This is a foundational multi-agent collaboration framework that the field''s surveys
+    and benchmarks build on, making it load-bearing background rather than a study of organizations
+    where agents hold real operational or decision authority. No exclusion-register line applies;
+    it is held as a pointer in section 15 alongside Melting Pot rather than ingested as a core record.
+    What changes because agents hold authority: It shows that an agent can hold authority over team
+    composition and role assignment itself, and that emergent group dynamics (conformity, destructive
+    behavior) arise and need mitigation — but the authority at stake is over task execution, not
+    over organizational decisions with external consequence or accountability.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: arxiv:2309.04658
   generation: 1
   support: 3
@@ -1563,16 +1646,17 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2402.04559
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is a game-playing benchmark study of emergent LLM agent behavior, not an account
-    of delegated operational or decision authority, so it fails the scope test directly. It is genuinely
-    load-bearing method/environment precedent for the multi-agent papers in the library (like Melting
-    Pot), so it is held as a section 15 pointer rather than ingested. What changes because agents
-    hold authority: It supplies evidence that untuned LLM agents spontaneously develop strategic
-    and deceptive communication in multi-agent settings, which is background an oversight designer
-    would want but does not itself concern any organization where agents hold authority.'
+  reasoning: 'No exclusion-register line applies; this is a foundational multi-agent LLM capability/benchmark
+    study of the same class as Melting Pot, load-bearing for the field''s claims about emergent
+    agent strategy but not about delegated machine authority. Hold it as a pointer in section 15
+    rather than ingest it as an organizational-design record. What changes because agents hold authority:
+    It demonstrates that frozen LLM agents spontaneously develop deception, trust-signalling and
+    coalition tactics in natural-language communication, which is a warning about emergent strategic
+    behavior to watch for when agents are given authority — but the paper itself concerns game play,
+    not organizational authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2309.09971
   generation: 1
@@ -1691,17 +1775,20 @@ refused:
   - resource:arxiv:2506.12469
   - resource:arxiv:2604.25850
   - resource:arxiv:2606.16613
-  reasoning: 'This is agent tooling/capability evaluation rather than organizational design, oversight,
-    or accountability, so it fails the scope test even though harness and benchmark papers in the
-    library cite it. Its internally inconsistent metadata (a 2023 date on a benchmark pre-registered
-    in 2026, a title unrelated to the described system) is a further reason to refuse rather than
-    hold it as borrowed background. What changes because agents hold authority: Nothing — it measures
-    whether a persistent-memory layer reduces repeated coding-agent errors on SWE-bench, a single-agent
-    reliability result that says nothing about how authority is delegated, exercised, or audited
-    in an organization.'
+  reasoning: 'This is a capability/reliability benchmark for one coding agent, with no delegation,
+    oversight, or decision authority structure, so it fails the scope test directly; it is held
+    as borrowed background in the manner of Melting Pot because the library''s agent benchmarks
+    (TheAgentCompany, CoffeeBench, harness engineering) build on its paired pre-registered evaluation
+    method. Noting also the record''s internal inconsistency (title and venue date do not match
+    the abstract''s subject or 2026 timeline), which is a further reason not to ingest it as a curated
+    in-scope record. What changes because agents hold authority: Nothing about delegated authority
+    changes here — it measures whether a persistent, provenance-tagged memory layer reduces repeated
+    coding-agent errors, which is a single-agent capability and reliability result rather than an
+    organizational-authority one, though durable provenance-bearing memory is a plausible precondition
+    for later auditing agent action.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2310.08560
   generation: 1
@@ -1821,18 +1908,18 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2402.04559
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is LLM-based social simulation of human collective behavior (international conflict
-    escalation) for historical/social-science insight, which falls under the register''s exclusion
-    of human collective decision-making unchanged by machine authority — the machines model people
-    rather than hold delegated power. It is a method precedent for multi-agent simulation generally
-    but is not load-bearing for agentic-organization design in the way an evaluation suite like
-    Melting Pot is, so it does not warrant a section 15 pointer either. What changes because agents
-    hold authority: Nothing: the agents here are stand-ins for historical human states in a retrospective
-    simulation, so no finding bears on designing, operating, or holding accountable an organization
-    where machines hold real authority.'
+  reasoning: 'The substantive contribution is historical/social-science analysis of collective human
+    behavior, which the register''s deliberative-democracy and social-choice line treats as out
+    of scope since the conclusions concern war causation rather than machine authority. It is retained
+    as a pointer in section 15 only because it is a widely cited method precedent for multi-agent
+    LLM simulation of institutional decision-making, in the same way Melting Pot is held. What changes
+    because agents hold authority: It demonstrates a method for simulating LLM agents occupying
+    authoritative decision roles (declaring war, forming alliances) and surfacing emergent escalation
+    dynamics, which is a precedent for stress-testing agent-held decision authority — but the paper''s
+    findings are about historical conflict, not about designing or overseeing an agentic organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2312.17515
   generation: 1
@@ -1877,17 +1964,17 @@ refused:
   - resource:arxiv:2412.14161
   - resource:arxiv:2512.07665
   - resource:doi:10-18653-v1-2025-realm-1-9
-  reasoning: 'This is a foundational agent-capability method paper, not a study of organizations
-    where agents hold operational or decision authority, so it fails the scope test on its own terms.
-    It is load-bearing for the field — three library papers build on it, and the code-action substrate
-    underlies agent harnesses that later oversight work assumes — so it belongs as a Section 15
-    pointer rather than an ingested record. What changes because agents hold authority: Nothing
-    directly about authority — it is an action-space design (code as the unified action interface)
-    that silently widens what an agent can do, which matters for scoping and sandboxing executable
-    authority but is argued here purely as a capability/benchmark result.'
+  reasoning: 'This is an agent capability/action-representation method paper, not a study of organizations
+    where agents hold decision authority, so it fails the scope test directly. It is nonetheless
+    a foundational method that several library papers (TheAgentCompany, the liability and reliability-engineering
+    pieces) build on, so it belongs as a section 15 pointer like Melting Pot rather than an ingested
+    record. What changes because agents hold authority: It changes the substrate of agent action
+    — executable code rather than fixed tool calls — which widens the effective action space an
+    agent with operational authority can reach and makes its actions inspectable as code, but the
+    paper itself says nothing about authority, oversight, or accountability structures.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2402.02716
   generation: 1
@@ -2063,18 +2150,18 @@ refused:
   - resource:arxiv:2412.14161
   - resource:arxiv:2512.07665
   - resource:arxiv:2606.16613
-  reasoning: 'This is an agent evaluation suite, the same category as Melting Pot: load-bearing
-    method infrastructure the field builds on rather than a study of agentic organization design,
-    so it belongs as a section 15 pointer and not in the corpus proper. Note also that the supplied
-    abstract does not match the title (it describes an internal mcp-data-platform knowledge-layer
-    ablation), which is a further reason to hold it at arm''s length until the record is corrected.
-    What changes because agents hold authority: It supplies a measurement of whether an agent can
-    follow domain policy rules while acting on tools and users across turns — the reliability evidence
-    an organization would need before delegating operational authority — but it does not itself
-    study organizations where agents hold that authority.'
+  reasoning: 'τ-bench is an evaluation suite the agent-reliability literature builds on, the same
+    status as Melting Pot, so it belongs as a section 15 pointer rather than an ingested record;
+    no exclusion-register line bars it, it simply studies single-agent task compliance, not organizational
+    authority. Note the supplied abstract describes an unrelated mcp-data-platform artifact and
+    does not match the title, so the pointer should be re-verified before use. What changes because
+    agents hold authority: It measures whether an agent reliably follows domain policy rules while
+    acting through tools on a user''s behalf — the reliability floor you must establish before delegating
+    operational authority — but it is not itself about an organization in which agents hold that
+    authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2406.15877
   generation: 1
@@ -2137,17 +2224,17 @@ refused:
   - resource:arxiv:2512.07665
   - resource:arxiv:2607.27415
   - resource:doi:10-1016-j-patter-2025-101341
-  reasoning: 'This is an ML systems scaling study about model-size versus test-time compute trade-offs;
-    nothing in it concerns authority, oversight, or accountability within an organization. It is
-    genuinely foundational method the field builds on (cited by four library papers on agent economies
-    and inference-time scaling), so section 15 borrowed-background treatment fits better than refusal.
-    What changes because agents hold authority: It does not change organizational design directly,
-    but it is the load-bearing cost model behind compute budgeting for agent deliberation — how
-    much inference an agent may spend before acting is an operating-authority parameter — so it
-    belongs as a pointer rather than an ingested record.'
+  reasoning: 'This falls under the caution that our papers cite optimization and architecture work
+    generally without that work belonging here; it is a capability/efficiency finding, not an organizational
+    one, and no design, operation, or accountability decision about agent authority changes if it
+    is removed. It is also substitutable background rather than a load-bearing shared artifact like
+    an evaluation suite, so it does not warrant a section 15 pointer. What changes because agents
+    hold authority: Nothing — this is a model-level compute-efficiency result about trading parameters
+    for test-time search on math benchmarks, and it says nothing about how authority is delegated,
+    exercised, or overseen in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2410.16464
   generation: 1
@@ -2241,6 +2328,24 @@ refused:
   refused_on: '2026-09-15'
   times_refused: 1
   first_refused_on: '2026-09-15'
+- key: arxiv:2502.12110
+  generation: 1
+  support: 3
+  cited_by:
+  - resource:arxiv:2606.31046
+  - resource:arxiv:2607.27415
+  - resource:doi:10-1016-j-inffus-2025-103599
+  reasoning: 'This is component-level agent capability engineering — analogous to the optimization
+    and neural-architecture work the brief explicitly says does not belong despite being cited by
+    library papers. Its benchmark gains on QA tasks would not alter any decision about designing,
+    operating, or holding accountable an agent-authority organization, so it fails the scope test
+    without rising to load-bearing background. What changes because agents hold authority: Nothing:
+    it improves single-agent memory retrieval accuracy and says nothing about how authority is delegated,
+    exercised, overseen, or accounted for in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: arxiv:2502.17443
   generation: 1
   support: 2
@@ -2266,17 +2371,16 @@ refused:
   - resource:arxiv:2509.10147
   - resource:arxiv:2511.02687
   - resource:arxiv:2512.07665
-  reasoning: 'This is a model-selection and deployment-economics position paper — infrastructure
-    the field builds on, not a treatment of organizations where agents hold operational or decision
-    authority. It is load-bearing enough for the agent-systems conversation (three library papers
-    cite it) to be held as a pointer in section 15 rather than ingested. What changes because agents
-    hold authority: It argues that agentic systems should be built from heterogeneous fleets of
-    small, specialized models rather than one general LLM, which shapes the cost structure and task
-    decomposition of an agent workforce but says nothing about how authority is delegated, overseen,
-    or accounted for.'
+  reasoning: 'This is model-selection and deployment-economics engineering — the same class as the
+    ''optimization, neural architectures and game theory'' the brief explicitly warns is cited by
+    our papers without belonging. It is not load-bearing for governance questions the way an evaluation
+    suite like Melting Pot is, so it does not warrant a section 15 pointer either. What changes
+    because agents hold authority: Nothing: it argues about which size of language model is most
+    economical to run inside agent pipelines, which does not alter how authority is delegated, exercised,
+    overseen or accounted for in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: arxiv:2509.25140
   generation: 1
@@ -2351,16 +2455,16 @@ refused:
   generation: 1
   support: 4
   cited_by: []
-  reasoning: 'The work is a domain-specific benchmarking agenda for educational MAS; its findings
-    concern pedagogical task performance, not the design, oversight, or accountability of organizations
-    where machine agents hold authority. It is not load-bearing enough as a general evaluation substrate
-    to warrant the Section 15 borrowed-background treatment given to suites like Melting Pot. What
-    changes because agents hold authority: Nothing — it proposes evaluation of LLM multi-agent systems
-    in educational tasks, where agents tutor or simulate learners rather than hold operational or
-    decision authority in an organization.'
+  reasoning: 'This is domain-specific capability evaluation, not a study of delegated machine authority,
+    accountability, or organizational design; unlike Melting Pot it does not evaluate the cooperative/governance
+    dynamics the field builds on, so it does not merit a Section 15 pointer either. Citation by
+    library papers reflects general multi-agent methodology uptake, which the brief explicitly warns
+    is not sufficient. What changes because agents hold authority: Nothing — benchmarking LLM multi-agent
+    systems on educational tasks measures task performance in a tutoring/learning domain and says
+    nothing about agents holding operational or decision authority in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: doi:10.1007/978-3-032-37438-7_13
   generation: 1
@@ -2445,17 +2549,18 @@ refused:
   first_refused_on: '2026-09-22'
 - key: doi:10.1007/s00521-026-12365-9
   generation: 2
-  support: 3
+  support: 5
   cited_by: []
-  reasoning: 'This is general model-engineering background, analogous to the ''optimization, neural
-    architectures and game theory'' citations the brief explicitly warns are cited without belonging.
-    It is not load-bearing for agentic-organization design in the way an evaluation suite like Melting
-    Pot is, so it does not warrant a Section 15 pointer either. What changes because agents hold
-    authority: Nothing — a taxonomy of LLM architectures, training regimes, and applications says
-    nothing about how authority is delegated, exercised, or held accountable within an organization.'
+  reasoning: 'This is general model-architecture survey material, the kind of underlying technical
+    literature our papers cite routinely without it belonging here; it is not an evaluation suite
+    or method the field''s organizational claims rest on, so it does not merit even a Section 15
+    pointer. Citation count reflects background acknowledgment, not scope. What changes because
+    agents hold authority: Nothing — a taxonomy of LLM architectures, training regimes and applications
+    tells you nothing about how authority is delegated, exercised, or held accountable inside an
+    organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: doi:10.1007/s10458-019-09432-y
   generation: 1
@@ -2550,16 +2655,17 @@ refused:
   - resource:arxiv:2509.10147
   - resource:doi:10-1038-s41562-022-01383-x
   - resource:doi:10-52202-068431-2011
-  reasoning: 'Gabriel''s paper is philosophy of alignment targets, not an account of organizations
-    in which machine agents hold authority; it is foundational to the field''s vocabulary (cited
-    by Democratic AI, InstructGPT, Virtual Agent Economies) the way Melting Pot is. Hold it as a
-    section 15 pointer rather than ingesting it. What changes because agents hold authority: It
-    frames whose values and which principles a delegated agent should answer to — a question that
-    becomes concrete when agents hold operational authority — but it supplies normative grounding
-    rather than any organizational design, oversight or accountability mechanism.'
+  reasoning: 'This is foundational single-agent alignment philosophy rather than work about organizations
+    in which machines hold operational or decision authority, so it fails the scope test as an admission.
+    It is genuinely load-bearing for the field''s principal-specification problem and is cited as
+    such by several held records, so it belongs as a section 15 pointer alongside Melting Pot. What
+    changes because agents hold authority: It supplies the normative vocabulary — instructions vs.
+    intentions vs. revealed preferences vs. values, and fair principles endorsed despite moral disagreement
+    — that an organization must settle when specifying what a delegated agent is accountable to,
+    but it does not itself address organizational design or authority structures.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: doi:10.1007/s11704-024-40231-1
   generation: 1
@@ -2601,6 +2707,21 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 3
   first_refused_on: '2026-09-22'
+- key: doi:10.1007/s44163-026-02342-5
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is a capability/architecture survey, not a study of organizations in which agents
+    hold operational or decision authority; its governance content is one line item among thirteen
+    open challenges. It is load-bearing as a reference map of agent capability and the common LLM-plus-tools-plus-memory-plus-planning
+    substrate, so it belongs at Section 15 as a pointer rather than in the corpus. What changes
+    because agents hold authority: Nothing directly — it maps what agent systems can do across nine
+    task domains, which informs where delegation is technically feasible, but says nothing about
+    how authority is held, exercised, or accounted for inside an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.1016/0142-694x(81)90102-2
   generation: 1
   support: 3
@@ -2631,17 +2752,16 @@ refused:
   - resource:arxiv:2511.02687
   - resource:arxiv:2606.03237
   - resource:doi:10-65109-qmsu8421
-  reasoning: 'This is a foundational method the field builds on (like Melting Pot), not a study
-    of agents holding operational or decision authority, so it belongs as a Section 15 pointer rather
-    than an ingested record. No exclusion-register line applies; it is simply general multi-agent
-    learning theory of the same character as the ''optimization, neural architectures and game theory''
-    the brief warns against admitting on citation count alone. What changes because agents hold
-    authority: Nothing directly — Littman''s Markov game formalism is the mathematical substrate
-    for multi-agent learning that downstream agent-coordination work builds on, but it says nothing
-    about organizations, authority, or accountability.'
+  reasoning: 'This is a foundational method paper (MARL formalism), load-bearing for the field but
+    not itself about agentic organization design, oversight, or accountability — the same category
+    as Melting Pot held in section 15. Admitting it would open the door to the general optimization
+    and game-theory literature the scope test explicitly warns against. What changes because agents
+    hold authority: Nothing directly — Littman''s Markov game formalism is the foundational mathematical
+    substrate for multi-agent learning that the library''s cooperation and principal-agent papers
+    build on, but it says nothing about organizations where agents hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1016/j.artint.2019.103216
   generation: 1
@@ -2734,18 +2854,17 @@ refused:
   generation: 2
   support: 3
   cited_by: []
-  reasoning: 'This is an integrative review of GenAI-enabled augmentation and the invisible work
-    supporting it — collaboration at the task level rather than delegated machine authority — so
-    it fails the scope test while remaining adjacent literature the field visibly builds on (cited
-    by three library papers). No abstract was available to verify a stronger authority claim, so
-    it is held as a pointer in section 15 rather than ingested. What changes because agents hold
-    authority: It characterizes the hidden human maintenance and correction labor that surrounds
-    generative systems and proposes governance framings for human–AI synergy, which informs staffing
-    and oversight assumptions around agents but does not itself concern agents holding operational
-    or decision authority.'
+  reasoning: 'An integrative review of GenAI augmentation sits on the human-AI hybrid side the register
+    permits, yet nothing in the available title indicates delegated machine authority — the unit
+    of analysis is the augmented worker, not the agentic organization. With no abstract or venue
+    to verify scope, it is safer held as a pointer in section 15 than ingested as a curated record.
+    What changes because agents hold authority: Its accounts of hidden verification/repair labor
+    and ''governable synergy'' inform the real oversight cost of supervising machine output, but
+    the work is framed around augmenting human workers who retain decision authority rather than
+    organizations where agents hold it.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: doi:10.1016/j.infoh.2025.03.001
   generation: 1
@@ -2854,17 +2973,17 @@ refused:
   - resource:arxiv:2312.03664
   - resource:arxiv:2402.04559
   - resource:arxiv:2501.06322
-  reasoning: 'This is a methodological position piece on LLMs as human-subject surrogates, foundational
-    to the generative-agent simulation work (Concordia, trust-behavior studies) that cites it, but
-    it says nothing about delegated machine authority in organizations. Hold it as a Section 15
-    pointer alongside Melting Pot: load-bearing method precedent rather than in-scope material.
-    What changes because agents hold authority: Nothing directly — it concerns whether LLMs can
-    stand in for human subjects in psychological research, not how machine agents exercise or are
-    held accountable for organizational authority, though it underwrites the validity claims of
-    the agent-simulation methods the library does hold.'
+  reasoning: 'This is a methodological commentary on substituting language models for human research
+    subjects — a validity precedent the generative-agent simulation work in the library builds on,
+    not a study of organizations where machines hold operational or decision authority. It is closest
+    to the ''DAO empirical studies ... retained only as method precedent'' logic, so it belongs
+    as a Section 15 pointer alongside Melting Pot rather than in the corpus proper. What changes
+    because agents hold authority: Nothing about agent authority changes here; it bears only on
+    whether LLM stand-ins for humans are valid enough to trust simulation evidence used to study
+    agent organizations.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1016/s0004-3702(98)00056-3
   generation: 1
@@ -2890,16 +3009,16 @@ refused:
   - resource:arxiv:2302.00763
   - resource:arxiv:2312.03664
   - resource:arxiv:2602.11865
-  reasoning: 'This is foundational RL method machinery of the same class as optimization, neural
-    architectures and game theory, which the brief explicitly says do not belong merely because
-    library papers cite them. It is too generic to be held even as borrowed background, since nothing
-    in it is specific to organizations where machine agents hold operational or decision authority.
-    What changes because agents hold authority: Nothing: it is a general reinforcement learning
-    formalism for temporally extended actions, and it says nothing about how authority is delegated,
-    overseen, or accounted for in an organization.'
+  reasoning: 'This is foundational RL method of the same generic kind as optimization and neural
+    architectures that the brief explicitly says does not belong despite being widely cited by library
+    papers. It is not load-bearing for questions of delegated machine authority specifically, so
+    it does not warrant a section 15 pointer either. What changes because agents hold authority:
+    Nothing: temporal abstraction via options is a general reinforcement learning formalism about
+    how a single learning agent structures sub-policies, and it says nothing about how authority
+    is allocated, overseen, or accounted for in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: doi:10.1017/pan.2023.2
   generation: 1
@@ -3018,16 +3137,17 @@ refused:
   - resource:doi:10-1073-pnas-2319948121
   - resource:doi:10-1145-3491102-3517500
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is a field-founding agenda piece (Dafoe et al., Nature comment) that the library''s
-    multi-agent collaboration papers build on, so it is genuinely load-bearing but is not itself
-    about organizations in which agents hold operational or decision authority. Hold it as a Section
-    15 pointer alongside Melting Pot rather than ingesting it. What changes because agents hold
-    authority: It frames the cooperation problem — among machines, and between machines and people
-    — that any multi-agent organization must solve, but it prescribes a research agenda rather than
-    anything about how authority is delegated, exercised, or held to account.'
+  reasoning: 'This is an agenda-setting Nature comment on cooperative intelligence rather than a
+    study of organizations where agents hold operational or decision authority, so it fails the
+    scope test directly. It is genuinely load-bearing for the multi-agent cooperation work the library
+    does ingest, so it belongs as a section 15 pointer like Melting Pot rather than a refusal. What
+    changes because agents hold authority: It frames the cooperative-capability problem (commitment,
+    communication, institutions among machine and mixed human-machine agents) that any organization
+    delegating authority to agents must assume is solved, but it prescribes nothing about how authority
+    is held, exercised, or audited.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1038/nature02414
   generation: 1
@@ -3053,17 +3173,16 @@ refused:
   - resource:arxiv:2312.05162
   - resource:arxiv:2407.18074
   - resource:doi:10-65109-qmsu8421
-  reasoning: 'This is the canonical deep RL result (Atari/DQN), load-bearing as a foundational method
-    for the cooperation, social-dilemma and contract-based agent papers already held, but it says
-    nothing about organizations, delegated authority or oversight. Hold it as borrowed background
-    in section 15 alongside Melting Pot rather than ingesting it, since the library explicitly does
-    not admit general optimization and learning methods. What changes because agents hold authority:
-    Nothing directly — DQN is a foundational learning method, not a statement about how agents hold
-    or are held accountable for organizational authority, though it is the method base the multi-agent
-    and principal-agent work in the library builds on.'
+  reasoning: 'This is the canonical deep RL method paper that the multi-agent and principal-agent
+    RL work in the library builds on, so it is genuinely load-bearing background rather than in-scope
+    material. Like Melting Pot, it belongs as a Section 15 pointer: a foundational method the field
+    builds on, not a study of organizations where agents hold authority. What changes because agents
+    hold authority: Nothing directly — DQN is a foundational learning method that makes autonomous
+    agents capable enough to be delegated authority, but it says nothing about how such authority
+    is structured, overseen, or held accountable.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: doi:10.1038/nature16961
   generation: 1
@@ -3144,17 +3263,16 @@ refused:
   - resource:arxiv:2312.03664
   - resource:arxiv:2509.10147
   - resource:doi:10-1073-pnas-2319948121
-  reasoning: 'This is human behavioural/social science for Anthropocene modelling, cited by our
-    agent-based-modelling papers only as general motivation for richer behavioural priors, which
-    falls under the register''s exclusion of material unchanged by the presence of agents (and is
-    not a method or evaluation suite the field directly builds on, unlike Melting Pot). Its load-bearing
-    role is for ABM realism generally, not for designing or overseeing organizations where agents
-    hold authority. What changes because agents hold authority: Nothing — it argues for richer models
-    of human behaviour in sustainability science, and its findings stand entirely unchanged whether
-    or not machine agents hold any operational or decision authority.'
+  reasoning: 'This is human collective/individual behaviour theory of the kind the register compresses
+    away (political theory / social choice / human community dynamics lines), cited by our papers
+    only as general grounding for behavioural realism in agent-based models. It is not a method,
+    benchmark, or evaluation suite the field directly builds on, so it does not warrant a Section
+    15 pointer either. What changes because agents hold authority: Nothing — it is a behavioural-science
+    perspective on modelling human decision-making under environmental change, and its claims stand
+    unaltered whether or not machine agents hold any operational authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1038/s42256-019-0088-2
   generation: 1
@@ -3180,17 +3298,16 @@ refused:
   - resource:arxiv:2312.03664
   - resource:arxiv:2312.05162
   - resource:arxiv:2606.03237
-  reasoning: 'This is a conceptual position paper on the developmental origins of intelligence,
-    not a study of organizations where machines hold operational or decision authority, so it fails
-    the scope test on its own terms. It is retained as a pointer because it is the stated motivating
-    frame for several in-library multi-agent works (Concordia, the cooperation review), making it
-    foundational background the field builds on rather than a record to ingest. What changes because
-    agents hold authority: Nothing directly — it argues that social and cultural interaction is
-    the path to human-like intelligence, a thesis about AI research direction rather than about
-    how authority is delegated to, exercised by, or audited in agents within an organization.'
+  reasoning: 'This is general AI capability/architecture positioning — the same class as the ''optimization,
+    neural architectures and game theory'' citations the brief warns are cited by our papers without
+    belonging. It is not an evaluation suite or operational method the field builds on in the way
+    Melting Pot is, so it does not warrant a section 15 pointer either. What changes because agents
+    hold authority: Nothing: it is a research-agenda argument about how social and cultural learning
+    could produce human-like AI, and it says nothing about how authority is delegated to, exercised
+    by, or held accountable in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1057/9781137281661_5
   generation: 1
@@ -3217,17 +3334,17 @@ refused:
   - resource:arxiv:2501.16173
   - resource:arxiv:2607.27415
   - resource:doi:10-52202-079017-3548
-  reasoning: 'This is a methods survey of LLM-based agent simulation, a foundational technique the
-    field builds on rather than a study of organizations where machines hold authority; it is the
-    same class of record as Melting Pot and belongs at section 15 as a pointer. No exclusion-register
-    line bars it outright, but admitting it would stretch the scope test from authority to modeling
-    technique. What changes because agents hold authority: It supplies the simulation methodology
-    — environment perception, action generation, human alignment, evaluation — used to study multi-agent
-    collectives before deployment, but it does not itself concern agents holding operational or
-    decision authority.'
+  reasoning: 'The survey''s subject is modeling and simulation methodology (perception, alignment,
+    action generation, evaluation), with no account of delegated authority, oversight, or accountability,
+    so it fails the scope test on its own terms. It is nevertheless load-bearing for several ingested
+    studies that use ABM to probe agent collective behavior, which is exactly the Melting Pot pattern:
+    hold as a pointer in section 15 rather than ingest. What changes because agents hold authority:
+    It supplies the methodological substrate for simulating populations of LLM agents — the technique
+    used to study emergent cooperation, trust and collapse in agent collectives — but it is about
+    simulation fidelity, not about organizations in which agents hold operational or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1057/s41599-024-04044-8
   generation: 1
@@ -3283,20 +3400,37 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 2
   first_refused_on: '2026-09-29'
+- key: doi:10.1075/ps.25161.fir
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is philosophy of language on human-AI pragmatic competence and trust, not a study
+    of organizations where machines hold operational or decision authority, so it fails the scope
+    test even though three library papers lean on it. It is retained as a pointer because the claim
+    that agent communication should not mimic human pragmatics is load-bearing for how hybrid human-machine
+    reporting and verification interfaces are specified. What changes because agents hold authority:
+    It does not address delegated authority at all; it only argues that agent-human communication
+    should use purpose-built pragmatic conventions prioritizing verifiability, which is background
+    for designing the oversight channel rather than guidance on the authority itself.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.1075/term.25037.gon
   generation: 2
   support: 3
   cited_by: []
-  reasoning: 'This is corpus linguistics about the semantic framing of a term, not about delegated
-    machine authority or its governance; its findings concern discourse history rather than organizational
-    design. It is not load-bearing method or evaluation infrastructure for the field either, so
-    it does not qualify as borrowed background under section 15. What changes because agents hold
-    authority: Nothing: a diachronic terminological study of how the phrase ''AI Agent'' has been
-    framed in academic writing does not alter how one designs, operates, oversees, or holds accountable
-    an organization where agents hold real authority.'
+  reasoning: 'This is a diachronic terminology/corpus-linguistics study of how a phrase is used,
+    not an account of machine agents exercising operational or decision authority; its finding about
+    ''ontological drift'' toward partner framing would stand as a claim about scholarly language
+    regardless of any actual delegation of authority. It is also not load-bearing method or evaluation
+    infrastructure for this field, so it does not qualify as borrowed background under section 15.
+    What changes because agents hold authority: Nothing — it documents how the term ''AI Agent''
+    has been framed in academic prose over time and offers no design, operating, oversight, or accountability
+    consequence for an organization where agents hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: doi:10.1080/09332480.2017.1302723
   generation: 1
@@ -3317,6 +3451,40 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 2
   first_refused_on: '2026-09-29'
+- key: doi:10.1080/10447318.2026.2739758
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is a SUS-style human-factors questionnaire about perceived output reliability,
+    not about machine agents holding operational or decision authority; it is a general HCI evaluation
+    instrument rather than load-bearing agentic infrastructure like the Melting Pot pointer at 15.
+    Citation by library papers reflects the field''s general use of trust-measurement tooling, which
+    the brief explicitly warns is not a scope qualification. What changes because agents hold authority:
+    Nothing: it measures an individual user''s subjective impression of a model''s reliability during
+    interaction, which does not alter how authority is delegated, overseen, or accounted for in
+    an organization where agents decide.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: doi:10.1086/466560
+  generation: 1
+  support: 3
+  cited_by:
+  - resource:arxiv:2606.03237
+  - resource:doi:10-1016-j-clsr-2023-105794
+  - resource:doi:10-18653-v1-2025-realm-1-9
+  reasoning: 'This falls squarely under the register''s ''Commons governance, institutional economics
+    depth — foundational but not agent-specific, compressed to 15.3'' line. It is genuinely load-bearing
+    for the library''s liability-allocation work, so hold it as a pointer in section 15 rather than
+    ingesting it. What changes because agents hold authority: Nothing changes because agents hold
+    authority — Coase''s analysis of liability assignment and transaction costs is identical whether
+    the harm-causing party is a factory, a person, or an autonomous agent; it is background the
+    AI-liability papers build on rather than a finding about agent-held authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.1109/acsos-c58168.2023.00048
   generation: 1
   support: 2
@@ -3410,16 +3578,16 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2312.05162
   - resource:arxiv:2407.18074
-  reasoning: 'Sutton & Barto is a general method text on single-agent learning, not about organizations
-    where machine agents hold operational or decision authority — analogous to the register''s treatment
-    of optimization and game theory generally. It is genuinely load-bearing for the field''s cited
-    work, so it belongs in Section 15 as borrowed background like Melting Pot. What changes because
-    agents hold authority: Nothing about organizational authority changes because of it; it is the
-    foundational method textbook that principal-agent RL, cooperative MARL and agent architectures
-    build on, so the library should point at it rather than ingest it.'
+  reasoning: 'Sutton & Barto is a general learning-methods textbook, analogous to the optimization
+    and game theory background the library explicitly declines to ingest; it is load-bearing for
+    the field but says nothing about delegated machine authority. Hold it as a Section 15 pointer
+    alongside Melting Pot rather than as a scope-passing record. What changes because agents hold
+    authority: Nothing directly — it is the foundational method text underlying agent learning,
+    not a work about organizations in which agents hold authority, though principal-agent RL and
+    multi-agent cooperation work in the library builds on its formalism.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: doi:10.1126/science.1133755
   generation: 1
@@ -3429,17 +3597,17 @@ refused:
   - resource:arxiv:2501.16173
   - resource:arxiv:2606.03237
   - resource:doi:10-1073-pnas-2319948121
-  reasoning: 'This is foundational evolutionary game theory, which the register treats as general
-    background rather than agent-specific material, and removing the machine leaves every finding
-    intact. It is nonetheless load-bearing for the multi-agent cooperation papers already held,
-    so it belongs as a Section 15 pointer alongside Melting Pot rather than as an ingested record.
-    What changes because agents hold authority: Nothing changes because agents hold authority —
-    the five rules describe conditions for cooperation among any replicators and hold identically
-    without machines, though they supply the analytic vocabulary (reciprocity, reputation, network
-    structure) that the library''s multi-agent cooperation work builds on.'
+  reasoning: 'This is foundational theory the multi-agent cooperation literature builds on (including
+    several library papers), not a study of organizations where machines hold operational or decision
+    authority, so it belongs as a section 15 pointer rather than an ingested record — the same handling
+    as Melting Pot. Its indirect-reciprocity strand touches the reputation question flagged as an
+    arguable exclusion, which is another reason to hold it as a pointer rather than admit it. What
+    changes because agents hold authority: Nothing changes because agents hold authority — the five
+    rules are general evolutionary theory about when selfish replicators cooperate, and the result
+    is identical whether the replicators are genes, humans, or machine agents.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1126/science.1183532
   generation: 1
@@ -3534,17 +3702,16 @@ refused:
   - resource:arxiv:2502.02649
   - resource:doi:10-1016-j-patter-2025-101341
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is a foundational critique of large language model development — environmental
-    cost, data documentation, bias, and the absence of grounded intent — which the field builds
-    on but which contains no account of agents holding authority inside an organization. It is genuinely
-    load-bearing background for risk framing and documentation norms cited across the corpus, so
-    it belongs as a section 15 pointer rather than an ingested record. What changes because agents
-    hold authority: Nothing about delegating operational or decision authority to agents changes
-    because of this work; it characterizes model-level harms and data-curation practice rather than
-    how an organization with machine authority is designed, operated, or held accountable.'
+  reasoning: 'This is a foundational critique of LLM scale, data curation, and deployment harms
+    that the agentic-organization literature routinely builds on, but it says nothing about organizations
+    where machines hold authority. Hold it as a pointer in section 15 alongside other load-bearing
+    substrate work rather than ingesting it as in-scope. What changes because agents hold authority:
+    Nothing here changes how an agent-authority organization is designed or overseen; it concerns
+    the risks of building and deploying large language models themselves, not the allocation of
+    operational or decision authority to agents.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: doi:10.1145/3491102.3517582
   generation: 1
@@ -3609,16 +3776,16 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2402.04559
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'Agent4Rec is a domain-specific user simulator for recommender-system evaluation; its
-    findings concern simulation fidelity for item ranking, not the design, oversight, or accountability
-    of organizations where agents hold authority. It is not load-bearing infrastructure for this
-    field in the way a general multi-agent evaluation suite like Melting Pot is, so it does not
-    warrant a section 15 pointer either. What changes because agents hold authority: Nothing — it
-    evaluates how faithfully LLM agents mimic individual user behavior to improve offline recommender
-    evaluation, and confers no operational or decision authority on agents within an organization.'
+  reasoning: 'This is a domain-specific user-simulation method for offline recommender evaluation;
+    removing the organizational framing leaves it entirely intact because there is none. Its citation
+    by library papers reflects general generative-agent methodology, which the brief explicitly
+    warns does not itself confer scope, and it is too narrow to serve as the field''s load-bearing
+    simulation precedent worth holding in section 15. What changes because agents hold authority:
+    Nothing — the agents here simulate end-user consumption behavior inside a recommender benchmark
+    and hold no operational or decision authority in any organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1145/3630106.3658542
   generation: 1
@@ -3645,17 +3812,17 @@ refused:
   - resource:arxiv:2312.03664
   - resource:arxiv:2402.01680
   - resource:arxiv:2605.17698
-  reasoning: 'The paper''s contribution is a research method (LLMs as homo silicus for replicating
-    behavioral experiments), with no claim about delegated machine authority, oversight, or accountability;
-    removing the agent-authority framing leaves the finding wholly intact. It is load-bearing method
-    precedent for Concordia-style generative ABM and so belongs as a section 15 pointer rather than
-    an ingested record. What changes because agents hold authority: Nothing directly — it establishes
-    LLMs as surrogate subjects for social-science simulation, not as holders of operational or decision
-    authority, though it underwrites the simulation methods the library''s agent-organization modeling
-    work builds on.'
+  reasoning: 'This is a social-science methodology paper about using LLMs as simulated human subjects;
+    no machine holds authority over any real decision, so the scope test fails. It is nonetheless
+    the foundational method citation beneath the generative-agent simulation work the library does
+    hold (Concordia, Agent Bazaar), so it belongs as a section 15 pointer rather than an ingested
+    record. What changes because agents hold authority: Nothing directly — it establishes that LLMs
+    can stand in for human economic subjects in simulation, which is a method precedent for testing
+    organizational rules in silico, not a finding about organizations where agents hold operational
+    or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1145/3703155
   generation: 1
@@ -3715,17 +3882,16 @@ refused:
   generation: 2
   support: 3
   cited_by: []
-  reasoning: 'This is a disciplinary critique within HCI/design about who owns the explanation problem,
-    not about accountability structures in organizations where agents act with authority; removing
-    the machine leaves the finding (that Data Humanism principles satisfy YAI''s dimensions) fully
-    intact. It is not load-bearing method or evaluation infrastructure for agentic organizations
-    either, so it does not warrant a section 15 pointer. What changes because agents hold authority:
-    Nothing — the paper argues explanation is a visualization/design problem rather than a generative-AI
-    problem, and its claim holds identically whether or not any machine agent holds operational
-    or decision authority.'
+  reasoning: 'The paper is an HCI/design-field methodological argument about who owns the explanation
+    problem; removing the machine leaves the thesis intact since its claim is precisely that design,
+    not AI, suffices. It bears no load for accountability or oversight of agent-authority organizations,
+    so it is neither in scope nor worth holding as borrowed background. What changes because agents
+    hold authority: Nothing — it is a disciplinary critique arguing explanation is a visualization/design
+    problem rather than a generative-AI one, and says nothing about organizations where agents hold
+    operational or decision authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: doi:10.1145/3832101
   generation: 2
@@ -3744,22 +3910,53 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 1
   first_refused_on: '2026-10-06'
+- key: doi:10.1145/3832783.3837451
+  generation: 1
+  support: 3
+  cited_by: []
+  reasoning: 'Prism is a coding-agent pipeline whose reviewer/judge agents are internal scoring
+    steps for patch selection, not holders of operational or decision authority; its contribution
+    is benchmark accuracy on SWE-bench. It is a method paper of the kind the brief warns about (papers
+    in the library cite optimization and architectures generally), and it is not load-bearing infrastructure
+    like an evaluation suite that the field builds governance claims on. What changes because agents
+    hold authority: Nothing — this is a software-engineering performance technique for generating
+    and merging candidate code patches, and it says nothing about how authority is delegated to,
+    bounded by, or accounted for in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.1145/3837729.3840503
   generation: 2
   support: 3
   cited_by: []
-  reasoning: 'This is a tool/infrastructure demo paper — an embeddable runtime distributed as an
-    npm package — whose contribution is decoupling reasoning logic from clients, not any claim about
-    delegated authority, oversight, or accountability. Its permissions and tool systems are implementation
-    features rather than organizational control mechanisms, and it is not load-bearing shared infrastructure
-    for the field in the way an evaluation suite like Melting Pot is, so it does not warrant a section
-    15 pointer either. What changes because agents hold authority: Nothing: it is a software engineering
-    artifact describing a reusable coding-agent runtime and its API surface, with no account of
-    agents holding operational or decision authority in an organization.'
+  reasoning: 'This is a tool/runtime paper about decoupling agent reasoning from client interfaces
+    — individual developer productivity infrastructure, not an organization in which agents hold
+    operational or decision authority. It is cited as a system precedent but is not load-bearing
+    method or evaluation for the field, so it does not merit a Section 15 pointer either. What changes
+    because agents hold authority: Nothing: it is a software engineering artifact for embedding
+    a coding-agent reasoning loop across IDE clients, and its permissions/tool machinery is developer
+    tooling rather than organizational authority, oversight, or accountability.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
+- key: doi:10.1145/3849483
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is a study of individual trust formation and verification habits among faculty
+    using a drafting tool, not of shared or delegated authority; the machine neither decides, allocates,
+    nor designs the rule anyone ratifies, so it falls outside the hybrid-decision reading of the
+    deliberative-democracy line. It is also not load-bearing method or evaluation infrastructure
+    for the field, so Section 15 does not apply. What changes because agents hold authority: Nothing
+    — the GenAI systems here are advisory tools used by individual educators who retain all decision
+    authority, so the findings concern personal reliance attitudes rather than any organization
+    where a machine holds operational or decision power.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.1162/coli_a_00502
   generation: 1
   support: 2
@@ -3944,17 +4141,16 @@ refused:
   - resource:arxiv:2312.05162
   - resource:arxiv:2402.01680
   - resource:arxiv:2501.16173
-  reasoning: 'ProAgent is an agent-capability method (zero-shot coordination in Overcooked-AI),
-    not a study of organizations in which agents hold operational or decision authority; no register
-    line forbids it, but it sits below the authority threshold. It is cited as a reference point
-    by three cooperation-focused library items, so it is held as pointer-level borrowed background
-    in section 15 alongside Melting Pot rather than ingested. What changes because agents hold authority:
-    Nothing about authority, delegation, or accountability changes — it is a coordination technique
-    for LLM agents teaming with unfamiliar partners in a game environment, though it underpins the
-    field''s account of how heterogeneous agents interoperate without prior training.'
+  reasoning: 'This is a cooperative-policy method paper evaluated on Overcooked-AI; removing any
+    notion of organizational authority leaves the contribution fully intact, so it fails the scope
+    test. It is also not infrastructure the field builds on in the way an evaluation suite like
+    Melting Pot is, so it does not warrant a section 15 pointer either. What changes because agents
+    hold authority: Nothing: it improves task-level zero-shot coordination and teammate-intent inference
+    in a game environment, and says nothing about how authority is delegated, exercised, or overseen
+    in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.1609/aaaiss.v2i1.27688
   generation: 1
@@ -3998,16 +4194,17 @@ refused:
   - resource:arxiv:2212.09251
   - resource:arxiv:2304.03279
   - resource:doi:10-52202-068431-2011
-  reasoning: 'RealToxicityPrompts is a toxicity evaluation suite for language model outputs — foundational
-    to the alignment evaluation methods cited by library items (model-written evals, RLHF, MACHIAVELLI)
-    but not itself about organizations where machines hold authority. It fits the Section 15 borrowed-background
-    pattern used for Melting Pot: pointed at, not ingested. What changes because agents hold authority:
-    Nothing about agent authority changes because of this work; it is a generation-safety benchmark
-    for text output, not a study of agents holding operational or decision authority, though it
-    is load-bearing background for the alignment-evaluation lineage the library ingests.'
+  reasoning: 'RealToxicityPrompts is an evaluation suite for model output harms, load-bearing for
+    the RLHF and model-evaluation papers that cite it but not itself about organizations where agents
+    hold operational or decision authority. Hold as borrowed background in section 15 alongside
+    other evaluation suites rather than ingesting it. What changes because agents hold authority:
+    Nothing about agent authority changes because of this work; it measures toxic text generation
+    in language models, not how an organization delegating decisions to agents should be designed
+    or overseen, though it is a foundational safety benchmark the field''s alignment literature
+    builds on.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: doi:10.18653/v1/2022.emnlp-main.225
   generation: 1
@@ -4050,16 +4247,18 @@ refused:
   - resource:arxiv:2402.01680
   - resource:arxiv:2402.04559
   - resource:arxiv:2605.17698
-  reasoning: 'This is a macroeconomic agent-based modeling method paper: LLM agents as simulated
-    households/firms, which is a simulation substrate rather than an account of delegated machine
-    authority. It is genuinely load-bearing as a method precedent for the library''s agent-economy
-    and agent-marketplace work, so it belongs as a section 15 pointer rather than an ingested record.
-    What changes because agents hold authority: Nothing directly — it shows LLM agents can produce
-    plausible economic behavior in simulation, but no agent holds operational or decision authority
-    over any organization here.'
+  reasoning: 'EconAgent models LLM agents as stand-ins for human households and firms in a macroeconomic
+    ABM; the agents simulate people rather than hold operational or decision authority, so it fails
+    the scope test directly. It is load-bearing method infrastructure for the agent-simulation work
+    the library does ingest (trust behavior, agent marketplaces), so it belongs as a section 15
+    pointer in the same manner as Melting Pot rather than as a curated record. What changes because
+    agents hold authority: It supplies a method precedent — LLM agents with perception and memory
+    making work/consumption decisions that aggregate into market dynamics — useful for simulating
+    how populations of autonomous agents behave before granting them real economic authority, but
+    it confers no authority on agents in any actual organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.18653/v1/n18-2002
   generation: 2
@@ -4068,17 +4267,16 @@ refused:
   - resource:arxiv:2212.09251
   - resource:arxiv:2502.02649
   - resource:doi:10-52202-068431-2011
-  reasoning: 'This is a narrow task-level bias benchmark whose findings are unchanged by whether
-    the model is embedded in an agent holding operational authority; it is cited as methodological
-    precedent for templated evaluations, not as organizational material. Admitting it would open
-    the corpus to the general fairness-and-bias NLP literature, which sits outside the scope test
-    even though it is upstream of several library papers. What changes because agents hold authority:
-    Nothing — it measures gender bias in coreference resolution in NLP systems, a model-quality
-    diagnostic that says nothing about how an organization delegating authority to agents should
-    be designed, operated or held accountable.'
+  reasoning: 'This is a general model-fairness benchmark predating agentic systems; its findings
+    are unchanged by whether any agent holds operational authority, and it is cited by our papers
+    only as a generic method/measurement precedent, like optimization or architecture work. It is
+    too far upstream to be load-bearing borrowed background in the sense Melting Pot is, so it should
+    be left out rather than held in section 15. What changes because agents hold authority: Nothing
+    — it measures gendered bias in a narrow NLP coreference task and says nothing about how authority
+    delegated to machine agents should be designed, operated, or audited.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: doi:10.21203/rs.3.rs-10653499/v1
   generation: 1
@@ -4102,18 +4300,18 @@ refused:
   - resource:arxiv:2509.10147
   - resource:arxiv:2605.17698
   - resource:arxiv:2606.03237
-  reasoning: 'The exclusion register removes ''market microstructure'' as financial engineering
-    rather than organizational autonomy, so this does not pass the scope test on its own terms.
-    It is nonetheless load-bearing background for agent-population risk and speed-of-failure arguments
-    that several library papers build on, so it belongs as a section 15 pointer like Melting Pot
-    rather than as an ingested record. What changes because agents hold authority: It is the canonical
-    empirical case of autonomous execution agents with real authority producing cascading systemic
-    failure at machine speed, which motivates circuit breakers, rate limits and kill-switch design
-    for agent-authority systems — but the finding is about market microstructure, not about an organization''s
-    internal authority.'
+  reasoning: 'The study sits close to the register''s ''market microstructure / financial engineering''
+    exclusion and is not about an organization delegating authority to agents, so it fails the scope
+    test as a primary record. But it is genuinely load-bearing for the agent-economy and systemic-risk
+    strand the library already carries, so it belongs as a Section 15 pointer rather than an ingested
+    record. What changes because agents hold authority: It is the canonical empirical record of
+    autonomous execution agents, acting with real operational authority and no human in the loop,
+    interacting to produce a rapid systemic failure — evidence that bears on circuit breakers, kill
+    switches and liability design for agent populations, though the paper itself studies a market
+    rather than an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.2139/ssrn.979861
   generation: 1
@@ -4141,16 +4339,16 @@ refused:
   - resource:arxiv:2606.03237
   - resource:doi:10-1038-s41562-022-01383-x
   - resource:doi:10-52202-079017-3548
-  reasoning: 'The exclusion register explicitly names ''Commons governance, institutional economics
-    depth'' as removed and compressed to a pointer at 15.3. It is genuinely load-bearing background
-    for the cited LLM-agent cooperation and virtual-economy work, so it is held as borrowed background
-    rather than ingested. What changes because agents hold authority: Nothing about Ostrom''s design
-    principles changes because agents hold authority — the commons-governance findings hold identically
-    for all-human institutions — but the field builds on it directly as the reference frame for
-    multi-agent resource governance experiments.'
+  reasoning: 'The exclusion register explicitly removes ''commons governance, institutional economics
+    depth'' as foundational but not agent-specific, compressed to a pointer at 15.3. It is heavily
+    cited by the library''s agent-cooperation papers, so it is held as borrowed background rather
+    than refused. What changes because agents hold authority: Nothing changes specifically because
+    agents hold authority — Ostrom''s design principles for commons governance are about human institutions
+    and are unaltered by machine agents, though they remain the reference frame the field borrows
+    when modelling agent resource-sharing.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.2307/1960858
   generation: 1
@@ -4196,17 +4394,16 @@ refused:
   - resource:doi:10-1073-pnas-2319948121
   - resource:doi:10-52202-079017-3548
   - resource:doi:10-65109-qmsu8421
-  reasoning: 'This is foundational game theory about cooperation under repeated interaction, not
-    about organizations where machines hold operational or decision authority; removing the machine
-    leaves the finding entirely intact. It is genuinely load-bearing for the cited multi-agent cooperation
-    papers, so it belongs as a Section 15 pointer alongside Melting Pot rather than as an ingested
-    record. What changes because agents hold authority: Nothing changes specifically because agents
-    hold authority — Axelrod''s reciprocity findings concern repeated-interaction strategy generally
-    and hold identically for human, animal, or machine players — but the result underpins the multi-agent
-    cooperation and social-dilemma work the library does ingest.'
+  reasoning: 'This is foundational game theory about iterated cooperation, not about organizations
+    in which agents hold operational or decision authority; it sits with the register''s general-game-theory
+    background rather than in scope. Its load-bearing status for the cited multi-agent cooperation
+    and trust papers makes it a Section 15 pointer alongside records like Melting Pot. What changes
+    because agents hold authority: Nothing here is specific to machine authority — Axelrod''s reciprocity
+    results describe cooperation among any self-interested players — but the field builds multi-agent
+    cooperation and trust mechanisms directly on it, so it is worth pointing at rather than ingesting.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: doi:10.2307/3150326
   generation: 1
@@ -4244,6 +4441,40 @@ refused:
   refused_on: '2026-09-29'
   times_refused: 1
   first_refused_on: '2026-09-29'
+- key: doi:10.3390/applmech7040081
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is a domain application review (CFD automation) whose autonomy taxonomy, verification,
+    and provenance recommendations are artifacts of simulation trustworthiness, not of organizational
+    decision authority; it would not change how one designs or holds accountable an agentic organization.
+    It is also not load-bearing background for this field — it is one of many domain-specific multi-agent
+    pipeline reviews — so it does not warrant a Section 15 pointer either. What changes because
+    agents hold authority: Nothing: it describes bounded workflow automation within a single engineering
+    discipline, where the ''governance'' is human supervision of a simulation pipeline rather than
+    delegated authority inside an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: doi:10.4324/9781315097176-4
+  generation: 1
+  support: 3
+  cited_by:
+  - resource:arxiv:2312.05162
+  - resource:arxiv:2605.24538
+  - resource:doi:10-1038-s41562-022-01383-x
+  reasoning: 'Falls squarely under the register''s ''political theory, social choice, deliberative
+    democracy'' line, compressed to a pointer at 15.1; removing the machine leaves every Rawlsian
+    claim intact. It is held as borrowed background because several library papers explicitly build
+    their fairness objectives on it. What changes because agents hold authority: Nothing about agent
+    authority changes because of this work — it is a theory of human political justice that the
+    field borrows as a normative yardstick (e.g. Democratic AI''s veil-of-ignorance framing), not
+    a design input for machine decision authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: doi:10.52202/068431-1613
   generation: 1
   support: 6
@@ -4254,16 +4485,15 @@ refused:
   - resource:arxiv:2309.02427
   - resource:arxiv:2402.04559
   - resource:arxiv:2501.16173
-  reasoning: 'This is a foundational prompting/capability method the field builds on — classic borrowed
-    background in the sense Section 15 holds, like an evaluation suite or base technique. It is
-    heavily cited by library papers but is not about organizations where agents hold operational
-    or decision authority, so it should be pointed at rather than ingested. What changes because
-    agents hold authority: Nothing about organizational authority changes from this work directly;
-    it is a prompting technique ("Let''s think step by step") that underpins the reasoning capability
-    agents rely on, but it says nothing about delegated authority, oversight, or accountability.'
+  reasoning: 'Zero-shot CoT is a general LLM capability method, not a claim about organizations
+    where machines hold operational authority; it is load-bearing background that the field''s agent
+    papers universally build on, so it belongs as a pointer in section 15 rather than an ingested
+    record. What changes because agents hold authority: Nothing about agent authority changes here
+    — it is a prompting technique for eliciting reasoning, foundational to the agents the library
+    studies but silent on delegation, oversight or accountability.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: doi:10.52202/068431-1800
   generation: 1
@@ -4279,16 +4509,16 @@ refused:
   - resource:arxiv:2501.16173
   - resource:arxiv:2607.27415
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'Chain-of-thought is a foundational method the agent literature builds on, analogous
-    to the evaluation-suite and method precedents held as pointers in Section 15, rather than work
-    about organizations where machines hold decision authority. Hold as borrowed background, not
-    ingested. What changes because agents hold authority: Nothing directly — it is a prompting technique
-    that improves model reasoning, not a statement about how agents hold or exercise authority in
-    an organization, though it underpins the reasoning traces that make agent decisions legible
-    and auditable.'
+  reasoning: 'This is a foundational LLM capability method, heavily cited across the corpus but
+    not itself about delegated machine authority, so it belongs as a Section 15 pointer rather than
+    an ingested record. No exclusion-register line applies; it is the ''foundational method the
+    field builds on'' case. What changes because agents hold authority: Nothing directly — chain-of-thought
+    is a prompting method for eliciting model reasoning, not a claim about organizations where agents
+    hold authority, though its reasoning traces are the substrate much agent deliberation and auditability
+    work builds on.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.52202/068431-2011
   generation: 1
@@ -4326,17 +4556,17 @@ refused:
   - resource:arxiv:2606.31046
   - resource:arxiv:2607.27415
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'Reflexion is a foundational agent method — verbal self-reflection as a reinforcement
-    signal — heavily cited by the library''s multi-agent and architecture papers, making it genuinely
-    load-bearing background rather than in-scope material. It belongs as a Section 15 pointer alongside
-    other method/evaluation precedents, since it concerns single-agent task performance rather than
-    organizations where agents hold decision authority. What changes because agents hold authority:
-    Nothing about organizational authority changes here; Reflexion is a single-agent self-correction
-    method that improves individual agent reliability, which matters as a capability substrate but
-    says nothing about how agents hold or are accountable for operational authority.'
+  reasoning: 'Reflexion is a single-agent learning method, not a study of organizations in which
+    agents hold authority; it is foundational technique the field builds on, analogous to the borrowed-background
+    status held for evaluation suites and core methods. Hold at section 15 as a pointer rather than
+    ingesting it as an agentic-organization record. What changes because agents hold authority:
+    Nothing about organizational authority directly, but self-reflective memory is a load-bearing
+    mechanism for how an individual agent improves and self-corrects, which underpins claims that
+    agents can be trusted with operational authority and shapes what auditable records of agent
+    reasoning exist.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.52202/075280-2020
   generation: 1
@@ -4363,15 +4593,17 @@ refused:
   - resource:arxiv:2412.14161
   - resource:arxiv:2501.06322
   - resource:arxiv:2512.07665
-  reasoning: 'This is a tool-use/function-calling capability paper of the same class as the optimization
-    and neural-architecture work the brief explicitly says does not belong merely because library
-    papers cite it. It is not an evaluation suite or governance-relevant method like Melting Pot,
-    so it does not warrant a section 15 pointer either. What changes because agents hold authority:
-    Nothing: it improves an LLM''s accuracy at selecting and invoking API calls, which is a model-capability
-    result that says nothing about how authority is delegated, bounded, or audited within an organization.'
+  reasoning: 'This is a model-capability and benchmark paper (APIBench) about accurate tool invocation,
+    not about organizations in which agents hold decision authority; it is the kind of foundational
+    method the field builds on rather than a finding about agentic organization. Hold it as a Section
+    15 pointer alongside Melting Pot, since the field''s effector-reliability claims rest on it,
+    but do not ingest it as a curated record. What changes because agents hold authority: It establishes
+    how reliably an agent can invoke external APIs — the substrate through which an agent''s operational
+    authority actually executes — and shows retrieval-grounded tool use as a hallucination control,
+    but it says nothing about who delegates that authority or how it is overseen.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
 - key: doi:10.60087/jaigs.v8i1.350
   generation: 1
@@ -4380,31 +4612,99 @@ refused:
   - resource:arxiv:2509.10147
   - resource:doi:10-1007-s11831-026-10675-8
   - resource:doi:10-1016-j-inffus-2025-103599
-  reasoning: 'This is a general-purpose, low-quality overview of generative agent internals and
-    application domains, closer to the ''neural architectures and frameworks cited generally'' category
-    the brief warns against than to agentic organizational design. It is not even load-bearing enough
-    to hold as borrowed background, since the library already contains stronger agentic-AI taxonomies
-    and framework reviews that cite it. What changes because agents hold authority: Nothing — it
-    is a generic technical survey of agent architectures (memory, planning, tool use) that says
-    nothing about organizations in which agents hold operational or decision authority.'
+  reasoning: 'This is generic agent-capability background with unclear provenance, overlapping heavily
+    with surveys already held (e.g. the holistic agentic-frameworks review and the AI Agents vs.
+    Agentic AI taxonomy), so it is not load-bearing enough to justify a section 15 pointer. Citation
+    by in-library papers reflects standard capability-survey referencing, not relevance to organizational
+    authority. What changes because agents hold authority: Nothing — it is a general technical survey
+    of single-agent architectures (memory, planning, tool use) and says nothing about agents holding
+    operational or decision authority within an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 5
+  refused_on: '2026-10-13'
+  times_refused: 6
   first_refused_on: '2026-09-15'
-- key: doi:10.63585/vlqv1532
-  generation: 1
+- key: doi:10.62486/978-9915-9928-6-0.ch01
+  generation: 2
   support: 3
   cited_by: []
-  reasoning: 'The candidate is an editorial introduction to a multi-topic law review issue, not
-    a study; its only gesture toward AI is a thematic section on digitization''s effect on the legal
-    system. Even the exclusion register''s general-entity legal concerns line applies, since nothing
-    here addresses novel exposure created by agent action. What changes because agents hold authority:
-    Nothing — this is a general-interest legal journal issue front matter spanning dozens of unrelated
-    fields, with no finding about machine agents holding operational or decision authority.'
+  reasoning: 'With no abstract, no identifiable venue, and a title suggesting a general commentary
+    on epistemic hubris about AI, there is no evidence it addresses delegated machine authority
+    in organizations. It is also not demonstrably load-bearing method or evaluation infrastructure,
+    so it does not qualify as borrowed background; uncertainty resolves to refusal. What changes
+    because agents hold authority: Nothing identifiable — an untitled-venue Spanish-language essay
+    on overconfidence in AI offers no design, operating, oversight or accountability guidance for
+    organizations where agents hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
+  refused_on: '2026-10-13'
   times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: doi:10.62486/978-9915-9928-6-0.ch06
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'This is a general AI-ethics/harm essay with institutional-responsibility framing;
+    it does not study delegated machine authority inside an organization, and its one relevant claim
+    about oversight adequacy is generic doctrine already better covered by sources specific to agent
+    accountability. Being cited by three library papers reflects shared topical vocabulary, not
+    scope passage, and the chapter is not load-bearing method or evaluation infrastructure that
+    would justify holding it as borrowed background. What changes because agents hold authority:
+    Almost nothing: apart from a restatement of the familiar condition that human review is only
+    meaningful when reviewers have time, information, competence and authority to overturn a decision,
+    the chapter is about societal AI harms (bias, deepfakes, harassment, trust) rather than about
+    organizations in which machine agents hold operational or decision authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: doi:10.62486/978-9915-9928-6-0.ch07
+  generation: 2
+  support: 3
+  cited_by: []
+  reasoning: 'The chapter is an education/cognitive-offloading synthesis at the individual level,
+    not a study of delegated machine authority in an organization, so it fails the scope test as
+    a core record. It is nonetheless load-bearing background for oversight design (overseer deskilling
+    and the preconditions for meaningful human checking), which is exactly what section 15 pointers
+    are for. What changes because agents hold authority: It supplies the capability-retention frame
+    for the humans who must verify, correct, and terminate agent outputs — warning that the residual
+    oversight role itself requires knowledge, time, and authority that offloading can erode — but
+    it is about individual learning rather than about organizations where agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: doi:10.63585/vlqv1532
+  generation: 1
+  support: 4
+  cited_by: []
+  reasoning: 'The item is an editorial front-matter for a multidisciplinary Moroccan law and business
+    journal; only one of its many sections touches digitization and AI in the legal system, and
+    no specific claim about agent authority is advanced. Citation counts reflect journal-level referencing,
+    not topical fit, and nothing here is load-bearing method or evaluation infrastructure warranting
+    section 15 borrowed-background status. What changes because agents hold authority: Nothing —
+    this is a general law journal issue table-of-contents spanning dozens of unrelated legal fields,
+    with no finding about machine agents holding operational or decision authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
+- key: openalex:W1522301498
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:arxiv:1707.01068
+  - resource:arxiv:2009.01325
+  - resource:doi:10-18653-v1-2022-emnlp-main-225
+  reasoning: 'This is exactly the ''our papers cite optimization, neural architectures and game
+    theory generally, and none of that belongs here'' case; it is infrastructure beneath the models,
+    not load-bearing for reasoning about agent authority. Not even borrowed background, since Section
+    15 is for adjacent work the field''s governance questions actually lean on, like evaluation
+    suites such as Melting Pot. What changes because agents hold authority: Nothing — Adam is a
+    generic gradient optimizer that changes nothing about how authority is delegated to, overseen
+    in, or accounted for in an agentic organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W1583837637
   generation: 2
   support: 3
@@ -4412,15 +4712,54 @@ refused:
   - resource:doi:10-1007-s10458-024-09675-4
   - resource:doi:10-1007-s11704-024-40231-1
   - resource:doi:10-1145-3526113-3545616
-  reasoning: 'The candidate is a front-matter proceedings record, not a paper; citations to it are
-    artifacts of citing individual ICML 2007 papers. It offers no method, evaluation, or finding
-    that is load-bearing for agentic organizations, so it is neither in scope nor worth holding
-    as borrowed background. What changes because agents hold authority: Nothing — this is a whole
-    conference proceedings volume with no content of its own bearing on agent authority in organizations.'
+  reasoning: 'The record is a proceedings container, not a paper; citations to it are artifacts
+    of citing individual ICML 2007 papers. It offers no method, evaluation suite, or finding of
+    its own, so it is not even load-bearing borrowed background for section 15. What changes because
+    agents hold authority: Nothing — this is a whole conference proceedings volume with front-matter
+    about review statistics, not a work bearing on agent authority in organizations.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
+- key: openalex:W1597864774
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:arxiv:1706.03741
+  - resource:arxiv:2401.04536
+  - resource:doi:10-1126-science-aau6249
+  reasoning: 'This is a foundational measurement technique cited for leaderboard-style agent evaluation,
+    the same way our papers cite optimization or game theory generally, and the library explicitly
+    declines to ingest such generic method ancestry. It is not an agent evaluation suite like Melting
+    Pot but a pre-computational chess rating monograph, so it does not even warrant a Section 15
+    pointer. What changes because agents hold authority: Nothing — Elo is a general statistical
+    method for ranking competitors from pairwise outcomes, and it says nothing about delegating,
+    operating, or overseeing machine authority in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: openalex:W1976787862
+  generation: 2
+  support: 4
+  cited_by:
+  - resource:doi:10-1007-s43681-026-01414-7
+  - resource:doi:10-1145-3593013-3594033
+  - resource:doi:10-1145-3630106-3658948
+  - resource:doi:10-17351-ests2019-260
+  reasoning: 'This is foundational conceptual groundwork that four library papers build directly
+    on, yet it describes accountability erosion around software used by human decision-makers, not
+    organizations where agents exercise delegated authority. Hold it as a pointer in section 15
+    alongside other load-bearing adjacent literature rather than ingesting it as an agentic-organization
+    record. What changes because agents hold authority: Nissenbaum''s four barriers to accountability
+    — the problem of many hands, bugs treated as inevitable, the computer as scapegoat, and ownership
+    without liability — are the diagnostic vocabulary the field uses when an agent''s action has
+    no locatable responsible party, but the paper itself concerns computerized systems generally
+    rather than machines holding operational authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W1979025384
   generation: 2
   support: 3
@@ -4428,55 +4767,154 @@ refused:
   - resource:arxiv:1707.01068
   - resource:arxiv:1707.06600
   - resource:doi:10-1073-pnas-092080099
-  reasoning: 'This is classic game theory (win-stay/lose-shift in the iterated Prisoner''s Dilemma),
-    exactly the ''game theory generally'' category the brief warns is cited by our papers without
-    belonging; removing the machine leaves the finding wholly intact. It is not load-bearing infrastructure
-    like an evaluation suite either, so it does not warrant a section 15 pointer. What changes because
-    agents hold authority: Nothing — the result is a property of repeated-game strategies that holds
-    identically for human, animal, or machine players and does not inform how authority delegated
-    to agents is designed or overseen.'
+  reasoning: 'Nowak & Sigmund''s Pauli-strategy result is pure human/biological game theory, unchanged
+    by the presence of agents, but it is load-bearing background cited by the multi-agent RL social-dilemma
+    work in the corpus. Hold it as a Section 15 pointer rather than ingesting it, in the same manner
+    as Melting Pot. What changes because agents hold authority: Nothing directly — it is a classic
+    evolutionary game theory result about reciprocity strategies in repeated dilemmas, not about
+    organizations where machines hold authority, though it is the foundational strategy baseline
+    that the library''s multi-agent cooperation papers build on.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
+- key: openalex:W2008653298
+  generation: 2
+  support: 9
+  cited_by:
+  - resource:doi:10-1007-s43681-026-01414-7
+  - resource:doi:10-1108-jqme-10-2026-166
+  - resource:doi:10-1518-001872097778543886
+  - resource:doi:10-21203-rs-3-rs-11160733-v1
+  - resource:doi:10-21203-rs-3-rs-11168215-v1
+  - resource:doi:10-2196-preprints-113208
+  - resource:doi:10-31435-ijitss-3-51-2026-6625
+  - resource:doi:10-5281-zenodo-19200726
+  - resource:doi:10-5281-zenodo-22960535
+  reasoning: 'Bainbridge is about industrial process control, not organizations where machine agents
+    hold delegated authority, so it fails the scope test on its own terms, but it is the foundational
+    source for automation bias, skill atrophy and the monitoring paradox that nine library papers
+    build their oversight arguments on. Hold it as a pointer in section 15 alongside Melting Pot
+    rather than ingesting it. What changes because agents hold authority: It supplies the core mechanism
+    — that delegating routine operation to machines degrades the human monitor''s skill, situational
+    awareness and ability to intervene precisely when intervention matters — which is the base failure
+    model any oversight design for an agent-authority organization must answer to.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: openalex:W2044908625
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:doi:10-1007-s10676-004-3422-1
+  - resource:doi:10-1007-s13347-021-00450-x
+  - resource:doi:10-1007-s43681-026-01414-7
+  reasoning: 'Fischer and Ravizza''s theory is general moral philosophy about human agency and determinism,
+    unchanged by the presence of machines, so it fails the scope test directly. But it is genuinely
+    load-bearing — three library records on responsibility gaps and meaningful human authority derive
+    their criteria from it — so it belongs as a Section 15 pointer rather than an ingested record.
+    What changes because agents hold authority: Nothing in the work itself concerns machine agents;
+    its guidance-control account of responsibility is the philosophical substrate the responsibility-gap
+    literature in the library builds on when asking who is accountable for autonomous agent action.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: openalex:W2061562262
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:arxiv:1706.03741
+  - resource:arxiv:1707.01068
+  - resource:arxiv:1811.07871
+  reasoning: 'The citation linkage is almost certainly a metadata error, as nothing in RL alignment
+    work depends on goat drug absorption. No exclusion-register line is even needed; the paper fails
+    the scope test outright and is not load-bearing background for the field. What changes because
+    agents hold authority: Nothing — this is veterinary pharmacokinetics of ivermectin in goats
+    and has no bearing on designing, operating, or overseeing organizations where machine agents
+    hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: openalex:W2101105183
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:arxiv:1811.07871
+  - resource:doi:10-18653-v1-2022-emnlp-main-225
+  - resource:doi:10-26599-cvm-2025-9450460
+  reasoning: 'This is a general NLP evaluation metric cited as methodological background, analogous
+    to the ''optimization, neural architectures and game theory'' citations the brief warns against;
+    it is not load-bearing for agentic organization design in the way an agent-behaviour evaluation
+    suite like Melting Pot is. Not even a section 15 pointer, since nothing about delegated machine
+    authority turns on it. What changes because agents hold authority: Nothing — BLEU is an automatic
+    text-similarity metric for machine translation and says nothing about how agents holding operational
+    or decision authority should be designed, operated, or overseen.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
+- key: openalex:W2121863487
+  generation: 2
+  support: 3
+  cited_by:
+  - resource:arxiv:1811.07871
+  - resource:arxiv:2006.06051
+  - resource:doi:10-1109-access-2013-2259892
+  reasoning: 'This is a canonical methods text, analogous to the ''foundational method the field
+    builds on'' case for borrowed background (Section 15), not a study of delegated machine authority.
+    Citation by three library papers reflects generic methodological grounding of the kind the brief
+    warns against admitting. What changes because agents hold authority: Nothing directly — it is
+    the foundational method textbook that explains how learning agents form policies and respond
+    to reward, which the library''s alignment and incentive papers build on, but it says nothing
+    about organizations where agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W2145339207
   generation: 2
-  support: 5
+  support: 6
   cited_by:
   - resource:arxiv:1707.01068
   - resource:arxiv:1707.06600
   - resource:arxiv:2006.06051
   - resource:doi:10-1007-s11704-024-40231-1
+  - resource:doi:10-1126-science-aau6249
   - resource:doi:10-1257-aer-20190623
-  reasoning: 'This is the canonical deep Q-network method paper, exactly the kind of general neural-architecture/optimization
-    citation the brief warns is ubiquitous in our corpus without belonging to it. Unlike Melting
-    Pot, it is not a multi-agent evaluation substrate or a governance-relevant method, so it does
-    not even warrant a Section 15 pointer. What changes because agents hold authority: Nothing —
-    it is a general single-agent control algorithm and contains no claim about how authority is
-    delegated, exercised, or overseen in an organization.'
+  reasoning: 'DQN is a foundational learning algorithm, not a study of organizations where agents
+    hold operational or decision authority; it fails the scope test exactly as generic optimization
+    and neural architecture work does. It is genuinely load-bearing for the field''s multi-agent
+    and social-dilemma papers, so it belongs in section 15 as a pointer rather than being ingested.
+    What changes because agents hold authority: Nothing about this paper concerns organizations,
+    authority or oversight — it is the deep RL learning method that the library''s multi-agent and
+    agent-autonomy work is built on top of.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: openalex:W2257979135
   generation: 2
-  support: 5
+  support: 7
   cited_by:
   - resource:arxiv:1707.01068
   - resource:arxiv:2401.04536
+  - resource:doi:10-1126-science-aau6249
   - resource:doi:10-1126-science-ade9097
   - resource:doi:10-1145-3593013-3594033
   - resource:doi:10-1257-aer-20190623
-  reasoning: 'This is a general method/capability milestone (deep RL plus tree search) of the kind
-    the brief explicitly warns about — our papers cite optimization, neural architectures and game
-    theory generally, and that does not confer scope. Unlike Melting Pot, it is not an evaluation
-    substrate for multi-agent social or institutional behaviour, so it does not even earn a section
-    15 pointer. What changes because agents hold authority: Nothing: it demonstrates superhuman
-    search-and-learning performance in a two-player board game and says nothing about how authority
-    is delegated to, exercised by, or held accountable in an organization.'
+  - resource:doi:10-3390-ai7100391
+  reasoning: 'This is a foundational method paper (deep RL plus tree search) that the agentic literature
+    builds on and repeatedly cites, so it belongs as a pointer in section 15 rather than as an ingested
+    record. Admitting it would be the same error as admitting generic optimization or neural architecture
+    work that our papers cite. What changes because agents hold authority: Nothing directly — AlphaGo
+    demonstrates superhuman decision capability in a closed game but says nothing about how machine
+    agents hold or are held accountable for operational authority in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: openalex:W2270772451
   generation: 2
@@ -4499,20 +4937,23 @@ refused:
   first_refused_on: '2026-10-06'
 - key: openalex:W2282821441
   generation: 2
-  support: 3
+  support: 4
   cited_by:
   - resource:arxiv:1902.03245
   - resource:doi:10-1016-j-artint-2018-07-007
+  - resource:doi:10-1080-08839514-2026-2739513
   - resource:doi:10-1145-3544548-3581058
-  reasoning: 'This is a foundational method the field builds on — the explanation and trust-calibration
-    papers in the library cite it as technique, not as organizational design guidance. Hold it as
-    borrowed background in section 15 alongside Melting Pot rather than ingesting it. What changes
-    because agents hold authority: LIME is a general ML interpretability method, not a statement
-    about agent authority; it is load-bearing background for the library''s oversight and appropriate-reliance
-    literature but says nothing itself about organizations where agents decide.'
+  reasoning: 'This is a foundational method paper about explaining individual model predictions,
+    not about organizations where agents hold authority; removing the machine leaves nothing, but
+    equally the paper says nothing about delegated authority, accountability, or institutional structure.
+    It is the canonical method four library papers build on, so it belongs as a Section 15 pointer
+    rather than an ingested record. What changes because agents hold authority: LIME itself is a
+    general ML interpretability method and does not change organizational design, but it is the
+    load-bearing technical substrate under the library''s oversight and appropriate-trust literature,
+    which depends on per-decision explanations when an agent''s output carries operational authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W2625113742
   generation: 2
@@ -4535,23 +4976,22 @@ refused:
   first_refused_on: '2026-10-06'
 - key: openalex:W2766447205
   generation: 2
-  support: 4
+  support: 5
   cited_by:
   - resource:arxiv:1707.01068
   - resource:arxiv:2006.06051
   - resource:doi:10-1126-sciadv-abk2607
+  - resource:doi:10-1126-science-aau6249
   - resource:doi:10-1126-science-ade9097
-  reasoning: 'This is a foundational learning-method paper (self-play RL, tabula rasa) with no organizational,
-    delegation or oversight content; it falls under the general ''optimization, neural architectures
-    and game theory'' caveat rather than passing the scope test. It is genuinely load-bearing for
-    the multi-agent papers that cite it, so it is best held as a Section 15 pointer like Melting
-    Pot rather than ingested. What changes because agents hold authority: Nothing about organizational
-    design changes directly — AlphaGo Zero is a self-play RL method, not a study of agents holding
-    authority — but it is the foundational method that the library''s multi-agent incentive-design
-    and cooperation papers build on.'
+  reasoning: 'This is a single-agent game-playing capability result with no organizational, delegation,
+    or oversight content, so it fails the scope test outright. It is genuinely load-bearing method
+    background for the cited multi-agent work, making it a section 15 pointer like Melting Pot rather
+    than a refusal. What changes because agents hold authority: Nothing about AlphaGo Zero concerns
+    organizational authority; it is the foundational self-play RL method that the library''s multi-agent
+    and mechanism-design papers build on, so it is worth a pointer but not ingestion.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 3
+  refused_on: '2026-10-13'
+  times_refused: 4
   first_refused_on: '2026-09-22'
 - key: openalex:W2897042519
   generation: 2
@@ -4598,17 +5038,16 @@ refused:
   - resource:arxiv:2401.04536
   - resource:doi:10-1126-sciadv-abk2607
   - resource:doi:10-1126-science-ade9097
-  reasoning: 'AlphaStar is exactly the kind of general method/capability citation the brief warns
-    about — our papers cite it as the multi-agent RL training precedent, not as organizational evidence,
-    and unlike Melting Pot it offers no evaluation apparatus for social or institutional behavior.
-    No specific exclusion-register line applies; it simply fails the scope test and is not load-bearing
-    enough as a pointer to justify a Section 15 slot. What changes because agents hold authority:
-    Nothing — it is a competitive-game capability milestone and league-based self-play training
-    method, and it tells a designer nothing about how to delegate, oversee, or hold accountable
-    agents holding operational authority in an organization.'
+  reasoning: 'This is a foundational capability/method milestone that much of the library''s multi-agent
+    work builds on, so it belongs as a Section 15 pointer rather than an ingested record. It is
+    not about an organization in which agents hold operational or decision authority, so it fails
+    the scope test on its own terms. What changes because agents hold authority: Nothing directly
+    — AlphaStar demonstrates that multi-agent RL can reach expert-level strategic competence in
+    a complex adversarial domain, which underwrites capability assumptions about agents being delegated
+    authority, but it says nothing about organizational design, oversight, or accountability.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 4
+  refused_on: '2026-10-13'
+  times_refused: 5
   first_refused_on: '2026-09-19'
 - key: openalex:W2982399380
   generation: 2
@@ -4653,18 +5092,19 @@ refused:
   - resource:doi:10-1145-3630106-3658948
   - resource:doi:10-1162-tacl-a-00407
   - resource:doi:10-18653-v1-2022-acl-long-229
-  reasoning: 'The record is internally inconsistent — a canonical scaling-laws title paired with
-    an unrelated transport-validity abstract — and under either reading it is capability/methodology
-    work of the kind the library already declines (''our papers cite optimization, neural architectures...
-    and none of that belongs here''). Even the agentic-sounding abstract concerns allocating experiment
-    budget across architectural interventions, not organizations in which agents hold operational
-    or decision authority, so refusal is the safe call. What changes because agents hold authority:
-    Nothing: whether read as the scaling-laws paper or as the abstract''s small-to-frontier transport
-    theory, it governs research and deployment-trial budgeting for model capabilities, not how authority
-    is delegated, exercised, or audited inside an organization.'
+  reasoning: 'The title (''Scaling Laws for Neural Language Models'', 2020) and the abstract (a
+    transport-validity framework for scaling up agentic-AI interventions) describe different works,
+    so the record''s identity is unreliable and I refuse on uncertainty. Under either reading it
+    is model/research-methods scaling literature — the kind of general optimization and architecture
+    background the brief warns our papers routinely cite without it belonging — not material about
+    organizations where machine agents hold operational or decision authority. What changes because
+    agents hold authority: Nothing — the record is about when small-scale experimental gains in
+    AI systems transport to frontier scale, a research-methodology and budget-allocation question
+    that says nothing about how authority is delegated to, exercised by, or held accountable in
+    an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W3030163527
   generation: 2
@@ -4694,19 +5134,38 @@ refused:
   - resource:doi:10-1145-3593013-3594033
   - resource:doi:10-1145-3605764-3623985
   - resource:doi:10-18653-v1-2022-acl-long-229
-  reasoning: 'This is a foundational critique of large language models themselves, not of organizations
-    in which agents act with authority, so it fails the scope test; removing the machine removes
-    the paper entirely, so no exclusion-register line is needed to reject it, but it is the canonical
-    reference the field builds on when arguing that agent outputs cannot be taken as reliable. Hold
-    it as a pointer in section 15 alongside Melting Pot rather than ingesting it. What changes because
-    agents hold authority: Nothing here is specific to organizations where agents hold authority;
-    it characterizes the limits and harms of the underlying language models (unanchored fluency,
-    encoded bias, opaque training data) that such organizations inherit, but offers no design, oversight
-    or accountability guidance for delegated machine authority.'
+  reasoning: 'This is the field''s canonical risk-framing citation and is genuinely load-bearing
+    background for the harms literature already in the library, but it is about the construction
+    of language models rather than about organizations where machines hold decision authority. Hold
+    it as a pointer in section 15 alongside Melting Pot rather than ingesting it as a scope-passing
+    record. What changes because agents hold authority: Nothing here changes how an agent-authority
+    organization is designed or overseen — it addresses model-building choices (data curation, scale,
+    environmental cost, documentation) that apply whether or not the resulting system holds any
+    operational authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
+- key: openalex:W3157172840
+  generation: 2
+  support: 4
+  cited_by:
+  - resource:doi:10-1007-s10676-017-9430-8
+  - resource:doi:10-1007-s13347-021-00450-x
+  - resource:doi:10-1007-s43681-026-01414-7
+  - resource:doi:10-1177-2053951716679679
+  reasoning: 'Pasquale''s work is a load-bearing antecedent for the algorithmic accountability literature
+    the library ingests (ethics of algorithms, responsibility gaps, society-in-the-loop), yet its
+    own claims concern firm secrecy and regulatory disclosure — remove the machine and the critique
+    of corporate opacity largely survives. Hold it as a section 15 pointer rather than a scope record.
+    What changes because agents hold authority: It supplies the foundational opacity-and-accountability
+    frame that transparency obligations for machine decision-makers build on, but it describes corporate
+    secrecy around scoring and ranking systems rather than organizations where agents hold operational
+    or decision authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W3195577433
   generation: 2
   support: 3
@@ -4729,64 +5188,68 @@ refused:
   first_refused_on: '2026-10-06'
 - key: openalex:W4221143046
   generation: 2
-  support: 5
+  support: 6
   cited_by:
   - resource:arxiv:2401.04536
+  - resource:doi:10-1038-s41562-025-02172-y
   - resource:doi:10-1145-3593013-3594033
   - resource:doi:10-1145-3630106-3658948
   - resource:doi:10-1145-3690624-3709179
   - resource:doi:10-18653-v1-2023-findings-emnlp-508
-  reasoning: 'The title (BNAI/NO-TOKEN/MIND-UNITY, 2022) bears no relation to the abstract (a ''theatrical
-    compliance'' LLM position piece), and no venue is given, so the record cannot be trusted as
-    a curated entry regardless of citation counts. Even taking the abstract at face value, it is
-    an un-instantiated position paper about model reasoning quality rather than about organizations
-    where agents hold authority, and it does not rise to load-bearing borrowed background. What
-    changes because agents hold authority: Nothing reliable: the record''s title, abstract, venue
-    and date are mutually inconsistent, so it offers no verifiable claim about how agent authority
-    should be designed or overseen.'
+  reasoning: 'The title (''BNAI, NO-TOKEN, MIND-UNITY'', 2022) does not match the abstract (an LLM
+    ''theatrical compliance'' position piece), and no venue is given, so the record is unverifiable
+    and cannot be curated in good faith. Even taken at face value, it is a model-level reasoning-quality
+    manifesto without an organizational-authority claim, and its inbound citations do not substitute
+    for passing the scope test. What changes because agents hold authority: Nothing reliable — the
+    record''s title, date, and abstract are mutually inconsistent, so it offers no verifiable claim
+    about designing or overseeing organizations where agents hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W4224912544
   generation: 2
-  support: 3
+  support: 4
   cited_by:
   - resource:arxiv:2401.04536
   - resource:doi:10-1007-s11704-024-40231-1
   - resource:doi:10-1038-s41562-024-01991-9
-  reasoning: 'This is a single-robot control and grounding method, not a study of agents holding
-    operational or decision authority within an organization, so it fails the scope test directly.
-    It is genuinely foundational to the LLM-agent line the library builds on and is cited by three
-    held records, so it belongs as a Section 15 pointer alongside Melting Pot rather than as an
-    ingested record. What changes because agents hold authority: It supplies the canonical mechanism
-    for bounding what an agent may propose by what it can actually do — affordance/value-function
-    grounding — which is a precursor to capability-bounded delegation, but the paper itself says
-    nothing about organizations, authority or accountability.'
+  - resource:doi:10-1109-icra57147-2024-10610855
+  reasoning: 'This is a single-robot capability and grounding method, not a study of organizations
+    in which agents hold operational or decision authority; no exclusion-register line applies directly,
+    it simply fails the scope test. It is genuinely foundational for the embodied-agent work the
+    library does ingest (RoCo, LLM-agent surveys), so it belongs at section 15 as a pointer rather
+    than as a curated record. What changes because agents hold authority: It supplies the canonical
+    pattern of constraining a language model''s proposed actions to what is actually executable
+    and permitted by learned affordance/value functions — a precedent for bounding what an authorized
+    agent may attempt — but it says nothing about organizations, delegated authority, or oversight.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 2
+  refused_on: '2026-10-13'
+  times_refused: 3
   first_refused_on: '2026-09-29'
 - key: openalex:W4226278401
   generation: 2
-  support: 6
+  support: 8
   cited_by:
   - resource:arxiv:2401.04536
+  - resource:doi:10-1007-s43681-026-01362-2
   - resource:doi:10-1038-s41562-024-01991-9
+  - resource:doi:10-1038-s41562-025-02172-y
   - resource:doi:10-1038-s41586-023-06647-8
   - resource:doi:10-1145-3690624-3709179
   - resource:doi:10-18653-v1-2022-acl-long-229
   - resource:doi:10-18653-v1-2023-findings-emnlp-508
-  reasoning: 'This is model-training methodology with no experimental results, analogous to the
-    optimization/architecture work the brief says our papers cite without it belonging here. It
-    is not load-bearing for agentic-organization design in the way an evaluation suite or substrate
-    like Melting Pot is, so it does not warrant a Section 15 pointer either. What changes because
-    agents hold authority: Nothing — it proposes a model training curriculum for error recovery
-    and peer observation, which concerns how a model is trained rather than how an organization
-    delegating authority to agents is designed, operated, or held accountable.'
+  reasoning: 'This is general model-training methodology — the same category as the optimization
+    and architecture work our papers routinely cite without it belonging here — and its findings
+    concern individual model skill acquisition, not the design, operation, or accountability of
+    an organization where agents act with authority. It is not an evaluation suite or a foundational
+    method the agentic-organization literature builds on, so it does not warrant a section 15 pointer
+    either. What changes because agents hold authority: Nothing: it is a pre-training/curriculum
+    proposal about how a model practices error recovery, with no claim about agents holding operational
+    or decision authority in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W4292779060
   generation: 2
@@ -4796,15 +5259,16 @@ refused:
   - resource:doi:10-1145-3690624-3709179
   - resource:doi:10-1162-tacl-a-00407
   - resource:doi:10-18653-v1-2022-acl-long-229
-  reasoning: 'This is not a scholarly contribution to agentic organization design but an unvetted
-    metaphysical framework; the claimed citation relationship with the listed papers is implausible
-    and does not confer scope. No exclusion-register line is needed — it simply fails the scope
-    test and basic quality bar. What changes because agents hold authority: Nothing — the work is
-    pseudoscientific speculation about dimensional ontology and AI consciousness with no bearing
-    on how agent authority is designed, operated, or overseen.'
+  reasoning: 'This is not a scholarly contribution to agentic organization design; the citation
+    claims are implausible and the content (dimensional ontology, immortality engineering, portal
+    dynamics) has no operational or accountability implications. No exclusion-register line is needed
+    — it fails the scope test outright and fails basic quality screening. What changes because agents
+    hold authority: Nothing — the work is pseudoscientific metaphysical speculation about AI consciousness
+    and cosmology with no bearing on designing, operating, or overseeing organizations where agents
+    hold authority.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W4307475457
   generation: 2
@@ -4825,6 +5289,25 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 2
   first_refused_on: '2026-09-29'
+- key: openalex:W4309674289
+  generation: 2
+  support: 4
+  cited_by:
+  - resource:doi:10-1007-s11704-024-40231-1
+  - resource:doi:10-1145-3593013-3594033
+  - resource:doi:10-1145-3748302
+  - resource:doi:10-2196-preprints-113208
+  reasoning: 'This is an NLG model-failure survey, not a study of organizations where machines hold
+    operational or decision authority; removing the organizational context leaves the findings fully
+    intact. It is genuinely foundational to the library''s agent-reliability concerns, so it belongs
+    as a Section 15 pointer rather than an ingested record. What changes because agents hold authority:
+    Nothing about agent authority itself changes, but hallucination taxonomy and measurement is
+    load-bearing background for anyone specifying reliability thresholds or verification gates before
+    delegating authority to a generative agent.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W4320165837
   generation: 2
   support: 3
@@ -4863,6 +5346,26 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 1
   first_refused_on: '2026-10-06'
+- key: openalex:W4363624465
+  generation: 2
+  support: 4
+  cited_by:
+  - resource:doi:10-1007-s11704-024-40231-1
+  - resource:doi:10-1038-s41562-025-02172-y
+  - resource:doi:10-1038-s44482-026-00045-3
+  - resource:doi:10-1177-00491241261492203
+  reasoning: 'This is a foundational method paper — LLMs as simulatable economic subjects — that
+    the agent-behavior literature in this library builds on, not a study of delegated machine authority.
+    It is the Melting Pot case: load-bearing method precedent held as a pointer in section 15 rather
+    than ingested as an agentic-organization record. What changes because agents hold authority:
+    It establishes that LLMs carry human-like economic dispositions (fairness, status-quo bias,
+    endowment effects) that will travel into any delegated decision an agent makes, which oversight
+    and pre-deployment simulation of agent behavior can draw on — but the paper itself says nothing
+    about organizations where agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'
 - key: openalex:W4363671832
   generation: 2
   support: 4
@@ -4885,22 +5388,24 @@ refused:
   first_refused_on: '2026-10-06'
 - key: openalex:W4385567134
   generation: 2
-  support: 3
+  support: 4
   cited_by:
   - resource:arxiv:2401.04536
   - resource:doi:10-1038-s41586-023-06647-8
+  - resource:doi:10-1109-icra57147-2024-10610855
   - resource:doi:10-1145-3605764-3623985
-  reasoning: 'This is a theoretical account of what language models represent, not about organizations
-    where machines hold operational or decision authority; no exclusion-register line applies but
-    it fails the scope test directly. It is genuinely load-bearing conceptual background for library
-    items on role-play personas, agency evaluation and prompt injection, so it belongs as a Section
-    15 pointer rather than an ingested record. What changes because agents hold authority: It explains
-    why an LLM''s outputs reflect an inferred agent-persona rather than a stable principal, which
-    conditions how one can attribute intent, predict behavior, or hold an agent accountable — but
-    it offers no organizational design or authority guidance itself.'
+  reasoning: 'This is a position paper about what next-word prediction implies for representing
+    communicative intent; no exclusion-register line applies, but it is foundational NLP theory
+    rather than material about organizations where machines hold operational or decision authority.
+    It is genuinely load-bearing for the field (four library papers build on it), so it belongs
+    as a section 15 pointer rather than an ingested record. What changes because agents hold authority:
+    It supplies the conceptual grounding for treating an LM as inferring and enacting an agent''s
+    beliefs, goals and intentions — the premise behind persona-stability, negotiation-agency and
+    prompt-injection failure modes that oversight of delegated agents must anticipate — but it says
+    nothing about organizations or authority itself.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W4386528753
   generation: 2
@@ -4910,16 +5415,16 @@ refused:
   - resource:doi:10-1145-3630106-3658948
   - resource:doi:10-5281-zenodo-19200726
   - resource:doi:10-5281-zenodo-22960535
-  reasoning: 'CoALA is a single-agent cognitive architecture framework — a foundational method the
-    field builds on, not a study of organizations where agents hold operational or decision authority.
-    It is the Melting Pot case: genuinely load-bearing for the field''s vocabulary, so hold it as
-    a Section 15 pointer rather than ingest it. What changes because agents hold authority: It supplies
-    the modular vocabulary (memory stores, action space, decision procedure) that oversight and
-    logging work builds on to specify where in an agent''s internal loop authority is exercised
-    and recorded, but it says nothing about organizations or delegated authority itself.'
+  reasoning: 'CoALA is a single-agent cognitive architecture framework, not a treatment of delegated
+    authority, so it fails the scope test despite being cited by in-library work on visibility and
+    knowledge cycles. It is genuinely foundational for the field''s design language, which is exactly
+    the Section 15 borrowed-background case rather than a refusal. What changes because agents hold
+    authority: It supplies a shared vocabulary for agent internals — memory modules, structured
+    action spaces, decision loops — that oversight and accountability mechanisms can attach to,
+    but it says nothing about an agent holding operational or decision authority within an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-06'
-  times_refused: 1
+  refused_on: '2026-10-13'
+  times_refused: 2
   first_refused_on: '2026-10-06'
 - key: openalex:W4387835442
   generation: 2
@@ -4943,3 +5448,24 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 1
   first_refused_on: '2026-10-06'
+- key: openalex:W4393065402
+  generation: 2
+  support: 5
+  cited_by:
+  - resource:doi:10-1038-s44482-026-00045-3
+  - resource:doi:10-1080-08839514-2026-2739513
+  - resource:doi:10-3390-ai7100391
+  - resource:doi:10-3390-systems14091174
+  - resource:doi:10-4018-979-8-2600-4473-5-ch005
+  reasoning: 'This is a general capability-and-architecture survey of single-agent construction
+    and applications, not a study of organizations where agents hold operational or decision authority,
+    so it fails the scope test. It is genuinely load-bearing for the field — five library papers
+    build on its framework — so it belongs as a Section 15 pointer rather than an ingested record,
+    like Melting Pot. What changes because agents hold authority: It supplies the shared construction
+    vocabulary (profile, memory, planning, action) and evaluation strategies that designers of agent-authority
+    systems use to specify what an agent can actually do, but it says nothing about delegated authority,
+    oversight, or accountability within an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-10-13'
+  times_refused: 1
+  first_refused_on: '2026-10-13'

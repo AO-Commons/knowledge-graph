@@ -1,0 +1,88 @@
+id: resource:doi:10-1145-3832101
+resource_type: peer-reviewed-paper
+title: 'Datura: Progressive Red Teaming Testing for Tool Invocation Chain in LLM Agents'
+abstract: LLM agents that invoke external tools face critical safety vulnerabilities when
+  malicious manipulations exploit their implicit trust in tool outputs and metadata. However,
+  identifying these vulnerabilities through testing is challenging due to the need to bypass
+  safety guardrails with semantically legitimate inputs, the difficulty in characterizing
+  successful attacks amid implicit tool trust, and the requirement to maintain logical consistency
+  across fragile state-dependent execution chains. In this paper, we first conduct an empirical
+  study to investigate how external tools influence agent reasoning. Guided by the findings,
+  we propose Datura, an automated red teaming testing framework that exposes safety vulnerabilities
+  through chained tool manipulation. Through a five-stage workflow, Datura dynamically generates
+  test cases where each individual step appears legitimate yet collectively leads to harmful
+  outcomes. We evaluate Datura across five LLMs and 740 safety-critical tasks under five defense
+  settings, including real-world safety mechanisms. Under Model Alignment, Datura achieves
+  94.86--99.59% attack success rate (ASR), outperforming the strongest baseline by up to 25.27
+  percentage points. Under Prompt Refuge, Datura maintains 78.78--95.54% ASR, showing that
+  progressive tool-chain manipulation remains effective even under prompt-level safeguards.
+authors:
+- Yuchen Shao
+- Ziqun Bao
+- Yuheng Huang
+- Yuling Shi
+- Mingyu Weng
+- Yiwen Sun
+- Long Yang
+- Lei Ma
+- Ting Su
+- Chengcheng Wan
+organizations:
+- East China Normal University
+- Shanghai Innovation Institute
+- Shanghai Jiao Tong University
+- The University of Tokyo
+- University of Alberta
+affiliations:
+  Yuchen Shao:
+  - Shanghai Innovation Institute
+  - East China Normal University
+  Ziqun Bao:
+  - East China Normal University
+  Yuheng Huang:
+  - The University of Tokyo
+  Yuling Shi:
+  - Shanghai Jiao Tong University
+  Mingyu Weng:
+  - East China Normal University
+  Yiwen Sun:
+  - East China Normal University
+  Long Yang:
+  - Shanghai Innovation Institute
+  - East China Normal University
+  Lei Ma:
+  - University of Alberta
+  - The University of Tokyo
+  Ting Su:
+  - East China Normal University
+  Chengcheng Wan:
+  - Shanghai Innovation Institute
+  - East China Normal University
+published_at: '2026-10-01'
+url: https://doi.org/10.1145/3832101
+doi: 10.1145/3832101
+openalex_id: W7215099806
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Not What You''ve Signed
+  Up For: Compromising Real-World LLM-I; Red Teaming Language Models with Language Models;
+  Training Language Models to Follow Instructions with Human F. Scope scan by claude-opus-5:
+  This is an adversarial evaluation/red-teaming method for tool-using agents, not a study
+  of an organization where agents hold authority, so it belongs as a pointer in section 15
+  alongside Melting Pot rather than as a core record. No exclusion-register line applies;
+  it is agent-specific (the finding vanishes without the machine) but is assurance tooling
+  the field builds on rather than organizational design. What changes because agents hold
+  authority: It shows that step-wise legitimacy checks on an agent''s tool calls are insufficient
+  — harm accrues across a chain of individually innocuous invocations — so any organization
+  delegating execution authority to agents must monitor and audit at the chain level rather
+  than the action level. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-10-13'
+expansion_generation: 2
+is_borrowed_background: true
