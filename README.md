@@ -67,6 +67,11 @@ resolution, admission, filing, reading, tagging, linking, derivation,
 review, release — with what runs unattended, what waits for a person, and
 measured coverage at each step.
 
+[docs/open-problems.md](docs/open-problems.md) covers what happens to the gap
+statements that pass through it: how several papers' open questions are
+clustered into one, what the `addresses` edge asserts, and why the surface
+counts papers and occurrences apart.
+
 The short version: everything up to filing now runs on its own, and nothing
 has yet been reviewed by a human. That is where the binding constraint sits.
 

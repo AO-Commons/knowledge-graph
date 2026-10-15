@@ -1,0 +1,172 @@
+# The open questions, and the statements that ask them.
+#
+# A `gap` statement is one paper saying something is unresolved, in that
+# paper's words and bounded by that paper's scope. A question is the thing
+# several of those turn out to be asking. Clustering them is the layer the
+# roadmap called for and the reason the extraction pass hunts gaps separately:
+# it is the query nobody else can answer with provenance, because nobody else
+# holds the sentences.
+#
+# Kept in one file rather than inside each paper's claims, for the reason
+# claim-relations.yml gives: the edge belongs to neither end, and filing it
+# under one paper would make the corpus read differently depending on which
+# paper you opened.
+#
+# `addresses` is MIRA's name, as the four claim-to-claim relations are CiTO's.
+# A shared schema for research graphs had already named this edge, and using
+# their word for a layer we had not built cost nothing.
+#
+# Every edge here is INFERRED. No paper says "my open question is an instance
+# of yours" — somebody read several and decided. So each occurrence carries
+# `because`, and each question carries the `note` saying why its statements
+# are one question. That note is the judgment a reader most needs to be able
+# to disagree with, and it is the first thing to check when one of these looks
+# wrong.
+#
+# As of 2026-10-09 that somebody is a machine, for all three. Drafted and
+# unconfirmed, exactly as the claim relations were: a question attributed to a
+# person reads as settled, and none of these has been read by one yet.
+#
+# What the corpus can and cannot show today. Seven gap statements, from four
+# papers, clustering into four questions. One of them is asked by two papers
+# and the other three by one each, and that ratio is the honest state of the
+# layer: it works, and it is thin, because only seven papers have been read
+# down to their statements at all.
+#
+# The one that crosses is the case this layer exists for. METR's time-horizon
+# work and Melting Pot prosocial profiling share no citation and no author and
+# would not meet in any search; both are asking whether a measured capability
+# is a property of the agent or of the conditions it was measured under. A
+# question asked by two papers is a statement about a field. A question asked
+# twice by one paper is that paper's framing. The difference is counted rather
+# than implied.
+
+questions:
+
+  # ---------------------------------------------------------------------
+  # Measurement that may not survive its testbed.
+  # ---------------------------------------------------------------------
+  - id: question:capability-measurement-transfer
+    text: Does a measured agent capability survive a change of testbed?
+    status: open
+    concept_tags:
+      - capability-profiling
+      - prosocial-capability
+      - long-horizon-and-multi-step-task-evaluation
+    note: >-
+      Three statements from two papers that share no citation and no author.
+      Two sit in one discussion section and ask the same thing from opposite
+      ends: whether the measurement layout carries to another suite, and
+      whether the substrate the agent was measured on biased the number. The
+      third is about a different result entirely — agents gaining less than
+      humans from longer time budgets — and asks whether it holds outside the
+      task complexity it was measured at. All three ask whether what was
+      measured is a property of the agent or an artifact of the conditions of
+      measurement, which is the question that decides whether any capability
+      number means anything outside the harness that produced it. The third is
+      the reason this question is worth having: no search puts METR's time
+      horizons beside Melting Pot's prosocial profiling.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-09"
+    addressed_by:
+      - claim: claim:arxiv:2509.14485:6
+        because: >-
+          States directly that transfer of the prosocial ability measurement
+          layout beyond Melting Pot to other social-AI suites is unresolved —
+          the question in its outward form, across harnesses.
+      - claim: claim:arxiv:2509.14485:7
+        because: >-
+          States that the study did not model how the choice of substrate
+          biases a measured capability — the same question from inside one
+          harness, where the confound is the environment rather than the suite.
+      - claim: claim:arxiv:2502.15840:14
+        because: >-
+          States that it is unknown whether the finding about longer time
+          budgets holds for simpler tasks — the same question where the
+          condition varied is the difficulty of the work rather than the
+          harness it was measured in.
+
+  # ---------------------------------------------------------------------
+  # Accountability when identity does not hold still.
+  # ---------------------------------------------------------------------
+  - id: question:accountability-under-unstable-identity
+    text: Who is accountable when an agent's identity does not hold still?
+    status: open
+    concept_tags:
+      - dissociative-agent-identity
+      - agent-reputation-systems
+      - operator-deployer-and-developer-liability
+    note: >-
+      Both statements come from one paper and share the dissociative identity
+      concept, but they are not the same sentence twice. One reports that
+      identity and reputation are open problems in technical AI governance at
+      all; the other reports that assigning accountability under fragmented
+      identity has resisted centuries of legal effort. The first says the
+      mechanism is missing, the second says the hard part is not the mechanism.
+      Treated as one question because a reputation system that cannot say who
+      is answerable is not a partial answer to this — it is an answer to a
+      different question.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-09"
+    addressed_by:
+      - claim: claim:arxiv:2605.30169:7
+        because: >-
+          Reports identity and reputation as open problems in technical AI
+          governance — the question in its general form, before any particular
+          mechanism is proposed.
+      - claim: claim:arxiv:2605.30169:8
+        because: >-
+          Reports that accountability under fragmented identity remains
+          unresolved after centuries of DID jurisprudence — the same question
+          where it has been pressed hardest and still not answered.
+
+  # ---------------------------------------------------------------------
+  # Constraints that have only been argued one at a time.
+  # ---------------------------------------------------------------------
+  - id: question:ex-ante-constraint-interaction
+    text: How do ex ante constraints on autonomous action interact in practice?
+    status: open
+    concept_tags:
+      - ex-ante-behavioral-harness
+      - insurance-for-autonomous-action
+    note: >-
+      One statement, from one paper, and recorded as its own question rather
+      than folded into a neighbour. Its subject is the interaction between
+      mechanisms — configuration binding, behavioral fingerprinting, insurance
+      — and interaction is not a smaller version of any of the three. A
+      question with one occurrence is a thin question and is counted as one;
+      it is here so that the second paper to ask it lands somewhere rather
+      than starting again.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-09"
+    addressed_by:
+      - claim: claim:arxiv:2605.30169:9
+        because: >-
+          States that the interaction of the proposed ex ante constraint
+          mechanisms in practice is unexplored, having proposed them
+          individually.
+
+  # ---------------------------------------------------------------------
+  # Evaluation that has to hold still while its subject does not.
+  # ---------------------------------------------------------------------
+  - id: question:valid-dynamic-evaluation
+    text: Can an evaluation stay valid while the system it measures keeps changing?
+    status: open
+    concept_tags:
+      - dynamic-evaluation
+      - train-test-deploy-gap
+    note: >-
+      Kept apart from the transfer question, which it sits next to and is not.
+      Transfer asks whether a result survives a change of conditions.
+      This asks whether any evaluation method satisfies the requirements a
+      moving target imposes in the first place — a question about instruments
+      rather than about results, and one a paper answers by proposing a method
+      rather than by re-running a measurement.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-09"
+    addressed_by:
+      - claim: claim:arxiv:2606.03237:6
+        because: >-
+          States that no existing approach meets, in combination, all the
+          requirements the authors set out for a valid dynamic evaluation —
+          the question stated as the shortfall the paper found.

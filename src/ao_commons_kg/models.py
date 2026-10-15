@@ -128,6 +128,11 @@ class RelationType(str, Enum):
     """cito:qualifies — narrows or conditions the other, without denying it."""
     EXTENDS_CLAIM = "EXTENDS_CLAIM"
     """cito:extends — takes the other further, or generalizes it."""
+    # Claim to question. MIRA's name, like the four above are CiTO's: a
+    # shared schema for research graphs had already named this edge, and
+    # adopting their word for a layer we had not built cost nothing.
+    ADDRESSES = "ADDRESSES"
+    """mira:addresses — this statement bears on that open question."""
 
 
 CLAIM_RELATIONS = frozenset({
@@ -140,6 +145,14 @@ CLAIM_RELATIONS = frozenset({
 source states "claim A disagrees with claim B" — so each must carry a
 confidence class and its reasoning, exactly like a drafted statement. An edge here
 that looked deterministic would be asserting a judgment nobody made."""
+
+
+QUESTION_RELATIONS = frozenset({RelationType.ADDRESSES})
+"""Relations that run from a claim to a question. Inferred, always: a paper
+says a thing is unresolved, it does not say which question that is an instance
+of. Somebody — or some model — read several statements and decided they were
+asking the same thing, and that judgment carries a confidence class and its
+reasoning exactly as a claim relation does."""
 
 
 DETERMINISTIC_RELATIONS = frozenset(
@@ -753,6 +766,59 @@ class Entity:
             raise ValueError(
                 f"entity {self.id}: unknown entity_type {self.entity_type!r}; "
                 f"expected one of {sorted(self.ENTITY_TYPES)}"
+            )
+
+    def to_dict(self) -> dict[str, Any]:
+        return _drop_empty(asdict(self))
+
+
+@dataclass
+class Question:
+    """An open question several statements are asking.
+
+    MIRA's node, and its name. A `gap` statement is one paper saying something
+    is unresolved, in that paper's words and bounded by that paper's scope.
+    A question is the thing several of those are instances of. The distinction
+    is the whole point of the layer: "whether the prosocial ability layout
+    transfers beyond Melting Pot" and "how the choice of substrate biases a
+    measured capability" are two sentences asking whether a measured
+    capability survives a change of testbed, and no keyword search puts them
+    together.
+
+    An occurrence is an edge, not a field. Each `gap` ADDRESSES the question
+    and keeps its own quote, its own paper and its own wording, so a reader
+    meeting the question can see who asked it and in what words rather than a
+    paraphrase somebody wrote over the top of them.
+
+    Nothing here is a claim about the world: a question asserts only that the
+    corpus holds statements asking it. Whether it is genuinely unanswered is
+    what the statements bearing on it are for.
+    """
+
+    id: str
+    text: str
+    """Phrased as a question, in the corpus's own voice rather than any one
+    paper's. Short enough to be a name — the papers supply the sentences."""
+    concept_tags: list[str] = field(default_factory=list)
+    status: str = "open"
+    note: str | None = None
+    """Why these statements are one question, which is the judgment a reader
+    most needs to be able to disagree with."""
+    asserted_by: str | None = None
+    asserted_on: str | None = None
+
+    STATUSES = frozenset({"open", "answered", "retired"})
+
+    def __post_init__(self) -> None:
+        if self.status not in self.STATUSES:
+            raise ValueError(
+                f"question {self.id}: unknown status {self.status!r}; "
+                f"expected one of {sorted(self.STATUSES)}"
+            )
+        if not self.text.strip().endswith("?"):
+            raise ValueError(
+                f"question {self.id}: text must be phrased as a question — "
+                "a statement here would be a claim nobody made"
             )
 
     def to_dict(self) -> dict[str, Any]:
