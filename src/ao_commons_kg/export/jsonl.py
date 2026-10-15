@@ -20,13 +20,16 @@ import json
 from pathlib import Path
 from typing import Any, Iterable
 
+from ..concepts import Concept
 from ..models import Claim, Entity, Question, Relationship, Resource, Topic
 
 NODE_KINDS = {Topic: "topic", Resource: "resource", Entity: "entity", Claim: "claim",
-              Question: "question"}
+              Question: "question", Concept: "concept"}
 
 
-def _node_records(nodes: Iterable[Topic | Resource | Entity | Claim | Question]) -> list[dict[str, Any]]:
+def _node_records(
+    nodes: Iterable[Topic | Resource | Entity | Claim | Question | Concept],
+) -> list[dict[str, Any]]:
     records = []
     for node in nodes:
         kind = NODE_KINDS.get(type(node))
@@ -62,6 +65,7 @@ def write_release(
     entities: Iterable[Entity] = (),
     claims: Iterable[Claim] = (),
     questions: Iterable[Question] = (),
+    concepts: Iterable[Concept] = (),
     relationships: Iterable[Relationship] = (),
     taxonomy_version: str = "v3",
     built_at: str | None = None,
@@ -76,12 +80,13 @@ def write_release(
     entities = list(entities)
     claims = list(claims)
     questions = list(questions)
+    concepts = list(concepts)
     relationships = list(relationships)
 
     release_dir = Path(out_dir) / version
     release_dir.mkdir(parents=True, exist_ok=True)
 
-    nodes = _node_records([*topics, *resources, *entities, *claims, *questions])
+    nodes = _node_records([*topics, *resources, *entities, *claims, *questions, *concepts])
     edges = _edge_records(relationships)
 
     _write_jsonl(release_dir / "nodes.jsonl", nodes)
