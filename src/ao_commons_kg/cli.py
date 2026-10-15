@@ -436,19 +436,33 @@ def cmd_build(args) -> int:
     # addressable outside of.
     claims = load_claims()
 
+    # The concept layer, and only the part of it the corpus actually argues
+    # about. The vocabulary also holds every taxonomy subpoint as a suggestion
+    # pool, and shipping 500 terms nothing is tagged with would describe a
+    # library that does not exist.
+    from .concepts import load_vocabulary
+    vocabulary = load_vocabulary()
+    used = {tag for claim in claims for tag in (claim.concept_tags or ())}
+    concepts = [c for key, c in sorted(vocabulary.concepts.items()) if key in used]
+    if orphans := sorted(used - set(vocabulary.concepts)):
+        for tag in orphans:
+            print(f"warning: statement tagged {tag!r}, which the vocabulary "
+                  "does not define", file=sys.stderr)
+
     out = write_release(
         args.out,
         version=args.version,
         topics=topics,
         resources=resources,
         claims=claims,
+        concepts=concepts,
         relationships=(_parent_edges(topics) + tagged_edges(resources, codes)
                        + _scholarly_edges(resources)
-                       + claim_edges(claims, topic_codes=codes)),
+                       + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)),
         built_at=args.built_at,
     )
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
-          f"{len(claims)} claims)")
+          f"{len(claims)} claims, {len(concepts)} concepts)")
     for path in sorted(out.iterdir()):
         print(f"  {path.name:<22} {path.stat().st_size:>9,} bytes")
     return 0

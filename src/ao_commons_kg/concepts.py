@@ -92,6 +92,15 @@ class Concept:
     added: str | None = None
 
     def to_dict(self) -> dict:
+        """As a release node. `topics` is a list because JSONL has no tuple,
+        and a consumer reading it back should get the same thing either way."""
+        payload = {
+            "id": self.id, "label": self.label, "topics": list(self.topics),
+            "origin": self.origin, "note": self.note, "added": self.added,
+        }
+        return {k: v for k, v in payload.items() if v not in (None, "", [], ())}
+
+    def to_dict(self) -> dict:
         payload = {"id": self.id, "label": self.label, "origin": self.origin}
         if self.topics:
             payload["topics"] = list(self.topics)

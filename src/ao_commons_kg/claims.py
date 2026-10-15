@@ -259,6 +259,20 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
         if vocabulary is not None and claim.concept_tags:
             for tag in claim.concept_tags:
                 concept = vocabulary.get(tag)
+                # The tag is on the claim either way. The edge is what lets a
+                # concept be navigated to rather than only filtered by, and it
+                # is the layer something reading the corpus can traverse
+                # instead of working out which statements share a term on
+                # every question it is asked.
+                if concept is not None:
+                    edges.append(Relationship(
+                        source_id=claim.id,
+                        target_id=f"concept:{concept.id}",
+                        relation=RelationType.TAGGED_WITH,
+                        confidence_class=claim.confidence_class,
+                        source_resource_id=claim.resource_id,
+                        extraction_method=claim.extraction_method,
+                    ))
                 for code in (concept.topics if concept else ()):
                     if code not in derived:
                         derived.append(code)
