@@ -165,6 +165,11 @@ claude mcp add ao-commons -- aokg-mcp
 [docs/mcp.md](docs/mcp.md) covers Claude Desktop, what it answers well, and
 what it deliberately will not tell you while the corpus is unreviewed.
 
+[docs/agents.md](docs/agents.md) sets out who may act here and on whose
+behalf: the library's own agent, and the proposal for connecting somebody
+else's, which may read a person's review queue and recommend a verdict but
+never file one.
+
 ## Using the data
 
 ```bash
