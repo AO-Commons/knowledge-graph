@@ -325,7 +325,7 @@ class Resource:
     """
     facets: dict[str, list[str]] = field(default_factory=dict)
     is_borrowed_background: bool = False
-    """Section 15 material: relevant by transfer, not about agentic
+    """Section 15 material: relevant by transfer, not about autonomous
     organizations directly. Flagged so it can be excluded from counts that
     claim to measure the field's own literature."""
     tool: ToolProfile | None = None

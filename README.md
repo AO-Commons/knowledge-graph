@@ -1,6 +1,6 @@
 # AO Commons — Knowledge Graph
 
-A maintained map of research on **agentic organizations**: organizations in which machine agents hold operational or decision authority.
+A maintained map of research on **autonomous organizations**: organizations in which machine agents hold operational or decision authority.
 
 Browse the field through a purpose-built taxonomy, discover related work through the scholarly graph, find implementations and evaluations where they exist, and query the whole library directly from an AI agent.
 

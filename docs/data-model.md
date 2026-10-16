@@ -36,7 +36,7 @@ Note what this is *not*: Airtable also carries a `Curation State`
 workflow. That one is internal and never published. Two fields with "review"
 in the name would be a trap, so they are named apart.
 
-`is_borrowed_background` marks Section 15 material — relevant by transfer rather than about agentic organizations directly — so it can be excluded from counts that claim to measure the field's own literature.
+`is_borrowed_background` marks Section 15 material — relevant by transfer rather than about autonomous organizations directly — so it can be excluded from counts that claim to measure the field's own literature.
 
 ### Entity
 
