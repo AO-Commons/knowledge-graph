@@ -1,0 +1,58 @@
+id: resource:doi:10-62486-978-9915-9928-6-0-ch06
+resource_type: peer-reviewed-paper
+title: 'Ira: utilizar la inteligencia artificial para dañar'
+abstract: 'Technological wrath is used as a metaphor for studying how artificial intelligence
+  can amplify harm, misinformation, violence, and discriminatory decisions.This chapter examines
+  mechanisms of harm without reducing them to a single intention and preserves distinctions
+  among objective, production, distribution, decision, and consequence.The analysis integrates
+  studies of bias, toxicity, automated messaging, deepfakes, and public trust with institutional
+  frameworks of responsibility.The findings show that a consequence may require correction
+  even when attribution of harm remains uncertain, and that human oversight is meaningful
+  only when reviewers have sufficient time, information, competence, and practical authority
+  to change a decision.Provenance is distinguished from truthfulness: confirming where content
+  came from can help reconstruct responsibility, but does not demonstrate that a claim is
+  true.The chapter also examines harassment, automation of hate, identity manipulation, and
+  erosion of trust, together with the need to respond to affected people rather than only
+  to technical system performance.The synthesis connects prevention, support, and remedy with
+  responsible actors, resources, and review procedures.An illustrative scenario involving
+  a false academic instruction separates verification, care, and restoration of opportunities;
+  its effectiveness has not been evaluated.The chapter concludes that responsibility is a
+  verifiable relationship between evidence and the capacity to modify consequences.An adequate
+  institutional response must identify mechanisms, reduce exposure, correct decisions, and
+  repair harm without using uncertainty about intention as a reason for inaction.Care therefore
+  requires technical correction to be accompanied by understandable procedures for the people
+  who experience the consequences.'
+authors:
+- Libardo Ramón Polanía
+organizations:
+- Universidad de la Amazonia
+affiliations:
+  Libardo Ramón Polanía:
+  - Universidad de la Amazonia
+published_at: '2026-10-08'
+url: https://doi.org/10.62486/978-9915-9928-6-0.ch06
+doi: 10.62486/978-9915-9928-6-0.ch06
+openalex_id: W7220939050
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Humans and Automation: Use, Misuse, Disuse, Abuse; Ironies of automation; TruthfulQA:
+  Measuring How Models Mimic Human Falsehoods. Scope scan by claude-opus-5: The chapter''s
+  load-bearing claims concern accountability and oversight for decisions produced by automated
+  systems, which is precisely the hybrid human-machine authority question the register''s
+  deliberative-democracy line explicitly does not exclude; remove the machine and the findings
+  about attribution uncertainty and meaningful review collapse. Its broader harm catalogue
+  (deepfakes, toxicity, harassment) is background, but the responsibility-and-remedy framework
+  applies directly to organizations where agents decide. What changes because agents hold
+  authority: It specifies conditions under which human review of machine-made decisions is
+  more than a rubber stamp — reviewers need time, information, competence, and practical authority
+  to reverse — and argues that remedy and correction must proceed even when causal attribution
+  of an automated harm is unresolved. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 2

@@ -1,0 +1,54 @@
+id: resource:doi:10-63802-hndh-v1-i1-362
+resource_type: peer-reviewed-paper
+title: 'Human Oversight Is Not Enough: Rethinking Accountability in AI-Assisted Clinical Decision-Making'
+abstract: Governance of artificial intelligence (AI) in clinical care often places clinicians
+  between AI outputs and care decisions, yet a human signature can coexist with weak practical
+  control. This Perspective asks why participation may fail to produce accountable oversight,
+  how duties should be distributed, and which institutional conditions make review meaningful
+  and correctable. Drawing on human-factors research, sociotechnical governance, public-accountability
+  theory, and recent oversight proposals, we argue that nominal involvement cannot establish
+  accountability when clinicians lack relevant information, time, authority, or workable review
+  routes. We define Accountable Human Oversight (AHO) as a normative institutional arrangement
+  linking task-specific human review to capability, authority, traceability, and redress.
+  These conditions overlap with prior frameworks, including a 2026 model. AHO’s narrower proposed
+  contribution is to connect them to actor–forum answerability and accessible clinical reconsideration,
+  rather than to claim new oversight dimensions. We outline risk-proportionate governance
+  that assigns review ownership, evidence, triggers, and corrective actions across developers
+  and model suppliers, healthcare institutions, clinicians, and regulators, while reserving
+  case-level review for settings in which it can add value. AHO has not been empirically evaluated
+  and is not evidence of improved patient outcomes. Future research should examine its feasibility,
+  workload, equity, and effects.
+authors:
+- Yangyi Ren
+organizations:
+- Shaanxi University of Chinese Medicine
+affiliations:
+  Yangyi Ren:
+  - Shaanxi University of Chinese Medicine
+published_at: '2026-10-11'
+url: https://doi.org/10.63802/hndh.v1.i1.362
+doi: 10.63802/hndh.v1.i1.362
+openalex_id: W7221662656
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Automation bias: a systematic review of frequency, effect me; Humans and Automation:
+  Use, Misuse, Disuse, Abuse; Ironies of automation. Scope scan by claude-opus-5: Removing
+  the machine dissolves the finding: the whole problem is that AI outputs carry the decision
+  while a clinician''s signature carries the accountability, so this is human-AI hybrid authority
+  design, not the excluded deliberative-democracy or general-entity material. It is prescriptive
+  about how review ownership, evidence, triggers and corrective actions are distributed across
+  developers, institutions, operators and regulators, which is directly reusable for agent-authority
+  oversight despite being unevaluated and clinically framed. What changes because agents hold
+  authority: It specifies the institutional conditions — capability, authority, traceability,
+  redress, and an actor–forum answerability route — under which a human sign-off over a machine''s
+  output counts as real accountability rather than a rubber stamp, which is exactly the failure
+  mode when agents hold de facto operational authority behind a nominal human. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 2

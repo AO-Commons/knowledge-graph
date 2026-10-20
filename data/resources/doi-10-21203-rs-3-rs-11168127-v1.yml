@@ -1,0 +1,38 @@
+id: resource:doi:10-21203-rs-3-rs-11168127-v1
+resource_type: preprint
+title: 'Governable agentic intelligence: a lifecycle framework linking capability, assurance,
+  and oversight in large language model agents'
+authors:
+- Harry Udoh
+organizations:
+- Arden University
+affiliations:
+  Harry Udoh:
+  - Arden University
+published_at: '2026-10-16'
+url: https://doi.org/10.21203/rs.3.rs-11168127/v1
+doi: 10.21203/rs.3.rs-11168127/v1
+openalex_id: W7222628263
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents That Matter;
+  Agnostic Learning with Unknown Utilities; Harms from Increasingly Agentic Algorithmic Systems;
+  Humans and Automation: Use, Misuse, Disuse, Abuse; Not What You''ve Signed Up For: Compromising
+  Real-World LLM-I. Scope scan by claude-opus-5: The work is about governing and overseeing
+  agents that act, not about human collective decision-making, so no exclusion-register line
+  (notably the deliberative-democracy/political-theory line) applies. Removing the machine
+  removes the subject matter entirely, and its citation by six library papers reflects genuine
+  topical centrality rather than generic methodological borrowing. What changes because agents
+  hold authority: It supplies a lifecycle structure for tying an LLM agent''s demonstrated
+  capability to the assurance evidence and oversight controls that must accompany any grant
+  of operational authority, which is precisely the delegation-and-accountability design problem
+  in an agentic organization. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 2

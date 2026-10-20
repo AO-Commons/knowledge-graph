@@ -1,0 +1,57 @@
+id: resource:doi:10-1145-3858422
+resource_type: peer-reviewed-paper
+title: 'Deliberation Within AI: A Reproducible Pipeline for Multi-Agent Deliberation Simulation'
+abstract: 'Recent advances in generative AI have renewed interest in whether large language
+  models can simulate aspects of public deliberation. Current deliberation simulations remain
+  methodologically fragile: fluent conversational outputs are often treated as evidence of
+  deliberative quality despite limited reproducibility, weak safeguards for viewpoint diversity,
+  and limited systematic evaluation. This article argues that AI-deliberation simulations
+  can function as credible analytical instruments only if they incorporate infrastructures
+  for reproducibility, plurality preservation, and deliberative quality assessment. The article
+  develops a stage-structured method for deliberative simulation combining persona validation,
+  plurality auditing, and discourse-quality assessment within a reproducible pipeline. The
+  framework is presented as a methodological proof-of-concept and evaluated through a simulation
+  study on the June 2023 Swiss federal referendum on the Climate and Innovation Act together
+  with a batch replication study comparing direct and structured deliberation architectures.
+  The findings show that, as an integrated theory-driven architecture, the structured pipeline
+  generates more stable deliberative dynamics than unconstrained interaction, including clearer
+  plurality preservation and more coherent opinion updating. At the same time, the simulations
+  remain below human minipublics in terms of contextual grounding and justificatory depth.
+  The article positions AI-deliberation simulations as methodological infrastructures for
+  cumulative and empirically testable research on AI-supported deliberation in digital governance.'
+authors:
+- Francesco Veri
+organizations:
+- University of Zurich
+affiliations:
+  Francesco Veri:
+  - University of Zurich
+published_at: '2026-10-13'
+url: https://doi.org/10.1145/3858422
+doi: 10.1145/3858422
+openalex_id: W7221691248
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Supported Degradation of the Self Concept: A Theoretical ; AI can help humans
+  find common ground in democratic delibera; Out of One, Many: Using Language Models to Simulate
+  Human Sa. Scope scan by claude-opus-5: The paper is a simulation-method and evaluation-infrastructure
+  contribution, not a study of an organization where machines hold operational or decision
+  authority, so it sits near the register''s deliberative-democracy line; however, unlike
+  excluded human collective decision theory, its findings vanish without the machine and its
+  evaluation harness is load-bearing for the field. Hold it as borrowed background in section
+  15 alongside Melting Pot rather than ingesting it as an agentic-organization record. What
+  changes because agents hold authority: It supplies reproducibility, plurality-auditing and
+  discourse-quality instrumentation for evaluating multi-agent deliberation, which is the
+  measurement apparatus you would need to oversee agent collectives that deliberate toward
+  organizational positions — but the agents here simulate a public rather than hold any authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-20'
+expansion_generation: 1
+is_borrowed_background: true

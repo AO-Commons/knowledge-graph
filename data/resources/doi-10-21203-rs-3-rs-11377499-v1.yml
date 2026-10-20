@@ -1,0 +1,37 @@
+id: resource:doi:10-21203-rs-3-rs-11377499-v1
+resource_type: preprint
+title: 'The Containment Gap: Autonomy, Detection and Loss of Control in Documented AI Incidents,
+  2010–2026'
+authors:
+- Alfredo Merlet
+organizations:
+- Universidad de Sevilla
+affiliations:
+  Alfredo Merlet:
+  - Universidad de Sevilla
+published_at: '2026-10-18'
+url: https://doi.org/10.21203/rs.3.rs-11377499/v1
+doi: 10.21203/rs.3.rs-11377499/v1
+openalex_id: W7222868385
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Agnostic Learning with Unknown Utilities; Harms from Increasingly Agentic Algorithmic
+  Systems; Ironies of automation. Scope scan by claude-opus-5: The paper is squarely about
+  autonomy levels, detection latency and loss of control in deployed AI systems — the oversight
+  and accountability layer of agent authority — so no exclusion-register line applies (it
+  is not human collective decision-making, voting design, or general entity regulation). It
+  is substantive rather than adjacent: removing the machine removes the finding entirely,
+  and the containment-gap evidence changes delegation and monitoring design rather than merely
+  informing it. What changes because agents hold authority: It supplies empirical base rates
+  on how far machine autonomy in real deployments has outrun detection and intervention, which
+  directly constrains how much operational authority an organization can delegate and what
+  monitoring and containment controls it must build around agents. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 2

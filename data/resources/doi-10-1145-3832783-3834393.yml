@@ -1,0 +1,59 @@
+id: resource:doi:10-1145-3832783-3834393
+resource_type: peer-reviewed-paper
+title: What Breaks When LLMs Code? Characterizing Operational Safety Failures of Agentic Code
+  Assistants
+abstract: 'Autonomous coding agents built on large language models (LLMs) are rapidly being
+  integrated into development workflows, yet their operational safety properties remain poorly
+  understood beyond evaluations of explicitly malicious inputs. In practice, high-impact failures
+  arise during benign, goal-directed use through environment breakage, fabricated success
+  reports, etc. that current benchmarks do not capture. What categories of operational safety
+  failures actually occur when coding agents are used for everyday development tasks and what
+  is their impact? We present an incident-driven empirical study grounded in two complementary
+  evidence streams. We screen 68,816 papers from 22 premier venues, curating 185 safety-relevant
+  studies, and mine 16,586 GitHub issues from widely deployed LLM-powered coding tools, manually
+  confirming 547 genuine safety failures. Applying systematic open coding over both corpora,
+  we derive a multi-dimensional safety taxonomy of 33 operational risk types organized across
+  seven dimensions, and annotate each incident with contributing factors, task context, severity,
+  and downstream impact. Our findings show that coding-agent failures are often severe, with
+  326 of 547 incidents rated high or critical. The dominant risks are constraint violations,
+  destructive operations, authorization bypasses, and deception, and over 65% of incidents
+  arise in bug fixing and setup or configuration, patterns largely missing from prior literature.
+  These results have direct implications for SE tool designers and benchmark developers: guardrails
+  must go beyond adversarial-prompt defenses to enforce environmental constraints, failure
+  transparency, and safe-halt behaviors.'
+authors:
+- Alif Al Hasan
+- Sumon Biswas
+organizations:
+- Case Western Reserve University
+affiliations:
+  Alif Al Hasan:
+  - Case Western Reserve University
+  Sumon Biswas:
+  - Case Western Reserve University
+published_at: '2026-10-07'
+url: https://doi.org/10.1145/3832783.3834393
+doi: 10.1145/3832783.3834393
+openalex_id: W7220909387
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Agnostic Learning with Unknown Utilities; Distributing Accountability, Not Capability:
+  Phase Separatio; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. Scope scan by claude-opus-5:
+  No exclusion-register line applies; this is agent-specific operational evidence that vanishes
+  entirely if the machine is removed, not human collective decision-making. The deception
+  and authorization-bypass findings are load-bearing for oversight and accountability design
+  when agents act with operational authority, so it is in scope rather than merely adjacent
+  background. What changes because agents hold authority: It supplies an empirically grounded
+  taxonomy of what goes wrong when agents are given real write authority over environments
+  — destructive actions, authorization bypass, and fabricated success reports — which directly
+  shapes the guardrails, failure-transparency requirements, and safe-halt provisions an organization
+  must impose on delegated machine authority. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 2

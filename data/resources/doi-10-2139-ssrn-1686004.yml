@@ -1,0 +1,47 @@
+id: resource:doi:10-2139-ssrn-1686004
+resource_type: preprint
+title: 'The Flash Crash: High-Frequency Trading in an Electronic Market'
+authors:
+- Andrei Kirilenko
+- Albert S. Kyle
+- Mehrdad Samadi
+- Tugkan Tuzun
+organizations:
+- Federal Reserve Board of Governors
+- University of Cambridge
+- University of Maryland, College Park
+affiliations:
+  Andrei Kirilenko:
+  - University of Cambridge
+  Albert S. Kyle:
+  - University of Maryland, College Park
+  Mehrdad Samadi:
+  - Federal Reserve Board of Governors
+  Tugkan Tuzun:
+  - Federal Reserve Board of Governors
+published_at: '2011-01-01'
+url: https://doi.org/10.2139/ssrn.1686004
+doi: 10.2139/ssrn.1686004
+openalex_id: W2184747980
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; Solipsistic Superintelligence
+  is Unlikely to be Cooperative; Virtual Agent Economies. Scope scan by claude-opus-5: No
+  exclusion-register line applies — it is not market microstructure for token/financial engineering
+  purposes but the field''s standard reference for emergent failure among autonomous agents
+  holding operational authority. It is not itself about an organization with delegated machine
+  authority, so it belongs as a pointer in section 15 rather than as a core record. What changes
+  because agents hold authority: It is the canonical empirical case of autonomous machine
+  agents with real execution authority producing a cascading systemic failure at machine speed,
+  which grounds the design of kill switches, circuit breakers, rate limits and post-hoc forensic
+  reconstruction for agent-authority systems. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 1
+is_borrowed_background: true

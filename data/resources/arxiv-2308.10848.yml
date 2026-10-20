@@ -1,0 +1,96 @@
+id: resource:arxiv:2308.10848
+resource_type: preprint
+title: 'AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors'
+abstract: Autonomous agents empowered by Large Language Models (LLMs) have undergone significant
+  improvements, enabling them to generalize across a broad spectrum of tasks. However, in
+  real-world scenarios, cooperation among individuals is often required to enhance the efficiency
+  and effectiveness of task accomplishment. Hence, inspired by human group dynamics, we propose
+  a multi-agent framework \framework that can collaboratively and dynamically adjust its composition
+  as a greater-than-the-sum-of-its-parts system. Our experiments demonstrate that \framework
+  framework can effectively deploy multi-agent groups that outperform a single agent. Furthermore,
+  we delve into the emergence of social behaviors among individual agents within a group during
+  collaborative task accomplishment. In view of these behaviors, we discuss some possible
+  strategies to leverage positive ones and mitigate negative ones for improving the collaborative
+  potential of multi-agent groups. Our codes for \framework will soon be released at \url{https://github.com/OpenBMB/AgentVerse}.
+authors:
+- Weize Chen
+- Yusheng Su
+- Jingwei Zuo
+- Cheng I. Yang
+- Chenfei Yuan
+- Chi-Min Chan
+- Heyang Yu
+- Yaxi Lu
+- Yi-Hsin Hung
+- Chen Qian
+- Yujia Qin
+- Xin Cong
+- Ruobing Xie
+- Zhiyuan Liu
+- Maosong Sun
+- Jie Zhou
+organizations:
+- Beijing University of Posts and Telecommunications
+- Tencent (China)
+- Tsinghua University
+affiliations:
+  Weize Chen:
+  - Tsinghua University
+  Yusheng Su:
+  - Tsinghua University
+  Jingwei Zuo:
+  - Tsinghua University
+  Cheng I. Yang:
+  - Beijing University of Posts and Telecommunications
+  Chenfei Yuan:
+  - Tsinghua University
+  Chi-Min Chan:
+  - Tsinghua University
+  Heyang Yu:
+  - Tsinghua University
+  Yaxi Lu:
+  - Tsinghua University
+  Yi-Hsin Hung:
+  - Tsinghua University
+  Chen Qian:
+  - Tsinghua University
+  Yujia Qin:
+  - Tsinghua University
+  Xin Cong:
+  - Tsinghua University
+  Ruobing Xie:
+  - Tencent (China)
+  Zhiyuan Liu:
+  - Tsinghua University
+  Maosong Sun:
+  - Tsinghua University
+  Jie Zhou:
+  - Tencent (China)
+published_at: '2023-08-21'
+url: https://arxiv.org/abs/2308.10848
+doi: 10.48550/arXiv.2308.10848
+arxiv_id: '2308.10848'
+openalex_id: W4386081870
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Large Language Model
+  based Multi-Agents: A Survey of Progres; The Collaboration Gap: Exploration and Benchmarking
+  of Open-. Scope scan by claude-opus-5: This is not generic optimization or benchmark work:
+  it is an architecture in which machine agents decide who joins the group, how decisions
+  are reached, and how results are evaluated, which is squarely about operating an organization
+  where agents hold operational authority. No exclusion-register line applies; the emergent-social-behavior
+  findings (conformity, destructive conduct) are direct oversight considerations that would
+  vanish without the agents. What changes because agents hold authority: It gives agents authority
+  over the organization''s own composition — a recruiter agent selects the team, the group
+  deliberates and executes, and evaluation feeds back into restructuring — so team structure,
+  role assignment and emergent conformity/destructive behaviors become design and oversight
+  problems for the machine layer itself. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-10-20'
+expansion_generation: 1
