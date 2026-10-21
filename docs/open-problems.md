@@ -202,8 +202,20 @@ which reader-asked questions are worth that reading.
 
 A list of everything anyone typed is a log. These five gates decide what goes
 on the list a maintainer is asked to read, in this order. A question that
-fails one is kept, with the gate that failed it recorded, and stays readable —
-a test nobody can inspect is a test nobody should trust.
+fails one is not recorded at all.
+
+That last part was decided twice. Keeping a rejected question with the gate
+that rejected it makes the test inspectable, which is worth something: a test
+nobody can audit is a test nobody should trust. It also puts a greeting on a
+shelf of a public list and turns the filter into a tour of other people's
+rejected typing, which is worth less. So nothing ineligible is stored, and the
+cost is admitted here rather than hidden: a gate that rejects too much leaves
+no evidence that it did, and the only way to find out is to ask the library
+something it should have kept and see what happens.
+
+One exception, and it is not an exception to the test. A question the library
+answered well fails gate three, and is kept: it is a real question, and "this
+has an answer here" is worth showing. Only the junk goes unrecorded.
 
 1. **Is it about autonomous organizations?** The scope judge already answers
    this on every ask. A question it calls out of scope is never eligible,
@@ -227,6 +239,10 @@ a test nobody can inspect is a test nobody should trust.
    preference and a request for a definition cannot be, so none of them is an
    open problem however reasonable it is. The usable form is, can you name
    what a paper would have to report for the question to be closed?
+
+   Every question goes to a judge for this; counting content words was tried
+   first and is the wrong instrument, because it rejects a greeting for the
+   wrong reason and rejects a terse real question for the same one.
 
    This gate is deliberately stricter than gate one, and the two pull in
    opposite directions on purpose. The scope judge that decides how to word a
