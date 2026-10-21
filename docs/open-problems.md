@@ -219,11 +219,23 @@ a test nobody can inspect is a test nobody should trust.
    question that came back `unread` or `nothing-held`, or was answered weakly,
    is eligible.
 
-4. **Could evidence settle it?** A prediction, a preference and a request for
-   a definition cannot be closed by a paper, so none of them is an open
-   problem however reasonable it is. The usable form of this test is: can you
-   name what a paper would have to report for the question to be closed? If
-   not, it is a conversation.
+4. **Is it a research question this field could settle?** Two things at once,
+   because the gate is useless without both. It has to be a question about
+   machine agents holding authority, or an adjacent subject — multi-agent
+   coordination, agent evaluation, identity, reputation, machine
+   accountability. And a paper has to be able to close it: a prediction, a
+   preference and a request for a definition cannot be, so none of them is an
+   open problem however reasonable it is. The usable form is, can you name
+   what a paper would have to report for the question to be closed?
+
+   This gate is deliberately stricter than gate one, and the two pull in
+   opposite directions on purpose. The scope judge that decides how to word a
+   refusal leans towards "in scope", because telling somebody their real
+   question is off-topic is the worse error when answering. The eligibility
+   gate leans the other way, because the list is read by people deciding what
+   to research and one that admits greetings is worth less than a short one.
+   Both biases are correct for their own job; neither is correct for the
+   other's. This was written after a greeting reached the list.
 
 5. **Has somebody already asked it?** A near duplicate seconds the question
    that exists rather than starting a second one beside it. Without this gate
