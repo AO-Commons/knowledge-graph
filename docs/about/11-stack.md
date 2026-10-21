@@ -2,7 +2,7 @@
 id: stack
 title: The stack
 kicker: no server, no database
-order: 9
+order: 11
 ---
 
 The whole thing is files in a public git repository and a static page. That is

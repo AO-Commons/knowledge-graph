@@ -2,8 +2,26 @@
 id: changes
 title: Changelog
 kicker: most recent first
-order: 10
+order: 12
 ---
+
+**Late October 2026. The ask log goes public.**
+
+- A question put to the library appears on a public list under the name of
+  whoever asked it, and anyone can second it. Nothing asked before this was
+  published, and nothing retroactively can be.
+- Five gates decide what goes on that list, written up in the contributor
+  documentation. Four of them cost nothing, because answering already works
+  them out; the fourth is a judge of its own.
+- An answer can be judged, in six specific ways rather than with a rating, and
+  each judgement becomes an issue against the statement it disputes.
+- One of those six files a paper the library was missing. When that paper is
+  read, the question offers to ask itself again; the original answer is never
+  rewritten.
+- Contributions are posted under the contributor's own GitHub account rather
+  than the app's, so they land in their own history.
+- Credit can now be earned back as well as spent, capped at what was spent, so
+  a good question with good feedback costs its author nothing.
 
 **October 2026. Questions, and a guide that covers both surfaces.**
 

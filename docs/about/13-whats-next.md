@@ -2,7 +2,7 @@
 id: next
 title: Roadmap
 kicker: and what it depends on
-order: 11
+order: 13
 ---
 
 **Now. Get the statements reviewed.**
@@ -42,8 +42,14 @@ order: 11
   this today and `status` is set by hand.
 - The organization layer. Affiliations are resolved for a fraction of records,
   and reputation is what would make review worth doing.
-- Work out how reviewing earns something. Adding is self-interested and needs
-  no incentive; reviewing is the scarce good.
+- Earning is half built. Judging an answer and having a question backed both
+  return credit; reviewing a statement and finishing a paper are declared in
+  the ledger and award nothing yet, and reviewing is the scarce good.
+- A maintainer's reply should come back to the person who filed. Closing an
+  issue does; a comment on it does not, and the question page would have to
+  become a thread for it to.
+- Promote a reader-asked question into the corpus. The list makes the reading
+  worth doing and nothing carries the result back into `questions.yml`.
 
 **Later. v1.**
 
