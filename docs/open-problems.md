@@ -21,10 +21,12 @@ a summary of them and not a ninth kind of statement. It is a node, and each
 gap reaches it by an **`addresses`** edge that keeps its own quote, its own
 paper and its own wording.
 
-Both names are [MIRA](https://github.com/mira-rg)'s, a shared schema for
-research graphs, as the four claim-to-claim relations are CiTO's. Adopting
-somebody else's word for a layer we had not built cost nothing and means an
-outside reader already knows what the edge asserts.
+Both names are [MIRA](https://github.com/MIRA-science/schema)'s, a shared
+schema for research graphs, as the four claim-to-claim relations are CiTO's.
+In MIRA's vocabulary the edge runs from a `Claim` to a `Question`, which is
+the direction `ADDRESSES` runs here. Adopting somebody else's word for a
+layer we had not built cost nothing and means an outside reader already knows
+what the edge asserts.
 
 The distinction matters because the two sentences
 

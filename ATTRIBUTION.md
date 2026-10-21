@@ -50,7 +50,7 @@ Attribution: AO Commons — https://github.com/AO-Commons/knowledge-graph
 
 ## MIRA
 
-[mira-science/schema](https://github.com/mira-science/schema) — Apache License 2.0.
+[MIRA-science/schema](https://github.com/MIRA-science/schema) — Apache License 2.0.
 Namespace `http://purl.org/mira-science/mira#`.
 
 MIRA is an open schema for research graphs: questions, the claims that answer
@@ -67,8 +67,9 @@ graph is already speaking a common one if MIRA becomes the standard it is
 trying to be.
 
 Their schema goes deeper than ours where they work and we do not — `Study`,
-`Protocol`, and `Evidence` tied to the activity that produced it, which is the
-shape of a lab recording its own experiments. Ours goes deeper on reading
+`Protocol`, and `Evidence` carrying `observationOriginActivity`, which is the
+shape of a lab recording its own experiments. It also has a `Request`: "a unit
+of work the community can pick up — issue-tracker-shaped". Ours goes deeper on reading
 somebody else's published work: a verbatim quote for every claim, a verdict
 bound to the wording it was given, and a reviewer linked to a byline. The two
 are the same graph approached from opposite ends, which is the interesting
