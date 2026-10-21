@@ -3,7 +3,7 @@
 How a question gets onto the open problems surface, what it is made of, and
 what the numbers beside it count.
 
-**Status:** live as of 2026-10-09. Argued on the roadmap for months before it
+**Status:** live as of 2026-10-09; the reader-asked layer added 2026-10-21. Argued on the roadmap for months before it
 was built, under its MIRA names, which is why the vocabulary below was not
 invented here.
 
@@ -178,6 +178,77 @@ command prints the statement ids so the reading can start.
 
 Two concepts qualify today: `sources-of-legitimate-machine-authority` and
 `legitimacy-erosion-through-automation`.
+
+## Questions readers ask
+
+Everything above describes a question derived from what papers wrote. A reader
+asking the library something is a second source for the same object, and a
+weaker one: a gap statement is a published author saying in print that
+something is unresolved, while a question typed into a search box is somebody
+wondering. The two must not be mixed without saying which is which.
+
+They are worth having anyway, for a reason the derived ones cannot supply.
+`--propose` can only find a question the corpus already contains the material
+for. A reader asking about something no held paper mentions is the only signal
+this repository gets about what is missing from it entirely.
+
+So a reader-asked question is **not** a question node. It lives in the
+application, it never enters `questions.yml` by itself, and the only way it
+becomes a question here is the way everything else does: somebody reads it,
+writes the sentence, and opens a pull request. What follows is the test for
+which reader-asked questions are worth that reading.
+
+### The eligibility test
+
+A list of everything anyone typed is a log. These five gates decide what goes
+on the list a maintainer is asked to read, in this order. A question that
+fails one is kept, with the gate that failed it recorded, and stays readable —
+a test nobody can inspect is a test nobody should trust.
+
+1. **Is it about autonomous organizations?** The scope judge already answers
+   this on every ask. A question it calls out of scope is never eligible,
+   however often it is asked. This is the only gate that rejects the asker
+   rather than the library.
+
+2. **Is it a question rather than a lookup?** "Do you have this paper?" and a
+   bare URL have their answer in the index, not in the literature. A lookup is
+   not an open question even when the index says no.
+
+3. **Is it still unsettled here?** An answer that cited statements and came
+   back at strong confidence has settled the question for this corpus. Only a
+   question that came back `unread` or `nothing-held`, or was answered weakly,
+   is eligible.
+
+4. **Could evidence settle it?** A prediction, a preference and a request for
+   a definition cannot be closed by a paper, so none of them is an open
+   problem however reasonable it is. The usable form of this test is: can you
+   name what a paper would have to report for the question to be closed? If
+   not, it is a conversation.
+
+5. **Has somebody already asked it?** A near duplicate seconds the question
+   that exists rather than starting a second one beside it. Without this gate
+   the most-asked question is spread across nine rows and the list ranks
+   phrasings instead of questions.
+
+A maintainer can also mark a question ineligible, with a reason, recorded.
+Five automatic gates will admit things that do not belong and reject things
+that do, and a judgement that cannot be overridden by a person is a judgement
+nobody can be held to.
+
+### What the gates do not decide
+
+Nothing here says a backed question is true, well posed, or worth answering.
+It says a person asked it, the library could not answer it, and a paper could
+in principle. The sentence that makes it a question in this corpus is still
+written by hand, and `asserted_by` still records whose hand.
+
+### Promotion
+
+Not built. When it is, it should carry the reader-asked origin in the node
+rather than losing it: a question that arrived this way has a different
+warrant from one clustered out of seven gap statements, and a reader of
+`questions.yml` should be able to tell them apart without consulting the
+application.
 
 ## What is not built
 
