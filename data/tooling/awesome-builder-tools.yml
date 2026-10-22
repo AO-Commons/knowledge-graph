@@ -59,6 +59,7 @@ entries:
     a Coordinator builds the task DAG **at runtime** instead of a hand-wired graph up front.
     MIT, actively growing.'
   stars: 6.5k+
+  promoted_to: resource:tool:open-multi-agent-oma
 - name: Google ADK
   url: https://github.com/google/adk-python
   section: Managing the Company
