@@ -62,3 +62,23 @@ jobs:
               echo "::notice::$f has moved $ahead line(s) since $latest — cut a release when it matters"
             fi
           done
+
+      # The MIRA projection is only worth publishing if it is MIRA. Validated
+      # against their own generated shapes, vendored at the commit named in
+      # schema/PINNED, so a green run here means the same thing in six months
+      # as it does today.
+      - name: MIRA projection conforms
+        run: |
+          pip install -q rdflib pyshacl
+          python3 scripts/validate_mira.py /tmp/rel-a/check
+
+      # A pin that silently falls behind is a fork nobody decided on. This
+      # warns rather than fails: their schema moving is not our build breaking,
+      # it is news.
+      - name: MIRA pin is current
+        run: |
+          pinned="$(sed -n 2p schema/PINNED)"
+          head="$(git ls-remote https://github.com/MIRA-science/schema HEAD | cut -f1)"
+          if [ "$pinned" != "$head" ]; then
+            echo "::notice::MIRA schema has moved: pinned ${pinned:0:8}, upstream ${head:0:8} — re-vendor and re-validate"
+          fi

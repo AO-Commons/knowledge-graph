@@ -15,7 +15,7 @@ from pathlib import Path
 
 from .claims import claim_edges, load_claims
 from .questions import load_questions
-from .export import write_release
+from .export import write_release, write_mira
 from .graph import co_citation_counts, similarity_edges
 from .models import ConfidenceClass, Relationship, RelationType
 from .people import apply_index, build_index, duplicates
@@ -512,9 +512,28 @@ def cmd_build(args) -> int:
                        + addresses),
         built_at=args.built_at,
     )
+    # The same release in MIRA's vocabulary, beside the JSONL rather than
+    # instead of it. The report beside it names everything the projection
+    # could not say, which is the half of this worth reading.
+    edges = (_parent_edges(topics) + tagged_edges(resources, codes)
+             + _scholarly_edges(resources)
+             + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
+             + addresses)
+    _, mira_report = write_mira(
+        out,
+        built_at=args.built_at,
+        topics=topics, resources=resources, claims=claims,
+        questions=questions, concepts=concepts, relationships=edges,
+    )
+
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
           f"{len(claims)} claims, {len(questions)} questions, "
           f"{len(concepts)} concepts)")
+    mira = mira_report.to_dict()
+    print(f"  mira: {mira['emitted']['node_total']} nodes, "
+          f"{mira['emitted']['edge_total']} edges emitted; "
+          f"{mira['omitted']['node_total']} nodes, "
+          f"{mira['omitted']['edge_total']} edges have no MIRA home")
     for path in sorted(out.iterdir()):
         print(f"  {path.name:<22} {path.stat().st_size:>9,} bytes")
     return 0
