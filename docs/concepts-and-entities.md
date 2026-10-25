@@ -96,6 +96,12 @@ since the start, with an `entity_type` drawn from approach, method,
 implementation, framework, model, benchmark, dataset, organization, standard
 and system. `Claim.entity_ids` exists too. Nothing has used either.
 
+A schema audit on 2026-10-25 cut three fields that were empty and
+undocumented, and kept this one: an empty field with a written design and a
+build plan is a proposal, not rot, and the two are only told apart by reading.
+`Claim.topic_codes` went in that pass — a statement reaches the taxonomy
+through its concepts now, which is the derivation this document argues for.
+
 **What building it takes.** A small amount, and all of it follows existing
 patterns:
 

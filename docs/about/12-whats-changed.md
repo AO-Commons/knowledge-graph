@@ -14,7 +14,7 @@ order: 12
   documentation. Four of them cost nothing, because answering already works
   them out; the fourth is a judge of its own.
 - An answer can be judged, in six specific ways rather than with a rating, and
-  each judgement becomes an issue against the statement it disputes.
+  each judgment becomes an issue against the statement it disputes.
 - One of those six files a paper the library was missing. When that paper is
   read, the question offers to ask itself again; the original answer is never
   rewritten.

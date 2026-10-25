@@ -26,7 +26,7 @@ def build(tmp_path, version="v0.1.0"):
     edges = [
         Relationship("resource:openalex:W1", "resource:openalex:W2", RelationType.CITES),
         Relationship("resource:openalex:W1", "topic:2.2", RelationType.TAGGED_WITH,
-                     confidence_class=ConfidenceClass.INFERRED, confidence_score=0.8),
+                     confidence_class=ConfidenceClass.INFERRED),
         Relationship("resource:openalex:W2", "resource:openalex:W1",
                      RelationType.SIMILAR_TO, method="co-citation", score=0.31),
     ]

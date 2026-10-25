@@ -115,7 +115,6 @@ def claim_brief(claim) -> dict:
         "quoted_from_the_paper": claim.quote,
         "read_from": claim.extracted_from,
         "extracted_by": claim.extraction_method,
-        "suggests_topics": claim.topic_codes,
         "review_status": claim.review_status.value,
         "verdict": claim.verdict,
         "verified_by": claim.reviewed_by,

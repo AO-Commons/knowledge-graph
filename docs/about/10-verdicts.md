@@ -6,7 +6,7 @@ order: 10
 ---
 
 Under every answer that cited something is one line: **something wrong with
-this answer?** It opens into six specific judgements rather than a rating.
+this answer?** It opens into six specific judgments rather than a rating.
 
 A thumbs down says somebody was unhappy and gives a maintainer nothing to act
 on. Each of these is a claim about a particular statement, which is why it can
@@ -32,7 +32,7 @@ the most useful thing a reader of a half-built library can report — and the
 only one that can make an answer better rather than less wrong.
 
 It takes a link. An arXiv link is fetched, read, and put through the same
-scope judge that decides what enters the corpus, and the judgement is written
+scope judge that decides what enters the corpus, and the judgment is written
 into the filing issue so whoever reads it can act in one pass.
 
 ## Answers are not rewritten

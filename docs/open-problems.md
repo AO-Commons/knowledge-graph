@@ -262,7 +262,7 @@ has an answer here" is worth showing. Only the junk goes unrecorded.
 
 A maintainer can also mark a question ineligible, with a reason, recorded.
 Five automatic gates will admit things that do not belong and reject things
-that do, and a judgement that cannot be overridden by a person is a judgement
+that do, and a judgment that cannot be overridden by a person is a judgment
 nobody can be held to.
 
 ### What the gates do not decide

@@ -606,10 +606,6 @@ class Claim:
     verify it against."""
     claim_type: ClaimType = ClaimType.FINDING
     entity_ids: list[str] = field(default_factory=list)
-    topic_codes: list[str] = field(default_factory=list)
-    """Where this claim suggests the record belongs. A suggestion and nothing
-    more — the record's own `taxonomy_topics` are only ever written by a human
-    filing it, so a claim can inform that judgment without becoming it."""
     concept_tags: list[str] = field(default_factory=list)
     """Fine-grained concepts this claim argues about, from the concept
     vocabulary rather than from the taxonomy.
@@ -722,11 +718,6 @@ class Claim:
                 f"claim {self.id}: reviewed_by is set but review_status is "
                 "unreviewed — a reviewer without a review is a contradiction"
             )
-        for code in self.topic_codes:
-            if not TOPIC_CODE.match(code):
-                raise ValueError(
-                    f"claim {self.id}: topic code {code!r} is not a topic code"
-                )
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
@@ -833,14 +824,11 @@ class Relationship:
     target_id: str
     relation: RelationType
     confidence_class: ConfidenceClass | None = None
-    confidence_score: float | None = None
     score: float | None = None
     method: str | None = None
     source_resource_id: str | None = None
     source_location: str | None = None
     extraction_method: str | None = None
-    computed_at: str | None = None
-    created_at: str | None = None
     attribution: str | None = None
     """Where a third party's data ends up on this edge.
 
@@ -873,9 +861,6 @@ class Relationship:
                 f"{self.relation.value} is non-deterministic and must carry a "
                 "confidence_class of EXTRACTED, INFERRED, or AMBIGUOUS"
             )
-
-        if self.confidence_score is not None and not 0.0 <= self.confidence_score <= 1.0:
-            raise ValueError(f"confidence_score {self.confidence_score} is outside 0..1")
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)

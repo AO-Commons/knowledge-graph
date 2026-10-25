@@ -146,8 +146,10 @@ UNHOMED_CLAIM_FIELDS: dict[str, str] = {
         "counting differently from a reader's is the part still missing.",
     "concept_tags":
         "Proposed upstream by RRGI as contextEntities (schema issue #35).",
-    "topic_codes":
-        "Proposed upstream by RRGI as tradition/stemsFrom (schema issue #35).",
+    "entity_ids":
+        "The named things a statement is about — a system, an organization, a "
+        "particular deployment. Designed here and not yet built; see "
+        "docs/concepts-and-entities.md for why these are not concepts.",
 }
 
 
@@ -452,8 +454,6 @@ def build_graph(
             # drafted the edge is reported rather than emitted.
             "creator": drafter["@id"],
         }
-        if edge.created_at or edge.computed_at:
-            statement["created"] = edge.created_at or edge.computed_at
         reified.append(statement)
         report.edges[name] += 1
 

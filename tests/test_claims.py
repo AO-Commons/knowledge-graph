@@ -16,7 +16,20 @@ from ao_commons_kg.claims import (
     save_claims,
     slug_for,
 )
+from ao_commons_kg.concepts import Concept, Vocabulary
 from ao_commons_kg.models import Claim, ClaimType, ConfidenceClass, RelationType, ReviewStatus
+
+def a_vocabulary(**topics_by_concept):
+    """A vocabulary where each concept sits under the topics given.
+
+    A statement's place in the taxonomy follows from what it argues about,
+    so a test that wants a topic edge has to say which concept puts it there.
+    """
+    return Vocabulary(concepts={
+        cid: Concept(id=cid, label=cid.replace("-", " "), topics=tuple(codes))
+        for cid, codes in topics_by_concept.items()
+    })
+
 
 QUOTE = ("Agents operating under per-task budget caps exceeded their allocation in "
          "3% of runs, against 27% for the unconstrained baseline.")
@@ -63,10 +76,6 @@ class TestClaim:
     def test_an_unknown_verdict_is_refused(self):
         with pytest.raises(ValueError, match="unknown verdict"):
             a_claim(review_status="reviewed", reviewed_by="anke", verdict="wrong-ish")
-
-    def test_a_topic_code_that_is_not_a_code_is_refused(self):
-        with pytest.raises(ValueError, match="not a topic code"):
-            a_claim(topic_codes=["governance"])
 
     def test_review_status_is_always_emitted(self):
         """As on Resource: an absent field must never have to be read as
@@ -139,14 +148,29 @@ class TestEdges:
     def test_a_topic_edge_is_inferred_not_extracted(self):
         """The claim was read out of the source. Which branch it belongs under
         is our inference about it, and the two should not look alike."""
-        edges = claim_edges([a_claim(topic_codes=["11.6"])])
+        edges = claim_edges(
+            [a_claim(concept_tags=["budget-caps"])],
+            vocabulary=a_vocabulary(**{"budget-caps": ["11.6"]}),
+        )
         about = [e for e in edges if e.relation is RelationType.ABOUT][0]
         assert about.confidence_class is ConfidenceClass.INFERRED
         assert about.target_id == "topic:11.6"
 
     def test_a_topic_outside_the_taxonomy_is_dropped_rather_than_dangling(self):
-        edges = claim_edges([a_claim(topic_codes=["11.6", "99.9"])], topic_codes={"11.6"})
+        edges = claim_edges(
+            [a_claim(concept_tags=["budget-caps"])],
+            topic_codes={"11.6"},
+            vocabulary=a_vocabulary(**{"budget-caps": ["11.6", "99.9"]}),
+        )
         assert [e.target_id for e in edges if e.relation is RelationType.ABOUT] == ["topic:11.6"]
+
+    def test_a_claim_with_no_concept_reaches_no_topic(self):
+        """There used to be a fallback to the claim's own `topic_codes`, and
+        dropping it once cost 62 edges in a commit where nothing failed. The
+        field is gone now, so this asserts the silence deliberately rather
+        than discovering it again."""
+        edges = claim_edges([a_claim(concept_tags=[])], vocabulary=a_vocabulary())
+        assert [e for e in edges if e.relation is RelationType.ABOUT] == []
 
 
 class TestCoverage:

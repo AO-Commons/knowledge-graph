@@ -232,17 +232,17 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
     consumer meeting one of these edges in isolation can still tell it apart
     from a citation and go back to the sentence behind it.
 
-    A claim's topics come from its concepts when it has them, and from its own
-    `topic_codes` otherwise. That is the derivation principle applied one level
-    down: a statement's place in the taxonomy follows from what it argues
-    about, rather than being asserted separately and then disagreeing with
-    itself — which the two layers did, on `arxiv:2511.03434` claim 2, where
-    the codes said 10.1 and 4.4 and the concept resolved to 5.3.
+    A claim's topics come from its concepts. That is the derivation principle
+    applied one level down: a statement's place in the taxonomy follows from
+    what it argues about, rather than being asserted separately and then
+    disagreeing with itself — which the two layers did, on `arxiv:2511.03434`
+    claim 2, where the codes said 10.1 and 4.4 and the concept resolved to 5.3.
 
-    The fallback matters during the changeover. Re-reading drops
-    `topic_codes`, and without it 62 claim-to-topic edges vanished from the
-    graph in one commit with nothing failing except a test that happened to
-    assert the edge kind still existed.
+    There used to be a fallback to the claim's own `topic_codes`, kept through
+    the changeover because dropping it once cost 62 claim-to-topic edges in a
+    commit where nothing failed. The changeover is finished — no claim in the
+    corpus carries one — and the field is gone, so the fallback went with it.
+    The edge count is asserted in tests/test_claims.py rather than trusted.
     """
     edges: list[Relationship] = []
     for claim in claims:
@@ -276,7 +276,7 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
                 for code in (concept.topics if concept else ()):
                     if code not in derived:
                         derived.append(code)
-        for code in (derived or claim.topic_codes):
+        for code in derived:
             if topic_codes is not None and code not in topic_codes:
                 continue
             edges.append(Relationship(

@@ -117,10 +117,5 @@ class TestRelationship:
                             method="bibliographic-coupling", score=0.42)
         assert edge.to_dict()["method"] == "bibliographic-coupling"
 
-    def test_confidence_score_is_bounded(self):
-        with pytest.raises(ValueError, match="outside 0..1"):
-            Relationship("resource:a", "entity:x", RelationType.DISCUSSES,
-                         confidence_class=ConfidenceClass.INFERRED, confidence_score=4.2)
-
     def test_relation_accepts_a_plain_string(self):
         assert Relationship("a", "b", "CITES").relation is RelationType.CITES
