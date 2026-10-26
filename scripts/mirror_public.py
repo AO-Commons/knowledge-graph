@@ -28,7 +28,7 @@ the organizations known to run it.
 
 The taxonomy is a field here, not a table. It is a tree of 103 codes whose whole
 value is the hierarchy, and a flat Airtable tab would keep the codes while
-losing the thing that makes them worth having. The claim and statement layer is
+losing the thing that makes them worth having. The claim and claim layer is
 left out for a stronger reason: a claim without the sentence it was read from is
 exactly the confident, unfalsifiable data this project exists not to produce.
 """

@@ -1,5 +1,5 @@
 name: Send in a filing
-description: Statement verdicts or taxonomy tags from the filing site.
+description: Claim verdicts or taxonomy tags from the filing site.
 title: "[Filing] "
 labels: ["filing"]
 body:
@@ -12,7 +12,7 @@ body:
 
         Two kinds of filing come through here, and one issue can carry both:
 
-        - **Golden-set review** — verdicts on drafted statements. The block
+        - **Golden-set review** — verdicts on drafted claims. The block
           starts with `claims:`.
         - **Filing** — taxonomy codes on records. The block starts with `records:`.
 
@@ -40,6 +40,6 @@ body:
     attributes:
       label: Anything that gave you trouble
       description: |
-        Statements you were unsure about, or records where nothing in the
+        Claims you were unsure about, or records where nothing in the
         taxonomy fit. These are the most useful thing in the submission — a
         repeated near-miss is usually a real gap, and worth a proposal.

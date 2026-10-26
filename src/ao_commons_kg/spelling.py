@@ -1,18 +1,18 @@
 """One spelling, for the text this project writes itself.
 
 The corpus is written by a model, in many sittings, and a model will spell
-`organisational` in one statement and `organizational` in the next without
+`organisational` in one claim and `organizational` in the next without
 either being wrong. That is fine in prose and not fine here, because a
-statement's tags are slugs: `organisational-knowledge-legibility` and
+claim's tags are slugs: `organisational-knowledge-legibility` and
 `organizational-knowledge-legibility` are two concepts, joined to nothing,
-and two statements about the same idea stop being linkable. American
+and two claims about the same idea stop being linkable. American
 throughout, because it has to be one or the other.
 
 Not applied to anything a publisher or an author wrote. A `quote` is checked
 verbatim against the paper and a resource's title and abstract are what the
 paper is called and says — rewriting either would make the corpus disagree
 with the thing it points at, and the corpus would be the one that was wrong.
-So a statement reading `Artificial Organizational Intelligence` above a quote
+So a claim reading `Artificial Organizational Intelligence` above a quote
 reading `Organisational` is correct, and deliberate.
 """
 

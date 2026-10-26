@@ -1,6 +1,6 @@
 """Finding the questions a paper says are open.
 
-Every other statement type has to be recognized. An open question is
+Every other claim type has to be recognized. An open question is
 announced, because an author stating one wants it found — which makes this
 the one place a pattern can do real work, and the one place it is allowed to
 be generous: a false positive costs a passage an extractor glances at and
@@ -31,7 +31,7 @@ class TestTheType:
     def test_it_is_not_primary(self):
         """It is not an answer the library holds. It is a question the library
         can say nobody has answered — a different product on the same
-        statements."""
+        claims."""
         assert not ClaimType.GAP.is_primary
 
     def test_the_bot_accepts_it(self):

@@ -14,17 +14,17 @@ not filing targets. They are how two claims from different papers become
 findable as candidates for a relation, and how a researcher arrives with a
 question rather than guessing which branch it lives under.
 
-**The vocabulary is what statements have needed.** It grows from the bottom
+**The vocabulary is what claims have needed.** It grows from the bottom
 up, one term at a time, when a claim argues about something nothing existing
 covers — which is the opposite of how the taxonomy works and deliberately so.
 A predefined list is a guess about what a field will turn out to argue about,
 and the evidence here is that the guess mostly missed: of the 17 terms
-carrying a statement, 9 arrived from claims and 8 from the taxonomy, while
+carrying a claim, 9 arrived from claims and 8 from the taxonomy, while
 506 taxonomy terms have never been reached for at all.
 
 So the taxonomy's subpoints are a **suggestion pool**, not the vocabulary.
 They are there to be found before a near-duplicate is invented, and they
-join the vocabulary the moment a statement uses one. Until then they are
+join the vocabulary the moment a claim uses one. Until then they are
 available, not in use.
 
 The terms come from two places, and never from a third:
@@ -256,10 +256,10 @@ def propose(label: str, topics, note: str | None = None) -> dict:
 
 
 def derived_topics(claims, vocabulary: Vocabulary) -> dict[str, int]:
-    """Taxonomy codes a set of statements puts their paper into, and how often.
+    """Taxonomy codes a set of claims puts their paper into, and how often.
 
-    The union of the categories the statements' concepts sit under. A paper
-    lands in several naturally, because its statements do — which is what two
+    The union of the categories the claims' concepts sit under. A paper
+    lands in several naturally, because its claims do — which is what two
     thirds of the corpus is already doing by hand, less precisely, by carrying
     multiple topic codes on the container.
 
@@ -269,7 +269,7 @@ def derived_topics(claims, vocabulary: Vocabulary) -> dict[str, int]:
 
     What this cannot see is the paper's framing. Measured over the first six
     papers, derivation gains codes the filer missed — Melting Pot picks up
-    organizational architecture because two of its statements argue that a
+    organizational architecture because two of its claims argue that a
     population specialized on expected partners is less robust — and loses
     codes describing what kind of move the paper makes: agency theory,
     borrowed background. No individual sentence carries a reframing. So this augments a hand-filed list rather
@@ -349,9 +349,9 @@ def duplicate_pairs(vocabulary: Vocabulary, *,
 
 
 def usage(claims, vocabulary: Vocabulary) -> dict[str, int]:
-    """How many statements carry each concept, including the zeros.
+    """How many claims carry each concept, including the zeros.
 
-    The zeros matter. A concept on no statements is inert, and a concept on
+    The zeros matter. A concept on no claims is inert, and a concept on
     exactly one connects nothing — it can never propose a pair, which is the
     only thing a concept is for. Neither is wrong; a term added today is used
     once before it is used twice. But a term still alone after a few passes

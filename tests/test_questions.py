@@ -31,14 +31,14 @@ def minimal(**over):
 
 
 def test_a_question_must_be_a_question():
-    # A statement here would assert something no paper said.
+    # A claim here would assert something no paper said.
     with pytest.raises(ValueError, match="phrased as a question"):
         Question(id="question:x", text="It does not hold")
 
 
 def test_a_question_nobody_asks_is_refused(tmp_path):
     path = write(tmp_path, minimal(addressed_by=[]))
-    with pytest.raises(QuestionError, match="no statement addresses it"):
+    with pytest.raises(QuestionError, match="no claim addresses it"):
         load_questions(path)
 
 
@@ -51,7 +51,7 @@ def test_an_unexplained_edge_is_refused(tmp_path):
 def test_an_edge_to_a_statement_we_do_not_hold_is_refused(tmp_path):
     path = write(tmp_path, minimal(
         addressed_by=[{"claim": "claim:arxiv:9999.99999:1", "because": "x"}]))
-    with pytest.raises(QuestionError, match="not a statement we hold"):
+    with pytest.raises(QuestionError, match="not a claim we hold"):
         load_questions(path, claims=load_claims())
 
 
@@ -73,14 +73,14 @@ def test_papers_and_occurrences_are_counted_apart():
     """The difference is the only reason the layer is worth having.
 
     A question asked twice by one paper is that paper's framing. A question
-    asked by two papers is a statement about a field. Counting them as one
+    asked by two papers is a claim about a field. Counting them as one
     number would let the first pass for the second.
     """
     claims = list(load_claims())
     questions, edges = load_questions(claims=claims)
     counts = reach(questions, edges, claims)
 
-    # Asked three times by two papers: a statement about a field.
+    # Asked three times by two papers: a claim about a field.
     transfer = counts["question:capability-measurement-transfer"]
     assert transfer["occurrences"] == 3
     assert transfer["papers"] == 2
@@ -98,7 +98,7 @@ def test_the_corpus_questions_all_load_and_point_somewhere_real():
     questions, edges = load_questions(claims=claims)
     assert questions, "data/questions.yml should hold the corpus's questions"
     for question in questions:
-        assert question.note, f"{question.id} must say why its statements are one question"
+        assert question.note, f"{question.id} must say why its claims are one question"
         assert question.asserted_by, f"{question.id} must say who made the judgment"
     for edge in edges:
         assert edge.source_id in held
@@ -116,7 +116,7 @@ def test_every_gap_statement_is_accounted_for():
     gaps = {c.id for c in claims if c.claim_type.value == "gap"}
     _, edges = load_questions(claims=claims)
     addressed = {e.source_id for e in edges}
-    assert gaps <= addressed, f"gap statements with no question: {sorted(gaps - addressed)}"
+    assert gaps <= addressed, f"gap claims with no question: {sorted(gaps - addressed)}"
 
 
 # --- proposing ----------------------------------------------------------

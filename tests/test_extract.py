@@ -159,9 +159,9 @@ class TestMethodTagging:
     def test_a_method_carrying_only_its_paper_s_subject_is_flagged(self):
         from ao_commons_kg.extract import method_tagged_by_subject
         flagged = method_tagged_by_subject([
-            {"claim_type": "finding", "concept_tags": ["organizational-knowledge-legibility"],
+            {"claim_type": "evidence", "concept_tags": ["organizational-knowledge-legibility"],
              "text": "a finding"},
-            {"claim_type": "method", "concept_tags": ["organizational-knowledge-legibility"],
+            {"claim_type": "protocol", "concept_tags": ["organizational-knowledge-legibility"],
              "text": "KOI is a protocol for connecting disparate systems"},
         ])
         assert flagged == ["KOI is a protocol for connecting disparate systems"]
@@ -169,32 +169,32 @@ class TestMethodTagging:
     def test_a_technique_tag_is_clean(self):
         from ao_commons_kg.extract import method_tagged_by_subject
         assert not method_tagged_by_subject([
-            {"claim_type": "finding", "concept_tags": ["prosocial-capability"], "text": "f"},
-            {"claim_type": "method",
+            {"claim_type": "evidence", "concept_tags": ["prosocial-capability"], "text": "f"},
+            {"claim_type": "protocol",
              "concept_tags": ["agent-generated-evaluation-and-scoring"], "text": "m"},
         ])
 
     def test_it_reports_rather_than_rejects(self):
         """Sometimes the technique is the subject — a paper whose
         contribution is the mechanism itself. Refusing would delete real
-        statements to satisfy a heuristic."""
+        claims to satisfy a heuristic."""
         from ao_commons_kg.extract import check
         result = check([
             {"text": "a finding", "quote": "q", "attribution": "own",
-             "claim_type": "finding", "concept_tags": ["dynamic-evaluation"]},
+             "claim_type": "evidence", "concept_tags": ["dynamic-evaluation"]},
             {"text": "a method", "quote": "q", "attribution": "own",
-             "claim_type": "method", "concept_tags": ["dynamic-evaluation"]},
+             "claim_type": "protocol", "concept_tags": ["dynamic-evaluation"]},
         ])
         assert len(result.kept) == 2
         assert result.subject_tagged_methods == ["a method"]
 
     def test_the_yield_that_matters_is_primaries(self):
-        """A paper's statement count says how much was written down; this
+        """A paper's claim count says how much was written down; this
         says how much of it is what anybody came for."""
         from ao_commons_kg.extract import check
         result = check([
-            {"text": "a finding", "quote": "q", "attribution": "own", "claim_type": "finding"},
-            {"text": "a method", "quote": "q", "attribution": "own", "claim_type": "method"},
+            {"text": "a finding", "quote": "q", "attribution": "own", "claim_type": "evidence"},
+            {"text": "a method", "quote": "q", "attribution": "own", "claim_type": "protocol"},
             {"text": "a position", "quote": "q", "attribution": "own", "claim_type": "position"},
         ])
         assert len(result.kept) == 3

@@ -29,7 +29,7 @@ class FakeIndex:
 
 class TestWhatItSearchesFor:
     def test_it_asks_both_halves(self):
-        """Concepts statements needed, and subpoints nothing is filed under.
+        """Concepts claims needed, and subpoints nothing is filed under.
         Without the second it is a slower `grow`: it returns neighbours of
         what we already hold, which expansion does better."""
         queries = queries_from_corpus(

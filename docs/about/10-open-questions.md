@@ -8,8 +8,8 @@ Ask the library something and the question goes on a public list under your
 name, beside everyone else's. The list is sorted by how many other people have
 backed the same question.
 
-This is a second source for the same object the gap statements produce, and a
-weaker one. A gap statement is a published author saying in print that
+This is a second source for the same object the gap claims produce, and a
+weaker one. A gap claim is a published author saying in print that
 something is unresolved; a question typed into a search box is somebody
 wondering. The two are never mixed without saying which is which.
 
@@ -88,15 +88,15 @@ theirs automatically.
 ## What a tag on a question means
 
 Each one is a fact the corpus already records, in the same vocabulary the open
-problems surface uses: statements that argue a position, against statements
+problems surface uses: claims that argue a position, against claims
 that report a measurement.
 
 | Tag | What it means |
 | --- | --- |
-| nothing on this yet | Retrieval matched no statement at all. |
+| nothing on this yet | Retrieval matched no claim at all. |
 | read, but not on this | The papers that would answer it are held and unread. |
-| argued, not measured | Statements exist, and every one of them argues. |
-| one measurement, thin | A finding bears on it, and the answer was weak anyway. |
+| argued, not measured | Claims exist, and every one of them argues. |
+| one measurement, thin | One evidence claim bears on it, and the answer was weak anyway. |
 | now an open problem | Somebody wrote the sentence and the corpus took it. |
 
 ## From a question to an open problem

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Write the statement vocabulary out as a file anyone can read.
+"""Write the claim vocabulary out as a file anyone can read.
 
 The 523 terms exist only as an object built at load time: 514 parsed out of
 indented bullets in the taxonomy markdown, 9 from `concepts-extra.yml`. So
-the list that decides which statements can ever be linked to each other was
+the list that decides which claims can ever be linked to each other was
 not readable anywhere — not on the site, not in a release, not from the MCP
 server, and not in the repository except as prose inside a document about
 something else.
@@ -57,7 +57,7 @@ def build() -> dict:
             "label": concept.label,
             "topics": list(concept.topics),
             "origin": concept.origin,
-            "statements": counts.get(key, 0),
+            "claims": counts.get(key, 0),
         }
         if by_concept.get(key):
             entry["claims"] = sorted(by_concept[key])
@@ -65,29 +65,29 @@ def build() -> dict:
             entry["note"] = concept.note
         concepts.append(entry)
 
-    # The vocabulary is what statements have needed. Everything else is a
+    # The vocabulary is what claims have needed. Everything else is a
     # suggestion — available to be found before a near-duplicate is invented,
     # and not yet part of the list. Reporting 523 as "the vocabulary" would
     # describe a predefined scheme this deliberately is not: 9 of the 17 terms
     # in use arrived from claims, and 506 taxonomy terms have never been
     # reached for.
-    in_use = [c for c in concepts if c["statements"]]
-    suggestions = [c for c in concepts if not c["statements"]]
+    in_use = [c for c in concepts if c["claims"]]
+    suggestions = [c for c in concepts if not c["claims"]]
 
     return {
         # Said in the file, because a generated artifact that does not say so
         # is one somebody will eventually hand-edit.
         "generated_by": "scripts/build_concepts.py — do not edit; "
                         "terms are defined in the taxonomy and concepts-extra.yml",
-        "how_this_grows": "bottom-up, from statements. A term enters the vocabulary "
+        "how_this_grows": "bottom-up, from claims. A term enters the vocabulary "
                           "when a claim needs it. The taxonomy's subpoints are a "
                           "suggestion pool to search before inventing a near-duplicate, "
-                          "and join the vocabulary the moment a statement uses one.",
+                          "and join the vocabulary the moment a claim uses one.",
         "counts": {
             "vocabulary": len(in_use),
             "vocabulary_from_claims": sum(1 for c in in_use if c["origin"] == "claim"),
             "vocabulary_from_taxonomy": sum(1 for c in in_use if c["origin"] == "taxonomy"),
-            "on_exactly_one_statement": sum(1 for c in in_use if c["statements"] == 1),
+            "on_exactly_one_statement": sum(1 for c in in_use if c["claims"] == 1),
             "suggestions_available": len(suggestions),
         },
         # Shipped rather than left to be rediscovered. These cannot be fixed
@@ -109,9 +109,9 @@ def main() -> int:
     counts = payload["counts"]
     print(f"wrote {OUTPUT.relative_to(REPO)}  {OUTPUT.stat().st_size:,} bytes")
     print(f"  vocabulary: {counts['vocabulary']} terms in use — "
-          f"{counts['vocabulary_from_claims']} grown from statements, "
+          f"{counts['vocabulary_from_claims']} grown from claims, "
           f"{counts['vocabulary_from_taxonomy']} taken from the suggestion pool")
-    print(f"  {counts['on_exactly_one_statement']} sit on one statement and connect nothing yet")
+    print(f"  {counts['on_exactly_one_statement']} sit on one claim and connect nothing yet")
     print(f"  {counts['suggestions_available']} suggestions available, unused")
     print(f"  {len(payload['looks_like_one_idea'])} pairs look like one idea")
     return 0

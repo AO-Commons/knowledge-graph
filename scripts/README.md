@@ -62,7 +62,7 @@ Three things keep a bad run from doing damage:
 Two things are deliberately left in the repository. The **taxonomy** is a tree
 whose whole value is the hierarchy, and a flat tab would keep the codes while
 losing what makes them worth having; it travels as a field instead. The **claim
-and statement layer** stays because a claim without the sentence it was read
+and claim layer** stays because a claim without the sentence it was read
 from is exactly the confident, unfalsifiable data this project exists not to
 produce.
 

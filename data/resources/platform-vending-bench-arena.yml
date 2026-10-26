@@ -4,6 +4,8 @@ title: Vending-Bench Arena
 description: Multi-agent extension of Vending-Bench; source of the July 2026 price-collusion,
   truce-breaking, and supplier-deception results.
 url: https://andonlabs.com/evals/vending-bench-arena
+organizations:
+- Andon Labs
 taxonomy_topics:
 - '5.2'
 - '10.2'

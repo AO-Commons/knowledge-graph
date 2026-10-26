@@ -161,7 +161,7 @@ def build() -> dict:
          "score": round(e.score or 0, 3)}
         for e in similarity_edges(references, min_shared=2)
     ]
-    # MAKES_CLAIM and ABOUT only. claim_edges also emits a statement's
+    # MAKES_CLAIM and ABOUT only. claim_edges also emits a claim's
     # concepts now, and this picture draws topics rather than concepts: an
     # edge to a node the page never adds is a line to nowhere, which is what
     # test_every_link_lands_on_a_node exists to catch.
@@ -172,7 +172,7 @@ def build() -> dict:
         if e.relation in (RelationType.MAKES_CLAIM, RelationType.ABOUT)
     ]
     # Claim to claim. Drawn apart from everything else because it is the only
-    # edge here that is nobody's observation — a person read two statements
+    # edge here that is nobody's observation — a person read two claims
     # and decided they conflict. `because` rides along so the page can show
     # the reasoning rather than a bare line between two nodes.
     edges += [

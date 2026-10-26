@@ -9,6 +9,8 @@ repository_url: https://github.com/block/buzz
 license: Apache-2.0
 published_at: '2026-07-21'
 updated_at: '2026-08-07'
+organizations:
+- Block
 taxonomy_topics:
 - '2.1'
 - '3.2'
@@ -21,6 +23,7 @@ facets:
   temporal_relevance: current
   applicability: directly-actionable
 tool:
+  layer: collaboration-layer
   agent_model: Agents are participants rather than command-responders, holding their own cryptographic
     Nostr identities and defined permissions. They post, review code, send patches, and run
     approved workflows alongside humans under the same identity model. Block's announcement

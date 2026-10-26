@@ -510,7 +510,7 @@ def record_for(entry: Entry, draft: Draft, documents: list[Document], *,
         "repository_url": entry.url,
         "license": draft.fields.get("license"),
         # No taxonomy codes. Filing moved to stage 7 and is being derived from
-        # what a record's statements say (see docs/pipeline.md); a profiler that
+        # what a record's claims say (see docs/pipeline.md); a profiler that
         # guessed at codes would add to the two thirds of records that carry
         # more than one and the 28 that carry none. Left empty deliberately, for
         # derivation or a person to fill.

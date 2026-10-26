@@ -11,14 +11,14 @@ See also [mcp.md](mcp.md) for the read surface this extends, and
 
 ## Start from what is already possible
 
-A capable agent can clone this repository today. It can read every statement
+A capable agent can clone this repository today. It can read every claim
 and quote, write a filing by hand, open an issue, open a pull request. Nothing
 stops it and nothing should: the corpus is public and that is the point.
 
 So a connected-agent surface cannot be justified as access. It has to be
 justified as **shape** — and it is, on four counts.
 
-**It knows what needs doing.** The scarce information is not the statements,
+**It knows what needs doing.** The scarce information is not the claims,
 it is which of them are waiting on *you*: drawn out of papers carrying your
 byline, not yet judged, with their quotes beside them. That list does not
 exist in the repository. It is computed from the corpus joined to an
@@ -72,7 +72,7 @@ with one id missing.
                             │                              │
                             │                        the existing bot
                             ▼                              ▼
-                      queue, statements,            pull request
+                      queue, claims,            pull request
                       quotes (read)                        │
                                                    you merge it
                                                            ▼
@@ -96,8 +96,8 @@ Five calls, on top of the read tools already in [mcp.md](mcp.md).
 
 | Call | Does | Returns |
 | --- | --- | --- |
-| `queue.list` | the statements waiting on this agent's person | ids, text, quote, kind, paper, what is missing |
-| `statement.get` | one of them, in full | text, quote, section, tags, extraction method |
+| `queue.list` | the claims waiting on this agent's person | ids, text, quote, kind, paper, what is missing |
+| `claim.get` | one of them, in full | text, quote, section, tags, extraction method |
 | `filing.draft` | validate a verdict without opening anything | ok, or exactly which id or tag is wrong |
 | `filing.open` | open the filing issue on its person's behalf | the issue url |
 | `record.propose` | put a paper or tool to the scope scan | the candidate, and the scan's verdict |

@@ -26,7 +26,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.facets import FACETS  # noqa: E402
-from ao_commons_kg.models import TRISTATE, Resource, ReviewStatus  # noqa: E402
+from ao_commons_kg.models import TRISTATE, Resource, ReviewStatus, ToolProfile  # noqa: E402
 
 RESOURCES_TABLE = "Resources"
 SOURCES_TABLE = "Sources"
@@ -87,6 +87,7 @@ TOOL_FIELDS = {
     "Tool: Self Hostable": "self_hostable",
     "Tool: Model Agnostic": "model_agnostic",
     "Tool: Status": "status",
+    "Tool: Layer": "layer",
 }
 TOOL_LIST_FIELDS = {
     "Tool: Languages": "languages",
@@ -191,6 +192,9 @@ RESOURCE_FIELDS = [
     _select("Tool: Self Hostable", sorted(TRISTATE)),
     _select("Tool: Model Agnostic", sorted(TRISTATE)),
     _text("Tool: Status"),
+    _select("Tool: Layer", sorted(ToolProfile.LAYERS),
+            description="Tools only. Which layer of an AO's stack it is: control plane, hosted "
+                        "platform, collaboration layer. Set by hand."),
     _text("Tool: Languages", "Comma-separated."),
     _text("Tool: Protocols", "Comma-separated (nostr, mcp, a2a)."),
     _text("Tool: Used By", "Comma-separated registry slugs of AOs known to run on this."),

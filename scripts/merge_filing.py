@@ -44,7 +44,7 @@ TAXONOMY = REPO / "taxonomy" / "agentic-org-research-library-taxonomy-v3.md"
 FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 
 # `adjusted` is the one that carries payload. The others are a judgment
-# about a statement; this one replaces it — the reviewer retyped the sentence
+# about a claim; this one replaces it — the reviewer retyped the sentence
 # and confirmed the tags that followed. Without it here the site would offer
 # an edit, the reviewer would make it, and the text would be dropped between
 # the issue and the repository. `overstated` and `ambiguous` stay accepted so
@@ -52,7 +52,7 @@ FENCE = re.compile(r"```(?:ya?ml)?\s*(.*?)```", re.S)
 CLAIM_VERDICTS = frozenset({
     "accurate", "adjusted", "overstated", "not-in-source", "ambiguous",
 })
-CLAIM_TYPES = frozenset({"finding", "method", "definition", "limitation", "gap",
+CLAIM_TYPES = frozenset({"evidence", "protocol", "definition", "limitation", "gap",
                          "position", "background"})
 
 # A filing that is only claim verdicts still needs a shape for the tag half,
@@ -83,7 +83,7 @@ def extract(body: str) -> dict:
             continue
         if isinstance(payload, dict) and any(
             isinstance(payload.get(block), dict)
-            for block in ("records", "claims", "new_statements")
+            for block in ("records", "claims", "new_claims", "new_statements")
         ):
             return payload
     raise FilingError(
@@ -135,11 +135,11 @@ def validate_claims(payload: dict, *, known_claims: set[str],
             )
             continue
 
-        # What the reviewer was looking at. The site ships each statement's
-        # fingerprint and the submission echoes it back, so a statement
+        # What the reviewer was looking at. The site ships each claim's
+        # fingerprint and the submission echoes it back, so a claim
         # re-read between the reviewer opening the page and sending the
         # filing is caught here rather than recorded as judged. The filing
-        # says which statement changed, which is a reviewer's question; the
+        # says which claim changed, which is a reviewer's question; the
         # alternative is a verdict on a sentence nobody read.
         record = {"verdict": verdict,
                   "reviewed_on": str(entry.get("reviewed_on") or date.today().isoformat())}
@@ -153,7 +153,7 @@ def validate_claims(payload: dict, *, known_claims: set[str],
                 continue
             if saw != current:
                 problems.append(
-                    f"{claim_id}: the statement changed after you reviewed it "
+                    f"{claim_id}: the claim changed after you reviewed it "
                     f"(you saw {saw}, it is now {current}). Reload the Review tab "
                     "and check this one again — the rest of your filing is fine")
                 continue
@@ -167,7 +167,7 @@ def validate_claims(payload: dict, *, known_claims: set[str],
             if not text:
                 problems.append(
                     f"{claim_id}: marked adjusted but carries no text. The verdict "
-                    "says the statement was rewritten and nothing says how")
+                    "says the claim was rewritten and nothing says how")
                 continue
             if len(text) < 15:
                 problems.append(f"{claim_id}: the adjusted text is too short to be a claim")
@@ -179,7 +179,7 @@ def validate_claims(payload: dict, *, known_claims: set[str],
                 continue
             # Checked against the vocabulary here as well as in the browser.
             # A filing arrives as text somebody could have hand-edited, and a
-            # tag that does not resolve is a statement nothing can link to.
+            # tag that does not resolve is a claim nothing can link to.
             if unknown := _unknown_concepts(concepts):
                 problems.append(
                     f"{claim_id}: concept(s) do not resolve: {', '.join(unknown)}")
@@ -204,7 +204,7 @@ def mark_author_verdicts(cleaned: dict[str, dict], login: str) -> list[str]:
     answers for a link a named person has confirmed.
 
     This is recorded as a fact about the reviewer, not as a higher score. An
-    author is the best judge of whether a statement says what their paper says
+    author is the best judge of whether a claim says what their paper says
     and the worst judge of whether it overstates — which is the verdict worth
     having. A reader can weigh that only if it is written down.
     """
@@ -272,18 +272,22 @@ def merge_claims(cleaned: dict[str, dict], author: str, gold_path: Path = CLAIM_
     }
 
 
-def validate_new_statements(payload: dict, *, known_records: set[str]) -> dict[str, list]:
-    """Check statements a reviewer wrote themselves.
+def validate_new_claims(payload: dict, *, known_records: set[str]) -> dict[str, list]:
+    """Check claims a reviewer wrote themselves.
 
     Held to the same standard as the machine's: one assertion, and a quote that
     is actually in the paper. The quote is verified against the source in
-    `merge_new_statements`, where the full text is available — a human writing
+    `merge_new_claims`, where the full text is available — a human writing
     from memory misremembers a sentence just as readily as a model does, and a
-    statement nobody can check is the thing this layer exists to not have.
+    claim nobody can check is the thing this layer exists to not have.
     """
-    written = payload.get("new_statements") or {}
+    # `new_statements:` was this block's name until 2026-10-26. A filing
+    # already open in somebody's browser still carries it, and refusing those
+    # would lose work for a rename nobody outside this repo asked for.
+    key = "new_claims" if payload.get("new_claims") is not None else "new_statements"
+    written = payload.get(key) or {}
     if not isinstance(written, dict):
-        raise FilingError("`new_statements:` should map record ids to lists of statements.")
+        raise FilingError(f"`{key}:` should map record ids to lists of claims.")
 
     problems: list[str] = []
     cleaned: dict[str, list] = {}
@@ -293,23 +297,23 @@ def validate_new_statements(payload: dict, *, known_records: set[str]) -> dict[s
             problems.append(f"{resource_id}: not a record in this corpus")
             continue
         if not isinstance(entries, list):
-            problems.append(f"{resource_id}: expected a list of statements")
+            problems.append(f"{resource_id}: expected a list of claims")
             continue
 
         for position, entry in enumerate(entries, start=1):
-            where = f"{resource_id} statement {position}"
+            where = f"{resource_id} claim {position}"
             if not isinstance(entry, dict):
-                problems.append(f"{where}: expected a statement with text and quote")
+                problems.append(f"{where}: expected a claim with text and quote")
                 continue
             text = str(entry.get("text") or "").strip()
             quote = str(entry.get("quote") or "").strip()
-            kind = str(entry.get("type") or "finding").strip()
+            kind = str(entry.get("type") or "evidence").strip()
             if len(text) < 10:
-                problems.append(f"{where}: no statement text")
+                problems.append(f"{where}: no claim text")
                 continue
             if len(quote) < 15:
                 problems.append(
-                    f"{where}: no quote. A statement with no sentence behind it cannot be "
+                    f"{where}: no quote. A claim with no sentence behind it cannot be "
                     "checked by anyone later, which is the whole point of this layer."
                 )
                 continue
@@ -322,19 +326,19 @@ def validate_new_statements(payload: dict, *, known_records: set[str]) -> dict[s
 
     if problems:
         raise FilingError(
-            "The new statements have problems that need fixing:\n  - " + "\n  - ".join(problems)
+            "The new claims have problems that need fixing:\n  - " + "\n  - ".join(problems)
         )
     return cleaned
 
 
-def merge_new_statements(cleaned: dict[str, list], author: str, issue: int = 0) -> dict:
-    """Write reviewer-written statements into the claim files.
+def merge_new_claims(cleaned: dict[str, list], author: str, issue: int = 0) -> dict:
+    """Write reviewer-written claims into the claim files.
 
     Verified against the paper's full text where we can reach it. A quote that
     is not in the source stops the merge and says so, exactly as it does for
     the machine's own reading — the standard cannot depend on who wrote it.
 
-    They enter `unreviewed`, like everything else. Writing a statement is not
+    They enter `unreviewed`, like everything else. Writing a claim is not
     the same as a second person agreeing with it, and letting an author confirm
     their own reading would put the one unchecked thing in the corpus behind
     the label that means checked.
@@ -382,7 +386,7 @@ def merge_new_statements(cleaned: dict[str, list], author: str, issue: int = 0) 
 
     if problems:
         raise FilingError(
-            "Some statements quote sentences the paper does not contain:\n  - "
+            "Some claims quote sentences the paper does not contain:\n  - "
             + "\n  - ".join(problems)
             + "\n\nPaste the sentence exactly as it appears in the source."
         )
@@ -529,7 +533,7 @@ def summarize_claims(result: dict) -> list[str]:
         lines += [
             "",
             "**Filed by an author of the paper.** They are the highest authority on whether "
-            "a statement says what their paper says, and the least disinterested party on "
+            "a claim says what their paper says, and the least disinterested party on "
             "whether it overstates \u2014 so an adjustment here wants a second reader who "
             "did not write the paper:",
             "",
@@ -539,7 +543,7 @@ def summarize_claims(result: dict) -> list[str]:
         lines += [
             "",
             "**Rewritten by the reviewer.** Merging this applies the new wording to "
-            "the statement — check each against the quote in `data/claims/`, which "
+            "the claim — check each against the quote in `data/claims/`, which "
             "is what it still has to say:",
             "",
         ]
@@ -556,14 +560,14 @@ def summarize_claims(result: dict) -> list[str]:
 def summarize_new(result: dict) -> list[str]:
     if not result or not result["added"]:
         return []
-    lines = ["", "", "### Statements you added", "",
+    lines = ["", "", "### Claims you added", "",
              f"- {len(result['added'])} written by hand, each with its quote checked "
              "against the paper"]
     if result["unverified"]:
         lines += ["", "The quote could not be checked for "
                   + ", ".join(f"`{r}`" for r in result["unverified"])
                   + " — no full text is available for it, so this one is taken on trust."]
-    lines += ["", "They enter `unreviewed`, like the machine's. Writing a statement is not "
+    lines += ["", "They enter `unreviewed`, like the machine's. Writing a claim is not "
               "the same as someone else agreeing with it."]
     return lines
 
@@ -629,14 +633,14 @@ def main(argv: list[str] | None = None) -> int:
         claim_verdicts = validate_claims(payload, known_claims=known_claims,
                                          fingerprints=fingerprints)
         by_author = mark_author_verdicts(claim_verdicts, args.author)
-        written = validate_new_statements(payload, known_records=known_records)
+        written = validate_new_claims(payload, known_records=known_records)
         cleaned = validate(payload, known_records=known_records, known_topics=known_topics,
                            require=not (claim_verdicts or written))
         if not cleaned and not claim_verdicts and not written:
             raise FilingError("The filing is empty — nothing to merge.")
         # Before the gold set moves: an unverifiable quote should stop the whole
         # filing, not leave half of it merged and half rejected.
-        new_result = merge_new_statements(written, args.author, args.issue) if written else {}
+        new_result = merge_new_claims(written, args.author, args.issue) if written else {}
     except FilingError as error:
         message = f"This filing could not be merged.\n\n{error}"
         if args.summary_file:

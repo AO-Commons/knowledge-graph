@@ -27,7 +27,7 @@ order: 13
   documentation. Four of them cost nothing, because answering already works
   them out; the fourth is a judge of its own.
 - An answer can be judged, in six specific ways rather than with a rating, and
-  each judgment becomes an issue against the statement it disputes.
+  each judgment becomes an issue against the claim it disputes.
 - One of those six files a paper the library was missing. When that paper is
   read, the question offers to ask itself again; the original answer is never
   rewritten.
@@ -38,28 +38,28 @@ order: 13
 
 **October 2026. Questions, and a guide that covers both surfaces.**
 
-- Gap statements cluster into **questions**, the layer the roadmap had carried
+- Gap claims cluster into **questions**, the layer the roadmap had carried
   for months under MIRA's names. Seven gaps from four papers make four
   questions, and exactly one is asked by more than one paper.
 - Papers and occurrences are counted apart, because a question two papers ask
-  is a statement about a field and a question one paper asks twice is that
+  is a claim about a field and a question one paper asks twice is that
   paper's framing.
 - `aokg questions --propose` proposes candidate questions from concepts, and
   never admits — the rule the scout already follows for papers.
 - This documentation moved out of the site's JavaScript and into markdown
   here, so one set of words serves the repository and the app.
 
-**September 2026. Statements become the main character.**
+**September 2026. Claims become the main character.**
 
-- Papers stopped being the unit. Tags moved onto statements, and a paper's
+- Papers stopped being the unit. Tags moved onto claims, and a paper's
   categories are now computed from them.
 - Extraction became a process with five gates, and the first six papers were
   re-read under it.
-- The vocabulary was rebuilt bottom-up: a term is in it because a statement
+- The vocabulary was rebuilt bottom-up: a term is in it because a claim
   needed it. The taxonomy's subpoints became a suggestion pool.
 - Citation expansion walks both directions, with a rising threshold, a model
   scope scan, and a hard budget — no human in the loop.
-- The review screen became one question per statement, with add, adjust and
+- The review screen became one question per claim, with add, adjust and
   remove, and adjustments that carry the reviewer's wording into the corpus.
 - A verdict binds to the wording it was given. An id outlives the sentence
   under it, so a verdict from August could otherwise land on a sentence

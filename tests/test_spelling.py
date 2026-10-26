@@ -1,6 +1,6 @@
 """One spelling across everything this project writes.
 
-The reason is not style. A statement's tags are slugs, so
+The reason is not style. A claim's tags are slugs, so
 `organisational-knowledge-legibility` and `organizational-knowledge-legibility`
 are two concepts that connect to nothing and to each other least of all — and
 a corpus written by a model over many sittings will produce both unless
@@ -57,7 +57,7 @@ class TestTheStatements:
 
     def test_every_statement_is_american(self):
         offenders = [(c.id, findings(c.text)) for c in load_claims() if findings(c.text)]
-        assert not offenders, f"British spelling in statement text: {offenders}"
+        assert not offenders, f"British spelling in claim text: {offenders}"
 
     def test_every_tag_is_american(self):
         offenders = [(c.id, t) for c in load_claims()
@@ -121,7 +121,7 @@ class TestExtractionSettlesItEarly:
         result = check(
             [{
                 "text": "Organisational intelligence is what the work is after.",
-                "quote": "x", "claim_type": "finding", "attribution": "own",
+                "quote": "x", "claim_type": "evidence", "attribution": "own",
                 "concept_tags": ["artificial-organisational-intelligence"],
             }],
             vocabulary=vocab,
@@ -137,7 +137,7 @@ class TestExtractionSettlesItEarly:
         candidate = {
             "text": "Organisations make their knowledge legible.",
             "quote": "the capacity for organisations to make their knowledge legible",
-            "claim_type": "finding", "attribution": "own", "concept_tags": [],
+            "claim_type": "evidence", "attribution": "own", "concept_tags": [],
         }
         result = check([candidate])
         assert result.kept[0]["quote"] == (

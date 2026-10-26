@@ -47,7 +47,7 @@ OUT = REPO / "data" / "candidates"
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--deepen", type=int, default=6,
-                        help="queries from concepts statements have needed")
+                        help="queries from concepts claims have needed")
     parser.add_argument("--widen", type=int, default=6,
                         help="queries from taxonomy subpoints nothing is filed under")
     parser.add_argument("--seed", type=int, default=0,

@@ -8,7 +8,7 @@ A researcher — human or agent — should reach the right small set of primary 
 
 Judge every proposed change against that. A feature that makes the graph more elegant without making a real research question cheaper to answer is not an improvement.
 
-It is also answerable to the researchers it reads. A statement represents somebody's work to strangers, so:
+It is also answerable to the researchers it reads. A claim represents somebody's work to strangers, so:
 
 - **Quote, don't replace.** The quote is the authority and the paraphrase never says more than it.
 - **Keep the hedges.** A "may", "seems to" or "plausible" stays in the paraphrase.
@@ -16,7 +16,7 @@ It is also answerable to the researchers it reads. A statement represents somebo
 - **Credit the right people.** Prior work is credited to whoever did it.
 - **Let the author correct it.** An author's correction outranks a machine's reading.
 
-Say *reading* and *drafting* rather than *extraction*. A model drafts statements from a paper, and people check them against it.
+Say *reading* and *drafting* rather than *extraction*. A model drafts claims from a paper, and people check them against it.
 
 ## The taxonomy is the source of truth
 
@@ -89,7 +89,7 @@ rather than invisible.
 
 The division is meant to hold as trust moves. Machines resolve, deduplicate,
 propose and now admit. People decide what a record is *about*, whether a
-statement represents its paper faithfully, and what the taxonomy is — the judgments
+claim represents its paper faithfully, and what the taxonomy is — the judgments
 where being wrong is expensive and quiet. Reviewing auto-admitted records is
 how the scan earns a looser threshold; until that evidence exists the
 settings stay conservative.

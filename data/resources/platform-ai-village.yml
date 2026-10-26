@@ -3,6 +3,8 @@ resource_type: deployment
 title: AI Village
 description: Long-horizon autonomous agent collective.
 url: https://theaidigest.org/village
+organizations:
+- AI Digest
 taxonomy_topics:
 - '3.4'
 - '16.1'

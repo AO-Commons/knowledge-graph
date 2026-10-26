@@ -4,7 +4,7 @@ What happens to a paper between arriving and being citable, who or what does
 each part, and what it costs.
 
 Stages marked **live** run today. Stages marked **proposed** are argued in
-[statements-first.md](statements-first.md) and not built. Coverage figures are
+[claims-first.md](claims-first.md) and not built. Coverage figures are
 measured, not estimated, and are the honest answer to "how far does this
 actually go" — the scaffolding is complete and thins sharply toward the top.
 
@@ -13,8 +13,8 @@ actually go" — the scaffolding is complete and thins sharply toward the top.
   1  INTAKE          three doors                101 records
   2  RESOLUTION      metadata, references        45 with references
   3  ADMISSION       scope, duplicates          automatic since 10 Sep
-  4  READING         statements out of text       6 records · proposed as process
-  5  TAGGING         concepts on statements      40 of 40 statements
+  4  READING         claims out of text       6 records · proposed as process
+  5  TAGGING         concepts on claims      40 of 40 claims
   6  LINKING         relations between them      12 relations
   7  FILING          categories, derived          6 derived · 73 legacy hand-filed
   8  REVIEW          a person decides             0 reviewed
@@ -25,7 +25,7 @@ actually go" — the scaffolding is complete and thins sharply toward the top.
 stage 7 and mostly computed. Asking somebody to name what a paper is "about"
 before anything has said what it contains is the wrong question in the wrong
 order — which is why two thirds of the filed records carry more than one code
-and 28 carry none at all. See [statements-first.md](statements-first.md).
+and 28 carry none at all. See [claims-first.md](claims-first.md).
 
 ---
 
@@ -137,11 +137,11 @@ between runs is visible rather than invisible.
 
 ## 4 · Reading — proposed as a process
 
-**This is the stage that decides whether statements can carry the library, and
+**This is the stage that decides whether claims can carry the library, and
 it is currently not a process.** 40 claims, six papers, one model, one
 afternoon, three passes over full text, never measured.
 
-What it produces per statement: `text` (the paraphrase), `quote` (verbatim
+What it produces per claim: `text` (the paraphrase), `quote` (verbatim
 source), `standalone` (enough context to judge it cold), a type, the section it
 came from, and the reading method.
 
@@ -159,7 +159,7 @@ What it has to become:
    Loop tracked how much methods detail each had, not how much each
    contributed.
 5. **A measurement.** Until reading has an accuracy number against the gold
-   set, "statements are first class" is an aspiration with 40 examples.
+   set, "claims are first class" is an aspiration with 40 examples.
 
 **What it is now (2026-10-01).** A brief, checks, and an audit.
 
@@ -168,18 +168,18 @@ What it has to become:
   argued apart, credit prior work, and use seven types including
   `definition`.
 - **The checks.** The gates now report six things rather than refusing them,
-  among them a body section with no statement and a paraphrase surer than
-  its quote. `scripts/check_statements.py` runs them over what is already
+  among them a body section with no claim and a paraphrase surer than
+  its quote. `scripts/check_claims.py` runs them over what is already
   held.
-- **The audit.** A model that did not draft the statements audits each paper
+- **The audit.** A model that did not draft the claims audits each paper
   against its full text, using
   [evals/machine/audit-brief.md](../evals/machine/audit-brief.md), before a
   person reviews.
 
 The first audit, of all seven papers, is
 [evals/results/2026-10-01-statement-audit.md](../evals/results/2026-10-01-statement-audit.md).
-It found that 42 of 48 statements need a change, and that no paper's
-statements had reached its body.
+It found that 42 of 48 claims need a change, and that no paper's
+claims had reached its body.
 
 **The bind:** ~7 judgments per paper against 1 for filing, and admission runs
 at ~8 papers a week. Reading cannot keep pace unless it is machine-led —
@@ -192,27 +192,27 @@ quality signal and the evidence for loosening the rules.
 
 ---
 
-## 5 · Tagging — concepts on statements
+## 5 · Tagging — concepts on claims
 
 Fine-grained on purpose. The finer the tag, the better it proposes relations,
 which is the entire reason the layer exists: `sanction-sensitivity` is a
 better tag than `inter-agent trust`, because two claims sharing the first are
 worth reading together and two sharing the second are not.
 
-**The vocabulary is what statements have needed, and it grows from the bottom
+**The vocabulary is what claims have needed, and it grows from the bottom
 up.** A term is in it because a claim argued about something, not because
 somebody predicted the field would. The corpus is the argument for doing it
 this way:
 
 ```
-17 terms in use — 9 grown from statements, 8 taken from the pool
+17 terms in use — 9 grown from claims, 8 taken from the pool
 506 taxonomy subpoints never reached for
 ```
 
 More of the working vocabulary arrived from claims than from the taxonomy,
 and the predefined majority has gone untouched. So the taxonomy's 514
 subpoints are a **suggestion pool** — searched before a near-duplicate is
-invented, joining the vocabulary the moment a statement uses one — rather
+invented, joining the vocabulary the moment a claim uses one — rather
 than the vocabulary itself.
 
 The asymmetry with the taxonomy is the point: a concept is cheap and
@@ -233,7 +233,7 @@ aokg concepts                                             # the whole list's sta
 ```
 
 The list itself is readable without any of that: **[`data/concepts.json`](../data/concepts.json)**
-holds all 523 terms with their topics, origin, and how many statements carry
+holds all 523 terms with their topics, origin, and how many claims carry
 each — generated from the taxonomy and the extras file, rebuilt on every
 Pages run, and committed so a pull request shows what moved. Agents ask the
 MCP server's `search_concepts` instead.
@@ -260,11 +260,11 @@ the taxonomy's subpoints, which were written as prose rather than as a
 controlled vocabulary. Those can only be fixed where the taxonomy is. What
 the loader prevents is a ninth.
 
-**Coverage: 40 of 40 statements tagged, 17 concepts in use.**
+**Coverage: 40 of 40 claims tagged, 17 concepts in use.**
 
 ---
 
-## 6 · Linking — relations between statements
+## 6 · Linking — relations between claims
 
 Two mechanisms, and the split is the design.
 
@@ -290,27 +290,27 @@ A relation drafted by a model says so, and is never readable as a person's
 judgment.
 
 *Proposed:* citations as a second proposal signal. If A cites B, A's
-statements are candidates for relations to B's. One usable edge today — worth
+claims are candidates for relations to B's. One usable edge today — worth
 63 pairs — and free as coverage grows.
 
-**Coverage: 12 relations across 16 of 40 statements.**
+**Coverage: 12 relations across 16 of 40 claims.**
 
 ---
 
 ## 7 · Filing — categories, derived from what a paper says
 
-The union of the taxonomy codes its statements' concepts sit under. Computed,
+The union of the taxonomy codes its claims' concepts sit under. Computed,
 no judgment, and papers land in several categories naturally because their
-statements do.
+claims do.
 
 Measured against hand-filing on the six: derivation **gains** codes the filer
 missed — Melting Pot picks up evaluation integrity because one of its own
-statements predicts the suite will be gamed — and **loses** codes describing
+claims predicts the suite will be gamed — and **loses** codes describing
 what kind of move the paper makes: agency theory, borrowed background,
 research method. (2026-10-01: the audit found that gain and some of these
 losses rested on wrong tags and unread bodies. See
 [the audit](../evals/results/2026-10-01-statement-audit.md). The comparison
-needs re-measuring on the corrected statements.)
+needs re-measuring on the corrected claims.)
 
 So it adds and never removes. What stays hand-filed is the remainder:
 the framing codes, saying what kind of move a paper makes.
@@ -322,7 +322,7 @@ when it happens and how much of it there is to do.
 
 **Coverage: 6 derived, 73 hand-filed from before the reordering.** Those 73
 keep their codes; nothing is rewritten. They will look increasingly like what
-they are — a judgment made before anyone had read the paper's statements.
+they are — a judgment made before anyone had read the paper's claims.
 
 ---
 
@@ -332,7 +332,7 @@ The scarce good, and the one thing on this page no machine does.
 
 A reviewer opening a record is asked two questions in one sitting, because the
 expensive part is the reading and it should be paid once: **where does this
-belong**, and **is each statement what its quote says**. They also now see
+belong**, and **is each claim what its quote says**. They also now see
 whose claim it is, what it argues about, and any relation it is an end of —
 including machine drafts asking for exactly this judgment.
 
@@ -344,7 +344,7 @@ of reading and invisible in a yes/no.
 Filings become pull requests. The gold set they build is what every
 classification number is measured against.
 
-**Coverage: 0 of 101 records, 0 of 40 statements.** This is the honest state
+**Coverage: 0 of 101 records, 0 of 40 claims.** This is the honest state
 of the library and the reason every accuracy figure is still unquotable.
 
 ---
@@ -383,15 +383,15 @@ the incentive question is about review rather than about adding.
 
 ## Open questions are hunted, not waited for
 
-Five of the six statement types have to be recognized in prose. The sixth
+Five of the six claim types have to be recognized in prose. The sixth
 announces itself: an author writing "remains an open question", "we leave to
 future work" or "it is not yet known whether" wants it found and worked on.
 So `scripts/find_gaps.py` scans the full text for those markers and hands the
-passages to the drafting model, which decides what the statement is and writes the
+passages to the drafting model, which decides what the claim is and writes the
 quote — a pattern that finds is not allowed to become the author of a claim.
 
 Measured over the first twelve records we hold full text for: 19 passages,
-1.6 per paper. Against one `limitation` statement in the whole corpus, which
+1.6 per paper. Against one `limitation` claim in the whole corpus, which
 is what reading abstracts gets you.
 
 The rule the pattern turns on is grammatical rather than a word list. `open`
@@ -422,6 +422,6 @@ Gaps are what `Question` nodes will be clustered from: one question, asked in
 several papers, each occurrence keeping its own quote. That layer is not built
 yet — this stage is the supply for it.
 
-## Verification, by somebody who did not draft the statements
+## Verification, by somebody who did not draft the claims
 
-`scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `data/machine-checks.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.
+`scripts/verify_extraction.py` hands a fresh verifier the claim, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `data/machine-checks.yml`. It triages and never reviews: a disagreement moves a claim to `needs-review`, and only a named human's verdict reaches `reviewed`.

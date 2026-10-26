@@ -15,7 +15,7 @@ make no sense about an essay, so a research post either failed or got described
 as if it were software.
 
 Then separately, `fulltext.py` read `arxiv.org/html/<id>` and nothing else. So
-even once admitted, a page produced no statements — and statements are the
+even once admitted, a page produced no claims — and claims are the
 corpus's unit now.
 
 ## What a page does not come with

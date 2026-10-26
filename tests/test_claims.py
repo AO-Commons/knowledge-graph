@@ -22,7 +22,7 @@ from ao_commons_kg.models import Claim, ClaimType, ConfidenceClass, RelationType
 def a_vocabulary(**topics_by_concept):
     """A vocabulary where each concept sits under the topics given.
 
-    A statement's place in the taxonomy follows from what it argues about,
+    A claim's place in the taxonomy follows from what it argues about,
     so a test that wants a topic edge has to say which concept puts it there.
     """
     return Vocabulary(concepts={
@@ -61,11 +61,19 @@ class TestClaim:
         with pytest.raises(ValueError, match="reviewer without a review"):
             a_claim(reviewed_by="anke")
 
-    def test_findings_and_positions_are_kept_apart(self):
+    def test_evidence_and_positions_are_kept_apart(self):
         """"We measured X" and "X should be adopted" read alike in an abstract
         and answer different questions. Flattening them lets the graph report
         that something has been shown when it has only been argued."""
-        assert ClaimType("finding") is not ClaimType("position")
+        assert ClaimType("evidence") is not ClaimType("position")
+
+    def test_the_old_names_are_gone_rather_than_aliased(self):
+        """`finding` and `method` became `evidence` and `protocol` so the
+        corpus speaks MIRA's words. Accepting the old ones quietly would let
+        a stale file load and a stale brief keep drafting them."""
+        for old in ("finding", "method"):
+            with pytest.raises(ValueError):
+                ClaimType(old)
 
     def test_overstated_is_a_verdict_of_its_own(self):
         """The characteristic failure of extraction is a paraphrase that says
@@ -237,7 +245,7 @@ class TestVerdicts:
 
 
 class TestAnAdjustmentReachesTheCorpus:
-    """The verdict that rewrites a statement, followed all the way through.
+    """The verdict that rewrites a claim, followed all the way through.
 
     It was accepted by the filing bot and unknown to the model, so the first
     one anybody filed would have merged into the gold set and then made every
@@ -350,7 +358,7 @@ class TestAVerdictBindsToTheWordingItWasGiven:
 
     def test_and_it_says_whose_judgment_went_stale(self, tmp_path):
         """The work is visible rather than silently discarded — somebody read
-        that statement, and the next reviewer should know."""
+        that claim, and the next reviewer should know."""
         stale = self._claim(self._gold(tmp_path, "deadbeef1234"))
         assert "anke" in stale.stale_review and "2026-09-01" in stale.stale_review
 
@@ -371,7 +379,7 @@ class TestMachineCheckedIsNotReviewed:
     """
 
     def test_machine_checked_is_the_floor(self):
-        """Every statement went through the gated extraction, so none of them
+        """Every claim went through the gated extraction, so none of them
         is `unreviewed`. A reviewed one is above that floor, not a breach of
         it — this asserted equality until a reviewer filed twelve verdicts and
         turned its own premise false."""
@@ -381,7 +389,7 @@ class TestMachineCheckedIsNotReviewed:
         assert not [c for c in claims if c.review_status.value == "unreviewed"]
 
     def test_the_gates_alone_never_produce_a_verdict(self):
-        """The contract, rather than the count. A statement nobody has filed
+        """The contract, rather than the count. A claim nobody has filed
         against carries no verdict and is not reviewed, however carefully the
         machine checked it."""
         from ao_commons_kg.claims import load_claims, load_verdicts
@@ -393,7 +401,7 @@ class TestMachineCheckedIsNotReviewed:
 
     def test_a_verdict_still_promotes_past_it(self, tmp_path):
         """Machine-checked is a floor, not a ceiling — a human verdict moves a
-        statement the rest of the way."""
+        claim the rest of the way."""
         import yaml
         from ao_commons_kg.claims import load_claims
         claims = {c.id: c for c in load_claims()}
@@ -408,8 +416,8 @@ class TestMachineCheckedIsNotReviewed:
     def test_extraction_records_it_rather_than_a_person_remembering_to(self):
         from ao_commons_kg.extract import check
         result = check([{
-            "text": "A statement long enough to count as one.",
-            "quote": "the source sentence", "claim_type": "finding",
+            "text": "A claim long enough to count as one.",
+            "quote": "the source sentence", "claim_type": "evidence",
             "attribution": "own", "concept_tags": [],
         }])
         assert result.kept[0]["review_status"] == "machine-checked"

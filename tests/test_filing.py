@@ -24,7 +24,7 @@ from merge_filing import (  # noqa: E402
     summarize_claims,
     validate,
     validate_claims,
-    validate_new_statements,
+    validate_new_claims,
 )
 
 KNOWN_RECORDS = {"resource:arxiv:2502.14143", "resource:tool:paperclip"}
@@ -297,49 +297,63 @@ class TestBothJudgments:
 class TestNewStatements:
     """A reviewer who has just read the paper is the only one positioned to
     notice what the extractor missed — held to the machine's standard, because
-    a standard that depends on who wrote the statement is not one."""
+    a standard that depends on who wrote the claim is not one."""
 
     def test_a_statement_needs_a_quote(self):
-        payload = {"new_statements": {"resource:tool:paperclip": [
+        payload = {"new_claims": {"resource:tool:paperclip": [
             {"type": "finding", "text": "This tool caps agent spending."}]}}
         with pytest.raises(FilingError, match="no quote"):
-            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+            validate_new_claims(payload, known_records=KNOWN_RECORDS)
 
     def test_a_statement_needs_text(self):
-        payload = {"new_statements": {"resource:tool:paperclip": [
+        payload = {"new_claims": {"resource:tool:paperclip": [
             {"type": "finding", "quote": "Budgets auto-pause execution when limits are hit."}]}}
-        with pytest.raises(FilingError, match="no statement text"):
-            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+        with pytest.raises(FilingError, match="no claim text"):
+            validate_new_claims(payload, known_records=KNOWN_RECORDS)
 
     def test_an_unknown_type_is_refused(self):
-        payload = {"new_statements": {"resource:tool:paperclip": [
+        payload = {"new_claims": {"resource:tool:paperclip": [
             {"type": "vibe", "text": "This tool caps agent spending.",
              "quote": "Budgets auto-pause execution when limits are hit."}]}}
         with pytest.raises(FilingError, match="unknown type"):
-            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+            validate_new_claims(payload, known_records=KNOWN_RECORDS)
 
     def test_background_is_a_type_a_reviewer_can_use(self):
-        payload = {"new_statements": {"resource:tool:paperclip": [
+        payload = {"new_claims": {"resource:tool:paperclip": [
             {"type": "background", "text": "No accepted benchmark existed at the time.",
              "quote": "There is no widely accepted benchmark for this class of system."}]}}
-        cleaned = validate_new_statements(payload, known_records=KNOWN_RECORDS)
+        cleaned = validate_new_claims(payload, known_records=KNOWN_RECORDS)
         assert cleaned["resource:tool:paperclip"][0]["type"] == "background"
 
     def test_a_statement_against_an_unknown_record_is_refused(self):
-        payload = {"new_statements": {"resource:arxiv:0000.00000": [
+        payload = {"new_claims": {"resource:arxiv:0000.00000": [
             {"type": "finding", "text": "Something about a paper we do not hold.",
              "quote": "A sentence from a paper that is not in this corpus."}]}}
         with pytest.raises(FilingError, match="not a record"):
-            validate_new_statements(payload, known_records=KNOWN_RECORDS)
+            validate_new_claims(payload, known_records=KNOWN_RECORDS)
 
-    def test_no_new_statements_is_the_normal_case(self):
-        assert validate_new_statements({}, known_records=KNOWN_RECORDS) == {}
+    def test_no_new_claims_is_the_normal_case(self):
+        assert validate_new_claims({}, known_records=KNOWN_RECORDS) == {}
 
-    def test_a_filing_of_only_new_statements_is_allowed(self):
-        body = ('new_statements:\n  resource:tool:paperclip:\n    - type: finding\n'
+    def test_a_filing_of_only_new_claims_is_allowed(self):
+        body = ('new_claims:\n  resource:tool:paperclip:\n    - type: evidence\n'
                 '      text: "This tool caps agent spending."\n'
                 '      quote: "Budgets auto-pause execution when limits are hit."\n')
-        assert "resource:tool:paperclip" in extract(body)["new_statements"]
+        assert "resource:tool:paperclip" in extract(body)["new_claims"]
+
+    def test_the_old_block_name_still_parses(self):
+        """A filing open in a browser when the block was renamed still merges.
+
+        `new_statements:` was the name until 2026-10-26. Someone who wrote a
+        filing that morning and submitted it that evening should not lose it
+        to a word we changed for our own reasons.
+        """
+        body = ('new_statements:\n  resource:tool:paperclip:\n    - type: evidence\n'
+                '      text: "This tool caps agent spending."\n'
+                '      quote: "Budgets auto-pause execution when limits are hit."\n')
+        payload = extract(body)
+        cleaned = validate_new_claims(payload, known_records=KNOWN_RECORDS)
+        assert "resource:tool:paperclip" in cleaned
 
 
 class TestReviewPayload:
@@ -413,12 +427,12 @@ class TestReviewPayload:
 
 
 class TestReviewSurface:
-    """The reviewer is asked one thing: is this statement what the paper says.
+    """The reviewer is asked one thing: is this claim what the paper says.
 
     Filing was removed from this screen entirely. Naming what a paper is
-    "about" derives from the concepts on its statements, and asking a
+    "about" derives from the concepts on its claims, and asking a
     reviewer for it as well was asking them to redo, from an abstract, a
-    judgment the statements make better.
+    judgment the claims make better.
     """
 
     def _page(self):
@@ -440,17 +454,17 @@ class TestReviewSurface:
         assert '"Overstated"' not in page, "the diagnostic verdict set is gone"
 
     def test_adjusting_edits_the_statement_not_the_quote(self):
-        """The quote is what the statement is checked against. A reviewer who
+        """The quote is what the claim is checked against. A reviewer who
         can edit both can make anything true."""
         page = self._page()
-        assert "The statement, in your words" in page
+        assert "The claim, in your words" in page
         assert "the quote is not editable" in page.lower() or \
                "not editable" in page.lower()
 
     def test_an_edit_suggests_tags(self):
-        """A statement edited from reputation to sanctions is about something
+        """A claim edited from reputation to sanctions is about something
         else now, and nothing in the tags saying so would connect it to the
-        wrong statements — quietly, since a wrong link looks like a right
+        wrong claims — quietly, since a wrong link looks like a right
         one."""
         page = self._page()
         assert "function retag(" in page
@@ -490,7 +504,7 @@ class TestReviewSurface:
 
     def test_every_statement_type_is_explained(self):
         """`background` was missing from the page's list for as long as the
-        list existed, so those statements rendered a bare label while the
+        list existed, so those claims rendered a bare label while the
         others carried an explanation — and background is the type where the
         hardest question lives, since it is usually somebody else's result."""
         page = self._page()
@@ -535,8 +549,8 @@ class TestReviewSurface:
     def test_it_reads_as_a_task_with_an_end(self):
         page = self._page()
         assert 'className: "progress"' in page
-        assert "All statements checked" in page
-        assert "Check ${left} statement" in page
+        assert "All claims checked" in page
+        assert "Check ${left} claim" in page
 
     def test_a_judged_statement_steps_back(self):
         """What is left should be findable by scrolling rather than by
@@ -548,7 +562,7 @@ class TestReviewSurface:
     def test_statements_are_grouped_by_what_they_are_for(self):
         """Findings and positions are what the library is asked for; the
         rest is how you judge one. Interleaved, a reviewer reads eleven
-        supporting statements at the same weight as the twenty-one carrying
+        supporting claims at the same weight as the twenty-one carrying
         the argument."""
         page = self._page()
         assert "What this paper shows and argues" in page
@@ -602,9 +616,9 @@ class TestTemporarilyHidden:
                 / "site" / "template.html").read_text(encoding="utf-8")
 
     def test_relations_are_not_shown_on_a_statement_card(self):
-        """Twelve relations across thirty-two statements is not yet a layer
+        """Twelve relations across thirty-two claims is not yet a layer
         worth meeting mid-task — it is three paragraphs of reasoning between
-        one statement and the next."""
+        one claim and the next."""
         page = self._page()
         assert 'className: "rel-kind"' not in page.split("function showConcept")[0]
 
@@ -671,7 +685,7 @@ class TestAdjustments:
         assert cleaned["claim:arxiv:2502.14143:1"]["verdict"] == "adjusted"
 
     def test_the_rewrite_comes_with_it(self):
-        """A verdict saying the statement was rewritten, with nothing saying
+        """A verdict saying the claim was rewritten, with nothing saying
         how, is worse than no verdict: it marks the claim reviewed and leaves
         the wrong sentence in place."""
         with pytest.raises(FilingError, match="carries no text"):
@@ -686,7 +700,7 @@ class TestAdjustments:
 
     def test_tags_are_checked_against_the_vocabulary(self):
         """The browser checks them too. A filing is text somebody can hand-edit,
-        and a tag that resolves to nothing is a statement nothing links to."""
+        and a tag that resolves to nothing is a claim nothing links to."""
         with pytest.raises(FilingError, match="do not resolve"):
             validate_claims(
                 self._filing("    verdict: adjusted\n"
@@ -695,7 +709,7 @@ class TestAdjustments:
                 known_claims=self.KNOWN)
 
     def test_the_rewrite_reaches_the_pull_request(self, tmp_path):
-        """It sits in a gold file otherwise, and the statement it was meant to
+        """It sits in a gold file otherwise, and the claim it was meant to
         replace stays as extracted."""
         cleaned = validate_claims(
             self._filing("    verdict: adjusted\n"
@@ -723,7 +737,7 @@ class TestConfirmingAnAdjustment:
     """Typing is not deciding.
 
     Every keystroke used to be the edit — an accidental character rewrote a
-    statement, the tags moved with it, and there was no moment where the
+    claim, the tags moved with it, and there was no moment where the
     reviewer said "yes, this is my version". A draft now waits for a confirm.
     """
 
@@ -832,7 +846,7 @@ class TestTheGoldenSetIsReachable:
         assert page.count("verdictChanged();") == 3
 
     def test_the_end_of_the_set_counts_what_was_done(self):
-        """"You have filed 0 records" after judging thirty-two statements
+        """"You have filed 0 records" after judging thirty-two claims
         reads as though none of it counted."""
         page = self._page()
         assert "That is the whole set." in page
@@ -871,8 +885,8 @@ class TestTheIssueForm:
 
 
 class TestTheFilingSaysWhatWasJudged:
-    """The other half of the binding. The site ships each statement's
-    fingerprint and the filing echoes it back, so a statement rewritten
+    """The other half of the binding. The site ships each claim's
+    fingerprint and the filing echoes it back, so a claim rewritten
     between the reviewer opening the page and sending the filing is caught
     where the reviewer can still do something about it."""
 
@@ -978,10 +992,10 @@ class TestAMergedVerdictIsTheFinalWord:
 
 
 class TestAPaperSaysHowMuchOfItWasRead:
-    """Building the Loop carried three statements for a month, which reads as
+    """Building the Loop carried three claims for a month, which reads as
     a paper with little to say. It is a thirteen-page argument whose publisher
     answers 403 to an automated fetch, and the abstract is 879 characters.
-    A reviewer judging statements drawn from an abstract is judging the
+    A reviewer judging claims drawn from an abstract is judging the
     paper's summary of itself and should be told so."""
 
     def _page(self):
@@ -996,8 +1010,8 @@ class TestAPaperSaysHowMuchOfItWasRead:
         assert all(r.text_coverage in ("full-text", "abstract-only", "none") for r in read)
 
     def test_every_paper_with_statements_says_what_was_read(self):
-        """The flag matters exactly where statements exist — it is what tells
-        a reviewer how much those statements could possibly cover."""
+        """The flag matters exactly where claims exist — it is what tells
+        a reviewer how much those claims could possibly cover."""
         from ao_commons_kg.claims import load_claims
         from ao_commons_kg.resources import load_resources
         with_claims = {c.resource_id for c in load_claims()}

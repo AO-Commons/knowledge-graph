@@ -4,9 +4,9 @@ title: Roadmap
 order: 14
 ---
 
-**Now. Get the statements reviewed.**
+**Now. Get the claims reviewed.**
 
-- {{read}} papers and {{statements}} statements are open on the review screen;
+- {{read}} papers and {{claims}} claims are open on the review screen;
   {{reviewed}} have been judged.
 - Nothing here has an accuracy number until more of this is done, because it
   is what every other figure would be measured against.
@@ -32,8 +32,8 @@ order: 14
 **After that. Linking, and what makes review worth doing.**
 
 - Bring relation tags back to the review screen once there are enough
-  statements for the pairs to be worth meeting mid-task.
-- Citations as a second proposal signal: if A cites B, A's statements are
+  claims for the pairs to be worth meeting mid-task.
+- Citations as a second proposal signal: if A cites B, A's claims are
   candidates for relations to B's.
 - Propose question clusters rather than reading for them by hand. The concepts
   are already there, and `--propose` is the first half of it.
@@ -42,7 +42,7 @@ order: 14
 - The organization layer. Affiliations are resolved for a fraction of records,
   and reputation is what would make review worth doing.
 - Earning is half built. Judging an answer and having a question backed both
-  return credit; reviewing a statement and finishing a paper are declared in
+  return credit; reviewing a claim and finishing a paper are declared in
   the ledger and award nothing yet, and reviewing is the scarce good.
 - A maintainer's reply should come back to the person who filed. Closing an
   issue does; a comment on it does not, and the question page would have to
@@ -56,7 +56,7 @@ order: 14
 - **What MIRA cannot carry.** Six things, counted in every release's
   `mira-report.json` and written up for the people who maintain it: a class
   for an organization, an edge from a paper to the claim it asserts, whose
-  result a statement is, who checked it, two relations from CiTO, and a home
+  result a claim is, who checked it, two relations from CiTO, and a home
   for a tool or a deployment.
 
 **Later. v1.**

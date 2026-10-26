@@ -61,7 +61,7 @@ class ReviewStatus(str, Enum):
 
     UNREVIEWED = "unreviewed"
     MACHINE_CHECKED = "machine-checked"
-    """Mechanically verified and not reviewed. For a statement it means the
+    """Mechanically verified and not reviewed. For a claim it means the
     reading gates passed — the quote was found verbatim in the source, the
     claim is about the field rather than the instrument, attribution is
     stated, and every tag resolves.
@@ -132,7 +132,7 @@ class RelationType(str, Enum):
     # shared schema for research graphs had already named this edge, and
     # adopting their word for a layer we had not built cost nothing.
     ADDRESSES = "ADDRESSES"
-    """mira:addresses — this statement bears on that open question."""
+    """mira:addresses — this claim bears on that open question."""
     # Record to organization. Read off the record's own affiliation data
     # rather than inferred, which is why it is not in CLAIM_RELATIONS and
     # carries EXTRACTED.
@@ -152,14 +152,14 @@ CLAIM_RELATIONS = frozenset({
 })
 """Relations that hold between two claims. Every one is an inference — no
 source states "claim A disagrees with claim B" — so each must carry a
-confidence class and its reasoning, exactly like a drafted statement. An edge here
+confidence class and its reasoning, exactly like a drafted claim. An edge here
 that looked deterministic would be asserting a judgment nobody made."""
 
 
 QUESTION_RELATIONS = frozenset({RelationType.ADDRESSES})
 """Relations that run from a claim to a question. Inferred, always: a paper
 says a thing is unresolved, it does not say which question that is an instance
-of. Somebody — or some model — read several statements and decided they were
+of. Somebody — or some model — read several claims and decided they were
 asking the same thing, and that judgment carries a confidence class and its
 reasoning exactly as a claim relation does."""
 
@@ -278,8 +278,21 @@ class ToolProfile:
     used_by: list[str] = field(default_factory=list)
     """Slugs of autonomous organizations known to run on this tool — the
     cross-reference into the AO registry."""
+    #: Which layer of an autonomous organization's stack the tool is. A
+    #: judgment about the tool rather than its maker, so it lives here and not
+    #: on the organization: Andon Labs runs AOs, and its Pion is a hosted
+    #: platform. Set by hand; a model drafting a profile never sets it.
+    layer: str | None = None
+
+    LAYERS = frozenset({
+        "control-plane",        # runs a company of agents: org chart, budgets, approvals (Paperclip)
+        "hosted-platform",      # someone else runs the agents and their accounts for you (Pion)
+        "collaboration-layer",  # where agents and people work together: channels, threads, shared work (Buzz, Raft)
+    })
 
     def __post_init__(self) -> None:
+        if self.layer is not None and self.layer not in self.LAYERS:
+            raise ValueError(f"tool.layer is {self.layer!r}; expected one of {sorted(self.LAYERS)}")
         for name in ("open_source", "self_hostable", "model_agnostic"):
             value = getattr(self, name)
             if value is not None and value not in TRISTATE:
@@ -326,7 +339,7 @@ class Resource:
     somebody to name what it is "about" before anyone has said what it
     contains — which is why two thirds of these records carry more than one
     code and why 28 carry none. Categories now derive from the concepts on a
-    record's statements (`concepts.derived_topics`), and this field is
+    record's claims (`concepts.derived_topics`), and this field is
     shrinking to the codes derivation cannot see: the framing ones, saying
     what kind of move a paper makes rather than what it asserts.
 
@@ -368,14 +381,14 @@ class Resource:
 
     `full-text` means the body was available and reading saw it.
     `abstract-only` means the record holds a few hundred words and the
-    statements drawn from it cannot be more than that abstract states.
+    claims drawn from it cannot be more than that abstract states.
     `none` means not even an abstract. `unknown` is the default and means
     nobody has checked.
 
     Published because it changes what a thin paper means. Building the Loop
-    carried three statements for a month, which read as a paper with little
+    carried three claims for a month, which read as a paper with little
     to say; it is a thirteen-page argument whose publisher answers 403 to an
-    automated fetch. A reviewer looking at statements drawn from an abstract
+    automated fetch. A reviewer looking at claims drawn from an abstract
     is looking at the paper's summary of itself, and should be told so rather
     than left to infer it from how few there are."""
     expansion_generation: int = 0
@@ -440,7 +453,7 @@ class Attribution(str, Enum):
     Argumentative Zoning's OWN/OTHER distinction (Teufel & Moens, 2002), and
     it is load-bearing rather than tidy. "State-of-the-art agent frameworks
     exhibit prompt injection, sycophancy and deception" is a sentence in
-    2511.03434, but it is not that paper's finding — it is that paper
+    2511.03434, but it is not that paper's result — it is that paper
     reporting prior work. Without this field, "who has already said X" returns
     whoever most recently repeated X, which is the wrong author and the wrong
     date.
@@ -458,33 +471,41 @@ class Attribution(str, Enum):
 
 
 class ClaimType(str, Enum):
-    """What kind of statement this is.
+    """What kind of claim this is.
 
-    The distinction that earns its keep is FINDING versus POSITION. "Agents
+    The distinction that earns its keep is EVIDENCE versus POSITION. "Agents
     with budget caps overspent less in our trials" and "agents should have
     budget caps" look alike in an abstract and answer different questions —
     one is evidence, the other is advocacy. A graph that flattens them will
     confidently report that something has been shown when it has only been
     argued.
+
+    The names are MIRA's where MIRA has one. `EVIDENCE` was `finding` and
+    `PROTOCOL` was `method` until 2026-10-26: both were our words for things
+    a shared schema had already named, and the corpus is published in that
+    schema. `protocol` reads oddly on a claim drawn from a Methods
+    section — it is bench-science vocabulary — and that is the price of
+    speaking one language instead of two.
     """
 
-    FINDING = "finding"
-    """Something the work reports as observed or measured."""
-    METHOD = "method"
+    EVIDENCE = "evidence"
+    """Something the work reports as observed or measured. `mira:Evidence`."""
+    PROTOCOL = "protocol"
     """A technique, architecture, or mechanism the work introduces or uses —
-    how something is done. A term the work introduces is a `DEFINITION`."""
+    how something is done. A term the work introduces is a `DEFINITION`.
+    `mira:Protocol`."""
     DEFINITION = "definition"
     """A term the work introduces or fixes the meaning of. "We introduce
     Artificial Organizational Intelligence: the capacity for organizations to
     make their knowledge legible and governable" is one.
 
-    **The line against `method` is what the statement is about.** A method is
+    **The line against `protocol` is what the claim is about.** A protocol is
     how something is done; a definition is what a word means. Before this type
-    existed, three of the corpus's six method statements were definitions or
-    typologies, filed as methods because the paper was introducing
-    *something* and method was the type for introductions. That cost the
-    method layer its meaning: "who has found this, working that way" joins
-    through method statements, and a paper that defines a technique without
+    existed, three of the corpus's six protocol claims were definitions or
+    typologies, filed that way because the paper was introducing *something*
+    and protocol was the type for introductions. That cost the protocol
+    layer its meaning: "who has found this, working that way" joins
+    through protocol claims, and a paper that defines a technique without
     using it answers as though it had.
 
     **The line against `position` is whether anything is argued.** A
@@ -494,7 +515,7 @@ class ClaimType(str, Enum):
 
     Tag a definition with the concept it defines. That is the whole join:
     "who coined this, and how did they define it" is the definition
-    statements carrying the tag, and a later paper redefining the term
+    claims carrying the tag, and a later paper redefining the term
     carries the same one.
 
     Not primary, for the reason a gap is not: it is not an answer the library
@@ -507,7 +528,7 @@ class ClaimType(str, Enum):
     """A question the paper says is open — either one it leaves open itself,
     or one it reports the field has not answered.
 
-    The line against `limitation` is what the statement is about. A limitation
+    The line against `limitation` is what the claim is about. A limitation
     is a boundary on *this result*: what these authors did not test, and what
     their number therefore does not cover. A gap is about the *state of the
     field*: what nobody has answered yet. "We evaluated only on English" is a
@@ -548,17 +569,17 @@ class ClaimType(str, Enum):
 
     @property
     def is_primary(self) -> bool:
-        """Whether this is a statement a researcher comes looking for.
+        """Whether this is a claim a researcher comes looking for.
 
-        Findings and positions are what the library is asked for — what has
-        been shown, and what has been argued. Background, method and
-        limitation are context: how you judge a finding once you have one,
+        Evidence and positions are what the library is asked for — what has
+        been shown, and what has been argued. Background, protocol and
+        limitation are context: how you judge a result once you have one,
         rather than the thing you were searching for.
 
         A gap is neither, and that is why it is not primary here. It is not
         an answer the library holds; it is a question the library can say
         nobody has answered, which is a different product built on the same
-        statements — see `Question`, which is the node gaps cluster into.
+        claims — see `Question`, which is the node gaps cluster into.
         That name is MIRA's rather than ours: their schema calls the node a
         `Question` and the edge from a claim `addresses`, and adopting their
         vocabulary for a layer we had not built yet cost nothing and means
@@ -569,15 +590,15 @@ class ClaimType(str, Enum):
         the definition through the concept it defines.
 
         The corpus bears it out. Ten of the first twelve asserted relations
-        run between findings and positions; the argument the field is having
+        run between evidence and positions; the argument the field is having
         is carried almost entirely by those two. Context enters that argument
-        as grounds — a background premise supporting a finding — rather than
+        as grounds — a background premise supporting a result — rather than
         as a participant in it.
 
         A reading of the types, not a fourth field. Nothing is tagged
-        primary; it follows from what kind of statement it is.
+        primary; it follows from what kind of claim it is.
         """
-        return self in (ClaimType.FINDING, ClaimType.POSITION)
+        return self in (ClaimType.EVIDENCE, ClaimType.POSITION)
 
 
 @dataclass
@@ -613,7 +634,7 @@ class Claim:
     it back; DnDScore measures 10-28 points of verification accuracy in keeping
     both rather than choosing. `text` is what to verify, this is what to
     verify it against."""
-    claim_type: ClaimType = ClaimType.FINDING
+    claim_type: ClaimType = ClaimType.EVIDENCE
     entity_ids: list[str] = field(default_factory=list)
     concept_tags: list[str] = field(default_factory=list)
     """Fine-grained concepts this claim argues about, from the concept
@@ -653,17 +674,17 @@ class Claim:
     """Whether the verdict came from somebody on this paper's byline.
 
     A fact about the reviewer, not a higher score. An author is the highest
-    authority on whether a statement says what their paper says, and the
+    authority on whether a claim says what their paper says, and the
     least disinterested party on whether it overstates — the verdict this
     layer most wants. Published so a reader can weigh it rather than having
     it folded invisibly into a count."""
     machine_check: str | None = None
     """What an independent pass made of this, when one disagreed with the
-    reading. A machine cannot review a statement, but it can say which ones
+    reading. A machine cannot review a claim, but it can say which ones
     a person should look at first — which is the only part of review that
     scales."""
     stale_review: str | None = None
-    """Set when a verdict was recorded against wording this statement no
+    """Set when a verdict was recorded against wording this claim no
     longer has. It names who judged it and when, so the work is visible
     rather than silently discarded — but it does not count as review."""
 
@@ -690,7 +711,7 @@ class Claim:
         Whitespace is collapsed before hashing because the text is stored as a
         wrapped YAML scalar: re-dumping the file at a different width moves
         the line breaks without changing a word, and that must not read as a
-        changed statement.
+        changed claim.
         """
         blob = "\x00".join(
             " ".join((part or "").split()) for part in (self.text, self.quote))
@@ -883,9 +904,9 @@ class Entity:
 
 @dataclass
 class Question:
-    """An open question several statements are asking.
+    """An open question several claims are asking.
 
-    MIRA's node, and its name. A `gap` statement is one paper saying something
+    MIRA's node, and its name. A `gap` claim is one paper saying something
     is unresolved, in that paper's words and bounded by that paper's scope.
     A question is the thing several of those are instances of. The distinction
     is the whole point of the layer: "whether the prosocial ability layout
@@ -900,8 +921,8 @@ class Question:
     paraphrase somebody wrote over the top of them.
 
     Nothing here is a claim about the world: a question asserts only that the
-    corpus holds statements asking it. Whether it is genuinely unanswered is
-    what the statements bearing on it are for.
+    corpus holds claims asking it. Whether it is genuinely unanswered is
+    what the claims bearing on it are for.
     """
 
     id: str
@@ -911,7 +932,7 @@ class Question:
     concept_tags: list[str] = field(default_factory=list)
     status: str = "open"
     note: str | None = None
-    """Why these statements are one question, which is the judgment a reader
+    """Why these claims are one question, which is the judgment a reader
     most needs to be able to disagree with."""
     asserted_by: str | None = None
     asserted_on: str | None = None
@@ -927,7 +948,7 @@ class Question:
         if not self.text.strip().endswith("?"):
             raise ValueError(
                 f"question {self.id}: text must be phrased as a question — "
-                "a statement here would be a claim nobody made"
+                "a claim here would be a claim nobody made"
             )
 
     def to_dict(self) -> dict[str, Any]:

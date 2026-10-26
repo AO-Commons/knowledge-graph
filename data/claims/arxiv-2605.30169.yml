@@ -195,7 +195,7 @@ claims:
   standalone: 'The authors describe speed washing: an agent automates trust accumulation through high-volume,
     low-stakes transactions at machine speed, then exploits the resulting track record in a single
     high-value context.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - agent-reputation-systems
   - evaluation-gaming-and-answer-key-attacks
@@ -212,7 +212,7 @@ claims:
     borrowed credibility
   standalone: 'The authors describe fork laundering: a high-reputation agent is cloned and altered,
     and the clone inherits credibility earned by the original.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - sybil-agents-and-synthetic-participation
   - dissociative-agent-identity
@@ -231,7 +231,7 @@ claims:
   standalone: 'The authors argue agent reputation fraud exceeds human-scale fraud on four structural
     dimensions: speed, consistency of deception, parallelism across simultaneous copies, and a cost
     of failure that is deletion rather than career destruction.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - sybil-agents-and-synthetic-participation
   - agent-reputation-systems
@@ -248,7 +248,7 @@ claims:
     a score for which no one is responsible, creating accountability voids'
   standalone: 'The authors argue that applying reputation to dissociative agents displaces blame:
     accountability moves from the operator, who is regulable, to a score for which nobody is responsible.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - no-identifiable-accountable-party
   - operator-deployer-and-developer-liability

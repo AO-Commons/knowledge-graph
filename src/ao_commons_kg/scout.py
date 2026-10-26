@@ -15,7 +15,7 @@ Removing citation support removes the threshold, which would leave a model's
 opinion as the only gate — the unbounded admission this project exists to
 avoid. So a scout needs a bound the corpus can compute about *itself*:
 `topical support`, which is BM25 against our own published taxonomy plus
-overlap with the concepts statements have actually needed. A find clears it
+overlap with the concepts claims have actually needed. A find clears it
 the way a cited candidate clears a citation threshold, and only then costs a
 model call.
 
@@ -89,7 +89,7 @@ def queries_from_corpus(
 
     Two halves doing opposite jobs.
 
-    **Deepen** draws on the concepts statements have actually needed. A term
+    **Deepen** draws on the concepts claims have actually needed. A term
     is in the working vocabulary because somebody read a paper and needed it,
     so searching those finds more of what the library has turned out to be
     about.

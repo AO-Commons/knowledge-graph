@@ -306,7 +306,7 @@
   .claim { padding: 14px 0 14px 13px; border-top: 1px solid var(--rule);
            border-left: 2px solid transparent; }
   /* What is left to do should be findable by scrolling, not by reading.
-     A judged statement steps back; an unjudged one keeps its weight. */
+     A judged claim steps back; an unjudged one keeps its weight. */
   .claim.judged { border-left-color: var(--accent); opacity: .62; }
   .claim.judged:hover, .claim.judged:focus-within { opacity: 1; }
   .claim:first-of-type { border-top: none; }
@@ -561,7 +561,7 @@
   /* The brand's button is a pill with an ink outline, and it is the one
      component carried over wholesale: these are the actual actions, so they
      are where the brand should be legible. Everything else keeps the 2px
-     radius — a dense table of statements set in pills reads as a toy, and the
+     radius — a dense table of claims set in pills reads as a toy, and the
      flat idiom is what makes this look like an archive. */
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
@@ -720,7 +720,7 @@
   .docs .cover { font-size: 12px; color: var(--faint); font-family: var(--mono); }
   .docs .cover.none { color: var(--signal); }
 
-  /* Statement types. The primary two carry the argument; the rest is context. */
+  /* Claim types. The primary two carry the argument; the rest is context. */
   .docs .kinds { display: grid; gap: 10px; margin: 6px 0 18px; }
   .docs .kind { border: 1px solid var(--rule); border-radius: 8px; padding: 13px 15px;
           background: var(--card); }
@@ -829,7 +829,7 @@
     <nav class="docs-nav" id="docs-nav" hidden aria-label="On this page"></nav>
     <div class="ready" id="ready"></div>
     <!-- Hidden for now, not removed. Categories derive from the concepts on
-         a paper's statements, and while reading and tagging are being
+         a paper's claims, and while reading and tagging are being
          settled the tree is a view of an answer that is still moving —
          browsing it invites filing against it, which is the judgment this
          screen no longer asks for. Unhide both when the vocabulary has
@@ -897,7 +897,7 @@
     // through, because they answer a different question and are measured
     // against a different thing.
     claims: {},
-    // Statements a reviewer wrote themselves, keyed by record. Held apart from
+    // Claims a reviewer wrote themselves, keyed by record. Held apart from
     // verdicts: one is a judgment on a machine's reading, the other is a new
     // reading of the paper, and they enter the corpus by different doors.
     newClaims: {},
@@ -1148,7 +1148,7 @@
       ((reviewed() / DATA.records.length) * 100) + "%";
   }
 
-  // Records that can take the whole exercise: they have statements to check as
+  // Records that can take the whole exercise: they have claims to check as
   // well as a place in the tree. Listed above the taxonomy because they are
   // worth more than an untagged record — a reviewer's hour spent here produces
   // two kinds of judgment instead of one, and the group should be steered
@@ -1159,7 +1159,7 @@
     const ready = DATA.records.filter(r => (r.claims || []).length);
     if (!ready.length) return;
 
-    // Done means every statement is judged, and nothing else. It used to also
+    // Done means every claim is judged, and nothing else. It used to also
     // require the record to be filed under a topic — which was fair when the
     // reviewer was asked for both, and became unreachable when filing left
     // this screen. A paper could be finished, drop out of the queue, and
@@ -1189,7 +1189,7 @@
       const p = progress(record);
       const complete = done(p);
       const row = el("button", { className: "ready-row" + (complete ? " done" : "") });
-      row.title = "This one has statements, so a reviewer can check what it actually "
+      row.title = "This one has claims, so a reviewer can check what it actually "
         + "says rather than only where it goes.";
       row.append(
         el("span", { className: "t" }, shorten(record.title, 66)),
@@ -1226,7 +1226,7 @@
     return record.current.some(under) || record.suggested.some(under);
   }
 
-  // A paper is finished when every statement on it has been judged, not when
+  // A paper is finished when every claim on it has been judged, not when
   // somebody pressed a button. Filing is gone, so there is no other signal —
   // and this one is true rather than declared.
   function outstanding(record) {
@@ -1261,11 +1261,11 @@
     if (!pending.length) {
       // Said in terms of the work actually done. A golden-set reviewer files
       // no topics at all, and being told they had filed 0 records after
-      // judging thirty-two statements read as though none of it counted.
+      // judging thirty-two claims read as though none of it counted.
       const judged = judgedTotal();
       const filed = reviewed();
       const did = [];
-      if (judged) did.push(`${judged} statement${judged === 1 ? "" : "s"}`);
+      if (judged) did.push(`${judged} claim${judged === 1 ? "" : "s"}`);
       if (filed) did.push(`${filed} record${filed === 1 ? "" : "s"}`);
       stage.append(
         el("h2", {}, judged ? "That is the whole set." : "Everything here is filed."),
@@ -1286,12 +1286,12 @@
       el("span", {}, `${pending.length} left`),
       ...(claimCount
         ? [el("span", { className: "flag" },
-             `${claimCount} statement${claimCount === 1 ? "" : "s"} to check`)]
+             `${claimCount} claim${claimCount === 1 ? "" : "s"} to check`)]
         : []),
     ]);
 
     const title = el("h1", { className: "record-title" }, record.title);
-    // Said once, above the statements, when the statements could not have
+    // Said once, above the claims, when the claims could not have
     // come from the whole paper.
     const thin = record.claims && record.claims.length
       && record.coverage && record.coverage !== "full-text";
@@ -1308,7 +1308,7 @@
     const coverageNote = thin
       ? el("p", { className: "coverage-note" }, record.coverage === "abstract-only"
           ? "Read from the abstract only \u2014 the full text was not reachable, so "
-            + "these statements cannot say more than the abstract does."
+            + "these claims cannot say more than the abstract does."
           : "No text was reachable for this record.")
       : null;
 
@@ -1327,7 +1327,7 @@
     const ask = el("div", { className: "ask" });
     const hasClaims = !!(record.claims && record.claims.length);
 
-    // Statements come first where there are any, and the filing question
+    // Claims come first where there are any, and the filing question
     // changes shape depending on whether they exist.
     //
     // Filing used to be the whole of this screen and the first thing asked.
@@ -1338,18 +1338,18 @@
     if (hasClaims) ask.append(claimPanel(record));
 
     // The filing question is gone. Naming what a paper is "about" is now
-    // derived from the concepts on its statements — see docs/statements-first.md
+    // derived from the concepts on its claims — see docs/claims-first.md
     // — and asking a reviewer for it as well was asking them to redo, from an
-    // abstract, a judgment the statements make better. Their time is worth
-    // more on the statements themselves, which is the one thing here no
+    // abstract, a judgment the claims make better. Their time is worth
+    // more on the claims themselves, which is the one thing here no
     // machine does.
     if (!hasClaims) {
       ask.append(el("p", { className: "hint", style: "margin-top:18px" },
-        "No statements have been drawn from this one yet, so there is nothing here "
+        "No claims have been drawn from this one yet, so there is nothing here "
         + "to check. It is waiting to be read, not on you."));
     }
 
-    // Navigation, not a decision. Each statement is judged on its own card
+    // Navigation, not a decision. Each claim is judged on its own card
     // and saved as it is judged, so there is nothing left to submit at the
     // record level — and a button implying otherwise would be asking for a
     // confirmation that means nothing.
@@ -1364,7 +1364,7 @@
     submit.disabled = !judgedTotal();
     submit.title = judgedTotal()
       ? "Opens Submit with everything you have judged, ready to send."
-      : "Judge at least one statement first.";
+      : "Judge at least one claim first.";
     submit.addEventListener("click", () => {
       state.viewing = null;
       loadSubmissions(false);
@@ -1379,7 +1379,7 @@
       el("span", { className: "hint" },
          judged && hasClaims && judged === record.claims.length
            ? "This paper is done."
-           : `${judgedTotal()} statement${judgedTotal() === 1 ? "" : "s"} judged by you`),
+           : `${judgedTotal()} claim${judgedTotal() === 1 ? "" : "s"} judged by you`),
     ]));
     stage.append(ask);
 
@@ -1452,7 +1452,7 @@
   }
 
   // ---- claims ------------------------------------------------------------
-  // A paper is a container; the answerable things are the statements inside
+  // A paper is a container; the answerable things are the claims inside
   // it. These were read out of the abstract by a model and are worth exactly
   // nothing until a person has checked them against the quoted sentence —
   // which is why the sentence is shown, and why checking one takes seconds.
@@ -1461,11 +1461,11 @@
   // hold, not filling in a diagnostic form. The old set asked for a
   // classification — accurate, overstated, not-in-source, can't tell — which
   // is a useful signal about the drafting model and a slow way to fix a sentence.
-  // Adjusting is now the middle path it was missing: most statements that
+  // Adjusting is now the middle path it was missing: most claims that
   // are not right are not wrong either, they are a hedge away from right.
   const VERDICTS = [
     ["accurate", "Add as is",
-     "The statement says what the quoted sentence says, no more."],
+     "The claim says what the quoted sentence says, no more."],
     ["adjusted", "Adjust",
      "Nearly right. Edit the wording and it goes in as yours — which is faster "
      + "than describing what is wrong and waiting for somebody to fix it."],
@@ -1475,7 +1475,7 @@
   ];
 
   // All of them, because the one that was missing is the one that most needs
-  // saying. A `background` statement fell through to the raw value with no
+  // saying. A `background` claim fell through to the raw value with no
   // explanation, so a reviewer got less help on exactly the type where the
   // hardest question lives — background is usually somebody else's result,
   // and the thing to check is whether it is credited to them.
@@ -1506,7 +1506,7 @@
           + "somebody can go and work on."],
   };
 
-  // Re-tag an edited statement from its own words.
+  // Re-tag an edited claim from its own words.
   //
   // Word overlap against concept labels, scored so that a longer label
   // matching fully beats a short one matching by accident — "agent
@@ -1515,8 +1515,8 @@
   // point is that the tags visibly track the wording while somebody types,
   // so an edit that changes the subject cannot silently keep the old tag.
   //
-  // It proposes, and only for statements a person is editing. Tags on
-  // unedited statements are left exactly as drafted.
+  // It proposes, and only for claims a person is editing. Tags on
+  // unedited claims are left exactly as drafted.
   const STOPWORDS = new Set(["the","a","an","of","to","in","for","and","or","is","are",
     "was","were","be","been","that","this","it","its","as","by","on","with","not","no",
     "than","from","their","them","they","which","when","what","how","do","does","can"]);
@@ -1556,14 +1556,14 @@
     entry.concepts = [...kept, ...entry.suggested].slice(0, 3);
   }
 
-  // A statement is judged when its verdict is settled — which for an
+  // A claim is judged when its verdict is settled — which for an
   // adjustment means the wording was confirmed, not merely typed. Counting
   // a half-rewritten sentence as done would have the progress bar tell
   // somebody they had finished a paper they were still in the middle of.
   function settledVerdict(entry, claim) {
     // A verdict already in the corpus is the final word. It was filed,
     // merged, and is what the library now holds, so nothing left in this
-    // browser can make that statement unjudged again.
+    // browser can make that claim unjudged again.
     //
     // Without this line a reviewer who pressed Adjust, typed a few words and
     // moved on watched a paper they had finished — and whose verdicts had
@@ -1592,7 +1592,7 @@
     const left = total - done;
 
     // A task with a visible end. It read as an open-ended pile of prose
-    // before — three paragraphs of rationale above statements nobody had
+    // before — three paragraphs of rationale above claims nobody had
     // been told how many of there were, or when they would be finished.
     // The rationale is still available behind the info marker; what changed
     // is that it is no longer the first thing in the way.
@@ -1601,19 +1601,19 @@
                             style: `width:${total ? (done / total) * 100 : 0}%` }));
     wrap.append(el("div", { className: "prompt task" }, [
       el("strong", {}, left === 0
-        ? "All statements checked"
-        : `Check ${left} statement${left === 1 ? "" : "s"}`),
+        ? "All claims checked"
+        : `Check ${left} claim${left === 1 ? "" : "s"}`),
       el("span", { className: "count" }, `${done}/${total}`),
       bar,
       el("span", { className: "sub" }, left === 0
         ? "Nothing left on this paper. Open Submit to send them in."
         : "Judge each against its quote, not against the paper."),
       info(
-        "A confirmed statement carries its own source, so the library can answer a "
+        "A confirmed claim carries its own source, so the library can answer a "
         + "question with the sentence behind it rather than handing someone five "
         + "papers to read.",
         "Every quote is checked word-for-word against the source before it reaches "
-        + "you, so if the quote does not support the statement, the statement is wrong.",
+        + "you, so if the quote does not support the claim, the claim is wrong.",
         "A machine wrote these. Until a person confirms one, it stays marked as a "
         + "machine's reading everywhere it appears.",
       ),
@@ -1623,7 +1623,7 @@
     // positions are what the library is asked for — what has been shown and
     // what has been argued. The rest is how you judge one: the background it
     // rests on, the method that produced it, the limitation its authors put
-    // on it. Interleaved, a reviewer reads eleven supporting statements at
+    // on it. Interleaved, a reviewer reads eleven supporting claims at
     // the same weight as the twenty-one that carry the argument.
     const groups = [
       ["primary", "What this paper shows and argues",
@@ -1694,10 +1694,10 @@
       }
 
       // Relations are not shown here for now. Twelve of them across
-      // thirty-two statements is not yet a layer a reviewer benefits from
+      // thirty-two claims is not yet a layer a reviewer benefits from
       // meeting mid-task — it is three paragraphs of reasoning between one
-      // statement and the next, on a screen whose whole job is getting the
-      // statements right. They are still in the data, still on the graph,
+      // claim and the next, on a screen whose whole job is getting the
+      // claims right. They are still in the data, still on the graph,
       // and still proposed by `aokg relate`.
       //
       // This comes back when reading and tagging are settled and there
@@ -1732,20 +1732,20 @@
       });
       card.append(row);
 
-      // Adjusting edits the statement itself. The quote is not editable and
-      // never should be — it is the thing the statement is checked against,
+      // Adjusting edits the claim itself. The quote is not editable and
+      // never should be — it is the thing the claim is checked against,
       // and a reviewer who can change both can make anything true.
       if (mine && mine.verdict === "adjusted") {
         const area = el("textarea", {
-          placeholder: "The statement, in your words. It still has to say what the "
+          placeholder: "The claim, in your words. It still has to say what the "
                        + "quote above says.",
           value: mine.draft !== undefined ? mine.draft
                : (mine.text !== undefined ? mine.text : claim.text),
         });
-        // Typing is a draft. It becomes the statement when somebody says so.
+        // Typing is a draft. It becomes the claim when somebody says so.
         //
         // Before this, every keystroke was the edit: an accidental character
-        // in a textarea silently rewrote a statement, and there was no
+        // in a textarea silently rewrote a claim, and there was no
         // moment where a reviewer said "yes, this is my version". The
         // tags moved with it too, so a half-typed sentence retagged itself
         // on the way past.
@@ -1754,7 +1754,7 @@
           // Typing back to the wording already confirmed is that wording, not
           // a new draft of it. Without this the card strands: the draft
           // differs from nothing, so Confirm has nothing to do and stays
-          // disabled, and the statement never counts as judged.
+          // disabled, and the claim never counts as judged.
           if (entry.text !== undefined && area.value.trim() === entry.text.trim()) {
             delete entry.draft;
           } else {
@@ -1767,9 +1767,9 @@
         });
         card.append(el("div", { className: "note" }, area));
 
-        // Tags follow the words. A statement edited from reputation to
+        // Tags follow the words. A claim edited from reputation to
         // sanctions is about something else now, and leaving the old tag on
-        // it would connect it to the wrong statements — quietly, since a
+        // it would connect it to the wrong claims — quietly, since a
         // wrong link looks exactly like a right one.
         const tagHost = el("div", { className: "concepts" });
         const renderTags = () => {
@@ -1790,7 +1790,7 @@
         renderTags();
         card.append(tagHost);
 
-        // Confirm, and a way back. Until confirmed the statement is not
+        // Confirm, and a way back. Until confirmed the claim is not
         // counted as judged — the count at the top of the screen should not
         // tell somebody they are finished with a sentence they are still
         // halfway through rewriting.
@@ -1870,13 +1870,13 @@
 
   // The drafting model misses things, and the person who has just read the paper is
   // the only one positioned to notice. Asking for the quote alongside the
-  // statement is not bureaucracy: it is the same standard the machine's
-  // statements are held to, and a statement without a source cannot be checked
+  // claim is not bureaucracy: it is the same standard the machine's
+  // claims are held to, and a claim without a source cannot be checked
   // by anyone later.
   function addStatement(record) {
     const wrap = el("div", { className: "claim-add" });
     if (!state.addingTo || state.addingTo !== record.id) {
-      const open = el("button", { className: "more" }, "Add a statement it missed");
+      const open = el("button", { className: "more" }, "Add a claim it missed");
       open.addEventListener("click", () => { state.addingTo = record.id; renderReview(); });
       wrap.append(open);
       return wrap;
@@ -1885,7 +1885,7 @@
     const draft = state.draft || { text: "", quote: "", type: "finding" };
     state.draft = draft;
 
-    wrap.append(el("p", { className: "section-label" }, "The statement"));
+    wrap.append(el("p", { className: "section-label" }, "The claim"));
     const text = el("textarea", {
       placeholder: "One assertion, in one sentence. Split \u201cX is faster and cheaper\u201d into two.",
       value: draft.text,
@@ -2873,10 +2873,10 @@
     const settled = claimed.filter(([, c]) => settledVerdict(c));
     const unconfirmed = claimed.length - settled.length;
 
-    // A statement can be re-read while a reviewer's judgement sits in
+    // A claim can be re-read while a reviewer's judgement sits in
     // their browser, and their verdict would then be filed against wording
     // they never read. The page is rebuilt on every deploy, so it knows: if
-    // the fingerprint it holds is not the one the statement has now, the
+    // the fingerprint it holds is not the one the claim has now, the
     // verdict is held back and the reviewer is told which paper to look at
     // again. A verdict recorded before fingerprints existed carries none, and
     // takes the current one — there were no filed verdicts at that point, so
@@ -2894,7 +2894,7 @@
 
     if (moved.length) {
       stage.append(el("p", { className: "hint" },
-        `${moved.length} statement${moved.length === 1 ? " has" : "s have"} been `
+        `${moved.length} claim${moved.length === 1 ? " has" : "s have"} been `
         + "rewritten since you judged "
         + `${moved.length === 1 ? "it" : "them"}, so ${moved.length === 1 ? "it is" : "they are"} `
         + "not included here. Open the Review tab and check "
@@ -2942,7 +2942,7 @@
       checked.sort().forEach(([id, c]) => {
         lines.push(`  ${id}:`);
         lines.push(`    verdict: ${c.verdict}`);
-        // Which wording this verdict is about. The bot refuses the statement
+        // Which wording this verdict is about. The bot refuses the claim
         // if it has changed since the page was built, rather than recording a
         // judgement of a sentence the reviewer never saw.
         if (c.saw) lines.push(`    saw: ${c.saw}`);
@@ -2960,7 +2960,7 @@
         lines.push(`    reviewed_on: ${c.on}`);
       });
     }
-    // Statements the reviewer wrote themselves. A third block because they are
+    // Claims the reviewer wrote themselves. A third block because they are
     // a third kind of thing: not a tag, not a verdict on someone else's
     // reading, but a new reading with its own source to be checked.
     if (written.length) {
@@ -2980,7 +2980,7 @@
     panel.append(
       el("h3", {}, [
         `${entries.length} record${entries.length === 1 ? "" : "s"} ready`,
-        checked.length ? ` · ${checked.length} statement${checked.length === 1 ? "" : "s"} checked` : "",
+        checked.length ? ` · ${checked.length} claim${checked.length === 1 ? "" : "s"} checked` : "",
         written.length ? ` · ${written.length} written` : "",
       ].join("")),
       el("p", {}, "Open an issue and a bot checks every code against the taxonomy and prepares "
@@ -2996,7 +2996,7 @@
     // first thing in the title of their own submission reads like a failure.
     const parts = [];
     if (entries.length) parts.push(`${entries.length} record(s)`);
-    if (checked.length) parts.push(`${checked.length} statement(s)`);
+    if (checked.length) parts.push(`${checked.length} claim(s)`);
     const title = `[Filing] ${parts.join(" and ") || "a filing"}`
       + (written.length ? " with additions" : "");
     const waiting = sentFor(title);
@@ -3278,7 +3278,7 @@
     const claims = concept.claims.map(claimById).filter(Boolean);
     const papers = new Set(claims.map(c => c.paperId));
     document.getElementById("concept-count").textContent =
-      `${claims.length} statement${claims.length === 1 ? "" : "s"} across `
+      `${claims.length} claim${claims.length === 1 ? "" : "s"} across `
       + `${papers.size} paper${papers.size === 1 ? "" : "s"}`;
 
     body.textContent = "";
@@ -3369,7 +3369,7 @@
   }
 
   // One paper's shape, and the one thing that makes this graph different:
-  // the edge that matters runs between two statements, not two papers.
+  // the edge that matters runs between two claims, not two papers.
   //
   // Explicit width and height alongside the viewBox, because an SVG given a
   // percentage width and `height: auto` was being scaled on one axis only —
@@ -3377,9 +3377,9 @@
   // right-hand third off the edge of its own container.
   function graphDiagram() {
     const svg = sv("svg", { viewBox: "0 0 720 460", width: "720", height: "460", role: "img",
-      "aria-label": "Two papers, each holding statements. Statements carry concept tags, "
-        + "concepts sit under a topic, and an asserted relation runs from a statement in "
-        + "one paper to a statement in the other." });
+      "aria-label": "Two papers, each holding claims. Claims carry concept tags, "
+        + "concepts sit under a topic, and an asserted relation runs from a claim in "
+        + "one paper to a claim in the other." });
 
     const defs = sv("defs");
     [["arrow", "var(--rule-hard)"], ["arrow-a", "var(--n-relates)"]].forEach(([id, fill]) => {
@@ -3395,7 +3395,7 @@
     svg.append(nodeBox(460, 16, 200, 48, "paper", "Paper B", "RESOURCE"));
     svg.append(edge("M458,40 L262,40", "CITES", "", 360, 34));
 
-    // The statements, which is what the library is actually made of.
+    // The claims, which is what the library is actually made of.
     svg.append(nodeBox(40, 140, 150, 52, "claim", "a finding", "STATEMENT"));
     svg.append(nodeBox(205, 140, 140, 52, "claim", "a method", "STATEMENT"));
     svg.append(nodeBox(480, 140, 160, 52, "claim", "a position", "STATEMENT"));
@@ -3404,7 +3404,7 @@
     svg.append(edge("M170,64 L268,140", "MAKES_CLAIM", "claimed", 254, 106, "start"));
     svg.append(edge("M560,64 L560,140", "MAKES_CLAIM", "claimed", 570, 106, "start"));
 
-    // The edge the whole design is for. Routed under the middle statement
+    // The edge the whole design is for. Routed under the middle claim
     // rather than through it.
     svg.append(edge("M480,192 C430,240 245,240 192,192", "DISAGREES_WITH", "asserted", 336, 238));
 
@@ -3429,10 +3429,10 @@
   const DOCS_SECTIONS = [
     ["what", "What it is"],
     ["for", "What it is for"],
-    ["why", "Why statements, not papers"],
+    ["why", "Why claims, not papers"],
     ["graph", "How the graph fits together"],
-    ["types", "The seven kinds of statement"],
-    ["pipeline", "From a paper to a statement"],
+    ["types", "The seven kinds of claim"],
+    ["pipeline", "From a paper to a claim"],
     ["admission", "How anything gets in"],
     ["review", "What a reviewer is asked"],
     ["stack", "What it runs on"],
@@ -3444,13 +3444,13 @@
     const s = DATA.stats || {};
     const cells = [
       [s.records, "records"],
-      [s.statements, "statements"],
-      [s.papers_with_statements + " of " + s.records, "papers read for statements"],
+      [s.claims, "claims"],
+      [s.papers_with_claims + " of " + s.records, "papers read for claims"],
       [s.concepts_in_use, "concepts in use"],
       [s.relations, "asserted relations"],
       [s.citation_edges, "citations inside the corpus"],
-      [s.machine_checked + " of " + s.statements, "quotes machine-checked"],
-      [s.reviewed + " of " + s.statements, "reviewed by a person"],
+      [s.machine_checked + " of " + s.claims, "quotes machine-checked"],
+      [s.reviewed + " of " + s.claims, "reviewed by a person"],
     ];
     const host = el("div", { className: "figures" });
     cells.forEach(([n, label]) => {
@@ -3557,17 +3557,17 @@
     wrap.append(section("what", "What it is", "in one paragraph", [
       para("A curated, versioned, machine-readable record of what has been shown "
            + "and what has been argued about organizations run partly by machines. "
-           + "The unit is the ", el("strong", {}, "statement"), ": one assertion, "
+           + "The unit is the ", el("strong", {}, "claim"), ": one assertion, "
            + "carrying the sentence from the paper it was read out of, the kind of "
            + "claim it is, whose result it is, and tags specific enough to be worth "
            + "joining on. Papers are containers for those. Currently ",
-           String(s.statements), " statements read out of ",
-           String(s.papers_with_statements), " papers, inside a corpus of ",
+           String(s.claims), " claims read out of ",
+           String(s.papers_with_claims), " papers, inside a corpus of ",
            String(s.records), " records."),
       para("Everything is a file in a public git repository. There is no database "
            + "and no account: the corpus can be read, diffed, forked, cited at a "
            + "fixed version, and queried by an assistant through a read-only MCP "
-           + "server. Every statement carries its quote, so anything it says can be "
+           + "server. Every claim carries its quote, so anything it says can be "
            + "checked against the source without re-reading the paper."),
     ]));
 
@@ -3579,10 +3579,10 @@
            + "assume — and whether anyone disagrees."),
       docTable(["The question", "What you get", "Why not just search"], [
         ["Has anyone already shown this?",
-         "the statements that say it, each with the sentence it came from and who claimed it",
+         "the claims that say it, each with the sentence it came from and who claimed it",
          "search returns papers; you still read twenty abstracts to find the one sentence"],
         ["Who disagrees, and about what?",
-         "statements asserted to contradict one another, each with the reason somebody gave",
+         "claims asserted to contradict one another, each with the reason somebody gave",
          "a citation graph tells you what cites what, never whether it agrees"],
         ["Who has found this, working that way?",
          "a finding's subject joined to a method's technique",
@@ -3605,38 +3605,38 @@
            + "something back. Your sentence is quoted, not replaced. Your hedges and "
            + "the limits you put on a result stay beside it. What you argued is never "
            + "filed as something you measured. A result you report from someone else "
-           + "is credited to them. Your verdict on a statement is recorded as an "
+           + "is credited to them. Your verdict on a claim is recorded as an "
            + "author's, and one you mark as overstated goes back to be redrafted. "
            + "Every answer ends at your paper."),
       para(el("strong", {}, "What makes it trustworthy is the same thing that makes "
            + "it slow. "),
-           "Machines find, resolve, admit and tag. Every statement here has been "
+           "Machines find, resolve, admit and tag. Every claim here has been "
            + "checked mechanically — its quote was found verbatim in the source, its "
            + "tags resolve, and it is about the field rather than about the paper's "
            + "own instrument — which is why ", String(s.machine_checked), " of ",
-           String(s.statements), " say machine-checked. That is a real signal and it "
+           String(s.claims), " say machine-checked. That is a real signal and it "
            + "is not review."),
-      para("What no machine does is decide whether the statement says what its "
+      para("What no machine does is decide whether the claim says what its "
            + "source says. A person does that, and the judgment is recorded against "
            + "their name in a pull request anyone can read. Today that is ",
-           String(s.reviewed), " of ", String(s.statements),
+           String(s.reviewed), " of ", String(s.claims),
            " — the honest state of the library, and the reason the Review tab "
            + "exists."),
     ]));
 
-    // --- why statements ---------------------------------------------------
-    wrap.append(section("why", "Why statements, not papers", "the design choice", [
+    // --- why claims ---------------------------------------------------
+    wrap.append(section("why", "Why claims, not papers", "the design choice", [
       para("A paper is a container. The thing worth linking is what it ",
            el("strong", {}, "asserts"), " — and two papers are almost never "
            + "about the same thing, while two sentences often are."),
-      para("That choice decides everything downstream. Tags go on statements rather "
+      para("That choice decides everything downstream. Tags go on claims rather "
            + "than on papers, which lets them be far more specific: a tag naming one "
-           + "mechanism puts two statements side by side that are genuinely worth "
+           + "mechanism puts two claims side by side that are genuinely worth "
            + "reading together, where a tag naming a whole subfield would put "
-           + "hundreds of unrelated ones there. Relations run between statements, so "
+           + "hundreds of unrelated ones there. Relations run between claims, so "
            + "“who disagrees with this” has an answer more precise than "
            + "“this paper, somewhere”. And a paper's categories are "
-           + "computed from the tags on its statements rather than assigned by hand, "
+           + "computed from the tags on its claims rather than assigned by hand, "
            + "which is why a paper lands in several at once, honestly."),
       para("The corpus is deliberately narrow. Admitting everything cited by "
            + "everything held measures out at roughly 4,900 records, 93% of them "
@@ -3652,28 +3652,28 @@
       graphDiagram(),
       el("p", { className: "caption" },
         "The dashed red edge is the one the whole design is for: an assertion that "
-        + "one statement disagrees with another, made by a person and carrying their "
+        + "one claim disagrees with another, made by a person and carrying their "
         + "reasoning. Nothing in either paper says it. The dashed concept boxes are "
         + "what proposed the pair in the first place."),
       docTable(["Node", "Is", "Where it lives"], [
         ["Resource", "a paper, a tool, or a deployment", mono("data/resources/")],
-        ["Statement", "one assertion, with the quote it came from", mono("data/claims/")],
+        ["Claim", "one assertion, with the quote it came from", mono("data/claims/")],
         ["Concept", "a tag fine enough to propose a pair worth reading together", mono("taxonomy/concepts-extra.yml")],
         ["Topic", "a category in the taxonomy, " + s.topics + " of them", mono("taxonomy/")],
         ["Person", "an author, one spelling per person", "derived from bylines"],
       ]),
       docTable(["Edge", "Runs between", "Made by"], [
-        [mono("MAKES_CLAIM"), "a resource and its statements", "drafted from the paper"],
-        [mono("TAGGED_WITH"), "a statement and a concept", "drafted, checked at review"],
-        [mono("ABOUT"), "a resource and a topic", "computed from its statements' concepts"],
+        [mono("MAKES_CLAIM"), "a resource and its claims", "drafted from the paper"],
+        [mono("TAGGED_WITH"), "a claim and a concept", "drafted, checked at review"],
+        [mono("ABOUT"), "a resource and a topic", "computed from its claims' concepts"],
         [mono("CITES"), "two resources we both hold", "OpenAlex and Semantic Scholar"],
-        [mono("SUPPORTS"), "two statements", "a person, with reasoning"],
-        [mono("DISAGREES_WITH"), "two statements", "a person, with reasoning"],
-        [mono("QUALIFIES"), "two statements", "a person, with reasoning"],
-        [mono("EXTENDS_CLAIM"), "two statements", "a person, with reasoning"],
+        [mono("SUPPORTS"), "two claims", "a person, with reasoning"],
+        [mono("DISAGREES_WITH"), "two claims", "a person, with reasoning"],
+        [mono("QUALIFIES"), "two claims", "a person, with reasoning"],
+        [mono("EXTENDS_CLAIM"), "two claims", "a person, with reasoning"],
         [mono("SIMILAR_TO"), "two resources", "bibliographic coupling"],
       ]),
-      para("The four statement-to-statement names are CiTO's (Shotton, 2010), so "
+      para("The four claim-to-claim names are CiTO's (Shotton, 2010), so "
            + "they mean to an outside reader what they mean here. Every one is "
            + "marked inferred and carries a reason — no source states that two "
            + "claims disagree — and one drafted by a model says so, and can never "
@@ -3682,7 +3682,7 @@
 
     // --- types -----------------------------------------------------------
     const t = s.by_type || {};
-    wrap.append(section("types", "The seven kinds of statement", "and why tagging differs by kind", [
+    wrap.append(section("types", "The seven kinds of claim", "and why tagging differs by kind", [
       para("Findings and positions are what somebody came for: what has been shown, "
            + "and what has been argued. The rest give a reader what they need "
            + "to judge those. The review screen groups them that way for the same "
@@ -3729,14 +3729,14 @@
           + "are the part a downstream reader most often drops."));
         return host;
       })(),
-      para("Of ", String(s.statements), " statements held, ", String(s.primary),
-           " are primary. A paper's yield is its primary count, not its statement "
+      para("Of ", String(s.claims), " claims held, ", String(s.primary),
+           " are primary. A paper's yield is its primary count, not its claim "
            + "count."),
     ]));
 
     // --- pipeline --------------------------------------------------------
-    wrap.append(section("pipeline", "From a paper to a statement", "nine stages", [
-      para("What happens between a paper arriving and its statements being citable, "
+    wrap.append(section("pipeline", "From a paper to a claim", "nine stages", [
+      para("What happens between a paper arriving and its claims being citable, "
            + "who or what does each part, and how far it actually goes today. The "
            + "scaffolding is complete and thins sharply toward the top."),
       stageRow(1, "Intake", ["machine"],
@@ -3768,23 +3768,23 @@
         "`scripts/scout.py` looks for work the citation graph cannot see: a paper "
         + "that neither cites us nor is cited by us scores zero against a citation "
         + "threshold however plainly it belongs. Queries come from the corpus in "
-        + "two halves \u2014 the concepts statements have needed, which deepen, and "
+        + "two halves \u2014 the concepts claims have needed, which deepen, and "
         + "a rotating sample of the taxonomy subpoints nothing is filed under, "
         + "which widen. It proposes and never admits: a search result has no vote, "
         + "so it writes a candidate file and a person decides.",
         "dispatch only"),
       stageRow(4, "Reading", ["machine", "a person"],
-        "Statements read out of the full text, each with a verbatim quote. Five "
+        "Claims read out of the full text, each with a verbatim quote. Five "
         + "gates: the quote is really in the paper, the claim is about the field and "
         + "not the instrument, attribution is stated, a method is tagged with its "
         + "technique, and concepts resolve or are proposed properly. Open questions "
-        + "are hunted separately, because they are the one kind of statement an "
+        + "are hunted separately, because they are the one kind of claim an "
         + "author announces. Reaching the text at all is the real ceiling: only arXiv "
         + "has a path, and a record says how much of it anyone could read.",
-        s.papers_with_statements + " of " + s.records + " papers"),
+        s.papers_with_claims + " of " + s.records + " papers"),
       stageRow(5, "Tagging", ["machine", "a person"],
-        "Concepts on statements, fine-grained on purpose. The vocabulary grows from "
-        + "the bottom up — a term is in it because a statement argued about "
+        "Concepts on claims, fine-grained on purpose. The vocabulary grows from "
+        + "the bottom up — a term is in it because a claim argued about "
         + "something. The taxonomy's " + (s.suggestion_pool || 0) + " subpoints are a "
         + "suggestion pool searched before a near-duplicate is invented, not the "
         + "vocabulary itself.",
@@ -3795,18 +3795,18 @@
         + "vocabulary is too loose.",
         s.relations + " relations"),
       stageRow(7, "Filing", ["machine"],
-        "A paper's categories are the union of the topics its statements' concepts "
+        "A paper's categories are the union of the topics its claims' concepts "
         + "sit under. Computed, no judgment. It adds codes a hand-filer missed and "
         + "never removes one.",
         "computed"),
       stageRow(8, "Review", ["a person"],
-        "The scarce good, and the one thing here no machine does: is each statement "
+        "The scarce good, and the one thing here no machine does: is each claim "
         + "what its quote says. A verdict binds to the wording it was given, so "
         + "re-reading a sentence sends it back to the queue rather than carrying "
         + "somebody's name onto words they never read. An independent machine pass "
-        + "can triage — it moves a doubtful statement up the queue and never marks "
+        + "can triage — it moves a doubtful claim up the queue and never marks "
         + "one reviewed.",
-        s.reviewed + " of " + s.statements + " statements reviewed"),
+        s.reviewed + " of " + s.claims + " claims reviewed"),
       stageRow(9, "Release", ["machine"],
         "A fixed, citable version. Nodes sorted by id, edges by their triple, no "
         + "timestamp unless asked — the same inputs produce the same bytes, "
@@ -3833,7 +3833,7 @@
         ["First bound", "a rising citation threshold \u2014 two held papers at one "
          + "hop, three at two, each step from a human judgment strictly harder",
          "topical support: BM25 against our own published taxonomy, plus overlap "
-         + "with concepts statements have needed"],
+         + "with concepts claims have needed"],
         ["Then", "the scope scan", "the scope scan"],
         ["Budget", "40 admitted a run", "25 scanned a run"],
         ["On passing", "admitted to the corpus automatically",
@@ -3871,12 +3871,12 @@
 
     // --- review ----------------------------------------------------------
     wrap.append(section("review", "What a reviewer is asked", "one question", [
-      para("One question per statement: ", el("strong", {}, "is this what the paper "
+      para("One question per claim: ", el("strong", {}, "is this what the paper "
            + "says?"), " The quote sits underneath it, and the quote is not editable "
-           + "— it is the thing the statement is checked against, and anybody "
+           + "— it is the thing the claim is checked against, and anybody "
            + "who could edit both could make anything true."),
       docTable(["Action", "Means", "What it does"], [
-        ["Add as is", "the statement says what the quote says, no more",
+        ["Add as is", "the claim says what the quote says, no more",
          "records " + "accurate"],
         ["Adjust", "nearly right — rewrite it in your words",
          "you retype it and press Confirm wording; the tags follow"],
@@ -3885,19 +3885,19 @@
       ]),
       para("Adjusting is faster than describing what is wrong and waiting for "
            + "somebody to fix it, which is why it is there. A draft is not a "
-           + "judgment: until you confirm the wording, the statement is not counted "
+           + "judgment: until you confirm the wording, the claim is not counted "
            + "as done and is not submitted."),
       para(el("strong", {}, "After Submit. "),
            "Your filing opens a prefilled GitHub issue. A bot checks every claim id "
            + "and every tag against the vocabulary, answers on the issue if "
            + "something is wrong, and otherwise opens a pull request. Merging it "
            + "records the verdict against your name and, for an adjustment, replaces "
-           + "the statement with your wording. The pull request list is the audit "
+           + "the claim with your wording. The pull request list is the audit "
            + "trail — every human judgment in the dataset, who made it, and "
            + "what it changed."),
       para("Two things the screen will tell you. A paper read only from its abstract "
-           + "says so above its statements, because those statements cannot say more "
-           + "than the abstract does. And a statement that was rewritten after "
+           + "says so above its claims, because those claims cannot say more "
+           + "than the abstract does. And a claim that was rewritten after "
            + "somebody judged it comes back to the queue rather than keeping the old "
            + "verdict \u2014 a verdict belongs to the wording it was given."),
       para("Nothing is uploaded as you work. Your filing lives in your browser "
@@ -3916,7 +3916,7 @@
         ["Identity and citations", "OpenAlex", "the backbone: ids, citation counts, institutions"],
         ["Preprint text", "Semantic Scholar", "abstracts and references OpenAlex does not carry for preprints"],
         ["Bylines", "arXiv", "the submission itself, not an index's guess"],
-        ["Judgment", "Claude — scope scans, statement and tagging drafts",
+        ["Judgment", "Claude — scope scans, claim and tagging drafts",
          "marked unconfirmed, never readable as a person's judgment"],
         ["Automation", "GitHub Actions", "intake, growth, filings-to-pull-requests, deploys"],
         ["This site", "one static HTML file, data injected at build",
@@ -3936,24 +3936,24 @@
       "A verdict now binds to the wording it was given. An id outlives the sentence under it, so "
         + "a verdict from August could silently land on a sentence written in November, and an "
         + "adjustment's stored rewrite could overwrite a fresh reading.",
-      "Machine-checked now sits between unreviewed and reviewed: every statement's quote has been "
+      "Machine-checked now sits between unreviewed and reviewed: every claim's quote has been "
         + "verified verbatim against its source, which is real and is not review.",
-      "Reading can be checked by somebody who did not draft the statements — a packet with the statement, "
+      "Reading can be checked by somebody who did not draft the claims — a packet with the claim, "
         + "its quote and its section, and nothing of the drafting model's reasoning.",
-      "A gap is a sixth kind of statement: a question a paper says is open. Five so far, and a "
+      "A gap is a sixth kind of claim: a question a paper says is open. Five so far, and a "
         + "rule for telling them from background — does the paper then close it?",
       "Two papers joined the golden set: Vending-Bench, and Building the Loop read in full for "
         + "the first time.",
       "Every record now says how much of it anyone could read, and the review screen warns when "
-        + "statements came from an abstract alone.",
+        + "claims came from an abstract alone.",
     ], ["shipped", "done"], true));
 
-    log.append(logEntry("September 2026", "Statements become the main character", [
-      "Papers stopped being the unit. Tags moved onto statements, and a paper's categories are now computed from them.",
+    log.append(logEntry("September 2026", "Claims become the main character", [
+      "Papers stopped being the unit. Tags moved onto claims, and a paper's categories are now computed from them.",
       "Reading became a process with five gates, and the first six papers were re-read under it.",
-      "The vocabulary was rebuilt bottom-up: a term is in it because a statement needed it. The taxonomy's subpoints became a suggestion pool.",
+      "The vocabulary was rebuilt bottom-up: a term is in it because a claim needed it. The taxonomy's subpoints became a suggestion pool.",
       "Citation expansion walks both directions, with a rising threshold, a model scope scan, and a hard budget — no human in the loop.",
-      "The review screen became one question per statement, with add / adjust / remove, and adjustments that carry the reviewer's wording all the way into the corpus.",
+      "The review screen became one question per claim, with add / adjust / remove, and adjustments that carry the reviewer's wording all the way into the corpus.",
       "One spelling throughout: American in everything the project writes, and quotes left exactly as published.",
     ], ["shipped", "done"]));
     log.append(logEntry("August 2026", "The corpus and the surfaces", [
@@ -3972,14 +3972,14 @@
 
     // --- roadmap ---------------------------------------------------------
     const road = el("div", { className: "log" });
-    road.append(logEntry("Now", "Get the statements reviewed", [
-      s.papers_with_statements + " papers and " + s.statements + " statements are open on the "
+    road.append(logEntry("Now", "Get the claims reviewed", [
+      s.papers_with_claims + " papers and " + s.claims + " claims are open on the "
         + "Review tab; " + s.reviewed + " have been judged.",
       "Nothing here has an accuracy number until more of this is done — it is what every other "
         + "figure would be measured against.",
     ], ["open", "doing"], true));
     road.append(logEntry("Next", "Reach the papers we cannot read", [
-      "Only arXiv has a full-text path today, so " + (s.records - s.papers_with_statements)
+      "Only arXiv has a full-text path today, so " + (s.records - s.papers_with_claims)
         + " records have no route to their own body. Building the Loop took a browser to reach "
         + "and turned out to be 55 times its abstract.",
       "Record for every record what anyone was able to read, so the shape of the problem is "
@@ -3996,8 +3996,8 @@
         + "question. Both names are MIRA's, a shared schema for research graphs: adopting "
         + "their vocabulary for a layer we had not built cost nothing. That is "
         + "the query nobody else can answer with provenance.",
-      "Bring relation tags back to the review screen once there are enough statements for the pairs to be worth meeting mid-task.",
-      "Citations as a second proposal signal: if A cites B, A's statements are candidates for relations to B's.",
+      "Bring relation tags back to the review screen once there are enough claims for the pairs to be worth meeting mid-task.",
+      "Citations as a second proposal signal: if A cites B, A's claims are candidates for relations to B's.",
       "The organization layer — affiliations are resolved for a fraction of records, and reputation is the thing that makes review worth doing.",
       "Work out how reviewing earns something. Adding is self-interested and needs no incentive; reviewing is the scarce good.",
     ], ["planned", ""]));
@@ -4024,10 +4024,10 @@
 
     wrap.append(el("h1", {}, "Who made this"));
     wrap.append(el("p", { className: "lede" },
-      "A library of statements drawn from papers is built out of other "
+      "A library of claims drawn from papers is built out of other "
       + "people's work twice over. The papers are somebody's, and so is "
       + "everything done to make them findable — proposing a record, judging "
-      + "whether a statement says what its paper says, confirming who a "
+      + "whether a claim says what its paper says, confirming who a "
       + "reviewer is."));
 
     const counts = C.counts || {};
@@ -4048,7 +4048,7 @@
     // the one this project can actually change.
     wrap.append(el("h2", {}, "Who worked on the library"));
     wrap.append(el("p", { className: "body" },
-      "Everyone who has proposed a record, judged a statement, filed one "
+      "Everyone who has proposed a record, judged a claim, filed one "
       + "against the taxonomy, or confirmed who a reviewer is."));
 
     const grid = el("div", { className: "maker-grid" });
@@ -4072,7 +4072,7 @@
     // --- machines ---------------------------------------------------------
     wrap.append(el("h2", {}, "Machines, listed apart"));
     wrap.append(el("p", { className: "body" },
-      "A model drafting a statement and a citation crawl admitting a record "
+      "A model drafting a claim and a citation crawl admitting a record "
       + "are real work the library rests on, so they are recorded. They are "
       + "never counted as a person's judgment — that is the line this project "
       + "already draws: machines admit, people judge."));

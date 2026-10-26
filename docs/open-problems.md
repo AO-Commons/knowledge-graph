@@ -12,12 +12,12 @@ For the extraction pass that produces the raw material, see
 
 ## The distinction the layer exists for
 
-A `gap` statement is one paper saying something is unresolved — in that
+A `gap` claim is one paper saying something is unresolved — in that
 paper's words, bounded by that paper's scope, and carrying the quote it was
 read out of. Seven of those are held today.
 
 A **question** is the thing several of those turn out to be asking. It is not
-a summary of them and not a ninth kind of statement. It is a node, and each
+a summary of them and not a ninth kind of claim. It is a node, and each
 gap reaches it by an **`addresses`** edge that keeps its own quote, its own
 paper and its own wording.
 
@@ -55,18 +55,18 @@ paper you opened.
 |---|---|---|
 | `id` | `question:` and a slug | yes |
 | `text` | the question, in the corpus's voice, ending in `?` | yes |
-| `note` | why these statements are one question | yes |
+| `note` | why these claims are one question | yes |
 | `concept_tags` | the concepts it sits under | no |
 | `status` | `open`, `answered`, or `retired` | defaults to `open` |
 | `asserted_by` / `asserted_on` | who made the judgment, and when | no, but say it |
-| `addressed_by` | the statements asking it, each with a `because` | yes, at least one |
+| `addressed_by` | the claims asking it, each with a `because` | yes, at least one |
 
 Two of those are load-bearing and the loader refuses a file without them.
 
 **`note` is the judgment.** Everything else in a question is bookkeeping; the
 note is the claim that these particular sentences are one question, and it is
 the thing a reader most needs to be able to disagree with. A question whose
-note does not survive reading its statements is wrong, and that is the whole
+note does not survive reading its claims is wrong, and that is the whole
 review.
 
 **`because`, per occurrence.** No paper says "my open question is an instance
@@ -82,9 +82,9 @@ has been read by one yet.
 ## What a question does not assert
 
 That it is unanswered. A question asserts only that the corpus holds
-statements asking it. Whether anyone has answered it is what the statements
+claims asking it. Whether anyone has answered it is what the claims
 bearing on it are for, and the corpus is far too thin to say so — 7 papers of
-257 have been read down to their statements at all.
+257 have been read down to their claims at all.
 
 This is why `status` exists and why it is not computed. "Answered" is a
 judgment somebody makes after reading, not a count of findings.
@@ -92,12 +92,12 @@ judgment somebody makes after reading, not a count of findings.
 ## The two numbers, and why they are two
 
 ```
-papers        distinct papers holding a statement that addresses it
-occurrences   statements that address it
+papers        distinct papers holding a claim that addresses it
+occurrences   claims that address it
 ```
 
 A question asked twice by one paper is that paper's framing. A question asked
-by two papers is a statement about a field. That difference is the only reason
+by two papers is a claim about a field. That difference is the only reason
 this layer is worth building, so it is counted rather than implied, and
 showing a single number over both would let the first pass for the second.
 
@@ -106,7 +106,7 @@ showing a single number over both would let the first pass for the second.
 
 ## What the corpus holds today
 
-Seven gap statements from four papers, clustering into four questions.
+Seven gap claims from four papers, clustering into four questions.
 
 | Question | Papers | Occurrences |
 |---|---|---|
@@ -124,13 +124,13 @@ somewhere rather than starting again.
 
 Failing the build is cheap; shipping a question that cannot be checked is not.
 
-- a `text` that is not phrased as a question — a statement there would be a
+- a `text` that is not phrased as a question — a claim there would be a
   claim nobody made
-- a question no statement addresses — one the corpus cannot show anybody
+- a question no claim addresses — one the corpus cannot show anybody
   asking is an opinion, not a finding
 - an occurrence with no `because` — an unexplained judgment cannot be told
   from a guess
-- an occurrence naming a statement we do not hold — it was cut, renamed, or
+- an occurrence naming a claim we do not hold — it was cut, renamed, or
   never extracted, and an edge to nothing would make the layer's claim false
   while still rendering
 - a duplicate `id`
@@ -139,16 +139,16 @@ Failing the build is cheap; shipping a question that cannot be checked is not.
 `test_every_gap_statement_is_accounted_for` adds one more, from the other
 direction: a gap that reaches no question fails the suite. A gap the layer
 silently drops is worse than one it clusters wrongly, because a wrong cluster
-is visible and an absence is not. That test is what caught two gap statements
+is visible and an absence is not. That test is what caught two gap claims
 missing from the first draft of `questions.yml`.
 
 ## Adding or correcting one
 
-1. Read the gap statements that look related, with their quotes.
+1. Read the gap claims that look related, with their quotes.
 2. If they are one question, add it to `data/questions.yml` with a `note`
-   that says why, and an occurrence per statement with its own `because`.
+   that says why, and an occurrence per claim with its own `because`.
 3. If a cluster is wrong, the fix is usually the note: either it describes a
-   question the statements are not asking, or it is vague enough to cover
+   question the claims are not asking, or it is vague enough to cover
    anything.
 4. `pytest tests/test_questions.py` and `aokg build` — the release refuses a
    dangling edge, so a build that passes is a question layer that resolves.
@@ -165,7 +165,7 @@ aokg questions --propose  concepts that look like a question nobody has clustere
 
 `--propose` proposes and never admits, exactly as the scout does for papers.
 A concept is proposed when at least two distinct papers argue about it — in
-`position`, `gap` or `limitation` statements — and **nothing has been shown on
+`position`, `gap` or `limitation` claims — and **nothing has been shown on
 it**: one `finding` carrying the concept and it is not proposed at all.
 
 That last bound is the one worth arguing about. It separates "nobody has shown
@@ -175,8 +175,8 @@ repository exists to avoid. Concepts already covered by a question are left
 out, because noise in a proposal list is what stops anybody reading it.
 
 A proposal is not a question. A question is the sentence somebody writes after
-reading the statements, and no amount of counting produces that sentence. The
-command prints the statement ids so the reading can start.
+reading the claims, and no amount of counting produces that sentence. The
+command prints the claim ids so the reading can start.
 
 Two concepts qualify today: `sources-of-legitimate-machine-authority` and
 `legitimacy-erosion-through-automation`.
@@ -185,7 +185,7 @@ Two concepts qualify today: `sources-of-legitimate-machine-authority` and
 
 Everything above describes a question derived from what papers wrote. A reader
 asking the library something is a second source for the same object, and a
-weaker one: a gap statement is a published author saying in print that
+weaker one: a gap claim is a published author saying in print that
 something is unresolved, while a question typed into a search box is somebody
 wondering. The two must not be mixed without saying which is which.
 
@@ -228,7 +228,7 @@ has an answer here" is worth showing. Only the junk goes unrecorded.
    bare URL have their answer in the index, not in the literature. A lookup is
    not an open question even when the index says no.
 
-3. **Is it still unsettled here?** An answer that cited statements and came
+3. **Is it still unsettled here?** An answer that cited claims and came
    back at strong confidence has settled the question for this corpus. Only a
    question that came back `unread` or `nothing-held`, or was answered weakly,
    is eligible.
@@ -276,7 +276,7 @@ written by hand, and `asserted_by` still records whose hand.
 
 Not built. When it is, it should carry the reader-asked origin in the node
 rather than losing it: a question that arrived this way has a different
-warrant from one clustered out of seven gap statements, and a reader of
+warrant from one clustered out of seven gap claims, and a reader of
 `questions.yml` should be able to tell them apart without consulting the
 application.
 

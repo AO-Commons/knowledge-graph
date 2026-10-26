@@ -119,9 +119,9 @@ def who_found(subject: str = "", method: str = "", claim_type: str = "",
               limit: int = 20) -> str:
     """Who has shown or argued something about `subject`, working via `method`.
 
-    Two questions asked of different statements and joined through the paper.
+    Two questions asked of different claims and joined through the paper.
     The subject is a tag on a finding or a position — what was shown or
-    argued. The method is a tag on a method statement in the same paper — how
+    argued. The method is a tag on a method claim in the same paper — how
     it was done. "What has been found about generalization to unfamiliar
     partners, by people testing against held-out background populations" is
     one query, not two searches and a manual intersection.
@@ -129,12 +129,12 @@ def who_found(subject: str = "", method: str = "", claim_type: str = "",
     `claim_type` narrows to findings or to positions; left empty it returns
     both and nothing else, because background and limitation are how you
     judge an answer rather than what you were asking for. `get_statement`
-    returns those alongside any statement.
+    returns those alongside any claim.
 
-    Concepts are one vocabulary, not one per statement type. Eight of the
+    Concepts are one vocabulary, not one per claim type. Eight of the
     seventeen terms in use already sit on more than one type — the same term
     names a technique on a method and a subject on a finding — and the
-    statement's type says which role it is playing.
+    claim's type says which role it is playing.
     """
     from .claims import by_subject_and_method
 
@@ -162,14 +162,14 @@ def who_found(subject: str = "", method: str = "", claim_type: str = "",
 
 @server.tool()
 def get_statement(claim_id: str, with_context: bool = True) -> str:
-    """One statement, its source sentence, and the context needed to judge it.
+    """One claim, its source sentence, and the context needed to judge it.
 
     Findings and positions are what the library is asked for — what has been
     shown, and what has been argued. Background, method and limitation are
     how you decide what a finding is worth once you have it, so they travel
     with it rather than being returned as peers in a search.
 
-    Also returns the relations this statement is an end of, with the
+    Also returns the relations this claim is an end of, with the
     reasoning behind each. Every one is inferred and most are currently a
     machine's draft; the response says which.
     """
@@ -179,7 +179,7 @@ def get_statement(claim_id: str, with_context: bool = True) -> str:
     by_id = {c.id: c for c in claims}
     claim = by_id.get(claim_id)
     if not claim:
-        return as_text({"error": f"no statement {claim_id!r}"})
+        return as_text({"error": f"no claim {claim_id!r}"})
 
     def brief(c) -> dict:
         return {
@@ -193,7 +193,7 @@ def get_statement(claim_id: str, with_context: bool = True) -> str:
             "verified": c.review_status.value != "unreviewed",
         }
 
-    payload = {"statement": brief(claim), "of_paper": claim.resource_id}
+    payload = {"claim": brief(claim), "of_paper": claim.resource_id}
     if with_context:
         payload["context"] = [brief(c) for c in context_for(claim, claims)]
     payload["relations"] = [
@@ -210,11 +210,11 @@ def get_statement(claim_id: str, with_context: bool = True) -> str:
 
 @server.tool()
 def search_concepts(term: str = "", unused: bool = False, limit: int = 20) -> str:
-    """Search the statement vocabulary — what a claim can be tagged with.
+    """Search the claim vocabulary — what a claim can be tagged with.
 
     Different from `search_topics`. A topic is a shelf a record is filed on,
-    103 of them. A concept is what a statement argues about, 523 of them, and
-    it is the thing that decides which statements can ever be proposed as
+    103 of them. A concept is what a claim argues about, 523 of them, and
+    it is the thing that decides which claims can ever be proposed as
     related to each other: two claims sharing a concept become a candidate
     pair, and two claims with no concept in common never meet.
 
@@ -224,7 +224,7 @@ def search_concepts(term: str = "", unused: bool = False, limit: int = 20) -> st
     the question worth asking first is always whether the idea is already
     here under another name.
 
-    `unused` lists concepts no statement carries. Most of the 523 are unused:
+    `unused` lists concepts no claim carries. Most of the 523 are unused:
     514 were inherited from the taxonomy's own subpoints and only a handful
     have met a claim yet.
     """
@@ -248,7 +248,7 @@ def search_concepts(term: str = "", unused: bool = False, limit: int = 20) -> st
         "carrying_a_statement": sum(1 for n in counts.values() if n),
         "matches": [
             {"id": c.id, "label": c.label, "topics": list(c.topics),
-             "origin": c.origin, "statements": counts.get(c.id, 0)}
+             "origin": c.origin, "claims": counts.get(c.id, 0)}
             for c in found[:limit]
         ],
     })

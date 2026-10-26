@@ -14,7 +14,7 @@ one set of credentials.
 
 **Most of what sign-in is for does not need it.** The contribution log is
 committed and public, so the People view already shows who built what and
-traces any statement back through everyone it rests on, for everybody, signed
+traces any claim back through everyone it rests on, for everybody, signed
 in or not. Sign-in adds *this is me* — your own acts marked as yours — and, in
 time, the ability to act as yourself.
 

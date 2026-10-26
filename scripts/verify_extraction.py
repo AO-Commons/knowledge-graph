@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""An independent pass over drafted statements, by somebody who did not
+"""An independent pass over drafted claims, by somebody who did not
 draft them.
 
 The five gates in `extract.py` are mechanical and they run inside the
@@ -11,15 +11,15 @@ reviewer is the scarce good, so in practice it went unmeasured.
 Paper2Agent's rule is the fix, and it is a rule about *who*, not about what:
 every verifier is a fresh agent, distinct from every implementer. Applied
 here that means a second pass that never sees the drafting model's reasoning. So
-this script hands out a packet with the statement, the quote and the section
+this script hands out a packet with the claim, the quote and the section
 it came from, and nothing else — no `standalone` gloss written to justify the
-reading, no tags, no attribution, no reading method, and the statements in
+reading, no tags, no attribution, no reading method, and the claims in
 an order that is not the order they were produced in. A verifier answering
 from that packet is answering the question, not grading its own homework.
 
 What comes back is machine verification and never review. It is recorded in
 its own file, keyed by the fingerprint of what was actually judged, and it
-cannot promote a statement to `reviewed` — only a named human's verdict does
+cannot promote a claim to `reviewed` — only a named human's verdict does
 that. The two files are separate so that a number drawn from one can never
 quietly include the other.
 
@@ -50,26 +50,26 @@ MACHINE = REPO / "data" / "machine-checks.yml"
 
 VERDICTS = {
     "supported": "the quote says this, no more",
-    "overstated": "the quote is about this but the statement claims more than it says",
+    "overstated": "the quote is about this but the claim claims more than it says",
     "not-in-source": "the quote does not say this",
     "unclear": "the quote is too partial to tell",
 }
 
 BRIEF = """\
-You are checking statements somebody else read out of a paper. For each one
-you are given the statement, the sentence it was drawn from, and the section
+You are checking claims somebody else read out of a paper. For each one
+you are given the claim, the sentence it was drawn from, and the section
 that sentence came from. You are not given their reasoning, their tags, or
 their notes, because the question is not whether their reasoning was sound —
-it is whether the statement says what the quote says.
+it is whether the claim says what the quote says.
 
 For each id, answer with one of:
 
   supported      the quote says this, no more
-  overstated     the quote is about this but the statement claims more
+  overstated     the quote is about this but the claim claims more
   not-in-source  the quote does not say this
   unclear        the quote is too partial to tell
 
-`overstated` is the one worth being strict about. A statement that is true of
+`overstated` is the one worth being strict about. A claim that is true of
 the paper as a whole but not supported by the sentence under it is overstated,
 not supported. Answer in YAML: `<claim id>: {verdict: <one of the above>,
 because: <one sentence>}`.
@@ -80,19 +80,19 @@ def packet(paper: str | None, seed: int) -> str:
     """What a verifier sees: the claim, the quote, the section. Nothing else."""
     claims = [c for c in load_claims() if not paper or c.resource_id == paper]
     if not claims:
-        raise SystemExit(f"no statements found for {paper!r}")
+        raise SystemExit(f"no claims found for {paper!r}")
 
     # Shuffled, so the order carries none of the drafting model's sequence — a
     # verifier reading them in production order infers a narrative that the
     # drafting model wrote rather than one the paper supports.
     random.Random(seed).shuffle(claims)
 
-    lines = [BRIEF, "", f"{len(claims)} statement(s) to check.", ""]
+    lines = [BRIEF, "", f"{len(claims)} claim(s) to check.", ""]
     for claim in claims:
         lines += [
             f"## {claim.id}",
             "",
-            f"statement: {claim.text}",
+            f"claim: {claim.text}",
             f"quote:     {claim.quote}",
             f"section:   {claim.extracted_from}",
             f"saw:       {claim.fingerprint}",
@@ -109,7 +109,7 @@ def record(answers: dict, by: str) -> dict:
     for claim_id, answer in (answers or {}).items():
         claim = claims.get(claim_id)
         if claim is None:
-            problems.append(f"{claim_id}: not a statement in this corpus")
+            problems.append(f"{claim_id}: not a claim in this corpus")
             continue
         if isinstance(answer, str):
             answer = {"verdict": answer}
@@ -141,11 +141,11 @@ def record(answers: dict, by: str) -> dict:
     existing = {}
     if MACHINE.exists():
         existing = (yaml.safe_load(MACHINE.read_text(encoding="utf-8")) or {}).get(
-            "statements") or {}
+            "claims") or {}
     existing.update(entries)
     MACHINE.parent.mkdir(parents=True, exist_ok=True)
     MACHINE.write_text(
-        yaml.safe_dump({"statements": dict(sorted(existing.items()))},
+        yaml.safe_dump({"claims": dict(sorted(existing.items()))},
                        sort_keys=False, allow_unicode=True, width=88),
         encoding="utf-8")
 
@@ -178,8 +178,8 @@ def main(argv=None) -> int:
         return 0
 
     answers = yaml.safe_load(Path(args.answers).read_text(encoding="utf-8")) or {}
-    if isinstance(answers, dict) and "statements" in answers:
-        answers = answers["statements"]
+    if isinstance(answers, dict) and "claims" in answers:
+        answers = answers["claims"]
     result = record(answers, args.by)
     print(f"recorded {result['recorded']}, {result['total']} in the file")
     if result["disputed"]:

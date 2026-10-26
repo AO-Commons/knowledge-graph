@@ -221,7 +221,7 @@ claims:
     a plugin that pulls consented posts into ethnographers'' local note vaults for annotation;
     and an extension that sends annotated notes back into the organization, where participants
     can see additions, changes and deletions in real time.'
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - researcher-as-system-builder
   confidence_class: EXTRACTED
@@ -319,7 +319,7 @@ claims:
     emoji, the bot privately asks its author for consent, and only approved messages are archived.
     Built for ethnography of decentralized online communities, where passive logging raises
     consent problems, and later connected to KOI as a sensor node.
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - research-ethics-with-autonomous-systems
   confidence_class: EXTRACTED
@@ -338,7 +338,7 @@ claims:
     approved; the deletion propagated through the post's reference identifier and removed
     it from the ethnographer's notes, while a record that the boundary had changed stayed
     queryable and the message stayed in Metagov's Slack.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - research-ethics-with-autonomous-systems
   confidence_class: EXTRACTED

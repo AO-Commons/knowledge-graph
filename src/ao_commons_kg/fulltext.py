@@ -28,7 +28,7 @@ REPO = Path(__file__).resolve().parent.parent.parent
 CACHE = REPO / "data" / "cache" / "fulltext"
 
 # Where claims concentrate. Ordered by yield rather than by document order:
-# a paper's own statement of what it showed sits in its conclusion and its
+# a paper's own claim of what it showed sits in its conclusion and its
 # results, while the introduction carries the contribution list and the
 # related-work framing that a later section only alludes to.
 CLAIM_BEARING = ("abstract", "introduction", "results", "discussion", "conclusion")

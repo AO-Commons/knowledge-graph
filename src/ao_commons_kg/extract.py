@@ -1,4 +1,4 @@
-"""Reading statements out of a paper, as a process rather than an afternoon.
+"""Reading claims out of a paper, as a process rather than an afternoon.
 
 The first forty claims were drafted in one sitting by one model over six
 papers, and a person rereading them afterwards found five that were facts
@@ -17,14 +17,14 @@ later.
 *Findings and positions are the product.* They are what a researcher comes
 looking for — what has been shown, and what has been argued — and ten of the
 first twelve asserted relations run between them. A paper's yield is its
-primary count, not its statement count. Drafted from their abstracts and
-conclusions, Melting Pot gave three primaries and two context statements and
+primary count, not its claim count. Drafted from their abstracts and
+conclusions, Melting Pot gave three primaries and two context claims and
 Building the Loop one and two. Read in full, they give nine and four, and eight
 and twelve.
 
-*Method statements are a query dimension, not filler.* "Who has found this,
+*Method claims are a query dimension, not filler.* "Who has found this,
 working that way" joins a subject on a finding to a technique on a method
-statement. Which makes the tag on a method a different job from the tag on a
+claim. Which makes the tag on a method a different job from the tag on a
 finding: **tag a method with the technique, not with the paper's subject.**
 A method tagged with what the paper is about answers nothing that its
 findings do not already answer, and the gate below catches the common case.
@@ -57,7 +57,7 @@ are the part a downstream reader is most likely to drop.
    confirm something the paper never said. This is the load-bearing check and
    it is free.
 
-2. *The claim is about the field, not the artifact.* A statement whose
+2. *The claim is about the field, not the artifact.* A claim whose
    subject is the paper's own instrument — its scenario count, its run count,
    its metric names — can never match a researcher's proposition, which is
    what this layer is for. Asked of the drafting model, and checked against a
@@ -68,14 +68,14 @@ are the part a downstream reader is most likely to drop.
    not scale.
 
 4. *A method is tagged with its technique.* Checked by comparing a method
-   statement's tags against the tags on the same paper's findings and
+   claim's tags against the tags on the same paper's findings and
    positions: a method carrying nothing but its paper's subject has been
    tagged for what the work is about rather than how it was done, which
    makes it invisible to the query methods exist to answer. Reported rather
    than refused — sometimes the technique genuinely is the subject, as when
    a paper's contribution is the mechanism itself.
 
-0. *One spelling.* Statements and tags are normalized to American spelling
+0. *One spelling.* Claims and tags are normalized to American spelling
    before any of the gates run, because a tag is a slug and
    `organisational-knowledge-legibility` would otherwise enter as a second
    concept beside `organizational-`, connected to nothing. Quotes keep the
@@ -96,12 +96,12 @@ person, and "this one is right" is an answer.
 - *A paraphrase surer than its quote.* The quote hedges, the text does not.
 - *A finding quoted as argued.* The quote says "we argue", "plausible", "should".
 - *A term introduced and not typed definition.*
-- *A tag on more than half of a paper's statements.*
-- *A substantial body section with no statement.* The commonest failure of
-  all: statements drawn from the abstract and conclusion, and none from the
+- *A tag on more than half of a paper's claims.*
+- *A substantial body section with no claim.* The commonest failure of
+  all: claims drawn from the abstract and conclusion, and none from the
   sections where the work was done.
 
-`scripts/check_statements.py` runs them over statements already held.
+`scripts/check_claims.py` runs them over claims already held.
 
 What remains unmeasured is whether the paraphrase says what the quote says.
 That is the reviewer's question and no gate here substitutes for it. The
@@ -143,7 +143,7 @@ ARTIFACT_SHAPED = re.compile(
 
 
 
-# Open questions are the one kind of statement authors mark for you.
+# Open questions are the one kind of claim authors mark for you.
 #
 # Every other type has to be recognized: a finding looks like a sentence. An
 # open question is almost always announced — "remains an open question", "we
@@ -204,7 +204,7 @@ def gap_passages(sections, *, window: int = 320) -> list[Passage]:
     """Where in a paper somebody said a question is open.
 
     Not a drafting model. This hands back passages for one to read, which is the
-    whole point of separating them: the drafting model decides what the statement
+    whole point of separating them: the drafting model decides what the claim
     is and writes the quote, and this only says where to look. Abstracts are
     skipped — an abstract that mentions an open question is selling the
     paper's contribution, and the question itself is stated properly further
@@ -228,7 +228,7 @@ def gap_passages(sections, *, window: int = 320) -> list[Passage]:
 
 @dataclass
 class Rejection:
-    """A candidate statement that did not survive a gate, and which one."""
+    """A candidate claim that did not survive a gate, and which one."""
 
     gate: str
     detail: str
@@ -243,19 +243,19 @@ class Checked:
     rejected: list[Rejection] = field(default_factory=list)
     new_concepts: list[str] = field(default_factory=list)
     subject_tagged_methods: list[str] = field(default_factory=list)
-    """Method statements tagged for what the paper is about rather than how
+    """Method claims tagged for what the paper is about rather than how
     it was done. A warning, not a rejection."""
     hedges_dropped: list[str] = field(default_factory=list)
-    """Statements whose paraphrase is surer than their quote. See
+    """Claims whose paraphrase is surer than their quote. See
     `hedges_dropped`."""
-    argued_findings: list[str] = field(default_factory=list)
-    """Findings whose own quote says they were argued. See `argued_findings`."""
+    argued_evidence: list[str] = field(default_factory=list)
+    """Evidence whose own quote says it was argued. See `argued_evidence`."""
     undeclared_definitions: list[str] = field(default_factory=list)
-    """Statements that introduce a term and are typed as something else."""
+    """Claims that introduce a term and are typed as something else."""
     blanket_tags: list[str] = field(default_factory=list)
-    """Tags on most of one paper's statements. See `blanket_tags`."""
+    """Tags on most of one paper's claims. See `blanket_tags`."""
     unread_sections: list[str] = field(default_factory=list)
-    """Body sections of the paper that no statement was drawn from. See
+    """Body sections of the paper that no claim was drawn from. See
     `unread_sections`."""
 
     @property
@@ -264,19 +264,19 @@ class Checked:
         return {name: found for name, found in (
             ("method tagged with its paper's subject", self.subject_tagged_methods),
             ("paraphrase surer than its quote", self.hedges_dropped),
-            ("typed finding, quoted as argued", self.argued_findings),
+            ("typed evidence, quoted as argued", self.argued_evidence),
             ("introduces a term, not typed definition", self.undeclared_definitions),
-            ("tag on most of the paper's statements", self.blanket_tags),
-            ("body section with no statement", self.unread_sections),
+            ("tag on most of the paper's claims", self.blanket_tags),
+            ("body section with no claim", self.unread_sections),
         ) if found}
 
     @property
     def primaries(self) -> int:
-        """Findings and positions kept. The real yield — a paper's statement
+        """Findings and positions kept. The real yield — a paper's claim
         count says how much was written down, this says how much of it is
         what anybody came for."""
         return sum(1 for c in self.kept
-                   if c.get("claim_type") in ("finding", "position"))
+                   if c.get("claim_type") in ("evidence", "position"))
 
     @property
     def waste(self) -> float:
@@ -289,7 +289,7 @@ class Checked:
 
 
 def looks_like_artifact_trivia(text: str) -> bool:
-    """Whether a statement is about the paper's instrument rather than the field.
+    """Whether a claim is about the paper's instrument rather than the field.
 
     "Melting Pot contains more than 80 unique test scenarios" is true, useful
     for reproducing the paper, and can never be the answer to "who has argued
@@ -305,7 +305,7 @@ def looks_like_artifact_trivia(text: str) -> bool:
 
 
 def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
-    """Method statements carrying only their paper's subject.
+    """Method claims carrying only their paper's subject.
 
     A method's tag answers "how was this done", and is joined against a
     finding's "what was shown" to answer "who found this, working that way".
@@ -316,7 +316,7 @@ def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
     subject: a paper whose contribution is the mechanism itself will
     legitimately tag both the same way.
 
-    On the first six papers it flagged three of five method statements,
+    On the first six papers it flagged three of five method claims,
     which is high and was mostly telling you about the types rather than
     the tagging. These are conceptual works — a taxonomy of trust models, a
     definition of dynamic evaluation, a construct called Artificial
@@ -328,22 +328,22 @@ def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
     are about evaluation, and that one came back clean.
 
     So read a flag as a question rather than a defect, and ask first
-    whether the statement is a method at all. Knowledge Organization
+    whether the claim is a method at all. Knowledge Organization
     Infrastructure was flagged too, and was retagged at the time to
     `shared-schemas-for-agentic-organization-data` — the opposite of what
     it does, since KOI joins systems *without* a shared schema. It was
     never this paper's method. It is a system the paper builds on, which
     makes it background, and a wrong type invites a wrong tag because the
-    tagger is answering a question the statement was never asking.
+    tagger is answering a question the claim was never asking.
     """
     subject_tags: set[str] = set()
     for candidate in candidates:
-        if candidate.get("claim_type") in ("finding", "position"):
+        if candidate.get("claim_type") in ("evidence", "position"):
             subject_tags.update(candidate.get("concept_tags") or [])
 
     flagged = []
     for candidate in candidates:
-        if candidate.get("claim_type") != "method":
+        if candidate.get("claim_type") != "protocol":
             continue
         tags = set(candidate.get("concept_tags") or [])
         if tags and tags <= subject_tags:
@@ -363,7 +363,7 @@ HEDGES = re.compile(
 
 
 def hedges_dropped(candidates: list[dict]) -> list[str]:
-    """Statements whose quote hedges and whose paraphrase does not.
+    """Claims whose quote hedges and whose paraphrase does not.
 
     Deliberately crude: it asks only whether *any* hedge survived, so a
     paraphrase that swaps "seems to" for "may" passes, and one that keeps a
@@ -391,17 +391,17 @@ ARGUED = re.compile(
     r"it is (then )?plausible|this suggests|we expect|should|must|ought to)\b", re.I)
 
 
-def argued_findings(candidates: list[dict]) -> list[str]:
-    """Statements typed `finding` whose own quote marks them as argued.
+def argued_evidence(candidates: list[dict]) -> list[str]:
+    """Claims typed `evidence` whose own quote marks them as argued.
 
     The distinction the type system exists for. Conceptual papers have no
-    findings in this sense and their conclusions are still worth holding,
+    evidence in this sense and their conclusions are still worth holding,
     as positions. Partial: "our study finds that no single mechanism
     suffices" is the conclusion of an argument and uses the word *finds*,
     which no pattern can see through.
     """
     return [c.get("text", "?") for c in candidates
-            if c.get("claim_type") == "finding" and ARGUED.search(c.get("quote") or "")]
+            if c.get("claim_type") == "evidence" and ARGUED.search(c.get("quote") or "")]
 
 
 DEFINES = re.compile(
@@ -411,7 +411,7 @@ DEFINES = re.compile(
 
 
 def undeclared_definitions(candidates: list[dict]) -> list[str]:
-    """Statements that introduce a term and are typed as something else.
+    """Claims that introduce a term and are typed as something else.
 
     "We introduce Artificial Organizational Intelligence: the capacity for
     ..." was a method for a month, and "a dynamic evaluation is the one in
@@ -424,14 +424,14 @@ def undeclared_definitions(candidates: list[dict]) -> list[str]:
 
 
 def blanket_tags(candidates: list[dict], *, share: float = 0.5, at_least: int = 5) -> list[str]:
-    """Tags on most of one paper's statements.
+    """Tags on most of one paper's claims.
 
-    A tag on nearly everything a paper says tells its statements apart from
+    A tag on nearly everything a paper says tells its claims apart from
     nothing, and if no other paper carries it, connects them to nothing.
-    Building the Loop had one concept on ten of eleven statements, filed under
+    Building the Loop had one concept on ten of eleven claims, filed under
     a topic the paper never discusses, and the derived topics built on it
     reported a gain that was not there. More than half, because the next
-    worst was seven of twelve. Below five statements a paper can
+    worst was seven of twelve. Below five claims a paper can
     legitimately be about one thing.
     """
     if len(candidates) < at_least:
@@ -446,14 +446,14 @@ def blanket_tags(candidates: list[dict], *, share: float = 0.5, at_least: int = 
 
 # Body sections where a paper says what it did and what it found. A paper
 # can have an introduction with nothing new in it; a results section with no
-# statement means the results were read from the abstract's account of them.
+# claim means the results were read from the abstract's account of them.
 BODY = ("method", "results", "discussion", "other")
 
 
 def unread_sections(candidates: list[dict], sections, *, min_chars: int = 1500) -> list[str]:
-    """Substantial body sections that no statement was drawn from.
+    """Substantial body sections that no claim was drawn from.
 
-    The finding that held across every paper audited: statements came from
+    The finding that held across every paper audited: claims came from
     the abstract, the introduction and the conclusion, and the sections
     where the work was actually done carried none. Building the Loop's
     method, architecture and deployment, Melting Pot's experiments,
@@ -478,7 +478,7 @@ def unread_sections(candidates: list[dict], sections, *, min_chars: int = 1500) 
 
 def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | None = None,
           allow_new_concepts: bool = True) -> Checked:
-    """Put drafted statements through the gates.
+    """Put drafted claims through the gates.
 
     `candidates` are dicts as the drafting model produced them: text, quote,
     standalone, claim_type, attribution, attributed_to, concept_tags.
@@ -489,12 +489,12 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
 
     # One spelling, before anything is compared against anything.
     #
-    # A tag is a slug: a statement proposing `organisational-knowledge-legibility`
+    # A tag is a slug: a claim proposing `organisational-knowledge-legibility`
     # would pass the vocabulary check as a brand new concept, sitting beside the
     # `organizational-` one, joined to nothing. The collision guard would not
     # catch it either, since by its own measure the two labels are the same term
     # spelled two ways — which is exactly the case it treats as one idea. So it
-    # is settled here, before the tag is looked up, and the statement is just
+    # is settled here, before the tag is looked up, and the claim is just
     # written the same way every time. The quote is not touched: it is checked
     # verbatim against the paper, and our spelling is not the paper's business.
     for candidate in candidates:
@@ -509,7 +509,7 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
     result = Checked()
     result.subject_tagged_methods = method_tagged_by_subject(candidates)
     result.hedges_dropped = hedges_dropped(candidates)
-    result.argued_findings = argued_findings(candidates)
+    result.argued_evidence = argued_evidence(candidates)
     result.undeclared_definitions = undeclared_definitions(candidates)
     result.blanket_tags = blanket_tags(candidates)
     result.unread_sections = unread_sections(candidates, sections)
@@ -583,9 +583,9 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
             continue
 
         seen_texts.add(key)
-        # Passing the gates is a fact about the statement and belongs on it.
+        # Passing the gates is a fact about the claim and belongs on it.
         # Recording it here rather than by hand keeps the claim that every
-        # kept statement was mechanically checked true by construction.
+        # kept claim was mechanically checked true by construction.
         candidate.setdefault("review_status", "machine-checked")
         result.kept.append(candidate)
 

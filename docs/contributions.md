@@ -13,29 +13,29 @@ fill in. Edit the records, never the output.
 |---|---|---|
 | `wrote` | The authors of every record the library holds | each record's byline |
 | `proposed` | Whoever proposed a record | the record's provenance (`from issue #N by @login`) |
-| `reviewed-statement` | Whoever judged whether a statement says what its paper says | `evals/gold/claims.yml` |
+| `reviewed-claim` | Whoever judged whether a claim says what its paper says | `evals/gold/claims.yml` |
 | `reviewed-filing` | Whoever decided where a record belongs in the taxonomy | `evals/gold/tags.yml` |
-| `asserted-relation` | Whoever judged how two statements relate | `data/claim-relations.yml` |
+| `asserted-relation` | Whoever judged how two claims relate | `data/claim-relations.yml` |
 | `verified-identity` | The maintainer who confirmed who a reviewer is | `data/people/` |
-| `drafted` | The model that drafted a statement *(machine)* | each statement's provenance |
+| `drafted` | The model that drafted a claim *(machine)* | each claim's provenance |
 | `admitted` | Citation expansion, admitting a record the corpus cites *(machine)* | each record's provenance |
 
-**Authors come first** because everything here depends on them. A statement
-is drawn from somebody's paper, a verdict judges that statement, and a
+**Authors come first** because everything here depends on them. A claim
+is drawn from somebody's paper, a verdict judges that claim, and a
 relation joins two of them. Each contribution records what it `builds_on`,
 so credit can be followed back to the paper and the people who wrote it.
 
 **One person, one entry.** A reviewer whose GitHub account is a verified link
 to a name on a byline is listed under that name, so an author who reviewed
-statements from their own paper appears once, as both. Their verdicts are
+claims from their own paper appears once, as both. Their verdicts are
 marked `by_author`. An unverified login stays a login (`@name`), because
 joining two identities on a guess is worse than leaving them apart.
 
 ## How it is used, recomputed
 
 A contribution goes on being used after it is made. A paper is cited by
-records admitted later, statements are drawn from it, and relations join
-those statements to others. `used_by` records that, and it is recomputed on
+records admitted later, claims are drawn from it, and relations join
+those claims to others. `used_by` records that, and it is recomputed on
 every build, so it grows with the library rather than freezing at the moment
 of contribution.
 

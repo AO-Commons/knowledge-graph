@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Where in a paper somebody said a question is open.
 
-Open questions are the one kind of statement authors mark for you. A finding
+Open questions are the one kind of claim authors mark for you. A finding
 has to be recognized; an open question is announced — "remains an open
 question", "we leave to future work", "it is not yet known whether" — because
 an author stating one wants it found and worked on.
 
 So this is the opposite of the gates in `extract.py`, which reject. This
 finds, and hands the passages to a drafting model to read. It does not decide what
-the statement is and it does not write the quote: those are the drafting model's
+the claim is and it does not write the quote: those are the drafting model's
 job, and keeping them apart is what stops a regex from becoming the author of
 a claim.
 

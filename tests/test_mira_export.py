@@ -67,14 +67,14 @@ class TestTheProjection:
         # from, which is why a finding is the one kind whose provenance MIRA
         # can state outright.
         doc, _ = build_graph(
-            resources=[_paper()], claims=[_claim(kind=ClaimType.FINDING)])
+            resources=[_paper()], claims=[_claim(kind=ClaimType.EVIDENCE)])
         evidence = _nodes(doc, "Evidence")
         assert len(evidence) == 1
         assert evidence[0]["sourceDocument"] == "https://arxiv.org/abs/1234.5678"
 
     def test_a_method_is_a_protocol(self):
         doc, _ = build_graph(
-            resources=[_paper()], claims=[_claim(kind=ClaimType.METHOD)])
+            resources=[_paper()], claims=[_claim(kind=ClaimType.PROTOCOL)])
         assert len(_nodes(doc, "Protocol")) == 1
 
     def test_every_kind_has_a_mira_class(self):
@@ -99,7 +99,7 @@ class TestTheProjection:
 
     def test_an_edge_is_reified_rather_than_a_property(self):
         # A supports property on a Claim fails the closed shape; a reified
-        # statement touches no shape at all.
+        # claim touches no shape at all.
         doc, _ = build_graph(
             resources=[_paper()],
             claims=[_claim(kind=ClaimType.GAP)],
@@ -111,7 +111,7 @@ class TestTheProjection:
         )
         edges = _nodes(doc, "addresses")
         assert len(edges) == 1
-        assert edges[0]["source"] == f"{BASE}/statements/claim:arxiv:1234.5678:1"
+        assert edges[0]["source"] == f"{BASE}/claims/claim:arxiv:1234.5678:1"
         assert edges[0]["destination"] == f"{BASE}/problems/question:x"
         assert "RelationInstance" in edges[0]["@type"]
         assert not any("addresses" in n for n in _nodes(doc, "Claim"))
@@ -120,7 +120,7 @@ class TestTheProjection:
 class TestItAdmitsWhatItCannotSay:
     def test_a_tool_is_not_called_a_document(self):
         # SourceDocument is_a CreativeWork. Typing a deployment as one to get
-        # it into the file would put a false statement in the data.
+        # it into the file would put a false claim in the data.
         tool = Resource(id="resource:tool:x", resource_type="code-tool",
                         title="A framework")
         doc, report = build_graph(resources=[tool])

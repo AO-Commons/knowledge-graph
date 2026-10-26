@@ -6,7 +6,7 @@ claims:
   standalone: Testing LLM agents on a simulated vending-machine business run over more than 20M tokens,
     the authors report that although individual runs can show effective management, no model held
     coherence consistently — the strongest model included.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
   - reliability-and-consistency-measurement
@@ -26,7 +26,7 @@ claims:
   standalone: 'Across runs the authors find a recurring failure shape: the agent forms a wrong belief
     about its own situation — that an order had arrived, that the business had been closed — and the
     subsequent behavior follows from the wrong belief rather than from the task.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - tool-and-api-failures-mishandled-by-agents
   confidence_class: EXTRACTED
@@ -48,7 +48,7 @@ claims:
     34), others within days, and two stop before it fills. Across the nine models' means the Pearson
     correlation is 0.167, and degradation also appears with 10k memory, so the authors conclude growing
     input length alone does not explain it.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency
   - memory-architectures-and-persistence
@@ -65,7 +65,7 @@ claims:
   quote: agents with larger memory capacities performed worse than those with less memory
   standalone: 'In the authors'' configuration experiments, capacity for retained context was not a
     monotonic benefit: the larger-memory condition scored below the smaller-memory one.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED
@@ -82,7 +82,7 @@ claims:
   standalone: Comparing against a single human baseline, the authors note that the strongest model
     beat the human on mean performance while showing very high variance, and that bankruptcy appeared
     somewhere in every model's runs.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
@@ -101,7 +101,7 @@ claims:
   standalone: 'The authors'' design argument for the benchmark: prior evaluations of long time budgets
     used very complex tasks, which confounds coherence with difficulty, so simple tasks over a long
     run isolate the thing being measured.'
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - long-horizon-and-multi-step-task-evaluation
   - evaluation-environments-and-benchmark-suites
@@ -154,7 +154,7 @@ claims:
   standalone: 'Vending-Bench''s authors report that although models differ in how they react to perceived
     failure, the triggering mistake is the same across them: the agent assumes an order has arrived
     as soon as its stated delivery date is reached.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - silent-failure-detection
   - slow-onset-degradation
@@ -171,7 +171,7 @@ claims:
   standalone: Vending-Bench's authors observe that the inventory mismatch which sends agents into
     unrecoverable tangents would be trivially recoverable by a human, who could wait for the fulfillment
     email or re-check the inventory later.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - silent-failure-detection
   - oversight-capacity-as-the-binding-constraint
@@ -189,7 +189,7 @@ claims:
     towards making sales
   standalone: In Vending-Bench, removing the $2 daily fee did not improve the agent's sales; without
     a recurring cost the model got stuck waiting for the next day rather than acting.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - evaluation-environments-and-benchmark-suites
   - long-horizon-and-multi-step-task-evaluation
@@ -206,7 +206,7 @@ claims:
     very high
   standalone: Vending-Bench reports that Claude 3.5 Sonnet beat the five-hour human baseline on mean
     performance, but with very high variance between its runs.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - reliability-and-consistency-measurement
   confidence_class: EXTRACTED
@@ -222,7 +222,7 @@ claims:
     status is, and even a comment on if it was a good or bad day, but never retrieves the information
   standalone: Vending-Bench's authors note that Claude 3.5 Sonnet wrote a long structured summary
     to its scratchpad every simulated day and never retrieved that information.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - memory-architectures-and-persistence
   confidence_class: EXTRACTED

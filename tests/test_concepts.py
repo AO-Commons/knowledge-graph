@@ -171,7 +171,7 @@ class TestTaggedCorpus:
 
 
 class TestCandidateQueue:
-    """The arithmetic that makes the statement layer tractable: 780 pairs
+    """The arithmetic that makes the claim layer tractable: 780 pairs
     are unreadable, 25 are an afternoon."""
 
     def test_a_shared_concept_is_required(self):
@@ -218,7 +218,7 @@ class TestCandidateQueue:
 
 
 class TestDerivedTopics:
-    """A paper's categories, computed from what its statements argue about."""
+    """A paper's categories, computed from what its claims argue about."""
 
     def test_a_paper_lands_where_its_statements_do(self):
         from ao_commons_kg.concepts import derived_topics, load_vocabulary
@@ -228,14 +228,14 @@ class TestDerivedTopics:
         assert derived["5.3"] > 1, "weight is information, not just membership"
 
     def test_it_finds_categories_the_filer_missed(self):
-        """Melting Pot was filed 14.1 and 14.5. Two of its own statements argue
+        """Melting Pot was filed 14.1 and 14.5. Two of its own claims argue
         that a population whose agents specialize on expected partners is less
         robust, and that successful populations need redundancy, which is 3.1
         — organizational architecture — and nobody filed it there.
 
         This test used to assert 14.3, from a `dynamic-evaluation` tag on a
-        statement about fixed background bots. The audit of 2026-10-01 found
-        the tag contradicted its statement; a test should not hold a mis-tag
+        claim about fixed background bots. The audit of 2026-10-01 found
+        the tag contradicted its claim; a test should not hold a mis-tag
         in place."""
         from ao_commons_kg.concepts import derived_topics, load_vocabulary
         claims = [c for c in load_claims() if c.resource_id == "resource:arxiv:2107.06857"]
@@ -321,7 +321,7 @@ class TestVocabularyHygiene:
         assert len(duplicate_pairs(load_vocabulary())) >= 8
 
     def test_usage_counts_the_zeros(self):
-        """A concept on no statements is inert and a concept on one connects
+        """A concept on no claims is inert and a concept on one connects
         nothing. Both are invisible if only the used terms are counted."""
         from ao_commons_kg.concepts import load_vocabulary, usage
         vocab = load_vocabulary()
@@ -361,7 +361,7 @@ class TestGeneratedList:
         before inventing a near-duplicate."""
         payload = self._committed()
         assert payload["counts"]["vocabulary"] == len(payload["vocabulary"])
-        assert all(c["statements"] for c in payload["vocabulary"])
+        assert all(c["claims"] for c in payload["vocabulary"])
         assert payload["counts"]["vocabulary_from_claims"] > 0
 
     def test_suggestions_are_kept_apart_from_the_vocabulary(self):
@@ -369,7 +369,7 @@ class TestGeneratedList:
         scheme this deliberately is not — and 506 of the 523 have never been
         reached for."""
         payload = self._committed()
-        assert all(not c["statements"] for c in payload["suggestions"])
+        assert all(not c["claims"] for c in payload["suggestions"])
         assert payload["counts"]["suggestions_available"] == len(payload["suggestions"])
         assert payload["counts"]["suggestions_available"] > payload["counts"]["vocabulary"]
 
@@ -388,11 +388,11 @@ class TestGeneratedList:
     def test_every_term_records_whether_anything_uses_it(self):
         payload = self._committed()
         everything = payload["vocabulary"] + payload["suggestions"]
-        assert all("statements" in c for c in everything)
+        assert all("claims" in c for c in everything)
 
 
 class TestClaimTopicsAreDerived:
-    """A statement's place in the taxonomy follows from what it argues about.
+    """A claim's place in the taxonomy follows from what it argues about.
 
     The two layers used to be asserted separately and disagreed: on
     `arxiv:2511.03434` claim 2 the topic codes said 10.1 and 4.4 while the
@@ -450,9 +450,9 @@ class TestPrimaryAndContext:
 
     def test_the_split_follows_the_type(self):
         from ao_commons_kg.models import ClaimType
-        assert ClaimType.FINDING.is_primary and ClaimType.POSITION.is_primary
+        assert ClaimType.EVIDENCE.is_primary and ClaimType.POSITION.is_primary
         assert not any(t.is_primary for t in
-                       (ClaimType.BACKGROUND, ClaimType.METHOD, ClaimType.LIMITATION))
+                       (ClaimType.BACKGROUND, ClaimType.PROTOCOL, ClaimType.LIMITATION))
 
     def test_context_travels_with_a_primary_from_its_own_paper(self):
         from ao_commons_kg.claims import context_for
@@ -472,7 +472,7 @@ class TestPrimaryAndContext:
         assert context_for(background, claims) == []
 
     def test_proposals_run_between_primaries_by_default(self):
-        """Eight of eleven proposed pairs involved a context statement, and
+        """Eight of eleven proposed pairs involved a context claim, and
         the corpus has never produced a relation from that shape except as
         grounds. Without this the queue spends most of a reviewer's attention
         where nothing has ever been found."""
@@ -499,7 +499,7 @@ class TestPrimaryAndContext:
 
 class TestSubjectAndMethod:
     """"Who has found this, working that way" — two questions of different
-    statements, joined through the paper."""
+    claims, joined through the paper."""
 
     def test_a_subject_and_a_method_are_joined_through_the_paper(self):
         from ao_commons_kg.claims import by_subject_and_method
@@ -509,7 +509,7 @@ class TestSubjectAndMethod:
         assert hits
         for hit in hits:
             assert hit["claim"].claim_type.is_primary
-            assert hit["via"], "a method match must name the method statement it matched"
+            assert hit["via"], "a method match must name the method claim it matched"
             assert all(m.resource_id == hit["claim"].resource_id for m in hit["via"])
 
     def test_a_method_nobody_used_returns_nothing(self):
@@ -531,7 +531,7 @@ class TestSubjectAndMethod:
         """The design decision this query rests on. Splitting concepts by
         type would make `dynamic-evaluation` into a subject term and a method
         term — two names for one idea, which is the failure the vocabulary is
-        built to avoid. The statement's type says which role its tag plays."""
+        built to avoid. The claim's type says which role its tag plays."""
         import collections
         roles = collections.defaultdict(set)
         for claim in load_claims():
@@ -539,6 +539,6 @@ class TestSubjectAndMethod:
                 roles[tag].add(claim.claim_type.value)
         spanning = {t: r for t, r in roles.items() if len(r) > 1}
         assert len(spanning) >= 8, (
-            "terms stopped spanning statement types; if that is deliberate, this "
+            "terms stopped spanning claim types; if that is deliberate, this "
             "test is the thing that should change")
         assert "dynamic-evaluation" in spanning

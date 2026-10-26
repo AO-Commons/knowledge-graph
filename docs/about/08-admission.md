@@ -11,7 +11,7 @@ clear first.
 | | Growth | Scouting |
 | --- | --- | --- |
 | Finds | papers the corpus already cites, or that cite it | papers connected to nothing we hold |
-| First bound | a rising citation threshold — two held papers at one hop, three at two, each step from a human judgment strictly harder | topical support: BM25 against our own published taxonomy, plus overlap with concepts statements have needed |
+| First bound | a rising citation threshold — two held papers at one hop, three at two, each step from a human judgment strictly harder | topical support: BM25 against our own published taxonomy, plus overlap with concepts claims have needed |
 | Then | the scope scan | the scope scan |
 | Budget | 40 admitted a run | 25 scanned a run |
 | On passing | admitted to the corpus automatically | written to a candidate file for a person to promote |

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Run the drafting checks over the statements the library already holds.
+"""Run the drafting checks over the claims the library already holds.
 
-The checks in `extract.py` run when a model drafts statements from a paper.
-Statements drafted before a check existed were never put through it, so this
+The checks in `extract.py` run when a model drafts claims from a paper.
+Claims drafted before a check existed were never put through it, so this
 puts them through now. It reports and changes nothing: every warning is a
 question for a person, and the answer can be "this one is right".
 
-    python3 scripts/check_statements.py               # every paper with statements
-    python3 scripts/check_statements.py arxiv:2107.06857
+    python3 scripts/check_claims.py               # every paper with claims
+    python3 scripts/check_claims.py arxiv:2107.06857
 
 Full text is read from the cache where there is one. A paper without a cached
 body gets every check except the one that needs the body.
@@ -54,7 +54,7 @@ def main(argv=None) -> int:
         found = sum(len(v) for v in warnings.values())
         total += found
         body = "" if sections else "  (no cached body: section coverage not checked)"
-        print(f"\n{resource_id} — {len(candidates)} statements, {found} to look at{body}")
+        print(f"\n{resource_id} — {len(candidates)} claims, {found} to look at{body}")
         for name, items in warnings.items():
             print(f"  {name}:")
             for item in items:

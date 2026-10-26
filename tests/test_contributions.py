@@ -41,7 +41,7 @@ class TestCreditFollowsDependencies:
         ledger = collect(resources=[_paper()], claims=[_claim()],
                          gold_claims={"claim:arxiv:1:1": {"reviewer": "someone",
                                                           "reviewed_on": "2026-09-18"}})
-        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-statement")
+        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-claim")
         assert verdict.builds_on == ("claim:arxiv:1:1",)
 
     def test_a_draft_builds_on_the_paper(self):
@@ -55,7 +55,7 @@ class TestUseIsRecomputed:
         ledger = collect(resources=[_paper(), _paper("resource:arxiv:2", ("B",))],
                          claims=[_claim()], citations=[("resource:arxiv:2", "resource:arxiv:1")])
         assert ledger.used_by["resource:arxiv:1"] == {
-            "cited by records": 1, "statements drawn from it": 1}
+            "cited by records": 1, "claims drawn from it": 1}
 
 
 class TestOnePersonAcrossRoles:
@@ -65,14 +65,14 @@ class TestOnePersonAcrossRoles:
         ledger = collect(resources=[_paper()], claims=[_claim()], identities=HELENA,
                          gold_claims={"claim:arxiv:1:1": {"reviewer": "helenarong2703"}})
         kinds = {c.kind for c in ledger.contributions if c.contributor == "Ada Lovelace"}
-        assert {"wrote", "reviewed-statement"} <= kinds
-        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-statement")
+        assert {"wrote", "reviewed-claim"} <= kinds
+        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-claim")
         assert verdict.by_author
 
     def test_an_unverified_login_is_not_joined_on_a_guess(self):
         ledger = collect(resources=[_paper()], claims=[_claim()],
                          gold_claims={"claim:arxiv:1:1": {"reviewer": "adalovelace"}})
-        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-statement")
+        verdict = next(c for c in ledger.contributions if c.kind == "reviewed-claim")
         assert verdict.contributor == "@adalovelace" and not verdict.by_author
 
     def test_a_proposer_is_read_from_the_record_s_provenance(self):
@@ -117,6 +117,6 @@ class TestRecognitionIsLegible:
 
 class TestTheRealLedger:
     def test_the_authors_who_reviewed_their_own_papers_are_recorded_as_authors(self):
-        verdicts = [c for c in load_ledger().contributions if c.kind == "reviewed-statement"]
+        verdicts = [c for c in load_ledger().contributions if c.kind == "reviewed-claim"]
         by_author = {c.contributor for c in verdicts if c.by_author}
         assert {"Helena Rong", "Axel Backlund"} <= by_author

@@ -1,6 +1,6 @@
-"""Open questions, and the statements that address them.
+"""Open questions, and the claims that address them.
 
-A `gap` statement is one paper saying something is unresolved. A question is
+A `gap` claim is one paper saying something is unresolved. A question is
 the thing several of those turn out to be asking. Clustering them is the layer
 the roadmap called for and the reason the extraction pass hunts gaps
 separately in the first place: it is the query nobody else can answer with
@@ -13,7 +13,7 @@ paper you opened.
 
 Every ADDRESSES edge is INFERRED. No paper says "my open question is an
 instance of yours" — somebody read several and decided. So each carries its
-reasoning, and a question carries the note saying why its statements are one
+reasoning, and a question carries the note saying why its claims are one
 question, which is the judgment a reader most needs to be able to disagree
 with.
 """
@@ -46,8 +46,8 @@ def load_questions(
 ) -> tuple[list[Question], list[Relationship]]:
     """Read the questions and their ADDRESSES edges, refusing any that dangle.
 
-    Pass `claims` and every statement named here must be one we hold. A
-    question pointing at a cut statement is not a small problem: the layer's
+    Pass `claims` and every claim named here must be one we hold. A
+    question pointing at a cut claim is not a small problem: the layer's
     whole claim is that these questions are asked by papers in the corpus, and
     an edge to nothing would make that claim false while still rendering.
     """
@@ -92,7 +92,7 @@ def load_questions(
         addressed = entry.get("addressed_by") or []
         if not addressed:
             raise QuestionError(
-                f"{where}: no statement addresses it — a question the corpus "
+                f"{where}: no claim addresses it — a question the corpus "
                 "cannot show anybody asking is an opinion, not a finding")
 
         for index, occurrence in enumerate(addressed, start=1):
@@ -107,7 +107,7 @@ def load_questions(
                     "an unexplained one cannot be told from a guess")
             if held is not None and claim_id not in held:
                 raise QuestionError(
-                    f"{at}: {claim_id!r} is not a statement we hold — it was "
+                    f"{at}: {claim_id!r} is not a claim we hold — it was "
                     "cut, renamed, or never extracted")
 
             edges.append(Relationship(
@@ -134,11 +134,11 @@ def reach(questions: Iterable[Question], edges: Iterable[Relationship],
     Two numbers, because they are two different things and showing them
     unlabelled beside each other is how the old page confused everybody:
 
-      `papers`      distinct papers holding a statement that addresses it
-      `occurrences` statements that address it
+      `papers`      distinct papers holding a claim that addresses it
+      `occurrences` claims that address it
 
     A question asked twice by one paper is one paper's framing. A question
-    asked by two papers is a statement about a field, and that difference is
+    asked by two papers is a claim about a field, and that difference is
     the only reason this layer is worth having — so it is counted, not
     implied.
     """
@@ -163,11 +163,11 @@ def reach(questions: Iterable[Question], edges: Iterable[Relationship],
 
 #: A concept must be argued about by at least this many distinct papers before
 #: it is worth proposing as a question. Two is the lowest number that makes a
-#: proposal a statement about a field rather than about one author's framing,
+#: proposal a claim about a field rather than about one author's framing,
 #: and it is the same bound the questions themselves are judged by.
 MIN_PAPERS = 2
 
-#: And by at least this many statements. A concept two papers mention once
+#: And by at least this many claims. A concept two papers mention once
 #: each is a shared word, not a shared question.
 MIN_ARGUED = 2
 
@@ -181,7 +181,7 @@ def propose(claims, questions=(), *, min_papers: int = MIN_PAPERS,
     Proposes and never admits, exactly as the scout does for papers. A concept
     several papers argue about and none has shown anything on is a reasonable
     place to look for a question — it is not a question, because a question is
-    the sentence somebody writes after reading the statements, and no counting
+    the sentence somebody writes after reading the claims, and no counting
     produces that sentence.
 
     The zero-findings bound is the one worth arguing about. It separates
@@ -204,7 +204,7 @@ def propose(claims, questions=(), *, min_papers: int = MIN_PAPERS,
             if kind in ARGUING:
                 bucket["argued"] += 1
                 bucket["claims"].append(claim.id)
-            elif kind == "finding":
+            elif kind == "evidence":
                 bucket["found"] += 1
 
     out = []
@@ -219,7 +219,7 @@ def propose(claims, questions=(), *, min_papers: int = MIN_PAPERS,
             "concept": tag,
             "papers": sorted(bucket["papers"]),
             "argued": bucket["argued"],
-            "statements": sorted(bucket["claims"]),
+            "claims": sorted(bucket["claims"]),
         })
     out.sort(key=lambda c: (-len(c["papers"]), -c["argued"], c["concept"]))
     return out

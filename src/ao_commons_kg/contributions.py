@@ -1,8 +1,8 @@
 """Who made this library, and what each contribution rests on.
 
-A library of statements drawn from papers is built from other people's work
+A library of claims drawn from papers is built from other people's work
 twice over. The papers are somebody's. So is everything done to make them
-findable: proposing a record, judging a statement, confirming who a reviewer
+findable: proposing a record, judging a claim, confirming who a reviewer
 is. Every one of those is already written down somewhere in this repository,
 in the field that made it — a reviewer on a verdict, a login in a record's
 provenance, a model named on a draft. Nothing collected them, so the
@@ -15,12 +15,12 @@ field anybody has to fill in.
 It follows four of Rennie and Potts' design principles for contribution
 systems (2025, SSRN 5190625), because this library is a small one:
 
-- **Value travels through dependencies.** A verdict rests on a statement,
+- **Value travels through dependencies.** A verdict rests on a claim,
   which rests on a draft, which rests on a paper somebody wrote. Each
   contribution records what it `builds_on`, so credit can be followed upstream
   to the authors the whole thing depends on.
 - **Valuation is continuous.** A contribution is used after it is made: a
-  paper is cited by records admitted later, a statement is joined to another
+  paper is cited by records admitted later, a claim is joined to another
   by a relation. `used_by` is recomputed on every build, so it grows with the
   library rather than freezing at the moment of contribution.
 - **Recognition is legible.** Nothing is weighted, scored or ranked. Every
@@ -30,7 +30,7 @@ systems (2025, SSRN 5190625), because this library is a small one:
   here is to have no weights at all, until somebody proposes a valuation in
   the open.
 - **Machine contributions are machine-readable, and kept apart.** A model
-  drafting a statement and a citation crawl admitting a record are recorded,
+  drafting a claim and a citation crawl admitting a record are recorded,
   because they are real work the library rests on. They are listed
   separately, and they are never counted as a person's judgment. That is the
   line this project already draws: machines admit, people judge.
@@ -50,11 +50,11 @@ REPO = Path(__file__).resolve().parent.parent.parent
 KINDS = {
     "wrote": "wrote a paper the library holds",
     "proposed": "proposed a record for the library",
-    "reviewed-statement": "judged whether a statement says what its paper says",
+    "reviewed-claim": "judged whether a claim says what its paper says",
     "reviewed-filing": "decided where a record belongs in the taxonomy",
-    "asserted-relation": "judged how two statements relate",
+    "asserted-relation": "judged how two claims relate",
     "verified-identity": "confirmed who a reviewer is",
-    "drafted": "drafted statements from a paper",
+    "drafted": "drafted claims from a paper",
     "admitted": "admitted a record because the corpus cites it",
 }
 MACHINE_KINDS = {"drafted", "admitted"}
@@ -69,7 +69,7 @@ class Contribution:
     """A byline name, a GitHub login written `@login`, or a machine's name."""
     kind: str
     on: str
-    """The id of what was contributed to: a record, a statement, a relation."""
+    """The id of what was contributed to: a record, a claim, a relation."""
     source: str
     """The file this was read from, relative to the repository."""
     date: str | None = None
@@ -83,7 +83,7 @@ class Contribution:
 class Ledger:
     contributions: list[Contribution] = field(default_factory=list)
     used_by: dict[str, dict[str, int]] = field(default_factory=dict)
-    """For an id, how later work uses it: records citing it, statements
+    """For an id, how later work uses it: records citing it, claims
     drawn from it, relations and verdicts on it."""
 
 
@@ -159,7 +159,7 @@ def collect(*, resources, claims, relations=None, gold_claims=None, gold_tags=No
         resource = by_resource.get(claim.resource_id) if claim else None
         by_author = bool(verdict.get("by_author")) or bool(
             resource and any(same_person(who, a) for a in resource.authors or []))
-        found.append(Contribution(who, "reviewed-statement", claim_id, "evals/gold/claims.yml",
+        found.append(Contribution(who, "reviewed-claim", claim_id, "evals/gold/claims.yml",
                                   date=verdict.get("reviewed_on"), by_author=by_author,
                                   builds_on=(claim_id,)))
 
@@ -190,7 +190,7 @@ def collect(*, resources, claims, relations=None, gold_claims=None, gold_tags=No
     for source, target in citations:
         used[target]["cited by records"] += 1
     for claim in claims:
-        used[claim.resource_id]["statements drawn from it"] += 1
+        used[claim.resource_id]["claims drawn from it"] += 1
     for claim_id in gold_claims:
         used[claim_id]["verdicts"] += 1
     for relation in relations:
@@ -226,7 +226,7 @@ def summarize(ledger: Ledger) -> dict:
             if c.builds_on:
                 row["builds_on"] = list(c.builds_on)
             use = dict(ledger.used_by.get(c.on) or {})
-            if c.kind == "reviewed-statement":
+            if c.kind == "reviewed-claim":
                 # Its own verdict is not a use of it.
                 use.pop("verdicts", None)
             if use:

@@ -157,7 +157,7 @@ class TestThePeopleView:
             assert worker["counts"] == by_name[worker["contributor"]]
 
     def test_authors_and_workers_are_never_summed(self):
-        """Writing a paper the library holds and judging a statement in it are
+        """Writing a paper the library holds and judging a claim in it are
         different in kind. One list would make 1,600 names look like the whole
         story and four look like a rounding error."""
         payload = self._payload()

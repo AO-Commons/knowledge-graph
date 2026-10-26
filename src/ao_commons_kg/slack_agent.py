@@ -97,7 +97,7 @@ TOOLS = [
     {
         "name": "get_claims",
         "description": (
-            "Statements drawn from records, each with the sentence it came from. "
+            "Claims drawn from records, each with the sentence it came from. "
             "A claim is a machine's reading of that sentence until a person has "
             "verified it — quote the sentence, not the paraphrase."),
         "input_schema": {
@@ -199,7 +199,7 @@ documentation does not say. Most tools in the mirror are unprofiled.
 
 ## How to write
 
-Slack, not a paper. Lead with the answer — the finding or the gap, in the first \
+Slack, not a paper. Lead with the answer — the evidence or the gap, in the first \
 line. No preamble, no restating the question, no offering to help further. Use \
 *bold* and `code` sparingly; Slack renders neither markdown headings nor tables, \
 and a bullet list beats a paragraph when the shape is a list.

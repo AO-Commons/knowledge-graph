@@ -4,7 +4,7 @@ title: The extraction pipeline
 order: 7
 ---
 
-What happens between a paper arriving and its statements being citable. The
+What happens between a paper arriving and its claims being citable. The
 scaffolding is complete and thins sharply toward the top: nine stages, and
 the one no machine does is the one everything else waits on.
 
@@ -27,11 +27,11 @@ the one no machine does is the one everything else waits on.
 | 3 Admission | machine | Two routes in, and the difference between them is what evidence a candidate arrives with. Both end at the same scope scan. | runs Tuesdays |
 | 3a Growth | machine | `aokg grow` walks the citation graph both ways. Backward is free; forward costs a query per held record and is the only route by which recent research can arrive at all — a paper published last month has been cited by nobody, but it can cite three of ours on the day it appears. | 40 a run |
 | 3b Scouting | machine | `scripts/scout.py` looks for work the citation graph cannot see. It proposes and never admits: a search result has no vote, so it writes a candidate file and a person decides. | dispatch only |
-| 4 Extraction | machine, then a person | Statements read out of the full text, each with a verbatim quote, through five gates. Reaching the text at all is the real ceiling: only arXiv has a path. | {{read}} of {{records}} papers |
-| 5 Tagging | machine, then a person | Concepts on statements, fine-grained on purpose. The vocabulary grows from the bottom up — a term is in it because a statement argued about something. | concepts in use |
+| 4 Extraction | machine, then a person | Claims read out of the full text, each with a verbatim quote, through five gates. Reaching the text at all is the real ceiling: only arXiv has a path. | {{read}} of {{records}} papers |
+| 5 Tagging | machine, then a person | Concepts on claims, fine-grained on purpose. The vocabulary grows from the bottom up — a term is in it because a claim argued about something. | concepts in use |
 | 6 Linking | a person | Shared concepts propose pairs; people assert the relation and write down why. Most candidates should be nothing — a high yield would mean the vocabulary is too loose. | relations asserted |
-| 7 Filing | machine | A paper's categories are the union of the topics its statements' concepts sit under. Computed, no judgment. | computed |
-| 8 Review | a person | The scarce good, and the one thing no machine does: is each statement what its quote says. A verdict binds to the wording it was given. | {{reviewed}} of {{statements}} |
+| 7 Filing | machine | A paper's categories are the union of the topics its claims' concepts sit under. Computed, no judgment. | computed |
+| 8 Review | a person | The scarce good, and the one thing no machine does: is each claim what its quote says. A verdict binds to the wording it was given. | {{reviewed}} of {{claims}} |
 | 9 Release | machine | A fixed, citable version. Same inputs, same bytes. A release keeps its mistakes; rewriting one would make every other release less trustworthy. | checksummed |
 
 **Where the effort goes.** Intake, resolution, admission, filing and release

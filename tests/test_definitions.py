@@ -1,6 +1,6 @@
 """A term a paper introduces is a definition, not a method.
 
-Before the type existed, three of the corpus's six method statements defined
+Before the type existed, three of the corpus's six method claims defined
 a term or listed a typology. They were filed as methods because the paper was
 introducing something and method was the type for introductions, and the
 method layer is what "who has found this, working that way" joins through.
@@ -53,7 +53,7 @@ class TestTheMethodGate:
 
 class TestACoinedTermSaysWhereItCameFrom:
     """A concept a paper coined is joined to its coinage by a definition
-    statement carrying the tag. Without one, "who introduced this term, and
+    claim carrying the tag. Without one, "who introduced this term, and
     what did they mean by it" has no answer in the graph."""
 
     def test_the_terms_building_the_loop_coined_are_defined(self):
@@ -61,7 +61,7 @@ class TestACoinedTermSaysWhereItCameFrom:
                    if claim.claim_type is ClaimType.DEFINITION
                    for tag in claim.concept_tags}
         for term in ("artificial-organizational-intelligence", "building-the-loop"):
-            assert term in defined, f"{term} has no definition statement"
+            assert term in defined, f"{term} has no definition claim"
 
     def test_a_definition_carries_the_concept_it_defines(self):
         untagged = [c.id for c in load_claims()

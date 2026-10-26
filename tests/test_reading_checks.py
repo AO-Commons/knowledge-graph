@@ -6,7 +6,7 @@ misses the case that motivated it would be decoration.
 """
 
 from ao_commons_kg.extract import (
-    argued_findings, blanket_tags, check, hedges_dropped, undeclared_definitions,
+    argued_evidence, blanket_tags, check, hedges_dropped, undeclared_definitions,
     unread_sections,
 )
 
@@ -49,9 +49,9 @@ class TestAParaphraseSurerThanItsQuote:
 
 class TestAFindingQuotedAsArgued:
     def test_plausible_is_not_observed(self):
-        """Beyond the High Score's gaming inference, typed finding."""
-        assert argued_findings([{
-            "claim_type": "finding",
+        """Beyond the High Score's gaming inference, typed evidence."""
+        assert argued_evidence([{
+            "claim_type": "evidence",
             "quote": "It is then plausible that leading submissions gained much of "
                      "their advantage by excelling in scenarios that did not reward "
                      "prosocial ability",
@@ -60,7 +60,7 @@ class TestAFindingQuotedAsArgued:
         }])
 
     def test_the_same_sentence_as_a_position_is_fine(self):
-        assert not argued_findings([{
+        assert not argued_evidence([{
             "claim_type": "position",
             "quote": "It is then plausible that leading submissions gained much",
             "text": "It is plausible that leading submissions gained much.",
@@ -69,9 +69,9 @@ class TestAFindingQuotedAsArgued:
 
 class TestATermNotTypedDefinition:
     def test_an_announced_term_typed_method_is_flagged(self):
-        """Building the Loop's first statement, for a month."""
+        """Building the Loop's first claim, for a month."""
         assert undeclared_definitions([{
-            "claim_type": "method",
+            "claim_type": "protocol",
             "quote": "We introduce Artificial Organisational Intelligence (AOI): the "
                      "capacity for organisations to make their knowledge legible",
             "text": "AOI is an organization's capacity to make its knowledge legible.",
@@ -80,7 +80,7 @@ class TestATermNotTypedDefinition:
     def test_the_unannounced_form_is_caught(self):
         """Solipsistic Superintelligence's dynamic evaluation."""
         assert undeclared_definitions([{
-            "claim_type": "method",
+            "claim_type": "protocol",
             "quote": "A dynamic evaluation is the one in which the test distribution "
                      "depends on the policy",
             "text": "A dynamic evaluation is one whose test distribution depends on "
@@ -142,10 +142,10 @@ class TestTheyReportRatherThanRefuse:
             "text": "Leading submissions gained their advantage by gaming.",
             "quote": "It is then plausible that leading submissions gained much of "
                      "their advantage",
-            "claim_type": "finding", "attribution": "own", "concept_tags": [],
+            "claim_type": "evidence", "attribution": "own", "concept_tags": [],
         }])
         assert len(result.kept) == 1
-        assert "typed finding, quoted as argued" in result.warnings
+        assert "typed evidence, quoted as argued" in result.warnings
         assert "paraphrase surer than its quote" in result.warnings
 
 

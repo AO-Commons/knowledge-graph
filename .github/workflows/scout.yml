@@ -22,7 +22,7 @@ on:
   workflow_dispatch:
     inputs:
       deepen:
-        description: "Queries from concepts statements have needed"
+        description: "Queries from concepts claims have needed"
         default: "6"
       widen:
         description: "Queries from taxonomy subpoints nothing is filed under"

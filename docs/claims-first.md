@@ -1,4 +1,4 @@
-# Statements first
+# Claims first
 
 **Status:** proposal, not yet built. Argued here before any code moves, because
 it changes what the project is rather than how it works.
@@ -11,9 +11,9 @@ For how the corpus is processed today, stage by stage, see
 A paper is a container. The answerable thing is inside it.
 
 Today the library files papers on a taxonomy and, separately, draws
-statements from a few of them. The proposal is to make statements the unit
+claims from a few of them. The proposal is to make claims the unit
 that carries meaning — tags, relations, retrieval — and let a paper's place in
-the taxonomy be **derived from the statements it contains** rather than
+the taxonomy be **derived from the claims it contains** rather than
 asserted about the paper as a whole.
 
 ## Why the corpus already says this
@@ -31,7 +31,7 @@ something else.** In August, 568 codes became 103 because 93% of tags landed
 at subsection level and 458 leaves held nothing at all. The conclusion drawn
 was that the leaf layer was too fine. The better conclusion is that *a paper
 is too coarse an object to carry a fine tag* — because the concept vocabulary,
-which is exactly as fine-grained, works perfectly well on statements. 523
+which is exactly as fine-grained, works perfectly well on claims. 523
 terms, 17 in use across 40 claims, and they cluster meaningfully enough that
 25 candidate pairs produced 3 real relations.
 
@@ -44,7 +44,7 @@ the contradiction rather than documenting it.
 
 ## What we measured
 
-Derived topics for the six papers that have statements — the union of the
+Derived topics for the six papers that have claims — the union of the
 taxonomy codes their concept tags sit under — against what a person filed.
 
 | Paper | Hand-filed | Derived | Agreed | Lost | Gained |
@@ -57,7 +57,7 @@ taxonomy codes their concept tags sit under — against what a person filed.
 | Building the Loop | 16.1, 16.4 | 16.1, 2.4 | 16.1 | **16.4** | 2.4 |
 
 **The gains are right.** Melting Pot picks up 14.3 (evaluation integrity)
-because one of its own statements predicts the suite will be gamed, and 5.2
+because one of its own claims predicts the suite will be gamed, and 5.2
 and 5.3 because another says solving it requires modeling trust and
 deception. Nobody filed it there. It belongs there, by its own words.
 Dissociative Identity and Inter-Agent Trust Models both pick up 2.7 (machine
@@ -71,7 +71,7 @@ describe **what kind of intellectual move the paper makes** — it reframes a
 field, it borrows from an adjacent one, it contributes a method — rather than
 what it asserts.
 
-So: *statement concepts capture what a paper says; they do not capture what a
+So: *claim concepts capture what a paper says; they do not capture what a
 paper is.* A paper whose contribution is a reframing makes that contribution
 at the level of the whole, and no individual sentence in it carries the frame.
 
@@ -80,16 +80,16 @@ switch.
 
 **Two of the gains were mis-tags** (2026-10-01). The audit of every paper
 against its full text found Melting Pot's 14.3 came from a `dynamic-evaluation`
-tag on a statement about fixed background bots, and Inter-Agent Trust Models'
+tag on a claim about fixed background bots, and Inter-Agent Trust Models'
 2.7 from `stake-based-trust` on "where stakes are high". The table needs
-re-measuring on the corrected statements; see
+re-measuring on the corrected claims; see
 [the audit](../evals/results/2026-10-01-statement-audit.md).
 
 **One of the four losses was a reading gap, and that gain was a mis-filed
-concept** (2026-10-01). Building the Loop's statements had been drawn from its
+concept** (2026-10-01). Building the Loop's claims had been drawn from its
 abstract, its review of the theory of the firm and its conclusion. The methods,
 the KOI architecture and the Telescope deployment, most of the paper, carried
-none. Nearly every statement it did have was tagged with one concept, and that
+none. Nearly every claim it did have was tagged with one concept, and that
 concept was filed under 2.4, graduated autonomy, which the paper does not
 discuss. Re-read against the full text, it derives 16.1 and 16.4 and both
 agree; it gains 7.1, 7.2, 4.1, 2.2, 15.3 and 11.5, and loses nothing. So 16.4
@@ -97,7 +97,7 @@ is not a framing code that no sentence carries. A method paper states its
 method, and this one had not been read where it does. The other three losses
 stand as evidence until their papers get the same reading.
 
-## Two kinds of statement
+## Two kinds of claim
 
 Not all five types do the same work, and the corpus says which.
 
@@ -108,7 +108,7 @@ the thing they were searching for.
 
 ```
 10 of the first 12 asserted relations run between findings and positions
- 8 of 11 proposed pairs involved a context statement — and produced nothing
+ 8 of 11 proposed pairs involved a context claim — and produced nothing
 ```
 
 The argument a field is having is carried almost entirely by two of the five
@@ -124,17 +124,17 @@ that produced it, and the limitation its authors put on it.
 
 **Method is queryable, not only context.** "Who has found this, working that
 way" is a real question — a subject on a finding, a technique on a method
-statement, joined through the paper. `who_found` answers it as one query
+claim, joined through the paper. `who_found` answers it as one query
 rather than two searches and a manual intersection.
 
 **One vocabulary, not one per type.** The obvious next move would be separate
 tag sets — subject tags for findings, technique tags for methods — and it is
 the wrong one. Eight of the seventeen terms in use already sit on more than
-one statement type: `dynamic-evaluation` is the technique in one paper's
-method statement, what a finding is about in another, and what a position
+one claim type: `dynamic-evaluation` is the technique in one paper's
+method claim, what a finding is about in another, and what a position
 argues about in a third. Splitting it would produce a subject term and a
 method term for one idea, which is exactly the failure the collision check
-exists to prevent. **The statement's type already says which role its tag is
+exists to prevent. **The claim's type already says which role its tag is
 playing.**
 
 Background and limitation take subject tags like findings do, which the
@@ -144,42 +144,42 @@ background tag "means differently" turned out to be a question with no
 content.
 
 This is a reading of the types rather than a new field. Nothing is tagged
-primary; it follows from what kind of statement it is.
+primary; it follows from what kind of claim it is.
 
 ## The design
 
-**Statements carry the specific tags.** Fine-grained on purpose: the finer the
+**Claims carry the specific tags.** Fine-grained on purpose: the finer the
 tag, the better it proposes relations, which is the whole reason the layer
 exists. `sanction-sensitivity` is a better tag than `inter-agent trust`
 because two claims sharing it are worth reading together, and two claims
 sharing the second are not.
 
-**Every statement tag belongs to a taxonomy category.** Already true —
+**Every claim tag belongs to a taxonomy category.** Already true —
 `Concept.topics` records it, and 514 of the 523 terms inherited their category
 by being demoted taxonomy leaves. This is the join that makes the rest work.
 
 **A paper's categories are derived, plus a small asserted remainder.** The
-union of its statements' concepts' topics, which is computed and needs no
+union of its claims' concepts' topics, which is computed and needs no
 judgment — and papers land in several categories naturally, because their
-statements do. Alongside that, a short hand-filed list for the framing codes
+claims do. Alongside that, a short hand-filed list for the framing codes
 derivation cannot see. Two fields, differently sourced, each honest about
 which it is.
 
 **Citations stay paper-level and become a proposal signal.** A citation
-supports a statement in the world, but the data available is paper to paper;
-getting to statement level needs citation contexts from full text, and yields
+supports a claim in the world, but the data available is paper to paper;
+getting to claim level needs citation contexts from full text, and yields
 an *inferred* edge where we currently have the only *read* one in the graph.
 So keep `CITES` as it is, and use it the way concept tags are used — if A
-cites B, A's statements are candidates for relations to B's statements.
+cites B, A's claims are candidates for relations to B's claims.
 
 That is cheap and already meaningful: the one citation edge today whose ends
-both have statements is `2509.14485 → 2107.06857`, worth 63 candidate pairs,
+both have claims is `2509.14485 → 2107.06857`, worth 63 candidate pairs,
 and two of the relations we found by hand are exactly that pair. The signal is
 real and starved of coverage rather than of ideas.
 
 ## Reading becomes the load-bearing process
 
-If statements are the unit, reading quality is the whole product, and it is
+If claims are the unit, reading quality is the whole product, and it is
 currently a one-off: 40 claims from 6 papers, three-pass over full text, one
 model, one afternoon, unreviewed. That does not scale and it has never been
 measured.
@@ -199,14 +199,14 @@ What the process needs before it carries the library:
    drafting model should be asked the OWN/OTHER question directly.
 4. **Tagging as part of drafting, checked against the vocabulary.** A
    concept that does not resolve should fail loudly, as it does now, rather
-   than quietly producing a statement nothing can link to.
+   than quietly producing a claim nothing can link to.
 5. **Measurement.** The gold set has one entry. Until reading has an
-   accuracy number, "statements are first class" is an aspiration with 40
+   accuracy number, "claims are first class" is an aspiration with 40
    examples.
 
 ## Sequencing, and the thing that makes this hard
 
-Statement reading is roughly seven judgments per paper against one for
+Claim reading is roughly seven judgments per paper against one for
 filing. The Tuesday bot admits about eight papers a week. **Reading cannot
 keep pace with intake unless it is automated, and automated reading is
 unreviewed by definition** — which is the same bind the scope scan is in, and
@@ -216,14 +216,14 @@ the evidence for loosening the rules.
 
 The order that avoids a cliff:
 
-1. Derive paper categories from statement concepts **as an additional view**,
+1. Derive paper categories from claim concepts **as an additional view**,
    next to the hand-filed ones. Costs nothing, reveals disagreement
    immediately, changes no existing data.
 2. Add citations as a second relation-proposal signal. One edge today, free
    later.
 3. Fix reading as a measured process, and run it over the next twenty
    papers rather than six.
-4. Only when statement coverage is broad enough that derived categories cover
+4. Only when claim coverage is broad enough that derived categories cover
    most of the corpus, let hand-filing wither — for the codes derivation can
    see. Keep the framing codes.
 

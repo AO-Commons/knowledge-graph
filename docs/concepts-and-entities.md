@@ -1,23 +1,23 @@
 # Concepts, definitions and entities
 
-**Status:** the `definition` statement type is built. Entities are a proposal,
+**Status:** the `definition` claim type is built. Entities are a proposal,
 not yet built. Argued here because one paper showed all three problems at once.
 
 ## What one paper showed
 
 Building the Loop (Rennie et al., EPIC 2025) introduces two terms, Artificial
 Organizational Intelligence and "building the loop", and builds on a system,
-BlockScience's Knowledge Organization Infrastructure (KOI). Its statements had
-handled all three with the two tools available, a concept tag and a statement
+BlockScience's Knowledge Organization Infrastructure (KOI). Its claims had
+handled all three with the two tools available, a concept tag and a claim
 type, and got each one wrong in a different way:
 
 - **The definition of AOI was typed `method`.** It is a technique only in the
   sense that every new term is a new thing.
 - **KOI was typed `method` and tagged `shared-schemas-for-agentic-organization-data`.**
   It is not the paper's method, because the paper credits it to BlockScience.
-  The tag says the opposite of the statement, since KOI's point is joining
+  The tag says the opposite of the claim, since KOI's point is joining
   systems without a shared schema.
-- **One concept carried ten of eleven statements**, so it told them apart from
+- **One concept carried ten of eleven claims**, so it told them apart from
   nothing and connected them to nothing. It was also filed under 2.4, graduated
   autonomy, which the paper does not discuss.
 
@@ -27,12 +27,12 @@ through one slot.
 | Kind | What it is | Example | Where it lives |
 |---|---|---|---|
 | Concept | An idea another paper could hold under another name | AOI, building the loop | `concept_tags`, the vocabulary |
-| Definition | The statement where a paper fixes what a term means | "We introduce AOI: the capacity for ..." | a statement typed `definition` |
+| Definition | The claim where a paper fixes what a term means | "We introduce AOI: the capacity for ..." | a claim typed `definition` |
 | Entity | A named thing that exists, which you could link to | KOI, Telescope, BlockScience, a particular DAO | `entity_ids`, once built |
 
 ## Definitions (built)
 
-**The evidence is corpus-wide, not one paper's.** Of the six statements typed
+**The evidence is corpus-wide, not one paper's.** Of the six claims typed
 `method`, three defined a term or listed a typology:
 
 - Building the Loop's definition of AOI
@@ -40,7 +40,7 @@ through one slot.
   evaluated policy" (`arxiv:2606.03237:5`)
 - the six trust models of `arxiv:2511.03434:3`
 
-Both concepts that a paper coined for itself had their defining statement
+Both concepts that a paper coined for itself had their defining claim
 typed `method`. A fourth definition, Building the Loop's sharpest one, was
 typed `position`.
 
@@ -52,7 +52,7 @@ typed `position`.
 
 **Tag a definition with the concept it defines.** That is the whole join, and
 it needs no new field. "Who coined this term, and what did they mean by it?" is
-answered by the definition statements carrying the tag. A later paper that
+answered by the definition claims carrying the tag. A later paper that
 redefines the term carries the same tag, and the two definitions become a
 `QUALIFIES` or `DISAGREES_WITH` pair.
 
@@ -63,10 +63,10 @@ obvious next step, and it is not worth building before then.
 
 ### What was retyped, and what was left for a person
 
-- **Building the Loop:** three definitions retyped. Its KOI statement became
+- **Building the Loop:** three definitions retyped. Its KOI claim became
   `background`, attributed to BlockScience.
 - **`arxiv:2606.03237:5` (dynamic evaluation): retyped on 2026-10-01.** It
-  was left as a method at first, because it was the method statement behind
+  was left as a method at first, because it was the method claim behind
   the library's flagship joined query: what has been found about the
   train-test-deploy gap by people doing dynamic evaluation. That query
   answered only because a definition was filed as a method. The paper argues
@@ -99,7 +99,7 @@ and system. `Claim.entity_ids` exists too. Nothing has used either.
 A schema audit on 2026-10-25 cut three fields that were empty and
 undocumented, and kept this one: an empty field with a written design and a
 build plan is a proposal, not rot, and the two are only told apart by reading.
-`Claim.topic_codes` went in that pass — a statement reaches the taxonomy
+`Claim.topic_codes` went in that pass — a claim reaches the taxonomy
 through its concepts now, which is the derivation this document argues for.
 
 **What building it takes.** A small amount, and all of it follows existing
@@ -107,11 +107,11 @@ patterns:
 
 1. `data/entities/<slug>.yml`, one file per entity, with `entity_type`,
    `name`, `aliases`, `external_ids` and `source_provenance`.
-2. A loader that fails loudly when a statement's `entity_ids` do not resolve,
+2. A loader that fails loudly when a claim's `entity_ids` do not resolve,
    as concept tags do. An id pointing at nothing is an edge with no end.
 3. Entities emitted in the release as `kind: entity`, which the data model
    already lists.
-4. The drafting model asked to name the systems and organizations a statement is
+4. The drafting model asked to name the systems and organizations a claim is
    about, checked against the entity list the way tags are checked against the
    vocabulary.
 
@@ -129,20 +129,20 @@ A particular autonomous organization studied by a paper would be an
 `organization` in the same way.
 
 **Layering needs no new edge.** "This concept is realized by that technology,
-which this organization runs" is carried by statements, not by edges between
+which this organization runs" is carried by claims, not by edges between
 concepts and entities. Concepts are a vocabulary, not nodes.
 `claim:doi:10-1111-epic-70009:19` argues that KOI is one architecture that
 makes AOI possible. Once it carries `entity_ids: [koi]` beside its AOI tag,
 the joins answer the questions directly:
 
-- "What implements AOI?" means statements tagged AOI that carry a system or
+- "What implements AOI?" means claims tagged AOI that carry a system or
   standard entity.
-- "Who runs KOI?" means statements carrying KOI and an organization entity.
+- "Who runs KOI?" means claims carrying KOI and an organization entity.
 
 If a query ever needs a direct edge, `IMPLEMENTS` between two entities is
 already in the edge list.
 
 **Deliberately absent.** No node family per entity type, no reputation or
 scoring of entities, and no entity created because a paper mentioned a name in
-passing. An entity enters when a statement is about it, the same rule that
+passing. An entity enters when a claim is about it, the same rule that
 admits a concept.

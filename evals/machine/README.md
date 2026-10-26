@@ -5,7 +5,7 @@ in `../gold/`.
 
 **Where its output lives.** The method is argued here; the answers are written
 to `data/machine-checks.yml`, with the rest of the corpus. The loader reads
-them on every build and moves disagreed statements to `needs-review`, which
+them on every build and moves disagreed claims to `needs-review`, which
 makes them corpus state rather than a measurement — and keeping them under
 this directory coupled the build to the place the graph is evaluated. It also
 made producing the file look optional, which is why it did not exist for the
@@ -19,11 +19,11 @@ answer to that question when a *different* reader gave it.
     python3 scripts/verify_extraction.py packet --paper resource:arxiv:2606.03237
     python3 scripts/verify_extraction.py record --answers answers.yml --by <verifier>
 
-The verifier must not be whoever drafted the statements, and is given the
-statement, its quote and its section — no gloss, no tags, no attribution, and
+The verifier must not be whoever drafted the claims, and is given the
+claim, its quote and its section — no gloss, no tags, no attribution, and
 in an order that is not the order they were produced in.
 
-**This is triage, not review.** A disagreement moves a statement to
+**This is triage, not review.** A disagreement moves a claim to
 `needs-review` so a person reaches it first. Agreement changes nothing. Only a
 named human's verdict in `../gold/claims.yml` ever reaches `reviewed`, and the
 two files are separate so a number drawn from one can never quietly include

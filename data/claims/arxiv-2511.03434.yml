@@ -52,7 +52,7 @@ claims:
   standalone: The paper compares six trust models available to inter-agent protocol design — Brief,
     Claim, Proof, Stake, Reputation and Constraint — analyzing each for assumptions, attack surfaces
     and trade-offs.
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - agent-reputation-systems
   - stake-based-trust
@@ -159,7 +159,7 @@ claims:
   standalone: 'The authors observe that ERC-8004''s assurances are opt-in: they take effect only where
     counterparties require validation or a minimum reputation threshold, not by virtue of the protocol
     existing.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - verification-of-agent-claims-by-other-agents
   - agent-reputation-systems

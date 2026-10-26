@@ -11,7 +11,7 @@ claims:
     beat a mean-score baseline for most entries and give predictive accuracy the authors call competitive
     with linear-regression, XGBoost and tabPFN assessors, but predictive power is low for several
     entries.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
@@ -30,7 +30,7 @@ claims:
     entries had significantly higher convention-following and reciprocity ability than some higher-scoring
     entries, some had higher prosocial-newcomers ability, and teaching, forgiveness and time-pressure
     abilities did not differ significantly between entries.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - prosocial-capability
   confidence_class: EXTRACTED
@@ -50,7 +50,7 @@ claims:
     entries whose layouts reached R² > 0.25, higher-scoring entries had significantly higher base
     chance: they were more likely to perform better in scenarios where the modeled prosocial demands
     were absent.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - prosocial-capability
   - evaluation-gaming-and-answer-key-attacks
@@ -155,7 +155,7 @@ claims:
     normalized scores are modeled as Beta-distributed, and the model is fit with PyMC''s No-U-Turn
     Sampler. Measurement Layouts come from prior work (Burden et al. 2023); this paper applies them
     to a multi-agent contest.'
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
@@ -176,7 +176,7 @@ claims:
     but for several entries both predict poorly. The authors suggest the demands may not be informative
     enough for those entries, or that other latent factors drive their performance, and analyze ability
     profiles only for entries where the measurement layout reached R² > 0.25.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - capability-profiling
   confidence_class: EXTRACTED
@@ -242,7 +242,7 @@ claims:
     entries with similarly high base chance, and suggest they too might have specialized narrowly
     for situations where cooperation gave no additional advantage, so the pattern is not confined
     to the hand-crafted winner.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - prosocial-capability
   - evaluation-gaming-and-answer-key-attacks
@@ -302,7 +302,7 @@ claims:
   standalone: In the Melting Pot contest, some lower-scoring submissions showed higher measured ability
     at welcoming prosocial newcomers, following conventions and reciprocating than higher-scoring
     submissions did.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - prosocial-capability
   - capability-profiling
@@ -320,7 +320,7 @@ claims:
   standalone: 'The authors find that five of the sixteen cooperation demands annotated across Melting
     Pot''s 51 scenarios are not independent: partner choice, time pressure and ostracism share an
     identical presence pattern, as do teaching and sanctioning.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - performance-measurement-for-agents
   - evaluation-environments-and-benchmark-suites
@@ -338,7 +338,7 @@ claims:
   standalone: Of the sixteen cooperation demands annotated for Melting Pot's scenarios, the authors
     retained seven after removing duplicates and those not negatively correlated with performance
     — the rest did not behave as task difficulty should.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - performance-measurement-for-agents
   - evaluation-environments-and-benchmark-suites

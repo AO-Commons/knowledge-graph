@@ -9,6 +9,8 @@ repository_url: https://github.com/paperclipai/paperclip
 license: MIT
 published_at: '2026-03-02'
 updated_at: '2026-08-07'
+organizations:
+- Paperclip
 taxonomy_topics:
 - '2.2'
 - '3.1'
@@ -25,6 +27,7 @@ facets:
   temporal_relevance: current
   applicability: directly-actionable
 tool:
+  layer: control-plane
   agent_model: Agents are managed workers arranged in an org chart — described as employees
     that wake on scheduled "heartbeats", execute assigned work, and go dormant between runs.
     They do not set direction or hold budget authority; the documentation places humans in

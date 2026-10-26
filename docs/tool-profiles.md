@@ -53,7 +53,7 @@ Refusing is the common outcome and not a failure.
 ## What it deliberately does not do
 
 **It does not file.** `taxonomy_topics` comes out empty. Filing moved to stage
-7 and derives from what a record's statements say — see
+7 and derives from what a record's claims say — see
 [pipeline.md](pipeline.md) — and a profiler guessing at codes would add to the
 28 records that carry none and the two thirds that carry more than one.
 

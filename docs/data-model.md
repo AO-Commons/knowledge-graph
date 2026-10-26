@@ -94,4 +94,4 @@ The export exists so the data is usable without our infrastructure. That is the 
 
 No venue nodes, no reputation scores, no vector index. Each would be defensible; none is needed to answer the questions in the evaluation set, and every node family is a permanent cost. Add one when a real query cannot be answered without it.
 
-This list used to begin "no claim or argument nodes, no author or venue nodes". Statements came first, then questions, then people and organizations — each because a real query could not be answered without it, which is the bar this paragraph sets. The bar held; the list got shorter.
+This list used to begin "no claim or argument nodes, no author or venue nodes". Claims came first, then questions, then people and organizations — each because a real query could not be answered without it, which is the bar this paragraph sets. The bar held; the list got shorter.

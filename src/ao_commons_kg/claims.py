@@ -36,7 +36,7 @@ REPO = Path(__file__).resolve().parent.parent.parent
 DEFAULT_DIR = REPO / "data" / "claims"
 DEFAULT_VERDICTS = REPO / "evals" / "gold" / "claims.yml"
 # Corpus state, not an evaluation result: the loader reads it on every build
-# and it moves statements to needs-review. It lived under evals/ until
+# and it moves claims to needs-review. It lived under evals/ until
 # 2026-10-26, which coupled the build to the directory where the graph is
 # measured and made producing the file look optional. The method that
 # produces it is still argued in evals/machine/README.md.
@@ -76,7 +76,7 @@ def load_machine_checks(path: str | Path = DEFAULT_MACHINE) -> dict[str, dict]:
     if not path.exists():
         return {}
     payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    return payload.get("statements") or {}
+    return payload.get("claims") or {}
 
 
 def load_claims(directory: str | Path = DEFAULT_DIR,
@@ -129,7 +129,7 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
                 # A verdict binds to the wording it was given, not to the id.
                 # An id outlives the sentence under it — re-reading keeps
                 # the id and changes the words — so a verdict recorded against
-                # different wording is set aside and the statement goes back
+                # different wording is set aside and the claim goes back
                 # into the queue. Silently honouring it would put a reviewer's
                 # name on a sentence they never read, and for an adjustment
                 # would overwrite the new reading with the old rewrite.
@@ -182,8 +182,8 @@ def load_claims(directory: str | Path = DEFAULT_DIR,
                     # fine; the judgment recorded against it is not, and
                     # sending someone to the wrong file wastes the trip.
                     raise ClaimError(f"in the verdict file: {error}") from error
-            # An independent pass cannot review a statement and never promotes
-            # one. What it can do is say which statements a person should look
+            # An independent pass cannot review a claim and never promotes
+            # one. What it can do is say which claims a person should look
             # at first, which is the only part of review that scales. A human
             # verdict outranks it: once somebody has actually read the thing,
             # a machine's opinion of it is no longer the interesting fact.
@@ -238,7 +238,7 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
     from a citation and go back to the sentence behind it.
 
     A claim's topics come from its concepts. That is the derivation principle
-    applied one level down: a statement's place in the taxonomy follows from
+    applied one level down: a claim's place in the taxonomy follows from
     what it argues about, rather than being asserted separately and then
     disagreeing with itself — which the two layers did, on `arxiv:2511.03434`
     claim 2, where the codes said 10.1 and 4.4 and the concept resolved to 5.3.
@@ -267,7 +267,7 @@ def claim_edges(claims: Iterable[Claim], *, topic_codes: set[str] | None = None,
                 # The tag is on the claim either way. The edge is what lets a
                 # concept be navigated to rather than only filtered by, and it
                 # is the layer something reading the corpus can traverse
-                # instead of working out which statements share a term on
+                # instead of working out which claims share a term on
                 # every question it is asked.
                 if concept is not None:
                     edges.append(Relationship(
@@ -321,7 +321,7 @@ def load_claim_relations(path: str | Path = DEFAULT_RELATIONS,
     Both endpoints must be claims we actually hold. A relation pointing at a
     claim id that no longer exists is not a small problem here: the editorial
     pass cuts claims, and a cut claim leaving a live edge behind would mean
-    the graph asserts a disagreement between a statement and nothing.
+    the graph asserts a disagreement between a claim and nothing.
 
     Every relation is inferred, so `because` is required. The reasoning is
     the provenance — without it, a reader meeting one of these edges has no
@@ -375,14 +375,14 @@ def load_claim_relations(path: str | Path = DEFAULT_RELATIONS,
 
 
 def context_for(claim, claims) -> list:
-    """The statements that help judge this one.
+    """The claims that help judge this one.
 
-    A finding is what a researcher was looking for; the background it rests
-    on, the method that produced it and the limitation the authors put on it
+    Evidence is what a researcher was looking for; the background it rests
+    on, the protocol that produced it and the limitation the authors put on it
     are how they decide what it is worth. Those travel with it — from the
     same paper, because that is whose context it is.
 
-    Returns nothing for a context statement, which is not a refusal so much
+    Returns nothing for a context claim, which is not a refusal so much
     as a category answer: background does not have background.
     """
     if not claim.claim_type.is_primary:
@@ -399,7 +399,7 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
                     primary_only: bool = True):
     """Claim pairs worth reading, because they share a concept.
 
-    The arithmetic that makes the statement layer tractable. Forty claims is
+    The arithmetic that makes the claim layer tractable. Forty claims is
     780 pairs, which nobody will read; requiring a shared concept tag cuts
     that to 73, and requiring the two claims to come from different papers
     cuts it to 27. The tags do the filtering so a person only spends
@@ -417,15 +417,15 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
 
     settled = set()
     if primary_only:
-        # The argument is between findings and positions. Ten of the first
+        # The argument is between evidence and positions. Ten of the first
         # twelve asserted relations run between those two types, while eight
-        # of eleven *proposed* pairs involved a context statement — so
+        # of eleven *proposed* pairs involved a context claim — so
         # without this the queue spends most of a reviewer's attention on
         # pairs the corpus has never once produced a relation from.
         #
         # Context still relates to a primary, as grounds: a background
-        # premise supporting a finding. Those are found by reading the
-        # statement's own context, which travels with it, rather than by
+        # premise supporting a result. Those are found by reading the
+        # claim's own context, which travels with it, rather than by
         # proposing every context pair in the corpus.
         claims = [c for c in claims if c.claim_type.is_primary]
     for relation in relations or []:
@@ -449,9 +449,9 @@ def by_subject_and_method(claims, *, subject: str = "", method: str = "",
                           claim_type: str = "") -> list[dict]:
     """Answer "who has found this, working that way".
 
-    Two questions in one, and they are asked of different statements. The
+    Two questions in one, and they are asked of different claims. The
     subject is a tag on a finding or a position — what was shown or argued.
-    The method is a tag on a method statement in the same paper — how it was
+    The method is a tag on a method claim in the same paper — how it was
     done. Joining them through the paper is what makes the pair answerable,
     and it is the shape of the question a researcher actually brings: not
     "what is about generalization" but "what has been *found* about
@@ -460,23 +460,23 @@ def by_subject_and_method(claims, *, subject: str = "", method: str = "",
     findings, through the method it actually used.
 
     The first example of this query joined on `dynamic-evaluation`, through
-    a statement that defined the term in a paper that never performed one.
+    a claim that defined the term in a paper that never performed one.
     It answered because a definition was filed as a method, which is what
-    the `definition` type now prevents. A method statement has to be how the
+    the `definition` type now prevents. A method claim has to be how the
     work was done.
 
     No second vocabulary is needed for this, and adding one would be a
     mistake. Twenty-two of the forty-six terms in use sit on more than one
-    statement type: `held-out-background-populations` is Melting Pot's
+    claim type: `held-out-background-populations` is Melting Pot's
     method, the term its definition fixes, and what one of its positions is
     about. Splitting it into a subject term and a method term would make two
     names for one idea, which is the failure this vocabulary is built to
-    avoid. The statement's type already says which role its tag is playing.
+    avoid. The claim's type already says which role its tag is playing.
     """
     claims = list(claims)
     methods_by_paper: dict[str, list] = {}
     for claim in claims:
-        if claim.claim_type.value == "method":
+        if claim.claim_type.value == "protocol":
             methods_by_paper.setdefault(claim.resource_id, []).append(claim)
 
     found = []

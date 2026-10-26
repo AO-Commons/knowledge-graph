@@ -37,7 +37,7 @@ Not from a hand-written list, which rots. From the corpus, in two halves that
 do opposite jobs.
 
 **Concepts in use — 31 of them — deepen.** A term is in the working
-vocabulary because a statement needed it. Searching for those finds more work
+vocabulary because a claim needed it. Searching for those finds more work
 on the things the library has actually turned out to be about.
 
 **Taxonomy subpoints never reached for — 493 of them — widen.** These are the

@@ -30,7 +30,7 @@ claims:
     co-players. Because one agent's behavior is part of another agent's environment, training
     new agents yields new tests. Designers still specify, train and quality-check the bots,
     so the human labor of building test environments is reduced, not removed.
-  claim_type: method
+  claim_type: protocol
   concept_tags:
   - held-out-background-populations
   confidence_class: EXTRACTED
@@ -49,7 +49,7 @@ claims:
     of each, agents often had high self-play (training) scores but low scores on held-out
     test scenarios populated by unfamiliar background bots. Universalization tests also exposed
     populations whose agents had specialized on partners behaving in a particular way.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - generalization-to-unfamiliar-partners-and-novel-social-situations
   confidence_class: EXTRACTED
@@ -148,7 +148,7 @@ claims:
     players during training) underperformed their selfish counterparts overall. The result
     was not uniform: in the Clean Up social dilemma, only the prosocial agents learned policies
     significantly better than random.'
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - reward-design-and-what-optimizing-a-proxy-does-to-a-population
   - prosocial-capability
@@ -223,7 +223,7 @@ claims:
     Against the unfamiliar background bots of the test scenarios they scored closer to random.
     The authors attribute the gap to the prosocial agents having learned only to cooperate,
     which leaves them exploitable by defectors.
-  claim_type: finding
+  claim_type: evidence
   concept_tags:
   - generalization-to-unfamiliar-partners-and-novel-social-situations
   - reward-design-and-what-optimizing-a-proxy-does-to-a-population

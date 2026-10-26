@@ -72,7 +72,7 @@ class TestTheFiguresAreMeasured:
 
     def test_the_payload_carries_them(self, built):
         stats = json.loads(re.search(r'"stats":(\{.*?"built":"[\d-]+"\})', built).group(1))
-        for key in ("records", "statements", "papers_with_statements", "primary",
+        for key in ("records", "claims", "papers_with_claims", "primary",
                     "reviewed", "concepts_in_use", "relations", "citation_edges",
                     "with_references", "vocabulary", "suggestion_pool", "releases",
                     "by_type", "topics"):
@@ -85,7 +85,7 @@ class TestTheFiguresAreMeasured:
         stats = json.loads(re.search(r'"stats":(\{.*?"built":"[\d-]+"\})', built).group(1))
         claims = load_claims()
         assert stats["records"] == len(load_resources())
-        assert stats["statements"] == len(claims)
+        assert stats["claims"] == len(claims)
         assert stats["relations"] == len(load_claim_relations(claims=claims))
         assert stats["primary"] == sum(1 for c in claims if c.claim_type.is_primary)
 

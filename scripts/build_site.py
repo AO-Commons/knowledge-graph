@@ -102,7 +102,7 @@ def build_payload() -> dict:
         by_resource.setdefault(claim.resource_id, []).append({
             "id": claim.id,
             "status": claim.review_status.value,
-            # What this statement said when the page was built. The filing
+            # What this claim said when the page was built. The filing
             # echoes it back, so a verdict can be tied to the wording it was
             # given rather than to an id that outlives it.
             "saw": claim.fingerprint,
@@ -160,7 +160,7 @@ def build_payload() -> dict:
         for concept_id in sorted({t for c in claim_list for t in c.concept_tags})
     }
 
-    # Where a paper's own statements put it, next to where a person filed it.
+    # Where a paper's own claims put it, next to where a person filed it.
     # Shown side by side rather than merged: the two disagree usefully, and
     # collapsing them would hide which judgment came from where.
     by_claims: dict[str, list] = {}
@@ -214,7 +214,7 @@ def build_payload() -> dict:
             "suggested": [a.code for a in suggestions],
             "suggested_more": [a.code for a in tail],
             "claims": by_resource.get(resource.id, []),
-            # What anyone was able to read. A reviewer judging statements
+            # What anyone was able to read. A reviewer judging claims
             # drawn from an abstract is judging the paper's summary of
             # itself, and should be told rather than left to infer it.
             "coverage": resource.text_coverage,
@@ -267,15 +267,15 @@ def build_payload() -> dict:
         "with_references": len(reference_store.entries),
         "citation_edges": len(reference_store.citation_pairs(
             keys_for_corpus(resources))),
-        "statements": len(all_claims),
-        "papers_with_statements": sum(1 for r in records if r["claims"]),
+        "claims": len(all_claims),
+        "papers_with_claims": sum(1 for r in records if r["claims"]),
         "primary": sum(1 for c in all_claims if c["primary"]),
         "reviewed": sum(1 for c in all_claims if c.get("verdict")),
         "machine_checked": sum(1 for c in all_claims
                                if c.get("status") == "machine-checked"),
         "by_type": {
             kind: sum(1 for c in all_claims if c["type"] == kind)
-            for kind in ("finding", "position", "method", "definition", "background",
+            for kind in ("evidence", "position", "protocol", "definition", "background",
                          "limitation", "gap")
         },
         "concepts_in_use": len({t for c in all_claims for t in (c["concepts"] or [])}),

@@ -8,26 +8,26 @@ Under every answer that cited something is one line: **something wrong with
 this answer?** It opens into six specific judgments rather than a rating.
 
 A thumbs down says somebody was unhappy and gives a maintainer nothing to act
-on. Each of these is a claim about a particular statement, which is why it can
-become an issue against that statement.
+on. Each of these is an assertion about a particular claim, which is why it can
+become an issue against that claim.
 
 | Verdict | What it claims |
 | --- | --- |
-| unsupported | A cited statement does not support the sentence that cited it. |
+| unsupported | A cited claim does not support the sentence that cited it. |
 | contradicted | A paper in the library says the opposite. |
 | clipped | The quote is cut in a way that changes its meaning. |
 | overconfident | The confidence is higher than the evidence warrants. |
 | missing-paper | The library is missing a paper that would answer this. |
 | other | Needs a note, because nobody can act on "something else". |
 
-The first and third ask which statement, because "a citation does not support
+The first and third ask which claim, because "a citation does not support
 this" is unactionable without it.
 
 ## The one that disputes the corpus
 
-Five of the six say the answer was wrong. **missing-paper** says the answer was as good as the corpus allowed, and the
-corpus is what is wrong. It is the only one of the six that can make an answer
-better rather than less wrong.
+Five of the six say the answer was wrong. **missing-paper** says the answer
+was as good as the corpus allowed, and the corpus is what is wrong. It is the
+only one of the six that can make an answer better rather than less wrong.
 
 It takes a link. An arXiv link is fetched, read, and put through the same
 scope judge that decides what enters the corpus, and the judgment is written
@@ -41,10 +41,11 @@ original answer stays exactly where it was.
 
 This is deliberate. An answer is a record of what the library could say on one
 day, and the corpus moves underneath it, so re-running a question would
-quietly replace a true record with a different one. A question answered twice is a record of what changed in between. Its page
-shows every answer it has been given, to everyone who asked it.
+quietly replace a true record with a different one. A question answered twice
+is a record of what changed in between. Its page shows every answer it has
+been given, to everyone who asked it.
 
-Read, not merely filed: a record sitting in the corpus with no statements
+Read, not merely filed: a record sitting in the corpus with no claims
 drawn out of it cannot change an answer, so the offer to ask again waits until
 somebody has read it.
 

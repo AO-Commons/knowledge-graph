@@ -8,15 +8,15 @@ This is not the contributor documentation — that is `docs/*.md` one level up,
 and it is longer, more specific, and written for somebody changing the corpus
 rather than meeting it.
 
-**Numbers are placeholders, never literals.** `{{statements}}` is filled from
+**Numbers are placeholders, never literals.** `{{claims}}` is filled from
 the corpus at render time. A number typed in here would be wrong within a week
 and nobody would notice, which is exactly what happened to the copy this
 replaces: it lost its interpolations in an extraction and read "Today that is
 of — the honest state of the library" for weeks.
 
-Available: `{{records}}` `{{statements}}` `{{read}}` `{{topics}}`
+Available: `{{records}}` `{{claims}}` `{{read}}` `{{topics}}`
 `{{reviewed}}` `{{machineChecked}}` `{{primary}}` `{{questions}}`, and per
-statement kind `{{kind.finding}}` `{{kind.position}}` `{{kind.method}}`
+claim kind `{{kind.evidence}}` `{{kind.position}}` `{{kind.protocol}}`
 `{{kind.definition}}` `{{kind.background}}` `{{kind.gap}}`
 `{{kind.limitation}}`.
 

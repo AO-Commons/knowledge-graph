@@ -22,14 +22,14 @@ PAPER = "resource:doi:10-1111-epic-70009"
 
 
 def unjudged():
-    """A statement no person has ruled on.
+    """A claim no person has ruled on.
 
-    What a machine pass does to a statement is only defined before a human has
+    What a machine pass does to a claim is only defined before a human has
     judged it — a human verdict outranks the machine, which is the point of
-    keeping the two files apart. These tests used to take the first statement
+    keeping the two files apart. These tests used to take the first claim
     of PAPER, and that stopped being unjudged the moment its own author filed
     twenty verdicts on it. Picked from the corpus rather than pinned, so
-    reviewing a statement never breaks a test about machine checking.
+    reviewing a claim never breaks a test about machine checking.
     """
     from ao_commons_kg.claims import load_claims
 
@@ -37,18 +37,18 @@ def unjudged():
         if claim.verdict is None:
             return claim
     raise AssertionError(
-        "every statement in the corpus is reviewed — this test needs one that is not"
+        "every claim in the corpus is reviewed — this test needs one that is not"
     )
 
 
 
 class TestThePacket:
     def test_it_carries_the_question_and_nothing_else(self):
-        """The statement, the sentence it came from, and the section. A
+        """The claim, the sentence it came from, and the section. A
         verifier given the extractor's gloss is grading the reasoning rather
         than the reading."""
         text = packet(PAPER, seed=0)
-        assert "statement:" in text and "quote:" in text and "section:" in text
+        assert "claim:" in text and "quote:" in text and "section:" in text
         assert "standalone" not in text, "the gloss written to justify the reading"
         assert "concept_tags" not in text and "attribution" not in text
         assert "extraction_method" not in text
@@ -59,7 +59,7 @@ class TestThePacket:
             assert verdict in text
 
     def test_the_order_is_not_the_order_they_were_written_in(self):
-        """Read in production order, the statements tell a story the extractor
+        """Read in production order, the claims tell a story the extractor
         composed. The paper is what is being checked, not the narrative."""
         from ao_commons_kg.claims import load_claims
         produced = [c.id for c in load_claims() if c.resource_id == PAPER]
@@ -100,7 +100,7 @@ class TestRecording:
         claim = self._claim()
         record({claim.id: {"verdict": "supported", "because": "the quote says it"}},
                "a-verifier")
-        stored = yaml.safe_load(path.read_text())["statements"][claim.id]
+        stored = yaml.safe_load(path.read_text())["claims"][claim.id]
         assert stored["saw"] == claim.fingerprint
         assert stored["by"] == "a-verifier"
 
@@ -112,7 +112,7 @@ class TestWhatItChanges:
         from ao_commons_kg.claims import load_claims
         claim = unjudged()
         path = tmp_path / "extraction.yml"
-        path.write_text(yaml.safe_dump({"statements": {claim.id: {
+        path.write_text(yaml.safe_dump({"claims": {claim.id: {
             "verdict": verdict, "because": because, "saw": claim.fingerprint,
             "by": "a-verifier", "on": "2026-09-18"}}}), encoding="utf-8")
         return claim.id, {c.id: c for c in load_claims(machine=path)}
@@ -129,7 +129,7 @@ class TestWhatItChanges:
         assert corpus[claim_id].machine_check is None
 
     def test_it_never_reaches_reviewed(self, tmp_path):
-        """A machine cannot review a statement. Only a named human's verdict
+        """A machine cannot review a claim. Only a named human's verdict
         gets there, and that is the whole point of keeping two files."""
         claim_id, corpus = self._corpus(tmp_path, "supported", "it says exactly this")
         assert corpus[claim_id].verdict is None
@@ -141,7 +141,7 @@ class TestWhatItChanges:
         from ao_commons_kg.claims import load_claims
         claim = unjudged()
         machine = tmp_path / "extraction.yml"
-        machine.write_text(yaml.safe_dump({"statements": {claim.id: {
+        machine.write_text(yaml.safe_dump({"claims": {claim.id: {
             "verdict": "overstated", "because": "too strong", "saw": claim.fingerprint,
             "by": "a-verifier", "on": "2026-09-18"}}}), encoding="utf-8")
         gold = tmp_path / "claims.yml"
@@ -156,7 +156,7 @@ class TestWhatItChanges:
         from ao_commons_kg.claims import load_claims
         claim = unjudged()
         path = tmp_path / "extraction.yml"
-        path.write_text(yaml.safe_dump({"statements": {claim.id: {
+        path.write_text(yaml.safe_dump({"claims": {claim.id: {
             "verdict": "not-in-source", "because": "stale", "saw": "deadbeef1234",
             "by": "a-verifier", "on": "2026-09-18"}}}), encoding="utf-8")
         stale = {c.id: c for c in load_claims(machine=path)}[claim.id]

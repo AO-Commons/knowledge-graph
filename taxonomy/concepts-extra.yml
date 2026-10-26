@@ -1,13 +1,13 @@
 # Concepts the corpus argues about that the taxonomy has no subpoint for.
 #
-# The vocabulary grows from the bottom up: a term is in it because a statement
+# The vocabulary grows from the bottom up: a term is in it because a claim
 # needed it, not because somebody predicted the field would need it. The
 # evidence for doing it this way is in the corpus — of the terms carrying a
-# statement, more arrived from claims than from the taxonomy, and 506 taxonomy
+# claim, more arrived from claims than from the taxonomy, and 506 taxonomy
 # subpoints have never been reached for at all.
 #
 # So those subpoints are a *suggestion pool*, searched before a near-duplicate
-# is invented and joining the vocabulary the moment a statement uses one. They
+# is invented and joining the vocabulary the moment a claim uses one. They
 # are read straight from the taxonomy file and not repeated here. This file
 # holds what claims needed and the pool did not have.
 #
@@ -28,7 +28,7 @@
 #   aokg concepts --propose "Delegation revocation latency"
 #
 # Or read the whole list without a checkout: data/concepts.json holds all 523
-# terms with their topics, origin and how many statements carry each. An
+# terms with their topics, origin and how many claims carry each. An
 # agent can ask the MCP server instead — `search_concepts`.
 #
 # It answers one question: is this already here under another name? That is
@@ -50,7 +50,7 @@
 #
 # Then: reuse before adding. A term nothing else will ever carry proposes no
 # pairs, which is the only thing a concept is for. Three of the seventeen in
-# use are on exactly one statement — that is fine for a term added today and
+# use are on exactly one claim — that is fine for a term added today and
 # a sign of over-specificity for one added months ago.
 #
 # `aokg concepts` reports the whole list: what is used, what is inert, what
@@ -138,7 +138,7 @@ concepts:
     added: "2026-09-10"
 
   # Replaces `organizational-knowledge-legibility` (2026-09-10), which named
-  # this idea generically, sat on all but one statement of the one paper that
+  # this idea generically, sat on all but one claim of the one paper that
   # used it, and was filed under 2.4, graduated autonomy, by mistake.
   - id: artificial-organizational-intelligence
     label: Artificial organizational intelligence
@@ -149,7 +149,7 @@ concepts:
       boundaries, tacit know-how) machine-readable and governable, so that
       one can query the organization rather than somebody who speaks for
       it, and organizations can query each other. Coined by Rennie et al.;
-      the statements that define it are typed `definition`.
+      the claims that define it are typed `definition`.
     added: "2026-10-01"
 
   - id: building-the-loop

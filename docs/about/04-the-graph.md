@@ -9,7 +9,7 @@ Eight kinds of node and the edges between them, every one a file in git.
 ```
                   ┌── TAGGED_WITH ──▶ Concept ──┐
                   │                             │
-   Resource ──── MAKES_CLAIM ──▶ Statement      │
+   Resource ──── MAKES_CLAIM ──▶ Claim      │
       │  ▲                          │           │
       │  │                          ADDRESSES   │
    AUTHORED                         ▼           │
@@ -22,8 +22,8 @@ Eight kinds of node and the edges between them, every one a file in git.
 | Node | Is | Where it lives |
 | --- | --- | --- |
 | Resource | a paper, a tool, or a deployment | `data/resources/` |
-| Statement | one assertion, with the quote it came from | `data/claims/` |
-| Question | an open question several statements are asking, {{questions}} of them | `data/questions.yml` |
+| Claim | one assertion, with the quote it came from | `data/claims/` |
+| Question | an open question several claims are asking, {{questions}} of them | `data/questions.yml` |
 | Concept | a tag fine enough to propose a pair worth reading together | `taxonomy/concepts-extra.yml` |
 | Topic | a category in the taxonomy, {{topics}} of them | `taxonomy/` |
 | Person | an author, one spelling per person | derived from bylines |
@@ -31,24 +31,24 @@ Eight kinds of node and the edges between them, every one a file in git.
 
 | Edge | Runs between | Made by |
 | --- | --- | --- |
-| `MAKES_CLAIM` | a resource and its statements | extraction |
-| `TAGGED_WITH` | a statement and a concept | extraction, checked at review |
-| `ABOUT` | a resource and a topic | computed from its statements' concepts |
-| `ADDRESSES` | a statement and an open question | a person, with reasoning |
+| `MAKES_CLAIM` | a resource and its claims | extraction |
+| `TAGGED_WITH` | a claim and a concept | extraction, checked at review |
+| `ABOUT` | a resource and a topic | computed from its claims' concepts |
+| `ADDRESSES` | a claim and an open question | a person, with reasoning |
 | `CITES` | two resources we both hold | OpenAlex and Semantic Scholar |
-| `SUPPORTS` | two statements | a person, with reasoning |
-| `DISAGREES_WITH` | two statements | a person, with reasoning |
-| `QUALIFIES` | two statements | a person, with reasoning |
-| `EXTENDS_CLAIM` | two statements | a person, with reasoning |
+| `SUPPORTS` | two claims | a person, with reasoning |
+| `DISAGREES_WITH` | two claims | a person, with reasoning |
+| `QUALIFIES` | two claims | a person, with reasoning |
+| `EXTENDS_CLAIM` | two claims | a person, with reasoning |
 | `SIMILAR_TO` | two resources | bibliographic coupling |
 | `AUTHORED` | a person and a record they wrote | the byline |
 | `AFFILIATED_WITH` | a person and an organization | the record's affiliation data |
 
-The four statement-to-statement names are CiTO's (Shotton, 2010) and
+The four claim-to-claim names are CiTO's (Shotton, 2010) and
 `ADDRESSES` is [MIRA](https://github.com/MIRA-science/schema)'s, so they mean
-to an outside reader what they mean here. Each is marked inferred and carries a reason. No source states that two claims
-disagree, and one drafted by a model says so, so it can never be read as a
-person's judgment.
+to an outside reader what they mean here. Each is marked inferred and carries
+a reason. No source states that two claims disagree, and one drafted by a
+model says so, so it can never be read as a person's judgment.
 
 `AUTHORED` and `AFFILIATED_WITH` are the opposite kind of edge: both are read
 off what a record already says, so neither is an inference and neither carries

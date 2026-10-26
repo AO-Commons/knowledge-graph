@@ -1,7 +1,7 @@
 id: org:andon-labs
 name: Andon Labs
 organization_type: company
-roles: [research, evaluation, deployment]
+roles: [research, evaluation, deployment, infrastructure]
 city: San Francisco
 country: United States
 website: https://andonlabs.com

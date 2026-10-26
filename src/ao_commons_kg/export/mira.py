@@ -24,12 +24,12 @@ same MIRA:
 
 * **Node subtypes are a pair.** A node is typed `[local NodeSchema, MIRA
   class]`, with the local definition declaring `subClassOf`. That is how our
-  seven statement kinds survive inside MIRA's four classes without inventing
+  seven claim kinds survive inside MIRA's four classes without inventing
   anything.
 * **Relations are reified.** Every edge is a `RelationInstance` with
   `dgb:source` and `dgb:destination` rather than a property on the node. Not
   stylistic: MIRA's `Argument` mixin is attached to no class, so `supports` on
-  a Claim fails the closed SHACL shape, while a reified statement touches no
+  a Claim fails the closed SHACL shape, while a reified claim touches no
   shape at all. It also gives us somewhere legal to put the provenance an edge
   of ours carries, which a bare property could not hold.
 * **Quotes are anchors.** A verbatim quote becomes a `sioc:Item` inside the
@@ -67,20 +67,20 @@ CONTEXT = "https://purl.org/mira-science/mira.jsonld"
 BASE = "https://graph.aocommons.com"
 AOC = f"{BASE}/ns#"
 
-#: Which MIRA class each of our seven statement kinds becomes.
+#: Which MIRA class each of our seven claim kinds becomes.
 #:
-#: Three of the seven are not Claims in MIRA's sense and saying so is the
-#: honest mapping rather than a loss. A `finding` is an observation from
-#: applying a method, which is exactly `Evidence` — and Evidence is the only
-#: class with a direct `sourceDocument` slot, so findings are the one kind
-#: whose link to its paper MIRA can state. A `method` is a `Protocol`. A `gap`
+#: Two of the seven are not Claims in MIRA's sense, and they are named for
+#: what they are: `evidence` is an observation from applying a method, and
+#: Evidence is the only class with a direct `sourceDocument` slot, so it is
+#: the one kind whose link to its paper MIRA can state. A `gap`
 #: stays a Claim here: it is something a paper said, and it reaches the
 #: question it raises through `addresses`. MIRA's extractor reads the same
 #: sentences as `Request` instead; that disagreement is live and is recorded in
 #: docs/open-problems.md rather than resolved by this file.
 CLASS_OF: dict[ClaimType, str] = {
-    ClaimType.FINDING: "Evidence",
-    ClaimType.METHOD: "Protocol",
+    # Identity mappings since the kinds took MIRA's names on 2026-10-26.
+    ClaimType.EVIDENCE: "Evidence",
+    ClaimType.PROTOCOL: "Protocol",
     ClaimType.POSITION: "Claim",
     ClaimType.DEFINITION: "Claim",
     ClaimType.LIMITATION: "Claim",
@@ -130,7 +130,7 @@ NO_MIRA_RELATION: dict[RelationType, str] = {
         "CiTO's cito:extends. No MIRA term; one of ours to propose.",
 }
 
-#: Statement fields with no MIRA slot, and why we want one. Reported per
+#: Claim fields with no MIRA slot, and why we want one. Reported per
 #: release so the list shrinks visibly as proposals land.
 UNHOMED_CLAIM_FIELDS: dict[str, str] = {
     "standalone":
@@ -156,7 +156,7 @@ UNHOMED_CLAIM_FIELDS: dict[str, str] = {
     "concept_tags":
         "Proposed upstream by RRGI as contextEntities (schema issue #35).",
     "entity_ids":
-        "The named things a statement is about — a system, an organization, a "
+        "The named things a claim is about — a system, an organization, a "
         "particular deployment. Designed here and not yet built; see "
         "docs/concepts-and-entities.md for why these are not concepts.",
 }
@@ -215,7 +215,7 @@ def _is_document(resource: Resource) -> bool:
 
     `SourceDocument` is `is_a: CreativeWork` and means a paper, book or report.
     A tool, a deployment or an evaluation suite is none of those, and typing
-    one as a document to get it into the file would put a false statement in
+    one as a document to get it into the file would put a false claim in
     the data. They are counted out instead.
     """
     return str(getattr(resource.resource_type, "value", resource.resource_type)) in {
@@ -336,13 +336,13 @@ def build_graph(
         if missing:
             report.notes.append(
                 f"{missing} records are not documents — tools, deployments and "
-                "evaluation suites, held as records so a statement can point at "
+                "evaluation suites, held as records so a claim can point at "
                 "one. MIRA's SourceDocument is_a CreativeWork and would be a "
                 "false description of them. A class for a studied artefact is "
                 "one of ours to propose."
             )
 
-    # ---- statements, and the anchors that ground them -----------------------
+    # ---- claims, and the anchors that ground them -----------------------
     containers: dict[str, str] = {}
     items: list[dict[str, Any]] = []
     claim_iris: dict[str, str] = {}
@@ -353,7 +353,7 @@ def build_graph(
         kind = ClaimType(claim.claim_type) if not isinstance(claim.claim_type, ClaimType) \
             else claim.claim_type
         mira_class = CLASS_OF[kind]
-        iri = f"{BASE}/statements/{claim.id}"
+        iri = f"{BASE}/claims/{claim.id}"
         claim_iris[claim.id] = iri
         used_classes.add(mira_class)
         used_kinds.add(kind.value)
@@ -389,7 +389,7 @@ def build_graph(
             report.nodes["Item"] += 1
 
         # Evidence is the one class with a slot naming the document it came
-        # from, which is why a finding is the only kind of statement whose
+        # from, which is why a finding is the only kind of claim whose
         # provenance MIRA can state outright.
         if mira_class == "Evidence" and doc_iri:
             node["sourceDocument"] = doc_iri
@@ -401,7 +401,7 @@ def build_graph(
         pass  # nothing to say; the counter speaks
 
     report.notes.append(
-        "A statement that is not a finding reaches its paper only through the "
+        "A claim that is not a finding reaches its paper only through the "
         "anchor Item's container, by URI convention. MIRA has no slot from a "
         "Claim to the document that asserts it, which is the single largest "
         "thing this projection cannot say."
@@ -418,7 +418,7 @@ def build_graph(
             "title": question.text,
         }
         if question.note:
-            # Why these statements are one question. On our own surface this is
+            # Why these claims are one question. On our own surface this is
             # never shown without the cluster, because a cluster asserted
             # without its reasoning is a judgement hiding as a fact. MIRA's
             # Question has no slot for it and no slot for who asserted it.
@@ -457,7 +457,7 @@ def build_graph(
             continue
 
         used_relations.add(name)
-        statement: dict[str, Any] = {
+        claim: dict[str, Any] = {
             "@id": f"{AOC}edge/{i}",
             "@type": ["RelationInstance", name],
             "source": source,
@@ -468,7 +468,7 @@ def build_graph(
             # drafted the edge is reported rather than emitted.
             "creator": drafter["@id"],
         }
-        reified.append(statement)
+        reified.append(claim)
         report.edges[name] += 1
 
     for relation, why in NO_MIRA_RELATION.items():

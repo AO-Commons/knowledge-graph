@@ -5,7 +5,7 @@ two papers, and nothing in the data said so. That is the strongest provenance
 the corpus has and it was invisible.
 
 It is recorded as a fact about the reviewer and not as a higher score. An
-author is the highest authority on whether a statement says what their paper
+author is the highest authority on whether a claim says what their paper
 says, and the least disinterested party on whether it overstates — which the
 project's own docs call the verdict worth having.
 """

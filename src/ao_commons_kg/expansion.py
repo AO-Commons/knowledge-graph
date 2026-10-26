@@ -43,7 +43,7 @@ rate nobody can skim is one nobody is checking.
 part that must not be a keyword score: the README already records that the
 keyword pre-filter scores *Institutions as cached computation for
 resource-rational negotiation* at 1 and it is squarely in scope. The scan is
-a model reading the abstract against the scope statement and the exclusion
+a model reading the abstract against the scope claim and the exclusion
 register, and writing its reasoning down. Keywords rank; they do not admit.
 
 Every admitted record says which papers cited it, what generation it is, and

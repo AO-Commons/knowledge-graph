@@ -103,7 +103,7 @@ class TestClaims:
     def test_findings_and_positions_can_be_told_apart(self, corpus):
         """Conflating them is how a graph comes to report that something was
         shown when it was only argued."""
-        findings = get_claims(corpus, claim_type="finding")["matched"]
+        findings = get_claims(corpus, claim_type="evidence")["matched"]
         positions = get_claims(corpus, claim_type="position")["matched"]
         assert findings and positions
 
@@ -179,8 +179,9 @@ class TestToolsFor:
 
     def test_a_tool_comes_back_with_what_oversight_it_ships(self, corpus):
         answer = tools_for(corpus, "human approval before an agent acts")
-        profiled = [t for t in answer["tools_in_the_library"] if t.get("profile")]
-        assert profiled and profiled[0]["profile"]["human_controls"]
+        # a profile can hold only a hand-set layer; the ones somebody researched say what oversight they ship
+        researched = [t for t in answer["tools_in_the_library"] if (t.get("profile") or {}).get("agent_model")]
+        assert researched and researched[0]["profile"]["human_controls"]
 
     def test_it_refuses_to_recommend(self, corpus):
         """Nothing here is reviewed. A ranked answer would be confident about

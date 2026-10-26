@@ -5,6 +5,8 @@ description: Café, market, and radio-station deployments carrying rent, payroll
   costs against real revenue. Among the few places where agents hold budget authority with
   money that actually moves.
 url: https://andonlabs.com
+organizations:
+- Andon Labs
 taxonomy_topics:
 - '8.1'
 - '13.1'

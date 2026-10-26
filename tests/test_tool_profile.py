@@ -116,7 +116,7 @@ def test_what_is_undocumented_survives_into_the_record():
     assert "claude-opus-5" in record["source_provenance"]
 
 
-# Filing moved to stage 7 and derives from what a record's statements say. A
+# Filing moved to stage 7 and derives from what a record's claims say. A
 # profiler guessing at codes would add to the 28 records already carrying none
 # and the two thirds carrying more than one.
 def test_a_profile_files_itself_under_nothing():

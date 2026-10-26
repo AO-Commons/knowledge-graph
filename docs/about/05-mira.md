@@ -18,9 +18,9 @@ knows what the edge asserts.
    this corpus                      MIRA
 
    Resource (paper) ──────────────▶ SourceDocument
-   Statement  position ──────────▶ Claim
-              finding  ──────────▶ Evidence ──▶ sourceDocument
-              method   ──────────▶ Protocol
+   Claim  position ───────────────▶ Claim
+          evidence ───────────────▶ Evidence ──▶ sourceDocument
+          protocol ───────────────▶ Protocol
    Question ──────────────────────▶ Question
    quote ─────────────────────────▶ Item in the paper's Container
 
@@ -39,21 +39,30 @@ python3 -m pip install '.[mira]'
 python3 scripts/validate_mira.py data/releases/v0.11.0
 ```
 
-## One thing to know about the words
+## Vocabulary
 
-The two vocabularies do not line up name for name.
+Where MIRA has a word for something, it is the word used here — in the data,
+in the code and in this documentation. Until 2026-10-26 three of them were
+ours: a claim was a *claim*, an `evidence` claim was a *finding*, a
+`protocol` claim was a *method*. Three names for things a shared schema had
+already named meant every reader arriving from MIRA had to learn a second
+vocabulary to read a corpus published in their first.
 
 | Here | In MIRA | |
 | --- | --- | --- |
-| Statement | `Claim`, `Evidence` or `Protocol` | ours is the union of three: a finding is evidence, a method is a protocol, the rest are claims |
+| Claim | `Claim`, `Evidence` or `Protocol` | the kind picks one: an `evidence` claim projects to Evidence, a `protocol` claim to Protocol, the rest to Claim |
 | Resource | `SourceDocument` | ours also holds tools and deployments, which are not documents |
 | `DISAGREES_WITH` | `opposes` | ours is CiTO's name for it; both are shared vocabularies and we took the other one |
 | Question, `ADDRESSES` | `Question`, `addresses` | already the same, because these came from MIRA |
 
-The one to watch is the first. A statement here is broader than a claim there,
-so the two words are not interchangeable even though the projection maps one
-onto the other. Code and data say `claim`; this documentation says statement,
-which is a seam worth closing and has not been.
+Two differences are left and both are deliberate. A Resource is wider than a
+SourceDocument, because a benchmark suite is not a document. `DISAGREES_WITH`
+is CiTO's name, kept because the three relations beside it are CiTO's too and
+a set drawn from one vocabulary beats a set drawn from two.
+
+`protocol` reads oddly on a claim pulled from a Methods section — it is
+bench-science vocabulary, and the corpus is not bench science. That is the
+price of speaking one language instead of two, and it is worth paying.
 
 ## What it carries, and what it cannot
 
@@ -70,11 +79,11 @@ dropping it quietly:
   ecosystem map cannot be expressed at all.
 - **Tools and deployments.** `SourceDocument` means a paper, a book or a
   report. Calling a running deployment one would be false in the data.
-- **The edge from a paper to a statement.** MIRA routes a document to a claim
+- **The edge from a paper to a claim.** MIRA routes a document to a claim
   through a Study and its Evidence, which is right when you ran the work and
-  impossible when you read somebody else's. Only a `finding` can state its
+  impossible when you read somebody else's. Only an `evidence` claim can state its
   source outright, because Evidence is the one class with a slot for it.
-- **Who checked a statement, and whose result it is.** No slot for either.
+- **Who checked a claim, and whose result it is.** No slot for either.
 
 That list is the point of publishing at all. It is the evidence for what a
 shared schema would need to carry a corpus built by reading other people's

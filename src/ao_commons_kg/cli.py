@@ -427,7 +427,7 @@ def cmd_questions(args) -> int:
     papers. A concept several papers argue about and none has shown anything
     on is a reasonable place to look for a question; it is not a question,
     because a question is the sentence somebody writes after reading the
-    statements, and no counting produces that sentence.
+    claims, and no counting produces that sentence.
     """
     from .questions import load_questions, propose, reach
 
@@ -451,14 +451,14 @@ def cmd_questions(args) -> int:
         papers = "paper " if len(candidate["papers"]) == 1 else "papers"
         print(f"{len(candidate['papers']):>3} {papers}  {candidate['argued']:>2} arguing  "
               f"{candidate['concept']}")
-        for claim_id in candidate["statements"]:
+        for claim_id in candidate["claims"]:
             print(f"              {claim_id}")
     if not candidates:
         print("nothing to propose: every concept argued about is already a question,"
               " or has a finding on it")
         return 0
     print(f"\n{len(candidates)} concepts worth reading as a question. Read the "
-          "statements, and if they are one question, write it into "
+          "claims, and if they are one question, write it into "
           "data/questions.yml with the reasoning.")
     return 0
 
@@ -481,7 +481,7 @@ def cmd_build(args) -> int:
     claims = load_claims()
 
     # Questions are nodes too, and the edges to them are the layer's whole
-    # output. Loaded with the claims so a question pointing at a statement we
+    # output. Loaded with the claims so a question pointing at a claim we
     # no longer hold fails the build rather than shipping an edge to nothing.
     questions, addresses = load_questions(claims=claims)
 
@@ -495,7 +495,7 @@ def cmd_build(args) -> int:
     concepts = [c for key, c in sorted(vocabulary.concepts.items()) if key in used]
     if orphans := sorted(used - set(vocabulary.concepts)):
         for tag in orphans:
-            print(f"warning: statement tagged {tag!r}, which the vocabulary "
+            print(f"warning: claim tagged {tag!r}, which the vocabulary "
                   "does not define", file=sys.stderr)
 
     # The organizations the records come from, and the edge from each record
@@ -923,7 +923,7 @@ def cmd_relate(args) -> int:
 
 
 def cmd_concepts(args) -> int:
-    """Report the statement vocabulary: what is used, what collides, what is inert.
+    """Report the claim vocabulary: what is used, what collides, what is inert.
 
     A concept list rots quietly. Nothing errors when two terms mean one
     thing; the relations that would have been proposed between claims
@@ -954,13 +954,13 @@ def cmd_concepts(args) -> int:
     counts = usage(claims, vocabulary)
     used = {k: n for k, n in counts.items() if n}
     grown = sum(1 for k in used if vocabulary.get(k).origin == "claim")
-    print(f"vocabulary: {len(used)} terms in use — {grown} grown from statements, "
+    print(f"vocabulary: {len(used)} terms in use — {grown} grown from claims, "
           f"{len(used) - grown} taken from the suggestion pool")
     print(f"{len(counts) - len(used)} suggestions available, never reached for\n")
 
     alone = sorted(k for k, n in counts.items() if n == 1)
     if alone:
-        print(f"on exactly one statement — connects nothing yet ({len(alone)}):")
+        print(f"on exactly one claim — connects nothing yet ({len(alone)}):")
         for key in alone:
             print(f"  {key}")
         print()
@@ -1103,7 +1103,7 @@ def main(argv: list[str] | None = None) -> int:
     relate.set_defaults(func=cmd_relate)
 
     concepts = sub.add_parser(
-        "concepts", help="report the statement vocabulary, or check a proposed term")
+        "concepts", help="report the claim vocabulary, or check a proposed term")
     concepts.add_argument("--propose", default="",
                           help="a label you are thinking of adding; says what it "
                                "collides with, or that it is clear")

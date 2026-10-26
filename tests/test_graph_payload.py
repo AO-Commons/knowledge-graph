@@ -63,7 +63,7 @@ def test_someone_with_nothing_filed_gets_no_section(graph):
 
 
 def test_the_edge_kinds_stay_distinguishable(graph):
-    """A citation, a computed similarity and a machine-extracted statement are
+    """A citation, a computed similarity and a machine-extracted claim are
     three different kinds of assertion. Collapsing them into one edge type
     would let a viewer read a resemblance as a fact."""
     kinds = {link["kind"] for link in graph["links"]}
