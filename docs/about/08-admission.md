@@ -2,7 +2,7 @@
 id: admission
 title: Admission
 kicker: how anything gets in
-order: 7
+order: 8
 ---
 
 Every route ends at the same gate, and none of them is a keyword score. What

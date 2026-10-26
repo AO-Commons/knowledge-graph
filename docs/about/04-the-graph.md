@@ -5,7 +5,7 @@ kicker: how the graph fits together
 order: 4
 ---
 
-Six kinds of node and the edges between them. Everything is a file in git —
+Eight kinds of node and the edges between them. Everything is a file in git —
 there is no database, which is what makes a change reviewable as a diff and a
 release reproducible byte for byte.
 
@@ -17,6 +17,7 @@ release reproducible byte for byte.
 | Concept | a tag fine enough to propose a pair worth reading together | `taxonomy/concepts-extra.yml` |
 | Topic | a category in the taxonomy, {{topics}} of them | `taxonomy/` |
 | Person | an author, one spelling per person | derived from bylines |
+| Organization | a university, lab, company or agency, with a city | `data/organizations/` |
 
 | Edge | Runs between | Made by |
 | --- | --- | --- |
@@ -30,10 +31,25 @@ release reproducible byte for byte.
 | `QUALIFIES` | two statements | a person, with reasoning |
 | `EXTENDS_CLAIM` | two statements | a person, with reasoning |
 | `SIMILAR_TO` | two resources | bibliographic coupling |
+| `AUTHORED` | a person and a record they wrote | the byline |
+| `AFFILIATED_WITH` | a person and an organization | the record's affiliation data |
 
 The four statement-to-statement names are CiTO's (Shotton, 2010) and
-`ADDRESSES` is MIRA's, so they mean to an outside reader what they mean here.
-Every one is marked inferred and carries a reason — no source states that two
-claims disagree, or that one paper's open question is an instance of another's
-— and one drafted by a model says so, and can never be read as a person's
-judgment.
+`ADDRESSES` is [MIRA](https://github.com/MIRA-science/schema)'s, so they mean
+to an outside reader what they mean here. Each is marked inferred and carries
+a reason — no source states that two claims disagree, or that one paper's open
+question is an instance of another's — and one drafted by a model says so, and
+can never be read as a person's judgment.
+
+`AUTHORED` and `AFFILIATED_WITH` are the opposite kind of edge: both are read
+off what a record already says, so neither is an inference and neither carries
+reasoning. An affiliation runs from the person rather than from the paper,
+because that is whose it is — and because the same researcher at two
+institutions on two papers is a fact a paper-level edge cannot hold.
+
+People are derived rather than filed. There are over two thousand of them and
+nearly all are a name on one paper, so a file each would hold nothing a reader
+could not get from the byline. What is filed is the overlay in `data/people/`:
+which account belongs to whom, and what stands behind the claim. Organizations
+are the other way round — one file each, because `kind` and `roles` are
+judgments a registry cannot make.

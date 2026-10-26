@@ -1,6 +1,6 @@
 # Data model
 
-Three node families, a dozen edge types, and a rule that every edge can say where it came from. That is the whole model, and keeping it that small is a design goal rather than a stage we intend to grow out of.
+Four node families, a dozen edge types, and a rule that every edge can say where it came from. That is the whole model, and keeping it that small is a design goal rather than a stage we intend to grow out of.
 
 ## Nodes
 
@@ -42,6 +42,22 @@ in the name would be a trap, so they are named apart.
 
 Approaches, methods, implementations, benchmarks, systems. **One** generic type with an `entity_type` field, not a node family per concept. The distinctions matter for display and filtering, not for storage, and a schema per concept is a cost paid on every future change.
 
+### Organization
+
+A university, lab, company or agency a record comes from. Its own node rather than an `Entity` with extra fields: `city` and `ror` are true of an organization and of nothing else in that family, and hanging them on the generic type would make every benchmark carry them empty.
+
+**Two axes.** `organization_type` is what it is — one of eight, from `university` to `collective`. `roles` are what it does in this ecosystem — any of seven, or none. An institute that also ships tooling is both, routinely, and one field would force a choice that is wrong half the time.
+
+Named `organization_type` rather than `kind`, because `kind` is the word a release uses for a node's own kind: an Organization carrying a `kind` field overwrote it, and 191 organizations shipped as `company` and `university` with nothing failing.
+
+`city`, `country`, `ror` and `website` are derived rather than typed — they go stale, and ROR is the identifier the rest of the world joins on. `organization_type` and `roles` are the judgments a registry cannot make. One file each in `data/organizations/`.
+
+### Person
+
+Somebody on a byline. **Derived, not filed.** There are over two thousand and nearly all are a name on one paper, so a file each would carry nothing a reader could not get from the byline. `data/people/` is the overlay holding the judgments — which account belongs to whom, which spellings are one person — for the few anybody has looked into. The same shape the concept layer uses: derive the node, file the judgment.
+
+Folding is conservative. Punctuation, accents and hyphens fold; initials never expand, so `J. Leibo` and `Joel Z. Leibo` stay two people until somebody says otherwise. A hyphen folds to a *space* rather than vanishing — folding it away made `Joon-Sung Park` into `joonsung park`, which never meets `joon sung park`, and the corpus carried two researchers as four.
+
 ## Edges
 
 | Relation | Kind | Requires |
@@ -52,17 +68,22 @@ Approaches, methods, implementations, benchmarks, systems. **One** generic type 
 
 `confidence_class` is one of `EXTRACTED`, `INFERRED`, `AMBIGUOUS` — the distinction Graphify makes, and the reason a reader can trust the graph at all. Attaching one to a `CITES` edge is an error: it implies a judgment that was never made.
 
+`AUTHORED` and `AFFILIATED_WITH` are read off what a record already says, so both are `EXTRACTED` and neither carries reasoning. The affiliation runs from the person rather than the paper: it is whose it is, a paper reaches an organization in one hop through its authors, and the same researcher at two institutions on two papers is a fact a paper-level edge cannot hold.
+
 `SIMILAR_TO` must name its method (`bibliographic-coupling`, `co-citation`, …). A similarity score whose method is hidden cannot be interpreted or reproduced, and hiding it would make the discovery layer unfalsifiable.
 
 ## Releases
 
 ```
 data/releases/<version>/
-├── nodes.jsonl           {"kind": "topic"|"resource"|"entity", ...}
+├── nodes.jsonl           {"kind": "topic"|"resource"|"claim"|"question"
+│                          |"concept"|"organization"|"person"|"entity", ...}
 ├── relationships.jsonl
 ├── taxonomy.json         the tree alone, for consumers who only want to browse
+├── graph.mira.jsonld     the same corpus in MIRA's vocabulary
+├── mira-report.json      what that projection could not say, counted and named
 ├── metadata.json         counts, relation and confidence breakdowns, license
-└── checksums.txt
+└── checksums.txt         over everything above, the MIRA files included
 ```
 
 Reproducible by construction: nodes sort by `(kind, id)`, edges by `(relation, source, target)`, empty values are omitted, and no clock is read unless `built_at` is passed in. Rebuilding from unchanged inputs produces identical bytes — otherwise the checksums would be decoration and release diffs unreadable.
@@ -71,4 +92,6 @@ The export exists so the data is usable without our infrastructure. That is the 
 
 ## What is deliberately absent
 
-No claim or argument nodes, no author or venue nodes, no reputation scores, no vector index. Each would be defensible; none is needed to answer the questions in the evaluation set, and every node family is a permanent cost. Add one when a real query cannot be answered without it.
+No venue nodes, no reputation scores, no vector index. Each would be defensible; none is needed to answer the questions in the evaluation set, and every node family is a permanent cost. Add one when a real query cannot be answered without it.
+
+This list used to begin "no claim or argument nodes, no author or venue nodes". Statements came first, then questions, then people and organizations — each because a real query could not be answered without it, which is the bar this paragraph sets. The bar held; the list got shorter.

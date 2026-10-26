@@ -2,7 +2,7 @@
 id: verdicts
 title: Answer verdicts
 kicker: saying an answer is wrong, and what comes back
-order: 10
+order: 11
 ---
 
 Under every answer that cited something is one line: **something wrong with

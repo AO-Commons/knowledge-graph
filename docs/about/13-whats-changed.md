@@ -2,8 +2,22 @@
 id: changes
 title: Changelog
 kicker: most recent first
-order: 12
+order: 13
 ---
+
+**Late October 2026. The ecosystem, and a shared vocabulary.**
+
+- Every release now carries the whole corpus as a **MIRA** graph, validated
+  against MIRA's own generated shapes on every build. Two of its names were
+  already in use here; the rest of the projection followed.
+- **Organizations are nodes**, with a city, a kind and the roles they play
+  here. They were strings on a record until now, pointing at nothing.
+- **People are nodes too**, derived from bylines rather than filed, with
+  `data/people/` as the overlay that carries the judgments.
+- Two edges that are read rather than inferred: a person authored a record,
+  and a person was at an organization.
+- A fold that deleted hyphens instead of treating them as spaces had been
+  carrying two researchers as four.
 
 **Late October 2026. The ask log goes public.**
 

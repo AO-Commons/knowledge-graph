@@ -2,7 +2,7 @@
 id: next
 title: Roadmap
 kicker: and what it depends on
-order: 13
+order: 14
 ---
 
 **Now. Get the statements reviewed.**
@@ -50,6 +50,15 @@ order: 13
   become a thread for it to.
 - Promote a reader-asked question into the corpus. The list makes the reading
   worth doing and nothing carries the result back into `questions.yml`.
+- **The ecosystem map.** Organizations and people are nodes and the edges run
+  between them, but affiliation data reaches only a minority of records, and
+  almost nobody has an identity link. The map will look sparser than the
+  corpus is until both improve.
+- **What MIRA cannot carry.** Six things, counted in every release's
+  `mira-report.json` and written up for the people who maintain it: a class
+  for an organization, an edge from a paper to the claim it asserts, whose
+  result a statement is, who checked it, two relations from CiTO, and a home
+  for a tool or a deployment.
 
 **Later. v1.**
 

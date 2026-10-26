@@ -231,14 +231,19 @@ Releases follow the layout below and are usable without running any of our code:
 
 ```
 data/releases/<version>/
-├── nodes.jsonl           topics, resources, entities — one JSON object per line
+├── nodes.jsonl           topics, resources, statements, questions, concepts,
+│                         organizations, people — one JSON object per line
 ├── relationships.jsonl   edges, each carrying its provenance
 ├── taxonomy.json         the tree on its own, for browsing
+├── graph.mira.jsonld     the same corpus in MIRA's vocabulary, validated
+├── mira-report.json      what that projection could not say
 ├── metadata.json         counts, license, attribution
 └── checksums.txt
 ```
 
 Builds are reproducible: nodes sort by id, edges by their triple, and no timestamp is written unless you pass one. The same inputs produce the same bytes, which is what makes the checksums worth publishing and a diff between releases worth reading.
+
+Every release also ships as a [MIRA](https://github.com/MIRA-science/schema) graph — an open schema for research graphs — validated on every build against MIRA's own generated shapes, pinned by commit in `schema/`. `mira-report.json` counts and names everything the projection could not carry, which is the honest half: a shared vocabulary that cannot yet hold a taxonomy, an organization, or the edge from a paper to what it asserts. See `docs/about/05-mira.md`.
 
 ## How to read an edge
 

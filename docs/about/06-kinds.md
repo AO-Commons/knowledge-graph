@@ -2,7 +2,7 @@
 id: types
 title: Statement kinds
 kicker: seven, and why tagging differs by kind
-order: 5
+order: 6
 ---
 
 Findings and positions are what somebody came for: what has been shown, and

@@ -2,7 +2,7 @@
 id: feedback
 title: Reporting a problem
 kicker: where it goes, and what it becomes
-order: 14
+order: 15
 ---
 
 Everything here is tracked in public, including the complaints. There is no

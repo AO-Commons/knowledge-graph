@@ -2,7 +2,7 @@
 id: pipeline
 title: The extraction pipeline
 kicker: from a paper to a statement, in nine stages
-order: 6
+order: 7
 ---
 
 What happens between a paper arriving and its statements being citable, who or
