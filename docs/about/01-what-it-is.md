@@ -26,3 +26,7 @@ Everything is a file in a public git repository. There is no database and no
 account: it can be read, diffed, forked, cited at a fixed version, and queried
 by an assistant through a read-only MCP server. A release is checksummed and
 keeps its mistakes, so a citation to one means the same thing next year.
+
+Every release also ships in [MIRA](https://github.com/MIRA-science/schema), an
+open schema for research graphs, so the corpus is readable by anyone who has
+never heard of this one.

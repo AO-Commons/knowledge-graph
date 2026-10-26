@@ -39,6 +39,23 @@ python3 -m pip install '.[mira]'
 python3 scripts/validate_mira.py data/releases/v0.11.0
 ```
 
+## One thing to know about the words
+
+The two vocabularies do not line up name for name, and the places they differ
+are worth seeing together rather than discovering in a file.
+
+| Here | In MIRA | |
+| --- | --- | --- |
+| Statement | `Claim`, `Evidence` or `Protocol` | ours is the union of three: a finding is evidence, a method is a protocol, the rest are claims |
+| Resource | `SourceDocument` | ours also holds tools and deployments, which are not documents |
+| `DISAGREES_WITH` | `opposes` | ours is CiTO's name for it; both are shared vocabularies and we took the other one |
+| Question, `ADDRESSES` | `Question`, `addresses` | already the same, because these came from MIRA |
+
+The one to watch is the first. A statement here is broader than a claim there,
+so the two words are not interchangeable even though the projection maps one
+onto the other. Code and data say `claim`; this documentation says statement,
+which is a seam worth closing and has not been.
+
 ## What it carries, and what it cannot
 
 A projection, not a replacement. The JSONL files stay exactly as they are,
