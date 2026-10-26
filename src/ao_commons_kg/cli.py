@@ -498,6 +498,21 @@ def cmd_build(args) -> int:
             print(f"warning: statement tagged {tag!r}, which the vocabulary "
                   "does not define", file=sys.stderr)
 
+    edges = (_parent_edges(topics) + tagged_edges(resources, codes)
+             + _scholarly_edges(resources)
+             + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
+             + addresses)
+
+    # The MIRA projection is written first so that write_release's checksums
+    # cover it. A release artefact outside the manifest is one nobody can
+    # verify, which is most of what a manifest is for.
+    _, mira_report = write_mira(
+        Path(args.out) / args.version,
+        built_at=args.built_at,
+        topics=topics, resources=resources, claims=claims,
+        questions=questions, concepts=concepts, relationships=edges,
+    )
+
     out = write_release(
         args.out,
         version=args.version,
@@ -506,26 +521,9 @@ def cmd_build(args) -> int:
         claims=claims,
         questions=questions,
         concepts=concepts,
-        relationships=(_parent_edges(topics) + tagged_edges(resources, codes)
-                       + _scholarly_edges(resources)
-                       + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
-                       + addresses),
+        relationships=edges,
         built_at=args.built_at,
     )
-    # The same release in MIRA's vocabulary, beside the JSONL rather than
-    # instead of it. The report beside it names everything the projection
-    # could not say, which is the half of this worth reading.
-    edges = (_parent_edges(topics) + tagged_edges(resources, codes)
-             + _scholarly_edges(resources)
-             + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
-             + addresses)
-    _, mira_report = write_mira(
-        out,
-        built_at=args.built_at,
-        topics=topics, resources=resources, claims=claims,
-        questions=questions, concepts=concepts, relationships=edges,
-    )
-
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
           f"{len(claims)} claims, {len(questions)} questions, "
           f"{len(concepts)} concepts)")

@@ -1,0 +1,63 @@
+{
+  "emitted": {
+    "nodes": {
+      "Claim": 79,
+      "Container": 7,
+      "Evidence": 27,
+      "Item": 112,
+      "Protocol": 6,
+      "Question": 4,
+      "SourceDocument": 304,
+      "UserAccount": 2259
+    },
+    "edges": {
+      "addresses": 7
+    },
+    "node_total": 2798,
+    "edge_total": 7
+  },
+  "omitted": {
+    "nodes": {
+      "concept": 62,
+      "resource:code-tool": 10,
+      "resource:deployment": 2,
+      "resource:evaluation-suite": 1,
+      "resource:platform": 1,
+      "resource:research-programme": 1,
+      "topic": 103
+    },
+    "edges": {
+      "ABOUT": 185,
+      "CITES": 581,
+      "MAKES_CLAIM": 112,
+      "PARENT_OF": 87,
+      "SIMILAR_TO": 719,
+      "TAGGED_WITH": 344
+    },
+    "node_total": 180,
+    "edge_total": 2028
+  },
+  "unhomed_statement_fields": {
+    "standalone": "The claim restated with enough context to judge it cold. `title` is the short form and `description` is taken by the quote anchor.",
+    "attribution": "Whether the paper is reporting its own result or somebody else's. Without this axis, 'who first showed X' returns the most recent repeater. Nobody has proposed it upstream; it is the strongest of ours.",
+    "confidence_class": "Whether a record was read off the source, inferred, or ambiguous. MIRA already imports PROV, so this may need a convention rather than a slot.",
+    "extraction_method": "Which model drafted a record, under which brief, on what date. `creator` carries an account standing for the drafter, which is where MIRA's own extractor puts it, but the brief and the date of the reading have nowhere to go.",
+    "review_status / reviewed_by / verdict / reviewed_by_author": "Who checked this against the paper and what they concluded. RRGI has proposed endorsements upstream (schema PR #32); an author's verdict counting differently from a reader's is the part still missing.",
+    "concept_tags": "Proposed upstream by RRGI as contextEntities (schema issue #35).",
+    "entity_ids": "The named things a statement is about — a system, an organization, a particular deployment. Designed here and not yet built; see docs/concepts-and-entities.md for why these are not concepts."
+  },
+  "notes": [
+    "103 topic nodes: Taxonomy sections. RRGI has proposed tradition/stemsFrom upstream.",
+    "62 concept nodes: Concept tags. RRGI has proposed contextEntities upstream.",
+    "15 records are not documents — tools, deployments and evaluation suites, held as records so a statement can point at one. MIRA's SourceDocument is_a CreativeWork and would be a false description of them. A class for a studied artefact is one of ours to propose.",
+    "A statement that is not a finding reaches its paper only through the anchor Item's container, by URI convention. MIRA has no slot from a Claim to the document that asserts it, which is the single largest thing this projection cannot say.",
+    "MIRA's Question carries no slots of its own. The reasoning for a cluster is emitted as `content`; who asserted it and when, and the question's status, have nowhere to go.",
+    "112 MAKES_CLAIM edges: MIRA routes a document to a claim through Study and Evidence. We have no Study nodes, so this is carried by the anchor convention instead: a claim's quote is an Item in the paper's Container.",
+    "581 CITES edges: Citation between documents is outside MIRA's scope; dcterms:references would serve but is not in its context.",
+    "719 SIMILAR_TO edges: Computed bibliographic coupling. Ours alone.",
+    "344 TAGGED_WITH edges: Concept tags. RRGI has proposed the same thing upstream as contextEntities (schema issue #35).",
+    "185 ABOUT edges: Taxonomy placement. RRGI has proposed the same thing upstream as tradition/stemsFrom (schema issue #35).",
+    "87 PARENT_OF edges: Taxonomy hierarchy. Ours alone.",
+    "2 byline pairs differ only in punctuation and were emitted as one account: 'Joon Sung Park'/'Joon-Sung Park'; 'Sheer El-Showk'/'Sheer El Showk'. Worth fixing in the corpus rather than only here."
+  ]
+}
