@@ -28,5 +28,4 @@ by an assistant through a read-only MCP server. A release is checksummed and
 keeps its mistakes, so a citation to one means the same thing next year.
 
 Every release also ships in [MIRA](https://github.com/MIRA-science/schema), an
-open schema for research graphs, so the corpus is readable by anyone who has
-never heard of this one.
+open schema for research graphs.

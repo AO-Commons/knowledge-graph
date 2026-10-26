@@ -4,9 +4,7 @@ title: Nodes and edges
 order: 4
 ---
 
-Eight kinds of node and the edges between them. Everything is a file in git —
-there is no database, which is what makes a change reviewable as a diff and a
-release reproducible byte for byte.
+Eight kinds of node and the edges between them, every one a file in git.
 
 ```
                   ┌── TAGGED_WITH ──▶ Concept ──┐

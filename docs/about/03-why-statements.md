@@ -52,8 +52,7 @@ question, how many statements have been reviewed. No ranking anybody has to
 take on faith, and no number that cannot be traced to the rows it came from.
 The cost is that nothing is sorted for you by importance.
 
-**Small on purpose.** Files in git rather than a database, so a change is
-reviewable as a diff and a release is reproducible byte for byte. A narrow
+**Small on purpose.** Files in git rather than a database. A narrow
 corpus rather than a broad one: admitting everything cited by everything held
 measures out at roughly 4,900 records, 93% of them cited exactly once, and
 {{records}} curated records are worth more than 8,500 indiscriminate ones. The

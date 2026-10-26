@@ -14,7 +14,7 @@ checked against, and anybody who could edit both could make anything true.
 | Remove | the paper does not say this | records not-in-source, and the extractor is the thing at fault |
 
 Adjusting is faster than describing what is wrong and waiting for somebody to
-fix it, which is why it is there. A draft is not a judgment: until you confirm
+fix it. A draft is not a judgment: until you confirm
 the wording, the statement is not counted as done and is not submitted.
 
 **After Submit.** Your filing opens a prefilled GitHub issue. A bot checks

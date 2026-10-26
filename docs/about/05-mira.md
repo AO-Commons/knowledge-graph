@@ -41,8 +41,7 @@ python3 scripts/validate_mira.py data/releases/v0.11.0
 
 ## One thing to know about the words
 
-The two vocabularies do not line up name for name, and the places they differ
-are worth seeing together rather than discovering in a file.
+The two vocabularies do not line up name for name.
 
 | Here | In MIRA | |
 | --- | --- | --- |
@@ -85,9 +84,9 @@ rather than claim compatibility.
 
 ## Why a shared vocabulary at all
 
-A graph nobody else can read is a private database with extra steps. Borrowed
-names cost nothing while a layer is young: MIRA's for questions, CiTO's for
-the relations between claims.
+Borrowed names cost nothing while a layer is young: MIRA's for questions,
+CiTO's for the relations between claims. A reader arriving from another
+project already knows what the edge asserts.
 
 Where no shared name exists, this corpus keeps its own and says so, which is
 a proposal rather than a fork.

@@ -21,8 +21,8 @@ whether anybody disagrees.
 **For a researcher**, it is a way into a subject that returns the claims and
 the disagreements rather than a reading list. **For a practitioner**, it is a
 way to check a design decision against what has actually been demonstrated.
-**For an agent**, it is a queryable substrate: claims with provenance, which
-is what a model needs to answer carefully rather than plausibly.
+**For an agent**, it is a queryable substrate: claims with provenance, so an
+answer can be careful rather than plausible.
 
 **What makes it trustworthy is the same thing that makes it slow.** Machines
 find, resolve, admit and tag. Every statement has been checked mechanically:
@@ -33,5 +33,4 @@ and it is not review.
 
 What no machine does is decide whether a statement says what its source says.
 A person does that, and the judgment is recorded against their name in a pull
-request anyone can read. Today that is {{reviewed}} of {{statements}}, which
-is the honest state of the library.
+request anyone can read. Today that is {{reviewed}} of {{statements}}.
