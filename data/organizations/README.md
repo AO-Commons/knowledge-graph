@@ -69,6 +69,13 @@ python3 scripts/seed_organizations.py --write          # write the new ones
 python3 scripts/seed_organizations.py --write --min 5  # only the well-cited
 ```
 
+A free key gives the run its own budget and is read from the environment, so
+it never reaches the repository:
+
+```sh
+OPENALEX_API_KEY=... python3 scripts/seed_organizations.py --write
+```
+
 **OpenAlex rate-limits a shared IP.** 138 of the first 191 came back empty for
 that reason, not because the organization is unknown; their type was
 inferred from the name instead and `source_provenance` says so. Re-running

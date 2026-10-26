@@ -2,4 +2,8 @@ id: org:interuniversity-center-for-social-science-theory-and-methodology
 name: Interuniversity Center for Social Science Theory and Methodology
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Groningen
+country: The Netherlands
+ror: https://ror.org/005rems48
+website: http://ics-graduateschool.nl/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 005rems48, 2026-10-26

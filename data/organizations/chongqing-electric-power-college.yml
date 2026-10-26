@@ -2,4 +2,8 @@ id: org:chongqing-electric-power-college
 name: Chongqing Electric Power College
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Chongqing
+country: China
+ror: https://ror.org/02e46xt23
+website: https://www.cqepc.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02e46xt23, 2026-10-26

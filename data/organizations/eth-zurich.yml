@@ -1,5 +1,9 @@
 id: org:eth-zurich
 name: ETH Zurich
-organization_type: company
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Zurich
+country: Switzerland
+ror: https://ror.org/05a28rw58
+website: https://ethz.ch
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 05a28rw58, 2026-10-26

@@ -2,4 +2,8 @@ id: org:shaanxi-university-of-chinese-medicine
 name: Shaanxi University of Chinese Medicine
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Xianyang
+country: China
+ror: https://ror.org/021r98132
+website: http://www.sntcm.edu.cn/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 021r98132, 2026-10-26

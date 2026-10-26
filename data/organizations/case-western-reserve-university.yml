@@ -2,4 +2,8 @@ id: org:case-western-reserve-university
 name: Case Western Reserve University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Cleveland
+country: United States
+ror: https://ror.org/051fd9666
+website: https://case.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 051fd9666, 2026-10-26

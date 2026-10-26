@@ -2,4 +2,8 @@ id: org:university-of-mannheim
 name: University of Mannheim
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Mannheim
+country: Germany
+ror: https://ror.org/031bsb921
+website: https://www.uni-mannheim.de/en/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 031bsb921, 2026-10-26

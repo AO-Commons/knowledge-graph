@@ -2,4 +2,8 @@ id: org:furtwangen-university
 name: Furtwangen University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Furtwangen im Schwarzwald
+country: Germany
+ror: https://ror.org/02m11x738
+website: https://www.hs-furtwangen.de/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02m11x738, 2026-10-26

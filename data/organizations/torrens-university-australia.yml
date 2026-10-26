@@ -2,4 +2,8 @@ id: org:torrens-university-australia
 name: Torrens University Australia
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Adelaide
+country: Australia
+ror: https://ror.org/0351xae06
+website: https://www.torrens.edu.au/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0351xae06, 2026-10-26

@@ -2,4 +2,8 @@ id: org:harvard-university-press
 name: Harvard University Press
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Cambridge
+country: United States
+ror: https://ror.org/006v7bf86
+website: https://www.hup.harvard.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 006v7bf86, 2026-10-26

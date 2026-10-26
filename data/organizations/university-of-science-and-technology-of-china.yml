@@ -2,4 +2,8 @@ id: org:university-of-science-and-technology-of-china
 name: University of Science and Technology of China
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Hefei
+country: China
+ror: https://ror.org/04c4dkn09
+website: https://ustc.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04c4dkn09, 2026-10-26

@@ -1,5 +1,9 @@
 id: org:centre-for-economic-policy-research
 name: Centre for Economic Policy Research
-organization_type: company
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: London
+country: United Kingdom
+ror: https://ror.org/04jzmdh37
+website: http://www.cepr.org/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04jzmdh37, 2026-10-26

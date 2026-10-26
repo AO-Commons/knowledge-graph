@@ -2,4 +2,8 @@ id: org:microsoft-research-asia-china
 name: Microsoft Research Asia (China)
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/0300m5276
+website: http://research.microsoft.com/en-us/labs/asia/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0300m5276, 2026-10-26

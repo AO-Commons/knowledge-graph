@@ -2,4 +2,8 @@ id: org:university-of-liverpool
 name: University of Liverpool
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Liverpool
+country: United Kingdom
+ror: https://ror.org/04xs57h96
+website: https://www.liverpool.ac.uk/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04xs57h96, 2026-10-26

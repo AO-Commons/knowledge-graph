@@ -2,4 +2,8 @@ id: org:beijing-academy-of-artificial-intelligence
 name: Beijing Academy of Artificial Intelligence
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/016a74861
+website: https://www.baai.ac.cn/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 016a74861, 2026-10-26

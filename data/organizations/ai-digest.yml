@@ -1,0 +1,7 @@
+id: org:ai-digest
+name: AI Digest
+organization_type: foundation
+roles: [deployment, evaluation]
+aliases: [AI Village]
+website: https://theaidigest.org
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers)

@@ -2,4 +2,8 @@ id: org:john-f-kennedy-university
 name: John F. Kennedy University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Pleasant Hill
+country: United States
+ror: https://ror.org/050p9wj26
+website: https://www.jfku.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 050p9wj26, 2026-10-26

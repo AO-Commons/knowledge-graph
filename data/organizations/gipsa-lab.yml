@@ -1,5 +1,9 @@
 id: org:gipsa-lab
 name: GIPSA-Lab
-organization_type: company
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Grenoble
+country: France
+ror: https://ror.org/02wrme198
+website: https://www.gipsa-lab.grenoble-inp.fr
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02wrme198, 2026-10-26

@@ -2,4 +2,8 @@ id: org:university-of-california-system
 name: University of California System
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Oakland
+country: United States
+ror: https://ror.org/00pjdza24
+website: https://www.universityofcalifornia.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00pjdza24, 2026-10-26

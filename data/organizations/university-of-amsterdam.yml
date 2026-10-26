@@ -2,4 +2,8 @@ id: org:university-of-amsterdam
 name: University of Amsterdam
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Amsterdam
+country: The Netherlands
+ror: https://ror.org/04dkp9463
+website: https://www.uva.nl
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04dkp9463, 2026-10-26

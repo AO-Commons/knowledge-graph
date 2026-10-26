@@ -2,4 +2,8 @@ id: org:toronto-metropolitan-university
 name: Toronto Metropolitan University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Toronto
+country: Canada
+ror: https://ror.org/05g13zd79
+website: https://www.torontomu.ca
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 05g13zd79, 2026-10-26

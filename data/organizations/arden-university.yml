@@ -2,4 +2,8 @@ id: org:arden-university
 name: Arden University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Coventry
+country: United Kingdom
+ror: https://ror.org/059hhvg49
+website: https://arden.ac.uk/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 059hhvg49, 2026-10-26

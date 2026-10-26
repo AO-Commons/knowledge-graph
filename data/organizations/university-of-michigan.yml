@@ -2,4 +2,8 @@ id: org:university-of-michigan
 name: University of Michigan
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Ann Arbor
+country: United States
+ror: https://ror.org/00jmfr291
+website: https://www.umich.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00jmfr291, 2026-10-26

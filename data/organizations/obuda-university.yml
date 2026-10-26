@@ -2,4 +2,8 @@ id: org:obuda-university
 name: Obuda University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Budapest
+country: Hungary
+ror: https://ror.org/00ax71d21
+website: https://uni-obuda.hu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00ax71d21, 2026-10-26

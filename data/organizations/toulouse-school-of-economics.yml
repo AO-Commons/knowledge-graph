@@ -1,5 +1,9 @@
 id: org:toulouse-school-of-economics
 name: Toulouse School of Economics
-organization_type: company
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Toulouse
+country: France
+ror: https://ror.org/00ff5f522
+website: https://www.tse-fr.eu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00ff5f522, 2026-10-26

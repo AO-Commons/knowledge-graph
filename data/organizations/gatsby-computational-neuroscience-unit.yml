@@ -1,5 +1,9 @@
 id: org:gatsby-computational-neuroscience-unit
 name: Gatsby Computational Neuroscience Unit
-organization_type: company
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: London
+country: United Kingdom
+ror: https://ror.org/0269epf40
+website: https://www.ucl.ac.uk/life-sciences/gatsby
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0269epf40, 2026-10-26

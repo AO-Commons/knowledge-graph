@@ -2,4 +2,8 @@ id: org:universidad-de-sevilla
 name: Universidad de Sevilla
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Seville
+country: Spain
+ror: https://ror.org/03yxnpp24
+website: https://www.us.es/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03yxnpp24, 2026-10-26

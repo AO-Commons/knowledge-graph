@@ -2,4 +2,8 @@ id: org:the-university-of-melbourne
 name: The University of Melbourne
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Melbourne
+country: Australia
+ror: https://ror.org/01ej9dk98
+website: https://www.unimelb.edu.au
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01ej9dk98, 2026-10-26

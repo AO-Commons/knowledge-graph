@@ -1,5 +1,9 @@
 id: org:federal-reserve-board-of-governors
 name: Federal Reserve Board of Governors
-organization_type: company
+organization_type: government
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Washington
+country: United States
+ror: https://ror.org/00v448643
+website: http://www.federalreserve.gov/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00v448643, 2026-10-26

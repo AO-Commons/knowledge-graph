@@ -1,0 +1,10 @@
+id: org:advanced-research-invention-agency
+name: Advanced Research + Invention Agency
+organization_type: government
+roles: [funding, convening]
+aliases: [ARIA, Advanced Research and Invention Agency]
+city: London
+country: United Kingdom
+ror: https://ror.org/028y4g372
+website: https://www.aria.org.uk
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers); city, country, ror and website from ror 028y4g372

@@ -2,4 +2,8 @@ id: org:european-remanufacturing-council
 name: European Remanufacturing Council
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Brussels
+country: Belgium
+ror: https://ror.org/009n4zx75
+website: https://www.remancouncil.eu/index.php
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 009n4zx75, 2026-10-26

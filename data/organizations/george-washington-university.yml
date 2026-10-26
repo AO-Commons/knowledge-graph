@@ -2,4 +2,8 @@ id: org:george-washington-university
 name: George Washington University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Washington
+country: United States
+ror: https://ror.org/00y4zzh67
+website: https://www.gwu.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00y4zzh67, 2026-10-26

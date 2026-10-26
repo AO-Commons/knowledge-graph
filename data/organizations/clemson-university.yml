@@ -2,4 +2,8 @@ id: org:clemson-university
 name: Clemson University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Clemson
+country: United States
+ror: https://ror.org/037s24f05
+website: https://www.clemson.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 037s24f05, 2026-10-26

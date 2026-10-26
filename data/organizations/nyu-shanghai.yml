@@ -1,0 +1,10 @@
+id: org:nyu-shanghai
+name: New York University Shanghai
+organization_type: university
+roles: [research]
+aliases: [NYU Shanghai]
+city: Shanghai
+country: China
+ror: https://ror.org/02vpsdb40
+website: https://shanghai.nyu.edu
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers); city, country, ror and website from ror 02vpsdb40

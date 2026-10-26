@@ -2,4 +2,8 @@ id: org:university-of-southampton
 name: University of Southampton
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Southampton
+country: United Kingdom
+ror: https://ror.org/01ryk1543
+website: https://www.southampton.ac.uk/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01ryk1543, 2026-10-26

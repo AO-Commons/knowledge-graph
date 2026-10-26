@@ -1,0 +1,9 @@
+id: org:stanford-openlab
+name: Stanford OpenLab
+organization_type: research-institute
+roles: [research, convening]
+aliases: [Stanford Open Lab]
+city: Stanford
+country: United States
+website: https://openlab.stanford.edu
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers)

@@ -1,5 +1,9 @@
 id: org:mit-media-lab
 name: MIT Media Lab
-organization_type: company
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Cambridge
+country: United States
+ror: https://ror.org/0253jyq40
+website: https://www.media.mit.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0253jyq40, 2026-10-26

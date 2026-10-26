@@ -2,4 +2,8 @@ id: org:universidad-de-la-amazonia
 name: Universidad de la Amazonia
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Florencia
+country: Colombia
+ror: https://ror.org/03gsgk545
+website: https://www.uniamazonia.edu.co
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03gsgk545, 2026-10-26

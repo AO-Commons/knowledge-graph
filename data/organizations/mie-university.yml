@@ -2,4 +2,8 @@ id: org:mie-university
 name: Mie University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tsu
+country: Japan
+ror: https://ror.org/01529vy56
+website: http://www.mie-u.ac.jp/en/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01529vy56, 2026-10-26

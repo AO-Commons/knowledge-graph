@@ -2,4 +2,8 @@ id: org:vytautas-magnus-university
 name: Vytautas Magnus University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Kaunas
+country: Lithuania
+ror: https://ror.org/04y7eh037
+website: https://www.vdu.lt
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04y7eh037, 2026-10-26

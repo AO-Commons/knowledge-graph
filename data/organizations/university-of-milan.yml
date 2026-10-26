@@ -2,4 +2,8 @@ id: org:university-of-milan
 name: University of Milan
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Milan
+country: Italy
+ror: https://ror.org/00wjc7c48
+website: https://www.unimi.it
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00wjc7c48, 2026-10-26

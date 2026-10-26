@@ -1,0 +1,9 @@
+id: org:ethereum-foundation
+name: Ethereum Foundation
+organization_type: foundation
+roles: [funding, infrastructure]
+city: Zug
+country: Switzerland
+ror: https://ror.org/05j1x9f71
+website: https://ethereum.foundation
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers); city, country, ror and website from ror 05j1x9f71

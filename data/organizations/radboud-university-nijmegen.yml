@@ -2,4 +2,8 @@ id: org:radboud-university-nijmegen
 name: Radboud University Nijmegen
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Nijmegen
+country: The Netherlands
+ror: https://ror.org/016xsfp80
+website: https://www.ru.nl
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 016xsfp80, 2026-10-26

@@ -2,4 +2,8 @@ id: org:berkeley-college
 name: Berkeley College
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: New York
+country: United States
+ror: https://ror.org/02xewxa75
+website: https://berkeleycollege.edu/index.html
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02xewxa75, 2026-10-26

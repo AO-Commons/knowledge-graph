@@ -2,4 +2,8 @@ id: org:mit-computer-science-and-artificial-intelligence-laboratory
 name: MIT Computer Science and Artificial Intelligence Laboratory
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Cambridge
+country: United States
+ror: https://ror.org/01e85r662
+website: http://www.csail.mit.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01e85r662, 2026-10-26

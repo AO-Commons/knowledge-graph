@@ -2,4 +2,8 @@ id: org:microsoft-research-new-york-city
 name: Microsoft Research New York City
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: New York
+country: United States
+ror: https://ror.org/056zprp28
+website: https://www.microsoft.com/en-us/research/lab/microsoft-research-new-york/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 056zprp28, 2026-10-26

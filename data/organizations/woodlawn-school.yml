@@ -2,4 +2,8 @@ id: org:woodlawn-school
 name: Woodlawn School
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Mooresville
+country: United States
+ror: https://ror.org/00m0wef21
+website: http://www.woodlawnschool.net/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00m0wef21, 2026-10-26

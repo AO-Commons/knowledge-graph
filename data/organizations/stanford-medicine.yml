@@ -1,5 +1,9 @@
 id: org:stanford-medicine
 name: Stanford Medicine
-organization_type: company
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Stanford
+country: United States
+ror: https://ror.org/03mtd9a03
+website: https://med.stanford.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03mtd9a03, 2026-10-26

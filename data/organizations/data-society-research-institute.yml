@@ -2,4 +2,8 @@ id: org:data-society-research-institute
 name: Data & Society Research Institute
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: New York
+country: United States
+ror: https://ror.org/04dse4f93
+website: https://datasociety.net/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04dse4f93, 2026-10-26

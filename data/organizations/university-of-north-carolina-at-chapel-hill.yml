@@ -2,4 +2,8 @@ id: org:university-of-north-carolina-at-chapel-hill
 name: University of North Carolina at Chapel Hill
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Chapel Hill
+country: United States
+ror: https://ror.org/0130frc33
+website: https://www.unc.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0130frc33, 2026-10-26

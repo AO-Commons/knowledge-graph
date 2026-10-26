@@ -1,0 +1,9 @@
+id: org:hugging-face
+name: Hugging Face
+organization_type: company
+roles: [infrastructure]
+city: New York
+country: United States
+ror: https://ror.org/02grspc61
+website: https://huggingface.co
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers); city, country, ror and website from ror 02grspc61

@@ -2,4 +2,8 @@ id: org:arizona-state-university
 name: Arizona State University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tempe
+country: United States
+ror: https://ror.org/03efmqc40
+website: https://www.asu.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03efmqc40, 2026-10-26

@@ -2,4 +2,8 @@ id: org:king-khalid-university
 name: King Khalid University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Abhā
+country: Saudi Arabia
+ror: https://ror.org/052kwzs30
+website: http://www.kku.edu.sa/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 052kwzs30, 2026-10-26

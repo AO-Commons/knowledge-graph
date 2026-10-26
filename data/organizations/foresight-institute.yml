@@ -1,0 +1,8 @@
+id: org:foresight-institute
+name: Foresight Institute
+organization_type: foundation
+roles: [research, funding, convening]
+city: San Francisco
+country: United States
+website: https://foresight.org
+source_provenance: added by hand, 2026-10-26, from the organizations named on aocommons.org (partners and summit speakers); city from foresight.org

@@ -2,4 +2,8 @@ id: org:manipal-academy-of-higher-education
 name: Manipal Academy of Higher Education
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Manipal
+country: India
+ror: https://ror.org/02xzytt36
+website: https://www.manipal.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02xzytt36, 2026-10-26

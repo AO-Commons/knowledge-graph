@@ -2,4 +2,8 @@ id: org:delft-university-of-technology
 name: Delft University of Technology
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Delft
+country: The Netherlands
+ror: https://ror.org/02e2c7k09
+website: https://www.tudelft.nl
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02e2c7k09, 2026-10-26

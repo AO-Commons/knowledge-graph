@@ -2,4 +2,8 @@ id: org:weizenbaum-institute
 name: Weizenbaum Institute
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Berlin
+country: Germany
+ror: https://ror.org/023kksk09
+website: https://www.weizenbaum-institut.de
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 023kksk09, 2026-10-26

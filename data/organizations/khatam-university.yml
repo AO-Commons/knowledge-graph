@@ -2,4 +2,8 @@ id: org:khatam-university
 name: Khatam University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tehran
+country: Iran
+ror: https://ror.org/016tr2g85
+website: https://khatam.ac.ir
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 016tr2g85, 2026-10-26

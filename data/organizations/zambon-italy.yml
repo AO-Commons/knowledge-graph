@@ -2,4 +2,8 @@ id: org:zambon-italy
 name: Zambon (Italy)
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Bresso
+country: Italy
+ror: https://ror.org/04zzq8d03
+website: https://www.zambonpharma.com/it/it
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04zzq8d03, 2026-10-26

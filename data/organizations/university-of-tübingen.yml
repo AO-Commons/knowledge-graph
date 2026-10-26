@@ -2,4 +2,8 @@ id: org:university-of-tübingen
 name: University of Tübingen
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tübingen
+country: Germany
+ror: https://ror.org/03a1kwz48
+website: https://uni-tuebingen.de/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03a1kwz48, 2026-10-26

@@ -2,4 +2,8 @@ id: org:university-of-belgrade
 name: University of Belgrade
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Belgrade
+country: Serbia
+ror: https://ror.org/02qsmb048
+website: http://www.bg.ac.rs/en/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02qsmb048, 2026-10-26

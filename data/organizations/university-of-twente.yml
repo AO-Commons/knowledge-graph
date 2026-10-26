@@ -2,4 +2,8 @@ id: org:university-of-twente
 name: University of Twente
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Enschede
+country: The Netherlands
+ror: https://ror.org/006hf6230
+website: https://www.utwente.nl
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 006hf6230, 2026-10-26

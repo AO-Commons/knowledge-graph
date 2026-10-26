@@ -4,6 +4,7 @@
     python3 scripts/seed_organizations.py            say what it would write
     python3 scripts/seed_organizations.py --write    write them
     python3 scripts/seed_organizations.py --write --only "Google DeepMind"
+    python3 scripts/seed_organizations.py --fill --write   fill missing places in existing files
 
 Names come from the affiliations already on records. `city`, `country`, `ror`
 and `website` come from OpenAlex, because they go stale and ROR is the
@@ -14,12 +15,21 @@ registry holds.
 
 A file that already exists is never overwritten. The whole point of the file
 is to hold the judgments, and a seeder that clobbers them is a seeder nobody
-can run twice.
+can run twice. `--fill` is the one exception, and it is narrow: for a file
+with no `city`, the state OpenAlex's rate limit left most of the first run in,
+it asks ROR and adds only the derived fields that are missing.
+`organization_type`, `roles` and `aliases` are never touched.
+
+ROR rather than OpenAlex for the fill, for two reasons. OpenAlex now wants an
+API key for more than a handful of calls, and ROR's affiliation matcher says
+when it is sure: a match it has not `chosen` is skipped rather than guessed,
+so a common name never lands in the wrong city.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.parse
@@ -36,6 +46,7 @@ from ao_commons_kg.resources import load_resources  # noqa: E402
 
 OUT = REPO / "data" / "organizations"
 API = "https://api.openalex.org/institutions"
+ROR = "https://api.ror.org/v2/organizations"
 
 #: OpenAlex's institution types, mapped onto ours. Theirs describes what an
 #: organization is in general; `frontier-lab` and `collective` are
@@ -86,10 +97,19 @@ def slug(name: str) -> str:
 
 
 def ask_openalex(name: str) -> dict | None:
-    """One institution, or nothing. Never guesses past the first result."""
+    """One institution, or nothing. Never guesses past the first result.
+
+    Without a key the request counts against a daily budget shared by
+    everyone on this IP, which is how 138 of the first 191 came back empty.
+    `OPENALEX_API_KEY` in the environment gives this run its own budget;
+    keys are free, and the key is read from the environment rather than
+    stored here so it never reaches the repository.
+    """
     url = f"{API}?search={urllib.parse.quote(name)}&per_page=1"
-    req = urllib.request.Request(url, headers={
-        "User-Agent": "ao-commons-kg (https://github.com/AO-Commons/knowledge-graph)"})
+    headers = {"User-Agent": "ao-commons-kg (https://github.com/AO-Commons/knowledge-graph)"}
+    if key := os.environ.get("OPENALEX_API_KEY"):
+        headers["Authorization"] = f"Bearer {key}"
+    req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
             results = json.load(r).get("results") or []
@@ -97,6 +117,59 @@ def ask_openalex(name: str) -> dict | None:
         print(f"    openalex: {type(err).__name__}", file=sys.stderr)
         return None
     return results[0] if results else None
+
+
+DERIVED = ("city", "country", "ror", "website")
+
+
+def ask_ror(name: str) -> dict | None:
+    """The organization ROR's affiliation matcher is sure of, or nothing."""
+    url = f"{ROR}?affiliation={urllib.parse.quote(name)}"
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "ao-commons-kg (https://github.com/AO-Commons/knowledge-graph)"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            items = json.load(r).get("items") or []
+    except Exception as err:                        # noqa: BLE001
+        print(f"    ror: {type(err).__name__}", file=sys.stderr)
+        return None
+    chosen = [i["organization"] for i in items if i.get("chosen")]
+    if not chosen:
+        return None
+    org = chosen[0]
+    place = ((org.get("locations") or [{}])[0].get("geonames_details") or {})
+    website = next((link["value"] for link in org.get("links") or [] if link.get("type") == "website"), None)
+    return {"id": org["id"], "city": place.get("name"), "country": place.get("country_name"),
+            "ror": org["id"], "website": website}
+
+
+def fill(path: Path, write: bool) -> str:
+    """Add the derived fields a file lacks, and nothing else. Returns what happened."""
+    text = path.read_text(encoding="utf-8")
+    have = {line.split(":", 1)[0] for line in text.splitlines() if ":" in line and not line.startswith(" ")}
+    if "city" in have:
+        return "has a city"
+    name = next(line.split(":", 1)[1].strip() for line in text.splitlines() if line.startswith("name:"))
+    found = ask_ror(name)
+    time.sleep(0.2)
+    if not found:
+        return "no confident ROR match"
+    values = {key: found.get(key) for key in DERIVED}
+    new = [f"{key}: {values[key]}" for key in DERIVED if values[key] and key not in have]
+    if not new:
+        return "ROR has no place either"
+    stamp = f"ror {found['id'].rsplit('/', 1)[-1]}, {time.strftime('%Y-%m-%d')}"
+    lines = text.rstrip("\n").splitlines()
+    at = next((i for i, line in enumerate(lines) if line.startswith("source_provenance:")), len(lines))
+    lines[at:at] = new
+    if at < len(lines) - len(new) and lines[at + len(new)].startswith("source_provenance:"):
+        old = lines[at + len(new)].split(":", 1)[1].strip()
+        lines[at + len(new)] = f"source_provenance: {old}; {', '.join(k for k in DERIVED if values[k] and k not in have)} from {stamp}"
+    else:
+        lines.append(f"source_provenance: derived fields from {stamp}")
+    if write:
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return f"{name} -> {values['city']}, {values['country']}"
 
 
 def organization_names() -> Counter:
@@ -121,7 +194,21 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--only", default="", help="one organization, by name")
     ap.add_argument("--min", type=int, default=1,
                     help="skip organizations named fewer than this many times")
+    ap.add_argument("--fill", action="store_true",
+                    help="fill missing city, country, ror and website in existing files, from ROR")
     args = ap.parse_args(argv)
+
+    if args.fill:
+        filled = 0
+        for path in sorted(OUT.glob("*.yml")):
+            result = fill(path, args.write)
+            if "->" in result:
+                filled += 1
+                print(f"  {result}")
+        print(f"\n{filled} {'filled' if args.write else 'would be filled'}")
+        if not args.write:
+            print("Nothing written. Re-run with --write.")
+        return 0
 
     names = organization_names()
     wanted = [(n, c) for n, c in names.most_common()
@@ -138,7 +225,8 @@ def main(argv: list[str] | None = None) -> int:
             continue
 
         found = ask_openalex(name)
-        time.sleep(0.12)                      # OpenAlex asks for politeness
+        # OpenAlex asks for politeness. A key raises the budget, not the rate.
+        time.sleep(0.12)
         geo = (found or {}).get("geo") or {}
         kind = (FROM_OPENALEX.get(found.get("type") or "", "company")
                 if found else kind_from_name(name))

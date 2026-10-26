@@ -2,4 +2,8 @@ id: org:university-of-washington
 name: University of Washington
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Seattle
+country: United States
+ror: https://ror.org/00cvxb145
+website: https://www.washington.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00cvxb145, 2026-10-26

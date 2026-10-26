@@ -2,4 +2,8 @@ id: org:beihang-university
 name: Beihang University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/00wk2mp56
+website: https://buaa.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00wk2mp56, 2026-10-26

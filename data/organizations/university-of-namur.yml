@@ -2,4 +2,8 @@ id: org:university-of-namur
 name: University of Namur
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Namur
+country: Belgium
+ror: https://ror.org/03d1maw17
+website: https://unamur.be
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03d1maw17, 2026-10-26

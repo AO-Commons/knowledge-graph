@@ -1,5 +1,9 @@
 id: org:centre-for-the-governance-of-ai
 name: Centre for the Governance of AI
-organization_type: company
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Oxford
+country: United Kingdom
+ror: https://ror.org/00z5fvd84
+website: https://www.governance.ai
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00z5fvd84, 2026-10-26

@@ -2,4 +2,8 @@ id: org:huawei-technologies-china
 name: Huawei Technologies (China)
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Shenzhen
+country: China
+ror: https://ror.org/00cmhce21
+website: http://www.huawei.com/en/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00cmhce21, 2026-10-26

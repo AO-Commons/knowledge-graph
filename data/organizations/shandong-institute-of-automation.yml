@@ -2,4 +2,8 @@ id: org:shandong-institute-of-automation
 name: Shandong Institute of Automation
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Jinan
+country: China
+ror: https://ror.org/00qdtba35
+website: http://www.sdia.cn/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00qdtba35, 2026-10-26

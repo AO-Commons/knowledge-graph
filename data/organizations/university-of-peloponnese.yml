@@ -2,4 +2,8 @@ id: org:university-of-peloponnese
 name: University of Peloponnese
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tripoli
+country: Greece
+ror: https://ror.org/04d4d3c02
+website: https://www.uop.gr
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04d4d3c02, 2026-10-26

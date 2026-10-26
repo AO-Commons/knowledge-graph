@@ -2,4 +2,8 @@ id: org:islamic-azad-university-science-and-research-branch
 name: Islamic Azad University, Science and Research Branch
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Tehran
+country: Iran
+ror: https://ror.org/03187yj51
+website: http://www.srbiau.ac.ir/en
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 03187yj51, 2026-10-26

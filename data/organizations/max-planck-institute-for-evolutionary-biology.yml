@@ -2,4 +2,8 @@ id: org:max-planck-institute-for-evolutionary-biology
 name: Max Planck Institute for Evolutionary Biology
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Plön
+country: Germany
+ror: https://ror.org/0534re684
+website: http://www.evolbio.mpg.de/2169/en
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0534re684, 2026-10-26

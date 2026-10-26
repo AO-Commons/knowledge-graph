@@ -2,4 +2,8 @@ id: org:otto-von-guericke-universität-magdeburg
 name: Otto-von-Guericke-Universität Magdeburg
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Magdeburg
+country: Germany
+ror: https://ror.org/00ggpsq73
+website: https://www.ovgu.de
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00ggpsq73, 2026-10-26

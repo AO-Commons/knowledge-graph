@@ -2,4 +2,8 @@ id: org:university-of-california-san-francisco
 name: University of California, San Francisco
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: San Francisco
+country: United States
+ror: https://ror.org/043mz5j54
+website: https://www.ucsf.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 043mz5j54, 2026-10-26

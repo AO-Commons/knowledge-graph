@@ -2,4 +2,8 @@ id: org:chinese-academy-of-medical-sciences-peking-union-medical-college
 name: Chinese Academy of Medical Sciences & Peking Union Medical College
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/02drdmm93
+website: https://www.cams.ac.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02drdmm93, 2026-10-26

@@ -2,4 +2,8 @@ id: org:university-of-massachusetts-amherst
 name: University of Massachusetts Amherst
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Amherst Center
+country: United States
+ror: https://ror.org/0072zz521
+website: https://www.umass.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0072zz521, 2026-10-26

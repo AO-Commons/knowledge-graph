@@ -2,4 +2,8 @@ id: org:beijing-university-of-posts-and-telecommunications
 name: Beijing University of Posts and Telecommunications
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/04w9fbh59
+website: https://www.bupt.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04w9fbh59, 2026-10-26

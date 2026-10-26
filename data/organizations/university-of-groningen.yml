@@ -2,4 +2,8 @@ id: org:university-of-groningen
 name: University of Groningen
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Groningen
+country: The Netherlands
+ror: https://ror.org/012p63287
+website: https://www.rug.nl
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 012p63287, 2026-10-26

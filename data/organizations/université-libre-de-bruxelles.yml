@@ -2,4 +2,8 @@ id: org:université-libre-de-bruxelles
 name: Université Libre de Bruxelles
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Brussels
+country: Belgium
+ror: https://ror.org/01r9htc13
+website: https://www.ulb.be
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01r9htc13, 2026-10-26

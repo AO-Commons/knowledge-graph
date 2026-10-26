@@ -2,4 +2,8 @@ id: org:harbin-institute-of-technology
 name: Harbin Institute of Technology
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Harbin
+country: China
+ror: https://ror.org/01yqg2h08
+website: https://www.hit.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01yqg2h08, 2026-10-26

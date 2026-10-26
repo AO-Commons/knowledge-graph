@@ -2,4 +2,8 @@ id: org:cambia
 name: Cambia
 organization_type: company
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Canberra
+country: Australia
+ror: https://ror.org/0307tfa50
+website: https://cambia.org
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0307tfa50, 2026-10-26

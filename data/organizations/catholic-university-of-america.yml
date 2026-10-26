@@ -2,4 +2,8 @@ id: org:catholic-university-of-america
 name: Catholic University of America
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Washington
+country: United States
+ror: https://ror.org/047yk3s18
+website: http://www.cua.edu/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 047yk3s18, 2026-10-26

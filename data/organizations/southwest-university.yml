@@ -2,4 +2,8 @@ id: org:southwest-university
 name: Southwest University
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Chongqing
+country: China
+ror: https://ror.org/01kj4z117
+website: https://swu.edu.cn
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01kj4z117, 2026-10-26

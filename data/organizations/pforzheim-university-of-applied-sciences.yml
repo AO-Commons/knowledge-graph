@@ -2,4 +2,8 @@ id: org:pforzheim-university-of-applied-sciences
 name: Pforzheim University of Applied Sciences
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Pforzheim
+country: Germany
+ror: https://ror.org/00qakfc35
+website: https://www.hs-pforzheim.de/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 00qakfc35, 2026-10-26

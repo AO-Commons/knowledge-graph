@@ -2,4 +2,8 @@ id: org:chinese-center-for-disease-control-and-prevention
 name: Chinese Center For Disease Control and Prevention
 organization_type: government
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Beijing
+country: China
+ror: https://ror.org/04wktzw65
+website: http://www.chinacdc.cn/en/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 04wktzw65, 2026-10-26

@@ -2,4 +2,8 @@ id: org:institute-for-technology-society
 name: Institute for Technology & Society
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Rio de Janeiro
+country: Brazil
+ror: https://ror.org/0488afy73
+website: https://itsrio.org/en/en-home/
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 0488afy73, 2026-10-26

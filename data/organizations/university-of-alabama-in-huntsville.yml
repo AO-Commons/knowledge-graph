@@ -2,4 +2,8 @@ id: org:university-of-alabama-in-huntsville
 name: University of Alabama in Huntsville
 organization_type: university
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Huntsville
+country: United States
+ror: https://ror.org/02zsxwr40
+website: https://www.uah.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 02zsxwr40, 2026-10-26

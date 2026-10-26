@@ -2,4 +2,8 @@ id: org:georgia-institute-of-technology
 name: Georgia Institute of Technology
 organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
-source_provenance: named by the corpus; no OpenAlex match
+city: Atlanta
+country: United States
+ror: https://ror.org/01zkghx44
+website: https://www.gatech.edu
+source_provenance: named by the corpus; no OpenAlex match; city, country, ror, website from ror 01zkghx44, 2026-10-26
