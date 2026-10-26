@@ -1,0 +1,5 @@
+id: org:furtwangen-university
+name: Furtwangen University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

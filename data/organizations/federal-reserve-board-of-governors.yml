@@ -1,0 +1,5 @@
+id: org:federal-reserve-board-of-governors
+name: Federal Reserve Board of Governors
+kind: company
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

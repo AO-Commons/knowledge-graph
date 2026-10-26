@@ -133,6 +133,11 @@ class RelationType(str, Enum):
     # adopting their word for a layer we had not built cost nothing.
     ADDRESSES = "ADDRESSES"
     """mira:addresses — this statement bears on that open question."""
+    # Record to organization. Read off the record's own affiliation data
+    # rather than inferred, which is why it is not in CLAIM_RELATIONS and
+    # carries EXTRACTED.
+    AFFILIATED_WITH = "AFFILIATED_WITH"
+    """An author of this record was at that organization when it was written."""
 
 
 CLAIM_RELATIONS = frozenset({
@@ -728,6 +733,79 @@ class Claim:
         # read as "unreviewed".
         payload["review_status"] = self.review_status.value
         return _drop_empty(payload)
+
+
+@dataclass
+class Organization:
+    """A university, lab, company or agency the research comes from.
+
+    Its own node rather than an `Entity` with extra fields. `city` and `ror`
+    are true of an organization and of nothing else in that family, and
+    hanging them there would make every benchmark and framework carry three
+    empty fields — the same argument concepts-and-entities.md makes for why a
+    named thing is not a concept, one level down.
+
+    **Two axes, not one.** `kind` is what the organization is; `roles` are
+    what it does in this ecosystem. A research institute that also ships
+    tooling is both, routinely, and a single field would force a choice that
+    is wrong half the time and hard to undo once edges point at it.
+
+    `city` and `ror` are derived from OpenAlex rather than typed by hand:
+    they go stale, and ROR is the identifier the rest of the world joins on.
+    `kind` and `roles` are the judgments a registry cannot make.
+    """
+
+    id: str
+    name: str
+    #: What it is. Exactly one.
+    kind: str
+    #: What it does here. Any number, and an empty list is honest for an
+    #: organization that has published and nothing more.
+    roles: list[str] = field(default_factory=list)
+    aliases: list[str] = field(default_factory=list)
+    city: str | None = None
+    country: str | None = None
+    #: https://ror.org/... — the stable identifier, when OpenAlex knows one.
+    ror: str | None = None
+    website: str | None = None
+    #: Where each derived field came from, so a wrong city can be traced.
+    source_provenance: str | None = None
+
+    KINDS = frozenset({
+        "university",        # degree-granting
+        "research-institute",# research, not degree-granting: a national lab, an institute
+        "frontier-lab",      # builds frontier models; the field treats these as their own thing
+        "company",           # any other commercial organization
+        "foundation",        # non-profit: grant-making, stewarding, or both
+        "government",        # an agency, ministry or public body
+        "standards-body",    # exists to write specifications
+        "collective",        # a DAO or autonomous organization: a subject of this corpus
+    })
+
+    ROLES = frozenset({
+        "research",          # publishes research in this field
+        "infrastructure",    # builds the tooling agents run on
+        "deployment",        # runs an autonomous organization
+        "standards",         # writes specifications
+        "evaluation",        # builds or runs benchmarks and evaluations
+        "funding",           # grants money
+        "convening",         # events, community, coordination
+    })
+
+    def __post_init__(self) -> None:
+        if self.kind not in self.KINDS:
+            raise ValueError(
+                f"organization {self.id}: unknown kind {self.kind!r}; "
+                f"expected one of {sorted(self.KINDS)}")
+        if unknown := sorted(set(self.roles) - self.ROLES):
+            raise ValueError(
+                f"organization {self.id}: unknown role(s) {unknown}; "
+                f"expected any of {sorted(self.ROLES)}")
+        if len(set(self.roles)) != len(self.roles):
+            raise ValueError(f"organization {self.id}: a role is listed twice")
+
+    def to_dict(self) -> dict[str, Any]:
+        return _drop_empty(asdict(self))
 
 
 @dataclass

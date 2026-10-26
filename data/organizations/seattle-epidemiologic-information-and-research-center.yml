@@ -1,0 +1,9 @@
+id: org:seattle-epidemiologic-information-and-research-center
+name: Seattle Epidemiologic Information and Research Center
+kind: government
+roles: []                 # what it does here; see models.py ROLES
+city: Seattle
+country: United States
+ror: https://ror.org/0155sw530
+website: https://www.seattle.eric.research.va.gov/
+source_provenance: openalex I4210102726, 2026-10-26

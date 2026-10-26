@@ -1,0 +1,9 @@
+id: org:university-of-california-berkeley
+name: University of California, Berkeley
+kind: university
+roles: [research]
+city: Berkeley
+country: United States
+ror: https://ror.org/01an7q238
+website: https://www.berkeley.edu
+source_provenance: openalex I95457486, 2026-10-26

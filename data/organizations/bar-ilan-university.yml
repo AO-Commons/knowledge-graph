@@ -1,0 +1,9 @@
+id: org:bar-ilan-university
+name: Bar-Ilan University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Ramat Gan
+country: Israel
+ror: https://ror.org/03kgsv495
+website: http://www1.biu.ac.il/indexE.php
+source_provenance: openalex I13955877, 2026-10-26

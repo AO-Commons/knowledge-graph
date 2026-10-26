@@ -21,10 +21,11 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from ..concepts import Concept
-from ..models import Claim, Entity, Question, Relationship, Resource, Topic
+from ..models import Claim, Entity, Organization, Question, Relationship, Resource, Topic
 
 NODE_KINDS = {Topic: "topic", Resource: "resource", Entity: "entity", Claim: "claim",
-              Question: "question", Concept: "concept"}
+              Question: "question", Concept: "concept",
+              Organization: "organization"}
 
 
 def _node_records(
@@ -66,6 +67,7 @@ def write_release(
     claims: Iterable[Claim] = (),
     questions: Iterable[Question] = (),
     concepts: Iterable[Concept] = (),
+    organizations: Iterable[Organization] = (),
     relationships: Iterable[Relationship] = (),
     taxonomy_version: str = "v3",
     built_at: str | None = None,
@@ -81,12 +83,14 @@ def write_release(
     claims = list(claims)
     questions = list(questions)
     concepts = list(concepts)
+    organizations = list(organizations)
     relationships = list(relationships)
 
     release_dir = Path(out_dir) / version
     release_dir.mkdir(parents=True, exist_ok=True)
 
-    nodes = _node_records([*topics, *resources, *entities, *claims, *questions, *concepts])
+    nodes = _node_records([*topics, *resources, *entities, *claims, *questions,
+                           *concepts, *organizations])
     edges = _edge_records(relationships)
 
     _write_jsonl(release_dir / "nodes.jsonl", nodes)
@@ -117,6 +121,7 @@ def write_release(
             "resources": len(resources),
             "entities": len(entities),
             "claims": len(claims),
+            "organizations": len(organizations),
             "relationships": len(edges),
             "nodes": len(nodes),
         },

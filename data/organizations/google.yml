@@ -1,0 +1,9 @@
+id: org:google
+name: Google
+kind: company
+roles: [research, infrastructure]
+city: Mountain View
+country: United States
+ror: https://ror.org/00njsd438
+website: https://www.google.com/
+source_provenance: openalex I1291425158, 2026-10-26

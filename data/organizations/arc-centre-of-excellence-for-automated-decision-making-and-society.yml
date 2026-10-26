@@ -1,0 +1,9 @@
+id: org:arc-centre-of-excellence-for-automated-decision-making-and-society
+name: ARC Centre of Excellence for Automated Decision-Making and Society
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+city: Melbourne
+country: Australia
+ror: https://ror.org/039p7nx39
+website: https://www.admscentre.org.au/
+source_provenance: openalex I4210125816, 2026-10-26

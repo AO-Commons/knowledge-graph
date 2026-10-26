@@ -1,0 +1,9 @@
+id: org:university-of-bologna
+name: University of Bologna
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Bologna
+country: Italy
+ror: https://ror.org/01111rn36
+website: https://www.unibo.it
+source_provenance: openalex I9360294, 2026-10-26

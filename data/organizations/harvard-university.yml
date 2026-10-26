@@ -1,0 +1,9 @@
+id: org:harvard-university
+name: Harvard University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Cambridge
+country: United States
+ror: https://ror.org/03vek6s52
+website: https://www.harvard.edu
+source_provenance: openalex I136199984, 2026-10-26

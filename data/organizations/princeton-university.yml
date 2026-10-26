@@ -1,0 +1,9 @@
+id: org:princeton-university
+name: Princeton University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Princeton
+country: United States
+ror: https://ror.org/00hx57361
+website: https://www.princeton.edu
+source_provenance: openalex I20089843, 2026-10-26

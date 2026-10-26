@@ -1,0 +1,9 @@
+id: org:brigham-young-university
+name: Brigham Young University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Provo
+country: United States
+ror: https://ror.org/047rhhm47
+website: https://www.byu.edu
+source_provenance: openalex I100005738, 2026-10-26

@@ -1,0 +1,5 @@
+id: org:a-sharqiyah-university
+name: A'Sharqiyah University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

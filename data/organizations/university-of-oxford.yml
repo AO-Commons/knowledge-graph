@@ -1,0 +1,9 @@
+id: org:university-of-oxford
+name: University of Oxford
+kind: university
+roles: [research]
+city: Oxford
+country: United Kingdom
+ror: https://ror.org/052gg0110
+website: https://www.ox.ac.uk
+source_provenance: openalex I40120149, 2026-10-26

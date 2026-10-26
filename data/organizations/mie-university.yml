@@ -1,0 +1,5 @@
+id: org:mie-university
+name: Mie University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

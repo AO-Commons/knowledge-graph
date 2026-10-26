@@ -1,0 +1,5 @@
+id: org:beijing-academy-of-artificial-intelligence
+name: Beijing Academy of Artificial Intelligence
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

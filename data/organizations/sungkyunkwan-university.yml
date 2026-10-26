@@ -1,0 +1,9 @@
+id: org:sungkyunkwan-university
+name: Sungkyunkwan University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Suwon
+country: South Korea
+ror: https://ror.org/04q78tk20
+website: https://skku.edu
+source_provenance: openalex I848706, 2026-10-26

@@ -1,0 +1,9 @@
+id: org:santa-fe-institute
+name: Santa Fe Institute
+kind: research-institute
+roles: [research]
+city: Santa Fe
+country: United States
+ror: https://ror.org/01arysc35
+website: https://www.santafe.edu
+source_provenance: openalex I1308548392, 2026-10-26

@@ -1,0 +1,9 @@
+id: org:hong-kong-university-of-science-and-technology
+name: Hong Kong University of Science and Technology
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Hong Kong
+country: Hong Kong
+ror: https://ror.org/00q4vv597
+website: https://hkust.edu.hk
+source_provenance: openalex I200769079, 2026-10-26

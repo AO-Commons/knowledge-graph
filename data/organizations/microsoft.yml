@@ -1,0 +1,9 @@
+id: org:microsoft
+name: Microsoft
+kind: company
+roles: [research, infrastructure]
+city: Redmond
+country: United States
+ror: https://ror.org/00d0nc645
+website: https://www.microsoft.com/en-us
+source_provenance: openalex I1290206253, 2026-10-26

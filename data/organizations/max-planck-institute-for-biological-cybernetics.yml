@@ -1,0 +1,9 @@
+id: org:max-planck-institute-for-biological-cybernetics
+name: Max Planck Institute for Biological Cybernetics
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+city: Tübingen
+country: Germany
+ror: https://ror.org/026nmvv73
+website: http://www.kyb.tuebingen.mpg.de/
+source_provenance: openalex I4210112925, 2026-10-26

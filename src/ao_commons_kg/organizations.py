@@ -192,3 +192,75 @@ def resolves_to_the_same_paper(record_title: str, record_authors, work) -> bool:
             return True
 
     return False
+
+
+# ---------------------------------------------------------------- the records
+
+
+ORGANIZATIONS = REPO / "data" / "organizations"
+
+
+def load_organizations(path: str | Path = ORGANIZATIONS) -> dict[str, "Organization"]:
+    """Every organization record, keyed by id.
+
+    One file per organization, as for people and resources, so adding one is
+    writing a file and the pull request shows exactly what was asserted. The
+    loader refuses a duplicate id and a bad kind or role rather than letting
+    either into a release, because an ecosystem map drawn from a typo is a
+    map nobody can tell is wrong.
+    """
+    from .models import Organization
+
+    found: dict[str, Organization] = {}
+    for file in sorted(Path(path).glob("*.yml")):
+        raw = yaml.safe_load(file.read_text(encoding="utf-8")) or {}
+        if not raw.get("id"):
+            raise ValueError(f"{file.name}: no id")
+        org = Organization(**raw)
+        if org.id in found:
+            raise ValueError(f"{file.name}: duplicate organization id {org.id!r}")
+        found[org.id] = org
+    return found
+
+
+def affiliation_edges(resources, organizations) -> list:
+    """Resource → organization, one per organization with an author on it.
+
+    The edge is to the paper rather than to the author, because that is what
+    the corpus actually knows: a byline is a string, and 2,260 of them are
+    not yet people. When they are, this becomes person → organization and the
+    paper edge is derivable from it.
+
+    An affiliation nobody has a record for is skipped rather than invented —
+    `scripts/seed_organizations.py` writes the record, and until it has run
+    the edge would point at nothing.
+    """
+    from .models import ConfidenceClass, Relationship, RelationType
+
+    by_name = {org.name: org.id for org in organizations.values()}
+    for org in organizations.values():
+        for alias in org.aliases:
+            by_name.setdefault(alias, org.id)
+
+    edges: list[Relationship] = []
+    for resource in resources:
+        named: list[str] = list(resource.organizations or [])
+        for names in (resource.affiliations or {}).values():
+            named.extend(names)
+
+        seen: set[str] = set()
+        for name in named:
+            org_id = by_name.get(name)
+            if org_id is None or org_id in seen:
+                continue
+            seen.add(org_id)
+            edges.append(Relationship(
+                source_id=resource.id,
+                target_id=org_id,
+                relation=RelationType.AFFILIATED_WITH,
+                # Read off the record's own affiliation data, which came from
+                # OpenAlex with the rest of its metadata. Not an inference.
+                confidence_class=ConfidenceClass.EXTRACTED,
+                source_resource_id=resource.id,
+            ))
+    return edges

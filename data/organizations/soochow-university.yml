@@ -1,0 +1,9 @@
+id: org:soochow-university
+name: Soochow University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Suzhou
+country: China
+ror: https://ror.org/05t8y2r12
+website: https://www.suda.edu.cn
+source_provenance: openalex I3923682, 2026-10-26

@@ -1,0 +1,9 @@
+id: org:meta
+name: Meta
+kind: frontier-lab
+roles: [research, infrastructure]
+city: Menlo Park
+country: United States
+ror: https://ror.org/01zbnvs85
+website: https://www.meta.com/
+source_provenance: openalex I4210114444, 2026-10-26

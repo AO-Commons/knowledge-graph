@@ -1,0 +1,9 @@
+id: org:beijing-center-for-disease-prevention-and-control
+name: Beijing Center for Disease Prevention and Control
+kind: government
+roles: []                 # what it does here; see models.py ROLES
+city: Beijing
+country: China
+ror: https://ror.org/058dc0w16
+website: https://www.bjcdc.org/
+source_provenance: openalex I4210161151, 2026-10-26

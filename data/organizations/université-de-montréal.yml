@@ -1,0 +1,9 @@
+id: org:université-de-montréal
+name: Université de Montréal
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Montreal
+country: Canada
+ror: https://ror.org/0161xgx34
+website: https://www.umontreal.ca
+source_provenance: openalex I70931966, 2026-10-26

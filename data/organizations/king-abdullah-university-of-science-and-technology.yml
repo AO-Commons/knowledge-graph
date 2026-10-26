@@ -1,0 +1,9 @@
+id: org:king-abdullah-university-of-science-and-technology
+name: King Abdullah University of Science and Technology
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Jeddah
+country: Saudi Arabia
+ror: https://ror.org/01q3tbs38
+website: https://www.kaust.edu.sa
+source_provenance: openalex I71920554, 2026-10-26

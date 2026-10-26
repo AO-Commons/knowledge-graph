@@ -1,0 +1,9 @@
+id: org:massachusetts-institute-of-technology
+name: Massachusetts Institute of Technology
+kind: university
+roles: [research]
+city: Cambridge
+country: United States
+ror: https://ror.org/042nb2s44
+website: https://web.mit.edu
+source_provenance: openalex I63966007, 2026-10-26

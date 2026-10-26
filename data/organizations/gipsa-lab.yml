@@ -1,0 +1,5 @@
+id: org:gipsa-lab
+name: GIPSA-Lab
+kind: company
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

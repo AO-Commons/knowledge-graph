@@ -1,0 +1,5 @@
+id: org:schwartz-reisman-emergency-medicine-institute
+name: Schwartz/Reisman Emergency Medicine Institute
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

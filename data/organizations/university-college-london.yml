@@ -1,0 +1,9 @@
+id: org:university-college-london
+name: University College London
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: London
+country: United Kingdom
+ror: https://ror.org/02jx3x895
+website: http://www.ucl.ac.uk/
+source_provenance: openalex I45129253, 2026-10-26

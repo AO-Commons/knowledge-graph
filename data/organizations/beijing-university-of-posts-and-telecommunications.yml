@@ -1,0 +1,5 @@
+id: org:beijing-university-of-posts-and-telecommunications
+name: Beijing University of Posts and Telecommunications
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

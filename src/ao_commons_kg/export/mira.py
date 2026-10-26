@@ -115,6 +115,11 @@ NO_MIRA_RELATION: dict[RelationType, str] = {
         "Taxonomy placement. RRGI has proposed the same thing upstream as "
         "tradition/stemsFrom (schema issue #35).",
     RelationType.PARENT_OF: "Taxonomy hierarchy. Ours alone.",
+    RelationType.AFFILIATED_WITH:
+        "A record to the organization its authors were at. MIRA has foaf:Agent "
+        "through dg_base but no class for an organization and nothing tying one "
+        "to a document, so an ecosystem map cannot be expressed. One of ours to "
+        "propose.",
     RelationType.QUALIFIES:
         "CiTO's cito:qualifies. No MIRA term; one of ours to propose.",
     RelationType.EXTENDS_CLAIM:
@@ -248,6 +253,7 @@ def build_graph(
     topics: Iterable[Topic] = (),
     concepts: Iterable[Concept] = (),
     entities: Iterable[Entity] = (),
+    organizations: Iterable[Any] = (),
     built_at: str | None = None,
 ) -> tuple[dict[str, Any], Report]:
     """Project the corpus into MIRA, and say what did not fit."""
@@ -266,6 +272,10 @@ def build_graph(
          "Taxonomy sections. RRGI has proposed tradition/stemsFrom upstream."),
         (list(concepts), "concept",
          "Concept tags. RRGI has proposed contextEntities upstream."),
+        (list(organizations), "organization",
+         "Universities, labs, companies and agencies, with a city and a kind. "
+         "MIRA has no class for one; foaf:Agent exists in dg_base and nothing "
+         "connects it to a SourceDocument."),
         (list(entities), "entity",
          "People and organizations. foaf:Agent exists in dg_base but no MIRA "
          "class ties one to a document."),

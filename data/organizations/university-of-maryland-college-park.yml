@@ -1,0 +1,9 @@
+id: org:university-of-maryland-college-park
+name: University of Maryland, College Park
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: College Park
+country: United States
+ror: https://ror.org/047s2c258
+website: https://umd.edu
+source_provenance: openalex I66946132, 2026-10-26

@@ -1,0 +1,9 @@
+id: org:kampala-international-university
+name: Kampala International University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Kampala
+country: Uganda
+ror: https://ror.org/017g82c94
+website: https://www.kiu.ac.ug
+source_provenance: openalex I2752562790, 2026-10-26

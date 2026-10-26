@@ -1,0 +1,9 @@
+id: org:purdue-university-west-lafayette
+name: Purdue University West Lafayette
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: West Lafayette
+country: United States
+ror: https://ror.org/02dqehb95
+website: http://www.purdue.edu/
+source_provenance: openalex I219193219, 2026-10-26

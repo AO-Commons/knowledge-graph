@@ -1,0 +1,5 @@
+id: org:pforzheim-university-of-applied-sciences
+name: Pforzheim University of Applied Sciences
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

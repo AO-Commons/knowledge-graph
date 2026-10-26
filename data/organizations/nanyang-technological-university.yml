@@ -1,0 +1,9 @@
+id: org:nanyang-technological-university
+name: Nanyang Technological University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Singapore
+country: Singapore
+ror: https://ror.org/02e7b5302
+website: https://www.ntu.edu.sg
+source_provenance: openalex I172675005, 2026-10-26

@@ -1,0 +1,9 @@
+id: org:new-york-university
+name: New York University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: New York
+country: United States
+ror: https://ror.org/0190ak572
+website: https://www.nyu.edu
+source_provenance: openalex I57206974, 2026-10-26

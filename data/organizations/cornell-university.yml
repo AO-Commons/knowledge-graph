@@ -1,0 +1,9 @@
+id: org:cornell-university
+name: Cornell University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Ithaca
+country: United States
+ror: https://ror.org/05bnh6r87
+website: https://www.cornell.edu
+source_provenance: openalex I205783295, 2026-10-26

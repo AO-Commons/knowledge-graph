@@ -1,0 +1,5 @@
+id: org:harbin-institute-of-technology
+name: Harbin Institute of Technology
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

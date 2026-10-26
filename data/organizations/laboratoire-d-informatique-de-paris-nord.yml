@@ -1,0 +1,5 @@
+id: org:laboratoire-d-informatique-de-paris-nord
+name: Laboratoire d'Informatique de Paris-Nord
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

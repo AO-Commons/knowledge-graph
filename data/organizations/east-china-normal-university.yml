@@ -1,0 +1,9 @@
+id: org:east-china-normal-university
+name: East China Normal University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Shanghai
+country: China
+ror: https://ror.org/02n96ep67
+website: https://www.ecnu.edu.cn
+source_provenance: openalex I66867065, 2026-10-26

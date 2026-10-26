@@ -1,0 +1,5 @@
+id: org:libera-università-internazionale-degli-studi-sociali-guido-carli
+name: Libera Università Internazionale degli Studi Sociali Guido Carli
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

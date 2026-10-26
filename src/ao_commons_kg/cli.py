@@ -498,9 +498,16 @@ def cmd_build(args) -> int:
             print(f"warning: statement tagged {tag!r}, which the vocabulary "
                   "does not define", file=sys.stderr)
 
+    # The organizations the records come from, and the edge from each record
+    # to the ones its authors were at. Both are read off affiliation data
+    # rather than inferred; see organizations.py.
+    from .organizations import load_organizations, affiliation_edges
+    organizations = load_organizations()
+
     edges = (_parent_edges(topics) + tagged_edges(resources, codes)
              + _scholarly_edges(resources)
              + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
+             + affiliation_edges(resources, organizations)
              + addresses)
 
     # The MIRA projection is written first so that write_release's checksums
@@ -511,6 +518,7 @@ def cmd_build(args) -> int:
         built_at=args.built_at,
         topics=topics, resources=resources, claims=claims,
         questions=questions, concepts=concepts, relationships=edges,
+        organizations=list(organizations.values()),
     )
 
     out = write_release(
@@ -521,12 +529,13 @@ def cmd_build(args) -> int:
         claims=claims,
         questions=questions,
         concepts=concepts,
+        organizations=list(organizations.values()),
         relationships=edges,
         built_at=args.built_at,
     )
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
           f"{len(claims)} claims, {len(questions)} questions, "
-          f"{len(concepts)} concepts)")
+          f"{len(concepts)} concepts, {len(organizations)} organizations)")
     mira = mira_report.to_dict()
     print(f"  mira: {mira['emitted']['node_total']} nodes, "
           f"{mira['emitted']['edge_total']} edges emitted; "

@@ -1,0 +1,9 @@
+id: org:the-alan-turing-institute
+name: The Alan Turing Institute
+kind: research-institute
+roles: [research, standards]
+city: London
+country: United Kingdom
+ror: https://ror.org/035dkdb55
+website: https://www.turing.ac.uk
+source_provenance: openalex I4210128584, 2026-10-26

@@ -1,0 +1,5 @@
+id: org:bishkek-academy-of-finance-and-economics
+name: Bishkek Academy of Finance and Economics
+kind: research-institute
+roles: []                 # what it does here; see models.py ROLES
+source_provenance: named by the corpus; no OpenAlex match

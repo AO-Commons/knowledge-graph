@@ -1,0 +1,9 @@
+id: org:university-of-kassel
+name: University of Kassel
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Kassel
+country: Germany
+ror: https://ror.org/04zc7p361
+website: https://www.uni-kassel.de/uni
+source_provenance: openalex I106157433, 2026-10-26

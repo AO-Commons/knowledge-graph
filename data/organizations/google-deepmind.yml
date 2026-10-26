@@ -1,0 +1,9 @@
+id: org:google-deepmind
+name: Google DeepMind
+kind: frontier-lab
+roles: [research, evaluation]
+city: London
+country: United Kingdom
+ror: https://ror.org/00971b260
+website: https://deepmind.google
+source_provenance: openalex I4210090411, 2026-10-26

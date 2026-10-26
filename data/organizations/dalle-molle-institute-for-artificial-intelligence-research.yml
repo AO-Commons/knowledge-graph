@@ -1,0 +1,9 @@
+id: org:dalle-molle-institute-for-artificial-intelligence-research
+name: Dalle Molle Institute for Artificial Intelligence Research
+kind: research-institute
+roles: [research]
+city: Lugano
+country: Switzerland
+ror: https://ror.org/013355g38
+website: http://www.idsia.ch/
+source_provenance: openalex I2614128279, 2026-10-26

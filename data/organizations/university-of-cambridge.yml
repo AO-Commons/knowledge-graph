@@ -1,0 +1,9 @@
+id: org:university-of-cambridge
+name: University of Cambridge
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Cambridge
+country: United Kingdom
+ror: https://ror.org/013meh722
+website: https://www.cam.ac.uk
+source_provenance: openalex I241749, 2026-10-26

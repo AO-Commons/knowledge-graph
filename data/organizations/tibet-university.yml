@@ -1,0 +1,9 @@
+id: org:tibet-university
+name: Tibet University
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Lhasa
+country: China
+ror: https://ror.org/05petvd47
+website: http://www.utibet.edu.cn/
+source_provenance: openalex I140786321, 2026-10-26

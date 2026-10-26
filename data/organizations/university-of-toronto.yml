@@ -1,0 +1,9 @@
+id: org:university-of-toronto
+name: University of Toronto
+kind: university
+roles: []                 # what it does here; see models.py ROLES
+city: Toronto
+country: Canada
+ror: https://ror.org/03dbr7087
+website: https://www.utoronto.ca
+source_provenance: openalex I185261750, 2026-10-26
