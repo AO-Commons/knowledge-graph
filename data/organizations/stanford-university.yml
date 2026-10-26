@@ -1,6 +1,6 @@
 id: org:stanford-university
 name: Stanford University
-kind: university
+organization_type: university
 roles: [research, convening]
 city: Stanford
 country: United States

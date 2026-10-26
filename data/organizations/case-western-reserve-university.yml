@@ -1,5 +1,5 @@
 id: org:case-western-reserve-university
 name: Case Western Reserve University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

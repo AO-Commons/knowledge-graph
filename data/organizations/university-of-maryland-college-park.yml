@@ -1,6 +1,6 @@
 id: org:university-of-maryland-college-park
 name: University of Maryland, College Park
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: College Park
 country: United States

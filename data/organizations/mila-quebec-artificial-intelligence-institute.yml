@@ -1,6 +1,6 @@
 id: org:mila-quebec-artificial-intelligence-institute
 name: Mila - Quebec Artificial Intelligence Institute
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 city: Montreal
 country: Canada

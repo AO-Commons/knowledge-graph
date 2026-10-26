@@ -1,5 +1,5 @@
 id: org:helmholtz-munich
 name: Helmholtz Munich
-kind: company
+organization_type: company
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

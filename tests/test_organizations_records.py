@@ -15,15 +15,15 @@ def an_org(**kw):
     return Organization(
         id=kw.pop("id", "org:framework-zero"),
         name=kw.pop("name", "Framework Zero"),
-        kind=kw.pop("kind", "company"),
+        organization_type=kw.pop("organization_type", "company"),
         **kw,
     )
 
 
 class TestTheRecord:
     def test_kind_is_one_of_the_eight(self):
-        with pytest.raises(ValueError, match="unknown kind"):
-            an_org(kind="startup")
+        with pytest.raises(ValueError, match="unknown organization_type"):
+            an_org(organization_type="startup")
 
     def test_a_role_outside_the_vocabulary_is_refused(self):
         with pytest.raises(ValueError, match="unknown role"):
@@ -100,3 +100,15 @@ class TestTheEdges:
             affiliations = {}
         orgs = {"org:framework-zero": an_org(aliases=["FrameworkZero"])}
         assert affiliation_edges([R()], orgs)[0].target_id == "org:framework-zero"
+
+
+class TestTheFieldIsNotCalledKind:
+    def test_a_node_kind_is_not_overwritten_by_the_organization_type(self):
+        """`kind` is the word a release uses for a node's own kind. An
+        Organization with a `kind` field overwrote it in the record, so 191
+        organizations shipped as `company`, `university` and `frontier-lab`
+        instead of `organization`, and nothing failed."""
+        from ao_commons_kg.export.jsonl import NODE_KINDS
+        record = {"kind": NODE_KINDS[Organization], **an_org().to_dict()}
+        assert record["kind"] == "organization"
+        assert record["organization_type"] == "company"

@@ -1,6 +1,6 @@
 id: org:arc-centre-of-excellence-for-automated-decision-making-and-society
 name: ARC Centre of Excellence for Automated Decision-Making and Society
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 city: Melbourne
 country: Australia

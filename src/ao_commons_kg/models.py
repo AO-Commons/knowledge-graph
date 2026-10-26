@@ -137,7 +137,11 @@ class RelationType(str, Enum):
     # rather than inferred, which is why it is not in CLAIM_RELATIONS and
     # carries EXTRACTED.
     AFFILIATED_WITH = "AFFILIATED_WITH"
-    """An author of this record was at that organization when it was written."""
+    """This person was at that organization when a record they wrote was
+    written. An affiliation belongs to a person, not to a paper: the paper
+    reaches the organization in one hop through its authors."""
+    AUTHORED = "AUTHORED"
+    """This person is on that record's byline."""
 
 
 CLAIM_RELATIONS = frozenset({
@@ -736,6 +740,39 @@ class Claim:
 
 
 @dataclass
+class Person:
+    """Somebody on a byline.
+
+    Derived rather than filed. There are 2,260 of these and almost all are a
+    name on one paper, so a file each would be 2,260 files carrying nothing a
+    reader could not get from the byline. What is filed is the overlay:
+    `data/people/<slug>.yml` holds the judgments — which GitHub account is
+    theirs, which spellings are one person, an ORCID — for the handful anybody
+    has looked into.
+
+    The same shape the concept layer uses, and for the same reason: derive the
+    node, file the judgment.
+    """
+
+    id: str
+    name: str
+    #: Other spellings seen on bylines, folded into this one by people.py.
+    #: Conservative: punctuation and accents fold, initials never expand, so
+    #: "J. Leibo" and "Joel Z. Leibo" stay two people until somebody says
+    #: otherwise in the overlay.
+    aliases: list[str] = field(default_factory=list)
+    orcid: str | None = None
+    #: The filing account, when one has been linked. See people.Identity.
+    github: str | None = None
+    #: claimed | vouched | verified — how strongly anybody knows the link is
+    #: real. Absent when no link has been claimed at all.
+    attestation: str | None = None
+
+    def to_dict(self) -> dict[str, Any]:
+        return _drop_empty(asdict(self))
+
+
+@dataclass
 class Organization:
     """A university, lab, company or agency the research comes from.
 
@@ -745,20 +782,22 @@ class Organization:
     empty fields — the same argument concepts-and-entities.md makes for why a
     named thing is not a concept, one level down.
 
-    **Two axes, not one.** `kind` is what the organization is; `roles` are
+    **Two axes, not one.** `organization_type` is what it is; `roles` are
     what it does in this ecosystem. A research institute that also ships
     tooling is both, routinely, and a single field would force a choice that
     is wrong half the time and hard to undo once edges point at it.
 
     `city` and `ror` are derived from OpenAlex rather than typed by hand:
     they go stale, and ROR is the identifier the rest of the world joins on.
-    `kind` and `roles` are the judgments a registry cannot make.
+    `organization_type` and `roles` are the judgments a registry cannot make.
     """
 
     id: str
     name: str
-    #: What it is. Exactly one.
-    kind: str
+    #: What it is. Exactly one. Named for the field it is, like
+    #: `resource_type` and `claim_type` — and not `kind`, which is the word
+    #: the release uses for a node's own kind and would silently overwrite it.
+    organization_type: str
     #: What it does here. Any number, and an empty list is honest for an
     #: organization that has published and nothing more.
     roles: list[str] = field(default_factory=list)
@@ -771,7 +810,7 @@ class Organization:
     #: Where each derived field came from, so a wrong city can be traced.
     source_provenance: str | None = None
 
-    KINDS = frozenset({
+    ORGANIZATION_TYPES = frozenset({
         "university",        # degree-granting
         "research-institute",# research, not degree-granting: a national lab, an institute
         "frontier-lab",      # builds frontier models; the field treats these as their own thing
@@ -793,10 +832,11 @@ class Organization:
     })
 
     def __post_init__(self) -> None:
-        if self.kind not in self.KINDS:
+        if self.organization_type not in self.ORGANIZATION_TYPES:
             raise ValueError(
-                f"organization {self.id}: unknown kind {self.kind!r}; "
-                f"expected one of {sorted(self.KINDS)}")
+                f"organization {self.id}: unknown organization_type "
+                f"{self.organization_type!r}; "
+                f"expected one of {sorted(self.ORGANIZATION_TYPES)}")
         if unknown := sorted(set(self.roles) - self.ROLES):
             raise ValueError(
                 f"organization {self.id}: unknown role(s) {unknown}; "

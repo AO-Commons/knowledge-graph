@@ -1,6 +1,6 @@
 id: org:tsinghua-university
 name: Tsinghua University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Beijing
 country: China

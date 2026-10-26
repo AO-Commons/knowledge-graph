@@ -1,6 +1,6 @@
 id: org:seattle-epidemiologic-information-and-research-center
 name: Seattle Epidemiologic Information and Research Center
-kind: government
+organization_type: government
 roles: []                 # what it does here; see models.py ROLES
 city: Seattle
 country: United States

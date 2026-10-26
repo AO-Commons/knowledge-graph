@@ -1,6 +1,6 @@
 id: org:harvard-university
 name: Harvard University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Cambridge
 country: United States

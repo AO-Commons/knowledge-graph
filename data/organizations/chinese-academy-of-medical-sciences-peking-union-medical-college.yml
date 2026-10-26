@@ -1,5 +1,5 @@
 id: org:chinese-academy-of-medical-sciences-peking-union-medical-college
 name: Chinese Academy of Medical Sciences & Peking Union Medical College
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

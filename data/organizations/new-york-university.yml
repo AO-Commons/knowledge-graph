@@ -1,6 +1,6 @@
 id: org:new-york-university
 name: New York University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: New York
 country: United States

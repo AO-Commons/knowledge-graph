@@ -1,6 +1,6 @@
 id: org:max-planck-institute-for-biological-cybernetics
 name: Max Planck Institute for Biological Cybernetics
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 city: Tübingen
 country: Germany

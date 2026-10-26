@@ -1,6 +1,6 @@
 id: org:university-of-kassel
 name: University of Kassel
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Kassel
 country: Germany

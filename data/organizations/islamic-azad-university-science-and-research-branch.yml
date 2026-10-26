@@ -1,5 +1,5 @@
 id: org:islamic-azad-university-science-and-research-branch
 name: Islamic Azad University, Science and Research Branch
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

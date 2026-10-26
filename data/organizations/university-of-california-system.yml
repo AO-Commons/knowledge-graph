@@ -1,5 +1,5 @@
 id: org:university-of-california-system
 name: University of California System
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

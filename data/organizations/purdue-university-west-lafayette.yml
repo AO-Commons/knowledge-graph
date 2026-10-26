@@ -1,6 +1,6 @@
 id: org:purdue-university-west-lafayette
 name: Purdue University West Lafayette
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: West Lafayette
 country: United States

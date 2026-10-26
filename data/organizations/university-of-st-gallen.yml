@@ -1,6 +1,6 @@
 id: org:university-of-st-gallen
 name: University of St.Gallen
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Saint Gallen
 country: Switzerland

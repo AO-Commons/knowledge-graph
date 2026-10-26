@@ -1,6 +1,6 @@
 id: org:brigham-young-university
 name: Brigham Young University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Provo
 country: United States

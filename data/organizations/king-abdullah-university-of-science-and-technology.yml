@@ -1,6 +1,6 @@
 id: org:king-abdullah-university-of-science-and-technology
 name: King Abdullah University of Science and Technology
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Jeddah
 country: Saudi Arabia

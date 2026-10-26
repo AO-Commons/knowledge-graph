@@ -1,5 +1,5 @@
 id: org:mit-computer-science-and-artificial-intelligence-laboratory
 name: MIT Computer Science and Artificial Intelligence Laboratory
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

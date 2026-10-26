@@ -1,6 +1,6 @@
 id: org:the-alan-turing-institute
 name: The Alan Turing Institute
-kind: research-institute
+organization_type: research-institute
 roles: [research, standards]
 city: London
 country: United Kingdom

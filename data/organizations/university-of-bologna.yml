@@ -1,6 +1,6 @@
 id: org:university-of-bologna
 name: University of Bologna
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Bologna
 country: Italy

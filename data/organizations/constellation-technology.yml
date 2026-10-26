@@ -1,6 +1,6 @@
 id: org:constellation-technology
 name: Constellation Technology
-kind: company
+organization_type: company
 roles: [infrastructure]
 city: Largo
 country: United States

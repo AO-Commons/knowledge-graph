@@ -1,6 +1,6 @@
 id: org:google-deepmind
 name: Google DeepMind
-kind: frontier-lab
+organization_type: frontier-lab
 roles: [research, evaluation]
 city: London
 country: United Kingdom

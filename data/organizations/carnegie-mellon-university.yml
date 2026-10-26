@@ -1,6 +1,6 @@
 id: org:carnegie-mellon-university
 name: Carnegie Mellon University
-kind: university
+organization_type: university
 roles: [research, evaluation]
 city: Pittsburgh
 country: United States

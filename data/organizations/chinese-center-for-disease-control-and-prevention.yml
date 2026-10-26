@@ -1,5 +1,5 @@
 id: org:chinese-center-for-disease-control-and-prevention
 name: Chinese Center For Disease Control and Prevention
-kind: government
+organization_type: government
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

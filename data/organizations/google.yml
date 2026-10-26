@@ -1,6 +1,6 @@
 id: org:google
 name: Google
-kind: company
+organization_type: company
 roles: [research, infrastructure]
 city: Mountain View
 country: United States

@@ -1,5 +1,5 @@
 id: org:blockscience
 name: BlockScience
-kind: company
+organization_type: company
 roles: [research, infrastructure]
 source_provenance: named by the corpus; no OpenAlex match

@@ -1,6 +1,6 @@
 id: org:santa-fe-institute
 name: Santa Fe Institute
-kind: research-institute
+organization_type: research-institute
 roles: [research]
 city: Santa Fe
 country: United States

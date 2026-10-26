@@ -1,6 +1,6 @@
 id: org:beijing-center-for-disease-prevention-and-control
 name: Beijing Center for Disease Prevention and Control
-kind: government
+organization_type: government
 roles: []                 # what it does here; see models.py ROLES
 city: Beijing
 country: China

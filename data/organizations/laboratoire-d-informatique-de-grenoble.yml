@@ -1,5 +1,5 @@
 id: org:laboratoire-d-informatique-de-grenoble
 name: Laboratoire d'Informatique de Grenoble
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

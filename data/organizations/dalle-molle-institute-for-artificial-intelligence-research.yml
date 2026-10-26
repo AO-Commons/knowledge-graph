@@ -1,6 +1,6 @@
 id: org:dalle-molle-institute-for-artificial-intelligence-research
 name: Dalle Molle Institute for Artificial Intelligence Research
-kind: research-institute
+organization_type: research-institute
 roles: [research]
 city: Lugano
 country: Switzerland

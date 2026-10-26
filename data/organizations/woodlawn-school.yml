@@ -1,5 +1,5 @@
 id: org:woodlawn-school
 name: Woodlawn School
-kind: company
+organization_type: company
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

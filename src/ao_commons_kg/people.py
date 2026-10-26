@@ -26,7 +26,11 @@ import yaml
 import unicodedata
 from collections import Counter, defaultdict
 
-PUNCTUATION = re.compile(r"[.'`\-‐‑’]")
+# A hyphen stands for a space; a period and an apostrophe stand for nothing.
+# Folding them all away made "Joon-Sung Park" into "joonsung park", which
+# never meets "Joon Sung Park", and the corpus carried both as two people.
+HYPHENS = re.compile(r"[\-‐‑–—]")
+PUNCTUATION = re.compile(r"[.'`’]")
 SPACES = re.compile(r"\s+")
 
 
@@ -90,13 +94,20 @@ def fold(name: str) -> str:
 
     Accents and punctuation come off; word order and initials do not change.
 
+    A hyphen becomes a space rather than vanishing. "Joon-Sung Park" and
+    "Joon Sung Park" are one person, and folding the hyphen away made them
+    "joonsung park" and "joon sung park", which never meet. Two pairs reached
+    the corpus that way. A period and an apostrophe still vanish, because
+    "O'Brien" is not "O Brien" in any source that matters.
+
     ß is expanded to ss before the accent pass, because NFKD leaves it alone —
     it is a letter, not an accented s. Without this, "Wolfram Barfuß" and
     "Wolfram Barfuss" are two people.
     """
     decomposed = unicodedata.normalize("NFKD", (name or "").replace("ß", "ss"))
     without_accents = "".join(c for c in decomposed if not unicodedata.combining(c))
-    return SPACES.sub(" ", PUNCTUATION.sub("", without_accents)).strip().lower()
+    spaced = HYPHENS.sub(" ", without_accents)
+    return SPACES.sub(" ", PUNCTUATION.sub("", spaced)).strip().lower()
 
 
 def same_person(a: str, b: str) -> bool:
@@ -297,3 +308,114 @@ def wrote(login: str, authors: list[str],
     if identity is None or not identity.verified:
         return False
     return any(same_person(identity.name, author) for author in authors or [])
+
+
+# ------------------------------------------------------------ the graph layer
+
+
+def slug_for_person(name: str) -> str:
+    """A byline as something that can be an id, and stay one.
+
+    Folded the same way `same_person` folds, so two spellings of one name
+    reach one id even if `build_index` has not seen both yet.
+    """
+    folded = fold(name)
+    out = "".join(c if c.isalnum() else "-" for c in folded)
+    while "--" in out:
+        out = out.replace("--", "-")
+    return out.strip("-") or "unnamed"
+
+
+def person_nodes(resources, identities: dict[str, "Identity"] | None = None):
+    """A Person for every byline in the corpus, with the overlay applied.
+
+    Derived from what the records say, then corrected by the files in
+    `data/people/`. An identity nobody has filed changes nothing here; it just
+    means the person has a name and no account, which is the state of nearly
+    all of them.
+    """
+    from .models import Person
+
+    spellings: list[str] = []
+    for resource in resources:
+        spellings.extend(a for a in (resource.authors or []) if isinstance(a, str))
+
+    index = build_index(spellings)
+    by_id: dict[str, Person] = {}
+    aliases: dict[str, set[str]] = defaultdict(set)
+
+    for spelling in spellings:
+        name = index.get(spelling, spelling)
+        pid = f"person:{slug_for_person(name)}"
+        if spelling != name:
+            aliases[pid].add(spelling)
+        if pid not in by_id:
+            by_id[pid] = Person(id=pid, name=name)
+
+    by_name = {i.name: i for i in (identities or {}).values()}
+    for pid, person in by_id.items():
+        person.aliases = sorted(aliases.get(pid, ()))
+        if found := by_name.get(person.name):
+            person.orcid = found.orcid
+            person.github = found.github
+            person.attestation = found.attestation
+    return by_id
+
+
+def authorship_edges(resources, people, organizations=None):
+    """Person → record, and person → organization.
+
+    The affiliation edge runs from the person rather than from the paper,
+    because that is whose affiliation it is. A paper reaches an organization
+    in one hop through its authors, so storing that edge as well would be
+    storing something derivable — and the same person at two organizations on
+    two papers is a fact the paper-level edge cannot hold at all.
+    """
+    from .models import ConfidenceClass, Relationship, RelationType
+
+    by_name: dict[str, str] = {}
+    for pid, person in people.items():
+        by_name[person.name] = pid
+        for alias in person.aliases:
+            by_name[alias] = pid
+
+    orgs_by_name: dict[str, str] = {}
+    for org in (organizations or {}).values():
+        orgs_by_name[org.name] = org.id
+        for alias in org.aliases:
+            orgs_by_name.setdefault(alias, org.id)
+
+    edges: list[Relationship] = []
+    seen_affiliation: set[tuple[str, str]] = set()
+
+    for resource in resources:
+        for spelling in (resource.authors or []):
+            pid = by_name.get(spelling)
+            if pid is None:
+                continue
+            edges.append(Relationship(
+                source_id=pid,
+                target_id=resource.id,
+                relation=RelationType.AUTHORED,
+                # Read off the byline. Nobody inferred it.
+                confidence_class=ConfidenceClass.EXTRACTED,
+                source_resource_id=resource.id,
+            ))
+
+        for spelling, org_names in (resource.affiliations or {}).items():
+            pid = by_name.get(spelling)
+            if pid is None:
+                continue
+            for org_name in org_names:
+                org_id = orgs_by_name.get(org_name)
+                if org_id is None or (pid, org_id) in seen_affiliation:
+                    continue
+                seen_affiliation.add((pid, org_id))
+                edges.append(Relationship(
+                    source_id=pid,
+                    target_id=org_id,
+                    relation=RelationType.AFFILIATED_WITH,
+                    confidence_class=ConfidenceClass.EXTRACTED,
+                    source_resource_id=resource.id,
+                ))
+    return edges

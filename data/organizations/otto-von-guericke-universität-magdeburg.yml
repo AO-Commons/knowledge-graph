@@ -1,5 +1,5 @@
 id: org:otto-von-guericke-universität-magdeburg
 name: Otto-von-Guericke-Universität Magdeburg
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

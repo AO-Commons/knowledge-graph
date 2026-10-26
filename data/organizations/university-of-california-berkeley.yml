@@ -1,6 +1,6 @@
 id: org:university-of-california-berkeley
 name: University of California, Berkeley
-kind: university
+organization_type: university
 roles: [research]
 city: Berkeley
 country: United States

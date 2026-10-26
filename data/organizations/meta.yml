@@ -1,6 +1,6 @@
 id: org:meta
 name: Meta
-kind: frontier-lab
+organization_type: frontier-lab
 roles: [research, infrastructure]
 city: Menlo Park
 country: United States

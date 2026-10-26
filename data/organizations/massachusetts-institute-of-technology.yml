@@ -1,6 +1,6 @@
 id: org:massachusetts-institute-of-technology
 name: Massachusetts Institute of Technology
-kind: university
+organization_type: university
 roles: [research]
 city: Cambridge
 country: United States

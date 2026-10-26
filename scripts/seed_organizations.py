@@ -146,7 +146,7 @@ def main(argv: list[str] | None = None) -> int:
         org = Organization(
             id=f"org:{slug(name)}",
             name=name,
-            kind=kind,
+            organization_type=kind,
             roles=[],
             city=geo.get("city"),
             country=geo.get("country"),
@@ -163,7 +163,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  {count:>4}  {name[:44]:<44} {kind:<18} {where}")
 
         if args.write:
-            lines = [f"id: {org.id}", f"name: {org.name}", f"kind: {org.kind}",
+            lines = [f"id: {org.id}", f"name: {org.name}", f"organization_type: {org.organization_type}",
                      "roles: []                 # what it does here; see models.py ROLES"]
             for key in ("city", "country", "ror", "website"):
                 value = getattr(org, key)

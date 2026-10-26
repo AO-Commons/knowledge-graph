@@ -1,5 +1,5 @@
 id: org:interuniversity-center-for-social-science-theory-and-methodology
 name: Interuniversity Center for Social Science Theory and Methodology
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

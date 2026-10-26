@@ -1,6 +1,6 @@
 id: org:university-college-london
 name: University College London
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: London
 country: United Kingdom

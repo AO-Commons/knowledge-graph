@@ -1,6 +1,6 @@
 id: org:kampala-international-university
 name: Kampala International University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Kampala
 country: Uganda

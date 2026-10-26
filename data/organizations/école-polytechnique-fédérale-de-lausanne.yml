@@ -1,6 +1,6 @@
 id: org:école-polytechnique-fédérale-de-lausanne
 name: École Polytechnique Fédérale de Lausanne
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Lausanne
 country: Switzerland

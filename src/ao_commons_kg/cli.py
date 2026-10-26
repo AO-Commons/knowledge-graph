@@ -501,13 +501,18 @@ def cmd_build(args) -> int:
     # The organizations the records come from, and the edge from each record
     # to the ones its authors were at. Both are read off affiliation data
     # rather than inferred; see organizations.py.
-    from .organizations import load_organizations, affiliation_edges
+    from .organizations import load_organizations
+    from .people import load_identities, person_nodes, authorship_edges
     organizations = load_organizations()
+    # People are derived from bylines and corrected by data/people/, rather
+    # than filed one per author: 2,260 of them, almost all a name on one
+    # paper. Derive the node, file the judgment.
+    people = person_nodes(resources, load_identities())
 
     edges = (_parent_edges(topics) + tagged_edges(resources, codes)
              + _scholarly_edges(resources)
              + claim_edges(claims, topic_codes=codes, vocabulary=vocabulary)
-             + affiliation_edges(resources, organizations)
+             + authorship_edges(resources, people, organizations)
              + addresses)
 
     # The MIRA projection is written first so that write_release's checksums
@@ -530,12 +535,14 @@ def cmd_build(args) -> int:
         questions=questions,
         concepts=concepts,
         organizations=list(organizations.values()),
+        people=list(people.values()),
         relationships=edges,
         built_at=args.built_at,
     )
     print(f"wrote {out}  ({len(topics)} topics, {len(resources)} resources, "
           f"{len(claims)} claims, {len(questions)} questions, "
-          f"{len(concepts)} concepts, {len(organizations)} organizations)")
+          f"{len(concepts)} concepts, {len(organizations)} organizations, "
+          f"{len(people)} people)")
     mira = mira_report.to_dict()
     print(f"  mira: {mira['emitted']['node_total']} nodes, "
           f"{mira['emitted']['edge_total']} edges emitted; "

@@ -1,5 +1,5 @@
 id: org:max-planck-institute-for-evolutionary-biology
 name: Max Planck Institute for Evolutionary Biology
-kind: research-institute
+organization_type: research-institute
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

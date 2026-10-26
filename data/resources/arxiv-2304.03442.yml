@@ -22,7 +22,7 @@ abstract: 'Believable proxies of human behavior can empower interactive applicat
   large language models with computational, interactive agents, this work introduces architectural
   and interaction patterns for enabling believable simulations of human behavior.'
 authors:
-- Joon Sung Park
+- Joon-Sung Park
 - Joseph C. O'Brien
 - Carrie J. Cai
 - Meredith Ringel Morris

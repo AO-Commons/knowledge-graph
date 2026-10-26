@@ -115,8 +115,12 @@ NO_MIRA_RELATION: dict[RelationType, str] = {
         "Taxonomy placement. RRGI has proposed the same thing upstream as "
         "tradition/stemsFrom (schema issue #35).",
     RelationType.PARENT_OF: "Taxonomy hierarchy. Ours alone.",
+    RelationType.AUTHORED:
+        "A person to a record they wrote. MIRA carries bylines as dct:creator "
+        "on a SourceDocument, which is attribution without identity: the same "
+        "person on two papers is two strings.",
     RelationType.AFFILIATED_WITH:
-        "A record to the organization its authors were at. MIRA has foaf:Agent "
+        "A person to the organization they were at. MIRA has foaf:Agent "
         "through dg_base but no class for an organization and nothing tying one "
         "to a document, so an ecosystem map cannot be expressed. One of ours to "
         "propose.",

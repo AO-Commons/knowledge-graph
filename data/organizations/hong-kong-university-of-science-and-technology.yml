@@ -1,6 +1,6 @@
 id: org:hong-kong-university-of-science-and-technology
 name: Hong Kong University of Science and Technology
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Hong Kong
 country: Hong Kong

@@ -1,6 +1,6 @@
 id: org:microsoft
 name: Microsoft
-kind: company
+organization_type: company
 roles: [research, infrastructure]
 city: Redmond
 country: United States

@@ -1,6 +1,6 @@
 id: org:bar-ilan-university
 name: Bar-Ilan University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Ramat Gan
 country: Israel

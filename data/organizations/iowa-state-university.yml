@@ -1,6 +1,6 @@
 id: org:iowa-state-university
 name: Iowa State University
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Ames
 country: United States

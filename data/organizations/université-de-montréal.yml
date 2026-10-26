@@ -1,6 +1,6 @@
 id: org:université-de-montréal
 name: Université de Montréal
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 city: Montreal
 country: Canada

@@ -6,7 +6,7 @@ a file, and the pull request shows exactly what was asserted.
 ```yaml
 id: org:framework-zero
 name: Framework Zero
-kind: company                     # what it is — exactly one
+organization_type: company        # what it is — exactly one
 roles: [research, infrastructure] # what it does here — any number, or none
 aliases: [FrameworkZero]          # other spellings the corpus may carry
 city: Melbourne
@@ -16,17 +16,17 @@ website: https://frameworkzero.com
 source_provenance: added by hand, 2026-10-26
 ```
 
-Only `id`, `name` and `kind` are required. `id` is `org:` plus the slug of the
+Only `id`, `name` and `organization_type` are required. `id` is `org:` plus the slug of the
 name, and the filename matches the slug.
 
 ## Two axes, and why
 
-`kind` is what the organization **is**. `roles` are what it **does in this
+`organization_type` is what the organization **is**. `roles` are what it **does in this
 ecosystem**. A research institute that also ships tooling is both, routinely,
 and one field would force a choice that is wrong half the time and painful to
 undo once edges point at it.
 
-| `kind` | |
+| `organization_type` | |
 |---|---|
 | `university` | degree-granting |
 | `research-institute` | research, not degree-granting: a national lab, an institute |
@@ -56,7 +56,7 @@ them on purpose: a role every organization has sorts nothing.
 `scripts/seed_organizations.py` reads the affiliations already on records,
 canonicalises them through `organizations.py`, and asks OpenAlex for `city`,
 `country`, `ror` and `website` — those go stale and ROR is the identifier the
-rest of the world uses, so neither is typed by hand. `kind` is guessed from
+rest of the world uses, so neither is typed by hand. `organization_type` is guessed from
 OpenAlex's own type, or from the name when OpenAlex cannot be reached, and is
 meant to be corrected. `roles` is never guessed.
 
@@ -70,6 +70,6 @@ python3 scripts/seed_organizations.py --write --min 5  # only the well-cited
 ```
 
 **OpenAlex rate-limits a shared IP.** 138 of the first 191 came back empty for
-that reason, not because the organization is unknown; their `kind` was
+that reason, not because the organization is unknown; their type was
 inferred from the name instead and `source_provenance` says so. Re-running
 later fills them in, and a free API key removes the limit.

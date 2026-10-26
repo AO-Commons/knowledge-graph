@@ -1,5 +1,5 @@
 id: org:university-of-north-carolina-at-chapel-hill
 name: University of North Carolina at Chapel Hill
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match

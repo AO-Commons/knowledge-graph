@@ -1,5 +1,5 @@
 id: org:queen-mary-university-of-london
 name: Queen Mary University of London
-kind: university
+organization_type: university
 roles: []                 # what it does here; see models.py ROLES
 source_provenance: named by the corpus; no OpenAlex match
