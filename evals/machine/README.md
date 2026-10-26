@@ -3,6 +3,14 @@
 An independent pass over the reading, kept apart from the human gold set
 in `../gold/`.
 
+**Where its output lives.** The method is argued here; the answers are written
+to `data/machine-checks.yml`, with the rest of the corpus. The loader reads
+them on every build and moves disagreed statements to `needs-review`, which
+makes them corpus state rather than a measurement — and keeping them under
+this directory coupled the build to the place the graph is evaluated. It also
+made producing the file look optional, which is why it did not exist for the
+first three weeks the code to read it did.
+
 The five gates in `extract.py` run inside the reading. The thing none of
 them measures is the one the drafting model is least able to judge about itself —
 whether the paraphrase says what the quote says. This directory holds the

@@ -424,4 +424,4 @@ yet — this stage is the supply for it.
 
 ## Verification, by somebody who did not draft the statements
 
-`scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `evals/machine/extraction.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.
+`scripts/verify_extraction.py` hands a fresh verifier the statement, the quote and the section — no gloss, no tags, no attribution, shuffled — and records the answers to `data/machine-checks.yml`. It triages and never reviews: a disagreement moves a statement to `needs-review`, and only a named human's verdict reaches `reviewed`.

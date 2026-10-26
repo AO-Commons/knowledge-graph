@@ -46,7 +46,7 @@ sys.path.insert(0, str(REPO / "src"))
 
 from ao_commons_kg.claims import load_claims  # noqa: E402
 
-MACHINE = REPO / "evals" / "machine" / "extraction.yml"
+MACHINE = REPO / "data" / "machine-checks.yml"
 
 VERDICTS = {
     "supported": "the quote says this, no more",

@@ -35,7 +35,12 @@ from .models import (
 REPO = Path(__file__).resolve().parent.parent.parent
 DEFAULT_DIR = REPO / "data" / "claims"
 DEFAULT_VERDICTS = REPO / "evals" / "gold" / "claims.yml"
-DEFAULT_MACHINE = REPO / "evals" / "machine" / "extraction.yml"
+# Corpus state, not an evaluation result: the loader reads it on every build
+# and it moves statements to needs-review. It lived under evals/ until
+# 2026-10-26, which coupled the build to the directory where the graph is
+# measured and made producing the file look optional. The method that
+# produces it is still argued in evals/machine/README.md.
+DEFAULT_MACHINE = REPO / "data" / "machine-checks.yml"
 
 
 class ClaimError(ValueError):
