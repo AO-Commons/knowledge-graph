@@ -1,7 +1,6 @@
 ---
 id: for
 title: Questions it answers
-kicker: and why a search engine does not
 order: 2
 ---
 

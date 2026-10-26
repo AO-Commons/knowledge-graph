@@ -1,7 +1,6 @@
 ---
 id: feedback
 title: Reporting a problem
-kicker: where it goes, and what it becomes
 order: 15
 ---
 

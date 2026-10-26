@@ -1,7 +1,6 @@
 ---
 id: stack
 title: The stack
-kicker: no server, no database
 order: 12
 ---
 

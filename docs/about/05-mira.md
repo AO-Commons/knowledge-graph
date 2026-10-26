@@ -1,7 +1,6 @@
 ---
 id: mira
 title: Published as MIRA
-kicker: the same corpus, in a shared vocabulary
 order: 5
 ---
 
@@ -10,11 +9,25 @@ Every release carries `graph.mira.jsonld`: the whole corpus written in
 graphs — questions, the claims that address them, and the evidence behind
 each.
 
-Two of its names were here first. `Question` and the `addresses` edge are
-MIRA's, adopted while that layer was still a sketch, because taking somebody
-else's word for something not yet built costs nothing and means an outside
-reader already knows what the edge asserts. The rest of the projection
-followed from that.
+Two of its names were here first. `Question` and `addresses` are MIRA's,
+adopted while that layer was still a sketch. Taking somebody else's word for
+something not yet built costs nothing, and means an outside reader already
+knows what the edge asserts.
+
+```
+   this corpus                      MIRA
+
+   Resource (paper) ──────────────▶ SourceDocument
+   Statement  position ──────────▶ Claim
+              finding  ──────────▶ Evidence ──▶ sourceDocument
+              method   ──────────▶ Protocol
+   Question ──────────────────────▶ Question
+   quote ─────────────────────────▶ Item in the paper's Container
+
+   Topic · Concept · Organization · Person          no class
+   CITES · SIMILAR_TO · TAGGED_WITH · ABOUT         no relation
+   MAKES_CLAIM · AUTHORED · AFFILIATED_WITH         no relation
+```
 
 **It is checked, not claimed.** MIRA generates SHACL shapes from its own
 source, and every build validates the projection against a copy of them
@@ -55,10 +68,9 @@ rather than claim compatibility.
 
 ## Why a shared vocabulary at all
 
-A graph nobody else can read is a private database with extra steps. Adopting
-somebody else's names where they exist — MIRA's for questions, CiTO's for
-the relations between claims — costs nothing while a layer is young and means
-a reader arriving from another project already knows what an edge asserts.
+A graph nobody else can read is a private database with extra steps. Borrowed
+names cost nothing while a layer is young: MIRA's for questions, CiTO's for
+the relations between claims.
 
 Where no shared name exists, this corpus keeps its own and says so, which is
 a proposal rather than a fork.

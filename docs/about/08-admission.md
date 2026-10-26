@@ -1,7 +1,6 @@
 ---
 id: admission
 title: Admission
-kicker: how anything gets in
 order: 8
 ---
 

@@ -1,13 +1,24 @@
 ---
 id: pipeline
 title: The extraction pipeline
-kicker: from a paper to a statement, in nine stages
 order: 7
 ---
 
-What happens between a paper arriving and its statements being citable, who or
-what does each part, and how far it actually goes today. The scaffolding is
-complete and thins sharply toward the top.
+What happens between a paper arriving and its statements being citable. The
+scaffolding is complete and thins sharply toward the top: nine stages, and
+the one no machine does is the one everything else waits on.
+
+```
+  machine ────────────────────────────────▶   a person ──▶ machine
+
+  1 intake    ─┐
+  2 resolution ├─▶ 4 extraction ──▶ 5 tagging ──┬─▶ 8 review ──▶ 9 release
+  3 admission ─┘        │                       │       ▲
+     3a growth          │                  6 linking    │
+     3b scouting        └──▶ 7 filing                   │
+                                                        │
+                        the binding constraint ─────────┘
+```
 
 | Stage | Who | What happens | Where it stands |
 | --- | --- | --- | --- |

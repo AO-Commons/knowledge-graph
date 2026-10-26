@@ -1,13 +1,11 @@
 ---
 id: review
 title: Review
-kicker: one question per statement
 order: 9
 ---
 
-One question per statement: **is this what the paper says?** The quote sits
-underneath it, and the quote is not editable — it is the thing the statement
-is checked against, and anybody who could edit both could make anything true.
+One question per statement: **is this what the paper says?** The quote sits underneath, and is not editable: it is what the statement is
+checked against, and anybody who could edit both could make anything true.
 
 | Action | Means | What it does |
 | --- | --- | --- |

@@ -1,7 +1,6 @@
 ---
 id: verdicts
 title: Answer verdicts
-kicker: saying an answer is wrong, and what comes back
 order: 11
 ---
 
@@ -26,10 +25,9 @@ this" is unactionable without it.
 
 ## The one that disputes the corpus
 
-Five of the six say the answer was wrong. **missing-paper** says the answer
-was as good as the corpus allowed and the corpus is what is wrong, which is
-the most useful thing a reader of a half-built library can report — and the
-only one that can make an answer better rather than less wrong.
+Five of the six say the answer was wrong. **missing-paper** says the answer was as good as the corpus allowed, and the
+corpus is what is wrong. It is the only one of the six that can make an answer
+better rather than less wrong.
 
 It takes a link. An arXiv link is fetched, read, and put through the same
 scope judge that decides what enters the corpus, and the judgment is written
@@ -43,10 +41,8 @@ original answer stays exactly where it was.
 
 This is deliberate. An answer is a record of what the library could say on one
 day, and the corpus moves underneath it, so re-running a question would
-quietly replace a true record with a different one. A question that has been
-answered twice is a record of what changed in between, which is more useful
-than either answer alone — and a question's page shows every answer it has
-ever been given, to everyone who asked it.
+quietly replace a true record with a different one. A question answered twice is a record of what changed in between. Its page
+shows every answer it has been given, to everyone who asked it.
 
 Read, not merely filed: a record sitting in the corpus with no statements
 drawn out of it cannot change an answer, so the offer to ask again waits until
@@ -59,8 +55,7 @@ account. When a maintainer closes it, the question's page says whether it was
 accepted or declined. An issue closed as not planned is a decision and is
 recorded as one.
 
-Credit moves quietly in the background. A verdict a maintainer acts on returns
-what a question cost, so a good question with good feedback costs its author
-nothing — capped at what you have spent, because contribution is meant to
-offset consumption rather than accumulate. Nothing on these screens shows a
-price; the balance is on your account page.
+Credit moves in the background. A verdict a maintainer acts on returns what a
+question cost, so a good question with good feedback costs its author nothing.
+Earning is capped at what you have spent: contribution offsets consumption, it
+does not accumulate. No screen shows a price.

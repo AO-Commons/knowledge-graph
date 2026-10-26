@@ -1,13 +1,25 @@
 ---
 id: graph
 title: Nodes and edges
-kicker: how the graph fits together
 order: 4
 ---
 
 Eight kinds of node and the edges between them. Everything is a file in git —
 there is no database, which is what makes a change reviewable as a diff and a
 release reproducible byte for byte.
+
+```
+                  ┌── TAGGED_WITH ──▶ Concept ──┐
+                  │                             │
+   Resource ──── MAKES_CLAIM ──▶ Statement      │
+      │  ▲                          │           │
+      │  │                          ADDRESSES   │
+   AUTHORED                         ▼           │
+      │  │                       Question       │
+   Person ── AFFILIATED_WITH ──▶ Organization   │
+                                                ▼
+   Resource ──────────── ABOUT ──────────────▶ Topic
+```
 
 | Node | Is | Where it lives |
 | --- | --- | --- |
@@ -36,10 +48,9 @@ release reproducible byte for byte.
 
 The four statement-to-statement names are CiTO's (Shotton, 2010) and
 `ADDRESSES` is [MIRA](https://github.com/MIRA-science/schema)'s, so they mean
-to an outside reader what they mean here. Each is marked inferred and carries
-a reason — no source states that two claims disagree, or that one paper's open
-question is an instance of another's — and one drafted by a model says so, and
-can never be read as a person's judgment.
+to an outside reader what they mean here. Each is marked inferred and carries a reason. No source states that two claims
+disagree, and one drafted by a model says so, so it can never be read as a
+person's judgment.
 
 `AUTHORED` and `AFFILIATED_WITH` are the opposite kind of edge: both are read
 off what a record already says, so neither is an inference and neither carries

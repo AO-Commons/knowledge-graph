@@ -1,7 +1,6 @@
 ---
 id: what
 title: The corpus
-kicker: what it is, and who it is for
 order: 1
 ---
 
@@ -10,10 +9,9 @@ organizations where machine agents hold real authority, rather than only
 advising someone who does.
 
 It holds {{records}} records. Most are research: preprints, peer-reviewed
-papers, technical reports and articles. The rest are the things the research
-is about, held as records in their own right so a claim can point at one — the
-tools people build, the evaluation suites they are measured with, and the
-deployments where any of it is actually running.
+papers, technical reports and articles. The rest are what the research is about, held as records so a claim can point
+at one: the tools people build, the suites they are measured with, and the
+deployments where any of it is running.
 
 **The unit is not the paper. It is the statement.** One thing a paper
 asserts, stored with the exact sentence it was read out of, what kind of claim

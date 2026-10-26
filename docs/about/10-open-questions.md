@@ -1,7 +1,6 @@
 ---
 id: asked
 title: Open questions
-kicker: what readers ask, and which of it the field should answer
 order: 10
 ---
 
@@ -25,6 +24,18 @@ and with {{read}} of {{records}} records read, that is most of the field.
 A list of everything anyone typed is a log. Five gates decide what goes on it,
 in this order, and four of them cost nothing because answering already works
 them out.
+
+```
+   a question                                      a maintainer reads it
+       │                                                    ▲
+       ├─ 1 about autonomous organizations?  no ─┐          │
+       ├─ 2 a question, not a lookup?        no ─┤          │
+       ├─ 3 still unsettled here?            no ─┤          │
+       ├─ 4 could evidence settle it?        no ─┤       yes to all
+       └─ 5 has somebody already asked it?  yes ─┤          │
+                                                 ▼          │
+                                           not recorded ────┘
+```
 
 | Gate | Asks |
 | --- | --- |
@@ -90,7 +101,7 @@ that report a measurement.
 
 ## From a question to an open problem
 
-Nothing is automatic. A reader-asked question is not a question node, it does
-not enter `questions.yml` by itself, and the only way it becomes one is the
-way everything else does: somebody reads it, writes the sentence, and opens a
-pull request. The list exists to make that reading worth doing.
+Nothing is automatic. A reader-asked question is not a question node and never
+enters `questions.yml` by itself. It becomes one the way everything else does:
+somebody reads it, writes the sentence, and opens a pull request. The list
+exists to make that reading worth doing.

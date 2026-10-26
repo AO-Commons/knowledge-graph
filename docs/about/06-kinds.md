@@ -1,7 +1,6 @@
 ---
 id: types
 title: Statement kinds
-kicker: seven, and why tagging differs by kind
 order: 6
 ---
 

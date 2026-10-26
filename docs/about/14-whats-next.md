@@ -1,7 +1,6 @@
 ---
 id: next
 title: Roadmap
-kicker: and what it depends on
 order: 14
 ---
 

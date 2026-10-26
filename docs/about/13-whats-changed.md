@@ -1,7 +1,6 @@
 ---
 id: changes
 title: Changelog
-kicker: most recent first
 order: 13
 ---
 

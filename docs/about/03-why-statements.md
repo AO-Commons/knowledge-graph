@@ -1,7 +1,6 @@
 ---
 id: why
 title: Design principles
-kicker: six decisions, and what each one costs
 order: 3
 ---
 
