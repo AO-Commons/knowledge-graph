@@ -1,0 +1,56 @@
+id: resource:doi:10-3390-info17101026
+resource_type: peer-reviewed-paper
+title: 'Shipping in 76 Locales: A Multi-Case Study of LLM-Agent Localization Pipelines for
+  Production Mobile Apps'
+abstract: 'Large language model (LLM) agents translate software interfaces at scale, yet production
+  evidence on what breaks—and which safeguards catch it—is nearly absent: a 2026 mapping study
+  of localization testing retained 24 primary studies, though none on LLM-driven localization.
+  We report a multi-case study of fourteen shipped mobile apps by one developer (ten iOS,
+  four Android; 40–76 locales; roughly 347,000 units) at five maturity levels. Mining the
+  repositories (catalogs, 4473 commits, process documents, tooling), we code defects into
+  thirteen classes in two waves, the second under a frozen codebook, and map each to its detecting
+  layer. Translation quality is not independently measured; the defect record is a lower bound.
+  Of 468 commit-anchored defects, process and coverage gaps—strings escaping the pipeline—are
+  modal in each wave (26.7% and 27.5%); placeholder errors are near-absent (9 in 347,000 units).
+  LLM judges are the largest operational detector (26.7%), ahead of humans (16.0%) and validators
+  (13.7%), yet 127 defects (27.1%) escaped every layer until our audit. What escapes tracks
+  validator scope, not maturity alone. Layered validation, not prompt-level care, determines
+  what reaches users. Translation takes minutes; the validation stack is the lasting cost.
+  We derive six testable propositions and ten guidelines, and release the codebook, dataset,
+  and scripts.'
+authors:
+- Hoang Hai Nguyen
+organizations:
+- Trường Đại học Sư phạm – Đại học Đà Nẵng
+- University of Da Nang
+affiliations:
+  Hoang Hai Nguyen:
+  - University of Da Nang
+  - Trường Đại học Sư phạm – Đại học Đà Nẵng
+published_at: '2026-10-15'
+url: https://doi.org/10.3390/info17101026
+doi: 10.3390/info17101026
+openalex_id: W7222137240
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Ironies of automation;
+  Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. Scope scan by claude-opus-5: This
+  is a field study of an operation where machine agents hold real operational authority over
+  shipped artifacts and where machine judges perform much of the oversight, so removing the
+  agents removes the finding entirely; no exclusion-register line applies. It is ingestible
+  rather than borrowed background because its subject is the accountability architecture around
+  delegated agent action, not a method or benchmark the field merely builds on. What changes
+  because agents hold authority: It gives production evidence on what agent-produced output
+  actually ships broken and which oversight layer catches it — LLM judges outperforming human
+  review, 27% of defects escaping every layer — so the design of a layered validation stack,
+  not prompt quality, becomes the control surface for delegating operational authority to
+  agents. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-27'
+expansion_generation: 2

@@ -1,0 +1,97 @@
+id: resource:arxiv:2204.01691
+resource_type: preprint
+title: 'Do As I Can, Not As I Say: Grounding Language in Robotic Affordances'
+abstract: Large language models can encode a wealth of semantic knowledge about the world.
+  Such knowledge could be extremely useful to robots aiming to act upon high-level, temporally
+  extended instructions expressed in natural language. However, a significant weakness of
+  language models is that they lack real-world experience, which makes it difficult to leverage
+  them for decision making within a given embodiment. For example, asking a language model
+  to describe how to clean a spill might result in a reasonable narrative, but it may not
+  be applicable to a particular agent, such as a robot, that needs to perform this task in
+  a particular environment. We propose to provide real-world grounding by means of pretrained
+  skills, which are used to constrain the model to propose natural language actions that are
+  both feasible and contextually appropriate. The robot can act as the language model's "hands
+  and eyes," while the language model supplies high-level semantic knowledge about the task.
+  We show how low-level skills can be combined with large language models so that the language
+  model provides high-level knowledge about the procedures for performing complex and temporally-extended
+  instructions, while value functions associated with these skills provide the grounding necessary
+  to connect this knowledge to a particular physical environment. We evaluate our method on
+  a number of real-world robotic tasks, where we show the need for real-world grounding and
+  that this approach is capable of completing long-horizon, abstract, natural language instructions
+  on a mobile manipulator. The project's website and the video can be found at https://say-can.github.io/.
+authors:
+- Michael Ahn
+- Anthony Brohan
+- Noah Brown
+- Yevgen Chebotar
+- Omar Cortes
+- Byron David
+- Chelsea Finn
+- Chuyuan Fu
+- Keerthana Gopalakrishnan
+- Karol Hausman
+- Alex Herzog
+- Daniel Ho
+- Jasmine Hsu
+- Julian Ibarz
+- Brian Ichter
+- Alex Irpan
+- Eric Jang
+- Rosario Jauregui Ruano
+- Kyle Jeffrey
+- Sally Jesmonth
+- Nikhil J Joshi
+- Ryan Julian
+- Dmitry Kalashnikov
+- Yuheng Kuang
+- Kuang-Huei Lee
+- Sergey Levine
+- Yao Lu
+- Linda Luu
+- Carolina Parada
+- Peter Pastor
+- Jornell Quiambao
+- Kanishka Rao
+- Jarek Rettinghouse
+- Diego Reyes
+- Pierre Sermanet
+- Nicolas Sievers
+- Clayton Tan
+- Alexander Toshev
+- Vincent Vanhoucke
+- Fei Xia
+- Ted Xiao
+- Peng Xu
+- Sichun Xu
+- Mengyuan Yan
+- Andy Zeng
+published_at: '2022-04-04'
+url: https://arxiv.org/abs/2204.01691
+doi: 10.48550/arXiv.2204.01691
+arxiv_id: '2204.01691'
+openalex_id: W4224912544
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  7 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Architecting Agentic Communities using Design Patterns; Cognitive Architectures
+  for Language Agents; Collaborating with language models for embodied reasoning; Discovering
+  Language Model Behaviors with Model-Written Eval; Do the Rewards Justify the Means? Measuring
+  Trade-Offs Betwe; The Collaboration Gap: Exploration and Benchmarking of Open-; Voyager:
+  An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: This is
+  a foundational method the agentic-systems literature builds on (cited by seven library records)
+  rather than a study of organizations where machine agents hold operational or decision authority,
+  so it belongs in section 15 as a pointer rather than as a curated in-scope record. No exclusion-register
+  line applies; the hold is on grounds of being load-bearing background, like Melting Pot.
+  What changes because agents hold authority: It establishes the affordance-grounding pattern
+  — a model''s proposed actions filtered through learned feasibility values before execution
+  — which is the method precedent for bounding what an agent with real authority is permitted
+  to attempt, though the paper itself concerns a single robot, not an organization. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true
