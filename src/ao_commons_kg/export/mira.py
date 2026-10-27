@@ -190,7 +190,7 @@ class Report:
                 "node_total": sum(self.omitted_nodes.values()),
                 "edge_total": sum(self.omitted_edges.values()),
             },
-            "unhomed_statement_fields": UNHOMED_CLAIM_FIELDS,
+            "unhomed_claim_fields": UNHOMED_CLAIM_FIELDS,
             "notes": self.notes,
         }
 

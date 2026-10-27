@@ -153,7 +153,7 @@ class TestItAdmitsWhatItCannotSay:
 
     def test_the_unhomed_fields_are_named_not_counted(self):
         _, report = build_graph(resources=[_paper()], claims=[_claim()])
-        unhomed = report.to_dict()["unhomed_statement_fields"]
+        unhomed = report.to_dict()["unhomed_claim_fields"]
         assert "attribution" in unhomed
         assert "standalone" in unhomed
         # each one says why, so the report can be read by somebody who did not
