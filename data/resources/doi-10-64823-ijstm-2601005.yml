@@ -1,0 +1,58 @@
+id: resource:doi:10-64823-ijstm-2601005
+resource_type: peer-reviewed-paper
+title: 'Graduated Autonomy for Artificial Intelligence Agents in Human Capital Management:
+  A Systematic Review and a Consequence-Calibrated Governance Framework'
+abstract: 'Human capital management platforms are starting to embed software agents built
+  on large language models. Unlike earlier analytics tools, these agents can plan a sequence
+  of steps, call system functions and change employee records. Artificial intelligence is
+  therefore moving from advising managers to acting for them. Most governance guidance, however,
+  was written for systems that recommend rather than act. This study asks how organisations
+  should match the autonomy of such agents to the consequences of the people decisions they
+  touch. A systematic review was conducted and reported using the PRISMA 2020 guideline. Eighteen
+  structured searches of a multi-source scholarly index returned 180 records. After duplicate
+  removal and eligibility screening, 55 peer-reviewed sources were retained, and four foundational
+  and regulatory sources were added. Thematic synthesis produced seven findings. Algorithmic
+  control of work is already extensive. Bias in hiring tools is persistent and partly organisational.
+  Human review is weaker than assumed, because reviewers often defer to machine advice. Responsibility
+  tends to diffuse as systems gain autonomy. Employee trust depends on fair process and visible
+  human involvement. Language-model agents add new failure modes, such as fabricated content
+  and hidden instructions planted in documents. Finally, current governance frameworks rarely
+  specify controls for individual delegated actions. Building on these findings, the study
+  proposes a consequence-calibrated governance framework. It sets an autonomy ceiling for
+  each class of people decision and links every ceiling to five control layers. Six testable
+  propositions and practical guidance for human resource and technology leaders are offered.
+  Keywords: large language models; people analytics; algorithmic management; automation bias;
+  meaningful human control'
+authors:
+- Shivanand R Koppalkar
+organizations:
+- Walsh College
+affiliations:
+  Shivanand R Koppalkar:
+  - Walsh College
+published_at: '2026-10-23'
+url: https://doi.org/10.64823/ijstm.2601005
+doi: 10.64823/ijstm.2601005
+openalex_id: W7223211518
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Four Responsibility Gaps
+  with Artificial Intelligence: Why t; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I. Scope scan by claude-opus-5: The paper is squarely about agents holding operational
+  authority over consequential people decisions — writing to employee records — and its framework
+  is a design artifact for bounding and overseeing that authority, so no exclusion-register
+  line applies. Its HR-regulatory content is not general entity compliance but control specification
+  for delegated agent action, which the register preserves (cf. 12.6.3). What changes because
+  agents hold authority: It supplies an explicit mapping from decision consequence class to
+  an autonomy ceiling plus layered controls for individually delegated agent actions in HR,
+  and documents why the assumed human-review backstop degrades (automation bias, responsibility
+  diffusion) once agents act rather than advise. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 2

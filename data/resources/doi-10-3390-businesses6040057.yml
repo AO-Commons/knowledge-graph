@@ -1,0 +1,55 @@
+id: resource:doi:10-3390-businesses6040057
+resource_type: peer-reviewed-paper
+title: 'From Responsible Leadership to Responsible AI Governance: A Leadership-Based Framework
+  for AI Governance in Organizations'
+abstract: 'Artificial intelligence (AI) is reshaping organizational decision-making, managerial
+  roles, and accountability, yet responsible AI governance remains dominated by principles,
+  technical controls, and regulatory compliance. This conceptual paper develops a human leadership-based
+  framework for translating responsible AI principles into organizational governance. In the
+  framework, the responsible leader is an accountable human organizational actor—such as a
+  board member, senior executive, business leader, or designated decision owner—while AI is
+  treated as a governed technological system or operational agent rather than the accountable
+  leader. Human responsible leadership influences responsible AI governance (RAIG) capability
+  through six mediating organizational processes: stakeholder orientation, ethical sensemaking,
+  accountability architecture, meaningful human oversight, inclusive participation, and long-term
+  value orientation. RAIG capability is defined as the higher-order organizational capacity
+  to institutionalize and adapt lifecycle governance arrangements; it enables observable governance
+  practices, which are conceptually separated from downstream responsible AI outcomes. AI
+  operational autonomy is proposed as a focal moderator: the leadership-to-RAIG pathway should
+  become stronger when AI can initiate or execute consequential actions with limited contemporaneous
+  human approval, particularly where actions are difficult to reverse, trace, or interrupt.
+  The framework offers testable propositions and a research agenda, but it is conceptual and
+  requires empirical validation; it is not a technical safety guarantee.'
+authors:
+- Amlan Haque
+organizations:
+- Central Queensland University
+affiliations:
+  Amlan Haque:
+  - Central Queensland University
+published_at: '2026-10-23'
+url: https://doi.org/10.3390/businesses6040057
+doi: 10.3390/businesses6040057
+openalex_id: W7223365335
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 3
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Accountability in a computerized society; Ironies of automation; The responsibility
+  gap: Ascribing responsibility for the act. Scope scan by claude-opus-5: The framework''s
+  focal moderator is AI operational autonomy, so removing the machine would collapse the central
+  claim; this is hybrid human-machine authority allocation, which the settled reading of the
+  deliberative-democracy line explicitly keeps in scope. It is conceptual and unvalidated,
+  which weakens it as evidence but does not make it adjacent background, since it is directly
+  about how an organization holds itself accountable for agent action. What changes because
+  agents hold authority: It specifies how human accountability structures — designated decision
+  owners, accountability architecture, meaningful oversight — must be strengthened precisely
+  as AI operational autonomy rises, i.e. when agents can initiate consequential, hard-to-reverse
+  or hard-to-interrupt actions without contemporaneous approval. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 2

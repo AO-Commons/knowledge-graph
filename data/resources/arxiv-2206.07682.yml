@@ -1,0 +1,92 @@
+id: resource:arxiv:2206.07682
+resource_type: preprint
+title: Emergent Abilities of Large Language Models
+abstract: Scaling up language models has been shown to predictably improve performance and
+  sample efficiency on a wide range of downstream tasks. This paper instead discusses an unpredictable
+  phenomenon that we refer to as emergent abilities of large language models. We consider
+  an ability to be emergent if it is not present in smaller models but is present in larger
+  models. Thus, emergent abilities cannot be predicted simply by extrapolating the performance
+  of smaller models. The existence of such emergence implies that additional scaling could
+  further expand the range of capabilities of language models.
+authors:
+- Jason Wei
+- Yi Tay
+- Rishi Bommasani
+- Colin Raffel
+- Barret Zoph
+- Sebastian Borgeaud
+- Dani Yogatama
+- Maarten Bosma
+- Denny Zhou
+- Donald Metzler
+- Ed H. Chi
+- Tatsunori Hashimoto
+- Oriol Vinyals
+- Percy Liang
+- Jeff Dean
+- William Fedus
+organizations:
+- Google
+- Google DeepMind
+- Stanford University
+- University of North Carolina at Chapel Hill
+affiliations:
+  Jason Wei:
+  - Google
+  Yi Tay:
+  - Google
+  Rishi Bommasani:
+  - University of North Carolina at Chapel Hill
+  - Stanford University
+  Barret Zoph:
+  - Google
+  Sebastian Borgeaud:
+  - Google DeepMind
+  Dani Yogatama:
+  - Google DeepMind
+  Maarten Bosma:
+  - Google
+  Denny Zhou:
+  - Google
+  Donald Metzler:
+  - Google
+  Tatsunori Hashimoto:
+  - University of North Carolina at Chapel Hill
+  - Stanford University
+  Oriol Vinyals:
+  - Google DeepMind
+  Percy Liang:
+  - University of North Carolina at Chapel Hill
+  - Stanford University
+  Jeff Dean:
+  - Google
+  William Fedus:
+  - Google
+published_at: '2022-06-15'
+url: https://arxiv.org/abs/2206.07682
+doi: 10.48550/arXiv.2206.07682
+arxiv_id: '2206.07682'
+openalex_id: W4283026156
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Cognitive Architectures for Language Agents; Lessons from complex systems science
+  for AI governance; Personality Traits in Large Language Models; The Collaboration Gap: Exploration
+  and Benchmarking of Open-; Voyager: An Open-Ended Embodied Agent with Large Language Mo.
+  Scope scan by claude-opus-5: This is a foundational capability-scaling claim about models,
+  not about organizations where agents hold authority, so it cannot be ingested as in-scope;
+  but it is load-bearing for the field''s assumptions about unpredictable capability jumps
+  and is cited across the library for exactly that. Held as borrowed background in section
+  15 alongside Melting Pot. What changes because agents hold authority: If agent capabilities
+  appear discontinuously with scale, capability assurances and delegation boundaries set for
+  one model generation cannot be extrapolated forward, so oversight regimes must be re-validated
+  rather than assumed monotone. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true

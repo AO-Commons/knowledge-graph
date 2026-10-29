@@ -1,0 +1,103 @@
+id: resource:arxiv:2306.05499
+resource_type: preprint
+title: Prompt Injection attack against LLM-integrated Applications
+abstract: 'Large Language Models (LLMs), renowned for their superior proficiency in language
+  comprehension and generation, stimulate a vibrant ecosystem of applications around them.
+  However, their extensive assimilation into various services introduces significant security
+  risks. This study deconstructs the complexities and implications of prompt injection attacks
+  on actual LLM-integrated applications. Initially, we conduct an exploratory analysis on
+  ten commercial applications, highlighting the constraints of current attack strategies in
+  practice. Prompted by these limitations, we subsequently formulate HouYi, a novel black-box
+  prompt injection attack technique, which draws inspiration from traditional web injection
+  attacks. HouYi is compartmentalized into three crucial elements: a seamlessly-incorporated
+  pre-constructed prompt, an injection prompt inducing context partition, and a malicious
+  payload designed to fulfill the attack objectives. Leveraging HouYi, we unveil previously
+  unknown and severe attack outcomes, such as unrestricted arbitrary LLM usage and uncomplicated
+  application prompt theft. We deploy HouYi on 36 actual LLM-integrated applications and discern
+  31 applications susceptible to prompt injection. 10 vendors have validated our discoveries,
+  including Notion, which has the potential to impact millions of users. Our investigation
+  illuminates both the possible risks of prompt injection attacks and the possible tactics
+  for mitigation.'
+authors:
+- Yi Liu
+- Gelei Deng
+- Yuekang Li
+- Kailong Wang
+- Zihao Wang
+- Xiaofeng Wang
+- Tianwei Zhang
+- Yepang Liu
+- Haoyu Wang
+- Yan Zheng
+- Leo Yu Zhang
+- Yang Liu
+organizations:
+- Griffith University
+- Huazhong University of Science and Technology
+- Indiana University
+- Indiana University Bloomington
+- Nanyang Technological University
+- Southern University of Science and Technology
+- Tianjin University
+- UNSW Sydney
+affiliations:
+  Yi Liu:
+  - Griffith University
+  - Nanyang Technological University
+  - Southern University of Science and Technology
+  Gelei Deng:
+  - Nanyang Technological University
+  Yuekang Li:
+  - UNSW Sydney
+  Kailong Wang:
+  - Huazhong University of Science and Technology
+  Zihao Wang:
+  - Indiana University Bloomington
+  - Indiana University
+  Xiaofeng Wang:
+  - Indiana University Bloomington
+  - Indiana University
+  Tianwei Zhang:
+  - Nanyang Technological University
+  Yepang Liu:
+  - Griffith University
+  - Nanyang Technological University
+  - Southern University of Science and Technology
+  Haoyu Wang:
+  - Huazhong University of Science and Technology
+  Yan Zheng:
+  - Tianjin University
+  Leo Yu Zhang:
+  - Griffith University
+  Yang Liu:
+  - Griffith University
+  - Nanyang Technological University
+  - Southern University of Science and Technology
+published_at: '2023-06-08'
+url: https://arxiv.org/abs/2306.05499
+doi: 10.48550/arXiv.2306.05499
+arxiv_id: '2306.05499'
+openalex_id: W4380353722
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Intelligent AI Delegation; Inter-Agent Trust Models: A Comparative Study of Brief,
+  Clai; Securing AI Agents with Information-Flow Control. Scope scan by claude-opus-5: The
+  paper studies attacks on LLM-integrated applications rather than organizations where agents
+  hold decision authority, so it is not itself in scope; but it is the empirical threat model
+  that the library''s information-flow-control, inter-agent trust and delegation records build
+  on, making it load-bearing adjacent literature held at section 15. No exclusion-register
+  line applies. What changes because agents hold authority: It establishes that an agent''s
+  instruction channel is attacker-controllable in practice, so any delegation of operational
+  authority to an LLM agent must assume untrusted content can redirect that authority — making
+  input provenance and privilege boundaries a governance control, not just an application
+  bug. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true

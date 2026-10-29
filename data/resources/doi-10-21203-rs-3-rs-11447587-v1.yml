@@ -1,0 +1,37 @@
+id: resource:doi:10-21203-rs-3-rs-11447587-v1
+resource_type: preprint
+title: 'The Reliability Gap: Repeated-Trial Consistency and the Deployable Autonomy Horizon
+  of Frontier AI Agents'
+authors:
+- Alfredo Merlet
+organizations:
+- Instituto Superior de Artes y Ciencias de la Comunicación
+affiliations:
+  Alfredo Merlet:
+  - Instituto Superior de Artes y Ciencias de la Comunicación
+published_at: '2026-10-22'
+url: https://doi.org/10.21203/rs.3.rs-11447587/v1
+doi: 10.21203/rs.3.rs-11447587/v1
+openalex_id: W7223171185
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 4
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents vs. Agentic
+  AI: A Conceptual taxonomy, application; Harms from Increasingly Agentic Algorithmic Systems;
+  Visibility into AI Agents. Scope scan by claude-opus-5: No exclusion-register line applies;
+  this is agent-capability measurement rather than human collective decision-making. It is
+  load-bearing for calibrating delegation boundaries but is not itself about organizations
+  where agents hold authority, so it is held as borrowed background alongside evaluation suites
+  like Melting Pot. What changes because agents hold authority: Repeated-trial consistency
+  measurements set the empirical ceiling on how much unsupervised operational authority can
+  be delegated before a checkpoint is required, which is the sizing input for any agent-authority
+  delegation and oversight design. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true

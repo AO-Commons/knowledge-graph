@@ -1,0 +1,54 @@
+id: resource:doi:10-1145-3670865-3673513
+resource_type: peer-reviewed-paper
+title: 'Large Language Models as Simulated Economic Agents: What Can We Learn from Homo Silicus?'
+abstract: 'Large language models---because of how they are trained and designed---are implicit
+  computational models of humans---a homo silicus. Social scientists can use LLMs like economists
+  use homo economicus: LLMs can be given endowments, information, preferences, and so on,
+  and then their behavior can be explored in scenarios via simulation. We replicate four experiments
+  using this approach and find qualitatively similar results to the original. Benefits of
+  this approach include trying new variations for fresh insights, piloting studies via simulation,
+  and searching for novel social science insights to test in the real world. The full version
+  of the paper can be accessed at https://apostolos-filippas.com/papers/hs.pdf.'
+authors:
+- Apostolos Filippas
+- John Joseph Horton
+- Benjamin S. Manning
+organizations:
+- Fordham University
+- Massachusetts Institute of Technology
+- National Bureau of Economic Research
+affiliations:
+  Apostolos Filippas:
+  - Fordham University
+  John Joseph Horton:
+  - National Bureau of Economic Research
+  - Massachusetts Institute of Technology
+  Benjamin S. Manning:
+  - Massachusetts Institute of Technology
+published_at: '2024-07-08'
+url: https://doi.org/10.1145/3670865.3673513
+doi: 10.1145/3670865.3673513
+openalex_id: W4405464763
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; Generative agent-based
+  modeling with actions grounded in phy; Large Language Model based Multi-Agents: A Survey
+  of Progres. Scope scan by claude-opus-5: The paper is about social-science methodology (replicating
+  human experiments with LLM subjects), not about organizations where machine agents hold
+  operational or decision authority, so it fails the scope test on its own terms. It is load-bearing
+  background for the simulation and multi-agent-economy literature in the corpus (Concordia,
+  Agent Bazaar), so it belongs in section 15 alongside Melting Pot rather than being refused.
+  What changes because agents hold authority: Nothing about agent authority changes directly,
+  but it is the foundational method precedent for using LLMs as simulated economic actors
+  — the basis for the generative-agent simulation and marketplace work the library does ingest,
+  so it is held as a pointer rather than as in-scope material. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true

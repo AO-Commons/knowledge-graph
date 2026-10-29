@@ -1,0 +1,46 @@
+id: resource:arxiv:2011.05373
+resource_type: preprint
+title: Emergent Reciprocity and Team Formation from Randomized Uncertain Social Preferences
+abstract: Multi-agent reinforcement learning (MARL) has shown recent success in increasingly
+  complex fixed-team zero-sum environments. However, the real world is not zero-sum nor does
+  it have fixed teams; humans face numerous social dilemmas and must learn when to cooperate
+  and when to compete. To successfully deploy agents into the human world, it may be important
+  that they be able to understand and help in our conflicts. Unfortunately, selfish MARL agents
+  typically fail when faced with social dilemmas. In this work, we show evidence of emergent
+  direct reciprocity, indirect reciprocity and reputation, and team formation when training
+  agents with randomized uncertain social preferences (RUSP), a novel environment augmentation
+  that expands the distribution of environments agents play in. RUSP is generic and scalable;
+  it can be applied to any multi-agent environment without changing the original underlying
+  game dynamics or objectives. In particular, we show that with RUSP these behaviors can emerge
+  and lead to higher social welfare equilibria in both classic abstract social dilemmas like
+  Iterated Prisoner's Dilemma as well in more complex intertemporal environments.
+authors:
+- Bowen Baker
+published_at: '2020-11-10'
+url: https://arxiv.org/abs/2011.05373
+doi: 10.48550/arXiv.2011.05373
+arxiv_id: '2011.05373'
+openalex_id: W3100614249
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  3 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Quantifying the Self-Interest
+  Level of Markov Social Dilemma; Tabula rasa agents display emergent in-group behavior. Scope
+  scan by claude-opus-5: This is a MARL training augmentation paper, foundational to the cooperation
+  literature the library already holds (Melting Pot is kept the same way), not a study of
+  organizations where machines decide. No exclusion-register line bars it, but it fails the
+  scope test on its own terms, so it belongs as a section 15 pointer rather than an ingested
+  record. What changes because agents hold authority: It shows that reciprocity, reputation
+  tracking and spontaneous team formation can emerge among learning agents from environment
+  structure alone, which matters for anticipating uninstructed coalition and reputation dynamics
+  among agents that hold operational authority — but the work itself is a training method,
+  not an account of agent authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-10-27'
+expansion_generation: 1
+is_borrowed_background: true
