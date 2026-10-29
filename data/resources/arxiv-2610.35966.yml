@@ -1,0 +1,48 @@
+id: resource:arxiv:2610.35966
+resource_type: preprint
+title: 'EMMA: Structured Episodic Memory for Multi-Agent Workflow Synthesis'
+abstract: 'Deploying LLM agents in specialized domains often require fine-grained task-specific procedures
+  and knowledge a general model lacks, yet parameter training is costly and non-interpretable, and hand-engineered
+  agent systems shift the cost to expert labor. Episodic memory updates at context level, but single agent
+  adaptation struggles to alleviate cross-task interference, especially with complex tasks such as multi-application
+  navigation or data pool analysis. Although multi-agent evolution alleviates this problem, existing methods
+  lack clear definitions on update rules and rely on the backbone model to decide where and how much the
+  system changes. This ill-scoped evolution makes learning follow the backbone’s structural preferences
+  rather than the observed failures: one backbone accumulates skills while another spawns agents. We present
+  EMMA (structured Episodic Memory for Multi-Agent workflow synthesis), which treats the configuration
+  of a multi-agent system (controller routing memory, specialists inheriting a generalist prompt, and
+  per-step procedural skills) as episodic memory. EMMA makes the ownership and admissibility of updates
+  explicit: a reflector assigns each diagnosed failure to the scope owning its correction and proposes
+  one edit within it, and backbone-independent guards keep every accepted edit scoped, incremental and
+  bounded. Across KramaBench, AppWorld and BBEH with five backbones and four baselines (ACE, GEPA, EvoMAS
+  and ADAS), EMMA attains the best overall performance on every benchmark, up to 32.5% over the strongest
+  baseline, maintains consistent improvements across backbones, and uses 17–38% fewer training executions
+  than the most efficient baseline.'
+authors:
+- Ruijia Niu
+- Kaiwen Liu
+- Rose Yu
+- Kristina Klinkner
+published_at: '2026-10-25'
+url: https://arxiv.org/abs/2610.35966
+doi: 10.48550/arXiv.2610.35966
+arxiv_id: '2610.35966'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '3'
+- '7'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Brought in by hand on 2026-10-29, found outside the scouting path. Scope judged against
+  the standing test by claude-opus-5 WITHOUT the machine judge in scope_judge.py, which needs an API key
+  this session did not have — so this is a reading of the policy rather than a run of it, and should be
+  confirmed. The judgment: a reflector diagnoses each failure, decides which part of the system owns the
+  correction, and rewrites the controller''s routing, a specialist''s prompt or a procedural skill. That
+  is a machine agent holding decision authority over the organization''s own structure, and removing the
+  machine does not leave the finding intact — the result is about what a model does when it reorganizes
+  its own multi-agent system. Nothing in the exclusion register bars it. Filed at 3 (organizational architecture)
+  and 7 (knowledge, memory and institutional continuity).'
+ingested_at: '2026-10-29'

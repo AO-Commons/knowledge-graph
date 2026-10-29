@@ -222,3 +222,41 @@ relations:
       of its six entries can be used at all.
     asserted_by: claude-opus-5 (drafted, unconfirmed)
     asserted_on: "2026-09-11"
+
+  # ---------------------------------------------------------------------
+  # Thread D — does an organization's structure carry anything, or is it
+  # the agents' instructions that do the work?
+  #
+  # Two papers that share no author and would not meet in a search: one
+  # measures alignment in a hand-built consultancy, the other synthesises
+  # multi-agent workflows for data and navigation tasks. They vary the same
+  # thing — whether the set of roles is changed, or what each role is told —
+  # and land on opposite sides. Proposed on 2026-10-29 and unconfirmed.
+  # ---------------------------------------------------------------------
+
+  - source: claim:arxiv:2610.35966:3
+    target: claim:arxiv:2604.10290:4
+    relation: DISAGREES_WITH
+    confidence_class: INFERRED
+    because: >-
+      Shen's counterfactual sweep varies structure, size, roles and
+      connectivity across 90 sampled organizations and finds structural
+      variation alone moves nothing, while varying the agents' system
+      prompts does. EMMA's ablation freezes or learns each memory level in
+      turn and finds that learning which specialists exist adds a further
+      gain on top of learning the procedures they follow — which the authors
+      read as evidence that the structure of the system and not only its
+      context should be learned.
+
+      They may not be contradicting each other, and the difference worth
+      checking is what counts as changing structure. Shen samples
+      organization charts from a fixed space before the task is seen; EMMA
+      creates a specialist only when the evidence of a failure says no
+      existing agent can do the work. If that distinction is what separates
+      them, the finding is not that structure does or does not matter but
+      that a structure chosen in advance does not and one derived from
+      observed failure does — which would be a claim neither paper makes and
+      which this corpus could test, since it holds both.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+

@@ -1,0 +1,252 @@
+resource_id: resource:arxiv:2610.35966
+claims:
+- id: claim:arxiv:2610.35966:1
+  text: When a model is left to decide how its own multi-agent system changes, different models have almost
+    opposite structural preferences.
+  quote: without scope constraints, different backbone models have almost orthogonal structural preferences,
+    which overshadow the knowledge actually learned from the task
+  standalone: 'The authors'' framing finding: one model accumulates procedural skills where another spawns
+    new agents, given the same failures. What the system learns reflects the model doing the editing rather
+    than what went wrong.'
+  claim_type: evidence
+  concept_tags:
+  - agent-fleet-topologies-flat-hierarchical-market-based
+  - replication-under-model-version-churn
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:2
+  text: Methods that let the model author a whole new configuration were the most sensitive to which model
+    that was.
+  quote: Multi-agent search methods are the most backbone-sensitive. On AppWorld challenge, EvoMAS and
+    ADAS approach EMMA with Opus 5 (89.0 and 84.4 vs. 89.2 TGC) but fall to 7.2 (EvoMAS, GLM-5) and 0.5
+    (ADAS, DeepSeek v3.2); on two open-weight backbones ADAS finds no program better than its hand-written
+    seed.
+  standalone: The authors draw the consequence directly — when the backbone authors the whole configuration,
+    the result is only as good as that authorship — which is what their scoping is designed to remove.
+  claim_type: evidence
+  concept_tags:
+  - agent-performance-in-organizational-context
+  - model-selection-and-procurement-criteria
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:3
+  text: Learning the set of specialist agents added to what learning procedures alone achieved.
+  quote: Learning the agent pool as well brings a further gain (0.591 to 0.647)
+  standalone: An ablation holding the controller's routing memory learned in every arm and varying whether
+    the skill and agent pools are learned or frozen. Learning procedures gave the larger gain; learning
+    which specialists exist gave a further one on top, which the authors read as supporting their premise
+    that the structure of the system and not only its context should be learned.
+  claim_type: evidence
+  concept_tags:
+  - function-to-agent-mapping-and-role-decomposition
+  - organizational-learning-and-memory
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:4
+  text: Corrections drawn from verified training failures transferred better than adapting on the evaluated
+    tasks themselves.
+  quote: All test-time variants remain well below EMMA, indicating that corrections derived from verified
+    training failures transfer to held-out tasks more effectively than additional adaptation at test time.
+  standalone: Compared against within-trajectory revision and against a search method run as cross-task
+    self-evolution on the test split with no ground truth. The authors note the arms also differ in feedback
+    access, so the comparison supports transfer rather than isolating persistence.
+  claim_type: evidence
+  concept_tags:
+  - organizational-learning-and-memory
+  - knowledge-and-state-handover-on-retirement
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:5
+  text: One failure produced three artifacts, each written at the level that owned it, and later tasks
+    of the same kind were solved first time.
+  quote: 'a single failed zebra puzzle led to three artifacts, each written at the level that owns it:
+    a constraint-satisfaction skill, a specialist agent created from overflow evidence, and a routing
+    rule in controller memory. Subsequent zebra tasks were solved on the first attempt'
+  standalone: 'The authors'' case study of what the training procedure produces: a lesson distributed
+    across the memory hierarchy rather than written once wherever the model chose to put it.'
+  claim_type: evidence
+  concept_tags:
+  - organizational-learning-and-memory
+  - function-to-agent-mapping-and-role-decomposition
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:6
+  text: The method ranked first in 17 of 20 benchmark and backbone pairings and used the fewest training
+    runs.
+  quote: EMMA achieves the highest mean performance on every benchmark and split across five backbones
+    from two model families, ranks first in 17 of 20 benchmark–backbone settings, and uses the fewest
+    training executions, while the multi-agent search baselines degrade sharply on open-weight backbones.
+  standalone: Measured on KramaBench, AppWorld and BBEH against ACE, GEPA, EvoMAS and ADAS. The authors
+    note the runner-up changes with the benchmark, so the margin does not rest on one weak comparison.
+  claim_type: evidence
+  concept_tags:
+  - agent-performance-in-organizational-context
+  - replication-under-model-version-churn
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:7
+  text: 'The configuration of a multi-agent system is treated as three pools of memory: how work is routed,
+    how an agent works, and how a class of problem is solved.'
+  quote: The three levels answer different questions:, how the task is divided and routed; the agent prompts,
+    how an agent works on any subtask; and, how a class of sub-problem is solved. This separation gives
+    every lesson a single home
+  standalone: Controller memory holds decomposition and dispatch rules, read as an index the controller
+    chooses from rather than retrieved by similarity. The agent pool holds specialists that inherit a
+    generalist's prompt, so a general habit written once reaches all of them. The skill pool holds short
+    procedures indexed by when to use them.
+  claim_type: definition
+  concept_tags:
+  - shared-organizational-memory-versus-per-agent-memory
+  - organizational-learning-and-memory
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:8
+  text: A reflector localizes the failed step, classifies it into one of five scopes, generalizes the
+    correction and makes the smallest edit within the scope that owns it.
+  quote: It localizes the step where the outcome went wrong; classifies the failure into one of the five
+    scopes listed in Table 1; generalizes the correction so that it applies to every task of the same
+    kind, naming no entity or answer of this one, as the reflector’s generalization instructions require;
+    and minimizes it to the smallest change within the lesson’s designated scope.
+  standalone: The reflector sees the whole failed trajectory rather than a score — the plan, the code
+    each sub-agent issued, the evaluator's explanation, earlier revisions, the full prompts of the agents
+    that ran. A one-off slip is never written to durable memory; a failed working habit goes into a prompt,
+    a wrong method into a skill, a wrong decomposition into controller memory.
+  claim_type: protocol
+  concept_tags:
+  - rationale-capture-for-agent-decisions
+  - root-cause-analysis-for-machine-action
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:9
+  text: Programmatic guards that never consult the model decide whether a proposed edit is allowed.
+  quote: a proposed action is applied only if it passes a set of programmatic guards, which depend on
+    the memory, the task and the revision history but never on the backbone
+  standalone: A refused proposal returns its reason to the reflector, which tries again; persistent refusals
+    default to no change. A new or revised artifact must be named in the re-run's plan, so an edit is
+    always exercised before it is kept.
+  claim_type: protocol
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - blast-radius-budgets-and-pre-declared-damage-caps
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:10
+  text: Bounding what an edit may touch lets a stronger model still learn more without letting any model
+    make a larger or misplaced change.
+  quote: The backbone decides which available edit to make, so a stronger model can still learn better
+    memory, but no backbone can make a larger, misplaced or destructive one, so what is learned follows
+    the training feedback rather than the backbone’s habits.
+  standalone: 'The authors separate the choice from its envelope: the model keeps the judgment about which
+    change to make, and loses the ability to decide how much of the system a single lesson may rewrite.'
+  claim_type: position
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - declared-authority-diverging-from-effective-authority
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:11
+  text: No edit is made after the final failure, because an edit that is never re-run is untested memory.
+  quote: No edit is made after the final failure, since an edit that is never re-run is untested memory.
+  standalone: Training runs each task as an attempt chain in a fresh environment, gated by its own correctness
+    signal — an LLM judge, unit tests or exact match. A correct answer ends the chain; an incorrect one
+    triggers reflection, one edit and a re-run, up to a fixed number of revisions.
+  claim_type: protocol
+  concept_tags:
+  - reversibility-engineering-and-undo-paths
+  - continuous-evaluation-in-production
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:12
+  text: Accepted edits persist even when the attempt chain ends unsolved, so ineffective or harmful entries
+    may remain.
+  quote: accepted edits persist even when an attempt chain ends unsolved; we observed no systematic degradation,
+    but ineffective or harmful entries may remain
+  standalone: The authors name the mechanism and state they saw no systematic degradation rather than
+    claiming there is none, and propose cross-verification on mini-batches or multiple epochs as a way
+    to find such entries.
+  claim_type: limitation
+  concept_tags:
+  - knowledge-loss-about-why-constraints-exist
+  - gradual-quality-decline-below-detection-threshold
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:13
+  text: The gap between model families is narrowed rather than removed.
+  quote: EMMA narrows but does not eliminate the performance gap between backbone families
+  standalone: The authors note the natural way to exploit what remains — pairing a strong reflector with
+    weaker executor agents — and leave it as future work.
+  claim_type: limitation
+  concept_tags:
+  - replication-under-model-version-churn
+  - model-selection-and-procurement-criteria
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.35966:14
+  text: Cross-verification could identify the entries in a system's learned memory that are useless or
+    harmful, and has not been tried.
+  quote: cross-verification on mini-batches or multiple epochs could identify them. We consider both directions
+    as future work.
+  standalone: Raised because edits survive a chain that never succeeded. An organization that writes down
+    what it learns from failure has no way of noticing which of those lessons were wrong.
+  claim_type: gap
+  concept_tags:
+  - agent-assisted-review-of-agent-output
+  - knowledge-loss-about-why-constraints-exist
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

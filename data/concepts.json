@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from claims. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a claim uses one.",
   "counts": {
-    "vocabulary": 169,
+    "vocabulary": 175,
     "vocabulary_from_claims": 13,
-    "vocabulary_from_taxonomy": 156,
+    "vocabulary_from_taxonomy": 162,
     "on_exactly_one_statement": 0,
-    "suggestions_available": 358
+    "suggestions_available": 352
   },
   "looks_like_one_idea": [
     {
@@ -99,7 +99,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.10290:17"
+        "claim:arxiv:2604.10290:17",
+        "claim:arxiv:2610.35966:14"
       ]
     },
     {
@@ -164,7 +165,8 @@
         "claim:arxiv:2604.10290:6",
         "claim:arxiv:2604.10290:8",
         "claim:arxiv:2604.23459:1",
-        "claim:arxiv:2604.23459:3"
+        "claim:arxiv:2604.23459:3",
+        "claim:arxiv:2610.35966:1"
       ]
     },
     {
@@ -255,7 +257,9 @@
         "claim:arxiv:2604.10290:2",
         "claim:arxiv:2604.10290:3",
         "claim:arxiv:2606.16613:2",
-        "claim:arxiv:2606.16613:5"
+        "claim:arxiv:2606.16613:5",
+        "claim:arxiv:2610.35966:2",
+        "claim:arxiv:2610.35966:6"
       ]
     },
     {
@@ -476,6 +480,17 @@
       ]
     },
     {
+      "id": "blast-radius-budgets-and-pre-declared-damage-caps",
+      "label": "Blast radius budgets and pre-declared damage caps",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:9"
+      ]
+    },
+    {
       "id": "bounded-rationality-replaced-by-different-bounds-context-windows-tool-access-latency",
       "label": "Bounded rationality replaced by different bounds -- context windows, tool access, latency",
       "topics": [
@@ -654,7 +669,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2002.06673:3",
-        "claim:arxiv:2002.06673:6"
+        "claim:arxiv:2002.06673:6",
+        "claim:arxiv:2610.35966:11"
       ]
     },
     {
@@ -764,7 +780,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.23459:16"
+        "claim:arxiv:2604.23459:16",
+        "claim:arxiv:2610.35966:10"
       ]
     },
     {
@@ -997,7 +1014,9 @@
         "claim:arxiv:2605.30169:16",
         "claim:arxiv:2605.30169:17",
         "claim:arxiv:2605.30169:6",
-        "claim:arxiv:2605.30169:9"
+        "claim:arxiv:2605.30169:9",
+        "claim:arxiv:2610.35966:10",
+        "claim:arxiv:2610.35966:9"
       ],
       "note": "Constraining and monitoring an agent in real time, rather than rating and punishing it afterwards. The alternative 2605.30169 proposes once it argues reputation is structurally inapplicable — and the distinction its whole argument turns on, which nothing in the pool named."
     },
@@ -1078,7 +1097,9 @@
         "claim:arxiv:2509.01063:8",
         "claim:arxiv:2604.10290:19",
         "claim:arxiv:2604.23459:18",
-        "claim:arxiv:2604.23459:5"
+        "claim:arxiv:2604.23459:5",
+        "claim:arxiv:2610.35966:3",
+        "claim:arxiv:2610.35966:5"
       ]
     },
     {
@@ -1115,6 +1136,17 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2509.10147:2"
+      ]
+    },
+    {
+      "id": "gradual-quality-decline-below-detection-threshold",
+      "label": "Gradual quality decline below detection threshold",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:12"
       ]
     },
     {
@@ -1279,6 +1311,17 @@
       ]
     },
     {
+      "id": "knowledge-and-state-handover-on-retirement",
+      "label": "Knowledge and state handover on retirement",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:4"
+      ]
+    },
+    {
       "id": "knowledge-base-and-retrieval-poisoning",
       "label": "Knowledge base and retrieval poisoning",
       "topics": [
@@ -1299,6 +1342,18 @@
       "claims": [
         "claim:doi:10-1111-epic-70009:19",
         "claim:doi:10-1111-epic-70009:3"
+      ]
+    },
+    {
+      "id": "knowledge-loss-about-why-constraints-exist",
+      "label": "Knowledge loss about why constraints exist",
+      "topics": [
+        "11.11"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:12",
+        "claim:arxiv:2610.35966:14"
       ]
     },
     {
@@ -1477,7 +1532,9 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2604.10290:7",
-        "claim:arxiv:2605.17698:5"
+        "claim:arxiv:2605.17698:5",
+        "claim:arxiv:2610.35966:13",
+        "claim:arxiv:2610.35966:2"
       ]
     },
     {
@@ -1638,6 +1695,10 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2604.10290:16",
+        "claim:arxiv:2610.35966:3",
+        "claim:arxiv:2610.35966:4",
+        "claim:arxiv:2610.35966:5",
+        "claim:arxiv:2610.35966:7",
         "claim:doi:10-1111-epic-70009:5",
         "claim:doi:10-1111-epic-70009:6",
         "claim:doi:10-1111-epic-70009:7"
@@ -1769,6 +1830,17 @@
       "note": "Cooperation, reciprocity and restraint measured as a capability in its own right, separately from task score. The distinction 2509.14485 shows a leaderboard collapses."
     },
     {
+      "id": "rationale-capture-for-agent-decisions",
+      "label": "Rationale capture for agent decisions",
+      "topics": [
+        "7.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:8"
+      ]
+    },
+    {
       "id": "reasoning-transparency-and-its-reliability",
       "label": "Reasoning transparency and its reliability",
       "topics": [
@@ -1826,7 +1898,10 @@
         "claim:arxiv:2604.10290:7",
         "claim:arxiv:2604.23459:7",
         "claim:arxiv:2605.17698:11",
-        "claim:arxiv:2605.17698:5"
+        "claim:arxiv:2605.17698:5",
+        "claim:arxiv:2610.35966:1",
+        "claim:arxiv:2610.35966:13",
+        "claim:arxiv:2610.35966:6"
       ]
     },
     {
@@ -1901,6 +1976,17 @@
       ]
     },
     {
+      "id": "reversibility-engineering-and-undo-paths",
+      "label": "Reversibility engineering and undo paths",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.35966:11"
+      ]
+    },
+    {
       "id": "reward-design-and-what-optimizing-a-proxy-does-to-a-population",
       "label": "Reward design, and what optimizing a proxy does to a population",
       "topics": [
@@ -1931,7 +2017,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:11"
+        "claim:arxiv:2505.02077:11",
+        "claim:arxiv:2610.35966:8"
       ]
     },
     {
@@ -2003,7 +2090,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.23459:4"
+        "claim:arxiv:2604.23459:4",
+        "claim:arxiv:2610.35966:7"
       ]
     },
     {
@@ -2713,15 +2801,6 @@
       "label": "Blameless postmortem where the actor is not blameworthy",
       "topics": [
         "11.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "blast-radius-budgets-and-pre-declared-damage-caps",
-      "label": "Blast radius budgets and pre-declared damage caps",
-      "topics": [
-        "2.5"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3627,15 +3706,6 @@
       "claims": 0
     },
     {
-      "id": "gradual-quality-decline-below-detection-threshold",
-      "label": "Gradual quality decline below detection threshold",
-      "topics": [
-        "11.7"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "graduation-criteria-and-evidence-standards",
       "label": "Graduation criteria and evidence standards",
       "topics": [
@@ -3996,28 +4066,10 @@
       "claims": 0
     },
     {
-      "id": "knowledge-and-state-handover-on-retirement",
-      "label": "Knowledge and state handover on retirement",
-      "topics": [
-        "6.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "knowledge-base-staleness",
       "label": "Knowledge base staleness",
       "topics": [
         "11.7"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "knowledge-loss-about-why-constraints-exist",
-      "label": "Knowledge loss about why constraints exist",
-      "topics": [
-        "11.11"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4662,15 +4714,6 @@
       "claims": 0
     },
     {
-      "id": "rationale-capture-for-agent-decisions",
-      "label": "Rationale capture for agent decisions",
-      "topics": [
-        "7.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "reachability-and-scope-attestation",
       "label": "Reachability and scope attestation",
       "topics": [
@@ -4846,15 +4889,6 @@
       "label": "Revenue models for agent-operated entities",
       "topics": [
         "13.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "reversibility-engineering-and-undo-paths",
-      "label": "Reversibility engineering and undo paths",
-      "topics": [
-        "2.5"
       ],
       "origin": "taxonomy",
       "claims": 0
