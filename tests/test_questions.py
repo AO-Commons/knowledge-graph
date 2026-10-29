@@ -85,13 +85,23 @@ def test_papers_and_occurrences_are_counted_apart():
     assert transfer["occurrences"] == 3
     assert transfer["papers"] == 2
 
-    # Asked twice by one paper: that paper's framing, and a single number
-    # over both would let it pass for the one above. This was the identity
-    # question until 2026-10-29, when a second paper reached it and it
-    # became an example of the case above instead.
-    identity = counts["question:attribution-in-a-diffuse-network"]
-    assert identity["occurrences"] == 2
-    assert identity["papers"] == 1
+    # And at least one of the other case: asked more than once, all from one
+    # paper, which is that paper's framing rather than a claim about a field.
+    #
+    # Found rather than named. This named a question twice — the identity
+    # one, then the attribution one — and both times a later paper reached
+    # it and turned it into an example of the case above, failing this test
+    # on the corpus getting better. What has to hold is that the two counts
+    # are kept apart, not which question happens to illustrate it.
+    framings = [q for q, n in counts.items()
+                if n["papers"] == 1 and n["occurrences"] > 1]
+    assert framings, "no question is asked twice by one paper"
+    for question in framings:
+        assert counts[question]["occurrences"] > counts[question]["papers"]
+
+    # The distinction is only worth testing if the corpus holds both kinds.
+    crossing = [q for q, n in counts.items() if n["papers"] > 1]
+    assert crossing, "no question is asked by more than one paper"
 
 
 def test_the_corpus_questions_all_load_and_point_somewhere_real():

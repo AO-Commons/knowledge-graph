@@ -19,6 +19,7 @@ is_open_access: true
 is_retracted: false
 facets:
   artifact_type: preprint
+text_coverage: full-text
 review_status: unreviewed
 source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
   2 records already held, which is at or above the threshold of 2 for this generation. Connected

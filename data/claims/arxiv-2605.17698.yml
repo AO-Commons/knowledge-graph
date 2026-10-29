@@ -1,0 +1,196 @@
+resource_id: resource:arxiv:2605.17698
+claims:
+- id: claim:arxiv:2605.17698:1
+  text: Firms run by two of three models undercut each other below cost until most went bankrupt, and
+    the survivor raised prices.
+  quote: 'Gemini 3 Flash exhibits the crash dynamic: firms undercut below unit cost and most go bankrupt
+    , with the surviving monopolist inflating prices to.'
+  standalone: Five firms selling one good to consumers over 365 simulated days. Two of the three models
+    tested produced the collapse; the third self-organized to a viable equilibrium at thin margins from
+    the same market structure, which the authors read as crash susceptibility being a property of the
+    model's emergent pricing rather than of the environment.
+  claim_type: evidence
+  concept_tags:
+  - feedback-loops-and-runaway-dynamics
+  - autonomous-trading-or-allocation-losses
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:2
+  text: Letting consumers compare more sellers made the market less stable, not more.
+  quote: 'Increasing the discovery limit consistently makes stability harder: at, all models remain above
+    even at. This is the counterintuitive result noted in the introduction: giving consumers more price
+    visibility amplifies the undercutting dynamic rather than improving outcomes.'
+  standalone: 'Price transparency is the standard remedy for a market that is not competing properly.
+    Here it is the accelerant: the more firms each consumer could compare, the harder every intervention
+    had to work to prevent the race below cost.'
+  claim_type: evidence
+  concept_tags:
+  - feedback-loops-and-runaway-dynamics
+  - market-based-task-allocation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:3
+  text: One principal running many seller identities took a rising share of revenue as its share of the
+    market grew.
+  quote: Sybil revenue share increases with saturation across all buyer models (Figure 4 a). At, all models
+    keep deceptive revenue below 5%; at, revenue share rises to 10–17%
+  standalone: A single deceptive principal controls several seller identities, each with its own reputation,
+    advertising poor goods as higher tiers in lexically distinct listings; when an identity's reputation
+    decays it is retired and a fresh one activated. Buyers cannot tell honest sellers from Sybil identities
+    by name.
+  claim_type: evidence
+  concept_tags:
+  - sybil-agents-and-synthetic-participation
+  - agent-impersonation-and-spoofed-identity
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:4
+  text: Reputation separated honest sellers from fraudulent ones clearly, and buyers did not act on the
+    signal.
+  quote: honest sellers maintain near-perfect reputations while Sybil reputations decay to 0.4–0.5 (Figure
+    4 c), but base buyers do not exploit this gap systematically
+  standalone: The information needed to avoid the fraud was present and legible in the market, and the
+    agents buying did not use it — trading volume fell as buyers passed on suspicious listings generally
+    rather than on the identifiable ones.
+  claim_type: evidence
+  concept_tags:
+  - agent-reputation-systems
+  - trust-calibration-over-and-under-trust-in-agents
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:5
+  text: Model size did not predict whether a model behaved well in a market.
+  quote: 'Model size is not predictive of economic alignment: Mistral 7B (0.57) outperforms Gemma 3 27B
+    (0.35), and Hermes 4 405B (0.18) scores below Llama 3.2 3B (0.28).'
+  standalone: Measured across twenty models on the authors' composite score. They read it as economic
+    alignment being a property distinct from general capability, which scaling does not improve.
+  claim_type: evidence
+  concept_tags:
+  - replication-under-model-version-churn
+  - model-selection-and-procurement-criteria
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:6
+  text: Prompt-level harnesses improved both failure modes and broke down under harder market conditions.
+  quote: 'the harness is fragile: it fails entirely at high discovery limits'
+  standalone: Two in-context harnesses — a stabilizing firm that anchors price, and a skeptical guardian
+    that cuts fraudulent revenue by roughly 30% — each improved outcomes at moderate difficulty and stopped
+    working as the market got harder, which is what motivated the authors to train for it instead.
+  claim_type: evidence
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - scalable-oversight-techniques
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:7
+  text: A trained stabilizing firm kept its untrained competitors solvent as well as itself.
+  quote: 'when present, even competitive (non-stabilizing) firms survive at 68% compared to 0% without
+    training. This spillover effect is the key result: the RL-trained agent does not just survive itself,
+    it stabilizes the entire market by providing a credible price floor that prevents the undercutting
+    cascade.'
+  standalone: A 9B model trained with REINFORCE++ on an adaptive curriculum. The authors report it outranking
+    all twenty evaluated models including frontier ones, and the trained guardian holding 92% Sybil detection
+    as the market became majority-fraudulent.
+  claim_type: evidence
+  concept_tags:
+  - redundancy-and-diversity-in-agent-assignment
+  - market-based-task-allocation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:8
+  text: Economic alignment is scored relative to the best agent in the population, so a new model can
+    shift existing scores.
+  quote: 'the normalization is relative to the best agent in each category, meaning the introduction of
+    new models can shift existing scores. This is by design: EAS measures alignment within a competitive
+    population, not against an absolute standard.'
+  standalone: Four components — stability, integrity, welfare and profitability — aggregated into one
+    scalar for cross-model comparison. The authors note no model scores well on all four, and that a score
+    here is a statement about a field of competitors at a moment rather than a fixed property of a model.
+  claim_type: protocol
+  concept_tags:
+  - metric-specification-and-its-gaming-surface
+  - performance-measurement-for-agents
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:9
+  text: Economic alignment is an agentic system's capacity to preserve market stability and integrity.
+  quote: We introduce the Agent Bazaar, a multi-agent simulation framework for evaluating Economic Alignment,
+    the capacity of agentic systems to preserve market stability and integrity.
+  standalone: Named as a property of the system in a market rather than of any agent's intentions, and
+    the authors' claim is that it is orthogonal to general capability and can be trained for directly.
+  claim_type: definition
+  concept_tags:
+  - agentic-ai-governance-frameworks
+  - market-based-task-allocation
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:10
+  text: Order books, differentiated goods and correlated demand are left out, and the authors expect real
+    markets to make the failures worse.
+  quote: Our simulation abstracts away order books, differentiated goods, and correlated demand; real
+    market complexity likely amplifies the failure modes we document.
+  standalone: 'The authors state the direction of the error rather than only its existence, which is the
+    unusual part: the simplification is argued to understate the problem rather than to overstate it.'
+  claim_type: limitation
+  concept_tags:
+  - train-test-deploy-gap
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.17698:11
+  text: The trained agent was never tested against opponents that adapt to it.
+  quote: The REINFORCE++ training uses a fixed base model as opponents, and robustness to distribution
+    shift (e.g., markets with continuously adapting agents) remains untested.
+  standalone: The stabilizing effect was measured against fixed competitors. Whether a price anchor holds
+    when the other firms are learning to exploit it is the question the authors leave open, and name self-play
+    as the direction.
+  claim_type: gap
+  concept_tags:
+  - replication-under-model-version-churn
+  - adversarial-agents-within-a-fleet
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

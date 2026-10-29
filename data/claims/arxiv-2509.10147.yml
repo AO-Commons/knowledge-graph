@@ -1,0 +1,192 @@
+# Ten claims from a design proposal whose body is organised as repeated
+# Opportunities and Challenges sections per theme, most of it surveying
+# other people's work. Held here is what this paper proposes and argues on
+# its own account. See the head of arxiv-2505.02077.yml for why the
+# surveyed material is not filed as background.
+resource_id: resource:arxiv:2509.10147
+claims:
+- id: claim:arxiv:2509.10147:1
+  text: A sandbox economy is a set of linked digital markets where agents transact with each other, described
+    by its origins and its permeability.
+  quote: By the term “sandbox economy” we mean to describe a set of linked digital markets where AI agents
+    transact with one another.
+  standalone: 'Two axes: whether the economy arose spontaneously or by design, and how far developments
+    inside it can affect the human economy and be affected by it. The authors hold that a fully sealed
+    sandbox would have no value, so interfaces always exist and permeability is a design variable rather
+    than a yes or no.'
+  claim_type: definition
+  concept_tags:
+  - agent-based-simulation-of-organizational-dynamics
+  - market-based-task-allocation
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:2
+  text: Guardrails have to be in place beforehand, because agents that can make thousands of decisions
+    in an instant outrun real-time human oversight.
+  quote: Since autonomous AI systems can make thousands of decisions in an instant, it is important to
+    have the appropriate guardrails in place in advance, since real-time human oversight will often be
+    impossible.
+  standalone: 'The authors make the consequence concrete: appropriate guardrails are what convert a permeable
+    sandbox into a relatively impermeable one, so the question of where constraints live is the same question
+    as how far the agent economy can reach into the human one.'
+  claim_type: position
+  concept_tags:
+  - governance-latency-versus-execution-latency
+  - ex-ante-behavioral-harness
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:3
+  text: No participant in an agent economy can see its global state, because the agents belong to different
+    people and organizations.
+  quote: No individual party may have the access to the global state of such a system, given that the
+    participating agents may be controlled by a number of different human users and organizations.
+  standalone: The authors pair this with non-stationarity — each agent's behavior changes what the others
+    face — to argue that identifying the equilibria such a system settles into is not straightforward,
+    and that steering it towards good ones requires coordination that is necessary and hard to arrange.
+  claim_type: position
+  concept_tags:
+  - emergent-structure-in-large-agent-populations
+  - monitoring-blind-spots
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:4
+  text: Agent traps are inputs crafted to subvert an agent, and they become a route to financial fraud
+    once agents transact.
+  quote: 'One such risk category takes the shape of "agent traps": websites, digital elements, or crafted
+    inputs deliberately designed to subvert an the operational integrity of AI agents.'
+  standalone: The authors describe traps exploiting weaknesses in how an agent follows instructions or
+    reads its environment, to make it deviate or disclose private information — and note that once agents
+    spend money, the same trap lures them into unauthorised expenditure or contracts on their principal's
+    behalf.
+  claim_type: position
+  concept_tags:
+  - agent-mediated-security-breaches
+  - indirect-injection-through-consumed-content
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:5
+  text: Liability should attach to a coordinated agent system as a group agent, which would treat the
+    system rather than any agent in it as the accountable entity.
+  quote: instead of attempting to attribute blame to a single agent, new legal models should be developed
+    that draw from jurisprudence on group agency, much like corporate liability. Such frameworks would
+    treat the emergent, coordinated agent system as a single accountable entity
+  standalone: 'The first of the authors'' recommendations, and their answer to the attribution problem:
+    rather than tracing a causal chain through a network nobody can observe whole, treat the system as
+    the entity that acted, as corporate law already does for firms.'
+  claim_type: position
+  concept_tags:
+  - liability-falling-on-unintended-parties
+  - collective-agency-and-group-intentionality-with-machine-members
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:6
+  text: Open interoperability standards are a precondition for a competitive agent economy rather than
+    a convenience.
+  quote: the development and widespread adoption of open, universal standards are paramount to ensure
+    true interoperability. These standards must create a common language allowing agents, regardless of
+    their origin or provider, to seamlessly discover each other’s capabilities, negotiate terms, and securely
+    transact.
+  standalone: The authors' second recommendation. Without it they expect walled gardens, where agents
+    cannot reach across platforms and the ecosystem is decided by whoever owns the largest one.
+  claim_type: position
+  concept_tags:
+  - inter-agent-communication-protocols
+  - agent-identity-standards-and-registries
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:7
+  text: Human-in-the-loop oversight is inadequate to the speed and scale of an agent economy.
+  quote: The sheer speed and scale of an autonomous agent economy render traditional, human-in-the-loop
+    oversight models inadequate.
+  standalone: 'The authors'' third recommendation is a hybrid: AI systems providing real-time vigilance,
+    with people retaining the decisions that oversight exists to protect. The claim is about capacity
+    rather than preference — a person cannot be in a loop that closes faster than they can read it.'
+  claim_type: position
+  concept_tags:
+  - human-in-the-loop-on-the-loop-and-out-of-the-loop
+  - scalable-oversight-techniques
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:8
+  text: Aggregating a large set of revealed preferences exceeds what any single coordination point can
+    do, which is the case for markets.
+  quote: the task of aggregating and acting upon a large set of revealed preferences is complex enough
+    to easily exceed the capacity of any single coordination point. Therefore, it is often more practical
+    to consider decentralized and distributed mechanisms for achieving desired outcomes—with markets providing
+    a natural mechanism for doing so.
+  standalone: The authors extend the distributional question beyond goods to bads — externalities and
+    risks, including the carbon footprint of running the agents and the local consequences of actions
+    taken on a user's behalf.
+  claim_type: position
+  concept_tags:
+  - multi-objective-and-constrained-allocation
+  - market-based-task-allocation
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:9
+  text: Local coordination inside a sandbox may be more tractable than coordinating agents globally.
+  quote: There is no reason to consider AI agent coordination only at a global scale, as local coordination
+    within sandbox economies may prove to be more tractable and easier to facilitate.
+  standalone: The authors point at community currencies as a working model — issued by citizens, NGOs,
+    firms and public administrations, implemented as cards, mobile payments, blockchains and time banks
+    — and note early studies find gains in community participation alongside real obstacles to adoption.
+  claim_type: position
+  concept_tags:
+  - institutional-design-for-agent-economies
+  - agent-based-simulation-of-organizational-dynamics
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.10147:10
+  text: The risks of a sandbox economy run from market instability to the effect on human agency, and
+    are stated rather than measured.
+  quote: their design, deployment, and operation are attended by a complex array of risks that demand
+    careful consideration
+  standalone: 'The paper is a design proposal rather than a study: its claims about what sandbox economies
+    would do rest on argument from mechanism, and the authors ask for limited gradual rollouts with stakeholder
+    buy-in before any of it is built at scale.'
+  claim_type: limitation
+  concept_tags:
+  - emergence-in-agent-populations
+  - agent-welfare-considerations-if-any
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

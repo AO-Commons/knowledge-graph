@@ -24,6 +24,7 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 openalex_id: W7129535374
+text_coverage: full-text
 review_status: unreviewed
 abstract: 'AI agents deployed on decentralized infrastructures are beginning to exhibit properties
   that extend beyond autonomy toward what we describe as agentic sovereignty-the capacity

@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from claims. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a claim uses one.",
   "counts": {
-    "vocabulary": 129,
+    "vocabulary": 169,
     "vocabulary_from_claims": 13,
-    "vocabulary_from_taxonomy": 116,
+    "vocabulary_from_taxonomy": 156,
     "on_exactly_one_statement": 0,
-    "suggestions_available": 398
+    "suggestions_available": 358
   },
   "looks_like_one_idea": [
     {
@@ -60,7 +60,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2502.14143:11",
-        "claim:arxiv:2505.02077:16"
+        "claim:arxiv:2505.02077:16",
+        "claim:arxiv:2509.01063:7"
       ]
     },
     {
@@ -73,7 +74,8 @@
       "claims": [
         "claim:arxiv:2505.02077:14",
         "claim:arxiv:2505.02077:7",
-        "claim:arxiv:2604.23459:12"
+        "claim:arxiv:2604.23459:12",
+        "claim:arxiv:2605.17698:11"
       ]
     },
     {
@@ -84,6 +86,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:2",
         "claim:arxiv:2604.23459:15",
         "claim:arxiv:2604.23459:8"
       ]
@@ -109,7 +112,11 @@
       "claims": [
         "claim:arxiv:2410.00031:5",
         "claim:arxiv:2410.00031:9",
-        "claim:arxiv:2604.10290:9"
+        "claim:arxiv:2509.01063:10",
+        "claim:arxiv:2509.10147:1",
+        "claim:arxiv:2509.10147:9",
+        "claim:arxiv:2604.10290:9",
+        "claim:arxiv:2606.16613:6"
       ]
     },
     {
@@ -129,7 +136,19 @@
         "claim:arxiv:2410.00031:2",
         "claim:arxiv:2410.00031:4",
         "claim:arxiv:2410.00031:7",
-        "claim:arxiv:2502.14143:5"
+        "claim:arxiv:2502.14143:5",
+        "claim:arxiv:2606.16613:1"
+      ]
+    },
+    {
+      "id": "agent-containment-and-escape-incidents",
+      "label": "Agent containment and escape incidents",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:5"
       ]
     },
     {
@@ -157,6 +176,7 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2404.00806:11",
+        "claim:arxiv:2407.14981:2",
         "claim:arxiv:2604.10290:10",
         "claim:arxiv:2604.23459:9"
       ]
@@ -171,8 +191,54 @@
       "claims": [
         "claim:arxiv:2505.02077:12",
         "claim:arxiv:2505.02077:9",
+        "claim:arxiv:2509.01063:5",
+        "claim:arxiv:2509.10147:6",
         "claim:arxiv:2511.03434:7",
         "claim:arxiv:2605.30169:7"
+      ]
+    },
+    {
+      "id": "agent-impersonation-and-spoofed-identity",
+      "label": "Agent impersonation and spoofed identity",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2605.17698:3"
+      ]
+    },
+    {
+      "id": "agent-interaction-with-external-systems-and-counterparties",
+      "label": "Agent interaction with external systems and counterparties",
+      "topics": [
+        "3.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:8"
+      ]
+    },
+    {
+      "id": "agent-mediated-security-breaches",
+      "label": "Agent-mediated security breaches",
+      "topics": [
+        "11.14"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.10147:4"
+      ]
+    },
+    {
+      "id": "agent-operated-versus-agent-governed-versus-agent-constituted",
+      "label": "Agent-operated versus agent-governed versus agent-constituted",
+      "topics": [
+        "1.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:1"
       ]
     },
     {
@@ -183,9 +249,13 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2412.14161:1",
+        "claim:arxiv:2412.14161:2",
         "claim:arxiv:2604.10290:1",
         "claim:arxiv:2604.10290:2",
-        "claim:arxiv:2604.10290:3"
+        "claim:arxiv:2604.10290:3",
+        "claim:arxiv:2606.16613:2",
+        "claim:arxiv:2606.16613:5"
       ]
     },
     {
@@ -199,6 +269,7 @@
         "claim:arxiv:2511.03434:3",
         "claim:arxiv:2511.03434:4",
         "claim:arxiv:2511.03434:9",
+        "claim:arxiv:2605.17698:4",
         "claim:arxiv:2605.30169:1",
         "claim:arxiv:2605.30169:11",
         "claim:arxiv:2605.30169:13",
@@ -221,6 +292,17 @@
       ]
     },
     {
+      "id": "agent-welfare-considerations-if-any",
+      "label": "Agent welfare considerations if any",
+      "topics": [
+        "1.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.10147:10"
+      ]
+    },
+    {
       "id": "agentic-ai-governance-frameworks",
       "label": "Agentic AI governance frameworks",
       "topics": [
@@ -229,11 +311,19 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2404.00806:12",
+        "claim:arxiv:2407.14981:1",
+        "claim:arxiv:2407.14981:7",
+        "claim:arxiv:2407.14981:8",
         "claim:arxiv:2410.00031:7",
         "claim:arxiv:2505.02077:13",
         "claim:arxiv:2505.02077:4",
         "claim:arxiv:2505.02077:6",
-        "claim:arxiv:2604.23459:11"
+        "claim:arxiv:2602.14951:5",
+        "claim:arxiv:2604.23459:11",
+        "claim:arxiv:2605.17698:9",
+        "claim:arxiv:2605.24538:1",
+        "claim:arxiv:2605.24538:4",
+        "claim:arxiv:2605.24538:7"
       ]
     },
     {
@@ -311,7 +401,19 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:5",
         "claim:arxiv:2505.02077:10"
+      ]
+    },
+    {
+      "id": "autonomous-trading-or-allocation-losses",
+      "label": "Autonomous trading or allocation losses",
+      "topics": [
+        "11.9"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2605.17698:1"
       ]
     },
     {
@@ -337,6 +439,17 @@
       ]
     },
     {
+      "id": "baseline-establishment-and-drift-alerting",
+      "label": "Baseline establishment and drift alerting",
+      "topics": [
+        "9.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2002.06673:5"
+      ]
+    },
+    {
       "id": "benchmark-contamination",
       "label": "Benchmark contamination",
       "topics": [
@@ -344,6 +457,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:3",
         "claim:arxiv:2410.00031:11"
       ]
     },
@@ -355,8 +469,10 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2412.14161:3",
         "claim:arxiv:2502.14143:8",
-        "claim:arxiv:2604.23459:2"
+        "claim:arxiv:2604.23459:2",
+        "claim:arxiv:2606.16613:4"
       ]
     },
     {
@@ -405,6 +521,62 @@
       "note": "Inferring a per-ability profile rather than a single score, so that future performance can be predicted per scenario."
     },
     {
+      "id": "cascading-failure-across-fleets",
+      "label": "Cascading failure across fleets",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:4"
+      ]
+    },
+    {
+      "id": "circuit-breakers-and-pause-authority",
+      "label": "Circuit breakers and pause authority",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:4"
+      ]
+    },
+    {
+      "id": "coase-revisited-under-agentic-coordination",
+      "label": "Coase revisited under agentic coordination",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:1"
+      ]
+    },
+    {
+      "id": "collective-agency-and-group-intentionality-with-machine-members",
+      "label": "Collective agency and group intentionality with machine members",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.10147:5"
+      ]
+    },
+    {
+      "id": "complementarity-versus-substitution",
+      "label": "Complementarity versus substitution",
+      "topics": [
+        "13.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:11",
+        "claim:arxiv:2412.14161:3"
+      ]
+    },
+    {
       "id": "comprehensive-ai-regulation-and-conformity-assessment",
       "label": "Comprehensive AI regulation and conformity assessment",
       "topics": [
@@ -427,6 +599,17 @@
       ]
     },
     {
+      "id": "consent-to-being-governed-by-non-human-decision-makers",
+      "label": "Consent to being governed by non-human decision-makers",
+      "topics": [
+        "1.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2605.24538:5"
+      ]
+    },
+    {
       "id": "contestability-as-a-legitimacy-condition",
       "label": "Contestability as a legitimacy condition",
       "topics": [
@@ -434,7 +617,20 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2605.24538:6",
+        "claim:arxiv:2605.24538:7",
         "claim:arxiv:2606.03237:9"
+      ]
+    },
+    {
+      "id": "context-and-prompt-drift-over-time",
+      "label": "Context and prompt drift over time",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2606.16613:9"
       ]
     },
     {
@@ -445,7 +641,20 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:6",
         "claim:arxiv:2605.30169:16"
+      ]
+    },
+    {
+      "id": "continuous-evaluation-in-production",
+      "label": "Continuous evaluation in production",
+      "topics": [
+        "6.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2002.06673:3",
+        "claim:arxiv:2002.06673:6"
       ]
     },
     {
@@ -457,6 +666,7 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2410.00031:3",
+        "claim:arxiv:2509.01063:9",
         "claim:arxiv:2606.03237:1",
         "claim:arxiv:2606.03237:13"
       ]
@@ -481,7 +691,30 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:8"
+        "claim:arxiv:2505.02077:8",
+        "claim:arxiv:2509.01063:10"
+      ]
+    },
+    {
+      "id": "correlated-failure-from-shared-model-or-prompt",
+      "label": "Correlated failure from shared model or prompt",
+      "topics": [
+        "11.6"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:4"
+      ]
+    },
+    {
+      "id": "cost-curves-and-marginal-agent-economics",
+      "label": "Cost curves and marginal agent economics",
+      "topics": [
+        "3.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:2"
       ]
     },
     {
@@ -497,7 +730,8 @@
         "claim:arxiv:2404.00806:4",
         "claim:arxiv:2404.00806:7",
         "claim:arxiv:2410.00031:6",
-        "claim:arxiv:2604.10290:9"
+        "claim:arxiv:2604.10290:9",
+        "claim:arxiv:2606.16613:7"
       ]
     },
     {
@@ -541,7 +775,19 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2502.14143:7"
+        "claim:arxiv:2502.14143:7",
+        "claim:arxiv:2509.01063:6"
+      ]
+    },
+    {
+      "id": "displacement-and-workforce-transition",
+      "label": "Displacement and workforce transition",
+      "topics": [
+        "12.6"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:11"
       ]
     },
     {
@@ -569,8 +815,20 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2002.06673:6",
         "claim:arxiv:2404.00806:18",
         "claim:arxiv:2605.30169:17"
+      ]
+    },
+    {
+      "id": "dual-use-considerations-in-publication",
+      "label": "Dual-use considerations in publication",
+      "topics": [
+        "16.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2407.14981:7"
       ]
     },
     {
@@ -582,6 +840,7 @@
       ],
       "origin": "claim",
       "claims": [
+        "claim:arxiv:2002.06673:1",
         "claim:arxiv:2606.03237:5",
         "claim:arxiv:2606.03237:6"
       ],
@@ -595,8 +854,10 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:4",
         "claim:arxiv:2502.14143:9",
         "claim:arxiv:2505.02077:2",
+        "claim:arxiv:2509.10147:10",
         "claim:arxiv:2604.10290:1",
         "claim:arxiv:2604.10290:13",
         "claim:arxiv:2604.10290:2",
@@ -624,7 +885,8 @@
         "claim:arxiv:2410.00031:2",
         "claim:arxiv:2410.00031:3",
         "claim:arxiv:2502.14143:5",
-        "claim:arxiv:2606.03237:15"
+        "claim:arxiv:2606.03237:15",
+        "claim:arxiv:2606.16613:1"
       ]
     },
     {
@@ -635,7 +897,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:14"
+        "claim:arxiv:2505.02077:14",
+        "claim:arxiv:2509.10147:3"
       ]
     },
     {
@@ -647,6 +910,10 @@
       ],
       "origin": "claim",
       "claims": [
+        "claim:arxiv:2002.06673:1",
+        "claim:arxiv:2002.06673:2",
+        "claim:arxiv:2002.06673:3",
+        "claim:arxiv:2002.06673:7",
         "claim:arxiv:2606.03237:14",
         "claim:arxiv:2606.03237:16",
         "claim:arxiv:2606.03237:2",
@@ -654,6 +921,17 @@
         "claim:arxiv:2606.03237:4"
       ],
       "note": "Deployment changes the environment the system was evaluated against, because other actors respond. Distinct from ordinary distribution shift: the system's own action is the cause."
+    },
+    {
+      "id": "enforcement-against-organizations-without-legal-form",
+      "label": "Enforcement against organizations without legal form",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2605.24538:2"
+      ]
     },
     {
       "id": "evaluation-environments-and-benchmark-suites",
@@ -667,6 +945,9 @@
         "claim:arxiv:2107.06857:5",
         "claim:arxiv:2404.00806:15",
         "claim:arxiv:2410.00031:11",
+        "claim:arxiv:2412.14161:12",
+        "claim:arxiv:2412.14161:7",
+        "claim:arxiv:2412.14161:8",
         "claim:arxiv:2502.14143:8",
         "claim:arxiv:2502.15840:11",
         "claim:arxiv:2502.15840:6",
@@ -675,7 +956,10 @@
         "claim:arxiv:2509.14485:22",
         "claim:arxiv:2604.10290:11",
         "claim:arxiv:2604.23459:15",
-        "claim:arxiv:2604.23459:17"
+        "claim:arxiv:2604.23459:17",
+        "claim:arxiv:2605.17698:10",
+        "claim:arxiv:2606.16613:6",
+        "claim:arxiv:2606.16613:8"
       ]
     },
     {
@@ -686,6 +970,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:3",
         "claim:arxiv:2509.14485:16",
         "claim:arxiv:2509.14485:17",
         "claim:arxiv:2509.14485:19",
@@ -704,8 +989,11 @@
       "origin": "claim",
       "claims": [
         "claim:arxiv:2505.02077:6",
+        "claim:arxiv:2509.10147:2",
         "claim:arxiv:2604.10290:15",
         "claim:arxiv:2604.23459:13",
+        "claim:arxiv:2605.17698:6",
+        "claim:arxiv:2605.24538:4",
         "claim:arxiv:2605.30169:16",
         "claim:arxiv:2605.30169:17",
         "claim:arxiv:2605.30169:6",
@@ -738,7 +1026,9 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2404.00806:14",
-        "claim:arxiv:2502.14143:7"
+        "claim:arxiv:2502.14143:7",
+        "claim:arxiv:2605.17698:1",
+        "claim:arxiv:2605.17698:2"
       ]
     },
     {
@@ -750,6 +1040,17 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2606.03237:4"
+      ]
+    },
+    {
+      "id": "firm-boundaries-when-coordination-cost-approaches-zero",
+      "label": "Firm boundaries when coordination cost approaches zero",
+      "topics": [
+        "1.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:1"
       ]
     },
     {
@@ -774,6 +1075,7 @@
       "claims": [
         "claim:arxiv:2107.06857:17",
         "claim:arxiv:2107.06857:21",
+        "claim:arxiv:2509.01063:8",
         "claim:arxiv:2604.10290:19",
         "claim:arxiv:2604.23459:18",
         "claim:arxiv:2604.23459:5"
@@ -794,6 +1096,41 @@
       ]
     },
     {
+      "id": "goodhart-effects-under-machine-optimization",
+      "label": "Goodhart effects under machine optimization",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2002.06673:4"
+      ]
+    },
+    {
+      "id": "governance-latency-versus-execution-latency",
+      "label": "Governance latency versus execution latency",
+      "topics": [
+        "2.6"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.10147:2"
+      ]
+    },
+    {
+      "id": "halting-autonomous-operation-under-duress",
+      "label": "Halting autonomous operation under duress",
+      "topics": [
+        "11.15"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:1",
+        "claim:arxiv:2602.14951:4",
+        "claim:arxiv:2605.24538:3"
+      ]
+    },
+    {
       "id": "handoff-failures-between-agents-and-humans",
       "label": "Handoff failures between agents and humans",
       "topics": [
@@ -801,6 +1138,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2412.14161:5",
         "claim:arxiv:2604.10290:18",
         "claim:arxiv:2604.23459:6"
       ]
@@ -821,6 +1159,18 @@
       "note": "Agents pre-trained separately and used only at test time as unfamiliar co-players, so that a test scenario is a familiar environment with unfamiliar others in it. Coined by Melting Pot (Leibo et al. 2021). Not dynamic evaluation: the background agents are fixed and do not adapt to the policy under test."
     },
     {
+      "id": "human-agent-team-structures",
+      "label": "Human-agent team structures",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:2",
+        "claim:arxiv:2509.01063:8"
+      ]
+    },
+    {
       "id": "human-in-the-loop-on-the-loop-and-out-of-the-loop",
       "label": "Human-in-the-loop, on-the-loop, and out-of-the-loop",
       "topics": [
@@ -828,6 +1178,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.01063:3",
+        "claim:arxiv:2509.10147:7",
         "claim:doi:10-1111-epic-70009:15"
       ]
     },
@@ -839,6 +1191,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2412.14161:7",
         "claim:arxiv:2604.23459:9"
       ]
     },
@@ -850,6 +1203,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.10147:4",
         "claim:arxiv:2604.23459:12"
       ]
     },
@@ -861,6 +1215,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.10147:9",
         "claim:arxiv:2606.03237:7"
       ]
     },
@@ -896,7 +1251,31 @@
       "claims": [
         "claim:arxiv:2404.00806:20",
         "claim:arxiv:2505.02077:9",
+        "claim:arxiv:2509.10147:6",
         "claim:arxiv:2604.23459:14"
+      ]
+    },
+    {
+      "id": "inter-agent-negotiation-protocols",
+      "label": "Inter-agent negotiation protocols",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:9",
+        "claim:arxiv:2606.16613:2"
+      ]
+    },
+    {
+      "id": "kill-switch-design-and-its-failure-modes",
+      "label": "Kill switch design and its failure modes",
+      "topics": [
+        "2.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:2"
       ]
     },
     {
@@ -934,6 +1313,17 @@
       ]
     },
     {
+      "id": "legal-personhood-gaps-for-agentic-organizations",
+      "label": "Legal personhood gaps for agentic organizations",
+      "topics": [
+        "12.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:5"
+      ]
+    },
+    {
       "id": "legitimacy-erosion-through-automation",
       "label": "Legitimacy erosion through automation",
       "topics": [
@@ -941,6 +1331,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2605.24538:5",
         "claim:arxiv:2605.30169:15",
         "claim:arxiv:2606.03237:9"
       ]
@@ -953,7 +1344,20 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:5"
+        "claim:arxiv:2407.14981:5",
+        "claim:arxiv:2505.02077:5",
+        "claim:arxiv:2509.10147:5"
+      ]
+    },
+    {
+      "id": "literal-compliance-defeating-intent",
+      "label": "Literal compliance defeating intent",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:4"
       ]
     },
     {
@@ -964,11 +1368,15 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2412.14161:1",
+        "claim:arxiv:2412.14161:12",
         "claim:arxiv:2502.15840:1",
         "claim:arxiv:2502.15840:11",
         "claim:arxiv:2502.15840:14",
         "claim:arxiv:2502.15840:6",
-        "claim:arxiv:2502.15840:7"
+        "claim:arxiv:2502.15840:7",
+        "claim:arxiv:2606.16613:3",
+        "claim:arxiv:2606.16613:4"
       ]
     },
     {
@@ -979,7 +1387,12 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2404.00806:9"
+        "claim:arxiv:2404.00806:9",
+        "claim:arxiv:2509.10147:1",
+        "claim:arxiv:2509.10147:8",
+        "claim:arxiv:2605.17698:2",
+        "claim:arxiv:2605.17698:7",
+        "claim:arxiv:2605.17698:9"
       ]
     },
     {
@@ -1026,9 +1439,11 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2002.06673:8",
         "claim:arxiv:2410.00031:5",
         "claim:arxiv:2604.10290:10",
-        "claim:arxiv:2604.23459:8"
+        "claim:arxiv:2604.23459:8",
+        "claim:arxiv:2605.17698:8"
       ]
     },
     {
@@ -1061,7 +1476,32 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.10290:7"
+        "claim:arxiv:2604.10290:7",
+        "claim:arxiv:2605.17698:5"
+      ]
+    },
+    {
+      "id": "model-validation-and-calibration",
+      "label": "Model validation and calibration",
+      "topics": [
+        "14.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2002.06673:2",
+        "claim:arxiv:2002.06673:5",
+        "claim:arxiv:2002.06673:8"
+      ]
+    },
+    {
+      "id": "model-versioning-pinning-and-forced-upgrades",
+      "label": "Model versioning, pinning, and forced upgrades",
+      "topics": [
+        "6.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2407.14981:6"
       ]
     },
     {
@@ -1072,7 +1512,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:3"
+        "claim:arxiv:2505.02077:3",
+        "claim:arxiv:2509.10147:3"
       ]
     },
     {
@@ -1104,6 +1545,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.10147:8",
         "claim:arxiv:2604.10290:11"
       ]
     },
@@ -1140,6 +1582,10 @@
       "claims": [
         "claim:arxiv:2404.00806:13",
         "claim:arxiv:2505.02077:4",
+        "claim:arxiv:2602.14951:3",
+        "claim:arxiv:2605.24538:1",
+        "claim:arxiv:2605.24538:2",
+        "claim:arxiv:2605.24538:3",
         "claim:arxiv:2605.30169:14"
       ]
     },
@@ -1166,9 +1612,21 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.01063:6",
         "claim:arxiv:2511.03434:11",
         "claim:arxiv:2605.30169:14",
         "claim:arxiv:2605.30169:6"
+      ]
+    },
+    {
+      "id": "orchestrator-and-sub-agent-patterns",
+      "label": "Orchestrator and sub-agent patterns",
+      "topics": [
+        "3.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:5"
       ]
     },
     {
@@ -1217,7 +1675,9 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2509.14485:21",
-        "claim:arxiv:2509.14485:22"
+        "claim:arxiv:2509.14485:22",
+        "claim:arxiv:2605.17698:8",
+        "claim:arxiv:2606.16613:5"
       ]
     },
     {
@@ -1240,6 +1700,17 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2505.02077:15"
+      ]
+    },
+    {
+      "id": "process-scoring-versus-outcome-scoring",
+      "label": "Process scoring versus outcome scoring",
+      "topics": [
+        "8.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:6"
       ]
     },
     {
@@ -1272,6 +1743,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.01063:3",
         "claim:arxiv:2604.23459:16"
       ]
     },
@@ -1320,7 +1792,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2107.06857:17",
-        "claim:arxiv:2107.06857:21"
+        "claim:arxiv:2107.06857:21",
+        "claim:arxiv:2605.17698:7"
       ]
     },
     {
@@ -1351,7 +1824,9 @@
         "claim:arxiv:2604.10290:21",
         "claim:arxiv:2604.10290:22",
         "claim:arxiv:2604.10290:7",
-        "claim:arxiv:2604.23459:7"
+        "claim:arxiv:2604.23459:7",
+        "claim:arxiv:2605.17698:11",
+        "claim:arxiv:2605.17698:5"
       ]
     },
     {
@@ -1362,9 +1837,12 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2002.06673:7",
         "claim:arxiv:2404.00806:16",
+        "claim:arxiv:2412.14161:13",
         "claim:arxiv:2604.10290:14",
-        "claim:arxiv:2604.10290:22"
+        "claim:arxiv:2604.10290:22",
+        "claim:arxiv:2606.16613:7"
       ]
     },
     {
@@ -1417,6 +1895,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2602.14951:3",
         "claim:arxiv:2604.23459:5",
         "claim:arxiv:2605.30169:8"
       ]
@@ -1488,8 +1967,32 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2509.10147:7",
         "claim:arxiv:2604.10290:15",
-        "claim:arxiv:2604.23459:13"
+        "claim:arxiv:2604.23459:13",
+        "claim:arxiv:2605.17698:6"
+      ]
+    },
+    {
+      "id": "scaling-returns-and-coordination-cost",
+      "label": "Scaling returns and coordination cost",
+      "topics": [
+        "13.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:2"
+      ]
+    },
+    {
+      "id": "shadow-mode-and-counterfactual-comparison-against-human-decisions",
+      "label": "Shadow mode and counterfactual comparison against human decisions",
+      "topics": [
+        "2.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2412.14161:9"
       ]
     },
     {
@@ -1516,6 +2019,17 @@
       ]
     },
     {
+      "id": "silent-failures-with-no-signal",
+      "label": "Silent failures with no signal",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2606.16613:10"
+      ]
+    },
+    {
       "id": "skill-atrophy-under-automation",
       "label": "Skill atrophy under automation",
       "topics": [
@@ -1534,7 +2048,10 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2502.15840:9"
+        "claim:arxiv:2502.15840:9",
+        "claim:arxiv:2606.16613:10",
+        "claim:arxiv:2606.16613:3",
+        "claim:arxiv:2606.16613:9"
       ]
     },
     {
@@ -1547,6 +2064,7 @@
       "claims": [
         "claim:arxiv:2511.03434:13",
         "claim:arxiv:2511.03434:8",
+        "claim:arxiv:2605.24538:6",
         "claim:arxiv:2606.03237:8"
       ]
     },
@@ -1558,6 +2076,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2002.06673:4",
+        "claim:arxiv:2412.14161:4",
         "claim:arxiv:2502.14143:9"
       ]
     },
@@ -1582,6 +2102,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2605.17698:3",
         "claim:arxiv:2605.30169:12",
         "claim:arxiv:2605.30169:13"
       ]
@@ -1608,8 +2129,31 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:8",
         "claim:arxiv:2502.14143:2",
         "claim:arxiv:2604.10290:16"
+      ]
+    },
+    {
+      "id": "third-party-assessment-and-certification",
+      "label": "Third-party assessment and certification",
+      "topics": [
+        "14.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2509.01063:7"
+      ]
+    },
+    {
+      "id": "third-party-audit-of-agentic-systems",
+      "label": "Third-party audit of agentic systems",
+      "topics": [
+        "9.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2407.14981:1"
       ]
     },
     {
@@ -1643,10 +2187,13 @@
       "origin": "claim",
       "claims": [
         "claim:arxiv:2404.00806:15",
+        "claim:arxiv:2412.14161:10",
+        "claim:arxiv:2605.17698:10",
         "claim:arxiv:2606.03237:12",
         "claim:arxiv:2606.03237:17",
         "claim:arxiv:2606.03237:3",
-        "claim:arxiv:2606.03237:6"
+        "claim:arxiv:2606.03237:6",
+        "claim:arxiv:2606.16613:8"
       ],
       "note": "The third term is the new one. Held-out test data still comes from the pre-deployment world."
     },
@@ -1672,7 +2219,19 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:7"
+        "claim:arxiv:2505.02077:7",
+        "claim:arxiv:2605.17698:4"
+      ]
+    },
+    {
+      "id": "ungoverned-infrastructure-as-escape-path",
+      "label": "Ungoverned infrastructure as escape path",
+      "topics": [
+        "11.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2602.14951:2"
       ]
     },
     {
@@ -1718,6 +2277,7 @@
       ],
       "origin": "taxonomy",
       "claims": [
+        "claim:arxiv:2407.14981:4",
         "claim:arxiv:2410.00031:8",
         "claim:arxiv:2502.14143:10",
         "claim:arxiv:2606.03237:11"
@@ -1825,15 +2385,6 @@
       "claims": 0
     },
     {
-      "id": "agent-containment-and-escape-incidents",
-      "label": "Agent containment and escape incidents",
-      "topics": [
-        "11.14"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "agent-drafted-proposals-and-agenda-influence",
       "label": "Agent-drafted proposals and agenda influence",
       "topics": [
@@ -1870,24 +2421,6 @@
       "claims": 0
     },
     {
-      "id": "agent-impersonation-and-spoofed-identity",
-      "label": "Agent impersonation and spoofed identity",
-      "topics": [
-        "10.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "agent-interaction-with-external-systems-and-counterparties",
-      "label": "Agent interaction with external systems and counterparties",
-      "topics": [
-        "3.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "agent-managed-portfolio-and-rebalancing",
       "label": "Agent-managed portfolio and rebalancing",
       "topics": [
@@ -1901,24 +2434,6 @@
       "label": "Agent-mediated bribery and vote markets",
       "topics": [
         "10.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "agent-mediated-security-breaches",
-      "label": "Agent-mediated security breaches",
-      "topics": [
-        "11.14"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "agent-operated-versus-agent-governed-versus-agent-constituted",
-      "label": "Agent-operated versus agent-governed versus agent-constituted",
-      "topics": [
-        "1.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -1955,15 +2470,6 @@
       "label": "Agent-to-agent sub-delegation",
       "topics": [
         "2.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "agent-welfare-considerations-if-any",
-      "label": "Agent welfare considerations if any",
-      "topics": [
-        "1.4"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2131,15 +2637,6 @@
       "claims": 0
     },
     {
-      "id": "autonomous-trading-or-allocation-losses",
-      "label": "Autonomous trading or allocation losses",
-      "topics": [
-        "11.9"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "autonomous-vehicle-oversight-regimes",
       "label": "Autonomous vehicle oversight regimes",
       "topics": [
@@ -2189,15 +2686,6 @@
       "label": "Aviation automation and cockpit design",
       "topics": [
         "15.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "baseline-establishment-and-drift-alerting",
-      "label": "Baseline establishment and drift alerting",
-      "topics": [
-        "9.3"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2356,15 +2844,6 @@
       "claims": 0
     },
     {
-      "id": "cascading-failure-across-fleets",
-      "label": "Cascading failure across fleets",
-      "topics": [
-        "11.6"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "centralization-chokepoints-as-attack-targets",
       "label": "Centralization chokepoints as attack targets",
       "topics": [
@@ -2392,37 +2871,10 @@
       "claims": 0
     },
     {
-      "id": "circuit-breakers-and-pause-authority",
-      "label": "Circuit breakers and pause authority",
-      "topics": [
-        "2.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "co-signing-and-approval-thresholds-for-agent-initiated-transfers",
       "label": "Co-signing and approval thresholds for agent-initiated transfers",
       "topics": [
         "8.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "coase-revisited-under-agentic-coordination",
-      "label": "Coase revisited under agentic coordination",
-      "topics": [
-        "1.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "collective-agency-and-group-intentionality-with-machine-members",
-      "label": "Collective agency and group intentionality with machine members",
-      "topics": [
-        "1.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2455,15 +2907,6 @@
       "claims": 0
     },
     {
-      "id": "complementarity-versus-substitution",
-      "label": "Complementarity versus substitution",
-      "topics": [
-        "13.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "compute-and-inference-budget-allocation",
       "label": "Compute and inference budget allocation",
       "topics": [
@@ -2477,15 +2920,6 @@
       "label": "Conflict between treasury interest and disclosure duty",
       "topics": [
         "12.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "consent-to-being-governed-by-non-human-decision-makers",
-      "label": "Consent to being governed by non-human decision-makers",
-      "topics": [
-        "1.3"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2527,15 +2961,6 @@
       "claims": 0
     },
     {
-      "id": "context-and-prompt-drift-over-time",
-      "label": "Context and prompt drift over time",
-      "topics": [
-        "11.7"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "context-contamination-and-instruction-source-confusion",
       "label": "Context contamination and instruction-source confusion",
       "topics": [
@@ -2567,15 +2992,6 @@
       "label": "Continuous assurance in production",
       "topics": [
         "9.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "continuous-evaluation-in-production",
-      "label": "Continuous evaluation in production",
-      "topics": [
-        "6.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2639,24 +3055,6 @@
       "label": "Corporate moral personhood extended to agentic entities",
       "topics": [
         "1.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "correlated-failure-from-shared-model-or-prompt",
-      "label": "Correlated failure from shared model or prompt",
-      "topics": [
-        "11.6"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "cost-curves-and-marginal-agent-economics",
-      "label": "Cost curves and marginal agent economics",
-      "topics": [
-        "3.4"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2914,15 +3312,6 @@
       "claims": 0
     },
     {
-      "id": "displacement-and-workforce-transition",
-      "label": "Displacement and workforce transition",
-      "topics": [
-        "12.6"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "domain-restrictions-and-scope-fencing",
       "label": "Domain restrictions and scope fencing",
       "topics": [
@@ -2936,15 +3325,6 @@
       "label": "Dual-use and disclosure duties for agent-discovered capability",
       "topics": [
         "1.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "dual-use-considerations-in-publication",
-      "label": "Dual-use considerations in publication",
-      "topics": [
-        "16.4"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3017,15 +3397,6 @@
       "label": "Emergency powers -- scoping, sunset, ratification, abuse penalties",
       "topics": [
         "2.6"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "enforcement-against-organizations-without-legal-form",
-      "label": "Enforcement against organizations without legal form",
-      "topics": [
-        "12.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3175,15 +3546,6 @@
       "claims": 0
     },
     {
-      "id": "firm-boundaries-when-coordination-cost-approaches-zero",
-      "label": "Firm boundaries when coordination cost approaches zero",
-      "topics": [
-        "1.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "fmea-and-failure-mode-enumeration",
       "label": "FMEA and failure mode enumeration",
       "topics": [
@@ -3229,28 +3591,10 @@
       "claims": 0
     },
     {
-      "id": "goodhart-effects-under-machine-optimization",
-      "label": "Goodhart effects under machine optimization",
-      "topics": [
-        "8.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "governance-attack-literature",
       "label": "Governance attack literature",
       "topics": [
         "15.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "governance-latency-versus-execution-latency",
-      "label": "Governance latency versus execution latency",
-      "topics": [
-        "2.6"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3296,15 +3640,6 @@
       "label": "Graduation criteria and evidence standards",
       "topics": [
         "2.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "halting-autonomous-operation-under-duress",
-      "label": "Halting autonomous operation under duress",
-      "topics": [
-        "11.15"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3368,15 +3703,6 @@
       "label": "Human-agent task allocation economics",
       "topics": [
         "13.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "human-agent-team-structures",
-      "label": "Human-agent team structures",
-      "topics": [
-        "3.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3607,15 +3933,6 @@
       "claims": 0
     },
     {
-      "id": "inter-agent-negotiation-protocols",
-      "label": "Inter-agent negotiation protocols",
-      "topics": [
-        "5.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "internal-pricing-and-budget-allocation-to-agents",
       "label": "Internal pricing and budget allocation to agents",
       "topics": [
@@ -3679,15 +3996,6 @@
       "claims": 0
     },
     {
-      "id": "kill-switch-design-and-its-failure-modes",
-      "label": "Kill switch design and its failure modes",
-      "topics": [
-        "2.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "knowledge-and-state-handover-on-retirement",
       "label": "Knowledge and state handover on retirement",
       "topics": [
@@ -3742,28 +4050,10 @@
       "claims": 0
     },
     {
-      "id": "legal-personhood-gaps-for-agentic-organizations",
-      "label": "Legal personhood gaps for agentic organizations",
-      "topics": [
-        "12.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "legibility-failure-action-correct-but-unreviewable",
       "label": "Legibility failure -- action correct but unreviewable",
       "topics": [
         "11.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "literal-compliance-defeating-intent",
-      "label": "Literal compliance defeating intent",
-      "topics": [
-        "11.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3922,24 +4212,6 @@
       "claims": 0
     },
     {
-      "id": "model-validation-and-calibration",
-      "label": "Model validation and calibration",
-      "topics": [
-        "14.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "model-versioning-pinning-and-forced-upgrades",
-      "label": "Model versioning, pinning, and forced upgrades",
-      "topics": [
-        "6.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "monitoring-cost-when-the-agent-is-fully-instrumentable",
       "label": "Monitoring cost when the agent is fully instrumentable",
       "topics": [
@@ -4088,15 +4360,6 @@
       "label": "Operator error in configuration and deployment",
       "topics": [
         "11.11"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "orchestrator-and-sub-agent-patterns",
-      "label": "Orchestrator and sub-agent patterns",
-      "topics": [
-        "3.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4313,15 +4576,6 @@
       "label": "Probationary and supervised periods",
       "topics": [
         "6.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "process-scoring-versus-outcome-scoring",
-      "label": "Process scoring versus outcome scoring",
-      "topics": [
-        "8.3"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4696,15 +4950,6 @@
       "claims": 0
     },
     {
-      "id": "scaling-returns-and-coordination-cost",
-      "label": "Scaling returns and coordination cost",
-      "topics": [
-        "13.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "scope-escape-and-unauthorized-action",
       "label": "Scope escape and unauthorized action",
       "topics": [
@@ -4759,15 +5004,6 @@
       "claims": 0
     },
     {
-      "id": "shadow-mode-and-counterfactual-comparison-against-human-decisions",
-      "label": "Shadow mode and counterfactual comparison against human decisions",
-      "topics": [
-        "2.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "shared-infrastructure-or-tooling",
       "label": "Shared infrastructure or tooling",
       "topics": [
@@ -4808,15 +5044,6 @@
       "label": "Shared state and consistency",
       "topics": [
         "3.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "silent-failures-with-no-signal",
-      "label": "Silent failures with no signal",
-      "topics": [
-        "11.13"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -5029,24 +5256,6 @@
       "claims": 0
     },
     {
-      "id": "third-party-assessment-and-certification",
-      "label": "Third-party assessment and certification",
-      "topics": [
-        "14.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "third-party-audit-of-agentic-systems",
-      "label": "Third-party audit of agentic systems",
-      "topics": [
-        "9.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "threshold-creep-in-human-review-standards",
       "label": "Threshold creep in human review standards",
       "topics": [
@@ -5186,15 +5395,6 @@
       "label": "Underspecified constraints and implicit assumptions",
       "topics": [
         "11.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "ungoverned-infrastructure-as-escape-path",
-      "label": "Ungoverned infrastructure as escape path",
-      "topics": [
-        "11.4"
       ],
       "origin": "taxonomy",
       "claims": 0

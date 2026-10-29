@@ -15,6 +15,7 @@ facets:
   source_independence: independent-academic
   temporal_relevance: current
   applicability: background
+text_coverage: full-text
 review_status: unreviewed
 source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
   tags are a first pass from title, abstract, and venue — not classification-pipeline output,

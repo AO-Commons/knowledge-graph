@@ -1,0 +1,189 @@
+resource_id: resource:arxiv:2509.01063
+claims:
+- id: claim:arxiv:2509.01063:1
+  text: The frictions that stop human firms growing without bound seem intrinsic to people rather than
+    to organizations.
+  quote: The obstacles that prevent human firms from growing without bound seem intrinsic to humans but
+    not to AI.
+  standalone: Human communication is rate-limited — we know more than we can tell — where information
+    passes between artificial agents near-instantaneously; and most people dislike work, where an agent's
+    reward function can be designed against shirking, making monitoring and contractual enforcement unnecessary.
+    The authors draw out that if agents resolve coordination and incentive problems more efficiently than
+    people, economy-wide industry structure changes.
+  claim_type: position
+  concept_tags:
+  - firm-boundaries-when-coordination-cost-approaches-zero
+  - coase-revisited-under-agentic-coordination
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:2
+  text: Agents that generate their own training data as they produce can create a feedback loop that does
+    not run into diminishing returns.
+  quote: they continually improve with additional data---even in the ‘big data’ regime where humans are
+    saturated; and (ii) data and algorithmic improvements can be duplicated at scale across different
+    agents within the firm
+  standalone: The authors distinguish this from the data feedback loops already studied for demand prediction
+    and product quality, which diminish. A firm whose marginal costs fall this way tends towards concentration.
+  claim_type: position
+  concept_tags:
+  - scaling-returns-and-coordination-cost
+  - cost-curves-and-marginal-agent-economics
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:3
+  text: Who decides last should be whoever is least likely to introduce a new error, and nothing fixes
+    that as the human.
+  quote: agents with higher scores make decisions later because they are less likely to introduce new
+    errors. Given the current state of AI development, these final decision makers are likely to be human.
+    But there is nothing inevitable about this.
+  standalone: 'From a model of a decision chain in which each agent may correct an existing error or introduce
+    a new one. The authors put the consequence as a question worth costing: how much efficiency is given
+    up by requiring that a human decide last.'
+  claim_type: position
+  concept_tags:
+  - human-in-the-loop-on-the-loop-and-out-of-the-loop
+  - propose-versus-decide-versus-execute-separation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:4
+  text: Errors made by agents may be more correlated than human ones because the same agent is copied
+    within and between firms.
+  quote: This might arise because the same agent is ‘copied’ both within and between firms, inducing correlated
+    mistakes that do not wash out in the aggregate.
+  standalone: The authors connect this to the literature on how small shocks propagate across an economy,
+    and cite automated trading's role in the 2010 Flash Crash — roughly $1 trillion over fifteen minutes
+    — as the existing instance.
+  claim_type: position
+  concept_tags:
+  - correlated-failure-from-shared-model-or-prompt
+  - cascading-failure-across-fleets
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:5
+  text: Legal identity and registration are preconditions for market institutions, and neither exists
+    for AI agents.
+  quote: Such identity and registration infrastructure are currently missing for AI agents.
+  standalone: The authors trace the point historically — Qin surnames imposed for taxation, Athenian citizenship
+    as the precondition for owning land and using courts, modern birth registration and identity numbers
+    — and note even private institutions such as credit rating agencies could not function without a legal
+    identity regime.
+  claim_type: position
+  concept_tags:
+  - agent-identity-standards-and-registries
+  - legal-personhood-gaps-for-agentic-organizations
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:6
+  text: Registering each agent to an accountable human runs against two settled limits on liability.
+  quote: Few legal regimes of accountability impose liability on a person or organization for actions
+    that were not foreseeable by them or which are beyond their control to avoid.
+  standalone: The second limit is agency law, which caps a principal's liability at actions within the
+    agent's actual or apparent authority. The authors note instructions are trending towards the general
+    — "go make $1 million" — and that it is unclear what technical means a user would have to bound what
+    an agent can do.
+  claim_type: position
+  concept_tags:
+  - operator-deployer-and-developer-liability
+  - delegated-versus-originated-authority
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:7
+  text: A regulator can test a car or a drug without entering the firm; it cannot do that with a frontier
+    model.
+  quote: 'the massive AI models developed in commercial labs cannot be replicated and evaluated in government
+    or academic labs: the costs of training are too high and evaluation requires access not only to model
+    outputs but also inputs—their data and training procedures'
+  standalone: The authors call frontier models doubly inscrutable — the mapping from training to behavior
+    is not understood, and what goes into the training is not disclosed — and note open-weight models
+    are no substitute because they do not display the behaviors of larger ones. Regulators elsewhere do
+    get access to confidential information, but on the basis of a settled policy about what firms must
+    do, which does not yet exist here.
+  claim_type: position
+  concept_tags:
+  - access-and-observability-constraints-on-research
+  - third-party-assessment-and-certification
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:8
+  text: How a firm should structure team production around agents, given different coordination costs
+    between humans and agents, is open.
+  quote: How then should firms structure team production to integrate AI agents? How should we configure
+    who workers interact with, and how is this shaped by differential coordination costs for human-human,
+    human-AI, and AI-AI relationships?
+  standalone: The authors note agents may work better with other agents than with people — partly from
+    a greater capacity to monitor and discipline counterparties acting at superhuman speed — and that
+    agents may have opportunities to cheat by means a human colleague could not detect.
+  claim_type: gap
+  concept_tags:
+  - human-agent-team-structures
+  - function-to-agent-mapping-and-role-decomposition
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:9
+  text: Whether agents can hold the informal, incomplete agreements that carry cooperation inside human
+    firms is unknown.
+  quote: How might we build AI agents that are similarly normatively competent ?
+  standalone: 'Relational contracts are enforced by the value of the future relationship rather than by
+    law, and work because people fill gaps using shared norms. The authors add a second missing piece:
+    such contracts usually rest on transferable utility, and agents trained to optimize a narrow goal
+    have no equivalent, so some record-keeping or money would have to be built.'
+  claim_type: gap
+  concept_tags:
+  - inter-agent-negotiation-protocols
+  - cooperation-without-shared-objectives
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2509.01063:10
+  text: Models of systemic fragility start from a specified account of how agents learn, which opaque
+    agents may not supply.
+  quote: How might we analyze an economy of opaque ‘black box’ agents in a ‘detail-free’ way? How should
+    we robustly intervene to safeguard against fragility?
+  standalone: The authors note the existing method — specify how agents learn and optimize, then study
+    the cascades that emerge — cannot start where behavior out of sample is poorly understood, which is
+    the case for the agents now being deployed.
+  claim_type: gap
+  concept_tags:
+  - agent-based-simulation-of-organizational-dynamics
+  - correlated-failure-across-organizations
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

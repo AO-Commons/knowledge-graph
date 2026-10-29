@@ -23,6 +23,7 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 openalex_id: W7161686265
+text_coverage: full-text
 review_status: unreviewed
 abstract: 'The deployment of Large Language Models (LLMs) as autonomous economic agents introduces
   systemic risks that extend beyond individual capability failures. As agents transition to

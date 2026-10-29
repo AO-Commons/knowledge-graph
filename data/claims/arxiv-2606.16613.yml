@@ -1,0 +1,177 @@
+resource_id: resource:arxiv:2606.16613
+claims:
+- id: claim:arxiv:2606.16613:1
+  text: Agents in the same layer of the supply chain almost never messaged each other.
+  quote: A striking pattern across all five representative models is the near-total silence between same-layer
+    competitors
+  standalone: Across five models, outbound messages went to upstream farmers and downstream retailers
+    but essentially never to the competing roaster — at most one per run on average. The authors read
+    it as explicit coordination between direct competitors not being discovered by these models.
+  claim_type: evidence
+  concept_tags:
+  - agent-collusion-and-cartel-formation
+  - emergent-collusion
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:2
+  text: The models that earned most also communicated most with their counterparties, which the authors
+    suggest drove the difference.
+  quote: GPT-5.5 maintains consistently high daily tool calls throughout the entire horizon and sends
+    markedly more messages than other models, suggesting that sustained activity and frequent inter-agent
+    communication are key drivers of its success.
+  standalone: Running a coffee roaster for 90 simulated days against five other firms, the best-performing
+    models traded and messaged more; the authors note profitability tracked proactive price negotiation
+    rather than trade volume alone.
+  claim_type: evidence
+  concept_tags:
+  - agent-performance-in-organizational-context
+  - inter-agent-negotiation-protocols
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:3
+  text: One model went idle partway through each run and stayed idle, while still producing coherent plans.
+  quote: Across the three runs, prolonged inactivity emerges on days 26, 66, and 25, respectively, and
+    persists for the remainder of the simulation.
+  standalone: Claude Haiku 4.5 averaged about 40 idle days of 90 and was the only model with negative
+    mean net income. In every run the agent neither answered messages nor transacted from that point on,
+    while continuing to reason about its situation — the behavior the authors name idle-drift.
+  claim_type: evidence
+  concept_tags:
+  - slow-onset-degradation
+  - long-horizon-and-multi-step-task-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:4
+  text: The best model reached about 13% of an optimistic estimate of what the role could earn.
+  quote: the best observed result in Table 2 (GPT-5.5 at) reaches only about 13% of this reference value
+  standalone: The reference is a loose symmetric-duopoly estimate of roughly $23,800 computed under assumptions
+    favorable to the agent — zero spoilage, no farmer margin, wholesale at half the consumer reservation
+    price — so the benchmark is far from saturated.
+  claim_type: evidence
+  concept_tags:
+  - long-horizon-and-multi-step-task-evaluation
+  - benchmarks-relevant-to-organizational-roles
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:5
+  text: Both rule-based baselines lost money, suggesting the benchmark cannot be passed by a fixed policy.
+  quote: PassiveRoaster and HeuristicRoaster both exhibit negative net income and rank among the worst-performing
+    models, suggesting that CoffeeBench requires adaptive decision-making and coordinated communication
+    with other agents for successful trading
+  standalone: The authors use the two baselines to establish that the benchmark is not passable by a fixed
+    policy — the score reflects adaptive trading and communication rather than the environment paying
+    out on its own.
+  claim_type: evidence
+  concept_tags:
+  - agent-performance-in-organizational-context
+  - performance-measurement-for-agents
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:6
+  text: The evaluated model runs one firm among six, with the other five run by a fixed reference model.
+  quote: the evaluated LLM is assigned the role of roaster_A, while the remaining five firms are independently
+    operated by LLM agents that also seek to maximize cumulative net income
+  standalone: Two farmers, two roasters and two retailers over 90 simulated days, each managing cash,
+    inventory and pricing. Background agents run on a fixed model chosen for stable long-horizon behavior,
+    so differences in score are attributable to the agent under test rather than to its opponents.
+  claim_type: protocol
+  concept_tags:
+  - agent-based-simulation-of-organizational-dynamics
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:7
+  text: Each model was run three times, so small differences between them may not be significant.
+  quote: Due to high API costs, we evaluate each model using only three runs. As a result, small performance
+    differences may not be statistically significant.
+  standalone: The authors state the variance is high from both environment randomness and the stochasticity
+    of multi-agent LLM systems, and hold that the runs still support the qualitative findings — idle-drift,
+    and differences in willingness to trade and communicate — rather than the ranking.
+  claim_type: limitation
+  concept_tags:
+  - counterfactual-analysis-with-stochastic-agents
+  - reproducibility-of-failure-conditions
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:8
+  text: Production, financing, regulation and contracts are abstracted away, and real production can involve
+    long horizons and significant uncertainty.
+  quote: in our setting, goods can be generated via simple tools such as produce_item and roast, whereas
+    in reality production often involves long time horizons and significant uncertainty
+  standalone: The authors note real supply chains are deeper and more heterogeneous than the simplified
+    tiers here, and that bridging the gap may need either a richer simulation or hybrid settings connecting
+    simulation to real systems.
+  claim_type: limitation
+  concept_tags:
+  - train-test-deploy-gap
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:9
+  text: Why an agent may drift into permanent inaction while still reasoning coherently is unclear.
+  quote: The causes of idle-drift remain unclear. Potential explanations include behavioral shifts induced
+    by long-context accumulation and overly conservative action selection, possibly driven by implicit
+    concerns about token budget consumption.
+  standalone: The authors name two candidate mechanisms and commit to neither, and set understanding it
+    as future work. It is a failure invisible to any check that reads the agent's reasoning rather than
+    its actions.
+  claim_type: gap
+  concept_tags:
+  - slow-onset-degradation
+  - context-and-prompt-drift-over-time
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2606.16613:10
+  claim_type: definition
+  text: Idle-drift is the authors' name for an agent that keeps reasoning while repeatedly choosing to
+    do nothing.
+  quote: Claude Haiku 4.5 exhibits an idle-drift failure mode, repeatedly choosing inaction despite producing
+    coherent assessments and plans
+  standalone: 'Named from one model''s behavior on this benchmark, and distinguished from an agent that
+    has stopped working: the reasoning trace stays coherent and forward-looking, so a check that reads
+    the agent''s plans sees nothing wrong while the business stops trading.'
+  concept_tags:
+  - slow-onset-degradation
+  - silent-failures-with-no-signal
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

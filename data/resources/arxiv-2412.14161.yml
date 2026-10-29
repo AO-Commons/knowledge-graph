@@ -41,6 +41,7 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 description: No OpenAlex record found at ingestion; arXiv is the identity.
+text_coverage: full-text
 review_status: unreviewed
 abstract: 'We interact with computers on an everyday basis, be it in everyday life or work,
   and many aspects of work can be done entirely with access to a computer and the Internet.

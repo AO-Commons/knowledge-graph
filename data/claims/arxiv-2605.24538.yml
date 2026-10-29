@@ -1,0 +1,131 @@
+# Seven claims from a conceptual paper whose body surveys the layers of the
+# decentralizing stack. See the head of arxiv-2505.02077.yml.
+resource_id: resource:arxiv:2605.24538
+claims:
+- id: claim:arxiv:2605.24538:1
+  text: Every major AI governance framework assumes an identifiable entity that can be held responsible
+    and compelled to comply.
+  quote: Every major framework for governing artificial intelligence presupposes an identifiable entity—a
+    developer, deployer, or operator—who can be held responsible and compelled to comply.
+  standalone: 'The authors make the assumption explicit in order to show what dissolves it: decentralized
+    AI spread across model, training, compute, harness, identity and ownership layers, where partial decentralization
+    at each compounds.'
+  claim_type: position
+  concept_tags:
+  - no-identifiable-accountable-party
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:2
+  text: The governance vacuum is a system consequential enough to need governing that lacks the properties
+    governance frameworks assume of their targets.
+  quote: 'we call the governance vacuum: a condition in which AI systems are consequential enough to require
+    governance but lack the properties that existing frameworks presuppose in their targets'
+  standalone: Named as a condition of the system rather than a failure of any regulator, and analyzed
+    as a six-layer decentralizing stack in which partial decentralization at each layer compounds into
+    the whole.
+  claim_type: definition
+  concept_tags:
+  - no-identifiable-accountable-party
+  - enforcement-against-organizations-without-legal-form
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:3
+  text: 'The vacuum takes two distinct forms: nobody can be addressed, or the party addressed cannot change
+    the system.'
+  quote: 'This vacuum takes two analytically distinct forms: an accountability gap, where no addressable
+    principal can be identified, and an incapacitation gap, where even an identified principal cannot
+    alter the running system.'
+  standalone: 'The distinction is load-bearing for the argument: identifying a responsible party does
+    not help if that party has no means of stopping or altering what is running, so finding an addressee
+    and having an effect are separate problems.'
+  claim_type: definition
+  concept_tags:
+  - no-identifiable-accountable-party
+  - halting-autonomous-operation-under-duress
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:4
+  text: Governance should move from addressing agents to shaping the substrate that decides which actions
+    are possible.
+  quote: Protocol-based constitutive governance does not address the agents operating within a system
+    but shapes the substrate that determines what kinds of actions are possible within it.
+  standalone: The authors frame this through Lessig's modalities of regulation and Searle's distinction
+    between regulative and constitutive rules — a shift in the locus of governance from policy to protocol,
+    chosen because it does not depend on the principal-agent chain that decentralization breaks.
+  claim_type: position
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:5
+  text: Architectural constraints are normally authorized by a policy layer, and without that chain protocol
+    governance has no source of legitimacy.
+  quote: In conventional governance, architectural constraints are authorized by a prior policy layer.
+    In DeAI, that chain is fractured. Protocol governance must therefore develop alternative sources of
+    legitimacy or risk becoming an unaccountable exercise of technocratic power.
+  standalone: 'The authors treat this as the central political problem rather than an afterthought: moving
+    governance into the substrate makes it effective and removes the democratic authorization that made
+    it answerable.'
+  claim_type: position
+  concept_tags:
+  - consent-to-being-governed-by-non-human-decision-makers
+  - legitimacy-erosion-through-automation
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:6
+  text: 'Four conditions are set for architectural governance: legitimacy, contestability, transparency,
+    and non-domination.'
+  quote: We identify four ethical conditions—legitimacy, contestability, transparency, and non-domination—that
+    such governance must satisfy to avoid degenerating into unaccountable technocratic power
+  standalone: Offered as the test any protocol-level governance has to pass, and used in the paper to
+    assess existing proposals rather than left as a statement of values.
+  claim_type: definition
+  concept_tags:
+  - contestability-as-a-legitimacy-condition
+  - sources-of-legitimate-machine-authority
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2605.24538:7
+  text: No existing proposal satisfies all four conditions; each meets some and falls short on others.
+  quote: No existing proposal fully resolves this problem. Zero-knowledge verification, DAO governance,
+    AI identification systems, and society-in-the-loop frameworks each address some of the relevant ethical
+    conditions—of legitimacy, contestability, transparency, and non-domination—while falling short on
+    others.
+  standalone: The authors name four candidate approaches and assess each against their own four conditions,
+    concluding a defensible regime would need them layered rather than chosen between.
+  claim_type: gap
+  concept_tags:
+  - agentic-ai-governance-frameworks
+  - contestability-as-a-legitimacy-condition
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

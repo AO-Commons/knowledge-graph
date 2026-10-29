@@ -1,0 +1,98 @@
+# Five claims from a conceptual paper whose body surveys sovereignty theory
+# and the decentralized infrastructure stack. See arxiv-2505.02077.yml.
+resource_id: resource:arxiv:2602.14951
+claims:
+- id: claim:arxiv:2602.14951:1
+  text: Agentic sovereignty is an agent's capacity to persist, act and control resources with non-overrideability
+    inherited from its infrastructure.
+  quote: what we describe as agentic sovereignty – the capacity of an operational agent to persist, act,
+    and control resources with non-overrideability inherited from the infrastructures in which they are
+    embedded
+  standalone: 'The authors locate the property in the substrate rather than in the agent: cryptographic
+    self-custody, decentralized execution environments and protocol-mediated continuity are what make
+    an agent hard to stop, so the sovereignty is inherited rather than designed into the agent.'
+  claim_type: definition
+  concept_tags:
+  - agent-operated-versus-agent-governed-versus-agent-constituted
+  - halting-autonomous-operation-under-duress
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2602.14951:2
+  text: Sovereignty exists on a spectrum set by infrastructural hardness — how far the underlying systems
+    resist intervention or collapse.
+  quote: sovereignty in such systems exists on a spectrum determined by infrastructural hardness—the degree
+    to which underlying technical systems resist intervention or collapse
+  standalone: A graded property rather than a line, which lets the same question be asked of a conventional
+    deployment and an agent running in a trusted execution environment on a decentralized physical infrastructure
+    network.
+  claim_type: definition
+  concept_tags:
+  - ungoverned-infrastructure-as-escape-path
+  - kill-switch-design-and-its-failure-modes
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2602.14951:3
+  text: At each layer of the stack, the party providing infrastructure has legitimate grounds not to answer
+    for the layers above it.
+  quote: At each layer, the party providing infrastructure has legitimate grounds for not bearing accountability
+    for layers above, and the technical design systematically eliminates the observability and controllability
+    that traditional accountability requires.
+  standalone: 'The authors trace the stack from physical cables through internet protocols, blockchain
+    networks, DePIN coordination and TEE enclaves to the agent. The diffusion is not evasion: each refusal
+    is defensible on its own, and the result is that no layer answers for the whole.'
+  claim_type: position
+  concept_tags:
+  - responsibility-gaps-and-their-allocation
+  - no-identifiable-accountable-party
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2602.14951:4
+  text: Infrastructural sovereignty may increase resilience, and the same hardness defeats human-in-the-loop
+    control.
+  quote: 'While infrastructural sovereignty may increase resilience, it also produces a profound accountability
+    gap: responsibility diffuses across designers, infrastructure providers, protocol governance, and
+    economic participants, undermining traditional oversight mechanisms such as human-in-the-loop control
+    or platform moderation.'
+  standalone: The authors treat non-terminability as the governance problem rather than as a feature or
+    a bug — an agent that cannot be stopped by its designer is also an agent that cannot be stopped by
+    anyone who should be able to.
+  claim_type: position
+  concept_tags:
+  - halting-autonomous-operation-under-duress
+  - circuit-breakers-and-pause-authority
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2602.14951:5
+  text: Governance frameworks built for centralized AI do not fit agents whose infrastructure resists
+    override, and no replacement exists.
+  quote: The governance frameworks developed for centralized AI systems are inadequate to this new configuration
+    of autonomy and control. New theoretical frameworks, empirical research, and institutional innovations
+    are needed to address the challenges that infrastructural sovereignty presents.
+  standalone: The authors state the emergence is ongoing rather than hypothetical, and expect proliferation
+    as the supporting infrastructure becomes more accessible.
+  claim_type: gap
+  concept_tags:
+  - agentic-ai-governance-frameworks
+  - agent-containment-and-escape-incidents
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

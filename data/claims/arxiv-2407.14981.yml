@@ -1,0 +1,150 @@
+# Eight claims from a 49-section catalogue organised as six capacities across
+# four targets. Most sections set out open problems in areas this corpus does
+# not cover — chip location verification, proof-of-learning, anti-tamper
+# hardware. Held here is the paper's framing and the problems bearing on
+# agents and their evaluation. See arxiv-2505.02077.yml on survey sections.
+resource_id: resource:arxiv:2407.14981
+claims:
+- id: claim:arxiv:2407.14981:1
+  text: Technical AI governance is technical analysis and tooling that supports governing AI, rather than
+    work aimed at making systems safer.
+  quote: Technical AI governance, referring to technical analysis and tools for supporting the effective
+    governance of AI, seeks to address such challenges.
+  standalone: 'The authors distinguish it from AI safety and alignment, which aim directly at the system''s
+    behavior, and from sociotechnical approaches that treat society and technology as one system. Three
+    jobs: identify where intervention is needed, assess whether a governance action would work, and build
+    mechanisms for enforcement, incentives or compliance.'
+  claim_type: definition
+  concept_tags:
+  - agentic-ai-governance-frameworks
+  - third-party-audit-of-agentic-systems
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:2
+  text: Whether an evaluation has found most of a system's vulnerabilities is unresolved, so a behavioral
+    evaluation gives only a lower bound.
+  quote: if a model does not exhibit a particular behavior during testing, it is challenging to determine
+    whether this is due to the model genuinely lacking the underlying ability or if the evaluation method
+    applied was insufficient to surface it
+  standalone: The authors note this bites hardest for the capabilities that matter most to governance
+    — deception, long-horizon planning — and that jurisdictions including the EU already mandate capability
+    evaluations for which the technical method does not exist.
+  claim_type: gap
+  concept_tags:
+  - agent-generated-evaluation-and-scoring
+  - adversarial-and-stress-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:3
+  text: Agent benchmarks often lack adequate holdout data, so agents overfit them and the resulting evaluations
+    are unreliable.
+  quote: existing agent benchmarks often don’t have adequate holdout datasets, causing existing agents
+    to game and overfit to the benchmark, which in turn results in unreliable evaluations of these systems
+  standalone: The authors add that best practices for evaluating agents are absent, which leaves evaluations
+    inconsistent with each other and hard to reproduce. They call agent evaluation a nascent field.
+  claim_type: gap
+  concept_tags:
+  - benchmark-contamination
+  - evaluation-gaming-and-answer-key-attacks
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:4
+  text: Multi-agent evaluation is limited, and a collective may show capabilities or goals attributable
+    to no agent in it.
+  quote: it may be the case that collectives of agents exhibit unpredictable capabilities or goals not
+    attributable to any one agent in isolation
+  standalone: On top of the difficulty of evaluating one agent, the authors name information asymmetries,
+    destabilizing dynamics, and the difficulty of establishing trust and security as what multi-agent
+    interaction adds — and note this matters as agents enter finance and web services.
+  claim_type: gap
+  concept_tags:
+  - emergence-in-agent-populations
+  - what-breaks-as-agent-count-grows
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:5
+  text: Deciding which agent is responsible for a decision is unsolved, and may have no single answer.
+  quote: For issues of liability, it will be critical to be able to determine which agent(s) or system(s)
+    can be held responsible for a particular decision or action, if any. This may be complicated for cases
+    in which the cause is not solely attributable to a single AI agent.
+  standalone: The authors' phrasing allows that the answer may be none — the question is posed as whether
+    a responsible agent can be identified at all, not merely which one.
+  claim_type: gap
+  concept_tags:
+  - attribution-which-agent-acted-under-whose-authority
+  - liability-falling-on-unintended-parties
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:6
+  text: How to track versioning and post-deployment changes to a system made of many components is open.
+  quote: Key open questions in this context relate to how model versioning and post-deployment modifications
+    should be kept track of, especially for models that undergo frequent updates.
+  standalone: Deployed systems are not static models but assemblies — mixtures of experts, input and output
+    filters — that change through their life cycle. The authors note a registry is one approach, and that
+    it is unclear what it should hold or how its contents could be verified.
+  claim_type: gap
+  concept_tags:
+  - model-versioning-pinning-and-forced-upgrades
+  - continuity-of-identity-across-model-versions
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:7
+  text: Solving every technical problem in the catalog would not solve AI governance, and some of the
+    capacities are in tension with each other.
+  quote: having solutions to all open problems outlined in this paper will not have solved AI governance.
+    On the contrary, careful management will be necessary to determine a balance between capacities that
+    are in tension with each other, and to ensure that dual-use capacities are not misused.
+  standalone: 'The authors name their own risk — techno-solutionism, applying technical fixes to normative
+    social problems — and give examples of the tensions: broad access against security, and compute monitoring
+    that could as easily surveil legitimate users as reveal private model development.'
+  claim_type: position
+  concept_tags:
+  - dual-use-considerations-in-publication
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2407.14981:8
+  text: The catalog is organized as capacities applied to targets, with each pair producing its own open
+    problems.
+  quote: The paper is organized according to a two-dimensional taxonomy, based around capacities and targets.
+  standalone: Six capacities — including assessment, access, verification and security — across four targets
+    covering data, compute, models and deployment. The authors state the capacities are neither mutually
+    exclusive nor exhaustive, and leave organizational processes out as mostly non-technical.
+  claim_type: protocol
+  concept_tags:
+  - taxonomy-construction-for-agentic-failure
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

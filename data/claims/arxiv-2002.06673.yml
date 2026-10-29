@@ -1,0 +1,144 @@
+resource_id: resource:arxiv:2002.06673
+claims:
+- id: claim:arxiv:2002.06673:1
+  text: A prediction is performative when making it may influence the outcome it aims to predict.
+  quote: When predictions support decisions they may influence the outcome they aim to predict. We call
+    such predictions performative; the prediction influences the target.
+  standalone: The authors note performativity is well studied in policy-making and had been neglected
+    in supervised learning, where it surfaces instead as distribution shift and is routinely answered
+    by retraining.
+  claim_type: definition
+  concept_tags:
+  - endogenous-non-stationarity
+  - dynamic-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:2
+  text: Performative stability calibrates a model against the outcomes that follow from acting on its
+    predictions, not against past outcomes.
+  quote: Performative stability implies that the predictions are calibrated not against past outcomes,
+    but against the future outcomes that manifest from acting on the prediction.
+  standalone: The equilibrium notion the authors introduce, built from statistics, game theory and causality.
+    It is what a model converges to when retraining accounts for its own effect on the world rather than
+    treating that effect as drift.
+  claim_type: definition
+  concept_tags:
+  - endogenous-non-stationarity
+  - model-validation-and-calibration
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:3
+  text: Necessary and sufficient conditions are given for retraining to converge to a performatively stable
+    point of nearly minimal loss.
+  quote: Our main results are necessary and sufficient conditions for the convergence of retraining to
+    a performatively stable point of nearly minimal loss.
+  standalone: The result turns the usual practice — retrain when performance degrades — from a heuristic
+    into something with a stated condition under which it works and, by implication, conditions under
+    which it does not.
+  claim_type: evidence
+  concept_tags:
+  - endogenous-non-stationarity
+  - continuous-evaluation-in-production
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:4
+  text: Performative prediction strictly subsumes strategic classification, where subjects adapt to the
+    classifier.
+  quote: In full generality, performative prediction strictly subsumes the setting known as strategic
+    classification. We thus also give the first sufficient conditions for retraining to overcome strategic
+    feedback effects.
+  standalone: Strategic classification is the special case where the distribution shifts because the people
+    being classified respond to the rule. The authors' framework covers that alongside the broader case
+    where any decision taken on a prediction changes what is predicted.
+  claim_type: position
+  concept_tags:
+  - specification-gaming-and-reward-hacking
+  - goodhart-effects-under-machine-optimization
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:5
+  text: The framework's device is a map from a model's parameters to the distribution that results from
+    deploying it.
+  quote: This mapping from predictive model to distribution is the key conceptual device of our framework.
+  standalone: Classical risk minimization finds a rule that performs well on a fixed distribution. Here
+    the distribution is a function of the rule, so the quantity being minimized — the authors call it
+    performative risk — depends on its own argument, which defeats the standard theory.
+  claim_type: protocol
+  concept_tags:
+  - model-validation-and-calibration
+  - baseline-establishment-and-drift-alerting
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:6
+  text: Retraining on the distribution the last model produced is the natural heuristic, and it is what
+    practitioners already do for drift of any cause.
+  quote: These procedures exemplify a family of retraining heuristics that are ubiquitous in practice
+    for dealing with all kinds of distributions shifts irrespective of cause.
+  standalone: The authors formalize the practice as repeated risk minimization — repeatedly fit the model
+    that minimizes risk on the distribution the previous model induced — and analyze a cheaper gradient-step
+    approximation alongside it.
+  claim_type: protocol
+  concept_tags:
+  - continuous-evaluation-in-production
+  - drift-detection-and-behavior-change-monitoring
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:7
+  text: Stable points exist when the map from model to distribution is sufficiently Lipschitz.
+  quote: Our algorithmic analysis of these methods reveals the existence of stable points under the assumption
+    that the distribution map is sufficiently Lipschitz.
+  standalone: 'Existence is not free: before this it was unclear whether a model calibrated against its
+    own effects exists at all in a given setting, let alone whether it can be found efficiently. The condition
+    bounds how much the world can move in response to a small change in the model.'
+  claim_type: evidence
+  concept_tags:
+  - endogenous-non-stationarity
+  - reproducibility-of-failure-conditions
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2002.06673:8
+  text: 'A model can be stable without being optimal: the two solution concepts are distinct and neither
+    implies the other.'
+  quote: We refer to this condition as performative stability, noting that it is neither implied by nor
+    does it imply minimal performative risk.
+  standalone: A model that has stopped moving under retraining is calibrated against the world it makes,
+    which is not the same as being the best available model for that world. The authors give conditions
+    under which the two are close.
+  claim_type: evidence
+  concept_tags:
+  - metric-specification-and-its-gaming-surface
+  - model-validation-and-calibration
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

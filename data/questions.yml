@@ -32,7 +32,7 @@
 # paper and six by one each, and that ratio is the honest state of the layer.
 #
 # The reading pass of 2026-10-29 is what moved it. Six papers on multi-agent
-# behaviour were read down to their claims in one go, and the gaps they
+# behavior were read down to their claims in one go, and the gaps they
 # carried did not scatter: three papers that share no author — an
 # architectural security study, a multi-agent security survey, and a risk
 # report — each arrived at the same missing instrument from a different
@@ -183,6 +183,16 @@ questions:
           States that no existing approach meets, in combination, all the
           requirements the authors set out for a valid dynamic evaluation —
           the question stated as the shortfall the paper found.
+      - claim: claim:arxiv:2407.14981:3
+        because: >-
+          States that agent benchmarks lack adequate holdout data so agents
+          overfit them — the measured system moving in response to the
+          measurement, which is the case this question is about.
+      - claim: claim:arxiv:2407.14981:6
+        because: >-
+          States that it is open how to track versioning and post-deployment
+          modification of a system assembled from components that change
+          through its life cycle.
 
   # ---------------------------------------------------------------------
   # Whether an organization can be constrained back into alignment.
@@ -215,10 +225,21 @@ questions:
           would have to answer.
       - claim: claim:arxiv:2505.02077:9
         because: >-
-          States that the two de facto agent protocols standardise transport
+          States that the two de facto agent protocols standardize transport
           and discovery and specify no enforceable action constraints, which
           is the same question approached from the layer a constraint would
           have to live in rather than from the failure it would answer.
+      - claim: claim:arxiv:2605.24538:7
+        because: >-
+          States that no existing proposal — zero-knowledge verification, DAO
+          governance, identification systems, society-in-the-loop — satisfies
+          all four conditions the authors set for governance that acts on the
+          substrate rather than on the agent.
+      - claim: claim:arxiv:2602.14951:5
+        because: >-
+          States that frameworks built for centralized AI do not fit agents
+          whose infrastructure resists override, and that no replacement
+          exists.
 
   # ---------------------------------------------------------------------
   # Whether the analogy to human organizations holds.
@@ -295,6 +316,22 @@ questions:
           States that the interaction between role, topology and memory
           remains underexplored, so each axis is measured alone and the
           combined design is not measured at all.
+      - claim: claim:arxiv:2407.14981:4
+        because: >-
+          States that multi-agent evaluation is limited and that a collective
+          may show capabilities or goals attributable to no agent in it —
+          the same instrument missing, named from the governance side.
+      - claim: claim:arxiv:2605.17698:11
+        because: >-
+          States that the trained stabilizing agent was measured only against
+          fixed opponents, so whether it holds against competitors adapting to
+          it is untested.
+      - claim: claim:arxiv:2509.01063:10
+        because: >-
+          States that models of systemic fragility begin from a specified
+          account of how agents learn, which opaque agents do not supply —
+          the same question asked by economists about an economy rather than
+          by engineers about a deployment.
 
   # ---------------------------------------------------------------------
   # Attribution when the cause is spread across a network.
@@ -330,6 +367,12 @@ questions:
         because: >-
           States that an attribution framework must separate agent misconduct
           from systemic causes or it will misidentify benign agents.
+      - claim: claim:arxiv:2407.14981:5
+        because: >-
+          States that determining which agent is responsible for a decision
+          is unsolved and may have no single answer — a second paper, from
+          technical AI governance rather than security, reaching the same
+          place.
 
   # ---------------------------------------------------------------------
   # Whether an operator can see what its own agent is doing.
@@ -346,7 +389,7 @@ questions:
       reason to ask. Having established a causal link between what its agents
       wrote and what they then did, it finds the deploying firm still cannot
       use that: asking the model directly whether it would collude returns a
-      reassurance the authors read as sycophancy, and tracing the behaviour
+      reassurance the authors read as sycophancy, and tracing the behavior
       back to its source in training is blocked by an open problem in
       attributing a model's output features to its training documents. So a
       merchant acting in good faith has no instrument for establishing what
@@ -362,6 +405,83 @@ questions:
           not work.
       - claim: claim:arxiv:2404.00806:17
         because: >-
-          States that what in a model's training causes the behaviour is an
+          States that what in a model's training causes the behavior is an
           open question, and that attributing an output feature to training
           data is itself unsolved.
+      - claim: claim:arxiv:2606.16613:9
+        because: >-
+          States that the cause of an agent drifting into permanent inaction
+          while still producing coherent plans is unclear. The sharpest form
+          of this question: the reasoning an operator would read looks right
+          while the business has stopped trading.
+
+  # ---------------------------------------------------------------------
+  # What a benchmark does not reach.
+  # ---------------------------------------------------------------------
+  - id: question:what-a-benchmark-cannot-reach
+    text: What can a benchmark not establish about a system?
+    status: open
+    concept_tags:
+      - adversarial-and-stress-evaluation
+      - evaluation-environments-and-benchmark-suites
+      - long-horizon-and-multi-step-task-evaluation
+    note: >-
+      Two claims from two papers, about the two edges of what a score means.
+      One is logical: when a model does not do something under test, nothing
+      distinguishes a model that cannot from an evaluation that failed to
+      elicit it, so a behavioral evaluation yields a lower bound and never
+      an upper one. The other is practical: a task has to be markable by
+      program to be in a benchmark at all, which excludes the open-ended work
+      — vague intents, conceiving something and carrying it through — that
+      most of a real job consists of. Kept apart from the transfer question,
+      which asks whether a result survives new conditions; this asks what the
+      instrument was never able to see.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2407.14981:2
+        because: >-
+          States that it is unresolved whether an evaluation has found most of
+          a system's vulnerabilities, and that behavioral evaluations offer
+          only a lower bound.
+      - claim: claim:arxiv:2412.14161:12
+        because: >-
+          States that benchmarks could be extended to tasks whose intent is
+          vague at the outset and that run from conception to execution — the
+          work a checkpoint-graded task cannot represent.
+
+  # ---------------------------------------------------------------------
+  # The firm, when coordinating costs almost nothing.
+  # ---------------------------------------------------------------------
+  - id: question:the-firm-at-zero-coordination-cost
+    text: What holds a firm together when coordination costs almost nothing?
+    status: open
+    concept_tags:
+      - firm-boundaries-when-coordination-cost-approaches-zero
+      - coase-revisited-under-agentic-coordination
+      - human-agent-team-structures
+    note: >-
+      Two claims from one paper, and the oldest question in the corpus.
+      Economics has explained the boundary of the firm by frictions — the
+      cost of transacting, of transferring knowledge, of monitoring people who
+      would rather not work — and the paper's argument is that those frictions
+      are properties of humans rather than of organizations. If so, the
+      question is not how large firms become but what structure means at all:
+      how to arrange team production when the coordination cost differs between
+      human-human, human-agent and agent-agent pairs, and whether agents can
+      hold the informal, incomplete agreements that carry cooperation inside
+      human firms and are enforced by nothing but the value of the relationship.
+      One paper asking twice, counted as that paper's framing.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2509.01063:8
+        because: >-
+          Asks how firms should structure team production around agents given
+          that coordination costs differ across human-human, human-AI and
+          AI-AI relationships.
+      - claim: claim:arxiv:2509.01063:9
+        because: >-
+          Asks whether agents can be built normatively competent enough to
+          sustain relational contracts, and notes they lack the transferable
+          utility such contracts usually rest on.
