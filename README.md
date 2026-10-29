@@ -31,15 +31,25 @@ Where the library falls short of this, that is a defect to fix, not a cost of do
 
 ## Status
 
-Early. Milestone 1 is done: the v3 taxonomy loads deterministically and exports as a portable release.
+Early, and the binding constraint has moved. Records are no longer the scarce
+thing; reading them is, and review of what was read is scarcer still.
+
+| | |
+|---|---|
+| Records | 363, of which 171 are section 15 background the library points at rather than ingests |
+| Papers read down to claims | 27 |
+| Claims | 349 — 43 of them checked by a person against the paper |
+| Open questions | 13, clustered from 35 gap claims |
+| Topics | 103, in 16 sections |
+| Releases | Deterministic and checksummed, latest `v0.11.0`, each also shipped as a [MIRA](https://github.com/MIRA-science/schema) graph |
 
 | Milestone | State |
 |---|---|
 | 1 — Taxonomy and data model | **Done** — 103 topics, 16 sections, JSONL export |
-| 2 — Scholarly corpus (OpenAlex) | **Pipeline built; awaiting a live run** |
-| 3 — Taxonomy classification | **Started** — BM25 baseline, review tooling, measured |
+| 2 — Scholarly corpus (OpenAlex) | **Running** — resolution and citation expansion go unattended |
+| 3 — Taxonomy classification | **Superseded** — a record's topics derive from the concepts on its claims |
 | 4 — Connected-Papers-style similarity | **Started** — bibliographic coupling and co-citation |
-| 5 — Query surfaces (CLI, REST, MCP) | Not started |
+| 5 — Query surfaces | **CLI and MCP ship**; no REST |
 | 6 — Optional enrichment | Deliberately deferred |
 
 ## The taxonomy
@@ -72,8 +82,10 @@ claims that pass through it: how several papers' open questions are
 clustered into one, what the `addresses` edge asserts, and why the surface
 counts papers and occurrences apart.
 
-The short version: everything up to filing now runs on its own, and nothing
-has yet been reviewed by a human. That is where the binding constraint sits.
+The short version: everything up to filing now runs on its own, and 43 of 349
+claims have been checked by a person against the paper they came from. That is
+where the binding constraint sits, and the figure is published rather than
+rounded up.
 
 ## Adding a lot at once
 
@@ -139,18 +151,6 @@ rebuilt every morning from `data/resources/` and
 an edit typed into it survives until the next run and no longer. Curation
 happens here. See [scripts/README.md](scripts/README.md#the-public-base).
 
-## Asking it questions in Slack
-
-Tag the agent in `#knowledge-graph` and it answers from the graph — through the
-same tools the MCP server exposes, so the two cannot drift apart. A message that
-carries an identifier *and* asks for it to go in opens a `new-resource` issue
-instead, which is the door the Add tab already uses.
-
-Which of the two happens is decided before any model runs. *Machines admit,
-humans judge* stops meaning anything if a model can decide it was asked.
-
-See [docs/slack-agent.md](docs/slack-agent.md) for the app and relay setup.
-
 ## Asking it questions from Claude
 
 A read-only MCP server ships with the repository, so Claude can search the
@@ -177,7 +177,7 @@ python3 -m pip install -e ".[scholarly]"
 aokg taxonomy --stats            # what loaded, per section
 aokg resolve                     # fetch OpenAlex metadata + reference lists
 aokg expand --limit 40           # propose new records from the citation graph
-aokg build --version v0.4.0      # write a portable release
+aokg build --version v0.12.0     # write a portable release
 ```
 
 Building the gold set that every classification figure is measured against:
@@ -259,7 +259,7 @@ The schema refuses to let these blur: labeling a citation with a confidence clas
 
 ## Design commitments
 
-**Small schema.** Three node families — Resource, Topic, and one generic Entity. Adding a fourth should require showing a real query that can't be answered without it.
+**Small schema, and the bar it sets.** It began as three node families — Resource, Topic, and one generic Entity — with the rule that a fourth had to be justified by a query that could not be answered without it. Four have since cleared that bar: Claim, because the paper is the wrong unit to link; Question, because gaps from different papers turn out to ask one thing; and Organization and Person, because an affiliation that is a string on a record points at nothing. The rule is kept, not relaxed.
 
 **Boring storage.** The logical product is a graph; the physical database can be SQLite or Postgres. No graph database and no vector store until measurement shows one earns its place.
 
@@ -273,10 +273,15 @@ The schema refuses to let these blur: labeling a citation with a confidence clas
 |---|---|
 | [taxonomy/](taxonomy/) | The v3 source file, aliases, cross-links, and change proposals |
 | [src/ao_commons_kg/](src/ao_commons_kg/) | Models, taxonomy parser, export |
+| [data/resources/](data/resources/) | One file per record |
+| [data/claims/](data/claims/) | What each paper asserts, with the sentence it came from |
+| [data/questions.yml](data/questions.yml) | Open questions, and the gap claims that ask them |
+| [data/claim-relations.yml](data/claim-relations.yml) | How claims support, qualify, extend or disagree with each other |
+| [data/organizations/](data/organizations/) · [data/people/](data/people/) | The ecosystem layer |
 | [data/releases/](data/releases/) | Published graph releases |
 | [tests/](tests/) | Run with `pytest` |
 | [evals/](evals/) | Research questions and results for benchmarking against baselines |
-| [data/snapshots/](data/snapshots/) | Committed text of web sources, so a quote stays checkable |
+| `data/snapshots/` | Committed text of web sources, so a quote stays checkable. Empty until a web source is admitted |
 | [auth/](auth/) | GitHub sign-in, written and not switched on — [docs/sign-in.md](docs/sign-in.md) |
 | [docs/](docs/) | Data model and architecture notes |
 

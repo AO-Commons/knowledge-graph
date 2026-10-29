@@ -32,7 +32,7 @@ at subsection level and 458 leaves held nothing at all. The conclusion drawn
 was that the leaf layer was too fine. The better conclusion is that *a paper
 is too coarse an object to carry a fine tag* — because the concept vocabulary,
 which is exactly as fine-grained, works perfectly well on claims. 523
-terms, 17 in use across 40 claims, and they cluster meaningfully enough that
+terms, 198 in use across 349 claims, and they cluster meaningfully enough that
 25 candidate pairs produced 3 real relations.
 
 **The two tagging layers on a claim already disagree.** A claim carries
@@ -180,7 +180,7 @@ real and starved of coverage rather than of ideas.
 ## Reading becomes the load-bearing process
 
 If claims are the unit, reading quality is the whole product, and it is
-currently a one-off: 40 claims from 6 papers, three-pass over full text, one
+currently a one-off: 349 claims from 27 papers, three-pass over full text, one
 model, one afternoon, unreviewed. That does not scale and it has never been
 measured.
 
@@ -227,7 +227,7 @@ The order that avoids a cliff:
    most of the corpus, let hand-filing wither — for the codes derivation can
    see. Keep the framing codes.
 
-Switching today would take the navigable corpus from 101 records to 6. The
+Switching today would take the navigable corpus from 363 records to 27. The
 destination is right; the cliff is avoidable.
 
 ## What this changes about the project

@@ -9,16 +9,16 @@ measured, not estimated, and are the honest answer to "how far does this
 actually go" — the scaffolding is complete and thins sharply toward the top.
 
 ```
-                                            coverage today
-  1  INTAKE          three doors                101 records
-  2  RESOLUTION      metadata, references        45 with references
+                                        coverage, 29 Oct 2026
+  1  INTAKE          three doors                363 records
+  2  RESOLUTION      metadata, references       298 with an abstract
   3  ADMISSION       scope, duplicates          automatic since 10 Sep
-  4  READING         claims out of text       6 records · proposed as process
-  5  TAGGING         concepts on claims      40 of 40 claims
-  6  LINKING         relations between them      12 relations
-  7  FILING          categories, derived          6 derived · 73 legacy hand-filed
-  8  REVIEW          a person decides             0 reviewed
-  9  RELEASE         a fixed, citable version     3 releases
+  4  READING         claims out of text          27 records read in full
+  5  TAGGING         concepts on claims         349 of 349 claims
+  6  LINKING         relations between them      12 relations, 18 claims
+  7  FILING          categories, derived        computed from concepts
+  8  REVIEW          a person decides            43 of 349 claims
+  9  RELEASE         a fixed, citable version     6 releases, each also MIRA
 ```
 
 **Filing moved.** It used to sit at stage 4, before reading, and it is now
@@ -138,7 +138,7 @@ between runs is visible rather than invisible.
 ## 4 · Reading — proposed as a process
 
 **This is the stage that decides whether claims can carry the library, and
-it is currently not a process.** 40 claims, six papers, one model, one
+it is currently not a process.** 349 claims, 27 papers, one model, one
 afternoon, three passes over full text, never measured.
 
 What it produces per claim: `text` (the paraphrase), `quote` (verbatim
@@ -188,7 +188,7 @@ scope scan, and it should be answered the same way: let the machine produce,
 mark clearly what is unconfirmed, and let review of the output be both the
 quality signal and the evidence for loosening the rules.
 
-**Coverage: 6 of 101 records.**
+**Coverage: 27 of 363 records.**
 
 ---
 
@@ -260,7 +260,7 @@ the taxonomy's subpoints, which were written as prose rather than as a
 controlled vocabulary. Those can only be fixed where the taxonomy is. What
 the loader prevents is a ninth.
 
-**Coverage: 40 of 40 claims tagged, 17 concepts in use.**
+**Coverage: 349 of 349 claims tagged, 198 concepts in use.**
 
 ---
 
@@ -293,7 +293,7 @@ judgment.
 claims are candidates for relations to B's. One usable edge today — worth
 63 pairs — and free as coverage grows.
 
-**Coverage: 12 relations across 16 of 40 claims.**
+**Coverage: 12 relations across 18 of 349 claims.**
 
 ---
 
@@ -344,7 +344,7 @@ of reading and invisible in a yes/no.
 Filings become pull requests. The gold set they build is what every
 classification number is measured against.
 
-**Coverage: 0 of 101 records, 0 of 40 claims.** This is the honest state
+**Coverage: 43 of 349 claims, by a person against the paper.** This is the honest state
 of the library and the reason every accuracy figure is still unquotable.
 
 ---
