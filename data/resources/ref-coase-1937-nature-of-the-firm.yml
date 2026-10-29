@@ -1,0 +1,30 @@
+id: resource:ref:coase-1937-nature-of-the-firm
+resource_type: paper
+title: The Nature of the Firm
+description: Asks why firms exist at all rather than everything being bought on a market, and answers
+  with the cost of transacting. Every later claim that agents change the boundary of the firm is an argument
+  with this paper.
+authors:
+- R. H. Coase
+published_at: '1937-11-01'
+doi: 10.1111/j.1468-0335.1937.tb00002.x
+url: https://doi.org/10.1111/j.1468-0335.1937.tb00002.x
+openalex_id: W2120320034
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: Economica.'
+ingested_at: '2026-10-29'

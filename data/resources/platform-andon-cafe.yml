@@ -1,8 +1,8 @@
 id: resource:platform:andon-cafe
 resource_type: deployment
 title: Andon Café
-description: A café in Stockholm owned and operated by an agent, Mona, from registering the food business with
-  the Swedish authorities to hiring baristas and daily operations. Live balance and sales are public.
+description: A café in Stockholm owned and operated by an agent, Mona, from registering the food business
+  with the Swedish authorities to hiring baristas and daily operations. Live balance and sales are public.
 url: https://andonlabs.com/cafe
 organizations:
 - Andon Labs
@@ -17,7 +17,8 @@ facets:
   maturity_of_subject: limited-deployment
   temporal_relevance: current
   applicability: directly-actionable
-source_provenance: added by hand, 2026-10-26, from andonlabs.com/cafe. Taxonomy tags are a first pass, as for
-  the seed corpus's deployments and evaluations, and not reviewed.
+source_provenance: added by hand, 2026-10-26, from andonlabs.com/cafe. Taxonomy tags are a first pass,
+  as for the seed corpus's deployments and evaluations, and not reviewed.
 ingested_at: '2026-10-26'
 review_status: unreviewed
+role: anchor

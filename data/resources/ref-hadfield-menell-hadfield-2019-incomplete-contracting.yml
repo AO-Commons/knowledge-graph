@@ -1,0 +1,30 @@
+id: resource:ref:hadfield-menell-hadfield-2019-incomplete-contracting
+resource_type: paper
+title: Incomplete Contracting and AI Alignment
+description: Connects the incompleteness of contracts to the incompleteness of a specification given to
+  an agent. The bridge between the economics of the firm and alignment, and the reason both literatures
+  are in this bibliography.
+authors:
+- Dylan Hadfield-Menell
+- Gillian K. Hadfield
+published_at: '2019-01-27'
+doi: 10.1145/3306618.3314250
+url: https://doi.org/10.1145/3306618.3314250
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: AAAI/ACM Conference on AI, Ethics, and Society.'
+ingested_at: '2026-10-29'

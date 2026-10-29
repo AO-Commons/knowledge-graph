@@ -1,0 +1,28 @@
+id: resource:ref:bayern-2016-business-entity-law-autonomous-systems
+resource_type: paper
+title: The Implications of Modern Business-Entity Law for the Regulation of Autonomous Systems
+description: Shows that existing entity law already permits an organization with no human member, without
+  anyone having decided to allow it. The legal substrate an autonomous organization can be built on today.
+authors:
+- Shawn Bayern
+published_at: '2016-06-01'
+doi: 10.1017/s1867299x00005729
+url: https://doi.org/10.1017/s1867299x00005729
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: law
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: European Journal of Risk Regulation.'
+ingested_at: '2026-10-29'

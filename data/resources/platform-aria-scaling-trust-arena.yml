@@ -2,9 +2,9 @@ id: resource:platform:aria-scaling-trust-arena
 resource_type: deployment
 title: ARIA — Scaling Trust Arena
 description: A cyber-physical environment in the UK where agents run autonomous organisations in a small
-  economy (trading, making payments, operating machines, selling real products and services), with
-  open competitions to run them and red teams rewarded for breaking them. Part of the Scaling Trust
-  programme; set to go live in early 2027.
+  economy (trading, making payments, operating machines, selling real products and services), with open
+  competitions to run them and red teams rewarded for breaking them. Part of the Scaling Trust programme;
+  set to go live in early 2027.
 url: https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/scaling-trust/arena
 organizations:
 - Advanced Research + Invention Agency
@@ -19,9 +19,10 @@ facets:
   maturity_of_subject: prototype
   temporal_relevance: current
   applicability: directly-actionable
-source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy
-  tags are a first pass from title, abstract, and venue — not classification-pipeline output,
-  and not reviewed. Recast from research programme to deployment on 2026-10-26 from the Arena's
-  page, since the Arena is where the programme's autonomous organisations run, built with Andon Labs.
+source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex. Taxonomy tags are a
+  first pass from title, abstract, and venue — not classification-pipeline output, and not reviewed. Recast
+  from research programme to deployment on 2026-10-26 from the Arena's page, since the Arena is where
+  the programme's autonomous organisations run, built with Andon Labs.
 ingested_at: '2026-08-11'
 review_status: unreviewed
+role: anchor

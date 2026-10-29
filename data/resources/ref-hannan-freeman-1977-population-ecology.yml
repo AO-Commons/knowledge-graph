@@ -1,0 +1,29 @@
+id: resource:ref:hannan-freeman-1977-population-ecology
+resource_type: paper
+title: The Population Ecology of Organizations
+description: Treats organizations as a population under selection rather than as designs. Relevant where
+  agent organizations are spawned and retired faster than any of them can adapt.
+authors:
+- Michael T. Hannan
+- John Freeman
+published_at: '1977-03-01'
+doi: 10.1086/226424
+url: https://doi.org/10.1086/226424
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: context
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: American Journal of Sociology.'
+ingested_at: '2026-10-29'

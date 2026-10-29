@@ -350,6 +350,35 @@ class Resource:
     """Section 15 material: relevant by transfer, not about autonomous
     organizations directly. Flagged so it can be excluded from counts that
     claim to measure the field's own literature."""
+
+    role: str | None = None
+    """What this record does in the field, as against what it is about.
+
+    The taxonomy says a record's subject and `resource_type` says its form.
+    Neither answers the question a reader actually asks of a citation list:
+    is this where the vocabulary comes from, is it the thing everyone
+    measures against, is it a deployment somebody ran, or is it here because
+    a neighbouring field worked the problem first. Two records can share a
+    topic and a type and play opposite roles — Coase defines the terms an
+    argument is conducted in, Vending-Bench is what a claim is tested
+    against.
+
+    Deliberately orthogonal to everything else here, and to MIRA, which has
+    no slot for it. A role is a judgment about this corpus rather than a
+    property of the work: the same paper is a `primitive` here and an
+    ordinary result in the field that produced it. So it is set by hand and
+    left empty rather than guessed.
+    """
+
+    ROLES = frozenset({
+        "primitive",   # where the field's vocabulary comes from (Coase, Aghion & Tirole)
+        "anchor",      # a deployment or result the field keeps returning to (Project Vend)
+        "benchmark",   # the thing claims are measured against (Vending-Bench, TheAgentCompany)
+        "method",      # a technique or instrument others use (performative prediction)
+        "law",         # legal and regulatory scholarship bearing on the field
+        "survey",      # assembles a field rather than adding a result (Hammond, Reuel)
+        "context",     # adjacent work the field borrows from without being about it
+    })
     tool: ToolProfile | None = None
     review_status: ReviewStatus = ReviewStatus.UNREVIEWED
     reviewed_by: str | None = None
@@ -422,6 +451,11 @@ class Resource:
             self.tool = ToolProfile(**self.tool)
         if isinstance(self.review_status, str):
             self.review_status = ReviewStatus(self.review_status)
+        if self.role is not None and self.role not in self.ROLES:
+            raise ValueError(
+                f"resource {self.id}: role is {self.role!r}; expected one of "
+                f"{sorted(self.ROLES)}"
+            )
         if self.reviewed_by and self.review_status is ReviewStatus.UNREVIEWED:
             raise ValueError(
                 f"resource {self.id}: reviewed_by is set but review_status is "

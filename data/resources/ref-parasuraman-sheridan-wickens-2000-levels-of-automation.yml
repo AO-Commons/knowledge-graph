@@ -1,0 +1,30 @@
+id: resource:ref:parasuraman-sheridan-wickens-2000-levels-of-automation
+resource_type: paper
+title: A Model for Types and Levels of Human Interaction with Automation
+description: The levels-of-automation scale, which is the instrument every autonomy-ladder proposal is
+  a variant of. Held as a method because later work measures against it rather than argues with it.
+authors:
+- Raja Parasuraman
+- Thomas B. Sheridan
+- Christopher D. Wickens
+published_at: '2000-05-01'
+doi: 10.1109/3468.844354
+url: https://doi.org/10.1109/3468.844354
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: method
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: IEEE Transactions on Systems, Man, and Cybernetics - Part A.'
+ingested_at: '2026-10-29'

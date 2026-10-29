@@ -1,0 +1,30 @@
+id: resource:ref:simon-sciences-of-the-artificial
+resource_type: paper
+title: The Sciences of the Artificial
+description: Bounded rationality and the architecture of complexity. The bounds are different for machine
+  agents — context windows, tool access, latency rather than attention and memory — and the framework
+  for asking what bounds do is this one.
+authors:
+- Herbert A. Simon
+published_at: '1969-01-01'
+doi: 10.7551/mitpress/12107.001.0001
+url: https://doi.org/10.7551/mitpress/12107.001.0001
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: MIT Press. Note: doi and year are for the 2019 MIT Press edition openalex returned;
+  first published 1969.'
+ingested_at: '2026-10-29'

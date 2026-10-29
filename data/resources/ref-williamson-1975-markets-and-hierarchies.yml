@@ -1,0 +1,28 @@
+id: resource:ref:williamson-1975-markets-and-hierarchies
+resource_type: paper
+title: 'Markets and Hierarchies: Analysis and Antitrust Implications'
+description: Develops the transaction-cost account into a comparison of governance structures. OpenAlex's
+  first match was a review of the book rather than the book; the 1975 book entry it does hold carries
+  no identifier.
+authors:
+- Oliver E. Williamson
+published_at: '1975-01-01'
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: Free Press. Note: openalex returned a book entry with no DOI; a 1976 book review was
+  the higher-ranked match and was rejected.'
+ingested_at: '2026-10-29'

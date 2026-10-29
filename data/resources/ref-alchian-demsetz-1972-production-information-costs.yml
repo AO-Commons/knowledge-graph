@@ -1,0 +1,29 @@
+id: resource:ref:alchian-demsetz-1972-production-information-costs
+resource_type: paper
+title: Production, Information Costs, and Economic Organization
+description: Locates the firm in team production and the problem of metering each contributor. The monitoring
+  problem it names is what an agent's reward function is claimed to dissolve.
+authors:
+- Armen A. Alchian
+- Harold Demsetz
+published_at: '1972-12-01'
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: The American Economic Review. Note: openalex holds reprints and a preprint but no clean
+  entry for the 1972 American Economic Review paper; no identifier recorded rather than citing a reprint
+  as the original.'
+ingested_at: '2026-10-29'

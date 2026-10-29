@@ -1,0 +1,30 @@
+id: resource:ref:aghion-tirole-1997-formal-and-real-authority
+resource_type: paper
+title: Formal and Real Authority in Organizations
+description: The distinction between who is entitled to decide and who effectively does. It is the source
+  of the authority gap, and of the observation that a reviewer who cannot keep up has formal authority
+  and not real authority.
+authors:
+- Philippe Aghion
+- Jean Tirole
+published_at: '1997-02-01'
+doi: 10.1086/262063
+url: https://doi.org/10.1086/262063
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: Journal of Political Economy.'
+ingested_at: '2026-10-29'

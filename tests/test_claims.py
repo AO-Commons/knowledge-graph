@@ -421,3 +421,38 @@ class TestMachineCheckedIsNotReviewed:
             "attribution": "own", "concept_tags": [],
         }])
         assert result.kept[0]["review_status"] == "machine-checked"
+
+
+class TestARecordSaysWhatItDoesHere:
+    """`role` answers what a citation is doing in this corpus, which neither
+    its topic nor its type does."""
+
+    def _resource(self, **kwargs):
+        from ao_commons_kg.models import Resource
+        base = dict(id="resource:arxiv:0000.00001", resource_type="paper",
+                    title="A paper", url="https://example.org/p")
+        return Resource(**{**base, **kwargs})
+
+    def test_it_is_empty_unless_somebody_sets_it(self):
+        """A judgment about this corpus, so never guessed."""
+        assert self._resource().role is None
+
+    def test_an_unknown_role_is_refused(self):
+        import pytest
+        with pytest.raises(ValueError, match="role is"):
+            self._resource(role="foundational")
+
+    def test_the_roles_are_orthogonal_to_borrowed_background(self):
+        """Section 15 says a record is not about this field; `role` says what
+        it does here. Coase is both, Vending-Bench is neither."""
+        from ao_commons_kg.models import Resource
+        canon = self._resource(role="primitive", is_borrowed_background=True)
+        bench = self._resource(role="benchmark")
+        assert canon.role == "primitive" and canon.is_borrowed_background
+        assert bench.role == "benchmark" and not bench.is_borrowed_background
+
+    def test_every_role_a_record_carries_is_known(self):
+        from ao_commons_kg.models import Resource
+        from ao_commons_kg.resources import load_resources
+        for record in load_resources():
+            assert record.role is None or record.role in Resource.ROLES

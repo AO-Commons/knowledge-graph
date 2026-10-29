@@ -1,0 +1,27 @@
+id: resource:ref:lopucki-2018-algorithmic-entities
+resource_type: paper
+title: Algorithmic Entities
+description: Argues that algorithm-controlled legal entities are achievable and dangerous, and that no
+  jurisdiction need intend it. Sits beside Bayern as the other half of the entity-form argument.
+authors:
+- Lynn M. LoPucki
+published_at: '2018-01-01'
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: law
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-10-29 as section 15 borrowed foundations: the vocabulary
+  an argument about autonomous organizations is conducted in, from the literatures that built it. Not
+  about organizations where machine agents hold authority, and held so a claim can point at the source
+  of a term rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed and this
+  note says so. Unreviewed: no claims have been read out of these, and none should be until somebody has
+  the text. Venue: Washington University Law Review. Note: openalex returned no entry under this author
+  and title; no identifier recorded.'
+ingested_at: '2026-10-29'
