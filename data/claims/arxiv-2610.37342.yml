@@ -1,0 +1,125 @@
+resource_id: resource:arxiv:2610.37342
+claims:
+- id: claim:arxiv:2610.37342:1
+  text: A right that is formally granted and operationally impossible is nullified without anyone violating
+    a rule.
+  quote: if an individual is legally granted freedom of movement in a building while barriers prevent
+    them from ever leaving the facility, their right is formally acknowledged yet materially nullified
+  standalone: 'The authors'' framing case for norm-ability alignment: expectations and responsibilities
+    placed on an actor mean nothing unless the actor can perform the actions they require, and the failure
+    leaves no trace as a breach.'
+  claim_type: position
+  concept_tags:
+  - declared-authority-diverging-from-effective-authority
+  - responsibility-gaps-and-their-allocation
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:2
+  text: An agent authorized to use tools can chain their effects to reach beyond the boundary its designers
+    intended.
+  quote: agents authorised to use tools for a task may exploit sequences of operational effects to gain
+    access beyond the boundaries intended by system designers
+  standalone: 'The authors cite a July 2026 incident involving an agent platform and a model hosting service
+    as the instance. The converse failure is the other half of their subject: an agent given a task without
+    the operational machinery to do it, which yields ineffective orchestration at best and mission-critical
+    failure at worst.'
+  claim_type: position
+  concept_tags:
+  - capability-accumulation-without-authorization
+  - permission-composition-creating-unintended-capability
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:3
+  text: 'Two kinds of misalignment are distinguished: authority whose exercise has become impossible,
+    and actions that remain possible without authority.'
+  quote: The framework distinguishes positions whose exercise has become operationally impossible from
+    enabled actions unsupported by institutional power, making both kinds of misalignment explicit over
+    reachable configurations.
+  standalone: The institutional layer and the operational layer are modeled separately — institutional
+    power as a stateful object, operational ability as Petri-net process primitives — so the question
+    becomes whether every granted position is reachable and every reachable action is granted.
+  claim_type: definition
+  concept_tags:
+  - authority-specification-languages-and-machine-readable-policy
+  - boundary-verification-proving-the-declared-scope-equals-the-actual-scope
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:4
+  text: The analysis is meant to run before or during deployment, not over logs after the fact.
+  quote: our solution specifically targets strategies for evaluating a system before or during its deployment
+  standalone: The authors contrast this with trace-based compliance checking over event logs, which they
+    characterize as ex-post, and with deontic policy specification that does not model power as a stateful
+    object bound to operational transitions.
+  claim_type: protocol
+  concept_tags:
+  - pre-deployment-assurance-and-simulation-gates
+  - simulation-and-dry-run-requirements-before-execution
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:5
+  text: Showing an authority could still be exercised in future is not showing it will be, or that any
+    agent can ensure it.
+  quote: our definition of operational groundedness (see Def. 8) only expresses possible future exercise,
+    not guaranteed fulfilment or an agent’s ability to ensure it
+  standalone: The authors name stochastic Petri-net semantics as a route to the likelihood and timing
+    of future exercise, and relating those to an agent's reliability as future work.
+  claim_type: limitation
+  concept_tags:
+  - boundary-verification-proving-the-declared-scope-equals-the-actual-scope
+  - reachability-and-scope-attestation
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:6
+  text: No existing work grounds institutional state onto process execution constrained by resources.
+  quote: no previous contribution studies the grounding of institutional state onto resource-constrained
+    process execution
+  standalone: The authors survey the neighbours they are closest to — deontic policy on business process
+    notation, trace-based compliance checking, institutional action languages, contract frameworks — and
+    find each holds one half of what they join.
+  claim_type: gap
+  concept_tags:
+  - authority-specification-languages-and-machine-readable-policy
+  - assurance-framework-composition-and-gap-analysis
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.37342:7
+  text: Detecting and repairing misaligned authority configurations automatically has not been built.
+  quote: we discuss future directions leading to the automated detection and eventual repair of misaligned
+    configurations in normative designs
+  standalone: The framework distinguishes repairs to the rules from repairs to operational access, and
+    demonstrates the detection by hand on a stylized consignment dispute. Doing it without a person is
+    the part left open.
+  claim_type: gap
+  concept_tags:
+  - authority-specification-languages-and-machine-readable-policy
+  - ex-ante-behavioral-harness
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

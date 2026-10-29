@@ -1,0 +1,40 @@
+id: resource:arxiv:2610.34644
+resource_type: preprint
+title: 'SlowLab: Benchmarking Autonomous AI Agents on a Year of Experiments They Cannot Undo'
+abstract: 'AI agents are increasingly proposed as autonomous experimenters, yet the benchmarks that test
+  them mostly offer cheap experiments that answer at once. Experiments in physical facilities are different:
+  they take months, occupy scarce equipment and cannot be undone. We present SlowLab, a benchmark in which
+  an agent runs a one-year campaign in four simulated greenhouse compartments on a site whose crop, facility
+  and prices are hidden. The agent decides when to plant which climate policy, whether to stop a crop
+  and which measurements to read while crops grow, and at the end recommends one policy, which a private
+  evaluator scores in weather the agent never saw. In a preregistered study on 48 unseen sites, three
+  low-cost language-model agents ended near a standard grower setting and clearly below a Bayesian-optimisation
+  baseline that starts from that setting. They ran the facility as two synchronous batches, so measurements
+  taken during the season never changed what they planted, and these measurements improved no method''s
+  result. Letting other methods re-read the evidence a campaign had collected did not yield significantly
+  better recommendations, which points to where the models start and which experiments they try. Code
+  is released under the MIT license.'
+authors:
+- Ningpei Ding
+- Zai Wen Feng
+published_at: '2026-10-26'
+url: https://arxiv.org/abs/2610.34644
+doi: 10.48550/arXiv.2610.34644
+arxiv_id: '2610.34644'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '14'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: An agent runs a year-long campaign in a simulated facility where experiments take
+  months, occupy scarce equipment and cannot be undone. Evaluates an agent holding operational authority
+  over irreversible decisions, which is the part of autonomy benchmarks usually design away.'
+ingested_at: '2026-10-29'
+role: benchmark

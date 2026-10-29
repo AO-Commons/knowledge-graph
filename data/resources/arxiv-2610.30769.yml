@@ -1,0 +1,39 @@
+id: resource:arxiv:2610.30769
+resource_type: preprint
+title: LLM Multi-Agent Systems Are Vulnerable to Herding and Runaway Cascades
+abstract: Large language models (LLMs) increasingly operate in multi-agent systems where they collaborate
+  by responding to others' choices, creating endogenous feedback loops with vulnerability to social influence,
+  herding behavior and runaway cascades. Following the design of the classic Music Lab experiment, we
+  tested this vulnerability in large populations of LLM agents that recommended unfamiliar songs, with
+  or without exposure to cumulative recommendation counts. Exposure led to runaway cascades that generated
+  extreme and unpredictable collective recommendations increasingly divergent from a song's intrinsic
+  appeal. Compared to humans, LLM populations were generally far more susceptible to herding behavior,
+  and unlike humans, LLM cascades were less able to self-correct. This vulnerability has implications
+  for multi-agent collaboration in recommender systems, automated evaluation, complex problem-solving,
+  and unauthorized conspiracies.
+authors:
+- Farnoosh Hashemi
+- Shiyu Ji
+- Joice Chen
+- Michael W. Macy
+published_at: '2026-10-22'
+url: https://arxiv.org/abs/2610.30769
+doi: 10.48550/arXiv.2610.30769
+arxiv_id: '2610.30769'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '11'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: Populations of agents responding to each other''s choices produce runaway cascades
+  that diverge from the underlying quality, more readily than human populations and with less self-correction.
+  A failure of the collective, not of a member.'
+ingested_at: '2026-10-29'

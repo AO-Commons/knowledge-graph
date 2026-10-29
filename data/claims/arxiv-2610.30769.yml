@@ -1,0 +1,168 @@
+resource_id: resource:arxiv:2610.30769
+claims:
+- id: claim:arxiv:2610.30769:1
+  text: Populations of agents shown each other's choices diverged from independent judgment by about nine
+    times the human figure.
+  quote: Mean KL divergence was about nine times the human benchmark under weak influence and four times
+    under strong influence
+  standalone: Thirteen models run through a replication of the Music Lab experiment, recommending unfamiliar
+    songs with or without seeing cumulative recommendation counts. Divergence from what the same agents
+    chose independently is the measure of herding.
+  claim_type: evidence
+  concept_tags:
+  - feedback-loops-and-runaway-dynamics
+  - unintended-coordination-and-convergence
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:2
+  text: What the first thirty agents picked predicted later popularity better than the songs' own quality
+    did, in every model under strong influence.
+  quote: In LLM populations, early movers predicted later popularity better than intrinsic appeal did
+    in 12 of 13 models under weak influence and in all 13 under strong influence, with the largest gaps
+    among non-reasoning models
+  standalone: 'Among humans, early movers were the better predictor only under strong influence. The authors
+    treat this as the direct measure of a cascade: the outcome is decided by an accident of ordering rather
+    than by the thing being judged.'
+  claim_type: evidence
+  concept_tags:
+  - feedback-loops-and-runaway-dynamics
+  - emergence-in-agent-populations
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:3
+  text: Human cascades corrected themselves in 15 of 16 runs; agent populations showed no consistent correction.
+  quote: human cascades self-corrected in 15 of 16 influence worlds, with the popularity-appeal correlation
+    increasing from to 0.773 under weak influence (all eight worlds; one-sided Wilcoxon signed-rank test,)
+    and from 0.575 to 0.660 under strong influence (seven of eight worlds;). Among LLMs, changes varied
+    in direction across models and worlds, averaging close to zero under strong influence.
+  standalone: The diagnostic is whether popularity moves back towards intrinsic appeal in the second half.
+    The authors are careful that this does not establish correction could never happen over a longer run
+    than they observed.
+  claim_type: evidence
+  concept_tags:
+  - recovery-induced-failure
+  - silent-failures-with-no-signal
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:4
+  text: Susceptibility fell as model capability rose, and lower susceptibility did not bring self-correction
+    with it.
+  quote: Reasoning and higher-intelligence models were less susceptible to herding behavior, but lower
+    susceptibility did not ensure self-correction.
+  standalone: Both divergence and unpredictability decline against a composite capability index. Non-reasoning
+    models diverged 2.4 to 3.2 times as far as reasoning ones and were nearly twice as unpredictable,
+    but the corrective dynamic humans showed did not appear with capability.
+  claim_type: evidence
+  concept_tags:
+  - model-selection-and-procurement-criteria
+  - replication-under-model-version-churn
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:5
+  text: Without social feedback the agent populations were almost perfectly predictable; with it, every
+    model exceeded human unpredictability.
+  quote: unpredictability in the independent condition was close to zero across all models and slightly
+    below the level observed among humans
+  standalone: 'The independent baseline is what makes the comparison informative: the instability is produced
+    by the agents seeing each other''s choices, not by any randomness in the agents themselves. All 13
+    models exceeded the human figure under weak influence.'
+  claim_type: evidence
+  concept_tags:
+  - feedback-loops-and-runaway-dynamics
+  - counterfactual-analysis-with-stochastic-agents
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:6
+  text: Evaluating a collective of agents requires testing how outputs become the next inputs, not responses
+    to a fixed signal.
+  quote: Evaluating collective AI behavior therefore requires going beyond individual responses to a fixed
+    signal to test how model outputs shape subsequent inputs.
+  standalone: 'The authors'' reading of their own result: a model judged alone against a static benchmark
+    is not being measured on the property that failed here, because the property only exists once its
+    judgments become inputs for other agents.'
+  claim_type: position
+  concept_tags:
+  - benchmarks-relevant-to-organizational-roles
+  - assurance-framework-composition-and-gap-analysis
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:7
+  text: The human comparison is qualitative, because the task was adapted and no matched human replication
+    was run.
+  quote: A matched human replication of this study is needed to rule out these design differences as the
+    explanation for observed behavioral differences.
+  standalone: Agents read lyrics rather than hearing songs, recommended rather than downloaded, assessed
+    a fixed four, and saw a list rather than a grid. The authors name every difference and say plainly
+    what it costs the human-versus-model contrast.
+  claim_type: limitation
+  concept_tags:
+  - shadow-mode-and-counterfactual-comparison-against-human-decisions
+  - reproducibility-of-failure-conditions
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:8
+  text: The populations were one model each, could not talk to one another, and had nothing at stake.
+  quote: our experiment precluded more powerful influence mechanisms like communication, task incentives,
+    and social sanctioning
+  standalone: 'The authors state the direction this cuts: if task complexity rises alongside capability,
+    and influence is reinforced with social pressure and incentives, susceptibility to errant cascades
+    may increase rather than fall.'
+  claim_type: limitation
+  concept_tags:
+  - inter-agent-communication-protocols
+  - agent-collusion-and-cartel-formation
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2610.30769:9
+  claim_type: protocol
+  text: Sixteen separate worlds per model were run from identical starting conditions, so unpredictability
+    could be measured rather than inferred.
+  quote: 'For each model, we created 17 worlds: one independent world of 1,440 agents, eight weak-influence
+    worlds of 720 agents, and eight strong-influence worlds of 720 agents. This yielded 12,960 agents
+    per model and 168,480 agents across 13 models. All worlds began with zero recommendation counts and
+    evolved separately.'
+  standalone: 'Running the same population repeatedly from the same start is what turns divergence between
+    outcomes into evidence of a cascade: the worlds differ only in the order agents happened to arrive.
+    Agents acted sequentially, could not see other worlds, and exchanged no messages — earlier choices
+    reached them only as cumulative counts and, under strong influence, the resulting ordering.'
+  concept_tags:
+  - counterfactual-analysis-with-stochastic-agents
+  - agent-based-simulation-of-organizational-dynamics
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

@@ -2,11 +2,11 @@
   "generated_by": "scripts/build_concepts.py — do not edit; terms are defined in the taxonomy and concepts-extra.yml",
   "how_this_grows": "bottom-up, from claims. A term enters the vocabulary when a claim needs it. The taxonomy's subpoints are a suggestion pool to search before inventing a near-duplicate, and join the vocabulary the moment a claim uses one.",
   "counts": {
-    "vocabulary": 175,
+    "vocabulary": 198,
     "vocabulary_from_claims": 13,
-    "vocabulary_from_taxonomy": 162,
+    "vocabulary_from_taxonomy": 185,
     "on_exactly_one_statement": 0,
-    "suggestions_available": 352
+    "suggestions_available": 329
   },
   "looks_like_one_idea": [
     {
@@ -75,7 +75,8 @@
         "claim:arxiv:2505.02077:14",
         "claim:arxiv:2505.02077:7",
         "claim:arxiv:2604.23459:12",
-        "claim:arxiv:2605.17698:11"
+        "claim:arxiv:2605.17698:11",
+        "claim:arxiv:2609.28274:7"
       ]
     },
     {
@@ -88,7 +89,19 @@
       "claims": [
         "claim:arxiv:2407.14981:2",
         "claim:arxiv:2604.23459:15",
-        "claim:arxiv:2604.23459:8"
+        "claim:arxiv:2604.23459:8",
+        "claim:arxiv:2609.28274:9"
+      ]
+    },
+    {
+      "id": "agenda-control-and-proposal-lifecycle",
+      "label": "Agenda control and proposal lifecycle",
+      "topics": [
+        "15.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:7"
       ]
     },
     {
@@ -100,6 +113,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2604.10290:17",
+        "claim:arxiv:2609.04170:6",
+        "claim:arxiv:2609.04170:8",
         "claim:arxiv:2610.35966:14"
       ]
     },
@@ -117,7 +132,8 @@
         "claim:arxiv:2509.10147:1",
         "claim:arxiv:2509.10147:9",
         "claim:arxiv:2604.10290:9",
-        "claim:arxiv:2606.16613:6"
+        "claim:arxiv:2606.16613:6",
+        "claim:arxiv:2610.30769:9"
       ]
     },
     {
@@ -138,7 +154,8 @@
         "claim:arxiv:2410.00031:4",
         "claim:arxiv:2410.00031:7",
         "claim:arxiv:2502.14143:5",
-        "claim:arxiv:2606.16613:1"
+        "claim:arxiv:2606.16613:1",
+        "claim:arxiv:2610.30769:8"
       ]
     },
     {
@@ -149,7 +166,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2602.14951:5"
+        "claim:arxiv:2602.14951:5",
+        "claim:arxiv:2609.04170:11"
       ]
     },
     {
@@ -166,6 +184,7 @@
         "claim:arxiv:2604.10290:8",
         "claim:arxiv:2604.23459:1",
         "claim:arxiv:2604.23459:3",
+        "claim:arxiv:2609.28274:5",
         "claim:arxiv:2610.35966:1"
       ]
     },
@@ -181,6 +200,17 @@
         "claim:arxiv:2407.14981:2",
         "claim:arxiv:2604.10290:10",
         "claim:arxiv:2604.23459:9"
+      ]
+    },
+    {
+      "id": "agent-held-reputation-and-accrued-weight",
+      "label": "Agent-held reputation and accrued weight",
+      "topics": [
+        "2.7"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.28274:7"
       ]
     },
     {
@@ -327,7 +357,8 @@
         "claim:arxiv:2605.17698:9",
         "claim:arxiv:2605.24538:1",
         "claim:arxiv:2605.24538:4",
-        "claim:arxiv:2605.24538:7"
+        "claim:arxiv:2605.24538:7",
+        "claim:arxiv:2609.04170:9"
       ]
     },
     {
@@ -370,6 +401,17 @@
       "note": "An organization's capacity to make its own knowledge (routines, rules, boundaries, tacit know-how) machine-readable and governable, so that one can query the organization rather than somebody who speaks for it, and organizations can query each other. Coined by Rennie et al.; the claims that define it are typed `definition`."
     },
     {
+      "id": "assumption-auditing-and-containment-premise-review",
+      "label": "Assumption auditing and containment premise review",
+      "topics": [
+        "10.5"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:8"
+      ]
+    },
+    {
       "id": "assurance-framework-composition-and-gap-analysis",
       "label": "Assurance framework composition and gap analysis",
       "topics": [
@@ -381,7 +423,9 @@
         "claim:arxiv:2505.02077:2",
         "claim:arxiv:2505.02077:8",
         "claim:arxiv:2604.10290:12",
-        "claim:arxiv:2604.23459:10"
+        "claim:arxiv:2604.23459:10",
+        "claim:arxiv:2610.30769:6",
+        "claim:arxiv:2610.37342:6"
       ]
     },
     {
@@ -407,6 +451,19 @@
       "claims": [
         "claim:arxiv:2407.14981:5",
         "claim:arxiv:2505.02077:10"
+      ]
+    },
+    {
+      "id": "authority-specification-languages-and-machine-readable-policy",
+      "label": "Authority specification languages and machine-readable policy",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.37342:3",
+        "claim:arxiv:2610.37342:6",
+        "claim:arxiv:2610.37342:7"
       ]
     },
     {
@@ -462,7 +519,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2407.14981:3",
-        "claim:arxiv:2410.00031:11"
+        "claim:arxiv:2410.00031:11",
+        "claim:arxiv:2609.28274:8"
       ]
     },
     {
@@ -476,7 +534,8 @@
         "claim:arxiv:2412.14161:3",
         "claim:arxiv:2502.14143:8",
         "claim:arxiv:2604.23459:2",
-        "claim:arxiv:2606.16613:4"
+        "claim:arxiv:2606.16613:4",
+        "claim:arxiv:2610.30769:6"
       ]
     },
     {
@@ -488,6 +547,18 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2610.35966:9"
+      ]
+    },
+    {
+      "id": "boundary-verification-proving-the-declared-scope-equals-the-actual-scope",
+      "label": "Boundary verification -- proving the declared scope equals the actual scope",
+      "topics": [
+        "2.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.37342:3",
+        "claim:arxiv:2610.37342:5"
       ]
     },
     {
@@ -515,6 +586,18 @@
         "claim:doi:10-1111-epic-70009:16"
       ],
       "note": "Governing AI by deciding, as a group, where and how AI systems connect into an organization's existing systems and what they may see, rather than by placing a human at the moment of decision. Offered by Rennie et al. as the alternative to human-in-the-loop oversight."
+    },
+    {
+      "id": "capability-accumulation-without-authorization",
+      "label": "Capability accumulation without authorization",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:14",
+        "claim:arxiv:2610.37342:2"
+      ]
     },
     {
       "id": "capability-profiling",
@@ -580,6 +663,17 @@
       ]
     },
     {
+      "id": "competitive-dynamics-between-agents-in-one-organization",
+      "label": "Competitive dynamics between agents in one organization",
+      "topics": [
+        "5.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:4"
+      ]
+    },
+    {
       "id": "complementarity-versus-substitution",
       "label": "Complementarity versus substitution",
       "topics": [
@@ -625,6 +719,17 @@
       ]
     },
     {
+      "id": "containment-and-sandbox-escape",
+      "label": "Containment and sandbox escape",
+      "topics": [
+        "10.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:11"
+      ]
+    },
+    {
       "id": "contestability-as-a-legitimacy-condition",
       "label": "Contestability as a legitimacy condition",
       "topics": [
@@ -634,7 +739,8 @@
       "claims": [
         "claim:arxiv:2605.24538:6",
         "claim:arxiv:2605.24538:7",
-        "claim:arxiv:2606.03237:9"
+        "claim:arxiv:2606.03237:9",
+        "claim:arxiv:2609.04170:10"
       ]
     },
     {
@@ -747,7 +853,9 @@
         "claim:arxiv:2404.00806:7",
         "claim:arxiv:2410.00031:6",
         "claim:arxiv:2604.10290:9",
-        "claim:arxiv:2606.16613:7"
+        "claim:arxiv:2606.16613:7",
+        "claim:arxiv:2610.30769:5",
+        "claim:arxiv:2610.30769:9"
       ]
     },
     {
@@ -759,6 +867,17 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2505.02077:3"
+      ]
+    },
+    {
+      "id": "cross-agent-injection-propagation",
+      "label": "Cross-agent injection propagation",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:2"
       ]
     },
     {
@@ -781,7 +900,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2604.23459:16",
-        "claim:arxiv:2610.35966:10"
+        "claim:arxiv:2610.35966:10",
+        "claim:arxiv:2610.37342:1"
       ]
     },
     {
@@ -879,7 +999,10 @@
         "claim:arxiv:2604.10290:13",
         "claim:arxiv:2604.10290:2",
         "claim:arxiv:2604.10290:20",
-        "claim:arxiv:2604.23459:10"
+        "claim:arxiv:2604.23459:10",
+        "claim:arxiv:2609.04170:1",
+        "claim:arxiv:2609.04170:10",
+        "claim:arxiv:2610.30769:2"
       ]
     },
     {
@@ -951,6 +1074,17 @@
       ]
     },
     {
+      "id": "evaluation-as-an-attack-surface",
+      "label": "Evaluation as an attack surface",
+      "topics": [
+        "14.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.28274:10"
+      ]
+    },
+    {
       "id": "evaluation-environments-and-benchmark-suites",
       "label": "Evaluation environments and benchmark suites",
       "topics": [
@@ -976,7 +1110,9 @@
         "claim:arxiv:2604.23459:17",
         "claim:arxiv:2605.17698:10",
         "claim:arxiv:2606.16613:6",
-        "claim:arxiv:2606.16613:8"
+        "claim:arxiv:2606.16613:8",
+        "claim:arxiv:2609.04170:12",
+        "claim:arxiv:2609.04170:13"
       ]
     },
     {
@@ -993,7 +1129,8 @@
         "claim:arxiv:2509.14485:19",
         "claim:arxiv:2509.14485:3",
         "claim:arxiv:2509.14485:4",
-        "claim:arxiv:2605.30169:11"
+        "claim:arxiv:2605.30169:11",
+        "claim:arxiv:2609.04170:12"
       ]
     },
     {
@@ -1015,8 +1152,10 @@
         "claim:arxiv:2605.30169:17",
         "claim:arxiv:2605.30169:6",
         "claim:arxiv:2605.30169:9",
+        "claim:arxiv:2609.28274:5",
         "claim:arxiv:2610.35966:10",
-        "claim:arxiv:2610.35966:9"
+        "claim:arxiv:2610.35966:9",
+        "claim:arxiv:2610.37342:7"
       ],
       "note": "Constraining and monitoring an agent in real time, rather than rating and punishing it afterwards. The alternative 2605.30169 proposes once it argues reputation is structurally inapplicable — and the distinction its whole argument turns on, which nothing in the pool named."
     },
@@ -1033,7 +1172,19 @@
         "claim:arxiv:2410.00031:10",
         "claim:arxiv:2410.00031:6",
         "claim:arxiv:2410.00031:9",
-        "claim:arxiv:2604.23459:17"
+        "claim:arxiv:2604.23459:17",
+        "claim:arxiv:2609.28274:9"
+      ]
+    },
+    {
+      "id": "failure-disclosure-norms-and-incentives",
+      "label": "Failure disclosure norms and incentives",
+      "topics": [
+        "11.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:6"
       ]
     },
     {
@@ -1047,7 +1198,10 @@
         "claim:arxiv:2404.00806:14",
         "claim:arxiv:2502.14143:7",
         "claim:arxiv:2605.17698:1",
-        "claim:arxiv:2605.17698:2"
+        "claim:arxiv:2605.17698:2",
+        "claim:arxiv:2610.30769:1",
+        "claim:arxiv:2610.30769:2",
+        "claim:arxiv:2610.30769:5"
       ]
     },
     {
@@ -1117,6 +1271,17 @@
       ]
     },
     {
+      "id": "goal-hijacking-and-objective-substitution",
+      "label": "Goal hijacking and objective substitution",
+      "topics": [
+        "10.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.28274:6"
+      ]
+    },
+    {
       "id": "goodhart-effects-under-machine-optimization",
       "label": "Goodhart effects under machine optimization",
       "topics": [
@@ -1159,7 +1324,8 @@
       "claims": [
         "claim:arxiv:2602.14951:1",
         "claim:arxiv:2602.14951:4",
-        "claim:arxiv:2605.24538:3"
+        "claim:arxiv:2605.24538:3",
+        "claim:arxiv:2609.28274:1"
       ]
     },
     {
@@ -1284,7 +1450,8 @@
         "claim:arxiv:2404.00806:20",
         "claim:arxiv:2505.02077:9",
         "claim:arxiv:2509.10147:6",
-        "claim:arxiv:2604.23459:14"
+        "claim:arxiv:2604.23459:14",
+        "claim:arxiv:2610.30769:8"
       ]
     },
     {
@@ -1307,7 +1474,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2602.14951:2"
+        "claim:arxiv:2602.14951:2",
+        "claim:arxiv:2609.28274:1"
       ]
     },
     {
@@ -1329,7 +1497,9 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2404.00806:14"
+        "claim:arxiv:2404.00806:14",
+        "claim:arxiv:2609.04170:15",
+        "claim:arxiv:2609.04170:2"
       ]
     },
     {
@@ -1412,7 +1582,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2412.14161:4"
+        "claim:arxiv:2412.14161:4",
+        "claim:arxiv:2609.28274:4"
       ]
     },
     {
@@ -1487,6 +1658,17 @@
       ]
     },
     {
+      "id": "metric-optimization-crowding-out-unmeasured-goals",
+      "label": "Metric optimization crowding out unmeasured goals",
+      "topics": [
+        "11.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:4"
+      ]
+    },
+    {
       "id": "metric-specification-and-its-gaming-surface",
       "label": "Metric specification and its gaming surface",
       "topics": [
@@ -1533,6 +1715,7 @@
       "claims": [
         "claim:arxiv:2604.10290:7",
         "claim:arxiv:2605.17698:5",
+        "claim:arxiv:2610.30769:4",
         "claim:arxiv:2610.35966:13",
         "claim:arxiv:2610.35966:2"
       ]
@@ -1570,7 +1753,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2505.02077:3",
-        "claim:arxiv:2509.10147:3"
+        "claim:arxiv:2509.10147:3",
+        "claim:arxiv:2609.04170:5"
       ]
     },
     {
@@ -1591,7 +1775,8 @@
         "claim:arxiv:2604.23459:14",
         "claim:arxiv:2604.23459:2",
         "claim:arxiv:2604.23459:3",
-        "claim:arxiv:2604.23459:7"
+        "claim:arxiv:2604.23459:7",
+        "claim:arxiv:2609.04170:9"
       ]
     },
     {
@@ -1626,7 +1811,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.10290:19"
+        "claim:arxiv:2604.10290:19",
+        "claim:arxiv:2609.28274:6"
       ]
     },
     {
@@ -1644,6 +1830,17 @@
         "claim:arxiv:2605.24538:2",
         "claim:arxiv:2605.24538:3",
         "claim:arxiv:2605.30169:14"
+      ]
+    },
+    {
+      "id": "normalization-of-deviance-in-agent-output-quality",
+      "label": "Normalization of deviance in agent output quality",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:3"
       ]
     },
     {
@@ -1705,6 +1902,17 @@
       ]
     },
     {
+      "id": "orphaned-agents-and-zombie-processes",
+      "label": "Orphaned agents and zombie processes",
+      "topics": [
+        "6.4"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:5"
+      ]
+    },
+    {
       "id": "oversight-capacity-as-the-binding-constraint",
       "label": "Oversight capacity as the binding constraint",
       "topics": [
@@ -1714,6 +1922,17 @@
       "claims": [
         "claim:arxiv:2502.15840:10",
         "claim:arxiv:2511.03434:12"
+      ]
+    },
+    {
+      "id": "oversight-of-oversight-who-watches-the-reviewers",
+      "label": "Oversight of oversight -- who watches the reviewers",
+      "topics": [
+        "4.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.28274:2"
       ]
     },
     {
@@ -1742,6 +1961,17 @@
       ]
     },
     {
+      "id": "permission-composition-creating-unintended-capability",
+      "label": "Permission composition creating unintended capability",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.37342:2"
+      ]
+    },
+    {
       "id": "phase-transitions-in-agent-system-behavior",
       "label": "Phase transitions in agent system behavior",
       "topics": [
@@ -1760,7 +1990,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2505.02077:15"
+        "claim:arxiv:2505.02077:15",
+        "claim:arxiv:2610.37342:4"
       ]
     },
     {
@@ -1805,7 +2036,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2509.01063:3",
-        "claim:arxiv:2604.23459:16"
+        "claim:arxiv:2604.23459:16",
+        "claim:arxiv:2609.28274:3"
       ]
     },
     {
@@ -1841,6 +2073,17 @@
       ]
     },
     {
+      "id": "reachability-and-scope-attestation",
+      "label": "Reachability and scope attestation",
+      "topics": [
+        "9.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.37342:5"
+      ]
+    },
+    {
       "id": "reasoning-transparency-and-its-reliability",
       "label": "Reasoning transparency and its reliability",
       "topics": [
@@ -1852,7 +2095,20 @@
         "claim:arxiv:2404.00806:22",
         "claim:arxiv:2404.00806:5",
         "claim:arxiv:2404.00806:6",
-        "claim:arxiv:2404.00806:7"
+        "claim:arxiv:2404.00806:7",
+        "claim:arxiv:2609.28274:10",
+        "claim:arxiv:2609.28274:8"
+      ]
+    },
+    {
+      "id": "recovery-induced-failure",
+      "label": "Recovery-induced failure",
+      "topics": [
+        "11.13"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.30769:3"
       ]
     },
     {
@@ -1899,6 +2155,7 @@
         "claim:arxiv:2604.23459:7",
         "claim:arxiv:2605.17698:11",
         "claim:arxiv:2605.17698:5",
+        "claim:arxiv:2610.30769:4",
         "claim:arxiv:2610.35966:1",
         "claim:arxiv:2610.35966:13",
         "claim:arxiv:2610.35966:6"
@@ -1917,7 +2174,8 @@
         "claim:arxiv:2412.14161:13",
         "claim:arxiv:2604.10290:14",
         "claim:arxiv:2604.10290:22",
-        "claim:arxiv:2606.16613:7"
+        "claim:arxiv:2606.16613:7",
+        "claim:arxiv:2610.30769:7"
       ]
     },
     {
@@ -1940,6 +2198,7 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2502.14143:11",
+        "claim:arxiv:2609.04170:13",
         "claim:doi:10-1111-epic-70009:17",
         "claim:doi:10-1111-epic-70009:18"
       ]
@@ -1972,7 +2231,8 @@
       "claims": [
         "claim:arxiv:2602.14951:3",
         "claim:arxiv:2604.23459:5",
-        "claim:arxiv:2605.30169:8"
+        "claim:arxiv:2605.30169:8",
+        "claim:arxiv:2610.37342:1"
       ]
     },
     {
@@ -2029,7 +2289,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2604.10290:17"
+        "claim:arxiv:2604.10290:17",
+        "claim:arxiv:2609.28274:3"
       ]
     },
     {
@@ -2072,6 +2333,17 @@
       ]
     },
     {
+      "id": "scope-escape-and-unauthorized-action",
+      "label": "Scope escape and unauthorized action",
+      "topics": [
+        "11.3"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.28274:4"
+      ]
+    },
+    {
       "id": "shadow-mode-and-counterfactual-comparison-against-human-decisions",
       "label": "Shadow mode and counterfactual comparison against human decisions",
       "topics": [
@@ -2079,7 +2351,8 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2412.14161:9"
+        "claim:arxiv:2412.14161:9",
+        "claim:arxiv:2610.30769:7"
       ]
     },
     {
@@ -2114,7 +2387,19 @@
       ],
       "origin": "taxonomy",
       "claims": [
-        "claim:arxiv:2606.16613:10"
+        "claim:arxiv:2606.16613:10",
+        "claim:arxiv:2610.30769:3"
+      ]
+    },
+    {
+      "id": "simulation-and-dry-run-requirements-before-execution",
+      "label": "Simulation and dry-run requirements before execution",
+      "topics": [
+        "8.1"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2610.37342:4"
       ]
     },
     {
@@ -2126,6 +2411,17 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2606.03237:18"
+      ]
+    },
+    {
+      "id": "slashing-where-the-punishable-party-is-human",
+      "label": "Slashing where the punishable party is human",
+      "topics": [
+        "13.2"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:7"
       ]
     },
     {
@@ -2166,7 +2462,9 @@
       "claims": [
         "claim:arxiv:2002.06673:4",
         "claim:arxiv:2412.14161:4",
-        "claim:arxiv:2502.14143:9"
+        "claim:arxiv:2502.14143:9",
+        "claim:arxiv:2609.04170:1",
+        "claim:arxiv:2609.04170:14"
       ]
     },
     {
@@ -2245,6 +2543,17 @@
       ]
     },
     {
+      "id": "threshold-creep-in-human-review-standards",
+      "label": "Threshold creep in human review standards",
+      "topics": [
+        "11.7"
+      ],
+      "origin": "taxonomy",
+      "claims": [
+        "claim:arxiv:2609.04170:3"
+      ]
+    },
+    {
       "id": "tool-access-as-the-real-permission-surface",
       "label": "Tool access as the real permission surface",
       "topics": [
@@ -2308,7 +2617,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2505.02077:7",
-        "claim:arxiv:2605.17698:4"
+        "claim:arxiv:2605.17698:4",
+        "claim:arxiv:2609.04170:15"
       ]
     },
     {
@@ -2331,7 +2641,8 @@
       "origin": "taxonomy",
       "claims": [
         "claim:arxiv:2606.03237:10",
-        "claim:arxiv:2606.03237:15"
+        "claim:arxiv:2606.03237:15",
+        "claim:arxiv:2610.30769:1"
       ]
     },
     {
@@ -2368,7 +2679,8 @@
         "claim:arxiv:2407.14981:4",
         "claim:arxiv:2410.00031:8",
         "claim:arxiv:2502.14143:10",
-        "claim:arxiv:2606.03237:11"
+        "claim:arxiv:2606.03237:11",
+        "claim:arxiv:2609.28274:2"
       ]
     }
   ],
@@ -2446,15 +2758,6 @@
       "claims": 0
     },
     {
-      "id": "agenda-control-and-proposal-lifecycle",
-      "label": "Agenda control and proposal lifecycle",
-      "topics": [
-        "15.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "agent-action-and-decision-datasets",
       "label": "Agent action and decision datasets",
       "topics": [
@@ -2486,15 +2789,6 @@
       "label": "Agent-driven treasury depletion",
       "topics": [
         "11.9"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "agent-held-reputation-and-accrued-weight",
-      "label": "Agent-held reputation and accrued weight",
-      "topics": [
-        "2.7"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2608,15 +2902,6 @@
       "claims": 0
     },
     {
-      "id": "assumption-auditing-and-containment-premise-review",
-      "label": "Assumption auditing and containment premise review",
-      "topics": [
-        "10.5"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "assurance-framework-composition-and-gaps",
       "label": "Assurance framework composition and gaps",
       "topics": [
@@ -2666,15 +2951,6 @@
       "label": "Authority accumulation over time",
       "topics": [
         "11.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "authority-specification-languages-and-machine-readable-policy",
-      "label": "Authority specification languages and machine-readable policy",
-      "topics": [
-        "2.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2833,15 +3109,6 @@
       "claims": 0
     },
     {
-      "id": "boundary-verification-proving-the-declared-scope-equals-the-actual-scope",
-      "label": "Boundary verification -- proving the declared scope equals the actual scope",
-      "topics": [
-        "2.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "by-affected-party-count",
       "label": "By affected-party count",
       "topics": [
@@ -2873,15 +3140,6 @@
       "label": "By value and blast radius",
       "topics": [
         "2.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "capability-accumulation-without-authorization",
-      "label": "Capability accumulation without authorization",
-      "topics": [
-        "10.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -2977,15 +3235,6 @@
       "claims": 0
     },
     {
-      "id": "competitive-dynamics-between-agents-in-one-organization",
-      "label": "Competitive dynamics between agents in one organization",
-      "topics": [
-        "5.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "compute-and-inference-budget-allocation",
       "label": "Compute and inference budget allocation",
       "topics": [
@@ -3026,15 +3275,6 @@
       "label": "Containment and escape testing",
       "topics": [
         "14.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "containment-and-sandbox-escape",
-      "label": "Containment and sandbox escape",
-      "topics": [
-        "10.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3170,15 +3410,6 @@
       "label": "Creeping autonomy expansion",
       "topics": [
         "11.13"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "cross-agent-injection-propagation",
-      "label": "Cross-agent injection propagation",
-      "topics": [
-        "10.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3544,15 +3775,6 @@
       "claims": 0
     },
     {
-      "id": "evaluation-as-an-attack-surface",
-      "label": "Evaluation as an attack surface",
-      "topics": [
-        "14.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "evaluation-environment-security",
       "label": "Evaluation environment security",
       "topics": [
@@ -3575,15 +3797,6 @@
       "label": "Explanation rights and contestability",
       "topics": [
         "4.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "failure-disclosure-norms-and-incentives",
-      "label": "Failure disclosure norms and incentives",
-      "topics": [
-        "11.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -3647,15 +3860,6 @@
       "label": "Gaming of agent-run funding programs",
       "topics": [
         "11.9"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "goal-hijacking-and-objective-substitution",
-      "label": "Goal hijacking and objective substitution",
-      "topics": [
-        "10.1"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4237,15 +4441,6 @@
       "claims": 0
     },
     {
-      "id": "metric-optimization-crowding-out-unmeasured-goals",
-      "label": "Metric optimization crowding out unmeasured goals",
-      "topics": [
-        "11.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "minimum-viable-organization-size",
       "label": "Minimum viable organization size",
       "topics": [
@@ -4363,15 +4558,6 @@
       "claims": 0
     },
     {
-      "id": "normalization-of-deviance-in-agent-output-quality",
-      "label": "Normalization of deviance in agent output quality",
-      "topics": [
-        "11.7"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "novel-situation-detection-and-escalation",
       "label": "Novel-situation detection and escalation",
       "topics": [
@@ -4453,15 +4639,6 @@
       "claims": 0
     },
     {
-      "id": "orphaned-agents-and-zombie-processes",
-      "label": "Orphaned agents and zombie processes",
-      "topics": [
-        "6.4"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "oscillation-thrashing-and-instability",
       "label": "Oscillation, thrashing, and instability",
       "topics": [
@@ -4507,15 +4684,6 @@
       "claims": 0
     },
     {
-      "id": "oversight-of-oversight-who-watches-the-reviewers",
-      "label": "Oversight of oversight -- who watches the reviewers",
-      "topics": [
-        "4.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "package-registries-proxies-and-caches",
       "label": "Package registries, proxies, and caches",
       "topics": [
@@ -4538,15 +4706,6 @@
       "label": "Permission composition and unintended capability unions",
       "topics": [
         "2.2"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "permission-composition-creating-unintended-capability",
-      "label": "Permission composition creating unintended capability",
-      "topics": [
-        "11.3"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4714,15 +4873,6 @@
       "claims": 0
     },
     {
-      "id": "reachability-and-scope-attestation",
-      "label": "Reachability and scope attestation",
-      "topics": [
-        "9.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "recomputable-trust-and-independent-verification",
       "label": "Recomputable trust and independent verification",
       "topics": [
@@ -4736,15 +4886,6 @@
       "label": "Reconstructability of past decisions",
       "topics": [
         "7.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "recovery-induced-failure",
-      "label": "Recovery-induced failure",
-      "topics": [
-        "11.13"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -4984,15 +5125,6 @@
       "claims": 0
     },
     {
-      "id": "scope-escape-and-unauthorized-action",
-      "label": "Scope escape and unauthorized action",
-      "topics": [
-        "11.3"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "scope-narrowing-versus-scope-preservation-on-sub-delegation",
       "label": "Scope narrowing versus scope preservation on sub-delegation",
       "topics": [
@@ -5083,28 +5215,10 @@
       "claims": 0
     },
     {
-      "id": "simulation-and-dry-run-requirements-before-execution",
-      "label": "Simulation and dry-run requirements before execution",
-      "topics": [
-        "8.1"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
       "id": "skill-atrophy-leaving-no-capable-human-fallback",
       "label": "Skill atrophy leaving no capable human fallback",
       "topics": [
         "11.11"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "slashing-where-the-punishable-party-is-human",
-      "label": "Slashing where the punishable party is human",
-      "topics": [
-        "13.2"
       ],
       "origin": "taxonomy",
       "claims": 0
@@ -5285,15 +5399,6 @@
       "label": "The centralization cost of fast response",
       "topics": [
         "2.6"
-      ],
-      "origin": "taxonomy",
-      "claims": 0
-    },
-    {
-      "id": "threshold-creep-in-human-review-standards",
-      "label": "Threshold creep in human review standards",
-      "topics": [
-        "11.7"
       ],
       "origin": "taxonomy",
       "claims": 0

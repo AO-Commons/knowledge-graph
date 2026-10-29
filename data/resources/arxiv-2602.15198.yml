@@ -1,0 +1,47 @@
+id: resource:arxiv:2602.15198
+resource_type: preprint
+title: 'Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems'
+abstract: Multi-agent systems, where LLM agents communicate through free-form language, enable sophisticated
+  coordination for solving complex cooperative tasks. This surfaces a unique safety problem when a group
+  of agents forms a coalition and colludes to pursue secondary goals and degrade the joint objective.
+  In this paper, we present Colosseum, a framework for auditing LLM agents' collusive behavior in multi-agent
+  settings. We ground how agents cooperate through a formal multi-agent decision-making framework and
+  measure action-based collusive behavior in actions via regret relative to the cooperative optimum and
+  compare it with communication-based collusive behavior. Colosseum enables audits of LLM agents for collusion
+  under benign settings, different coalition objectives, persuasion tactics, and network topologies. We
+  then introduce a new behavioral probe by creating secret communication channels between agents, showing
+  that most out-of-the-box models exhibit a propensity to collude under this probe, which we term emergent
+  collusion. Furthermore, we discover ``collusion on paper'' when agents plan to collude in text but often
+  pick non-collusive actions. Colosseum provides a new way to audit collusion in cooperative multi-agent
+  systems while presenting observations about how collusion emerges, what affects collusion efficacy,
+  and which strategies may mitigate it.
+authors:
+- Mason Nakamura
+- Abhinav Kumar
+- Saswat Das
+- Sahar Abdelnabi
+- Saaduddin Mahmud
+- Ferdinando Fioretto
+- Shlomo Zilberstein
+- Eugene Bagdasarian
+published_at: '2026-02-16'
+url: https://arxiv.org/abs/2602.15198
+doi: 10.48550/arXiv.2602.15198
+arxiv_id: '2602.15198'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '10'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: Agents form a coalition inside a cooperative system and pursue a secondary goal against
+  the joint objective; the paper measures it as regret against the cooperative optimum. Collusion between
+  machine agents acting for a principal is in scope directly.'
+ingested_at: '2026-10-29'

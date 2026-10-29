@@ -519,3 +519,43 @@ questions:
           could identify ineffective or harmful memory entries, and that it
           has not been tried.
 
+  # ---------------------------------------------------------------------
+  # Whether granted authority and actual ability can be checked against
+  # each other.
+  # ---------------------------------------------------------------------
+  - id: question:authority-against-ability
+    text: Can you check that what an agent is allowed to do matches what it can do?
+    status: open
+    concept_tags:
+      - declared-authority-diverging-from-effective-authority
+      - boundary-verification-proving-the-declared-scope-equals-the-actual-scope
+      - authority-specification-languages-and-machine-readable-policy
+    note: >-
+      Two claims from one paper, and the authority gap stated as something a
+      system could be checked for rather than argued about. The mismatch runs
+      both ways and neither direction shows up as a rule being broken: an
+      authority granted to an agent that cannot reach the machinery to
+      exercise it is nullified without a breach, and an action an agent can
+      still take after its authority is revoked is a breach nobody can
+      observe. The paper models the two layers apart — institutional power as
+      a stateful object, operational ability as process primitives — so the
+      question becomes whether every granted position stays reachable and
+      every reachable action stays granted. What it does not have is a way to
+      answer that without a person working it through by hand, and it finds
+      nothing else that grounds institutional state onto execution
+      constrained by resources at all. One paper asking twice, counted as
+      that paper's framing until a second asks it.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2610.37342:6
+        because: >-
+          States that no previous contribution grounds institutional state
+          onto resource-constrained process execution, having surveyed the
+          neighbouring formalisms and found each holds one half.
+      - claim: claim:arxiv:2610.37342:7
+        because: >-
+          States that automated detection and repair of misaligned normative
+          configurations is future work; the paper demonstrates the detection
+          by hand on a stylized scenario.
+

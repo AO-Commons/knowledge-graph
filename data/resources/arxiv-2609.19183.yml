@@ -1,0 +1,46 @@
+id: resource:arxiv:2609.19183
+resource_type: preprint
+title: Message capacity and claim wording set the transition points of collective truth-finding in language-model
+  networks
+abstract: 'Whether human or large language model (LLM), an agent in a discussion reads only a few of the
+  others'' contributions, bounded by cognition, context, or cost. LLM collectives can settle on a wrong
+  consensus even when a majority starts out correct; we ask how far that reading bound alone decides the
+  outcome. We model the bound with one number, the message capacity, which sets how many of the others''
+  messages an agent reads, and generate the communication network from it. Over 31,824 randomized queries,
+  we found that an 8-billion-parameter model''s judgment of a claim effectively reduces to a logistic
+  function of a weighted sum of its inbox, the update rule of a stochastic binary neuron with divisively
+  normalized weights. From these weights and the network''s degree statistics alone, the wrong consensus
+  should become unreachable from any start once agents read, on average, fewer than 6.4 of their 31 sources.
+  In 1,414 episodes with assigned starts the prediction failed: the correct side won in fewer than 50%
+  of episodes from every start, and in only 28-45% when 75% of agents started correct. The failure traces
+  to the field, the threshold that a claim''s wording sets for the agent''s answer before any message
+  is read: the experimental claims'' fields lay below the calibration mean, and with each claim''s own
+  field the same weights reproduce the outcomes. Reversing the wording showed that the threshold follows
+  what a claim asserts, not whether it is true. On a second 8B model the pipeline predicts claim-dependent
+  bistability; transition points appeared where computed, and an eight-claim calibration matched in 15
+  of 16 conditions. At 70B the assertion bias is not detected. Thus a collective''s fate is largely set
+  by two single-agent measurements: the threshold a claim''s wording sets, and the message capacity that
+  sets the transition point.'
+authors:
+- Makoto Fukushima
+published_at: '2026-09-15'
+url: https://arxiv.org/abs/2609.19183
+doi: 10.48550/arXiv.2609.19183
+arxiv_id: '2609.19183'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '4'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: How much of each other''s output agents read decides whether a collective of them
+  converges on a true or a false consensus, with a threshold. A property of the organization''s communication
+  structure rather than of any agent in it.'
+ingested_at: '2026-10-29'

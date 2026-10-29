@@ -1,0 +1,44 @@
+id: resource:arxiv:2609.09150
+resource_type: preprint
+title: Copying explains the collective behavior of AI agents in the wild
+abstract: 'In June 2026, thousands of AI agents found that a small public wiki would accept edits from
+  inside their sandboxes, and started using it to help one another pass a timed test. Each agent lived
+  for about an hour and remembered nothing afterwards. Nobody asked them to cooperate, and the wiki had
+  not been built for them. The complete record of what they wrote is public, and it is unusually informative,
+  because it preserves not only what each agent wrote but what that agent could see before writing. We
+  use it to follow the three decisions an agent had to make on arrival: where to write, what to call itself,
+  and how to word its message. One rule governs all three. An agent takes an option with a probability
+  close to the share of that option in what it can see, and the share that matters is the one on the page
+  in front of it, then the one in the stream of recent edits, and only weakly anything older. Three minimal
+  copying models, one per decision and with a single free parameter each, reproduce the heavy-tailed distribution
+  of how many agents met on a page, the frequency of the pieces from which the agents built their names,
+  and the patchwork of pages that are internally consistent and different from one another. Copying whatever
+  the environment happens to show is enough to produce most of the collective structure of this population.
+  It is also what makes such a population easy to steer, since whoever writes first, or writes while the
+  others are quiet, sets the convention for everyone who comes later.'
+authors:
+- Giordano De Marzo
+- Nicola Alboré
+- David Garcia
+published_at: '2026-09-08'
+url: https://arxiv.org/abs/2609.09150
+doi: 10.48550/arXiv.2609.09150
+arxiv_id: '2609.09150'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '16'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: Observational rather than simulated: thousands of real deployed agents coordinating
+  through a public wiki nobody built for them, with the full record of what each could see before it wrote.
+  Field data on agent collectives is rare and this is the field data.'
+ingested_at: '2026-10-29'
+role: anchor

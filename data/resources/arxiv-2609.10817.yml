@@ -1,0 +1,50 @@
+id: resource:arxiv:2609.10817
+resource_type: preprint
+title: 'Tapes Together Strong: The Co-evolution of Computation and Cooperation'
+abstract: 'How does cooperation evolve in complex agentic systems? Prior work in evolutionary game theory
+  studies why individuals are incentivized to cooperate by isolating social interactions from the physical
+  costs of behavior, while artificial life models traditionally study emergent self-replication without
+  formalizing the dilemma between acquiring resources and preserving the shared energy needed to reproduce.
+  In contrast, we introduce Autopoietic Game Theory, a computational model where social interactions,
+  replication mechanisms, and their associated computational costs are endogenous and simultaneously co-evolving.
+  We study these dynamics using a computational substrate of randomly initialized programs in Z80 machine
+  code, showing empirically, and motivating with a simplified theoretical model, that embedding a social
+  dilemma directly into the physics of computation can favor the emergence of self-replicating, cooperative
+  strategies. When resources are scarce, our analysis shows that defection can become self-limiting even
+  in well-mixed populations: parasitic stealing destroys shared energy, slows execution, and can prevent
+  reliable replication. Empirically, evolved programs suppress stealing across several Z80 environments,
+  while spatial assortment further supports structural complexity and task performance. We further show
+  that the framework can incorporate exogenous pressures, such as math tasks structured as sequential
+  social dilemmas, when rewards are tied to computation budgets. These results suggest that coupling an
+  agent''s capacity for computation to its available energy transforms cooperation into a dominant scaffolding
+  for building sustainable, self-organizing systems.'
+authors:
+- Kunal Jha
+- Francesco Cicala
+- Blaise Agüera y Arcas
+- Blake Aaron Richards
+- Natasha Jaques
+- Max Kleiman-Weiner
+- Eyvind Niklasson
+published_at: '2026-09-09'
+url: https://arxiv.org/abs/2609.10817
+doi: 10.48550/arXiv.2609.10817
+arxiv_id: '2609.10817'
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Found on newcollectives.org''s Living Research Garden on 2026-10-29 and brought in
+  by hand, not through the scouting path. Scope judged against the standing test by claude-opus-5 WITHOUT
+  the machine judge in scope_judge.py, which needs an API key this session did not have — a reading of
+  the policy rather than a run of it, and it should be confirmed. Nothing in the exclusion register bars
+  it. The judgment: Evolution of cooperation in a computational substrate of Z80 programs. Load-bearing
+  for how the field thinks about cooperation emerging from interaction, and not itself about an organization
+  in which agents hold authority. Section 15 rather than refused.'
+ingested_at: '2026-10-29'
+role: context
+is_borrowed_background: true
