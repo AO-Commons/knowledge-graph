@@ -4,6 +4,27 @@ title: Changelog
 order: 13
 ---
 
+**29 October 2026. Fifteen papers read.**
+
+- {{claims}} claims, up from 112. The fifteen are the ones a foundational
+  bibliography names and the library already held without having read: the
+  collusion papers, the multi-agent security work, the workplace and market
+  benchmarks, the economics of agent firms.
+- {{questions}} open questions, up from four. One is now asked by six papers
+  that share no author, all arriving at the same missing instrument: how to
+  evaluate a system of agents rather than the agents in it.
+- **A record says what it does here**, not only what it is about — where a
+  term comes from, what claims are measured against, what somebody ran. A
+  judgment about this library rather than a property of the work.
+- The economics and law the field borrows its vocabulary from are held at
+  last, as pointed-at background. Coase, Williamson, Aghion and Tirole and
+  twelve others: cited, not ingested, and not read.
+- Two things the reading broke and fixed. The helper that says how much a
+  claim is worth was being used to choose what to read, which skipped the
+  sections modern papers name after what they found. And the review queue
+  sorted by how many tags a pair shared before sorting by the tag, which
+  split each concept across the queue.
+
 **Late October 2026. The ecosystem, and a shared vocabulary.**
 
 - Every release now carries the whole corpus as a **MIRA** graph, validated
