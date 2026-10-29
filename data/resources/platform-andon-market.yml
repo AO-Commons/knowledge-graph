@@ -1,0 +1,23 @@
+id: resource:platform:andon-market
+resource_type: deployment
+title: Andon Market
+description: A retail store in San Francisco run by an agent, Luna, on a three-year lease, with a corporate card,
+  phone, email and staff it hires and schedules. Live balance is public; not yet profitable.
+url: https://andonlabs.com/market
+organizations:
+- Andon Labs
+taxonomy_topics:
+- '8.1'
+- '13.1'
+- '16.1'
+facets:
+  artifact_type: deployment
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: added by hand, 2026-10-26, from andonlabs.com/market and press coverage. Taxonomy tags are a first pass, as for
+  the seed corpus's deployments and evaluations, and not reviewed.
+ingested_at: '2026-10-26'
+review_status: unreviewed

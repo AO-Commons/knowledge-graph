@@ -1,0 +1,324 @@
+resource_id: resource:arxiv:2604.23459
+claims:
+- id: claim:arxiv:2604.23459:1
+  text: Multi-agent architectures were more vulnerable to attack than a standalone agent in most of the
+    configurations tested.
+  quote: We find that multi-agent architectures are more vulnerable than standalone agents in the majority
+    of configurations, with attack success rates varying by up to 3.8× at comparable or higher benign
+    accuracy, and that no single design is universally safer.
+  standalone: Across three agentic environments — browser, desktop and code — 13 architectural configurations
+    and six base models, the authors find the move from one agent to several raises attack success in
+    most cases, by up to 3.8× while task accuracy stays level or improves.
+  claim_type: evidence
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - agent-fleet-topologies-flat-hierarchical-market-based
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:2
+  text: A configuration could be both better at the benign task and far easier to attack, so capability
+    scores carried no security signal.
+  quote: 'benign performance does not track with security: BrowserART specialist configurations achieve
+    higher benign accuracy while being up to more vulnerable. This decoupling implies that standard capability
+    evaluation provides no direct signal about architectural security risks'
+  standalone: The specialist configurations scored higher on the benign browser task than the standalone
+    agent and were substantially more vulnerable at the same time — so a team choosing an architecture
+    on capability numbers is choosing its attack surface blind.
+  claim_type: evidence
+  concept_tags:
+  - benchmarks-relevant-to-organizational-roles
+  - multi-agent-architecture-threat-modeling
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:3
+  text: The riskiest communication topology in one environment was the safest in another.
+  quote: Star topology is the riskiest on BrowserART but the safest multi-agent topology on RedCode-Gen
+    and OS-Harm, where chain is the riskiest.
+  standalone: The authors report no stable ranking of designs across environments, which is their argument
+    against general architectural recommendations and for evaluating each deployment on its own.
+  claim_type: evidence
+  concept_tags:
+  - agent-fleet-topologies-flat-hierarchical-market-based
+  - multi-agent-architecture-threat-modeling
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:4
+  text: Giving agents more shared memory improved security in one of six settings and made it worse in
+    two.
+  quote: Only one of six topology-scenario combinations (RedCode-Gen mesh) shows consistent improvement
+    with increased memory; two worsen and three show no effect. This challenges assumptions about transparency
+    improving safety.
+  standalone: Shared memory can expose a harmful pattern to an agent that would catch it, or supply richer
+    context to the attack; which of the two dominates depended on the model's alignment and the task domain
+    rather than on the design.
+  claim_type: evidence
+  concept_tags:
+  - shared-organizational-memory-versus-per-agent-memory
+  - memory-as-an-attack-surface
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:5
+  text: Splitting a task across specialists left no agent assessing the whole of it for harm.
+  quote: specialists receive isolated instructions without visibility into the full harmful task, while
+    orchestrators decompose tasks without safety evaluation, creating a responsibility gap where no agent
+    performs end-to-end safety assessment
+  standalone: The authors offer this as the mechanism behind their headline result — it explains why specialist
+    configurations refuse less at the planning stage even when every agent in them has strong safety training.
+  claim_type: evidence
+  concept_tags:
+  - function-to-agent-mapping-and-role-decomposition
+  - responsibility-gaps-and-their-allocation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:6
+  text: Agents passed processed output down a chain, which hid the harmful intent an agent seeing the
+    whole task would have refused.
+  quote: mesh agents see the complete harmful objective and can refuse independently, while chain agents
+    receive processed outputs that mask harmful intent, explaining chain’s Planning Refusal collapse on
+    RedCode-Gen (8.1% vs. 25.6% for star)
+  standalone: Task visibility rather than connectivity is what the authors find decisive — the topology
+    that let every agent see the whole objective produced three times the planning-stage refusal of the
+    one that passed work along in steps.
+  claim_type: evidence
+  concept_tags:
+  - handoff-failures-between-agents-and-humans
+  - decision-legibility-for-reviewers
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:7
+  text: Models with weaker safety training degraded far more under the same architectural change than
+    well-aligned ones.
+  quote: Weaker-aligned models degrade dramatically under the same architectural changes, with some showing
+    4-fold increases in harmful task completion under specialization.
+  standalone: The authors read this as architecture interacting with alignment — a strongly trained model
+    can still detect harmful intent from a fragment, where a weaker one loses the ability to see it once
+    the task is distributed.
+  claim_type: evidence
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - replication-under-model-version-churn
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:8
+  text: Outcomes were recorded by pipeline stage rather than as attack success or failure.
+  quote: 'We record stage-specific outcomes: Planning Refusal (task refused during planning), Execution
+    Refusal (refused after delegation), Harmful Actions (one or more harmful actions executed), and Harmful
+    Task (objective completed).'
+  standalone: The four stages are what let the authors say where safety reasoning failed rather than only
+    that it did — and the finding that topologies move refusal between planning and execution depends
+    entirely on this instrument.
+  claim_type: protocol
+  concept_tags:
+  - adversarial-and-stress-evaluation
+  - metric-specification-and-its-gaming-surface
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:9
+  text: The automated judge was audited by hand, and both its scores and the scorer itself were corrected.
+  quote: This review identified 15 scoring errors and 20 corrections to the scorer itself, all of which
+    were corrected. A subsequent spot-check of 10% of the remaining logs found a 7% discrepancy rate
+  standalone: Scoring ran as LLM-as-a-judge per benchmark, then an automated pass flagged suspect scores
+    and two researchers inspected every flagged case plus a sample of the full logs — a disclosed residual
+    error rate rather than an assumed-correct judge.
+  claim_type: protocol
+  concept_tags:
+  - agent-generated-evaluation-and-scoring
+  - human-review-layering-over-agent-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:10
+  text: Safety properties do not compose from the agents to the system they are arranged into.
+  quote: our results provide evidence that safety properties do not compose straightforwardly from individual
+    agents to multi-agent systems
+  standalone: The authors' reading of their own result — a model that reliably refuses in isolation may
+    enable the same harm once embedded in an architecture that fragments context, distributes authority,
+    or separates who can see a task from who can act on it.
+  claim_type: position
+  concept_tags:
+  - assurance-framework-composition-and-gap-analysis
+  - emergence-in-agent-populations
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:11
+  text: Architecture should be treated as a security variable in its own right rather than as a backdrop
+    to defenses.
+  quote: This motivates treating architecture as a first-class security variable alongside traditional
+    defenses.
+  standalone: Drawn together with the authors' three stated implications — that security cannot be inferred
+    from component evaluations, that a performance-improving choice can silently degrade it, and that
+    the assessment has to be made per deployment.
+  claim_type: position
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:12
+  text: Only direct misuse by a malicious user was studied, not injection, poisoning, or an adversary
+    inside the system.
+  quote: We study only direct misuse by a malicious user
+  standalone: The authors scope their own threat model explicitly, and note these other vectors may interact
+    with architecture in ways their results do not predict.
+  claim_type: limitation
+  concept_tags:
+  - indirect-injection-through-consumed-content
+  - adversarial-agents-within-a-fleet
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:13
+  text: No dedicated safety mechanism was in place during the evaluation.
+  quote: We do not evaluate dedicated safety mechanisms such as monitor agents, guardrail layers, or policy-checking
+    stages
+  standalone: The measured vulnerability is therefore of the architecture as such, with the defenses a
+    production deployment would add deliberately left out.
+  claim_type: limitation
+  concept_tags:
+  - scalable-oversight-techniques
+  - ex-ante-behavioral-harness
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:14
+  text: How role, topology and memory interact with each other has not been studied.
+  quote: Our three design axes are varied independently in most experiments; the interaction effects between
+    role configuration, topology, and memory, and with additional axes such as inter-agent communication
+    protocols (e.g., A2A, MCP), remain underexplored.
+  standalone: Each axis was moved on its own, so the results describe three separate effects rather than
+    the combined design a real system has — and the authors name inter-agent protocols as a fourth axis
+    nobody has varied at all.
+  claim_type: gap
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - inter-agent-communication-protocols
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:15
+  text: Existing benchmarks do not vary architecture, testing task performance or a single attack type
+    instead.
+  quote: existing benchmarks primarily evaluate either general task performance or specific attack types
+    in isolation, without systematically varying architectural design choices or focusing on adversarial
+    security
+  standalone: The authors' account of why their study was needed, and the reason they released their own
+    benchmark adaptations for multi-agent settings rather than reporting against existing ones.
+  claim_type: gap
+  concept_tags:
+  - evaluation-environments-and-benchmark-suites
+  - adversarial-and-stress-evaluation
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:16
+  text: When the agent that acts sits downstream of the agent that judges, the judgment can become advice
+    rather than a constraint.
+  quote: When agents with high execution authority are downstream from those responsible for safety reasoning
+    (e.g., planners or critics), security judgments may become advisory rather than binding.
+  standalone: 'The authors state the mechanism as a hypothesis before testing it: role separation distributes
+    authority as well as work, and an executor holding the tools can act on a plan whose safety reasoning
+    it is not bound by. They note centralizing authority instead trades this for a single point of failure.'
+  claim_type: position
+  concept_tags:
+  - declared-authority-diverging-from-effective-authority
+  - propose-versus-decide-versus-execute-separation
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:17
+  text: Only architectural variables were changed between conditions; task prompts and scoring rubrics
+    were held fixed.
+  quote: The only variables that change across conditions are architectural - the set of agent roles,
+    the communication topology, and the memory available to each agent, and the distribution of tool access
+    according to role specialization. Task prompts and scoring rubrics are held fixed.
+  standalone: Three standard single-agent benchmarks — BrowserART, OS-Harm and RedCode-Gen — were adapted
+    to multi-agent settings with their task semantics preserved, so a difference in attack success is
+    attributable to the architecture rather than to the task or the scoring.
+  claim_type: protocol
+  concept_tags:
+  - experimental-design-in-live-agentic-systems
+  - evaluation-environments-and-benchmark-suites
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2604.23459:18
+  text: Role specialization was implemented by splitting a single tool surface into disjoint sub-tools,
+    one per agent.
+  quote: BrowserART exposes a fixed set of named browser primitives (goto, click, fill, scroll), enabling
+    a clean one-tool-per-agent partition in the fully specialized configuration (Navigate / Fill / Scroll
+    / Click).
+  standalone: 'The partition differs by environment because the action space does: OS-Harm''s single computer
+    tool is cut into click, type, key and scroll with screenshot retained by each so specialists can observe
+    before acting, while RedCode-Gen''s four heterogeneous tools give an asymmetric split in which only
+    one agent can write code.'
+  claim_type: protocol
+  concept_tags:
+  - tool-access-as-the-real-permission-surface
+  - function-to-agent-mapping-and-role-decomposition
+  confidence_class: EXTRACTED
+  extracted_from: method
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

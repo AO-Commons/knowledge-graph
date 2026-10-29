@@ -1,0 +1,29 @@
+id: resource:platform:pion
+resource_type: platform
+title: Pion
+description: A research-preview platform for handing the running of a business to persistent
+  agents, with access to email, phone, banking, cards, a browser and secure computing
+  environments. A supervising agent directs a fleet of sub-agents. Access by waitlist.
+url: https://andonlabs.com/pion
+organizations:
+- Andon Labs
+taxonomy_topics:
+- '8.1'
+- '13.1'
+- '16.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  layer: hosted-platform
+  maintainer: Andon Labs, Inc.
+  status: active
+published_at: '2026-09-14'
+source_provenance: added by hand, 2026-10-26, from andonlabs.com/pion and andonlabs.com/blog/why-we-built-pion.
+  Taxonomy tags are a first pass, as for Andon Labs' deployments, and not reviewed.
+ingested_at: '2026-10-26'
+review_status: unreviewed

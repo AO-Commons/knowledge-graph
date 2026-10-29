@@ -68,6 +68,7 @@ openalex_id: W4407806359
 description: 'Cooperative AI Foundation Technical Report #1. Three failure modes and seven
   risk factors — the closest thing the field has to a shared risk taxonomy, and worth reconciling
   against section 11.'
+text_coverage: full-text
 review_status: unreviewed
 abstract: The rapid development of advanced AI agents and the imminent deployment of many
   instances of these agents will give rise to multi-agent systems of unprecedented complexity.

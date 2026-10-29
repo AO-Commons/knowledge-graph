@@ -14,7 +14,7 @@ later.
 
 **What to draft, by type.** The seven types are not equal work.
 
-*Findings and positions are the product.* They are what a researcher comes
+*Evidence and positions are the product.* They are what a researcher comes
 looking for — what has been shown, and what has been argued — and ten of the
 first twelve asserted relations run between them. A paper's yield is its
 primary count, not its claim count. Drafted from their abstracts and
@@ -22,23 +22,24 @@ conclusions, Melting Pot gave three primaries and two context claims and
 Building the Loop one and two. Read in full, they give nine and four, and eight
 and twelve.
 
-*Method claims are a query dimension, not filler.* "Who has found this,
-working that way" joins a subject on a finding to a technique on a method
-claim. Which makes the tag on a method a different job from the tag on a
-finding: **tag a method with the technique, not with the paper's subject.**
-A method tagged with what the paper is about answers nothing that its
-findings do not already answer, and the gate below catches the common case.
+*Protocol claims are a query dimension, not filler.* "Who has found this,
+working that way" joins a subject on an evidence claim to a technique on a
+protocol claim. Which makes the tag on a protocol a different job from the
+tag on evidence: **tag a protocol with the technique, not with the paper's
+subject.** A protocol tagged with what the paper is about answers nothing
+its evidence does not already answer, and the gate below catches the common
+case.
 
-*A term the paper introduces is a definition, not a method.* "We introduce
+*A term the paper introduces is a definition, not a protocol.* "We introduce
 X: the capacity for ..." names something without saying how anything is
-done, and filed as a method it answers "working that way" for a paper that
+done, and filed as a protocol it answers "working that way" for a paper that
 never worked that way. Tag a definition with the concept it defines; a term
 the paper coins is a new concept, and its definition is where the concept
 comes from.
 
 *A system the paper builds on is background.* When the paper describes
 infrastructure somebody else designed, even a co-author's firm, that is
-prior work and its attribution says whose. The paper's own method is what
+prior work and its attribution says whose. The paper's own protocol is what
 the authors did with it.
 
 *Background is where attribution concentrates.* It is usually somebody
@@ -67,11 +68,11 @@ are the part a downstream reader is most likely to drop.
    drafting rather than found by rereading, because rereading is what does
    not scale.
 
-4. *A method is tagged with its technique.* Checked by comparing a method
-   claim's tags against the tags on the same paper's findings and
-   positions: a method carrying nothing but its paper's subject has been
+4. *A protocol is tagged with its technique.* Checked by comparing a
+   protocol claim's tags against the tags on the same paper's evidence and
+   positions: a protocol carrying nothing but its paper's subject has been
    tagged for what the work is about rather than how it was done, which
-   makes it invisible to the query methods exist to answer. Reported rather
+   makes it invisible to the query protocols exist to answer. Reported rather
    than refused — sometimes the technique genuinely is the subject, as when
    a paper's contribution is the mechanism itself.
 
@@ -92,9 +93,9 @@ found the same five failures in nearly every paper. Each check below reads form
 for meaning, so each is partial and each says so; a flag is a question for a
 person, and "this one is right" is an answer.
 
-- *A method tagged with its paper's subject* — gate 4 above.
+- *A protocol tagged with its paper's subject* — gate 4 above.
 - *A paraphrase surer than its quote.* The quote hedges, the text does not.
-- *A finding quoted as argued.* The quote says "we argue", "plausible", "should".
+- *An evidence claim quoted as argued.* The quote says "we argue", "plausible", "should".
 - *A term introduced and not typed definition.*
 - *A tag on more than half of a paper's claims.*
 - *A substantial body section with no claim.* The commonest failure of
@@ -114,6 +115,7 @@ import re
 from dataclasses import dataclass, field
 
 from .concepts import Vocabulary, similar_terms
+from .fulltext import BODY_KINDS
 from .spelling import to_american
 
 # Shapes that recurred in the first pass, every one of them a fact about the
@@ -145,7 +147,7 @@ ARTIFACT_SHAPED = re.compile(
 
 # Open questions are the one kind of claim authors mark for you.
 #
-# Every other type has to be recognized: a finding looks like a sentence. An
+# Every other type has to be recognized: evidence looks like a sentence. An
 # open question is almost always announced — "remains an open question", "we
 # leave to future work", "it is not yet known whether" — because an author
 # stating one wants it found and worked on. That makes this the opposite of
@@ -242,8 +244,8 @@ class Checked:
     kept: list[dict] = field(default_factory=list)
     rejected: list[Rejection] = field(default_factory=list)
     new_concepts: list[str] = field(default_factory=list)
-    subject_tagged_methods: list[str] = field(default_factory=list)
-    """Method claims tagged for what the paper is about rather than how
+    subject_tagged_protocols: list[str] = field(default_factory=list)
+    """Protocol claims tagged for what the paper is about rather than how
     it was done. A warning, not a rejection."""
     hedges_dropped: list[str] = field(default_factory=list)
     """Claims whose paraphrase is surer than their quote. See
@@ -262,7 +264,7 @@ class Checked:
     def warnings(self) -> dict[str, list[str]]:
         """Everything reported rather than refused, by the check that raised it."""
         return {name: found for name, found in (
-            ("method tagged with its paper's subject", self.subject_tagged_methods),
+            ("protocol tagged with its paper's subject", self.subject_tagged_protocols),
             ("paraphrase surer than its quote", self.hedges_dropped),
             ("typed evidence, quoted as argued", self.argued_evidence),
             ("introduces a term, not typed definition", self.undeclared_definitions),
@@ -272,7 +274,7 @@ class Checked:
 
     @property
     def primaries(self) -> int:
-        """Findings and positions kept. The real yield — a paper's claim
+        """Evidence and positions kept. The real yield — a paper's claim
         count says how much was written down, this says how much of it is
         what anybody came for."""
         return sum(1 for c in self.kept
@@ -298,25 +300,25 @@ def looks_like_artifact_trivia(text: str) -> bool:
     Catches four of those five. The fifth — "exploiter agents and a random
     agent bound the performance range on each test scenario" — is trivia by
     meaning rather than by form, and widening the pattern far enough to reach
-    it would start rejecting real findings. A partial mechanical gate plus the
+    it would start rejecting real evidence. A partial mechanical gate plus the
     rule stated to the drafting model beats a greedy one that quietly deletes work.
     """
     return bool(ARTIFACT_SHAPED.search(text or ""))
 
 
 def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
-    """Method claims carrying only their paper's subject.
+    """Protocol claims carrying only their paper's subject.
 
-    A method's tag answers "how was this done", and is joined against a
-    finding's "what was shown" to answer "who found this, working that way".
-    A method tagged with the paper's subject instead is invisible to that
-    query — it says the same thing its findings already say, one type down.
+    A protocol's tag answers "how was this done", and is joined against an
+    evidence claim's "what was shown" to answer "who found this, working that
+    way". A protocol tagged with the paper's subject instead is invisible to
+    that query — it says what its evidence already says, one type down.
 
     Reported rather than refused, because sometimes the technique is the
     subject: a paper whose contribution is the mechanism itself will
     legitimately tag both the same way.
 
-    On the first six papers it flagged three of five method claims,
+    On the first six papers it flagged three of five protocol claims,
     which is high and was mostly telling you about the types rather than
     the tagging. These are conceptual works — a taxonomy of trust models, a
     definition of dynamic evaluation, a construct called Artificial
@@ -328,11 +330,11 @@ def method_tagged_by_subject(candidates: list[dict]) -> list[str]:
     are about evaluation, and that one came back clean.
 
     So read a flag as a question rather than a defect, and ask first
-    whether the claim is a method at all. Knowledge Organization
+    whether the claim is a protocol at all. Knowledge Organization
     Infrastructure was flagged too, and was retagged at the time to
     `shared-schemas-for-agentic-organization-data` — the opposite of what
     it does, since KOI joins systems *without* a shared schema. It was
-    never this paper's method. It is a system the paper builds on, which
+    never this paper's protocol. It is a system the paper builds on, which
     makes it background, and a wrong type invites a wrong tag because the
     tagger is answering a question the claim was never asking.
     """
@@ -383,7 +385,7 @@ def hedges_dropped(candidates: list[dict]) -> list[str]:
     return flagged
 
 
-# A finding is something this work observed or measured. These are the
+# An evidence claim is something this work observed or measured. These are the
 # words of somebody arguing, and a quote that contains them is the author
 # saying so.
 ARGUED = re.compile(
@@ -414,7 +416,7 @@ def undeclared_definitions(candidates: list[dict]) -> list[str]:
     """Claims that introduce a term and are typed as something else.
 
     "We introduce Artificial Organizational Intelligence: the capacity for
-    ..." was a method for a month, and "a dynamic evaluation is the one in
+    ..." was a protocol for a month, and "a dynamic evaluation is the one in
     which ..." until the audit. Partial, like every check here that reads form for
     meaning: "we identify and compare six distinct trust models" introduces a
     typology without saying so.
@@ -447,13 +449,15 @@ def blanket_tags(candidates: list[dict], *, share: float = 0.5, at_least: int = 
 # Body sections where a paper says what it did and what it found. A paper
 # can have an introduction with nothing new in it; a results section with no
 # claim means the results were read from the abstract's account of them.
-BODY = ("method", "results", "discussion", "other")
+# Defined beside `Section.kind` rather than here, so the gate below and
+# `fulltext.drafting_sections` cannot drift apart.
+BODY = BODY_KINDS
 
 
 def unread_sections(candidates: list[dict], sections, *, min_chars: int = 1500) -> list[str]:
     """Substantial body sections that no claim was drawn from.
 
-    The finding that held across every paper audited: claims came from
+    The result that held across every paper audited: claims came from
     the abstract, the introduction and the conclusion, and the sections
     where the work was actually done carried none. Building the Loop's
     method, architecture and deployment, Melting Pot's experiments,
@@ -507,7 +511,7 @@ def check(candidates: list[dict], *, sections=None, vocabulary: Vocabulary | Non
                 to_american(tag) if isinstance(tag, str) else tag for tag in tags]
 
     result = Checked()
-    result.subject_tagged_methods = method_tagged_by_subject(candidates)
+    result.subject_tagged_protocols = method_tagged_by_subject(candidates)
     result.hedges_dropped = hedges_dropped(candidates)
     result.argued_evidence = argued_evidence(candidates)
     result.undeclared_definitions = undeclared_definitions(candidates)

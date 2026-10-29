@@ -414,6 +414,7 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
     better done as its own pass. Pass `across_papers_only=False` for those.
     """
     import itertools
+    from collections import Counter
 
     settled = set()
     if primary_only:
@@ -440,9 +441,20 @@ def candidate_pairs(claims, relations=None, *, across_papers_only: bool = True,
         if not shared or (left.id, right.id) in settled:
             continue
         pairs.append((left, right, shared))
-    # Densest concept first: a reviewer working one idea at a time is both
-    # faster and more consistent than one jumping between subjects.
-    return sorted(pairs, key=lambda p: (-len(p[2]), p[2][0], p[0].id, p[1].id))
+    # One concept at a time, densest concept first: a reviewer working one
+    # idea through is both faster and more consistent than one jumping
+    # between subjects.
+    #
+    # Concept before pair density, which is the opposite of what this did
+    # until 2026-10-29. Sorting by `-len(shared)` first splits a concept
+    # across the queue — its two-concept pairs sort to the front with every
+    # other two-concept pair, its one-concept pairs to the back — so a
+    # reviewer meets the same idea twice, far apart, which is the thing the
+    # ordering exists to prevent. It went unnoticed while the corpus was
+    # small enough that few pairs shared more than one tag.
+    weight = Counter(p[2][0] for p in pairs)
+    return sorted(pairs, key=lambda p: (-weight[p[2][0]], p[2][0],
+                                        -len(p[2]), p[0].id, p[1].id))
 
 
 def by_subject_and_method(claims, *, subject: str = "", method: str = "",

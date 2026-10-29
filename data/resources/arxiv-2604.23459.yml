@@ -25,6 +25,7 @@ source_provenance: seed corpus v1, curated by hand and resolved against OpenAlex
   and not reviewed.
 ingested_at: '2026-08-11'
 openalex_id: W7157124873
+text_coverage: full-text
 review_status: unreviewed
 abstract: 'Multi-agent systems (MAS), composed of networks of two or more autonomous AI agents,
   have become increasingly popular in production deployments, yet introduce security risks

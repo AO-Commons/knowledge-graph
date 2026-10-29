@@ -1,0 +1,8 @@
+id: org:anthropic
+name: Anthropic
+organization_type: frontier-lab
+roles: [research]
+city: San Francisco
+country: United States
+website: https://www.anthropic.com
+source_provenance: added by hand, 2026-10-26, as the maker of Project Vend with Andon Labs

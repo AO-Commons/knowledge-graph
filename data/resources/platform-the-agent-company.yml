@@ -1,0 +1,23 @@
+id: resource:platform:the-agent-company
+resource_type: evaluation-suite
+title: TheAgentCompany
+description: A simulated software company in which agents work as employees on professional tasks across
+  engineering, HR, finance and administration, with a public leaderboard. The paper is
+  resource:arxiv:2412.14161.
+url: https://the-agent-company.com
+organizations:
+- Carnegie Mellon University
+taxonomy_topics:
+- '3.1'
+- '14.1'
+facets:
+  artifact_type: evaluation-suite
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: added by hand, 2026-10-26, from the-agent-company.com and epoch.ai/benchmarks/the-agent-company. Taxonomy tags are a first pass, as for
+  the seed corpus's deployments and evaluations, and not reviewed.
+ingested_at: '2026-10-26'
+review_status: unreviewed

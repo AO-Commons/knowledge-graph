@@ -206,6 +206,31 @@ class TestCandidateQueue:
         concepts = [shared[0] for _, _, shared in pairs]
         assert concepts == sorted(concepts, key=concepts.index), "grouped, not interleaved"
 
+    def test_a_concept_is_not_split_by_how_many_tags_a_pair_shares(self):
+        """The regression that broke grouping until 2026-10-29.
+
+        Sorting by shared-tag count before concept sends a concept's
+        two-tag pairs to the front of the queue and its one-tag pairs to
+        the back, so a reviewer meets the same idea twice, far apart.
+        """
+        from collections import Counter
+        from ao_commons_kg.claims import candidate_pairs, load_claims
+        pairs = candidate_pairs(load_claims(), [])
+        leads = [shared[0] for _, _, shared in pairs]
+        # Some concept must actually have pairs of both densities, or this
+        # test would pass against the bug it exists to catch.
+        densities = {}
+        for _, _, shared in pairs:
+            densities.setdefault(shared[0], set()).add(len(shared))
+        assert any(len(d) > 1 for d in densities.values())
+        assert len(leads) == sum(Counter(leads).values())
+        seen, runs = set(), 0
+        for lead in leads:
+            if lead not in seen:
+                seen.add(lead)
+                runs += 1
+        assert runs == len(set(leads))
+
     def test_drafted_relations_say_they_are_unconfirmed(self):
         """A model proposing an inference and writing its own justification
         is the case the INFERRED class exists to mark. It must not be
@@ -327,7 +352,12 @@ class TestVocabularyHygiene:
         vocab = load_vocabulary()
         counts = usage(load_claims(), vocab)
         assert len(counts) == len(vocab)
-        assert sum(1 for n in counts.values() if n == 0) > 400
+        # Not a threshold: the number of unused terms falls every time a
+        # paper is read, so a magic number here fails on progress. What has
+        # to hold is that the zeros are in the count rather than dropped.
+        used = {t for claim in load_claims() for t in (claim.concept_tags or [])}
+        assert sum(1 for n in counts.values() if n == 0) == len(vocab) - len(used & set(vocab.concepts))
+        assert any(n == 0 for n in counts.values())
 
 
 class TestGeneratedList:

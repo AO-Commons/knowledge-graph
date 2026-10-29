@@ -49,6 +49,7 @@ taxonomy_topics:
 - '3.1'
 facets:
   artifact_type: preprint
+text_coverage: full-text
 review_status: unreviewed
 source_provenance: added from a reading list by @ankeliu, in a batch; identity and byline
   resolved against OpenAlex. topic tags are the contributor's own, confirmed but unreviewed.

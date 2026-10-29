@@ -1,0 +1,207 @@
+# Eleven claims from a 144-section report, for the reason given at the head of
+# arxiv-2505.02077.yml: this is a survey whose body summarises other people's
+# results, and arXiv's LaTeXML strips the citation markers that would say
+# whose. Held here is what the report asserts on its own account — its
+# taxonomy of failure modes, its scope decisions, and its agenda.
+resource_id: resource:arxiv:2502.14143
+claims:
+- id: claim:arxiv:2502.14143:1
+  text: Multi-agent risks are distinct from single-agent ones and will not necessarily be addressed by
+    work on the latter.
+  quote: these risks are distinct from those posed by single agents or less advanced technologies, and
+    will not necessarily be addressed by efforts to mitigate the latter
+  standalone: 'The authors give three instances: aligning each agent to its own principal does not prevent
+    conflict when the principals'' interests diverge; errors tolerable in isolation can compound across
+    a network; and a group can develop capabilities or goals attributable to no individual in it.'
+  claim_type: position
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - assurance-framework-composition-and-gap-analysis
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:2
+  text: Failure modes are divided by whether cooperation is wanted and how far the agents' objectives
+    coincide.
+  quote: First, we can distinguish between cases where we want the agents to be cooperating (as in collective
+    action problems or team games) or competing (such as in markets or adversarial training). Second,
+    we can further divide the space of failure modes depending on whether the agents have exactly the
+    same objectives, different but overlapping objectives, or completely opposed objectives.
+  standalone: 'Two axes rather than a list. The divisions correspond to common-interest, mixed-motive
+    and constant-sum games, and yield the report''s three named failure modes: miscoordination, conflict
+    and collusion.'
+  claim_type: definition
+  concept_tags:
+  - taxonomy-construction-for-agentic-failure
+  - objective-conflict-between-agents
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:3
+  text: Miscoordination is agents with a shared and clear objective failing to align their behavior to
+    reach it.
+  quote: Miscoordination arises when agents, despite a mutual and clear objective, cannot align their
+    behaviours to achieve this objective.
+  standalone: The authors require identical preferences over outcomes rather than merely symmetric ones
+    — two agents both wanting a prize only one can win are not a common-interest case — and note AI agents
+    can be given exactly the same goal far more easily than two people can hold one.
+  claim_type: definition
+  concept_tags:
+  - conflict-detection-and-resolution-between-agents
+  - coordination-overhead-and-its-scaling
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:4
+  text: Conflict is any outcome in a mixed-motive setting that does not lie on the Pareto frontier.
+  quote: we use the word conflict in a relatively broad sense to refer to any outcome in a mixed-motive
+    setting that does not lie on the Pareto frontier
+  standalone: 'Broader than the ordinary sense: it takes in legal disputes and warfare but also collective-action
+    failures such as depleting a shared resource or a regulatory race to the bottom. The authors use the
+    word in place of ''cooperation failure'' to keep it distinct from miscoordination.'
+  claim_type: definition
+  concept_tags:
+  - objective-conflict-between-agents
+  - multi-principal-problems-with-conflicting-human-directives
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:5
+  text: Collusion between AI agents may have no ascribable intent, may be lawful, and may not divide cleanly
+    into explicit and tacit.
+  quote: for more basic AI systems (such as algorithmic trading agents) it may be hard to ascribe any
+    notion of intent to collude
+  standalone: 'Three ways the authors say AI collusion departs from the classic notion: intent may not
+    be ascribable, existing law may not yet reach it, and the explicit/tacit distinction may break down
+    for agents whose communication does not resemble ours — correlation between two decisions requires
+    information transfer, but that can come from a common cause rather than a message.'
+  claim_type: definition
+  concept_tags:
+  - agent-collusion-and-cartel-formation
+  - emergent-collusion
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:6
+  text: Aligning each agent to its own principal does not prevent conflict when the principals want different
+    things.
+  quote: the alignment of AI agents with different actors is insufficient to prevent conflict if those
+    actors have diverging interests
+  standalone: 'The report''s sharpest separation of its subject from alignment, which it places out of
+    scope: a system of perfectly aligned agents acting for principals in competition is a system in conflict.'
+  claim_type: position
+  concept_tags:
+  - multi-principal-problems-with-conflicting-human-directives
+  - objective-conflict-between-agents
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:7
+  text: Delegating a dispute to more capable agents may raise the speed and scale of conflict rather than
+    resolve it.
+  quote: delegation to increasingly advanced AI agents is far from guaranteed to lead to more cooperative
+    outcomes, and could in some circumstances increase both the speed and the scale at which conflict
+    might emerge
+  standalone: The authors note AI could help by searching a wider space of settlements, monitoring agreements
+    or mediating — and that the same competitive incentives driving a conflict are what push each side
+    to adopt it for advantage.
+  claim_type: position
+  concept_tags:
+  - delegated-versus-originated-authority
+  - feedback-loops-and-runaway-dynamics
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:8
+  text: AI systems are developed and tested one at a time although they will shortly be interacting.
+  quote: Today’s AI systems are developed and tested in isolation, despite the fact that they will soon
+    interact with each other.
+  standalone: 'The authors name what would be needed instead: evaluating cooperative capabilities, biases
+    and vulnerabilities; testing for dangerous capabilities that appear only in multi-agent settings,
+    such as manipulation, collusion or overriding safeguards; open-ended simulation of dynamics and emergent
+    behavior; and studies of how well any of that matches real deployments.'
+  claim_type: gap
+  concept_tags:
+  - evaluation-environments-and-benchmark-suites
+  - benchmarks-relevant-to-organizational-roles
+  confidence_class: EXTRACTED
+  extracted_from: conclusion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:9
+  text: Seven risk factors are named as largely independent of what the agents are each trying to do.
+  quote: 'Information asymmetries (Section 3.1): private information can lead to miscoordination, deception,
+    and conflict;'
+  standalone: The first of seven the report sets out as an agenda — alongside network effects, selection
+    pressures, destabilizing dynamics, commitment and trust, emergent agency, and multi-agent security.
+    The authors note these are not specific to AI, but that the differences between AI agents and other
+    intelligent actors give them different instances and different remedies.
+  claim_type: position
+  concept_tags:
+  - emergence-in-agent-populations
+  - specification-gaming-and-reward-hacking
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:10
+  text: Because AI systems can be copied, multi-agent settings are intrinsic to the technology rather
+    than a later development.
+  quote: A fundamental fact about (software-based) AI systems is that they can be easily duplicated. Thus,
+    the vast training costs involved in producing state-of-the-art systems can be amortized over millions
+    of instances.
+  standalone: The authors draw the conclusion that the concept of multi-agent systems is core to transformative
+    AI — the economics of training push towards many instances of one system, which is a population whether
+    or not it was designed as one.
+  claim_type: position
+  concept_tags:
+  - what-breaks-as-agent-count-grows
+  - minimum-viable-agentic-organization
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2502.14143:11
+  text: Risks that would arise in the same way for a single system are excluded, including alignment.
+  quote: if the risk could arise in essentially the same way in the context of a single AI system, then
+    we deem it to be out of scope for this report
+  standalone: The authors also state that they treat the subject primarily from a technical perspective
+    because of their own expertise, and that they almost entirely neglect the upsides — decentralization,
+    assistance in coordinating, robustness, and more evenly distributed benefits.
+  claim_type: limitation
+  concept_tags:
+  - research-ethics-with-autonomous-systems
+  - access-and-observability-constraints-on-research
+  confidence_class: EXTRACTED
+  extracted_from: other
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

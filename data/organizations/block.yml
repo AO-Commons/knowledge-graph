@@ -1,0 +1,7 @@
+id: org:block
+name: Block
+organization_type: company
+roles: [infrastructure]
+aliases: [Block, Inc.]
+website: https://block.xyz
+source_provenance: added by hand, 2026-10-26, as the maintainer of Buzz

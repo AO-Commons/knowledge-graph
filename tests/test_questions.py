@@ -86,8 +86,10 @@ def test_papers_and_occurrences_are_counted_apart():
     assert transfer["papers"] == 2
 
     # Asked twice by one paper: that paper's framing, and a single number
-    # over both would let it pass for the one above.
-    identity = counts["question:accountability-under-unstable-identity"]
+    # over both would let it pass for the one above. This was the identity
+    # question until 2026-10-29, when a second paper reached it and it
+    # became an example of the case above instead.
+    identity = counts["question:attribution-in-a-diffuse-network"]
     assert identity["occurrences"] == 2
     assert identity["papers"] == 1
 

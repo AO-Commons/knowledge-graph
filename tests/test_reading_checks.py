@@ -161,3 +161,39 @@ class TestBuildingTheLoopNoLongerTripsThem:
         assert len(candidates) >= 20
         assert not blanket_tags(candidates)
         assert not undeclared_definitions(candidates)
+
+
+class TestWhatToRead:
+    """`claim_bearing` weights a claim; it does not choose what to read.
+
+    Conflating the two cost Shen 2604.10290 six claims on the first pass —
+    the strongest in the paper, in two subsections called "AI Software Team"
+    that no heading rule could type.
+    """
+
+    def test_a_finding_shaped_heading_is_still_read(self):
+        from ao_commons_kg.fulltext import Section, drafting_sections
+        body = " ".join(["word"] * 200)
+        heading = "4.1 AI Organizations Are More Capable but Less Aligned"
+        section = Section(kind="other", heading=heading, text=body)
+        assert not section.claim_bearing
+        assert drafting_sections([section]) == [section]
+
+    def test_the_abstract_is_not_a_drafting_section(self):
+        """It is claim-bearing and it is not where the work is written down."""
+        from ao_commons_kg.fulltext import Section, drafting_sections
+        abstract = Section(kind="abstract", heading="Abstract",
+                           text=" ".join(["word"] * 200))
+        assert abstract.claim_bearing
+        assert drafting_sections([abstract]) == []
+
+    def test_a_stub_section_is_skipped(self):
+        from ao_commons_kg.fulltext import Section, drafting_sections
+        stub = Section(kind="other", heading="Baseline Single Agent", text="Three words only")
+        assert drafting_sections([stub]) == []
+
+    def test_the_gate_and_the_helper_agree_on_what_a_body_is(self):
+        """Two names for one judgment is how they drift apart."""
+        from ao_commons_kg.fulltext import BODY_KINDS
+        from ao_commons_kg.extract import BODY
+        assert BODY is BODY_KINDS

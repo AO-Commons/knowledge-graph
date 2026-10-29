@@ -33,6 +33,13 @@ CACHE = REPO / "data" / "cache" / "fulltext"
 # related-work framing that a later section only alludes to.
 CLAIM_BEARING = ("abstract", "introduction", "results", "discussion", "conclusion")
 
+# Where a paper says what it did and what it found, as opposed to where it
+# summarises itself. `other` belongs here: a heading classifier reads form,
+# and a section named after its finding or its subject matches no needle.
+# See `drafting_sections`, and the `unread_sections` gate that measures the
+# same thing after a draft rather than before one.
+BODY_KINDS = ("method", "results", "discussion", "other")
+
 SECTION_KINDS = (
     ("abstract", ("abstract",)),
     ("introduction", ("introduction", "overview")),
@@ -211,3 +218,37 @@ def verbatim(quote: str, sections: list[Section]) -> str | None:
         if needle in re.sub(r"\s+", " ", section.text):
             return section.kind
     return None
+
+
+#: A section this short says nothing a claim could rest on, whatever its
+#: heading. Tuned against Shen 2604.10290, whose real findings sit in
+#: subsections called "AI Software Team" and "AI Consultancy".
+DRAFTING_MIN_WORDS = 60
+
+
+def drafting_sections(sections: list[Section], *,
+                      min_words: int = DRAFTING_MIN_WORDS) -> list[Section]:
+    """The sections a person drafting claims should actually read.
+
+    Not the same question as `Section.claim_bearing`, and conflating the two
+    costs a paper. `claim_bearing` says how much a claim found here is worth —
+    an abstract states conclusions without the evidence for them, so a claim
+    drawn from one supports a weaker reading than the same claim drawn from a
+    results section. That is a property of the *claim*, and `extracted_from`
+    records it.
+
+    What to *read* is a different question, and a heading classifier answers
+    it badly. Papers increasingly name a section after what it found — "4.1 AI
+    Organizations Are More Capable but Less Aligned than Individual Agents" —
+    or after the thing it discusses — "AI Software Team". Neither contains a
+    needle, so both classify as `other`, and a drafter who reads only
+    `claim_bearing` sections skips them. On Shen that was six claims, the
+    strongest in the paper: reviewing agents approving work without checking
+    it, and agents routing around the ones raising objections.
+
+    So: every body section with enough text to carry a claim, in document
+    order. The `unread_sections` gate in `extract.py` already measures the
+    same thing after the fact; this is the same judgment, before.
+    """
+    return [s for s in sections
+            if s.kind in BODY_KINDS and len(s.text.split()) >= min_words]

@@ -1,0 +1,24 @@
+id: resource:platform:project-vend
+resource_type: deployment
+title: Project Vend
+description: Claude running a small shop in Anthropic's offices, with Andon Labs. A second phase added a CEO agent,
+  a CRM and shops in New York and London.
+url: https://www.anthropic.com/research/project-vend-2
+organizations:
+- Anthropic
+- Andon Labs
+taxonomy_topics:
+- '8.1'
+- '13.1'
+- '16.1'
+facets:
+  artifact_type: deployment
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: added by hand, 2026-10-26, from anthropic.com/research/project-vend-1 and project-vend-2. Taxonomy tags are a first pass, as for
+  the seed corpus's deployments and evaluations, and not reviewed.
+ingested_at: '2026-10-26'
+review_status: unreviewed

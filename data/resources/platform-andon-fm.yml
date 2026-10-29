@@ -1,0 +1,23 @@
+id: resource:platform:andon-fm
+resource_type: deployment
+title: Andon FM
+description: Four 24/7 radio stations, each run by a different agent that picks the music, researches content,
+  talks with listeners and keeps the broadcast on air.
+url: https://andonlabs.com/radio
+organizations:
+- Andon Labs
+taxonomy_topics:
+- '3.1'
+- '13.1'
+- '16.1'
+facets:
+  artifact_type: deployment
+  evidence_strength: structured-case-study
+  source_independence: independent-practitioner
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: added by hand, 2026-10-26, from andonlabs.com/radio. Taxonomy tags are a first pass, as for
+  the seed corpus's deployments and evaluations, and not reviewed.
+ingested_at: '2026-10-26'
+review_status: unreviewed

@@ -1,6 +1,6 @@
-# The open questions, and the statements that ask them.
+# The open questions, and the claims that ask them.
 #
-# A `gap` statement is one paper saying something is unresolved, in that
+# A `gap` claim is one paper saying something is unresolved, in that
 # paper's words and bounded by that paper's scope. A question is the thing
 # several of those turn out to be asking. Clustering them is the layer the
 # roadmap called for and the reason the extraction pass hunts gaps separately:
@@ -18,7 +18,7 @@
 #
 # Every edge here is INFERRED. No paper says "my open question is an instance
 # of yours" — somebody read several and decided. So each occurrence carries
-# `because`, and each question carries the `note` saying why its statements
+# `because`, and each question carries the `note` saying why its claims
 # are one question. That note is the judgment a reader most needs to be able
 # to disagree with, and it is the first thing to check when one of these looks
 # wrong.
@@ -27,17 +27,22 @@
 # unconfirmed, exactly as the claim relations were: a question attributed to a
 # person reads as settled, and none of these has been read by one yet.
 #
-# What the corpus can and cannot show today. Seven gap statements, from four
-# papers, clustering into four questions. One of them is asked by two papers
-# and the other three by one each, and that ratio is the honest state of the
-# layer: it works, and it is thin, because only seven papers have been read
-# down to their statements at all.
+# What the corpus can and cannot show today. Nineteen gap claims, from nine
+# papers, clustering into nine questions. Three are asked by more than one
+# paper and six by one each, and that ratio is the honest state of the layer.
+#
+# The reading pass of 2026-10-29 is what moved it. Six papers on multi-agent
+# behaviour were read down to their claims in one go, and the gaps they
+# carried did not scatter: three papers that share no author — an
+# architectural security study, a multi-agent security survey, and a risk
+# report — each arrived at the same missing instrument from a different
+# direction, which is the case this layer exists for.
 #
 # The one that crosses is the case this layer exists for. METR's time-horizon
 # work and Melting Pot prosocial profiling share no citation and no author and
 # would not meet in any search; both are asking whether a measured capability
 # is a property of the agent or of the conditions it was measured under. A
-# question asked by two papers is a statement about a field. A question asked
+# question asked by two papers is a claim about a field. A question asked
 # twice by one paper is that paper's framing. The difference is counted rather
 # than implied.
 
@@ -54,7 +59,7 @@ questions:
       - prosocial-capability
       - long-horizon-and-multi-step-task-evaluation
     note: >-
-      Three statements from two papers that share no citation and no author.
+      Three claims from two papers that share no citation and no author.
       Two sit in one discussion section and ask the same thing from opposite
       ends: whether the measurement layout carries to another suite, and
       whether the substrate the agent was measured on biased the number. The
@@ -97,7 +102,7 @@ questions:
       - agent-reputation-systems
       - operator-deployer-and-developer-liability
     note: >-
-      Both statements come from one paper and share the dissociative identity
+      Both claims come from one paper and share the dissociative identity
       concept, but they are not the same sentence twice. One reports that
       identity and reputation are open problems in technical AI governance at
       all; the other reports that assigning accountability under fragmented
@@ -119,6 +124,14 @@ questions:
           Reports that accountability under fragmented identity remains
           unresolved after centuries of DID jurisprudence — the same question
           where it has been pressed hardest and still not answered.
+      - claim: claim:arxiv:2505.02077:12
+        because: >-
+          States that the cryptographic provenance it proposes — signed
+          commitments, ledger-timestamped exchanges — is unimplementable
+          until agent identities are traceable. A second paper arriving at
+          the same precondition from the opposite end: the first two ask
+          whether identity can answer for anything, this one asks for the
+          identity before it will propose the mechanism.
 
   # ---------------------------------------------------------------------
   # Constraints that have only been argued one at a time.
@@ -130,7 +143,7 @@ questions:
       - ex-ante-behavioral-harness
       - insurance-for-autonomous-action
     note: >-
-      One statement, from one paper, and recorded as its own question rather
+      One claim, from one paper, and recorded as its own question rather
       than folded into a neighbour. Its subject is the interaction between
       mechanisms — configuration binding, behavioral fingerprinting, insurance
       — and interaction is not a smaller version of any of the three. A
@@ -170,3 +183,185 @@ questions:
           States that no existing approach meets, in combination, all the
           requirements the authors set out for a valid dynamic evaluation —
           the question stated as the shortfall the paper found.
+
+  # ---------------------------------------------------------------------
+  # Whether an organization can be constrained back into alignment.
+  # ---------------------------------------------------------------------
+  - id: question:organization-level-mitigation
+    text: Can an organization of aligned agents be constrained back into alignment?
+    status: open
+    concept_tags:
+      - scalable-oversight-techniques
+      - ex-ante-behavioral-harness
+      - agent-assisted-review-of-agent-output
+    note: >-
+      One claim, from one paper, and kept apart from the ex ante constraint
+      question it sits beside. That one asks how several mechanisms interact
+      once each is in place. This asks the prior question of whether any of
+      them works at the level where the problem was found: the paper that
+      raises it measured organizations of individually aligned agents
+      producing misaligned output, so the mitigation has to act on the
+      organization rather than on the agents, and the two candidates it names
+      — a monitor agent inside the organization, and constraints applied to
+      the organization — are untested. A thin question, recorded so the
+      second paper to ask it lands somewhere.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2604.10290:15
+        because: >-
+          Names mitigation as unaddressed by the work and points at two
+          candidate families, having established the failure the mitigation
+          would have to answer.
+      - claim: claim:arxiv:2505.02077:9
+        because: >-
+          States that the two de facto agent protocols standardise transport
+          and discovery and specify no enforceable action constraints, which
+          is the same question approached from the layer a constraint would
+          have to live in rather than from the failure it would answer.
+
+  # ---------------------------------------------------------------------
+  # Whether the analogy to human organizations holds.
+  # ---------------------------------------------------------------------
+  - id: question:machine-and-human-organizational-failure
+    text: Do machine organizations fail the way human ones do?
+    status: open
+    concept_tags:
+      - taxonomy-construction-for-agentic-failure
+      - organizational-learning-and-memory
+      - agent-based-simulation-of-organizational-dynamics
+    note: >-
+      One claim, from one paper, and the question the analogy this field is
+      built on rests on. The paper motivates its experiments with human
+      organizational failure, finds mechanisms that read like it — work split
+      into roles that lose the whole-problem view, reviewers approving
+      without checking, objectors routed around — and then declines to claim
+      the comparison has been made. Worth recording as its own question
+      rather than as a footnote to that paper, because the answer decides how
+      much of a century of organizational research transfers and how much is
+      borrowed vocabulary.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2604.10290:16
+        because: >-
+          Sets the comparison with human organizational failure as future
+          work, having used the analogy to motivate the study.
+
+  # ---------------------------------------------------------------------
+  # Evaluating a system rather than the parts it is made of.
+  # ---------------------------------------------------------------------
+  - id: question:evaluating-a-system-not-its-parts
+    text: How do you evaluate a system of agents rather than the agents in it?
+    status: open
+    concept_tags:
+      - assurance-framework-composition-and-gap-analysis
+      - evaluation-environments-and-benchmark-suites
+      - correlated-failure-across-organizations
+      - multi-agent-architecture-threat-modeling
+    note: >-
+      Four claims from three papers that share no author, and the clearest
+      case this layer has produced so far. A multi-agent security survey says
+      no framework addresses correlated failure across a population or
+      concentration risk from shared infrastructure. An architectural study
+      says existing benchmarks test task performance or one attack type and
+      never vary the architecture, and separately that its own three design
+      axes were moved one at a time so nothing describes the combined design
+      a real system has. A risk report says plainly that systems are built and
+      tested in isolation although they will shortly be interacting. Each
+      arrives from a different direction — systemic risk, architecture, and
+      deployment practice — and each lands on the same missing instrument.
+      This is the question that decides whether any safety result about one
+      agent means anything about the system it goes into.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2502.14143:8
+        because: >-
+          States that AI systems are developed and tested in isolation despite
+          being about to interact, and names what evaluation would have to
+          cover instead.
+      - claim: claim:arxiv:2505.02077:8
+        because: >-
+          States that no evaluation framework addresses system-level risk
+          analogous to financial systemic risk, naming three exposures nobody
+          measures.
+      - claim: claim:arxiv:2604.23459:15
+        because: >-
+          States that existing benchmarks evaluate task performance or
+          specific attacks without varying architectural design choices.
+      - claim: claim:arxiv:2604.23459:14
+        because: >-
+          States that the interaction between role, topology and memory
+          remains underexplored, so each axis is measured alone and the
+          combined design is not measured at all.
+
+  # ---------------------------------------------------------------------
+  # Attribution when the cause is spread across a network.
+  # ---------------------------------------------------------------------
+  - id: question:attribution-in-a-diffuse-network
+    text: Can an action in a network of agents be attributed to a responsible party?
+    status: open
+    concept_tags:
+      - attribution-which-agent-acted-under-whose-authority
+      - attribution-difficulty-and-contested-causation
+      - root-cause-analysis-for-machine-action
+    note: >-
+      Two claims from one paper, and kept apart from the accountability
+      question it sits beside. That one asks who answers for an agent whose
+      identity does not hold still; this one assumes identity is settled and
+      asks whether causation can be established at all. The paper gives two
+      distinct reasons it may not be: the credit-assignment methods that
+      would apportion blame assume cooperative objectives and known rewards,
+      which an adversary violates by design; and a failure may have no agent
+      cause at all, arising from distributional shift, technical debt, or a
+      compromised supply chain, so a framework that looks only for a culprit
+      will find one. A question one paper asks twice is that paper's framing
+      and is counted as such.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2505.02077:10
+        because: >-
+          States that credit-assignment and Shapley-value methods assume
+          cooperative objectives and known reward functions, which the
+          adversarial case violates.
+      - claim: claim:arxiv:2505.02077:11
+        because: >-
+          States that an attribution framework must separate agent misconduct
+          from systemic causes or it will misidentify benign agents.
+
+  # ---------------------------------------------------------------------
+  # Whether an operator can see what its own agent is doing.
+  # ---------------------------------------------------------------------
+  - id: question:knowing-your-own-agent
+    text: Can an operator establish what its own agent is trying to do?
+    status: open
+    concept_tags:
+      - reasoning-transparency-and-its-reliability
+      - drift-detection-and-behavior-change-monitoring
+      - background-equivalent-provenance-and-training-data-due-diligence
+    note: >-
+      Two claims from one paper, and that paper is the one with the strongest
+      reason to ask. Having established a causal link between what its agents
+      wrote and what they then did, it finds the deploying firm still cannot
+      use that: asking the model directly whether it would collude returns a
+      reassurance the authors read as sycophancy, and tracing the behaviour
+      back to its source in training is blocked by an open problem in
+      attributing a model's output features to its training documents. So a
+      merchant acting in good faith has no instrument for establishing what
+      its own agent intends. Counted as one paper's framing until a second
+      asks it.
+    asserted_by: claude-opus-5 (drafted, unconfirmed)
+    asserted_on: "2026-10-29"
+    addressed_by:
+      - claim: claim:arxiv:2404.00806:18
+        because: >-
+          Asks directly how firms should monitor the strategic intentions of
+          their pricing algorithms, in a setting where asking the agent does
+          not work.
+      - claim: claim:arxiv:2404.00806:17
+        because: >-
+          States that what in a model's training causes the behaviour is an
+          open question, and that attributing an output feature to training
+          data is itself unsolved.

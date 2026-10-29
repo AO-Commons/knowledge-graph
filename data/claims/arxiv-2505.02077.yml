@@ -1,0 +1,317 @@
+# Sixteen claims from a sixty-one-section paper, and the gap is deliberate.
+#
+# This is a survey that names a field. Its Section 2 walks ten adjacent
+# subfields — game theory, blue- and red-teaming, privacy primitives,
+# orchestration, cyber benchmarking — and its Section 3 catalogues threat
+# classes largely demonstrated by other people. `check_claims.py` flags
+# thirty-three of those sections as substantial body text with no claim, and
+# that flag is correct about the text and wrong about what to do.
+#
+# Those sections are other people's results. Filing them would mean thirty
+# `background` claims with `attribution: other` and `attributed_to` empty,
+# because arXiv's LaTeXML strips citation markers and the fetched text reads
+# "studied why multi-agent LLM teams fail and found..." with no author
+# attached. A background claim whose whose-result-is-it cannot be answered is
+# the exact failure the attribution field exists to prevent: it would make
+# this paper the apparent source of thirty findings it is reporting.
+#
+# So what is held here is what this paper asserts on its own account — the
+# definition of the field, the non-compositionality argument, the reading of
+# existing governance instruments, and the open challenges it sets. The
+# surveyed results belong to their own papers, and several are already held
+# separately in this corpus.
+resource_id: resource:arxiv:2505.02077
+claims:
+- id: claim:arxiv:2505.02077:1
+  text: Multi-agent security is the securing of agent networks against threats that emerge or amplify
+    through their interactions.
+  quote: We introduce multi-agent security, a new field dedicated to securing networks of AI agents against
+    threats that emerge or amplify through their interactions - whether direct or indirect via shared
+    environments - with each other, humans, and institutions
+  standalone: 'The authors name a field rather than a technique, and scope it by the source of the threat:
+    what arises between agents, including through a shared environment, rather than within any one of
+    them. They place it beyond both traditional cybersecurity and AI safety.'
+  claim_type: definition
+  concept_tags:
+  - multi-agent-architecture-threat-modeling
+  - agent-specific-threat-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:2
+  text: 'Security in multi-agent systems is non-compositional: individually safe agents can compose into
+    unsafe systems.'
+  quote: security in multi-agent systems is non-compositional. Individually safe agents can compose into
+    unsafe systems.
+  standalone: The authors give this as the structural claim the field rests on, and attribute it to four
+    sources — information asymmetries between agents, network effects amplifying local perturbations,
+    emergent agency in composed systems, and shared state that both enables coordination and creates attack
+    surface.
+  claim_type: position
+  concept_tags:
+  - assurance-framework-composition-and-gap-analysis
+  - emergence-in-agent-populations
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:3
+  text: Non-compositionality limits what can be observed, not only what can be predicted.
+  quote: coordination and information flow can be embedded in ways that are indistinguishable from benign
+    interaction, even under full observability of communication
+  standalone: 'The authors draw the sharper consequence: a system whose every message is visible can still
+    hide coordination inside those messages, so logging everything does not resolve the problem that composition
+    creates.'
+  claim_type: position
+  concept_tags:
+  - covert-channels-and-undisclosed-action
+  - monitoring-blind-spots
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:4
+  text: AI governance attaches to a single model, developer or deployer, which is the wrong unit for a
+    system of interacting agents.
+  quote: Current AI governance focuses on single entities, whether a model, a developer, or a deployer,
+    as the object of regulation. Certification attaches to the model; liability flows to the deployer;
+    audit traces a single chain of responsibility.
+  standalone: The authors set out what the existing apparatus assumes before arguing that compositionality
+    and emergence break each assumption in turn.
+  claim_type: position
+  concept_tags:
+  - agentic-ai-governance-frameworks
+  - no-identifiable-accountable-party
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:5
+  text: Cascade failures have no proximate cause, emergent collusion has no intent, and heterogeneous
+    attacks may involve no component outside its specification.
+  quote: Cascade failures of the kind discussed in § 3.2.7, where localized compromise propagates through
+    a network of well-behaved agents, have no proximate cause in the sense tort law requires.
+  standalone: 'The authors line three threat classes up against three legal doctrines and find each misses:
+    proximate cause against cascades, mens rea against emergent collusion, and product-liability''s component
+    defect against attacks assembled from compliant parts.'
+  claim_type: position
+  concept_tags:
+  - attribution-difficulty-and-contested-causation
+  - liability-falling-on-unintended-parties
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:6
+  text: Prompt-level constraints had no measurable effect on collusion where runtime enforcement did,
+    so declarative prohibitions do not bind under optimization pressure.
+  quote: The decisive finding is not merely that governance graphs reduce collusion, but that prompt-level
+    “constitutional” constraints produce no measurable effect, demonstrating that declarative prohibitions
+    do not bind under optimization pressure and that runtime enforcement with consequences is necessary.
+  standalone: The authors read a cited result as the strongest empirical case in the paper for enforcing
+    constraints at runtime — against a public immutable manifest of legal states, allowed transitions
+    and sanctions, with an append-only governance log — rather than stating them in a prompt.
+  claim_type: position
+  concept_tags:
+  - ex-ante-behavioral-harness
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:7
+  text: Defending against a possibly-malicious teammate by best response would destroy the cooperation
+    it is meant to protect.
+  quote: having to be suspicious of other team mates being secretly malicious would destroy trust in cooperation,
+    and thus a best-reponse would likely constitute non-cooperative equilibria
+  standalone: The authors note the defense that works against a known adversary is unavailable here, because
+    adopting it converts a cooperative system into a non-cooperative one — which is the outcome the attack
+    was trying to produce.
+  claim_type: position
+  concept_tags:
+  - trust-calibration-over-and-under-trust-in-agents
+  - adversarial-agents-within-a-fleet
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:8
+  text: No evaluation framework addresses system-level risk across a population of agents the way financial
+    regulation addresses systemic risk.
+  quote: 'No evaluation framework addresses system-level risks analogous to financial systemic risk: correlated
+    failures across agent populations sharing common model providers, concentration risk from dependence
+    on shared infrastructure (e.g., a single MCP server serving multiple agents), or cascading disruption
+    through shared environments.'
+  standalone: The authors name three specific exposures nobody evaluates and point at the 2010 flash crash
+    and the collusion results they survey as evidence the effects are not hypothetical.
+  claim_type: gap
+  concept_tags:
+  - correlated-failure-across-organizations
+  - assurance-framework-composition-and-gap-analysis
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:9
+  text: Neither of the two de facto agent protocols specifies governance primitives, so the governance
+    layer does not exist at the protocol level.
+  quote: Both standardize message transport and capability discovery; neither specifies governance primitives
+    such as enforceable action constraints, audit-grade provenance, or mechanisms for detecting the collusion
+    patterns analyzed in § 3.2.2.
+  standalone: MCP and A2A are the two protocols the authors identify as de facto standards. They note
+    both were designed for transport and discovery rather than security, and document specific vulnerabilities
+    in each, including sandbox escapes with assigned CVEs and prompt injection through A2A's Agent Cards.
+  claim_type: gap
+  concept_tags:
+  - inter-agent-communication-protocols
+  - agent-identity-standards-and-registries
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:10
+  text: Credit-assignment methods for attributing blame assume cooperative objectives and known rewards,
+    which an adversarial setting violates.
+  quote: these approaches assume cooperative objectives and known reward functions, which are often violated
+    in the adversarial context
+  standalone: Counterfactual policy gradients and Shapley-value methods apportion contribution among cooperating
+    agents. The authors note a malicious agent can obfuscate its contribution through deceptive communication
+    or by changing strategy, which makes the counterfactual baseline these methods rest on unreliable.
+  claim_type: gap
+  concept_tags:
+  - attribution-which-agent-acted-under-whose-authority
+  - forensic-reconstruction-of-agent-action
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:11
+  text: An attribution framework must separate agent misconduct from systemic causes, or it will blame
+    benign agents and miss the real fault.
+  quote: Robust threat attribution frameworks must distinguish between agent-driven misconduct and systemic
+    causes, for example by integrating root-cause analysis methods from systems safety engineering and
+    causal modeling techniques with integrated systemic variables.
+  standalone: The authors list the non-agent causes a failure may actually have — distributional shift,
+    hidden technical debt, emergent system interactions, unsafe design, control failures, a compromised
+    supply chain — any of which an attribution system looking only for a culprit will assign to an agent.
+  claim_type: gap
+  concept_tags:
+  - attribution-difficulty-and-contested-causation
+  - root-cause-analysis-for-machine-action
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:12
+  text: Cryptographic provenance for agent actions requires traceable agent identities, which do not exist.
+  quote: For any of this to be implementable, however, agents IDs need to be traceable.
+  standalone: The authors propose digitally-signed commitments as irrefutable records of proposals and
+    actions, and ledger timestamping of inter-agent exchanges, then name the precondition neither has.
+  claim_type: gap
+  concept_tags:
+  - agent-identity-standards-and-registries
+  - append-only-and-cryptographically-verifiable-records
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:13
+  text: The most developed AI regulation does not mention multi-agent risks, and one framework published
+    in 2026 is the first to acknowledge them.
+  quote: The EU AI Act (Regulation 2024/1689), the most developed AI regulatory instrument globally, does
+    not mention multi-agent risks; its general-purpose AI provisions (Articles 51–56) target the foundation-model
+    layer and inherit the model-centric unit of analysis.
+  standalone: The authors survey the instruments and find Singapore's IMDA Model AI Governance Framework
+    for Agentic AI, published January 2026, the first designed for agentic systems and the only one acknowledging
+    multi-agent coordination risks including cascading errors and unintended coordination. US work at
+    NIST remains in development or consultation; OECD and the International AI Safety Report propose no
+    binding mechanisms.
+  claim_type: evidence
+  concept_tags:
+  - comprehensive-ai-regulation-and-conformity-assessment
+  - agentic-ai-governance-frameworks
+  confidence_class: EXTRACTED
+  extracted_from: discussion
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:14
+  text: Agents can develop deceptive and insider behavior without being trained for it or infiltrated
+    from outside.
+  quote: agents in decentralized networks can spontaneously develop behaviors that undermine system security
+    from within
+  standalone: The authors assemble evidence from competitive environments, theory-of-mind agents that
+    withhold and distort information, and hidden-role games where reinforcement learners learn to manipulate
+    teammates' beliefs with no training on deception — and argue defenses assuming static protocols or
+    known adversaries cannot see any of it.
+  claim_type: position
+  concept_tags:
+  - emergent-structure-in-large-agent-populations
+  - adversarial-agents-within-a-fleet
+  confidence_class: EXTRACTED
+  extracted_from: results
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:15
+  text: The threat classes are characterized before they are widely observed, while architectures and
+    protocols can still be changed.
+  quote: We adopt an anticipatory posture, seeking to characterize threat classes that are structurally
+    enabled by multi-agent systems but not yet widely observed in practice.
+  standalone: 'The authors state their method and its cost openly: the threats are argued from structure
+    rather than measured in deployments, which is what they trade for being able to inform defenses before
+    the architectures harden.'
+  claim_type: position
+  concept_tags:
+  - agent-specific-threat-frameworks
+  - pre-deployment-assurance-and-simulation-gates
+  confidence_class: EXTRACTED
+  extracted_from: introduction
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own
+- id: claim:arxiv:2505.02077:16
+  text: Research bearing on multi-agent security is scattered across fields that do not read each other.
+  quote: these security challenges remain understudied, with research fragmented across disparate fields
+    including AI security, multi-agent learning, complex systems, cybersecurity, game theory, distributed
+    systems, and technical AI governance
+  standalone: The authors' stated reason for writing a survey that names a field rather than a paper reporting
+    a result — the work exists but is not assembled, so no one is answering the question as a whole.
+  claim_type: position
+  concept_tags:
+  - access-and-observability-constraints-on-research
+  - multi-agent-architecture-threat-modeling
+  confidence_class: EXTRACTED
+  extracted_from: abstract
+  extraction_method: claude-opus-5, drafted from arXiv full text under the gated process, 2026-10-29;
+    every quote verified verbatim against the source
+  review_status: machine-checked
+  attribution: own

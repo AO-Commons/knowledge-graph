@@ -186,7 +186,7 @@ class TestMethodTagging:
              "claim_type": "protocol", "concept_tags": ["dynamic-evaluation"]},
         ])
         assert len(result.kept) == 2
-        assert result.subject_tagged_methods == ["a method"]
+        assert result.subject_tagged_protocols == ["a method"]
 
     def test_the_yield_that_matters_is_primaries(self):
         """A paper's claim count says how much was written down; this
