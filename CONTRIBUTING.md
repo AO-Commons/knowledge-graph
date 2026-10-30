@@ -1,38 +1,75 @@
 # Contributing
 
-The most valuable contributions are corrections and missing evidence, in that order.
+Two forms and a pull request. Corrections are worth more than additions.
 
-## What helps most
+## Correct something
 
-**Research we've missed.** A paper, postmortem, standard, or implementation that belongs in the library and isn't there. Say which taxonomy topic it belongs under if you know.
+**[Open the correction form →](https://github.com/AO-Commons/knowledge-graph/issues/new?template=request-adjustment.yml)**
 
-**Misclassifications.** A resource tagged to the wrong topic, or given a facet value the source doesn't support. Classification is partly automated, so this is expected and useful.
+Nothing here has been checked by more than one person and most of it has not
+been checked by one. The most useful thing you can send is a claim that does
+not say what its paper says.
 
-**Scope arguments.** If we've included something that fails the scope test, or excluded something that passes it, say so. The [exclusion register](taxonomy/agentic-org-research-library-taxonomy-v3.md) exists so the boundary is contestable rather than invisible — the taxonomy itself flags three exclusions as genuinely arguable.
+Every claim carries the sentence it was drawn from, so the two can be compared
+without opening the PDF. If they disagree, say so — quoting the sentence the
+paper actually uses is the whole correction.
 
-## The scope test
+Also worth sending: wrong metadata, a topic that does not fit, an attribution
+that credits the wrong person, or a record that should not be here at all.
 
-Everything in the library has to pass it:
+**If you wrote the work**, say so on the form. An author's verdict is recorded
+as an author's, which is a fact about the reviewer rather than a higher score:
+you are the highest authority on whether a claim says what your paper says, and
+the least disinterested party on whether it overstates.
 
-> An item belongs if it would change how you design, operate, oversee, or hold accountable an organization where agents act with real authority.
+## Suggest something
 
-Material about human collective decision-making that is unchanged by the presence of machine agents does not belong, however good it is. If you're proposing something the register excludes, the thing to argue is **what changes because machine agents hold authority**.
+**[Open the suggestion form →](https://github.com/AO-Commons/knowledge-graph/issues/new?template=suggest-addition.yml)**
+
+One form for a paper, a tool, a deployment, an organization, a person or an
+article. A link is usually enough.
+
+A bot judges it against the scope test below, usually within a minute. If it
+passes, the metadata is resolved and the record joins the corpus as
+`unreviewed`, with your name on the proposal. If it does not, the reasoning is
+posted on the issue — the boundary is meant to be contestable, and that is how
+you contest it.
+
+### The scope test
+
+> An item belongs if it would change how you design, operate, oversee, or hold
+> accountable an organization where agents act with real authority.
+
+Work about human collective decision-making that would be the same without
+machines does not belong, however good it is. The question that decides a hard
+case is **what changes because machine agents hold authority**.
+
+The [exclusion register](taxonomy/agentic-org-research-library-taxonomy-v3.md)
+says what has been turned away and why, so the boundary is contestable rather
+than invisible. It flags three exclusions as genuinely arguable. If yours is
+relevant by transfer rather than directly — the economics and law the field
+borrows its vocabulary from — say so, and it is held as background the library
+points at rather than reads.
 
 ## Taxonomy changes
 
-The v3 taxonomy is a seed, not scripture — but it is a set of stable identifiers that other people's tags point at. Changes are deliberate, in this order:
+The v3 taxonomy is a seed, not scripture — but its codes are stable
+identifiers other people's tags point at. In this order:
 
-1. Would an **alias** solve it? A synonym on an existing topic makes it findable.
+1. Would an **alias** solve it?
 2. Would **multi-tagging** across existing topics cover it?
-3. Would a **cross-link** between two existing topics express the relationship?
-4. Only then, propose a **new topic**.
+3. Would a **cross-link** between two topics express the relationship?
+4. Only then, a **new topic** — through
+   [the taxonomy form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=taxonomy.yml),
+   stating the code, its parent, the rationale, and why the existing nodes are
+   insufficient.
 
-A proposal goes in `taxonomy/proposals/` and states the proposed code, its parent, a title, the rationale, example resources that need it, and why the existing nodes are insufficient.
+Two rules that do not bend:
 
-Two rules that don't bend:
-
-- **Codes are never renumbered or reused.** A deprecated topic keeps its code forever so old tags stay resolvable.
-- **No new top-level sections in V1** unless the corpus shows a persistent gap that none of the 16 can hold.
+- **Codes are never renumbered or reused.** A deprecated topic keeps its code
+  forever so old tags stay resolvable.
+- **No new top-level sections** unless the corpus shows a gap none of the 16
+  can hold.
 
 ## Code
 
@@ -41,12 +78,25 @@ pip install -e ".[dev]"
 pytest
 ```
 
-Keep it small and boring. A new dependency needs a reason, and "it's more elegant" is not one. The taxonomy tests run against the real v3 file rather than only a fixture, so a change that breaks the actual source fails loudly.
+Keep it small and boring. A new dependency needs a reason, and "it is more
+elegant" is not one. The taxonomy tests run against the real v3 file rather
+than a fixture, so a change that breaks the actual source fails loudly.
 
-If you add an edge type, it must be able to say where it came from. Anything non-deterministic carries a `confidence_class` and the source it was drawn from — a relationship nobody can trace is worse than a missing one.
+If you add an edge type, it must be able to say where it came from. Anything
+non-deterministic carries a `confidence_class` and the source it was drawn
+from — a relationship nobody can trace is worse than a missing one.
+
+## Reviewing claims
+
+Judging a claim against its paper happens in the signed-in application rather
+than here, so that an author can be invited to review claims about their own
+work. If you want to review, say so on a correction form and you will be
+invited.
 
 ## Terms
 
-Contributions are licensed [CC BY 4.0](LICENSE); code is additionally MIT. By contributing you confirm you have the right to license the material that way.
+Contributions are licensed [CC BY 4.0](LICENSE); code is additionally MIT. By
+contributing you confirm you have the right to license the material that way.
 
-Please don't include personal information about third parties. Participation is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).
+Please do not include personal information about third parties. Participation
+is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).

@@ -129,20 +129,6 @@ class TestWhatItChanges:
         assert judged.review_status.value == "reviewed"
 
 
-class TestTheScreenSaysIt:
-    def test_the_payload_carries_it(self):
-        built = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
-        assert '"byAuthor":' in built
-
-    def test_the_line_names_the_reviewer_their_standing_and_the_verdict(self):
-        """"Checked by Axelmannen (paper author) as accurate." The reasoning
-        for why that standing matters lives in the docs; the card just has to
-        say who, in what capacity, and what they decided."""
-        page = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
-        assert '" (paper author)"' in page
-        assert "` as ${claim.verdict.replace(/-/g, \" \")}.`" in page
-
-
 class TestConfirmingALinkReachesVerdictsAlreadyMerged:
     """The first author review in the corpus arrived before anything recorded
     who filed it. If confirming a link only affected future filings it would

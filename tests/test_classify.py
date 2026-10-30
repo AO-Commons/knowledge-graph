@@ -78,11 +78,3 @@ class TestClassify:
 
     def test_nonsense_matches_nothing(self, index):
         assert index.classify("zzzz qqqq wwww", limit=5, min_score=0.5) == []
-
-    def test_the_page_scores_with_the_same_rules(self):
-        """Kept as a pointer. The real check is tests/test_scoring_parity.py,
-        which runs the page's own tokenizer under Node and compares it string
-        for string — a suffix list matching was never proof the two agreed."""
-        from pathlib import Path
-
-        assert (ROOT / "tests" / "test_scoring_parity.py").exists()

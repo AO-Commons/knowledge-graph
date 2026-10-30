@@ -1,294 +1,130 @@
 # AO Commons — Knowledge Graph
 
-A maintained map of research on **autonomous organizations**: organizations in which machine agents hold operational or decision authority.
+A maintained map of research on **autonomous organizations**: organizations in
+which machine agents hold operational or decision authority.
 
-Browse the field through a purpose-built taxonomy, discover related work through the scholarly graph, find implementations and evaluations where they exist, and query the whole library directly from an AI agent.
+**[Browse it →](https://ao-commons.github.io/knowledge-graph/)**
 
-The point is to help a researcher — human or machine — reach the right **small set of primary sources** faster and more cheaply than starting from a search engine. The graph decides *what to read*. It does not replace reading.
-
-## Why this helps researchers
-
-Two researchers meet in this library: the one looking for what the field has shown, and the one whose paper is being read. It has to work for both, and libraries usually forget the second.
-
-**For someone looking.** Search finds papers, but a researcher usually needs something narrower. Has anyone already shown what I am about to assume? Who disagrees? What did the authors say their result does not cover? The library answers with claims. Each one is a sentence from a paper, with:
-
-- the paper's own words beside our summary,
-- what kind of claim it is (shown, argued, defined, bounded or left open),
-- whose result it is.
-
-Every answer ends at a paper.
-
-**For someone whose work is here.** A model drafts claims from a paper, and people check them against the paper's own words. Read that way, the paper's authors are owed the following, and the library holds itself to it:
-
-- **Your words are quoted, not replaced.** Every claim carries the exact sentence it was drawn from, so a reader sees what you said and not only what we said you said.
-- **Your hedges travel.** A "may" stays a "may". A limitation you put on your result stays beside the finding, because it is the part a summary most often drops.
-- **What you showed and what you argued stay apart.** An implication you draw is not filed as a result you measured.
-- **Credit goes where it belongs.** A claim is credited to its paper and authors, and a result you report from someone else is credited to them.
-- **You can correct it.** An author's verdict is recorded as an author's, and a claim you mark as overstated goes back to be redrafted.
-- **Readers are sent to you.** The graph exists to point readers at the right few papers, and to link the record to the paper itself.
-
-Where the library falls short of this, that is a defect to fix, not a cost of doing business. How contributions to the library are recorded and credited, including the authors' own, is in [docs/contributions.md](docs/contributions.md).
-
-## Status
-
-Early, and the binding constraint has moved. Records are no longer the scarce
-thing; reading them is, and review of what was read is scarcer still.
+The unit is not the paper. It is the **claim** — one thing a paper asserts,
+stored with the exact sentence it came from, what kind of claim it is, and
+whose result it is. That is what lets you check a claim rather than trust it.
 
 | | |
 |---|---|
-| Records | 363, of which 171 are section 15 background the library points at rather than ingests |
+| Records | 363 |
 | Papers read down to claims | 27 |
-| Claims | 349 — 43 of them checked by a person against the paper |
-| Open questions | 13, clustered from 35 gap claims |
+| Claims | 349, of which 43 checked by a person against the paper |
+| Open questions | 13, clustered from the gaps papers name themselves |
 | Topics | 103, in 16 sections |
-| Releases | Deterministic and checksummed, latest `v0.11.0`, each also shipped as a [MIRA](https://github.com/MIRA-science/schema) graph |
 
-| Milestone | State |
-|---|---|
-| 1 — Taxonomy and data model | **Done** — 103 topics, 16 sections, JSONL export |
-| 2 — Scholarly corpus (OpenAlex) | **Running** — resolution and citation expansion go unattended |
-| 3 — Taxonomy classification | **Superseded** — a record's topics derive from the concepts on its claims |
-| 4 — Connected-Papers-style similarity | **Started** — bibliographic coupling and co-citation |
-| 5 — Query surfaces | **CLI and MCP ship**; no REST |
-| 6 — Optional enrichment | Deliberately deferred |
+Early, and the binding constraint is reading rather than collecting.
 
-## The taxonomy
+## What you can do
 
-[`taxonomy/agentic-org-research-library-taxonomy-v3.md`](taxonomy/agentic-org-research-library-taxonomy-v3.md) is the source of truth. Everything else is derived from it.
+**Browse and search** on the site above. Every claim shows the sentence it was
+drawn from, so you can disagree without opening the PDF.
 
-```
-103 topics · 16 sections · 86 subsections · 510 notes carried beneath them
-```
+**Suggest something** — a paper, tool, deployment, organization, person or
+article. [One form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=suggest-addition.yml).
+A bot judges it against the scope test, and if it passes, resolves the metadata
+and files the record within a minute. If it does not, you get the reasoning
+rather than a closed issue.
 
-Its scope test is enforced rather than decorative:
+**Correct something.** [The other form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=request-adjustment.yml).
+Corrections are the most useful thing anyone sends: nothing here has been
+checked by more than one person and most of it has not been checked by one.
 
-> An item belongs if it would change how you design, operate, oversee, or hold accountable an organization where agents act with real authority. Material about collective human decision-making that is unchanged by the presence of agents does not belong, however good it is.
-
-Three structures live in that one file, and they are implemented differently on purpose:
-
-- **The numbered hierarchy** is navigation. Codes are stable identifiers — never renumbered, never reused. `2.2.2` is a child of `2.2` because of its code, not because of how the file is indented.
-- **Section 11 (Failure modes)** is a coding scheme, not a set of shelves. An incident normally carries several codes at once, and its 119 topics are marked `usage_mode: coding_scheme` so the query layer treats multi-tagging as the default.
-- **F1–F12** are facets — flat controlled vocabularies on a resource, never a second tree. The taxonomy says what a resource is *about*; the facets say what kind of evidence it is and when it applies.
-
-## How a paper gets from arriving to citable
-
-[docs/pipeline.md](docs/pipeline.md) walks the ten stages — intake,
-resolution, admission, filing, reading, tagging, linking, derivation,
-review, release — with what runs unattended, what waits for a person, and
-measured coverage at each step.
-
-[docs/open-problems.md](docs/open-problems.md) covers what happens to the gap
-claims that pass through it: how several papers' open questions are
-clustered into one, what the `addresses` edge asserts, and why the surface
-counts papers and occurrences apart.
-
-The short version: everything up to filing now runs on its own, and 43 of 349
-claims have been checked by a person against the paper they came from. That is
-where the binding constraint sits, and the figure is published rather than
-rounded up.
-
-## Adding a lot at once
-
-The site's **Add** tab is quickest for one or two. For a reading list, point an
-agent at [docs/bulk-add.md](docs/bulk-add.md):
-
-```bash
-python3 scripts/bulk_add.py papers.txt            # says what it would do
-python3 scripts/bulk_add.py papers.txt --write    # writes the records
-```
-
-Duplicates keep the original — across identifier forms, and inside the file
-itself — and are reported rather than passed over.
-
-## Builder tooling
-
-`data/tooling/awesome-builder-tools.yml` mirrors
-[framework-zero/awesome-builder-tools](https://github.com/framework-zero/awesome-builder-tools)
-(Framework Zero, MIT), re-read weekly and pinned to the upstream commit it came
-from. Their list answers *what should I build with*; this library answers *what
-does a tool let agents do, and what stops them*. An entry crosses over when
-somebody has read the tool's own documentation and can say what oversight it
-ships — see [ATTRIBUTION.md](ATTRIBUTION.md).
-
-The **Tools** tab on [the site](https://ao-commons.github.io/knowledge-graph/)
-shows the profiled tools — what agents may do, what stops them, and the
-document each answer came from — above the mirrored list.
-
-```bash
-python3 scripts/sync_tooling.py           # what moved upstream, and what is worth profiling
-python3 scripts/sync_tooling.py --write   # update the mirror
-```
-
-`aokg profile` does the reading. It fetches a tool's README and the
-documentation that README links about approval, permissions and oversight, and
-answers the two questions — refusing when the documents do not, which is often.
-What it will not say is written down beside what it will.
-
-```bash
-aokg profile --propose-only   # what is waiting, in the order it would be read
-aokg profile --budget 3       # read three and write them
-```
-
-It opens a pull request rather than committing, unlike `grow`. A wrong paper
-record is a row in our own pile; a wrong profile is a claim about somebody
-else's software. See [docs/tool-profiles.md](docs/tool-profiles.md).
-
-## Browsing it as a spreadsheet
-
-The same library in a public Airtable base, for people who would rather filter
-and group than clone and install. Five tables — Papers, People, Organizations,
-Tooling and Registry — linked to each other, so a paper opens to its authors, a
-person opens to the organizations they belong to, an organization opens to the
-tooling it built, and a tool opens to the autonomous organizations running it.
-
-```bash
-python3 scripts/mirror_public.py --dry-run
-```
-
-**The repository is the source of truth; the base is a way to view it.** It is
-rebuilt every morning from `data/resources/` and
-[the registry](https://github.com/AO-Commons/registry), and never read back, so
-an edit typed into it survives until the next run and no longer. Curation
-happens here. See [scripts/README.md](scripts/README.md#the-public-base).
-
-## Asking it questions from Claude
-
-A read-only MCP server ships with the repository, so Claude can search the
-taxonomy, look up people and records, and read the claims drawn from papers, each
-with the sentence it came from.
+**Query it from an agent.** A read-only MCP server ships with the repository.
 
 ```bash
 python3 -m pip install -e '.[mcp]'
 claude mcp add ao-commons -- aokg-mcp
 ```
 
-[docs/mcp.md](docs/mcp.md) covers Claude Desktop, what it answers well, and
-what it deliberately will not tell you while the corpus is unreviewed.
+## The scope test
 
-[docs/agents.md](docs/agents.md) sets out who may act here and on whose
-behalf: the library's own agent, and the proposal for connecting somebody
-else's, which may read a person's review queue and recommend a verdict but
-never file one.
+> An item belongs if it would change how you design, operate, oversee, or hold
+> accountable an organization where agents act with real authority.
 
-## Using the data
+Work about human collective decision-making that would be the same without
+machines does not belong, however good it is. That boundary is what keeps the
+library small enough to be worth querying, and the
+[exclusion register](taxonomy/agentic-org-research-library-taxonomy-v3.md)
+names what it has turned away — including three exclusions we already think
+are arguable.
+
+Adjacent literature the field borrows its vocabulary from — Coase, Williamson,
+Aghion and Tirole — is held at section 15 as background the library points at
+rather than reads.
+
+## What a record carries
+
+Claims, each with its quote, its kind (shown, argued, defined, bounded or left
+open) and whose result it is. Authors and the organizations they were at.
+Topics, derived from the concepts on its claims rather than assigned by hand.
+The open questions it bears on.
+
+Every release is deterministic and checksummed, and also ships as a
+[MIRA](https://github.com/MIRA-science/schema) graph — an open schema for
+research graphs — so the corpus is readable by anything that already speaks it.
+
+## For authors
+
+If your work is here, the library holds itself to this:
+
+- **Your words are quoted, not replaced.** Every claim carries the sentence it
+  was drawn from.
+- **Your hedges travel.** A "may" stays a "may", and a limitation you put on a
+  result stays beside it.
+- **What you showed and what you argued stay apart.**
+- **Credit goes where it belongs.** A result you report from somebody else is
+  credited to them, not to you.
+- **You can correct it**, and an author's verdict is recorded as an author's.
+
+Where it falls short of that, it is a defect to fix. Use the correction form.
+
+## Running it
 
 ```bash
 python3 -m pip install -e ".[scholarly]"
-aokg taxonomy --stats            # what loaded, per section
-aokg resolve                     # fetch OpenAlex metadata + reference lists
-aokg expand --limit 40           # propose new records from the citation graph
-aokg build --version v0.12.0     # write a portable release
+aokg taxonomy --stats          # what loaded, per section
+aokg resolve                   # metadata and reference lists from OpenAlex
+aokg grow --propose-only       # what the citation graph suggests admitting
+aokg build --version v0.12.0   # a portable, checksummed release
+pytest
 ```
 
-Building the gold set that every classification figure is measured against:
-
-```bash
-aokg review --reviewer your-name   # assign topics from a shortlist
-aokg evaluate                      # score the classifier against them
-```
-
-`expand` walks one hop out from the corpus in **both** directions — references
-and citers — because they answer different questions. A corpus grown only
-forward drifts toward the recent; only backward, toward the foundational. It
-writes a scored review queue to `data/candidates/`.
-
-```bash
-aokg grow --propose-only     # what clears the bar, no model calls, nothing written
-aokg grow                    # scope-scan the shortlist and admit what passes
-```
-
-`grow` admits without waiting for a person. A work cited by enough records we
-already hold, which then passes a scope scan reading it against the scope test
-and the exclusion register, enters the corpus `unreviewed` with the scan's
-reasoning written onto it.
-
-The bar rises with each hop from a human judgment — generation 1 needs 2 of
-our papers to cite it, generation 2 needs 3 — and a per-run budget caps the
-rate. Both exist because the alternative is not hypothetical: admitting
-everything our papers cite measures out at roughly 4,900 records, **93% of
-them cited by exactly one of ours**, mostly optimization and neural-network
-background that fails the scope test on sight. Narrow scope is the reason 87
-curated records are worth more than 8,500.
-
-Without an `ANTHROPIC_API_KEY` the scan cannot run and `grow` admits nothing,
-by design. The fallback for a missing scope test is a queue, not a keyword
-score.
-
-Candidates come from two instruments, and the structural one is the better of them:
-
-- **Structure** — works the corpus already cites, repeatedly. No keywords involved. A work several of our papers cite is part of this conversation by the field's own behavior, whatever its title says.
-- **Vocabulary** — a keyword score, used to rank rather than to admit.
-
-The keyword score has a known ceiling and the code says so. *Institutions as cached computation for resource-rational negotiation* is squarely in scope, contains no agent-ish words, and scores 1; it would be found by co-citation and never by vocabulary. Domain applications ("agentic AI in smart manufacturing") are **flagged rather than penalized**, because no keyword can separate "agents run this business" from "agents schedule maintenance here" — the reviewer decides.
-
-The score is a **keyword pre-filter, not the scope test**. Calibrated against
-a hand pass over ~90 works it agrees on 11 of 12 title-only cases, and its one
-known blind spot is recorded in the tests: it cannot find papers that are
-relevant by argument rather than by vocabulary. Author expansion finds those;
-the two instruments are complementary.
-
-Releases follow the layout below and are usable without running any of our code:
-
-```
-data/releases/<version>/
-├── nodes.jsonl           topics, resources, claims, questions, concepts,
-│                         organizations, people — one JSON object per line
-├── relationships.jsonl   edges, each carrying its provenance
-├── taxonomy.json         the tree on its own, for browsing
-├── graph.mira.jsonld     the same corpus in MIRA's vocabulary, validated
-├── mira-report.json      what that projection could not say
-├── metadata.json         counts, license, attribution
-└── checksums.txt
-```
-
-Builds are reproducible: nodes sort by id, edges by their triple, and no timestamp is written unless you pass one. The same inputs produce the same bytes, which is what makes the checksums worth publishing and a diff between releases worth reading.
-
-Every release also ships as a [MIRA](https://github.com/MIRA-science/schema) graph — an open schema for research graphs — validated on every build against MIRA's own generated shapes, pinned by commit in `schema/`. `mira-report.json` counts and names everything the projection could not carry, which is the honest half: a shared vocabulary that cannot yet hold a taxonomy, an organization, or the edge from a paper to what it asserts. See `docs/about/05-mira.md`.
-
-## How to read an edge
-
-Every relationship says where it came from, because "this paper cites that one" and "a model thinks these are related" are different claims and should never look alike.
-
-| Kind | Example | Carries |
-|---|---|---|
-| Deterministic | `CITES`, `PARENT_OF` | Nothing extra — read from structured metadata |
-| Computed | `SIMILAR_TO` | `method` and `score`, always. A similarity whose method is hidden can't be interpreted |
-| Read from the source, or inferred | `DISCUSSES`, `PROPOSES`, … | `confidence_class` of `EXTRACTED`, `INFERRED`, or `AMBIGUOUS`, plus the source text it came from |
-
-The schema refuses to let these blur: labeling a citation with a confidence class is an error, because it implies a judgment nobody made.
-
-## Design commitments
-
-**Small schema, and the bar it sets.** It began as three node families — Resource, Topic, and one generic Entity — with the rule that a fourth had to be justified by a query that could not be answered without it. Four have since cleared that bar: Claim, because the paper is the wrong unit to link; Question, because gaps from different papers turn out to ask one thing; and Organization and Person, because an affiliation that is a string on a record points at nothing. The rule is kept, not relaxed.
-
-**Boring storage.** The logical product is a graph; the physical database can be SQLite or Postgres. No graph database and no vector store until measurement shows one earns its place.
-
-**Graph first, source second.** For an ordinary question: query the taxonomy and graph, return compact metadata, identify 5–15 likely sources, and only then fetch full text. Sending a corpus to a model is the thing this project exists to avoid.
-
-**Scope discipline over completeness.** The exclusion register in the taxonomy is honored. Material that is excellent but unchanged by machine authority stays out, and Section 15 points at adjacent literatures rather than ingesting them.
-
-## Repository layout
+## Layout
 
 | Path | Contents |
 |---|---|
-| [taxonomy/](taxonomy/) | The v3 source file, aliases, cross-links, and change proposals |
-| [src/ao_commons_kg/](src/ao_commons_kg/) | Models, taxonomy parser, export |
+| [taxonomy/](taxonomy/) | The v3 source file, aliases, cross-links, proposals |
 | [data/resources/](data/resources/) | One file per record |
-| [data/claims/](data/claims/) | What each paper asserts, with the sentence it came from |
-| [data/questions.yml](data/questions.yml) | Open questions, and the gap claims that ask them |
-| [data/claim-relations.yml](data/claim-relations.yml) | How claims support, qualify, extend or disagree with each other |
+| [data/claims/](data/claims/) | What each paper asserts, with its source sentence |
+| [data/questions.yml](data/questions.yml) | Open questions and the gaps that ask them |
+| [data/claim-relations.yml](data/claim-relations.yml) | How claims support, qualify, extend or disagree |
 | [data/organizations/](data/organizations/) · [data/people/](data/people/) | The ecosystem layer |
-| [data/releases/](data/releases/) | Published graph releases |
-| [tests/](tests/) | Run with `pytest` |
-| [evals/](evals/) | Research questions and results for benchmarking against baselines |
-| `data/snapshots/` | Committed text of web sources, so a quote stays checkable. Empty until a web source is admitted |
-| [auth/](auth/) | GitHub sign-in, written and not switched on — [docs/sign-in.md](docs/sign-in.md) |
-| [docs/](docs/) | Data model and architecture notes |
+| [data/releases/](data/releases/) | Published releases |
+| [src/ao_commons_kg/](src/ao_commons_kg/) | Models, parser, exports, MCP server |
+| [docs/](docs/) | How the pipeline works, and why it is shaped this way |
+| [site/](site/) | The preview page, built by `scripts/build_site.py` |
+
+## How it is built
+
+[docs/pipeline.md](docs/pipeline.md) walks the nine stages with measured
+coverage at each, and says what runs unattended and what waits for a person.
+The short version: everything up to filing runs on its own, and the reading and
+the reviewing are where people are needed.
+
+Two rules that do not bend. **Every edge says where it came from** — a citation
+and a model's guess are different claims and must never look alike. **Machines
+admit, people judge** — nothing a model drafted is readable as a person's
+decision.
 
 ## Contributing
 
-Corrections to the taxonomy, missing research, and evidence that a classification is wrong are all welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Taxonomy changes are deliberate: try aliases, then multi-tagging, then a cross-link, and only then propose a new topic.
+[CONTRIBUTING.md](CONTRIBUTING.md). Corrections first, missing research second.
 
 ## License
 
-Content and data are [CC BY 4.0](LICENSE). Code in `src/` is additionally available under MIT.
+Content and data [CC BY 4.0](LICENSE); code in `src/` additionally MIT.

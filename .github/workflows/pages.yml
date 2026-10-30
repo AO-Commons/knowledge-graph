@@ -1,4 +1,4 @@
-# Publishes the filing site to GitHub Pages.
+# Publishes the preview page to GitHub Pages.
 #
 # INERT while the repository is private: Pages is unavailable on a private
 # repo under a free plan. Making knowledge-graph public turns this on with no
@@ -44,11 +44,8 @@ jobs:
       - run: pip install -e .
 
       # Rebuilt rather than trusted: the committed index.html can fall behind
-      # the corpus, and a filing site showing yesterday's records would waste
-      # a contributor's time.
-      # build_site.py parses the page's script and fails the build if it does
-      # not. One unbalanced template literal takes the whole page down, and the
-      # only symptom is a console message on a site nobody has opened yet.
+      # the corpus, and a preview showing yesterday's records would waste a
+      # reader's time.
       - run: python3 scripts/build_site.py
       # The readable vocabulary. Derived from the taxonomy and the extras
       # file, so it goes stale the moment either moves — and a generated
@@ -58,10 +55,6 @@ jobs:
       # Who made the library, read from the records that say so. Rebuilt for
       # the same reason: a stale list of contributors leaves somebody out.
       - run: python3 scripts/build_contributions.py
-      # The graph page reads this; it is derived from the same corpus and
-      # would otherwise go stale the moment a record is added.
-      - run: python3 scripts/build_graph.py
-
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

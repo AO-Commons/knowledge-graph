@@ -90,10 +90,3 @@ class TestFailures:
         listing.write_text("# nothing but a comment\n", encoding="utf-8")
         assert main([str(listing), "--offline"]) == 1
 
-
-def test_the_site_points_at_the_instructions():
-    """The Add tab is where somebody with twenty papers finds out there is a
-    better way than pasting for an hour."""
-    page = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
-    assert "docs/bulk-add.md" in page
-    assert (ROOT / "docs" / "bulk-add.md").exists()

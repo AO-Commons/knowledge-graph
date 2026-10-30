@@ -29,15 +29,6 @@ class TestTheType:
     def test_the_bot_accepts_it(self):
         from merge_filing import CLAIM_TYPES
         assert "definition" in CLAIM_TYPES
-
-    def test_the_site_explains_it(self):
-        """A type the review screen has no words for falls through to the raw
-        value, which is the least help on the newest type."""
-        page = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
-        assert "definition: [\"definition\"" in page
-        assert 'kindCard("definition"' in page
-
-
 class TestTheMethodGate:
     def test_it_does_not_look_at_definitions(self):
         """A definition is tagged with what it defines, which is the paper's
