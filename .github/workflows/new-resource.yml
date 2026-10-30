@@ -70,7 +70,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python3 scripts/judge_suggestion.py \
-            --body-file /tmp/proposal.md --out /tmp/verdict.json
+            --body-file /tmp/proposal.md --out /tmp/verdict.json \
+            --title "${{ github.event.issue.title }}" 
 
       - name: Say why not, and stop
         if: steps.scope.outcome == 'failure'
@@ -114,6 +115,7 @@ jobs:
           python3 scripts/add_resource.py \
             --body-file /tmp/proposal.md \
             --author "${{ github.event.issue.user.login }}" \
+            --title "${{ github.event.issue.title }}" \
             --issue ${{ github.event.issue.number }} \
             --summary-file /tmp/summary.md
 

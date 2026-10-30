@@ -1,13 +1,13 @@
 name: Suggest something for the library
-description: A paper, tool, deployment, organization, person or article the graph should hold.
+description: A paper, tool, deployment, organization, person or article we should hold.
 title: "[Add] "
 labels: ["addition"]
 body:
   - type: markdown
     attributes:
       value: |
-        One form for everything. Fill in what you know — a link is usually enough
-        for a paper, and a name and a URL for everything else.
+        One form for everything. Put the title or name in the box above, and a
+        link below. For a paper, a link alone is enough — we look the rest up.
 
   - type: dropdown
     id: kind
@@ -33,27 +33,16 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: name
-    attributes:
-      label: Title or name
-      description: Optional for a paper — it is looked up. Useful for everything else.
-
   - type: textarea
     id: why
     attributes:
       label: Why does it belong?
       description: |
-        The library is scoped to **organizations where machine agents hold operational
-        or decision authority**. The question that decides it: what changes because
-        machine agents hold authority?
+        We hold research on organizations where AI agents make real decisions or run
+        real operations — not where they only assist someone who does.
 
-        Work about human collective decision-making that would be the same without
-        machines does not belong, however good it is. If it is relevant by transfer
-        rather than directly — the economics and law the field borrows its vocabulary
-        from — say so, and it is held as background the library points at rather than
-        reads.
-      placeholder: "One or two sentences is plenty."
+        A sentence or two on why this matters for building, running or overseeing one.
+      placeholder: "A sentence or two is plenty."
     validations:
       required: true
 
@@ -61,9 +50,12 @@ body:
     attributes:
       value: |
         ---
-        **What happens next.** A bot reads this against the scope test, usually within
-        a minute. If it passes, the metadata is resolved against OpenAlex and Semantic
-        Scholar and the record joins the corpus as `unreviewed`, with your name on the
-        proposal. If it does not, the reasoning is posted here rather than the issue
-        being closed — the boundary is meant to be contestable, and saying so is how
-        it gets contested.
+        ### What happens next
+
+        A bot checks it against our scope, usually within a minute.
+
+        **If it fits**, we look up the details, add it, and comment here with a link.
+        New records are marked unreviewed until a person has checked them.
+
+        **If it does not**, the bot says why and leaves this open. Reply if you
+        disagree — a maintainer can still add it.

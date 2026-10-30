@@ -704,7 +704,8 @@ def write_record(payload: dict) -> Path:
 # ---- the whole job ---------------------------------------------------------
 
 def process(body: str, *, author: str, issue: int, resources: list, known_topics: set[str],
-            fetch_openalex=None, fetch_s2=None, fetch_arxiv=None) -> tuple[str, dict | None]:
+            fetch_openalex=None, fetch_s2=None, fetch_arxiv=None,
+            issue_title: str = "") -> tuple[str, dict | None]:
     """Read an issue and produce the record it asks for.
 
     Returns the summary to post and the record written, if any. A duplicate is
@@ -713,7 +714,13 @@ def process(body: str, *, author: str, issue: int, resources: list, known_topics
     bot.
     """
     fields = read_issue(body)
-    if not fields.get("identifier") and not fields.get("name"):
+    # GitHub already asks for a title at the top of every issue form, so the
+    # form does not ask again. Used only where a lookup comes back with
+    # nothing, which is most organizations, people and tools.
+    if issue_title and not fields.get("title") and not fields.get("name"):
+        fields["title"] = re.sub(r"^\s*\[(?:add|fix)\]\s*", "", issue_title,
+                                 flags=re.I).strip()
+    if not fields.get("identifier") and not fields.get("name") and not fields.get("title"):
         raise ProposalError(
             "Nothing to add. The issue needs a DOI, an arXiv id, or a link — the "
             "site's Add tab fills that in for you."
@@ -790,6 +797,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--author", default="a contributor")
     parser.add_argument("--issue", type=int, default=0)
     parser.add_argument("--summary-file", default="")
+    parser.add_argument("--title", default="", help="the issue's own title")
     parser.add_argument("--offline", action="store_true",
                         help="skip the metadata lookups; for testing the parse")
     args = parser.parse_args(argv)
@@ -800,7 +808,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         summary, payload = process(
             Path(args.body_file).read_text(encoding="utf-8"),
-            author=args.author, issue=args.issue,
+            author=args.author, issue=args.issue, issue_title=args.title,
             resources=resources, known_topics=known_topics,
             fetch_openalex=None if args.offline else openalex.http_fetcher(),
             fetch_s2=None if args.offline else semanticscholar.http_fetcher(),

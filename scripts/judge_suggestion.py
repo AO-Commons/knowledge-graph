@@ -41,7 +41,7 @@ from ao_commons_kg.expansion import Candidate, ScopeVerdict  # noqa: E402
 from ao_commons_kg.scope_judge import anthropic_judge  # noqa: E402
 
 
-def metadata_from_body(body: str) -> dict:
+def metadata_from_body(body: str, issue_title: str = "") -> dict:
     """What the issue form gives us, as the judge's metadata block.
 
     Deliberately thin. The form asks for a link, a name and a case for
@@ -72,29 +72,31 @@ def metadata_from_body(body: str) -> dict:
     why = get("why does it belong", "why")
     kind = get("what is it")
     return {
-        "title": get("title or name", "title") or get("link", "identifier") or "(unknown)",
+        "title": (issue_title or get("title or name", "title")
+                  or get("link", "identifier") or "(unknown)"),
         "venue": kind,
         "date": "",
         "abstract": why or "(the proposer gave no reason)",
     }
 
 
-def judge_body(body: str, *, judge=None) -> ScopeVerdict:
+def judge_body(body: str, *, judge=None, issue_title: str = "") -> ScopeVerdict:
     candidate = Candidate(key="suggestion", cited_by=())
     judge = judge or anthropic_judge()
-    return judge(candidate, metadata_from_body(body))
+    return judge(candidate, metadata_from_body(body, issue_title))
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--body-file", required=True)
     parser.add_argument("--out", default="")
+    parser.add_argument("--title", default="", help="the issue's own title")
     args = parser.parse_args(argv)
 
     body = pathlib.Path(args.body_file).read_text(encoding="utf-8")
 
     try:
-        verdict = judge_body(body)
+        verdict = judge_body(body, issue_title=args.title)
     except Exception as error:                      # noqa: BLE001
         payload = {"admit": False, "judged": False,
                    "reasoning": f"could not run the scope scan "

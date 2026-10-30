@@ -160,7 +160,7 @@ class TestItSaysWhatItIs:
     opens with what a reader needs to know to judge what they are looking at."""
 
     def test_it_says_it_is_a_preview_and_incomplete(self):
-        assert "This is a preview, and it is incomplete." in PAGE
+        assert "Preview, and incomplete." in PAGE
 
     def test_it_says_why_things_are_missing_rather_than_implying_a_judgment(self):
         assert "missing because nobody has added it yet" in PAGE

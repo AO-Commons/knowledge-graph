@@ -229,14 +229,15 @@ body{margin:0;background:linear-gradient(180deg,var(--sky) 0,var(--bg) 46vh) no-
 a{color:inherit}
 .wrap{padding-inline:var(--inset);max-width:calc(var(--max) + 2*var(--gutter));margin:0 auto}
 
-header{padding-block:clamp(26px,4vw,52px) 10px}
+header{padding-block:clamp(20px,3vw,34px) 6px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .brand b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em}
 .brand span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 h1{font-family:var(--serif);font-weight:300;letter-spacing:-.035em;line-height:1.04;
    font-size:clamp(34px,4.6vw,62px);margin:.42em 0 .3em;max-width:20ch}
 .lede{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:60ch;margin:0}
-.figs{display:flex;gap:clamp(16px,2.4vw,38px);flex-wrap:wrap;margin:26px 0 0;
+.figs{display:flex;gap:clamp(16px,2.4vw,38px);flex-wrap:wrap;margin:22px 0 0;
       font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
 .figs b{font-family:var(--sans);font-size:19px;font-weight:600;color:var(--ink);margin-right:6px}
 
@@ -256,12 +257,10 @@ h1{font-family:var(--serif);font-weight:300;letter-spacing:-.035em;line-height:1
 .add:hover{background:var(--green-ink)}
 
 main{padding-bottom:90px;min-height:50vh}
-.notice{background:var(--panel);border:1px solid var(--line);border-radius:14px;
-        padding:clamp(18px,2.4vw,26px);max-width:72ch;margin-top:26px}
-.notice p{margin:0 0 12px;font-size:16.5px;color:var(--ink-2)}
-.notice p b{color:var(--ink);font-weight:600}
-.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.tabs{border-bottom:1px solid var(--line);margin-top:30px}
+.notice{max-width:78ch;margin:20px 0 0;font-size:clamp(16px,1.25vw,18px);color:var(--ink-2)}
+.notice b{color:var(--ink);font-weight:600}
+.acts{display:flex;gap:9px;flex-wrap:wrap}
+.tabs{border-bottom:1px solid var(--line);margin-top:24px}
 .tabs .wrap{display:flex;gap:2px;overflow-x:auto}
 .tab{font:inherit;font-family:var(--serif);font-size:16px;padding:13px 17px;border:0;
      background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;
@@ -315,21 +314,17 @@ footer a{color:var(--green)}
 
 <header>
   <div class="wrap">
-    <div class="brand"><b>AO Commons</b><span>Knowledge Graph</span></div>
-    <div class="notice">
-      <p><b>This is a preview, and it is incomplete.</b> A map of research on
-        <b>autonomous organizations</b> — organizations in which machine agents hold
-        operational or decision authority. Every claim carries the sentence it was drawn
-        from, so you can check it without opening the paper.</p>
-      <p>363 records are here. The field has more, and 27 of these have been read down to
-        their claims. <b>What is missing is missing because nobody has added it yet</b> —
-        so if you know of work that belongs, or spot something we have got wrong, the two
-        buttons below are the whole contribution process.</p>
+    <div class="top">
+      <div class="brand"><b>AO Commons</b><span>Knowledge Graph</span></div>
       <div class="acts">
-        <a class="add" id="suggest" href="#">Suggest something we are missing</a>
-        <a class="ghost" id="fixAny" href="#">Something here is wrong</a>
+        <a class="add" id="suggest" href="#">Suggest something</a>
+        <a class="ghost" id="fixAny" href="#">Report an error</a>
       </div>
     </div>
+    <p class="notice"><b>Preview, and incomplete.</b> Research on <b>autonomous
+      organizations</b> — where machine agents hold operational or decision authority.
+      Every claim carries the sentence it came from, so you can check it without the
+      paper. Anything missing is missing because nobody has added it yet.</p>
     <div class="figs" id="figs"></div>
   </div>
 </header>

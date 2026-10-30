@@ -117,3 +117,22 @@ class TestItAnswersToTheSameCriteriaAsExpansion:
         source = (REPO / "scripts" / "judge_suggestion.py").read_text(encoding="utf-8")
         assert "from ao_commons_kg.scope_judge import anthropic_judge" in source
         assert "SCOPE_TEST" not in source, "it must not restate the test"
+
+
+class TestTheIssueTitleIsTheOnlyTitle:
+    """GitHub puts a Title box at the top of every issue form. The form asked
+    for one again underneath it, so a contributor met two."""
+
+    def test_the_issue_title_is_used_when_the_body_has_none(self):
+        body = BODY.replace("### Title or name\n\nMulti-Agent Risks from Advanced AI\n", "")
+        meta = judge_suggestion.metadata_from_body(body, "[Add] Agent Bazaar")
+        assert meta["title"] == "[Add] Agent Bazaar"
+
+    def test_the_form_does_not_ask_for_a_title_twice(self):
+        import yaml
+        form = yaml.safe_load(
+            (REPO / ".github" / "ISSUE_TEMPLATE" / "suggest-addition.yml")
+            .read_text(encoding="utf-8"))
+        assert form["title"], "the issue title should still be prefilled"
+        labels = [b.get("attributes", {}).get("label", "").lower() for b in form["body"]]
+        assert not any("title" in label for label in labels), labels
