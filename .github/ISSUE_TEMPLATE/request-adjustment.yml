@@ -1,0 +1,60 @@
+name: Correct something in the library
+description: Something held here is wrong, out of date, or misses what its source says.
+title: "[Fix] "
+labels: ["suggestion", "correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are the most useful thing anyone sends. Nothing here was checked
+        by more than one person, and most of it has not been checked by one.
+
+  - type: input
+    id: record
+    attributes:
+      label: What is wrong?
+      description: A record id, a claim id, or a link to the page.
+      placeholder: "resource:arxiv:2502.14143   ·   claim:arxiv:2502.14143:3   ·   a link"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - A claim does not say what the paper says
+        - Wrong metadata — title, authors, date, venue, link
+        - Wrong topic or tag
+        - Wrong attribution — whose result it is, who wrote it, where they were
+        - It should not be in the library
+        - Something that should be here is missing from this record
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should it say?
+      description: |
+        If a claim misreads its paper, the useful thing is the sentence the paper
+        actually uses. Every claim here carries the quote it was drawn from, so the
+        two can be compared without opening the PDF.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Where can that be checked?
+      description: Optional. A page number, a link, a quote — anything that saves a maintainer the search.
+
+  - type: checkboxes
+    id: author
+    attributes:
+      label: Are you an author of the work this is about?
+      options:
+        - label: Yes — I wrote, or co-wrote, the thing this record describes.
+    validations:
+      required: false

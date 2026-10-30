@@ -34,8 +34,13 @@ concurrency:
 
 jobs:
   add:
-    if: contains(github.event.issue.labels.*.name, 'new-resource')
+    if: >-
+      contains(github.event.issue.labels.*.name, 'new-resource')
+      || contains(github.event.issue.labels.*.name, 'addition')
     runs-on: ubuntu-latest
+    # The scope judge's key lives on this environment, and the environment
+    # only admits `main`.
+    environment: scope-scan
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,7 +53,61 @@ jobs:
           BODY: ${{ github.event.issue.body }}
         run: printf '%s' "$BODY" > /tmp/proposal.md
 
+      # Filing used to be unconditional: an issue carrying an identifier
+      # became a record within a minute. That was defensible while this door
+      # was effectively internal. On a public repository the same minute is
+      # available to anybody, so the judge that already governs citation
+      # expansion governs this too — one scope test, one exclusion register,
+      # reached through the prompt both share.
+      #
+      # A judge that cannot answer refuses. No key, no network, an
+      # unparseable reply: each stops the filing. "The API was down so
+      # everything got in" is the failure a gate is most likely to have.
+      - name: Is it in scope?
+        id: scope
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 scripts/judge_suggestion.py \
+            --body-file /tmp/proposal.md --out /tmp/verdict.json
+
+      - name: Say why not, and stop
+        if: steps.scope.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let verdict = { reasoning: 'the scope scan did not complete' };
+            try { verdict = JSON.parse(fs.readFileSync('/tmp/verdict.json', 'utf8')); } catch (e) {}
+            const judged = verdict.judged !== false;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: judged
+                ? [`**Not added.** This did not pass the scope test, so nothing was written.`,
+                   ``, `> ${verdict.reasoning}`, ``,
+                   `The library holds work about organizations where machine agents hold`,
+                   `operational or decision authority. The question that decides it is what`,
+                   `changes *because* machine agents hold authority.`, ``,
+                   `If you think that is wrong, say so here — the boundary is meant to be`,
+                   `contestable, and a maintainer can add it by hand. The exclusion register`,
+                   `in the taxonomy names three exclusions we already think are arguable.`,
+                  ].join('\n')
+                : [`**Not added**, and this one is our fault rather than yours.`, ``,
+                   `> ${verdict.reasoning}`, ``,
+                   `The scope scan could not run, and a scan that cannot answer refuses`,
+                   `rather than approves. A maintainer will re-run it.`,
+                  ].join('\n'),
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: [judged ? 'out-of-scope' : 'needs-maintainer'],
+            });
+
       - name: Resolve it and write the record
+        if: steps.scope.outcome == 'success'
         id: add
         continue-on-error: true
         run: |

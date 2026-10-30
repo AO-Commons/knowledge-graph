@@ -98,24 +98,3 @@ three. The key lives on the `scope-scan` environment, which only admits `main`
 
 The budget is small on purpose. Fifty profiles landing at once is fifty claims
 nobody checked.
-
-## Saying so when a run finishes
-
-The run posts what it profiled, what each tool's documentation does not say,
-and what it refused, to a channel named by the `SLACK_CHANNEL` variable.
-
-It posts under its own name rather than through any other bot, because a bot's
-name is how a reader decides what kind of claim they are reading. "Task digest
-says three tools were profiled" invites you to read it as something to action;
-this is a different process making a different claim about a public artifact.
-
-The setup is small, because nothing comes back: no request URL, no signing
-secret, no relay, no event subscriptions. A bot token with `chat:write`, added
-as the `SLACK_BOT_TOKEN` secret on the `scope-scan` environment beside
-`ANTHROPIC_API_KEY`, and the channel to post in.
-
-Without the token the step prints the message it would have sent and the run
-carries on. A missing credential is a quiet run, never a failed one — and
-never a silent one, because a week of silence is indistinguishable from a
-workflow that stopped running. That is also why it posts on a week when
-nothing was profiled.
