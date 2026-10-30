@@ -29,6 +29,8 @@ from collections import defaultdict
 REPO = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
+import yaml  # noqa: E402
+
 from ao_commons_kg.claims import load_claims  # noqa: E402
 from ao_commons_kg.people import person_nodes  # noqa: E402
 from ao_commons_kg.questions import load_questions  # noqa: E402
@@ -96,12 +98,24 @@ def payload() -> dict:
             "asks": sorted(asks.get(r.id, ())),
         })
 
+    # Which papers ask each question, counted apart from how many claims do:
+    # a question two papers ask is a claim about a field, one paper asking
+    # twice is that paper's framing.
+    asked: dict[str, dict] = {}
+    for q in questions:
+        claims_on = [e.source_id for e in edges if e.target_id == q.id]
+        papers = sorted({claim_home[c] for c in claims_on if c in claim_home})
+        asked[q.id] = {"text": q.text, "note": q.note or "",
+                       "papers": papers, "occurrences": len(claims_on)}
+
     return {
         "built": __import__("datetime").date.today().isoformat(),
+        "orgs": organizations(resources),
+        "asked": asked,
         "records": sorted(records, key=lambda r: (bool(r["claims"]), r["year"] or "0000"),
                           reverse=True),
         "topics": topics,
-        "questions": {q.id: q.text for q in questions},
+
         "people": {p["name"]: p["records"] for p in people_index(resources)},
         "counts": {
             "records": len(resources),
@@ -112,6 +126,33 @@ def payload() -> dict:
             "topics": len(topics),
         },
     }
+
+
+def organizations(resources) -> list[dict]:
+    """The organizations the corpus names, and what of theirs it holds.
+
+    Read from `data/organizations/` rather than from the strings on records,
+    because that directory is where the judgments live — what kind of
+    organization it is, and what it does in this field.
+    """
+    folder = REPO / "data" / "organizations"
+    if not folder.exists():
+        return []
+    out = []
+    for path in sorted(folder.glob("*.yml")):
+        org = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        names = {org.get("name"), *(org.get("aliases") or [])} - {None}
+        held = [r.id for r in resources if names & set(r.organizations or [])]
+        if not held:
+            continue
+        out.append({
+            "name": org["name"],
+            "kind": (org.get("organization_type") or "").replace("-", " "),
+            "where": ", ".join(x for x in (org.get("city"), org.get("country")) if x),
+            "site": org.get("website") or "",
+            "records": held,
+        })
+    return sorted(out, key=lambda o: (-len(o["records"]), o["name"]))
 
 
 def clip(text: str, limit: int) -> str:
@@ -200,7 +241,7 @@ h1{font-family:var(--serif);font-weight:300;letter-spacing:-.035em;line-height:1
 .figs b{font-family:var(--sans);font-size:19px;font-weight:600;color:var(--ink);margin-right:6px}
 
 .bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
-     margin-top:30px;padding-block:13px}
+     padding-block:13px}
 .bar .wrap{display:flex;gap:10px 12px;align-items:center;flex-wrap:wrap}
 .bar .wrap{--pad:0}#q{flex:1 1 260px}.chips{flex:1 1 auto}
 #q{flex:1;min-width:240px;font:inherit;font-size:16.5px;padding:11px 15px;border-radius:10px;
@@ -214,7 +255,19 @@ h1{font-family:var(--serif);font-weight:300;letter-spacing:-.035em;line-height:1
      background:var(--green);color:#fff;border:0;cursor:pointer;text-decoration:none;white-space:nowrap}
 .add:hover{background:var(--green-ink)}
 
-main{padding-bottom:90px}
+main{padding-bottom:90px;min-height:50vh}
+.notice{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+        padding:clamp(18px,2.4vw,26px);max-width:72ch;margin-top:26px}
+.notice p{margin:0 0 12px;font-size:16.5px;color:var(--ink-2)}
+.notice p b{color:var(--ink);font-weight:600}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.tabs{border-bottom:1px solid var(--line);margin-top:30px}
+.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+.tab{font:inherit;font-family:var(--serif);font-size:16px;padding:13px 17px;border:0;
+     background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;
+     border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--green)}
+.tab b{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-3);margin-left:7px}
 .count{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:18px 0 8px}
 .row{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);
      padding:17px 2px;cursor:pointer;font:inherit;color:inherit}
@@ -225,7 +278,13 @@ main{padding-bottom:90px}
 .tag{border:1px solid var(--line-2);border-radius:999px;padding:1px 9px;white-space:nowrap}
 .tag.bg{border-color:var(--line);color:var(--ink-3)}
 .tag.has{border-color:var(--green);color:var(--green)}
-.none{padding:40px 0;color:var(--ink-2)}
+.none{padding:40px 0;color:var(--ink-2);max-width:60ch}
+.row.static{cursor:default}
+.row.static:hover{background:transparent}
+.meta a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green-bg)}
+.meta a:hover{border-color:var(--green)}
+.why{color:var(--ink-2);font-size:14.5px;margin:9px 0 0;max-width:78ch}
+#chips[hidden]{display:none}
 
 dialog{border:0;border-radius:16px;padding:0;max-width:760px;width:min(92vw,760px);
        background:var(--panel);color:var(--ink);box-shadow:0 24px 70px #0b1b2a2e}
@@ -257,20 +316,30 @@ footer a{color:var(--green)}
 <header>
   <div class="wrap">
     <div class="brand"><b>AO Commons</b><span>Knowledge Graph</span></div>
-    <h1>Research on organizations machines help run.</h1>
-    <p class="lede">A maintained map of work on <b>autonomous organizations</b>: organizations in
-      which machine agents hold operational or decision authority. Every claim here carries the
-      sentence it was drawn from, so you can check it without opening the paper.</p>
+    <div class="notice">
+      <p><b>This is a preview, and it is incomplete.</b> A map of research on
+        <b>autonomous organizations</b> — organizations in which machine agents hold
+        operational or decision authority. Every claim carries the sentence it was drawn
+        from, so you can check it without opening the paper.</p>
+      <p>363 records are here. The field has more, and 27 of these have been read down to
+        their claims. <b>What is missing is missing because nobody has added it yet</b> —
+        so if you know of work that belongs, or spot something we have got wrong, the two
+        buttons below are the whole contribution process.</p>
+      <div class="acts">
+        <a class="add" id="suggest" href="#">Suggest something we are missing</a>
+        <a class="ghost" id="fixAny" href="#">Something here is wrong</a>
+      </div>
+    </div>
     <div class="figs" id="figs"></div>
   </div>
 </header>
 
+<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+
 <div class="bar">
   <div class="wrap">
-    <input id="q" type="search" placeholder="Search titles, authors, organizations, claims…"
-           autocomplete="off" aria-label="Search the library">
+    <input id="q" type="search" placeholder="Search…" autocomplete="off" aria-label="Search">
     <div class="chips" id="chips"></div>
-    <a class="add" id="suggest" href="#">Suggest something</a>
   </div>
 </div>
 
@@ -280,9 +349,9 @@ footer a{color:var(--green)}
 </main>
 
 <footer class="wrap">
-  <p>An early preview. Everything is a file in a
-    <a href="https://github.com/AO-Commons/knowledge-graph">public git repository</a> — readable,
-    diffable and citable at a fixed version. Corrections are the most useful thing you can send.</p>
+  <p>Everything is a file in a
+    <a href="https://github.com/AO-Commons/knowledge-graph">public git repository</a> —
+    readable, diffable and citable at a fixed version.</p>
   <p id="built"></p>
 </footer>
 
@@ -304,7 +373,28 @@ $('#figs').innerHTML = [
 $('#built').textContent = `Built ${D.built}.`;
 
 const KINDS = [...new Set(D.records.map(r => r.kind))].sort();
-let kind = '', q = '';
+let tab = 'records', kind = '', q = '';
+
+const TABS = [
+  ['records', 'Records',       () => D.counts.records],
+  ['people',  'People',        () => Object.keys(D.people).length],
+  ['orgs',    'Organizations', () => D.orgs.length],
+  ['asked',   'Open questions',() => Object.keys(D.asked).length],
+];
+$('#tabs').innerHTML = TABS.map(([k, label, n]) =>
+  `<button class="tab" data-t="${k}" role="tab" aria-selected="${k === tab}">${label}<b>${n()}</b></button>`
+).join('');
+$('#tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return;
+  tab = b.dataset.t; q = ''; kind = ''; $('#q').value = '';
+  [...$('#tabs').children].forEach(c => c.setAttribute('aria-selected', c === b));
+  $('#q').placeholder = { records: 'Search titles, authors, organizations, claims…',
+    people: 'Search people…', orgs: 'Search organizations…',
+    asked: 'Search open questions…' }[tab];
+  $('#chips').hidden = tab !== 'records';
+  draw();
+});
+
 $('#chips').innerHTML = ['All', ...KINDS].map(k =>
   `<button class="chip" data-k="${k === 'All' ? '' : esc(k)}" aria-pressed="${k === 'All'}">${esc(k)}</button>`
 ).join('');
@@ -322,21 +412,74 @@ const hay = r => (r._hay ??= [
   r.claims.map(c => c.text + ' ' + c.quote).join(' '),
 ].join(' ').toLowerCase());
 
-function matches(r) {
-  if (kind && r.kind !== kind) return false;
-  if (!q) return true;
-  return q.split(/\s+/).every(t => hay(r).includes(t));
-}
+const hits = () => {
+  const all = {
+    records: () => D.records.filter(r => (!kind || r.kind === kind) &&
+      (!q || q.split(/\s+/).every(t => hay(r).includes(t)))),
+    people: () => Object.entries(D.people)
+      .map(([name, ids]) => ({ name, ids }))
+      .filter(p => !q || p.name.toLowerCase().includes(q))
+      .sort((a, b) => b.ids.length - a.ids.length || a.name.localeCompare(b.name)),
+    orgs: () => D.orgs.filter(o => !q ||
+      (o.name + ' ' + o.where + ' ' + o.kind).toLowerCase().includes(q)),
+    asked: () => Object.entries(D.asked).map(([id, x]) => ({ id, ...x }))
+      .filter(x => !q || x.text.toLowerCase().includes(q))
+      .sort((a, b) => b.papers.length - a.papers.length),
+  };
+  return all[tab]();
+};
+
+const NOUN = { records: 'records', people: 'people', orgs: 'organizations', asked: 'open questions' };
 
 function draw() {
-  const hits = D.records.filter(matches);
-  $('#count').textContent = hits.length === D.records.length
-    ? `${hits.length} records`
-    : `${hits.length} of ${D.records.length} records`;
-  $('#list').innerHTML = hits.length ? hits.slice(0, 400).map(card).join('')
-    : `<p class="none">Nothing matches that. The library is deliberately narrow — if something
-       you expected is missing, <a href="#" id="missing">tell us</a>.</p>`;
-  if (!hits.length) $('#missing').onclick = e => { e.preventDefault(); suggest(); };
+  const rows = hits();
+  const total = { records: D.records.length, people: Object.keys(D.people).length,
+                  orgs: D.orgs.length, asked: Object.keys(D.asked).length }[tab];
+  $('#count').textContent = rows.length === total
+    ? `${rows.length} ${NOUN[tab]}` : `${rows.length} of ${total} ${NOUN[tab]}`;
+  const render = { records: card, people: personCard, orgs: orgCard, asked: askedCard }[tab];
+  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(render).join('')
+    : `<p class="none">Nothing matches that. The library is deliberately narrow, and it is
+       also incomplete — if something you expected is missing,
+       <a href="#" id="missing">tell us about it</a>.</p>`;
+  if (!rows.length) $('#missing').onclick = e => { e.preventDefault(); suggest(); };
+}
+
+const title = id => (D.records.find(r => r.id === id) || {}).title || id;
+
+function personCard(p) {
+  return `<div class="row static">
+    <h3>${esc(p.name)}</h3>
+    <div class="meta">${p.ids.map(i =>
+      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
+  </div>`;
+}
+
+function orgCard(o) {
+  return `<div class="row static">
+    <h3>${esc(o.name)}</h3>
+    <div class="meta">
+      ${o.kind ? `<span class="tag">${esc(o.kind)}</span>` : ''}
+      ${o.where ? `<span>${esc(o.where)}</span>` : ''}
+      <span>${o.records.length} record${o.records.length === 1 ? '' : 's'}</span>
+    </div>
+    <div class="meta">${o.records.slice(0, 6).map(i =>
+      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
+  </div>`;
+}
+
+function askedCard(x) {
+  return `<div class="row static">
+    <h3>${esc(x.text)}</h3>
+    <div class="meta">
+      <span class="tag ${x.papers.length > 1 ? 'has' : ''}">${x.papers.length} paper${
+        x.papers.length === 1 ? '' : 's'}</span>
+      <span>${x.occurrences} claim${x.occurrences === 1 ? '' : 's'} ask it</span>
+    </div>
+    <div class="meta">${x.papers.map(i =>
+      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
+    ${x.note ? `<p class="why">${esc(x.note)}</p>` : ''}
+  </div>`;
 }
 
 function card(r) {
@@ -354,15 +497,20 @@ function card(r) {
 }
 
 $('#list').addEventListener('click', e => {
-  const row = e.target.closest('.row'); if (row) open(row.dataset.id);
+  const go = e.target.closest('[data-go]');
+  if (go) { e.preventDefault(); openRecord(go.dataset.go); return; }
+  const row = e.target.closest('.row[data-id]');
+  if (row) openRecord(row.dataset.id);
 });
 
-function open(id) {
+// Not `open`: a top-level `function open` IS `window.open`, so every
+// issue link called this with a URL and failed silently.
+function openRecord(id) {
   const r = D.records.find(x => x.id === id); if (!r) return;
   const topics = r.topics.map(t => D.topics[t] ? `${t} ${D.topics[t]}` : t);
   const also = r.authors.flatMap(a => (D.people[a] || []).filter(x => x !== id)
     .map(x => ({ a, x }))).slice(0, 6);
-  const asks = r.asks.map(qid => D.questions[qid]).filter(Boolean);
+  const asks = r.asks.map(qid => (D.asked[qid] || {}).text).filter(Boolean);
 
   $('#sheetBody').innerHTML = `
     <h2>${esc(r.title)}</h2>
@@ -407,7 +555,7 @@ function open(id) {
 
   $('#fix').onclick = e => { e.preventDefault(); correct(r); };
   $('#sheetBody').querySelectorAll('[data-go]').forEach(a =>
-    a.onclick = e => { e.preventDefault(); open(a.dataset.go); });
+    a.onclick = e => { e.preventDefault(); openRecord(a.dataset.go); });
   $('#sheet').showModal();
 }
 
@@ -423,6 +571,7 @@ const correct = r => issue('request-adjustment.yml',
 const suggest = () => issue('suggest-addition.yml', {}, '[Add] ');
 
 $('#suggest').onclick = e => { e.preventDefault(); suggest(); };
+$('#fixAny').onclick = e => { e.preventDefault(); issue('request-adjustment.yml', {}, '[Fix] '); };
 $('#sheet').querySelector('.x').onclick = () => $('#sheet').close();
 
 $('#q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); draw(); });

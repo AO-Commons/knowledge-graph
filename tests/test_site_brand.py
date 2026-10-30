@@ -93,8 +93,9 @@ class TestTheBrand:
 class TestWhatTheReaderCanDo:
     """Four things, and nothing else: look, search, suggest, correct."""
 
-    def test_it_searches(self):
-        assert 'id="q"' in PAGE and "function matches" in PAGE
+    def test_it_searches_every_tab(self):
+        assert 'id="q"' in PAGE
+        assert "const hits = () =>" in PAGE
 
     def test_both_doors_open_an_issue_form(self):
         assert "suggest-addition.yml" in PAGE
@@ -115,6 +116,57 @@ class TestWhatTheReaderCanDo:
 
     def test_a_held_but_unread_record_says_so(self):
         assert "Held, not yet read" in PAGE
+
+
+class TestTheNamesTheScriptDefines:
+    """A top-level `function open` in a classic script *is* `window.open`.
+
+    The page defined one to open a record sheet, so every issue link called
+    the record opener with a URL, found no record with that id, and returned
+    silently. Both buttons did nothing and nothing threw.
+    """
+
+    def test_it_does_not_redefine_a_window_method(self):
+        script = PAGE.rsplit("<script>", 1)[1]
+        defined = set(re.findall(r"^function (\w+)", script, re.M))
+        defined |= set(re.findall(r"^(?:const|let|var) (\w+)\s*=", script, re.M))
+        # The ones a page can shadow without noticing. `open`, `close`, `focus`,
+        # `print`, `name`, `status`, `length`, `top`, `self` and `parent` are
+        # all properties of `window`.
+        reserved = {"open", "close", "focus", "blur", "print", "stop", "name",
+                    "status", "length", "top", "self", "parent", "origin",
+                    "event", "history", "location", "screen", "scroll", "find"}
+        assert not defined & reserved, (
+            f"{sorted(defined & reserved)} shadow window methods; a call to "
+            f"window.<that> will reach this script instead")
+
+    def test_the_record_opener_is_named_for_what_it_does(self):
+        assert "function openRecord(" in PAGE
+
+
+class TestTheTabs:
+    def test_there_are_four_and_each_has_a_count(self):
+        assert PAGE.count("['records', 'Records'") == 1
+        for key in ("'people'", "'orgs'", "'asked'"):
+            assert key in PAGE
+
+    def test_the_filter_chips_only_apply_to_records(self):
+        """Filtering people by "Benchmark" is a control that does nothing."""
+        assert "$('#chips').hidden = tab !== 'records'" in PAGE
+
+
+class TestItSaysWhatItIs:
+    """The page used to open with a headline and a claim about the field. It
+    opens with what a reader needs to know to judge what they are looking at."""
+
+    def test_it_says_it_is_a_preview_and_incomplete(self):
+        assert "This is a preview, and it is incomplete." in PAGE
+
+    def test_it_says_why_things_are_missing_rather_than_implying_a_judgment(self):
+        assert "missing because nobody has added it yet" in PAGE
+
+    def test_both_doors_are_reachable_before_opening_a_record(self):
+        assert 'id="suggest"' in PAGE and 'id="fixAny"' in PAGE
 
 
 class TestThePayload:

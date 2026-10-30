@@ -4,9 +4,23 @@ One file, `index.html`, built by [`scripts/build_site.py`](../scripts/build_site
 and served from GitHub Pages at
 [ao-commons.github.io/knowledge-graph](https://ao-commons.github.io/knowledge-graph/).
 
-Four things a reader can do: look at what the library holds, search it, suggest
-something, and say something here is wrong. The last two open a GitHub issue
-with the fields filled in. Nothing on the page writes to the corpus.
+Four tabs — records, people, organizations, open questions — each searchable.
+Two buttons, which open a GitHub issue with the fields filled in: suggest
+something missing, or say something here is wrong. Nothing on the page writes
+to the corpus.
+
+It opens by saying it is a preview and incomplete, because it is: 363 records
+of a field that has more, 27 of them read down to their claims. A reader who
+assumes an absence is a judgment will draw the wrong conclusion from it.
+
+## One bug worth remembering
+
+The record sheet was opened by a function called `open`. A top-level
+`function open` in a classic script *is* `window.open`, so every issue link
+called the record opener with a URL, found no record with that id, and
+returned — both buttons dead, nothing thrown, nothing in the console.
+`tests/test_site_brand.py` now fails if the script defines any name that
+shadows a `window` method.
 
 ## What it replaced
 
