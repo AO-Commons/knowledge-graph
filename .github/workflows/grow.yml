@@ -167,6 +167,45 @@ jobs:
         run: |
           echo "::notice::No records admitted this run. See the log above for whether that is because nothing qualified or because the scan failed."
 
+      # Each run used to open a fresh issue and nothing ever closed one, so
+      # nine weekly growth reports and five integrity reports were sitting
+      # open with no comments on any of them. A report nobody closes stops
+      # being a report and becomes a backlog, and a backlog of fourteen
+      # identical titles is read by nobody at all.
+      #
+      # So a new report closes the one before it. What the closed issue said
+      # is still in its history, and the growth it describes is in the
+      # corpus either way. The integrity ones are different in kind — they
+      # name work for a person — so that one closes its predecessor only
+      # when the checks it complained about now pass.
+      - name: Close last week's reports
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const integrityFailed = "${{ steps.integrity.outcome }}" === "failure";
+            const stale = async (prefix, reason) => {
+              const { data } = await github.rest.issues.listForRepo({
+                ...context.repo, state: "open", labels: "expansion", per_page: 100,
+              });
+              for (const issue of data.filter(i => i.title.startsWith(prefix))) {
+                await github.rest.issues.createComment({
+                  ...context.repo, issue_number: issue.number, body: reason,
+                });
+                await github.rest.issues.update({
+                  ...context.repo, issue_number: issue.number, state: "closed",
+                  state_reason: "completed",
+                });
+              }
+            };
+            await stale("Corpus growth:",
+              "Superseded by this week's run. What was admitted is in the corpus and in " +
+              "this issue's history; the admissions are reviewable there and in the " +
+              "`source_provenance` on each record.");
+            if (!integrityFailed) {
+              await stale("Corpus integrity after growth:",
+                "The checks this reported now pass. Closing — reopen if it returns.");
+            }
+
       # Loud, and in the place somebody reads. A growth run that breaks the
       # corpus commits anyway — reverting is one command and blocking the
       # queue is worse — but it must never do so quietly.
