@@ -34,9 +34,21 @@ def tables(topics):
     return mirror.build_tables(topics)
 
 
+# The registry repo is private, so CI cannot read it. These tests check the
+# shape of the rows, not the registry's contents, so a small sample stands in.
+SAMPLE_REGISTRY = [
+    {"id": "sample-ao", "name": "Sample AO", "summary": "A stand-in.",
+     "status": "active", "categories": ["research"], "agent_roles": ["operator"],
+     "agent_stack": ["claude"], "tags": ["sample"]},
+    {"id": "bare-ao", "name": "Bare AO"},
+]
+
+
 @pytest.fixture(scope="module")
 def rows(topics):
-    return mirror.build_rows(topics)
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(mirror, "load_registry", lambda: SAMPLE_REGISTRY)
+        return mirror.build_rows(topics)
 
 
 def test_the_base_has_exactly_five_tables(tables):
