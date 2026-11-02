@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Browse the library first
+    url: https://ao-commons.github.io/knowledge-graph/
+    about: Search what is already here before suggesting an addition.
+  - name: How contributing works
+    url: https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md
+    about: Two forms and a pull request. Corrections are worth more than additions.
+  - name: Report a security problem privately
+    url: https://github.com/AO-Commons/knowledge-graph/security/advisories/new
+    about: Do not open a public issue for anything that should not be public yet.
