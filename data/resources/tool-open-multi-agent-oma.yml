@@ -1,0 +1,108 @@
+id: resource:tool:open-multi-agent-oma
+resource_type: code-tool
+title: open-multi-agent (OMA)
+description: 'MIT-licensed, self-hosted TypeScript multi-agent runtime from YuanASI in which
+  a coordinator model decomposes a goal into a task DAG at runtime and a deterministic scheduler
+  executes it across agents with shell, filesystem, MCP, and external-CLI-agent backends.
+  Interesting for organizational design because it ships named governance primitives — approval
+  pauses before plan/task/tool execution, a verifiable run journal, declared governance roles,
+  and an egress allowlist — and is unusually candid that each is partial: the journal is not
+  tamper-proof, the governance check does not block a run, the approval UI is the application''s
+  problem, and external-agent backends sit outside the egress policy.'
+url: https://github.com/open-multi-agent/open-multi-agent
+repository_url: https://github.com/open-multi-agent/open-multi-agent
+license: MIT
+facets:
+  artifact_type: code-tool
+  evidence_strength: marketing-content
+  autonomy_level_addressed:
+  - mixed-unspecified
+  source_independence: tooling-vendor
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: 'OMA is "a self-hosted TypeScript agent runtime for coordinating agents." Three
+    execution modes: `runAgent()` runs a single agent, `runTasks()` "executes an explicit
+    pipeline," and `runTeam()` "plans from a goal." In team mode the authority to decide the
+    work structure is handed to a model: "One model call turns the goal into task specs with
+    assignees and dependencies, a deterministic scheduler executes them, and a second call
+    writes the final answer from the completed task outputs." The README is explicit that
+    no graph is declared by the human — "Nothing above declares a task graph. The coordinator
+    planned one at runtime" — and that the planner does not steer mid-flight: "The coordinator
+    is never consulted mid-run." Agents act through tools, including built-in shell and filesystem
+    tools — the temodar-agent user runs "OMA''s built-in tools (`bash`, `file_*`, `grep`)
+    inside a Docker runtime" — plus `defineTool` custom tools and MCP, and can be backed by
+    "external agents" (Claude Code, Gemini CLI, Codex) placed "on the same task graph through
+    process and ACP backends." Supporting capabilities imply sustained unattended operation:
+    shared memory, checkpoints, "adaptive recovery," and context compaction "to keep autonomous
+    agent loops alive under tight VRAM limits." Network reach is to model endpoints (hosted,
+    local, OpenAI-compatible); the README claims no OMA-side telemetry or phone-home. Token
+    consumption is surfaced (`result.totalTokenUsage`) but the README does not describe the
+    agent holding any spending, messaging, or external-account authority of its own.'
+  human_controls: 'Four named mechanisms, all of them opt-in settings rather than defaults,
+    and the README states the limits of three of them itself. (1) **Durable approvals**: "Pause
+    before executing a plan, dispatching a task, or calling a tool for human approval," surviving
+    restart with persistent storage — but "Your application supplies the approval interface
+    and notifications," so OMA ships the gate point, not the reviewer workflow or any notion
+    of who is authorized to approve. (2) **Verifiable journal**: "Enable a run journal to
+    record model inputs, tool calls, and results for later inspection. `verifyRun()` checks
+    the recorded sources and content for consistency offline; it does not prove the journal
+    was never edited" — consistency checking, explicitly not tamper-evidence. (3) **Governance
+    floor**: "Declare required roles and their execution order, then check whether the actual
+    run met those requirements," with the caveat that it is advisory, not blocking — "A successful
+    run can still leave governance requirements unmet, so applications must check `governanceConclusion`
+    separately." (4) **LLM egress policy**: `offline` or `allowlist`, "checked before a built-in
+    adapter connects," where "a child policy can only tighten its parent, an unenforceable
+    transport fails closed, and process and ACP backends sit outside it" — i.e. external-agent
+    backends are outside the egress control. Additional constraining features are named but
+    only as doc links, with no behavior described in this document: "Plan replay freezes an
+    approved plan," "Consensus verifies outputs with independent judges," plus docs for "Budgets
+    and limits," "Sandbox and shell," and "Execution routing." Observability is local by default:
+    trace store, offline Run Viewer showing "per-task status, assignee, tokens, and tool calls,"
+    optional OpenTelemetry adapter. A third-party sidecar (`@agentsonar/oma`) detects "cross-run
+    delegation cycles, repetition, and rate bursts" — external, not part of the product.'
+  maintainer: YuanASI (Shenzhen YuanASI Technology Co., Ltd.)
+  open_source: 'yes'
+  self_hostable: 'yes'
+  model_agnostic: 'yes'
+  status: active
+  languages:
+  - TypeScript
+sources:
+- url: https://github.com/open-multi-agent/open-multi-agent
+  title: open-multi-agent (OMA) — repository README
+  accessed: '2026-10-21'
+  supports:
+  - agent_model
+  - human_controls
+  - maintainer
+  - open_source
+  - self_hostable
+  - model_agnostic
+  - status
+  - languages
+  - license
+source_provenance: 'profiled by claude-opus-5 from the tool''s own documentation on 2026-10-21,
+  promoted from the awesome-builder-tools mirror (Framework Zero, MIT). Every claim about
+  what agents may do and what constrains them cites the document it came from. Not documented:
+  Default posture is not stated: whether approvals, journal, governance roles, and egress
+  policy are off unless configured (the quickstart example runs a full plan-and-execute cycle
+  with none of them, which suggests off, but the README never says). Approval identity and
+  authority are entirely absent — no notion of who may approve, role separation between requester
+  and approver, or expiry/timeout on a pending approval. No kill switch, run cancellation,
+  or veto window is described anywhere in this document. Budget enforcement is a doc title
+  only: `totalTokenUsage` is reported after the fact, but whether a cost or token ceiling
+  can halt a run, and whether limits are per-run, per-agent, or per-tool, is not said; likewise
+  no rate limits are described. Tool authorization is unspecified: nothing says whether `bash`/`file_*`
+  are allowlisted, path-scoped, or sandboxed by the framework rather than by the user''s own
+  Docker (the one production user supplies the container). Containment of process/ACP external
+  agents is named as a gap in egress but no replacement control is given. Journal scope and
+  retention are undefined — whether prompts, secrets, or tool arguments are redactable, where
+  the journal lives, who can read it. No published evaluation, incident history, security
+  review, or threat model; no dependency count, test or coverage figures beyond badges; no
+  stated behavior when a run violates `governanceConclusion` beyond ''the application must
+  check it''. Repository language breakdown and contributor/maintenance cadence are not reported
+  in this document. Unreviewed: no person has checked this against the source.'
+ingested_at: '2026-10-21'
+review_status: unreviewed
