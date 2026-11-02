@@ -95,8 +95,9 @@ invited.
 
 ## Terms
 
-Contributions are licensed [CC BY 4.0](LICENSE); code is additionally MIT. By
-contributing you confirm you have the right to license the material that way.
+Contributions to the corpus are licensed [CC BY 4.0](LICENSE); contributions
+to the code are [MIT](LICENSE-CODE). By contributing you confirm you have the
+right to license the material that way.
 
 Please do not include personal information about third parties. Participation
 is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).

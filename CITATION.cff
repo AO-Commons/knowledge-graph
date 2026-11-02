@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "AO Commons Knowledge Graph"
+message: >-
+  If you use this corpus, please cite it. Cite a release rather than the
+  repository where you can: releases are checksummed and keep their mistakes,
+  so a citation to one means the same thing next year.
+type: dataset
+authors:
+  - name: "AO Commons"
+    website: "https://aocommons.org"
+repository-code: "https://github.com/AO-Commons/knowledge-graph"
+url: "https://ao-commons.github.io/knowledge-graph/"
+abstract: >-
+  A maintained map of research on autonomous organizations: organizations in
+  which machine agents hold operational or decision authority. The unit is the
+  claim rather than the paper - one thing a paper asserts, stored with the
+  exact sentence it was drawn from, what kind of claim it is, and whose result
+  it is. 363 records and 349 claims read from 27 papers, under a
+  purpose-built taxonomy of 103 topics. Every release also ships as a MIRA graph.
+keywords:
+  - autonomous organizations
+  - multi-agent systems
+  - AI agents
+  - knowledge graph
+  - research corpus
+  - taxonomy
+  - AI governance
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+date-released: "2026-11-03"
+version: "v0.12.0"

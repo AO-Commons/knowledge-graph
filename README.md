@@ -125,6 +125,11 @@ decision.
 
 [CONTRIBUTING.md](CONTRIBUTING.md). Corrections first, missing research second.
 
-## License
+## License and citing
 
-Content and data [CC BY 4.0](LICENSE); code in `src/` additionally MIT.
+The corpus — taxonomy, records, claims, documentation — is
+[CC BY 4.0](LICENSE). The code is [MIT](LICENSE-CODE). [NOTICE.md](NOTICE.md)
+says which is which and why.
+
+To cite it, use the **Cite this repository** button, and cite a release rather
+than the repository where you can.
