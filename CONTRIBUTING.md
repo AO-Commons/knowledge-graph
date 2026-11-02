@@ -1,103 +1,74 @@
-# Contributing
+# Contributing to the AO Commons Knowledge Graph
 
-Two forms and a pull request. Corrections are worth more than additions.
+The AO Commons Knowledge Graph is an open project to map research on autonomous organizations (AOs) and multi-agent systems, with a focus on how these systems are organized, governed, evaluated, and kept safe.
 
-## Correct something
+We're looking for contributions from researchers, authors, developers, and practitioners working in this field. You don't need to write code to contribute.
 
-**[Open the correction form →](https://github.com/AO-Commons/knowledge-graph/issues/new?template=request-adjustment.yml)**
+## Current status: Preview
 
-Nothing here has been checked by more than one person and most of it has not
-been checked by one. The most useful thing you can send is a claim that does
-not say what its paper says.
+The Knowledge Graph is in early preview. We're gradually adding research, improving the taxonomy, and testing how papers, authors, organizations, and research questions connect.
 
-Every claim carries the sentence it was drawn from, so the two can be compared
-without opening the PDF. If they disagree, say so — quoting the sentence the
-paper actually uses is the whole correction.
+**It's not yet ready to be relied on as a research or discovery tool.** Coverage is incomplete, most records haven't been reviewed by a person, and some features are still in development.
 
-Also worth sending: wrong metadata, a topic that does not fit, an attribution
-that credits the wrong person, or a record that should not be here at all.
+For now, we're particularly interested in expanding and reviewing the research collection. We'll roll out additional functionality as the data and underlying tools improve.
 
-**If you wrote the work**, say so on the form. An author's verdict is recorded
-as an author's, which is a fact about the reviewer rather than a higher score:
-you are the highest authority on whether a claim says what your paper says, and
-the least disinterested party on whether it overstates.
+## How you can contribute
 
-## Suggest something
+### 1. Submit relevant research
 
-**[Open the suggestion form →](https://github.com/AO-Commons/knowledge-graph/issues/new?template=suggest-addition.yml)**
+**If you've authored research on autonomous organizations or multi-agent systems, we'd especially like to hear from you.**
 
-One form for a paper, a tool, a deployment, an organization, a person or an
-article. A link is usually enough.
+We're looking for papers, preprints, technical reports, benchmarks, evaluations, and documented experiments covering topics such as:
 
-A bot judges it against the scope test below, usually within a minute. If it
-passes, the metadata is resolved and the record joins the corpus as
-`unreviewed`, with your name on the proposal. If it does not, the reasoning is
-posted on the issue — the boundary is meant to be contestable, and that is how
-you contest it.
+- Multi-agent coordination, cooperation, and organizational behavior
+- Delegation, authority, governance, and human oversight
+- Multi-agent safety, security, alignment, and failure modes
+- Autonomous organizations and real-world agent deployments
+- Organizational design, incentives, and institutional mechanisms for AI systems
 
-### The scope test
+You can submit your own work or recommend relevant research by others. Tools, deployments, organizations, and articles are welcome too.
 
-> An item belongs if it would change how you design, operate, oversee, or hold
-> accountable an organization where agents act with real authority.
+The test for what belongs: would it change how you design, operate, oversee, or hold accountable an organization where AI agents act with real authority? Work on human decision-making that would be the same without AI agents is out of scope.
 
-Work about human collective decision-making that would be the same without
-machines does not belong, however good it is. The question that decides a hard
-case is **what changes because machine agents hold authority**.
+[Suggest research with the suggestion form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=suggest-addition.yml).
 
-The [exclusion register](taxonomy/agentic-org-research-library-taxonomy-v3.md)
-says what has been turned away and why, so the boundary is contestable rather
-than invisible. It flags three exclusions as genuinely arguable. If yours is
-relevant by transfer rather than directly — the economics and law the field
-borrows its vocabulary from — say so, and it is held as background the library
-points at rather than reads.
+The form asks for a link, DOI, or arXiv ID and a short explanation of why it's relevant. We fill in the title, authors, and other details from the link. Links to associated code, datasets, or evaluations are helpful where available.
 
-## Taxonomy changes
+### 2. Help improve the research collection
 
-The v3 taxonomy is a seed, not scripture — but its codes are stable
-identifiers other people's tags point at. In this order:
+If you're familiar with the field, you can help by:
 
-1. Would an **alias** solve it?
-2. Would **multi-tagging** across existing topics cover it?
-3. Would a **cross-link** between two topics express the relationship?
-4. Only then, a **new topic** — through
-   [the taxonomy form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=taxonomy.yml),
-   stating the code, its parent, the rationale, and why the existing nodes are
-   insufficient.
+- Suggesting important papers or research areas we're missing
+- Correcting metadata, citations, or author information
+- Flagging papers that have been incorrectly classified
+- Suggesting changes to the research taxonomy
+- Identifying useful connections between papers, methods, and open research questions
 
-Two rules that do not bend:
+For corrections, [use the correction form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=request-adjustment.yml) and include the relevant source. If you wrote the work in question, say so on the form. For taxonomy changes, [use the taxonomy form](https://github.com/AO-Commons/knowledge-graph/issues/new?template=taxonomy.yml).
 
-- **Codes are never renumbered or reused.** A deprecated topic keeps its code
-  forever so old tags stay resolvable.
-- **No new top-level sections** unless the corpus shows a gap none of the 16
-  can hold.
+### 3. Contribute to the code
 
-## Code
+Developers are welcome to help improve the data pipelines, classification methods, graph infrastructure, evaluations, and interfaces.
 
 ```bash
 pip install -e ".[dev]"
 pytest
 ```
 
-Keep it small and boring. A new dependency needs a reason, and "it is more
-elegant" is not one. The taxonomy tests run against the real v3 file rather
-than a fixture, so a change that breaks the actual source fails loudly.
+Check the repository's [open issues](https://github.com/AO-Commons/knowledge-graph/issues) for current work. For larger changes, please open an issue to discuss your approach before submitting a pull request.
 
-If you add an edge type, it must be able to say where it came from. Anything
-non-deterministic carries a `confidence_class` and the source it was drawn
-from — a relationship nobody can trace is worse than a missing one.
+## What happens to contributions?
 
-## Reviewing claims
+A bot checks each suggestion against the scope test above, usually within a minute. If it's in scope, the bot fills in the details and adds it to the collection marked as unreviewed. If it isn't, the bot posts its reasoning on the issue, and you can reply to dispute it.
 
-Judging a claim against its paper happens in the signed-in application rather
-than here, so that an author can be invited to review claims about their own
-work. If you want to review, say so on a correction form and you will be
-invited.
+Corrections and taxonomy changes are reviewed by a person. Inclusion in the collection doesn't mean AO Commons has independently verified a paper's findings.
+
+We're developing this project openly and expect both the research collection and the tools around it to evolve.
+
+For more about AO Commons and our research, visit [aocommons.org](https://aocommons.org).
 
 ## Terms
 
-Contributions to the corpus are licensed [CC BY 4.0](LICENSE); contributions
-to the code are [MIT](LICENSE-CODE). By contributing you confirm you have the
-right to license the material that way.
+Contributions to the research collection are licensed [CC BY 4.0](LICENSE); contributions to the code are licensed [MIT](LICENSE-CODE). By contributing, you confirm you have the right to license your contribution that way.
 
-Please do not include personal information about third parties. Participation
-is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).
+Please don't include personal information about third parties. Participation is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).
