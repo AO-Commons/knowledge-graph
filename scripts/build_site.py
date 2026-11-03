@@ -50,6 +50,7 @@ KIND = {
     "peer-reviewed-paper": "Paper", "preprint": "Paper", "paper": "Paper",
     "article": "Article", "report": "Report", "technical-report": "Report",
     "code-tool": "Tool", "tool": "Tool",
+    "written-work": "Article",
     "platform": "Deployment", "deployment": "Deployment",
     "evaluation-suite": "Benchmark", "benchmark": "Benchmark",
     "research-programme": "Programme", "standard": "Standard",
@@ -304,14 +305,6 @@ a{color:inherit;text-decoration:none}
 .notice a:hover{border-color:var(--green)}
 .notice .tag{vertical-align:1px}
 .notice b{color:var(--ink);font-weight:600}
-/* the app's figure block: the number in the display face, its name beside it */
-.figs{display:flex;gap:clamp(20px,3vw,52px);flex-wrap:wrap;margin:clamp(26px,2.8vw,40px) 0 0}
-.figs div{display:flex;align-items:baseline;gap:9px}
-.figs b{font-family:var(--serif);font-size:var(--t-figure);font-weight:300;
-        letter-spacing:-.03em;line-height:1}
-.figs span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
-           text-transform:uppercase;color:var(--ink-3);line-height:1.5;max-width:13ch}
-
 /* ---- sections, set like the app's primary nav ---- */
 .tabs{border-bottom:1px solid var(--line);margin-top:clamp(28px,3vw,44px)}
 .tabs .wrap{display:flex;gap:clamp(18px,2.4vw,36px);overflow-x:auto}
@@ -339,6 +332,16 @@ a{color:inherit;text-decoration:none}
 .chip:hover{border-color:var(--ink);color:var(--ink)}
 .chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .chip b{font-family:var(--mono);font-size:11px;font-weight:400;margin-left:7px;opacity:.65}
+.pick{position:relative;display:inline-flex;align-items:center}
+.pick::after{content:"";position:absolute;right:17px;width:7px;height:7px;pointer-events:none;
+             border-right:1.5px solid var(--ink-2);border-bottom:1.5px solid var(--ink-2);
+             transform:translateY(-2px) rotate(45deg)}
+.pick select{appearance:none;font:inherit;font-family:var(--serif);font-size:var(--t-small);
+             font-weight:500;color:var(--ink);background:var(--panel);cursor:pointer;
+             border:1px solid var(--line-2);border-radius:999px;padding:.62em 2.8em .62em 1.2em;
+             transition:border-color .18s}
+.pick select:hover{border-color:var(--ink)}
+.pick[hidden]{display:none}
 
 /* `.wrap` carries `margin:0 auto`, and an auto cross-axis margin on a flex
    item stops it stretching: without this the list column is as wide as its
@@ -365,7 +368,6 @@ main{flex:1;padding-bottom:clamp(56px,6vw,96px);min-height:40vh}
 .meta a:hover{border-color:var(--green)}
 .none a{color:var(--green);border-bottom:1px solid var(--green-bg)}
 .why{color:var(--ink-2);font-size:var(--t-small);margin:9px 0 0;max-width:78ch;line-height:1.55}
-#chips[hidden]{display:none}
 
 dialog{border:0;border-radius:var(--radius);padding:0;max-width:780px;width:min(92vw,780px);
        background:var(--panel);color:var(--ink);box-shadow:0 24px 70px #0b1b2a2e}
@@ -431,15 +433,17 @@ dialog::backdrop{background:#0b1b2a7a}
 
 <section class="intro">
   <div class="wrap">
-    <p class="notice notice--lead"><b>Preview.</b> Research on <b>autonomous
-      organizations</b> &mdash; organizations in which AI agents hold operational or
-      decision-making authority.</p>
-    <p class="notice" id="says"></p>
-    <p class="notice">Claims under a record are drafted by a model from the work's own
-      sentences, and most have not been checked by a person. Coverage is incomplete. If
-      something you expect is missing, it most likely hasn't been added yet &mdash;
-      <a href="#" id="tell">tell us</a>.</p>
-    <div class="figs" id="figs"></div>
+    <p class="notice notice--lead">We're building an open knowledge graph to help advance
+      research on autonomous organizations and multi-agent systems. By connecting papers,
+      findings, evidence, and open questions, we aim to help researchers build on each
+      other's work, identify important gaps, and turn unanswered questions into new
+      research. The goal is a shared resource that grows with the field, shaped by the
+      researchers contributing to it.</p>
+    <p class="notice"><b>Early preview.</b> The research collection is incomplete, and many
+      claims have been extracted by AI without human review. We're gradually expanding
+      coverage and functionality, starting with contributions from authors and researchers
+      who can help add missing work, correct information, and improve the connections
+      between findings.</p>
   </div>
 </section>
 
@@ -449,7 +453,7 @@ dialog::backdrop{background:#0b1b2a7a}
   <div class="wrap">
     <div class="chips" id="view" role="group" aria-label="Which records to show"></div>
     <input id="q" type="search" placeholder="Search titles, authors, claims…" autocomplete="off" aria-label="Search">
-    <div class="chips" id="chips"></div>
+    <label class="pick" id="kindPick"><select id="kind" aria-label="Kind of record"></select></label>
   </div>
 </div>
 
@@ -489,7 +493,14 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
 // have to guess which of the graph's records AO Commons stands behind. The
 // rest are one button away: nothing is hidden, and nothing is deleted.
 let only = true;
-let tab = 'records', kind = '', q = '';
+
+// The three a reader almost always wants, in the order they ask for them;
+// anything else the corpus holds follows alphabetically. Papers are the
+// default because they are what the library is mostly made of — landing on
+// everything meant landing on a list whose first screen answered no question.
+const KIND_ORDER = ['Paper', 'Deployment', 'Benchmark'];
+const DEFAULT_KIND = 'Paper';
+let tab = 'records', kind = DEFAULT_KIND, q = '';
 
 const VERIFIED = new Set(D.records.filter(r => r.verified).map(r => r.id));
 const shown = () => only ? D.records.filter(r => r.verified) : D.records;
@@ -503,37 +514,10 @@ $('#view').innerHTML = [['1', 'Verified', D.counts.verified],
   ).join('');
 $('#view').addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
-  only = !!b.dataset.v; kind = '';
+  only = !!b.dataset.v; kind = DEFAULT_KIND;
   [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', c === b));
-  says(); figures(); tablist(); chiplist(); draw();
+  tablist(); kindlist(); draw();
 });
-
-// What you are looking at, said in the header rather than left to be inferred
-// from a count that moved.
-function says() {
-  $('#says').innerHTML = only
-    ? `You are seeing the <b>verified set</b>: the reading list behind the AO Commons
-       research agenda, and what is listed on
-       <a href="https://aocommons.org/build">aocommons.org/build</a>. The graph holds
-       ${D.counts.records} records in all &mdash; <b>Everything</b> shows the rest.`
-    : `You are seeing <b>everything in the graph</b>: ${D.counts.records} records. Most
-       came from the citation scan and nobody has checked them. The
-       ${D.counts.verified} that someone stands behind are marked
-       <span class="tag has">verified</span>.`;
-}
-
-// The figures describe what is on screen. A page listing 64 records under a
-// headline figure of 371 is a page that lies by arithmetic.
-function figures() {
-  const rs = shown();
-  const claims = rs.reduce((n, r) => n + r.claims.length, 0);
-  const checked = rs.reduce((n, r) => n + r.claims.filter(c => c.reviewed).length, 0);
-  const asked = new Set(rs.flatMap(r => r.asks));
-  $('#figs').innerHTML = [
-    [rs.length, 'records'], [rs.filter(r => r.claims.length).length, 'papers read'],
-    [claims, 'claims'], [checked, 'checked by a person'], [asked.size, 'open questions'],
-  ].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('');
-}
 
 // Authors of the records on screen. Across the whole graph a name that appears
 // once is noise — most of the 2,000-odd do — so that view keeps the build's
@@ -570,27 +554,27 @@ function tablist() {
 }
 $('#tabs').addEventListener('click', e => {
   const b = e.target.closest('.tab'); if (!b) return;
-  tab = b.dataset.t; q = ''; kind = ''; $('#q').value = '';
+  tab = b.dataset.t; q = ''; kind = DEFAULT_KIND; $('#q').value = '';
   [...$('#tabs').children].forEach(c => c.setAttribute('aria-selected', c === b));
   $('#q').placeholder = { records: 'Search titles, authors, claims…',
     people: 'Search authors…', orgs: 'Search organizations…',
     asked: 'Search open questions…' }[tab];
-  $('#chips').hidden = tab !== 'records';
-  chiplist(); draw();
+  $('#kindPick').hidden = tab !== 'records';
+  kindlist(); draw();
 });
 
-function chiplist() {
-  const kinds = [...new Set(shown().map(r => r.kind))].sort();
-  $('#chips').innerHTML = ['All', ...kinds].map(k =>
-    `<button class="chip" data-k="${k === 'All' ? '' : esc(k)}" aria-pressed="${k === 'All'}">${esc(k)}</button>`
-  ).join('');
+function kindlist() {
+  const present = [...new Set(shown().map(r => r.kind))];
+  const kinds = [...KIND_ORDER.filter(k => present.includes(k)),
+                 ...present.filter(k => !KIND_ORDER.includes(k)).sort()];
+  // The verified set and the whole graph do not hold the same kinds, so a
+  // selection can stop existing when the view changes. Falling back to the
+  // default rather than to nothing keeps the list showing something.
+  if (!kinds.includes(kind)) kind = kinds.includes(DEFAULT_KIND) ? DEFAULT_KIND : '';
+  $('#kind').innerHTML = [['', 'All kinds'], ...kinds.map(k => [k, k])].map(([v, label]) =>
+    `<option value="${esc(v)}"${v === kind ? ' selected' : ''}>${esc(label)}</option>`).join('');
 }
-$('#chips').addEventListener('click', e => {
-  const b = e.target.closest('.chip'); if (!b) return;
-  kind = b.dataset.k;
-  [...$('#chips').children].forEach(c => c.setAttribute('aria-pressed', c === b));
-  draw();
-});
+$('#kind').addEventListener('change', e => { kind = e.target.value; draw(); });
 
 // Search covers what somebody actually types: a title, a name they half
 // remember, an organization, or a phrase from a claim.
@@ -677,7 +661,7 @@ function empty() {
 function showAll() {
   only = false;
   [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', !c.dataset.v));
-  says(); figures(); tablist(); chiplist(); draw();
+  tablist(); kindlist(); draw();
 }
 
 const title = id => (D.records.find(r => r.id === id) || {}).title || id;
@@ -810,12 +794,11 @@ const correct = r => issue('request-adjustment.yml',
 const suggest = () => issue('suggest-addition.yml', {}, '[Add] ');
 
 $('#suggest').onclick = e => { e.preventDefault(); suggest(); };
-$('#tell').onclick = e => { e.preventDefault(); suggest(); };
 $('#fixAny').onclick = e => { e.preventDefault(); issue('request-adjustment.yml', {}, '[Fix] '); };
 $('#sheet').querySelector('.x').onclick = () => $('#sheet').close();
 
 $('#q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); draw(); });
-says(); figures(); tablist(); chiplist();
+tablist(); kindlist();
 addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
 });

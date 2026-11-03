@@ -21,6 +21,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 PAGE = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+#: The same page with its line breaks collapsed. A sentence in the markup is
+#: wrapped for the source file, so asserting on a phrase that happens to span
+#: two lines fails for a reason that has nothing to do with what it says.
+PROSE = " ".join(PAGE.split())
 
 #: Copied from the website's src/shared/tokens.css. If these drift, the page
 #: has stopped being AO Commons and the test should say so rather than a
@@ -150,9 +154,15 @@ class TestTheTabs:
         for key in ("'people'", "'orgs'", "'asked'"):
             assert key in PAGE
 
-    def test_the_filter_chips_only_apply_to_records(self):
+    def test_the_kind_filter_only_applies_to_records(self):
         """Filtering people by "Benchmark" is a control that does nothing."""
-        assert "$('#chips').hidden = tab !== 'records'" in PAGE
+        assert "$('#kindPick').hidden = tab !== 'records'" in PAGE
+
+    def test_the_kinds_lead_with_the_three_people_ask_for(self):
+        assert "const KIND_ORDER = ['Paper', 'Deployment', 'Benchmark']" in PAGE
+
+    def test_the_list_opens_on_papers(self):
+        assert "const DEFAULT_KIND = 'Paper'" in PAGE
 
 
 class TestItSaysWhatItIs:
@@ -160,10 +170,19 @@ class TestItSaysWhatItIs:
     opens with what a reader needs to know to judge what they are looking at."""
 
     def test_it_says_it_is_a_preview_and_incomplete(self):
-        assert "<b>Preview.</b>" in PAGE and "Coverage is incomplete." in PAGE
+        assert "<b>Early preview.</b>" in PAGE
+        assert "The research collection is incomplete" in PROSE
+
+    def test_it_says_the_claims_were_drafted_by_a_model(self):
+        """The one thing a reader cannot work out for themselves, and the thing
+        that changes what they should do with a claim."""
+        assert "extracted by AI without human review" in PROSE
 
     def test_it_says_why_things_are_missing_rather_than_implying_a_judgment(self):
-        assert "hasn't been added yet" in PAGE
+        """A missing paper means nobody has added it, not that it was weighed
+        and rejected. The page says that by saying what it is doing about it."""
+        assert "gradually expanding coverage" in PROSE
+        assert "add missing work" in PROSE
 
     def test_both_doors_are_reachable_before_opening_a_record(self):
         assert 'id="suggest"' in PAGE and 'id="fixAny"' in PAGE
