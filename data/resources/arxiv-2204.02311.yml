@@ -1,0 +1,243 @@
+id: resource:arxiv:2204.02311
+resource_type: preprint
+title: 'PaLM: Scaling Language Modeling with Pathways'
+abstract: Large language models have been shown to achieve remarkable performance across a
+  variety of natural language tasks using few-shot learning, which drastically reduces the
+  number of task-specific training examples needed to adapt the model to a particular application.
+  To further our understanding of the impact of scale on few-shot learning, we trained a 540-billion
+  parameter, densely activated, Transformer language model, which we call Pathways Language
+  Model PaLM. We trained PaLM on 6144 TPU v4 chips using Pathways, a new ML system which enables
+  highly efficient training across multiple TPU Pods. We demonstrate continued benefits of
+  scaling by achieving state-of-the-art few-shot learning results on hundreds of language
+  understanding and generation benchmarks. On a number of these tasks, PaLM 540B achieves
+  breakthrough performance, outperforming the finetuned state-of-the-art on a suite of multi-step
+  reasoning tasks, and outperforming average human performance on the recently released BIG-bench
+  benchmark. A significant number of BIG-bench tasks showed discontinuous improvements from
+  model scale, meaning that performance steeply increased as we scaled to our largest model.
+  PaLM also has strong capabilities in multilingual tasks and source code generation, which
+  we demonstrate on a wide array of benchmarks. We additionally provide a comprehensive analysis
+  on bias and toxicity, and study the extent of training data memorization with respect to
+  model scale. Finally, we discuss the ethical considerations related to large language models
+  and discuss potential mitigation strategies.
+authors:
+- Aakanksha Chowdhery
+- Sharan Narang
+- Jacob Devlin
+- Maarten Bosma
+- Gaurav Mishra
+- Adam Roberts
+- Paul Barham
+- Hyung Won Chung
+- Charles Sutton
+- Sebastian Gehrmann
+- Parker Schuh
+- Kensen Shi
+- Sasha Tsvyashchenko
+- Joshua Maynez
+- Abhishek Rao
+- Parker Barnes
+- Yi Tay
+- Noam Shazeer
+- Vinodkumar Prabhakaran
+- Emily Reif
+- Nan Du
+- Ben Hutchinson
+- Reiner Pope
+- James Bradbury
+- Jacob Austin
+- Michael Isard
+- Guy Gur-Ari
+- Pengcheng Yin
+- Toju Duke
+- Anselm Levskaya
+- Sanjay Ghemawat
+- Sunipa Dev
+- Henryk Michalewski
+- Xavier Garcia
+- Vedant Misra
+- Kevin Robinson
+- Liam Fedus
+- Denny Zhou
+- Daphne Ippolito
+- David Luan
+- Hyeontaek Lim
+- Barret Zoph
+- Alexander Spiridonov
+- Ryan Sepassi
+- David Dohan
+- Shivani Agrawal
+- Mark Omernick
+- Andrew M. Dai
+- Thanumalayan Sankaranarayana Pillai
+- Marie Pellat
+- Aitor Lewkowycz
+- Erica Moreira
+- Rewon Child
+- Oleksandr Polozov
+- Katherine Lee
+- Zongwei Zhou
+- Xuezhi Wang
+- Brennan Saeta
+- Mark Diaz
+- Orhan Firat
+- Michele Catasta
+- Jason Wei
+- Kathy Meier-Hellstern
+- Douglas Eck
+- Jeff Dean
+- Slav Petrov
+- Noah Fiedel
+organizations:
+- Google
+affiliations:
+  Aakanksha Chowdhery:
+  - Google
+  Sharan Narang:
+  - Google
+  Jacob Devlin:
+  - Google
+  Maarten Bosma:
+  - Google
+  Gaurav Mishra:
+  - Google
+  Adam Roberts:
+  - Google
+  Paul Barham:
+  - Google
+  Charles A. Sutton:
+  - Google
+  Sebastian Gehrmann:
+  - Google
+  Parker Schuh:
+  - Google
+  Kensen Shi:
+  - Google
+  Sasha Tsvyashchenko:
+  - Google
+  Joshua Maynez:
+  - Google
+  Abhishek Rao:
+  - Google
+  Parker Barnes:
+  - Google
+  Yi Tay:
+  - Google
+  Noam Shazeer:
+  - Google
+  Vinodkumar Prabhakaran:
+  - Google
+  Emily Reif:
+  - Google
+  Nan Du:
+  - Google
+  Ben Hutchinson:
+  - Google
+  Reiner Pope:
+  - Google
+  James Bradbury:
+  - Google
+  Jacob Austin:
+  - Google
+  Anselm Levskaya:
+  - Google
+  Sanjay Ghemawat:
+  - Google
+  Sunipa Dev:
+  - Google
+  Henryk Michalewski:
+  - Google
+  Xavier Garcia:
+  - Google
+  Vedant Misra:
+  - Google
+  Kevin Robinson:
+  - Google
+  Liam Fedus:
+  - Google
+  Denny Zhou:
+  - Google
+  Daphne Ippolito:
+  - Google
+  David Luan:
+  - Google
+  Hyeontaek Lim:
+  - Google
+  Barret Zoph:
+  - Google
+  Alexander Spiridonov:
+  - Google
+  Ryan Sepassi:
+  - Google
+  David Dohan:
+  - Google
+  Shivani Agrawal:
+  - Google
+  Mark Omernick:
+  - Google
+  Andrew M. Dai:
+  - Google
+  Thanumalayan Sankaranarayana Pillai:
+  - Google
+  Marie Pellat:
+  - Google
+  Aitor Lewkowycz:
+  - Google
+  Erica Moreira:
+  - Google
+  Rewon Child:
+  - Google
+  Oleksandr Polozov:
+  - Google
+  Katherine Lee:
+  - Google
+  Zongwei Zhou:
+  - Google
+  Xuezhi Wang:
+  - Google
+  Brennan Saeta:
+  - Google
+  Mark Díaz:
+  - Google
+  Orhan Fırat:
+  - Google
+  Michele Catasta:
+  - Google
+  Jason Wei:
+  - Google
+  Kathy Meier-Hellstern:
+  - Google
+  Douglas Eck:
+  - Google
+  Jeff Dean:
+  - Google
+  Slav Petrov:
+  - Google
+  Noah Fiedel:
+  - Google
+published_at: '2022-04-05'
+url: https://arxiv.org/abs/2204.02311
+doi: 10.48550/arXiv.2204.02311
+arxiv_id: '2204.02311'
+openalex_id: W4224308101
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  6 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Cognitive Architectures
+  for Language Agents; Personality Traits in Large Language Models; Using Large Language Models
+  to Simulate Multiple Humans and ; Voyager: An Open-Ended Embodied Agent with Large Language
+  Mo; WebVoyager: Building an End-to-End Web Agent with Large Mult. Scope scan by claude-opus-5:
+  PaLM is a base-model training and benchmarking report with no organizational, delegation,
+  or oversight content, so it fails the scope test directly. But it is load-bearing background
+  that multiple library papers build on for emergent few-shot reasoning capability, so it
+  belongs as a section 15 pointer rather than a refusal. What changes because agents hold
+  authority: Nothing about agent authority changes because of this work; it is a foundation-model
+  scaling paper that underpins the capabilities agents are built on. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

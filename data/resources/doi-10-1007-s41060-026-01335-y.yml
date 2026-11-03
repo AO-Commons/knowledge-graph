@@ -1,0 +1,47 @@
+id: resource:doi:10-1007-s41060-026-01335-y
+resource_type: peer-reviewed-paper
+title: 'LLM-based agents for generalized web automation and schema-guided data extraction:
+  a survey'
+authors:
+- Ismail Khayoub
+- Mohamed-Amine Chadi
+- Hajar Mousannif
+- Firdaous Ait Mohamed
+organizations:
+- Cadi Ayyad University
+affiliations:
+  Ismail Khayoub:
+  - Cadi Ayyad University
+  Mohamed-Amine Chadi:
+  - Cadi Ayyad University
+  Hajar Mousannif:
+  - Cadi Ayyad University
+  Firdaous Ait Mohamed:
+  - Cadi Ayyad University
+published_at: '2026-10-28'
+url: https://doi.org/10.1007/s41060-026-01335-y
+doi: 10.1007/s41060-026-01335-y
+openalex_id: W7224576832
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; InjecAgent: Benchmarking
+  Indirect Prompt Injections in Tool-; Mind2Web: Towards a Generalist Agent for the Web; OSWorld:
+  Benchmarking Multimodal Agents for Open-Ended Tasks; The Rise and Potential of Large Language
+  Model Based Agents:; WebShop: Towards Scalable Real-World Web Interaction with Gr. Scope
+  scan by claude-opus-5: This is a capability survey of web-acting LLM agents — foundational
+  method the field builds on, not a study of organizations where agents hold decision authority,
+  so it sits as a section 15 pointer rather than a scope record. No exclusion-register line
+  applies; it is adjacent substrate rather than excluded human-governance material. What changes
+  because agents hold authority: Nothing about agent authority changes because of this work;
+  it maps the action-execution and data-extraction capabilities that agents use when they
+  do hold operational authority. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 2
+is_borrowed_background: true

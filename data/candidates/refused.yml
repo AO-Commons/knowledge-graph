@@ -345,19 +345,15 @@ refused:
   - resource:arxiv:2501.06322
   - resource:arxiv:2512.07665
   - resource:doi:10-1016-j-patter-2025-101341
-  reasoning: 'The record is internally inconsistent — a canonical scaling-laws title attached to
-    an unrelated abstract about certificates for scaling up agentic interventions — so its identity
-    cannot be verified and an admission would sit in the corpus as a corrupted curated entry. Even
-    taking either reading at face value, it is methodological capability-research background rather
-    than material about organizations where machine agents hold operational or decision authority,
-    so it does not pass the scope test; if the underlying paper is wanted, it should be added by
-    hand under section 15 with correct metadata. What changes because agents hold authority: Nothing:
-    whether read as the 2020 Kaplan scaling-law paper or as the abstract''s small-to-frontier transport-validity
-    framework, it governs research and deployment decisions about model capability, not how authority
-    is delegated to, exercised by, or audited within an organization run by agents.'
+  reasoning: 'This is foundational ML training-economics research, the kind of general optimization/architecture
+    background the brief explicitly says citation counts do not qualify. It is not load-bearing
+    for organizational design questions in the way an evaluation suite like Melting Pot is, so it
+    is a refusal rather than a section 15 pointer. What changes because agents hold authority: Nothing
+    — scaling laws for cross-entropy loss say nothing about how authority is delegated, exercised,
+    or overseen in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-27'
-  times_refused: 8
+  refused_on: '2026-11-03'
+  times_refused: 9
   first_refused_on: '2026-09-15'
 - key: arxiv:2003.02979
   generation: 1
@@ -3933,6 +3929,21 @@ refused:
   refused_on: '2026-09-29'
   times_refused: 1
   first_refused_on: '2026-09-29'
+- key: doi:10.1145/3799682.3841057
+  generation: 2
+  support: 7
+  cited_by: []
+  reasoning: 'This appears to be a generic RL/LLM policy-optimization technique, exactly the ''optimization,
+    neural architectures and game theory generally'' that the brief warns citation counts will surface
+    without conferring scope. It is a capability-training method rather than an evaluation suite
+    or governance-relevant substrate, so it is not load-bearing enough to hold as a section 15 pointer,
+    and with no abstract available the uncertainty argues for refusal. What changes because agents
+    hold authority: Nothing — a policy optimization/training method for reasoning models does not
+    alter how authority is delegated, exercised, or audited in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-03'
+  times_refused: 1
+  first_refused_on: '2026-11-03'
 - key: doi:10.1145/3816947
   generation: 1
   support: 2
@@ -5270,16 +5281,16 @@ refused:
   - resource:doi:10-1126-sciadv-abk2607
   - resource:doi:10-1126-science-aau6249
   - resource:doi:10-1126-science-ade9097
-  reasoning: 'This is a foundational method paper (self-play RL / MCTS) of the kind the register
-    warns about when it notes our papers ''cite optimization, neural architectures and game theory
-    generally, and none of that belongs here.'' It is genuinely load-bearing for the multi-agent
-    work in the corpus, so it is best held as a Section 15 pointer rather than ingested. What changes
-    because agents hold authority: Nothing directly — AlphaGo Zero is a self-play reinforcement
-    learning method with no organizational authority content, though it is the foundational technique
-    the library''s multi-agent and mechanism-design papers build on.'
+  reasoning: 'This is exactly the kind of general method/architecture paper the brief warns about:
+    our multi-agent papers cite it as a deep RL and self-play precedent, not as material about agents
+    holding operational authority. Unlike Melting Pot, it is not an evaluation suite or framework
+    for multi-agent social settings, so it is background to machine learning at large rather than
+    load-bearing for this library specifically. What changes because agents hold authority: Nothing
+    — it is a single-domain self-play reinforcement learning result about two-player board game
+    mastery, with no bearing on how authority is delegated to, exercised by, or audited in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-27'
-  times_refused: 6
+  refused_on: '2026-11-03'
+  times_refused: 7
   first_refused_on: '2026-09-22'
 - key: openalex:W2800068874
   generation: 2
@@ -5379,6 +5390,25 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 1
   first_refused_on: '2026-10-06'
+- key: openalex:W2964043796
+  generation: 2
+  support: 5
+  cited_by:
+  - resource:arxiv:1706.03741
+  - resource:arxiv:1707.01068
+  - resource:arxiv:1811.07871
+  - resource:doi:10-1126-science-aau6249
+  - resource:doi:10-18653-v1-2022-emnlp-main-225
+  reasoning: 'This is a general optimization/training method of the kind the brief explicitly says
+    does not belong merely because library papers cite it, and it is not an evaluation suite or
+    governance-relevant substrate like Melting Pot. It is generic deep-learning infrastructure rather
+    than load-bearing background for agentic organization design. What changes because agents hold
+    authority: Nothing — it is a training-throughput and stability technique for deep RL, with no
+    bearing on how authority is delegated, overseen, or accounted for.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-03'
+  times_refused: 1
+  first_refused_on: '2026-11-03'
 - key: openalex:W2982316857
   generation: 2
   support: 4
@@ -5441,17 +5471,16 @@ refused:
   - resource:doi:10-1145-3630106-3658948
   - resource:doi:10-1162-tacl-a-00407
   - resource:doi:10-18653-v1-2022-acl-long-229
-  reasoning: 'The record is internally incoherent — the title names the 2020 scaling-laws paper
-    while the abstract describes an unrelated transport-validity framework for scale-up decisions
-    — so I cannot verify what is actually being admitted, and refusal is the cheaper error. Even
-    on the abstract''s own terms it is research-methodology/experimental-budgeting guidance for
-    AI development, adjacent to but not load-bearing for the design or oversight of agent-authority
-    organizations. What changes because agents hold authority: Nothing: the work concerns how researchers
-    decide which inference-time interventions earn expensive frontier trials, not how authority
-    is delegated to, exercised by, or held accountable in an organization where agents act.'
+  reasoning: 'This is foundational ML capability research, closer to ''optimization, neural architectures
+    and game theory generally'' that the brief explicitly says does not qualify merely by being
+    cited. It is not load-bearing for organizational design questions in the way an evaluation suite
+    or multi-agent testbed like Melting Pot is, so it is a refusal rather than a section 15 pointer.
+    What changes because agents hold authority: Nothing — scaling laws describe training loss as
+    a function of compute, data and parameters, and say nothing about how authority is delegated
+    to, exercised by, or overseen in an organization.'
   judged_by: claude-opus-5
-  refused_on: '2026-10-27'
-  times_refused: 4
+  refused_on: '2026-11-03'
+  times_refused: 5
   first_refused_on: '2026-10-06'
 - key: openalex:W3001363766
   generation: 2

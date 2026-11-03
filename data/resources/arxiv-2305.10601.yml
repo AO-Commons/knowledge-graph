@@ -1,0 +1,53 @@
+id: resource:arxiv:2305.10601
+resource_type: preprint
+title: 'Tree of Thoughts: Deliberate Problem Solving with Large Language Models'
+abstract: 'Language models are increasingly being deployed for general problem solving across
+  a wide range of tasks, but are still confined to token-level, left-to-right decision-making
+  processes during inference. This means they can fall short in tasks that require exploration,
+  strategic lookahead, or where initial decisions play a pivotal role. To surmount these challenges,
+  we introduce a new framework for language model inference, Tree of Thoughts (ToT), which
+  generalizes over the popular Chain of Thought approach to prompting language models, and
+  enables exploration over coherent units of text (thoughts) that serve as intermediate steps
+  toward problem solving. ToT allows LMs to perform deliberate decision making by considering
+  multiple different reasoning paths and self-evaluating choices to decide the next course
+  of action, as well as looking ahead or backtracking when necessary to make global choices.
+  Our experiments show that ToT significantly enhances language models'' problem-solving abilities
+  on three novel tasks requiring non-trivial planning or search: Game of 24, Creative Writing,
+  and Mini Crosswords. For instance, in Game of 24, while GPT-4 with chain-of-thought prompting
+  only solved 4% of tasks, our method achieved a success rate of 74%. Code repo with all prompts:
+  https://github.com/princeton-nlp/tree-of-thought-llm.'
+authors:
+- Shunyu Yao
+- Dian Yu
+- Jeffrey Zhao
+- Izhak Shafran
+- Thomas L. Griffiths
+- Yuan Cao
+- Karthik Narasimhan
+published_at: '2023-01-01'
+url: https://arxiv.org/abs/2305.10601
+doi: 10.48550/arXiv.2305.10601
+arxiv_id: '2305.10601'
+openalex_id: W7133209886
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Bridging Inference-Time
+  Scaling and Episodic Memory with Act; Cognitive Architectures for Language Agents; Encouraging
+  Divergent Thinking in Large Language Models thro; Large Language Model based Multi-Agents:
+  A Survey of Progres. Scope scan by claude-opus-5: ToT is a foundational reasoning method
+  that the multi-agent and cognitive-architecture literature in the library builds on directly,
+  so it is load-bearing background rather than a refusal. It concerns deliberation inside
+  one model''s inference loop, not organizational decision authority, so it belongs as a section
+  15 pointer. What changes because agents hold authority: Nothing about agent authority changes
+  because of this work — it is a single-model inference-time search method, not a claim about
+  how authority is held or overseen. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

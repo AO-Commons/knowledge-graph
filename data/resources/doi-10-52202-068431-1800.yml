@@ -1,0 +1,42 @@
+id: resource:doi:10-52202-068431-1800
+resource_type: peer-reviewed-paper
+title: Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models
+authors:
+- Jason Wei
+- Xuezhi Wang
+- Dale Schuurmans
+- Maarten Bosma
+- Brian Ichter
+- Fei Xia
+- Ed Chi
+- Quoc Viet Le
+- Denny Zhou
+published_at: '2022-01-01'
+url: https://doi.org/10.52202/068431-1800
+doi: 10.52202/068431-1800
+openalex_id: W7133224126
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  10 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Bridging Inference-Time
+  Scaling and Episodic Memory with Act; Cognitive Architectures for Language Agents; Do the
+  Rewards Justify the Means? Measuring Trade-Offs Betwe; Encouraging Divergent Thinking in
+  Large Language Models thro; Generative agent-based modeling with actions grounded in phy;
+  Large Language Model based Multi-Agents: A Survey of Progres; Using Large Language Models
+  to Simulate Multiple Humans and ; Voyager: An Open-Ended Embodied Agent with Large Language
+  Mo; Will Systems of LLM Agents Cooperate: An Investigation into . Scope scan by claude-opus-5:
+  Chain-of-thought is a foundational method the field builds on — heavily cited by in-library
+  agent papers but not itself about organizations where agents hold operational or decision
+  authority. It belongs as a section 15 pointer alongside other borrowed methodological foundations.
+  What changes because agents hold authority: Nothing about agent authority changes because
+  of this work; it is a prompting method that underlies the reasoning capability of the agents
+  the library studies. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

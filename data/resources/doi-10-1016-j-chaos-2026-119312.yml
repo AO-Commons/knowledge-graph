@@ -1,0 +1,63 @@
+id: resource:doi:10-1016-j-chaos-2026-119312
+resource_type: peer-reviewed-paper
+title: 'From observation to generation: A complex-systems perspective on generative Human–AI
+  social systems'
+authors:
+- Yiping Ma
+- Mengyao Peng
+- Shiyu Hu
+- Buyuan Zhu
+- Yipei Wang
+- Yuqing Chen
+- Shiqing Liu
+- Kang Hao Cheong
+organizations:
+- East China Normal University
+- Nanyang Technological University
+- Southeast University
+affiliations:
+  Yiping Ma:
+  - Nanyang Technological University
+  - East China Normal University
+  Mengyao Peng:
+  - East China Normal University
+  Shiyu Hu:
+  - Nanyang Technological University
+  Buyuan Zhu:
+  - Nanyang Technological University
+  Yipei Wang:
+  - Southeast University
+  Yuqing Chen:
+  - East China Normal University
+  Shiqing Liu:
+  - East China Normal University
+  Kang Hao Cheong:
+  - Nanyang Technological University
+published_at: '2026-10-28'
+url: https://doi.org/10.1016/j.chaos.2026.119312
+doi: 10.1016/j.chaos.2026.119312
+openalex_id: W7224091315
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI can help humans find common ground in democratic delibera; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; Out of One, Many: Using Language Models to Simulate
+  Human Sa; The Rise and Potential of Large Language Model Based Agents:; Training Language
+  Models to Follow Instructions with Human F. Scope scan by claude-opus-5: The work is a conceptual/methodological
+  lens on generative human–AI social systems, load-bearing for how the field models agent-populated
+  collectives (and clearly treated as such by five library papers), but it is not itself about
+  delegated machine authority. No exclusion-register line bars it — the deliberative-democracy
+  line is not triggered since the machine is constitutive of the phenomenon — so it belongs
+  as a section 15 pointer rather than an ingested record. What changes because agents hold
+  authority: Nothing directly — it supplies a complex-systems framing and modelling vocabulary
+  for hybrid human–AI collectives rather than any design, oversight or accountability guidance
+  for organizations where agents hold authority. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

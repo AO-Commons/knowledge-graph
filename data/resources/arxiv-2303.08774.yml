@@ -1,0 +1,324 @@
+id: resource:arxiv:2303.08774
+resource_type: preprint
+title: GPT-4 Technical Report
+abstract: We report the development of GPT-4, a large-scale, multimodal model which can accept
+  image and text inputs and produce text outputs. While less capable than humans in many real-world
+  scenarios, GPT-4 exhibits human-level performance on various professional and academic benchmarks,
+  including passing a simulated bar exam with a score around the top 10% of test takers. GPT-4
+  is a Transformer-based model pre-trained to predict the next token in a document. The post-training
+  alignment process results in improved performance on measures of factuality and adherence
+  to desired behavior. A core component of this project was developing infrastructure and
+  optimization methods that behave predictably across a wide range of scales. This allowed
+  us to accurately predict some aspects of GPT-4's performance based on models trained with
+  no more than 1/1,000th the compute of GPT-4.
+authors:
+- OpenAI
+- Josh Achiam
+- Steven Adler
+- Sandhini Agarwal
+- Lama Ahmad
+- Ilge Akkaya
+- Florencia Leoni Aleman
+- Diogo Almeida
+- Janko Altenschmidt
+- Sam Altman
+- Shyamal Anadkat
+- Red Avila
+- Igor Babuschkin
+- Suchir Balaji
+- Valerie Balcom
+- Paul Baltescu
+- Haiming Bao
+- Mohammad Bavarian
+- Jeff Belgum
+- Irwan Bello
+- Jake Berdine
+- Gabriel Bernadett-Shapiro
+- Christopher Berner
+- Lenny Bogdonoff
+- Oleg Boiko
+- Madelaine Boyd
+- Anna-Luisa Brakman
+- Greg Brockman
+- Tim Brooks
+- Miles Brundage
+- Kevin Button
+- Trevor Cai
+- Rosie Campbell
+- Andrew Cann
+- Brittany Carey
+- Chelsea Carlson
+- Rory Carmichael
+- Brooke Chan
+- Che Chang
+- Fotis Chantzis
+- Derek Chen
+- Sully Chen
+- Ruby Chen
+- Jason Chen
+- Mark Chen
+- Ben Chess
+- Chester Cho
+- Casey Chu
+- Hyung Won Chung
+- Dave Cummings
+- Jeremiah Currier
+- Yunxing Dai
+- Cory Decareaux
+- Thomas Degry
+- Noah Deutsch
+- Damien Deville
+- Arka Dhar
+- David Dohan
+- Steve Dowling
+- Sheila Dunning
+- Adrien Ecoffet
+- Atty Eleti
+- Tyna Eloundou
+- David Farhi
+- Liam Fedus
+- Niko Felix
+- Simón Posada Fishman
+- Juston Forte
+- Isabella Fulford
+- Leo Gao
+- Elie Georges
+- Christian Gibson
+- Vik Goel
+- Tarun Gogineni
+- Gabriel Goh
+- Rapha Gontijo-Lopes
+- Jonathan Gordon
+- Morgan Grafstein
+- Scott Gray
+- Ryan Greene
+- Joshua Gross
+- Shixiang Shane Gu
+- Yufei Guo
+- Chris Hallacy
+- Jesse Han
+- Jeff Harris
+- Yuchen He
+- Mike Heaton
+- Johannes Heidecke
+- Chris Hesse
+- Alan Hickey
+- Wade Hickey
+- Peter Hoeschele
+- Brandon Houghton
+- Kenny Hsu
+- Shengli Hu
+- Xin Hu
+- Joost Huizinga
+- Shantanu Jain
+- Shawn Jain
+- Joanne Jang
+- Angela Jiang
+- Roger Jiang
+- Haozhun Jin
+- Denny Jin
+- Shino Jomoto
+- Billie Jonn
+- Heewoo Jun
+- Tomer Kaftan
+- Łukasz Kaiser
+- Ali Kamali
+- Ingmar Kanitscheider
+- Nitish Shirish Keskar
+- Tabarak Khan
+- Logan Kilpatrick
+- Jong Wook Kim
+- Christina Kim
+- Yongjik Kim
+- Jan Hendrik Kirchner
+- Jamie Kiros
+- Matt Knight
+- Daniel Kokotajlo
+- Łukasz Kondraciuk
+- Andrew Kondrich
+- Aris Konstantinidis
+- Kyle Kosic
+- Gretchen Krueger
+- Vishal Kuo
+- Michael Lampe
+- Ikai Lan
+- Teddy Lee
+- Jan Leike
+- Jade Leung
+- Daniel Levy
+- Chak Ming Li
+- Rachel Lim
+- Molly Lin
+- Stephanie Lin
+- Mateusz Litwin
+- Theresa Lopez
+- Ryan Lowe
+- Patricia Lue
+- Anna Makanju
+- Kim Malfacini
+- Sam Manning
+- Todor Markov
+- Yaniv Markovski
+- Bianca Martin
+- Katie Mayer
+- Andrew Mayne
+- Bob McGrew
+- Scott Mayer McKinney
+- Christine McLeavey
+- Paul McMillan
+- Jake McNeil
+- David Medina
+- Aalok Mehta
+- Jacob Menick
+- Luke Metz
+- Andrey Mishchenko
+- Pamela Mishkin
+- Vinnie Monaco
+- Evan Morikawa
+- Daniel Mossing
+- Tong Mu
+- Mira Murati
+- Oleg Murk
+- David Mély
+- Ashvin Nair
+- Reiichiro Nakano
+- Rajeev Nayak
+- Arvind Neelakantan
+- Richard Ngo
+- Hyeonwoo Noh
+- Long Ouyang
+- Cullen O'Keefe
+- Jakub Pachocki
+- Alex Paino
+- Joe Palermo
+- Ashley Pantuliano
+- Giambattista Parascandolo
+- Joel Parish
+- Emy Parparita
+- Alex Passos
+- Mikhail Pavlov
+- Andrew Peng
+- Adam Perelman
+- Filipe de Avila Belbute Peres
+- Michael Petrov
+- Henrique Ponde de Oliveira Pinto
+- Michael
+- Pokorny
+- Michelle Pokrass
+- Vitchyr H. Pong
+- Tolly Powell
+- Alethea Power
+- Boris Power
+- Elizabeth Proehl
+- Raul Puri
+- Alec Radford
+- Jack Rae
+- Aditya Ramesh
+- Cameron Raymond
+- Francis Real
+- Kendra Rimbach
+- Carl Ross
+- Bob Rotsted
+- Henri Roussez
+- Nick Ryder
+- Mario Saltarelli
+- Ted Sanders
+- Shibani Santurkar
+- Girish Sastry
+- Heather Schmidt
+- David Schnurr
+- John Schulman
+- Daniel Selsam
+- Kyla Sheppard
+- Toki Sherbakov
+- Jessica Shieh
+- Sarah Shoker
+- Pranav Shyam
+- Szymon Sidor
+- Eric Sigler
+- Maddie Simens
+- Jordan Sitkin
+- Katarina Slama
+- Ian Sohl
+- Benjamin Sokolowsky
+- Yang Song
+- Natalie Staudacher
+- Felipe Petroski Such
+- Natalie Summers
+- Ilya Sutskever
+- Jie Tang
+- Nikolas Tezak
+- Madeleine B. Thompson
+- Phil Tillet
+- Amin Tootoonchian
+- Elizabeth Tseng
+- Preston Tuggle
+- Nick Turley
+- Jerry Tworek
+- Juan Felipe Cerón Uribe
+- Andrea Vallone
+- Arun Vijayvergiya
+- Chelsea Voss
+- Carroll Wainwright
+- Justin Jay Wang
+- Alvin Wang
+- Ben Wang
+- Jonathan Ward
+- Jason Wei
+- CJ Weinmann
+- Akila Welihinda
+- Peter Welinder
+- Jiayi Weng
+- Lilian Weng
+- Matt Wiethoff
+- Dave Willner
+- Clemens Winter
+- Samuel Wolrich
+- Hannah Wong
+- Lauren Workman
+- Sherwin Wu
+- Jeff Wu
+- Michael Wu
+- Kai Xiao
+- Tao Xu
+- Sarah Yoo
+- Kevin Yu
+- Qiming Yuan
+- Wojciech Zaremba
+- Rowan Zellers
+- Chong Zhang
+- Marvin Zhang
+- Shengjia Zhao
+- Tianhao Zheng
+- Juntang Zhuang
+- William Zhuk
+- Barret Zoph
+published_at: '2023-03-15'
+url: https://arxiv.org/abs/2303.08774
+doi: 10.48550/arXiv.2303.08774
+arxiv_id: '2303.08774'
+openalex_id: W4327810158
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  7 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Can Large Language
+  Model Agents Simulate Human Trust Behavio; Cognitive Architectures for Language Agents;
+  Cooperate or Collapse: Emergence of Sustainable Cooperation ; Encouraging Divergent Thinking
+  in Large Language Models thro; Generative agent-based modeling with actions grounded in
+  phy; Personality Traits in Large Language Models. Scope scan by claude-opus-5: GPT-4 is
+  a model report, not a study of organizations where agents hold authority, but it is the
+  foundational capability baseline cited across the corpus and its risk/evaluation material
+  is load-bearing background. Hold it as a section 15 pointer alongside Melting Pot rather
+  than ingesting it as in-scope. What changes because agents hold authority: Nothing about
+  agent-authority organization design changes because of this work directly; it supplies the
+  capability substrate (and its evaluation/system-card safety framing) that the field''s agents
+  are built on. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

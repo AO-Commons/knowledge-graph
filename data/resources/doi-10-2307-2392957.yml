@@ -1,0 +1,32 @@
+id: resource:doi:10-2307-2392957
+resource_type: peer-reviewed-paper
+title: The Evolution of Cooperation.
+authors:
+- Terry Connolly
+- Robert Axelrod
+published_at: '1984-12-01'
+url: https://doi.org/10.2307/2392957
+doi: 10.2307/2392957
+openalex_id: W2331296304
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Collective cooperative intelligence; Cooperate or Collapse: Emergence of Sustainable
+  Cooperation ; Multi-agent Reinforcement Learning in Sequential Social Dile; Solipsistic
+  Superintelligence is Unlikely to be Cooperative; Trust in multi-agent systems. Scope scan
+  by claude-opus-5: This is the canonical source for iterated-cooperation theory that underwrites
+  the library''s multi-agent social-dilemma and trust work, so it is genuinely load-bearing
+  but is about cooperation among strategies generally rather than organizations where agents
+  hold authority. Held as a section 15 pointer, like Melting Pot. What changes because agents
+  hold authority: Nothing changes directly about agent authority — Axelrod''s tournament results
+  on reciprocity and the shadow of the future are a foundational substrate the multi-agent
+  cooperation literature builds on, not a theory of machine decision rights. Unreviewed, like
+  everything that has not been through the review queue — and machine-admitted as well as
+  machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

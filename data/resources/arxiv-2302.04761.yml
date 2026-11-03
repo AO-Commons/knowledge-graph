@@ -1,0 +1,54 @@
+id: resource:arxiv:2302.04761
+resource_type: preprint
+title: 'Toolformer: Language Models Can Teach Themselves to Use Tools'
+abstract: Language models (LMs) exhibit remarkable abilities to solve new tasks from just
+  a few examples or textual instructions, especially at scale. They also, paradoxically, struggle
+  with basic functionality, such as arithmetic or factual lookup, where much simpler and smaller
+  models excel. In this paper, we show that LMs can teach themselves to use external tools
+  via simple APIs and achieve the best of both worlds. We introduce Toolformer, a model trained
+  to decide which APIs to call, when to call them, what arguments to pass, and how to best
+  incorporate the results into future token prediction. This is done in a self-supervised
+  way, requiring nothing more than a handful of demonstrations for each API. We incorporate
+  a range of tools, including a calculator, a Q\&A system, two different search engines, a
+  translation system, and a calendar. Toolformer achieves substantially improved zero-shot
+  performance across a variety of downstream tasks, often competitive with much larger models,
+  without sacrificing its core language modeling abilities.
+authors:
+- Timo Schick
+- Jane Dwivedi-Yu
+- Roberto Dessì
+- Roberta Raileanu
+- Maria Lomeli
+- Luke Zettlemoyer
+- Nicola Cancedda
+- Thomas Scialom
+published_at: '2023-01-01'
+url: https://arxiv.org/abs/2302.04761
+doi: 10.48550/arXiv.2302.04761
+arxiv_id: '2302.04761'
+openalex_id: W7133214447
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  8 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Architecting Agentic
+  Communities using Design Patterns; Cognitive Architectures for Language Agents; Do the Rewards
+  Justify the Means? Measuring Trade-Offs Betwe; Generative agent-based modeling with actions
+  grounded in phy; Levels of Autonomy for AI Agents; Securing AI Agents with Information-Flow
+  Control; WebVoyager: Building an End-to-End Web Agent with Large Mult. Scope scan by claude-opus-5:
+  Toolformer is a capability/training technique, not an account of organizations where agents
+  hold operational or decision authority, so it fails the scope test directly. But it is genuinely
+  load-bearing — the tool-invocation capability underlies every agent in the library that
+  takes consequential external action — so it belongs as a section 15 pointer rather than
+  a refusal. What changes because agents hold authority: Nothing about agent authority changes
+  because of this work; it is the foundational method by which agents acquire the capacity
+  to act on external systems, which is a precondition for — not a form of — organizational
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

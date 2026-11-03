@@ -1,0 +1,95 @@
+id: resource:doi:10-1038-s41562-026-02539-9
+resource_type: peer-reviewed-paper
+title: Large language models for computational social science
+authors:
+- Fengli Xu
+- Chenyang Shao
+- Lin Chen
+- Qingbin Zeng
+- Zhilong Chen
+- Nicholas Sukiennik
+- Jingyi Wang
+- Chen Gao
+- Huandong Wang
+- Jianxun Lian
+- Qingguo Meng
+- Xing Xie
+- Yong Li
+- James A. Evans
+organizations:
+- Beijing National Research Center for Information Science and Technology
+- Hong Kong University of Science and Technology
+- Microsoft Research Asia (China)
+- Santa Fe Institute
+- Tsinghua University
+- University of Chicago
+affiliations:
+  Fengli Xu:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Chenyang Shao:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Lin Chen:
+  - Hong Kong University of Science and Technology
+  Qingbin Zeng:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Zhilong Chen:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Nicholas Sukiennik:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Jingyi Wang:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Chen Gao:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Huandong Wang:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Jianxun Lian:
+  - Microsoft Research Asia (China)
+  Qingguo Meng:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  Xing Xie:
+  - Microsoft Research Asia (China)
+  Yong Li:
+  - Beijing National Research Center for Information Science and Technology
+  - Tsinghua University
+  James A. Evans:
+  - Santa Fe Institute
+  - University of Chicago
+published_at: '2026-10-26'
+url: https://doi.org/10.1038/s41562-026-02539-9
+doi: 10.1038/s41562-026-02539-9
+openalex_id: W7223678932
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI can help humans find common ground in democratic delibera; Can Large Language
+  Model Agents Simulate Human Trust Behavio; Exploring Collaboration Mechanisms for LLM Agents:
+  A Social ; Generative Agents: Interactive Simulacra of Human Behavior; Generative agent-based
+  modeling with actions grounded in phy; Judging LLM-as-a-Judge with MT-Bench and Chatbot
+  Arena; Out of One, Many: Using Language Models to Simulate Human Sa; Role play with large
+  language models; Simulating Subjects: The Promise and Peril of Artificial Int; Training
+  a Helpful and Harmless Assistant with Reinforcement. Scope scan by claude-opus-5: This is
+  a methods/capability foundation for LLM-based social simulation and measurement, heavily
+  cited as a technique precedent rather than as a study of agent-authority organizations.
+  It is load-bearing enough to hold as a Section 15 pointer alongside records like Melting
+  Pot, but does not itself pass the scope test. What changes because agents hold authority:
+  Nothing directly — it establishes methods for using LLMs as annotators, subjects and simulated
+  social actors, which underwrites the agent-simulation and measurement techniques the field
+  uses but says nothing about agents holding operational authority. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

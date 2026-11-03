@@ -1,0 +1,75 @@
+id: resource:doi:10-1126-sciadv-aec1912
+resource_type: peer-reviewed-paper
+title: Machine psychology for language models
+abstract: Large language models (LLMs) show increasingly advanced emergent capabilities and
+  are being incorporated across various societal domains. Understanding their behavior and
+  reasoning abilities is therefore important. We argue that a fruitful direction for research
+  is engaging LLMs in experiments inspired by psychology that have traditionally been aimed
+  at understanding human cognition and behavior. Here, we highlight and summarize theoretical
+  perspectives, experimental paradigms, and computational analysis techniques that this approach
+  brings to the table. It paves the way for a "machine psychology" for LLMs that goes beyond
+  performance measurements and focuses instead on computational insights that move us toward
+  a better understanding and discovery of emergent abilities and behavioral patterns in LLMs.
+  We review existing work taking this approach, synthesize best practices, and highlight promising
+  future directions. We also describe the important caveats of applying methodologies designed
+  for understanding humans to machines. We posit that leveraging tools from experimental psychology
+  to study LLMs will become increasingly valuable as models evolve to be more powerful, opaque,
+  multimodal, and integrated into complex agentic real-world settings.
+authors:
+- Thilo Hagendorff
+- Ishita Dasgupta
+- Marcel Binz
+- Stephanie Chan
+- Andrew Lampinen
+- Jane X. Wang
+- Zeynep Akata
+- Eric Schulz
+organizations:
+- Google DeepMind
+- Helmholtz Munich
+- Technical University of Munich
+- University of Stuttgart
+affiliations:
+  Thilo Hagendorff:
+  - University of Stuttgart
+  Ishita Dasgupta:
+  - Google DeepMind
+  Marcel Binz:
+  - Helmholtz Munich
+  Stephanie Chan:
+  - Google DeepMind
+  Andrew Lampinen:
+  - Google DeepMind
+  Jane X. Wang:
+  - Google DeepMind
+  Zeynep Akata:
+  - Technical University of Munich
+  Eric Schulz:
+  - Helmholtz Munich
+published_at: '2026-10-28'
+url: https://doi.org/10.1126/sciadv.aec1912
+doi: 10.1126/sciadv.aec1912
+openalex_id: W4361020574
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Exploring Collaboration Mechanisms for LLM Agents: A Social ; MAgIC: Investigation
+  of Large Language Model Powered Multi-A; Out of One, Many: Using Language Models to Simulate
+  Human Sa; Role play with large language models; Social Simulacra: Creating Populated Prototypes
+  for Social C; Training Language Models to Follow Instructions with Human F. Scope scan by
+  claude-opus-5: Machine psychology is a behavioral-science methodology for probing LLM cognition,
+  not a treatment of organizations where agents hold operational or decision authority, so
+  it is not in scope on its own terms. It is load-bearing as a method precedent for the behavioral
+  evaluation of agents that the field builds on, which is exactly the section 15 pointer role
+  (cf. Melting Pot). What changes because agents hold authority: Nothing changes directly
+  about agent authority; this is a methodological program for characterizing LLM behavior
+  that oversight and evaluation of agent decision-makers can draw on. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 2
+is_borrowed_background: true
