@@ -12,7 +12,7 @@ of 399 records have claims. Nothing about that is a judgment problem — the
 papers are held, in scope, and waiting on somebody's afternoon. This removes
 the afternoon.
 
-**Only a verified paper.** `data/verified.yml` is the set a person put on the
+**Only a curated paper.** `data/curated.yml` is the set a person put on the
 list, and it is the gate here: reading is a model call over a whole paper, on
 a public repository, startable by anyone with an issue form. Tying it to the
 set means the work queue is one somebody already chose, rather than one a
@@ -31,7 +31,7 @@ nothing, which is the one thing that did not happen.
 Exit codes, because the workflow branches on them rather than parsing stdout:
 
     0   read — the claims file is written and named in --out
-    2   refused — not verified, already read, no full text; reason in --out
+    2   refused — not on the list, already read, no full text; reason in --out
     3   could not read — configuration or API problem; reason in --out
 """
 from __future__ import annotations
@@ -53,7 +53,7 @@ from ao_commons_kg.concepts import load_vocabulary  # noqa: E402
 from ao_commons_kg.models import Claim  # noqa: E402
 from ao_commons_kg.resources import load_resources  # noqa: E402
 
-VERIFIED = REPO / "data" / "verified.yml"
+CURATED = REPO / "data" / "curated.yml"
 CLAIMS = REPO / "data" / "claims"
 
 #: A record id as the form carries it, with or without the `resource:` prefix,
@@ -65,7 +65,7 @@ class Refused(RuntimeError):
     """The request was understood and will not be done."""
 
 
-def verified_ids(path: pathlib.Path = VERIFIED) -> set[str]:
+def curated_ids(path: pathlib.Path = CURATED) -> set[str]:
     """The set the site opens on, read from the one file that defines it."""
     if not path.exists():
         return set()
@@ -111,7 +111,7 @@ def sections_for(resource):
             f"parsed: {error}") from error
 
 
-def read(body: str, *, resources=None, verified=None, claims_dir=CLAIMS,
+def read(body: str, *, resources=None, curated=None, claims_dir=CLAIMS,
          make_reader=reader.anthropic_reader, vocabulary=None) -> dict:
     """Do the reading the issue asks for, and return what to say about it.
 
@@ -126,12 +126,12 @@ def read(body: str, *, resources=None, verified=None, claims_dir=CLAIMS,
         raise Refused(f"`{resource_id}` is not a record in the corpus.")
     resource = held[resource_id]
 
-    verified = verified_ids() if verified is None else verified
-    if resource_id not in verified:
+    curated = curated_ids() if curated is None else curated
+    if resource_id not in curated:
         raise Refused(
-            f"**{resource.title}** is in the graph but not in the verified set, "
+            f"**{resource.title}** is in the graph but not in the curated set, "
             "and reading is limited to that set. Putting it on the list is the "
-            "step before this one — `data/verified.yml` says what the set is "
+            "step before this one — `data/curated.yml` says what the set is "
             "and why.")
 
     held_claims = claims_dir / f"{slug_for(resource_id)}.yml"

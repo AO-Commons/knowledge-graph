@@ -71,14 +71,14 @@ class TestWhatIsRefused:
 
     def test_a_record_the_corpus_does_not_hold(self):
         with pytest.raises(read_paper.Refused, match="not a record"):
-            read_paper.read("`resource:arxiv:9999.99999`", resources=[], verified=set())
+            read_paper.read("`resource:arxiv:9999.99999`", resources=[], curated=set())
 
-    def test_a_record_that_is_not_verified(self, tmp_path):
+    def test_a_record_that_is_not_curated(self, tmp_path):
         """The gate the whole thing turns on: reading is a model call over a
         whole paper, startable by anyone with an issue form, so the queue is
         the set somebody already chose."""
-        with pytest.raises(read_paper.Refused, match="not in the verified set"):
-            read_paper.read(BODY, resources=[a_paper()], verified=set(),
+        with pytest.raises(read_paper.Refused, match="not in the curated set"):
+            read_paper.read(BODY, resources=[a_paper()], curated=set(),
                             claims_dir=tmp_path)
 
     def test_a_paper_already_read(self, tmp_path):
@@ -87,20 +87,20 @@ class TestWhatIsRefused:
             yaml.safe_dump({"resource_id": PAPER, "claims": [{"id": "claim:x:1"}]}),
             encoding="utf-8")
         with pytest.raises(read_paper.Refused, match="already been read"):
-            read_paper.read(BODY, resources=[a_paper()], verified={PAPER},
+            read_paper.read(BODY, resources=[a_paper()], curated={PAPER},
                             claims_dir=tmp_path)
 
     def test_a_paper_with_no_arxiv_id(self, tmp_path):
         with pytest.raises(read_paper.Refused, match="no arXiv id"):
             read_paper.read(BODY, resources=[a_paper(arxiv_id=None)],
-                            verified={PAPER}, claims_dir=tmp_path)
+                            curated={PAPER}, claims_dir=tmp_path)
 
 
 class TestWhatIsWritten:
     def test_a_reading_writes_the_claims_it_kept(self, tmp_path, monkeypatch):
         monkeypatch.setattr(read_paper, "sections_for", lambda r: SECTIONS)
         result = read_paper.read(
-            BODY, resources=[a_paper()], verified={PAPER}, claims_dir=tmp_path,
+            BODY, resources=[a_paper()], curated={PAPER}, claims_dir=tmp_path,
             make_reader=lambda: (lambda system, paper: a_reply(GOOD)))
 
         assert result["kept"] == 1
@@ -115,7 +115,7 @@ class TestWhatIsWritten:
         monkeypatch.setattr(read_paper, "sections_for", lambda r: SECTIONS)
         invented = dict(GOOD, quote="Agents are reliable and always will be.")
         with pytest.raises(read_paper.Refused, match="refused by a gate"):
-            read_paper.read(BODY, resources=[a_paper()], verified={PAPER},
+            read_paper.read(BODY, resources=[a_paper()], curated={PAPER},
                             claims_dir=tmp_path,
                             make_reader=lambda: (lambda s, p: a_reply(invented)))
         assert not list(tmp_path.iterdir()), "a failed reading left a file behind"
@@ -127,7 +127,7 @@ class TestWhatIsWritten:
             return "I'm afraid I can't do that"
 
         with pytest.raises(reader.ReadingError):
-            read_paper.read(BODY, resources=[a_paper()], verified={PAPER},
+            read_paper.read(BODY, resources=[a_paper()], curated={PAPER},
                             claims_dir=tmp_path, make_reader=lambda: broken)
         assert not list(tmp_path.iterdir())
 

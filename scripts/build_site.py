@@ -57,19 +57,19 @@ KIND = {
 }
 
 
-VERIFIED = REPO / "data" / "verified.yml"
+CURATED = REPO / "data" / "curated.yml"
 
 
-def verified_ids() -> set[str]:
-    """The records a person put on the list, from data/verified.yml.
+def curated_ids() -> set[str]:
+    """The records a person put on the list, from data/curated.yml.
 
     The corpus is wide because a citation scan should be allowed to bring back
     work nobody has looked at yet. This is the part of it AO Commons stands
     behind, and the part the site opens on.
     """
-    if not VERIFIED.exists():
+    if not CURATED.exists():
         return set()
-    doc = yaml.safe_load(VERIFIED.read_text(encoding="utf-8")) or {}
+    doc = yaml.safe_load(CURATED.read_text(encoding="utf-8")) or {}
     ids = {r for stream in doc.get("streams") or [] for r in stream.get("records") or []}
     ids |= set((doc.get("build_page") or {}).get("records") or [])
     return ids
@@ -77,7 +77,7 @@ def verified_ids() -> set[str]:
 
 def payload() -> dict:
     resources = load_resources()
-    verified = verified_ids()
+    curated = curated_ids()
     claims = list(load_claims())
     topics = {t.id.removeprefix("topic:"): t.title for t in load_taxonomy(TAXONOMY)}
     questions, edges = load_questions(claims=claims)
@@ -109,7 +109,7 @@ def payload() -> dict:
             "orgs": r.organizations or [],
             "role": r.role or "",
             "background": bool(r.is_borrowed_background),
-            "verified": r.id in verified,
+            "curated": r.id in curated,
             "coverage": r.text_coverage,
             "blurb": clip(r.description or r.abstract or "", 420),
             "claims": [{
@@ -134,6 +134,7 @@ def payload() -> dict:
 
     return {
         "built": __import__("datetime").date.today().isoformat(),
+        "release": latest_release(),
         "asked": asked,
         "records": sorted(records, key=lambda r: (bool(r["claims"]), r["year"] or "0000"),
                           reverse=True),
@@ -142,7 +143,7 @@ def payload() -> dict:
         "people": {p["name"]: p["records"] for p in people_index(resources)},
         "counts": {
             "records": len(resources),
-            "verified": sum(1 for r in resources if r.id in verified),
+            "curated": sum(1 for r in resources if r.id in curated),
             "claims": len(claims),
             "read": len(by_resource),
             "reviewed": sum(1 for c in claims if c.verdict),
@@ -150,6 +151,22 @@ def payload() -> dict:
             "topics": len(topics),
         },
     }
+
+
+def latest_release() -> str:
+    """The newest release in `data/releases`, by version rather than by name.
+
+    Named on the page because a build from a stale corpus looks identical to
+    one from a fresh corpus, and the version is the only thing that tells
+    them apart. Sorted numerically: a plain sort puts v0.9.0 after v0.12.0.
+    """
+    folder = REPO / "data" / "releases"
+    if not folder.exists():
+        return ""
+    def version(path):
+        return [int(n) for n in path.name.lstrip("v").split(".") if n.isdigit()]
+    releases = sorted((p for p in folder.iterdir() if p.is_dir()), key=version)
+    return releases[-1].name if releases else ""
 
 
 def clip(text: str, limit: int) -> str:
@@ -273,7 +290,9 @@ a{color:inherit;text-decoration:none}
 /* Two columns, because one is a column of text six lines tall against an
    empty right half on anything wider than a laptop. Each caps at a measure
    you can still read; they stack below the app's own breakpoint. */
-.intro{padding-top:clamp(18px,2.2vw,30px)}
+/* Room underneath, because the sticky bar follows immediately and the
+   longer of the two columns was finishing a sentence against it. */
+.intro{padding-block:clamp(18px,2.2vw,30px) clamp(26px,3vw,44px)}
 /* Two columns pushed to the edges of the page, the way the header puts the
    wordmark at one end and the buttons at the other. Each caps at a measure
    you can read; the slack goes to the gutter between them rather than into
@@ -281,9 +300,14 @@ a{color:inherit;text-decoration:none}
 .intro .wrap{display:grid;grid-template-columns:minmax(0,66ch) minmax(0,58ch);
              justify-content:space-between;gap:clamp(24px,3vw,64px);align-items:start}
 .notice{margin:0;color:var(--ink-2)}
+.intro__note p + p{margin-top:clamp(12px,1.2vw,18px)}
+/* Each sentence of the opening starts its own row. A sentence that runs past
+   the measure still wraps — what this sets is where one begins, not how long
+   it is allowed to be. */
+.intro__lead p + p{margin-top:.5em}
 .notice--lead{font-size:var(--t-sub);line-height:1.5;color:var(--ink)}
 @media (max-width:860px){.intro .wrap{grid-template-columns:minmax(0,66ch)}
-                         .notice + .notice{margin-top:clamp(14px,1.6vw,22px)}}
+                         .intro__note{margin-top:clamp(14px,1.6vw,22px)}}
 .notice a{color:var(--green);border-bottom:1px solid var(--green-bg)}
 .notice a:hover{border-color:var(--green)}
 .notice .tag{vertical-align:1px}
@@ -371,6 +395,8 @@ dialog::backdrop{background:#0b1b2a7a}
 .site-foot .wrap{padding-block:clamp(40px,5vw,72px) calc(28px + env(safe-area-inset-bottom,0px))}
 .foot__top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(32px,5vw,80px);
            align-items:start}
+.foot__cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,34ch),1fr));
+            gap:16px clamp(28px,4vw,64px)}
 .site-foot .wordmark{color:#fff}
 .site-foot p{margin:0;max-width:58ch;font-size:var(--t-small);line-height:1.6;color:#a3a39e}
 .site-foot a{color:#c9c9c4;border-bottom:1px solid #4a4a47}
@@ -405,17 +431,28 @@ dialog::backdrop{background:#0b1b2a7a}
 
 <section class="intro">
   <div class="wrap">
-    <p class="notice notice--lead">We're building an open knowledge graph to help advance
-      research on autonomous organizations and multi-agent systems. By connecting papers,
-      findings, evidence, and open questions, we aim to help researchers build on each
-      other's work, identify important gaps, and turn unanswered questions into new
-      research. The goal is a shared resource that grows with the field, shaped by the
-      researchers contributing to it.</p>
-    <p class="notice"><b>Early preview.</b> The research collection is incomplete, and many
-      claims have been extracted by AI without human review. We're gradually expanding
-      coverage and functionality, starting with contributions from authors and researchers
-      who can help add missing work, correct information, and improve the connections
-      between findings.</p>
+    <div class="intro__lead">
+      <p class="notice notice--lead">We're building an open knowledge graph to help
+        advance research on autonomous organizations and multi-agent systems.</p>
+      <p class="notice notice--lead">By connecting papers, findings, evidence, and open
+        questions, we aim to help researchers build on each other's work, identify
+        important gaps, and turn unanswered questions into new research.</p>
+      <p class="notice notice--lead">The goal is a shared resource that grows with the
+        field, shaped by the researchers contributing to it.</p>
+    </div>
+    <div class="intro__note">
+      <p class="notice"><b>Early preview.</b> The research collection is incomplete, and
+        many claims have been extracted by AI without human review. We're gradually
+        expanding coverage and functionality with contributions from authors and
+        researchers who can help add missing work, correct information, and connect
+        related findings.</p>
+      <p class="notice">For now, you can suggest individual additions or corrections
+        through <a href="https://github.com/AO-Commons/knowledge-graph/issues">GitHub
+        issues</a>. We're also testing an improved contribution interface in a private,
+        invite-only beta. <b>The easiest way to contribute more actively is to join the
+        beta</b> by filling out the
+        <a href="https://aocommons.org/#get-involved">interest form</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -436,10 +473,21 @@ dialog::backdrop{background:#0b1b2a7a}
   <div class="wrap">
     <div class="foot__top">
       <a href="https://aocommons.org" class="wordmark">AO Commons</a>
-      <p>All data and code are in a
-        <a href="https://github.com/AO-Commons/knowledge-graph">public GitHub repository</a>.
-        To suggest research, correct a record, or help with the code, see the
-        <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md">contributing guide</a>.</p>
+      <div class="foot__cols">
+        <p>All data and code are in a
+          <a href="https://github.com/AO-Commons/knowledge-graph">public GitHub repository</a>.
+          To suggest research, correct a record, or help with the code, see the
+          <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md">contributing
+          guide</a>.</p>
+        <p>The corpus is
+          <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/LICENSE">CC BY 4.0</a>
+          and the code that builds it is
+          <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/LICENSE-CODE">MIT</a>:
+          use either, and credit the corpus. If you cite it, cite a
+          <a href="https://github.com/AO-Commons/knowledge-graph/releases">release</a> rather than
+          this page — releases are checksummed and keep their mistakes, so a citation to one
+          means the same thing next year.</p>
+      </div>
     </div>
     <div class="foot__base">
       <small id="built"></small>
@@ -458,8 +506,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-// Which records the page shows. It opens on the verified set — the records a
-// person put on the list in data/verified.yml — because a reader should not
+// Which records the page shows. It opens on the curated set — the records a
+// person put on the list in data/curated.yml — because a reader should not
 // have to guess which of the graph's records AO Commons stands behind. The
 // rest are one button away: nothing is hidden, and nothing is deleted.
 let only = true;
@@ -472,12 +520,13 @@ const KIND_ORDER = ['Paper', 'Deployment', 'Benchmark'];
 const DEFAULT_KIND = 'Paper';
 let kind = DEFAULT_KIND, q = '';
 
-const VERIFIED = new Set(D.records.filter(r => r.verified).map(r => r.id));
-const shown = () => only ? D.records.filter(r => r.verified) : D.records;
+const CURATED = new Set(D.records.filter(r => r.curated).map(r => r.id));
+const shown = () => only ? D.records.filter(r => r.curated) : D.records;
 
-$('#built').textContent = `Last updated ${D.built}.`;
+$('#built').textContent = D.release
+  ? `${D.release} · built ${D.built}` : `Built ${D.built}`;
 
-$('#view').innerHTML = [['1', 'Verified', D.counts.verified],
+$('#view').innerHTML = [['1', 'Curated', D.counts.curated],
                         ['', 'Everything', D.counts.records]]
   .map(([v, label, n]) =>
     `<button class="chip" data-v="${v}" aria-pressed="${!!v === only}">${label}<b>${n}</b></button>`
@@ -493,7 +542,7 @@ function kindlist() {
   const present = [...new Set(shown().map(r => r.kind))];
   const kinds = [...KIND_ORDER.filter(k => present.includes(k)),
                  ...present.filter(k => !KIND_ORDER.includes(k)).sort()];
-  // The verified set and the whole graph do not hold the same kinds, so a
+  // The curated set and the whole graph do not hold the same kinds, so a
   // selection can stop existing when the view changes. Falling back to the
   // default rather than to nothing keeps the list showing something.
   if (!kinds.includes(kind)) kind = kinds.includes(DEFAULT_KIND) ? DEFAULT_KIND : '';
@@ -533,7 +582,7 @@ const ROLE = {
   context: 'Adjacent work the field borrows from.',
 };
 const RELATED = 'Not about autonomous organizations directly, but relevant to them (for example, economics or law).';
-const VERIFIED_IS = 'On the list behind the AO Commons research agenda, or published on aocommons.org, rather than found by the citation scan.';
+const CURATED_IS = 'On the list behind the AO Commons research agenda, or published on aocommons.org, rather than found by the citation scan.';
 const tip = (label, text, cls) => `<span class="tag${cls ? ' ' + cls : ''}"${
   text ? ` title="${esc(text)}"` : ''}>${esc(label)}</span>`;
 
@@ -552,8 +601,8 @@ function draw() {
 // how a reader concludes the library does not have the paper it has.
 function empty() {
   const elsewhere = only
-    ? D.records.filter(r => !r.verified && matches(r)).length : 0;
-  if (elsewhere) return `<p class="none">Nothing in the verified set.
+    ? D.records.filter(r => !r.curated && matches(r)).length : 0;
+  if (elsewhere) return `<p class="none">Nothing in the curated set.
     <b>${elsewhere}</b> record${elsewhere === 1 ? '' : 's'} elsewhere in the graph
     match${elsewhere === 1 ? 'es' : ''} — <a href="#" id="more">show everything</a>.</p>`;
   return `<p class="none">No matches. The collection is incomplete, and it only covers work
@@ -580,7 +629,7 @@ function card(r) {
       ${r.claims.length ? `<span class="tag has">${r.claims.length} claims</span>` : ''}
       ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
       ${r.role ? tip(r.role, ROLE[r.role]) : ''}
-      ${!only && r.verified ? tip('verified', VERIFIED_IS, 'has') : ''}
+      ${!only && r.curated ? tip('curated', CURATED_IS, 'has') : ''}
     </div></button>`;
 }
 
@@ -606,7 +655,7 @@ function openRecord(id) {
       ${r.year ? `<span>${r.year}</span>` : ''}<span class="tag">${esc(r.kind)}</span>
       ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
       ${r.role ? tip(r.role, ROLE[r.role]) : ''}
-      ${r.verified ? tip('verified', VERIFIED_IS, 'has') : ''}
+      ${r.curated ? tip('curated', CURATED_IS, 'has') : ''}
       <span>${esc(r.id)}</span>
     </div>
     ${r.authors.length ? `<p class="byline">${esc(r.authors.join(', '))}</p>` : ''}
@@ -662,10 +711,10 @@ function issue(template, fields, title) {
 const correct = r => issue('request-adjustment.yml',
   { record: r.id }, `[Fix] ${r.title}`.slice(0, 120));
 // Reading is a model call over a whole paper, so the door is narrow on
-// purpose: a verified paper, with an arXiv id, that nobody has read yet.
+// purpose: a curated paper, with an arXiv id, that nobody has read yet.
 // The same three things `scripts/read_paper.py` checks — asking for a
 // reading it is going to refuse teaches people the button does not work.
-const readable = r => r.verified && !r.claims.length && /^resource:arxiv:/.test(r.id);
+const readable = r => r.curated && !r.claims.length && /^resource:arxiv:/.test(r.id);
 const request = r => issue('read-paper.yml',
   { record: r.id }, `[Read] ${r.title}`.slice(0, 120));
 const suggest = () => issue('suggest-addition.yml', {}, '[Add] ');

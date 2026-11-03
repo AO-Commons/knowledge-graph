@@ -1,6 +1,6 @@
-"""The verified set: what the preview site opens on.
+"""The curated set: what the preview site opens on.
 
-`data/verified.yml` is a list of record ids written by hand, and a hand-written
+`data/curated.yml` is a list of record ids written by hand, and a hand-written
 list of ids rots the moment a record is renamed. The site would not fail when
 that happens — it would quietly show one fewer paper, which is the failure
 nobody notices. These tests are the noise.
@@ -18,12 +18,12 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 from ao_commons_kg.resources import load_resources  # noqa: E402
 
-VERIFIED = REPO / "data" / "verified.yml"
+CURATED = REPO / "data" / "curated.yml"
 
 
 @pytest.fixture(scope="module")
 def doc():
-    return yaml.safe_load(VERIFIED.read_text(encoding="utf-8"))
+    return yaml.safe_load(CURATED.read_text(encoding="utf-8"))
 
 
 @pytest.fixture(scope="module")
@@ -41,7 +41,7 @@ class TestTheSet:
     def test_every_id_is_a_record_the_corpus_holds(self, listed, held):
         missing = sorted(set(listed) - held)
         assert not missing, (
-            "data/verified.yml names records the corpus does not hold: "
+            "data/curated.yml names records the corpus does not hold: "
             + ", ".join(missing)
             + ". Either the record was renamed, or it was never filed — in which "
             "case it belongs under `not_held` with the reason."
@@ -67,12 +67,12 @@ class TestTheSiteReadsIt:
     def test_build_site_marks_exactly_these_records(self, listed):
         import build_site
 
-        assert build_site.verified_ids() == set(listed)
+        assert build_site.curated_ids() == set(listed)
 
     def test_a_record_outside_the_set_is_not_marked(self, listed):
         import build_site
 
         data = build_site.payload()
-        marked = {r["id"] for r in data["records"] if r["verified"]}
+        marked = {r["id"] for r in data["records"] if r["curated"]}
         assert marked == set(listed)
-        assert data["counts"]["verified"] == len(set(listed))
+        assert data["counts"]["curated"] == len(set(listed))

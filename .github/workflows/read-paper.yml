@@ -13,7 +13,7 @@
 # measured numbers: coverage, how much of the corpus has been read, how much a
 # person has checked. Model output that moves those gets looked at first.
 #
-# Only papers in the verified set are read. `scripts/read_paper.py` says why,
+# Only papers in the curated set are read. `scripts/read_paper.py` says why,
 # and enforces it — this workflow does not re-state the rule, it runs the thing
 # that holds it.
 

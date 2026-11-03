@@ -39,10 +39,10 @@ body:
 
         1. **A maintainer starts it.** Nothing runs when you press send. Reading a whole paper costs real money, so somebody starts each one by hand after reading the request.
         2. **A bot drafts the claims** and opens a pull request with them.
-        3. **A person checks them** against the paper. Until that happens, every claim is a draft — written by a model, not verified by anyone.
+        3. **A person checks them** against the paper. Until that happens, every claim is a draft — written by a model and checked by nobody.
 
         ### When a request is turned down
 
-        **The paper isn't in the verified set.** That set is what the site shows before you press *Everything*, and only papers in it can be read this way. If yours isn't there yet, ask for it to be added first.
+        **The paper isn't in the curated set.** That set is what the site shows before you press *Everything*, and only papers in it can be read this way. If yours isn't there yet, ask for it to be added first.
 
         **The paper has already been read.** Its claims may already carry people's verdicts, and drafting them again would throw those away. To fix a claim that's wrong, use *Report an error* on the paper instead.
