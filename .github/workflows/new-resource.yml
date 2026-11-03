@@ -117,7 +117,8 @@ jobs:
             --author "${{ github.event.issue.user.login }}" \
             --title "${{ github.event.issue.title }}" \
             --issue ${{ github.event.issue.number }} \
-            --summary-file /tmp/summary.md
+            --summary-file /tmp/summary.md \
+            --title-file /tmp/title.txt
 
       # A rejected proposal is answered on the issue rather than failing
       # silently in a log the contributor will never look at. The issue stays
@@ -222,6 +223,12 @@ jobs:
             // Closed because the work is done and the commit is the record of
             // it. Anyone who disagrees reopens or reverts; leaving it open
             // would make the issue list read like a queue of pending work.
-            await github.rest.issues.update({
-              ...context.repo, issue_number: context.issue.number, state: 'closed',
-            });
+            // Renamed after what was added: a paper suggested by its link alone
+            // arrives titled "[Add]" or with the bare URL, and the issue list
+            // should say what each one was.
+            const update = { ...context.repo, issue_number: context.issue.number, state: 'closed' };
+            if (fs.existsSync('/tmp/title.txt')) {
+              const name = fs.readFileSync('/tmp/title.txt', 'utf8').trim();
+              if (name) update.title = `${added ? '[Add]' : '[Already held]'} ${name}`.slice(0, 256);
+            }
+            await github.rest.issues.update(update);

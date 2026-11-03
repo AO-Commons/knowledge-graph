@@ -84,6 +84,7 @@ SECTION = re.compile(r"^\s*\*\*(.+?)\*\*\s*$")
 
 FIELDS = {
     "doi arxiv id or link": "identifier",
+    "link doi or arxiv id": "identifier",
     "identifier": "identifier",
     "link": "identifier",
     "title": "title",
@@ -776,6 +777,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--author", default="a contributor")
     parser.add_argument("--issue", type=int, default=0)
     parser.add_argument("--summary-file", default="")
+    parser.add_argument("--title-file", default="",
+                        help="where to write the added record's title, so the issue can be renamed after it")
     parser.add_argument("--title", default="", help="the issue's own title")
     parser.add_argument("--offline", action="store_true",
                         help="skip the metadata lookups; for testing the parse")
@@ -815,6 +818,13 @@ def main(argv: list[str] | None = None) -> int:
                 "already held.")
         stored = write_references(payload)
         print(f"wrote {write_record(payload).relative_to(REPO)}")
+        if args.title_file and payload.get("title"):
+            Path(args.title_file).write_text(payload["title"], encoding="utf-8")
+    elif args.title_file:   # already held: name the issue after the record it duplicates
+        body = Path(args.body_file).read_text(encoding="utf-8")
+        held = already_held(identify(read_issue(body).get("identifier", "")), resources)
+        if held is not None and held.title:
+            Path(args.title_file).write_text(held.title, encoding="utf-8")
         if stored:
             print(f"  {stored} references stored — it joins the citation graph")
     if args.summary_file:

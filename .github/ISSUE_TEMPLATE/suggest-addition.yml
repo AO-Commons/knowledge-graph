@@ -1,7 +1,7 @@
 name: Suggest something for the library
 description: A paper, tool, deployment, organization, person or article we should hold.
 title: "[Add] "
-labels: ["addition"]
+labels: ["new-resource"]   # a label that exists: GitHub silently drops one that does not, and the bot then never runs
 body:
   - type: markdown
     attributes:
