@@ -19,6 +19,7 @@ from add_resource import (  # noqa: E402
     ProposalError,
     already_held,
     identify,
+    match_organizations,
     paper_record,
     process,
     read_issue,
@@ -26,7 +27,7 @@ from add_resource import (  # noqa: E402
     thing_record,
     write_record,
 )
-from ao_commons_kg.models import Resource  # noqa: E402
+from ao_commons_kg.models import Organization, Resource  # noqa: E402
 
 KNOWN_TOPICS = {"2.2", "4.1", "5.3.1", "11.6", "11.10"}
 
@@ -457,3 +458,41 @@ class TestBylines:
             fetch_openalex=lambda url: {}, fetch_arxiv=boom,
         )
         assert payload["authors"]
+
+
+class TestWhoMakesIt:
+    """The form's "Who makes or runs it?": linked to the organization already in
+    the library where there is one, kept as typed and flagged where there is not."""
+
+    ORGS = {
+        "org:block": Organization(id="org:block", name="Block", organization_type="company"),
+        "org:aria": Organization(id="org:aria", name="Advanced Research + Invention Agency",
+                                 organization_type="government", aliases=["ARIA"]),
+    }
+
+    def _run(self, answer):
+        body = TOOL + f"\n### Who makes or runs it?\n\n{answer}\n"
+        return process(body, author="ankeliu", issue=9, resources=[],
+                       known_topics=KNOWN_TOPICS, organizations=self.ORGS)
+
+    def test_a_known_name_links_to_its_record(self):
+        summary, payload = self._run("block")
+        assert payload["organizations"] == ["Block"]
+        assert "new to the library" not in summary
+
+    def test_an_alias_links_to_the_name_on_the_record(self):
+        assert match_organizations("ARIA", self.ORGS) == (["Advanced Research + Invention Agency"], [])
+
+    def test_a_new_name_is_kept_as_typed_and_flagged_not_invented(self):
+        summary, payload = self._run("Block; Botiverse")
+        assert payload["organizations"] == ["Block", "Botiverse"]
+        assert "**Botiverse** is new to the library" in summary
+
+    def test_no_answer_adds_nothing(self):
+        _, payload = self._run("_No response_")
+        assert "organizations" not in payload
+
+    def test_the_resource_still_loads(self):
+        _, payload = self._run("Block")
+        payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "")}
+        assert Resource(**payload).organizations == ["Block"]

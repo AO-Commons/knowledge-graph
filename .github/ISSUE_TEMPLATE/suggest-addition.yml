@@ -33,6 +33,17 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: organization
+    attributes:
+      label: Who makes or runs it?
+      description: |
+        The organization behind it, named as it names itself. We link it to the
+        organization already in the library, or add it if it is new. Optional.
+      placeholder: "Andon Labs   ·   Anthropic, Andon Labs"
+    validations:
+      required: false
+
   - type: textarea
     id: why
     attributes:
