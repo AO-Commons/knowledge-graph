@@ -1,0 +1,32 @@
+id: resource:ref:ostrom-1990-governing-the-commons
+resource_type: paper
+title: 'Governing the Commons: The Evolution of Institutions for Collective Action'
+description: How communities govern a shared resource without a central owner or a privatising
+  split, and the design principles that separate the arrangements that last from the ones
+  that collapse. The case that self-governance is an institutional design problem with known
+  answers.
+authors:
+- Elinor Ostrom
+published_at: '1990-11-30'
+doi: 10.1017/CBO9780511807763
+url: https://doi.org/10.1017/CBO9780511807763
+openalex_id: W4233654598
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-11-03 as section 15 borrowed foundations, from
+  the reading list behind the foundational paper: the vocabulary an argument about autonomous
+  organizations is conducted in, from the literatures that built it. Not about organizations
+  where machine agents hold authority, and held so a claim can point at the source of a term
+  rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed
+  and this note says so. Unreviewed as a reading: no claims have been read out of these, and
+  none should be until somebody has the text. Venue: Cambridge University Press.'
+ingested_at: '2026-11-03'

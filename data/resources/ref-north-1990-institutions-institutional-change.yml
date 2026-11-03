@@ -1,0 +1,31 @@
+id: resource:ref:north-1990-institutions-institutional-change
+resource_type: paper
+title: Institutions, Institutional Change and Economic Performance
+description: Institutions as the rules of the game, formal and informal, and the reason the
+  rules change slowly even when they perform badly. Where the distinction between a rule and
+  the organization playing by it comes from.
+authors:
+- Douglass C. North
+published_at: '1990-10-26'
+doi: 10.1017/CBO9780511808678
+url: https://doi.org/10.1017/CBO9780511808678
+openalex_id: W4298413470
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-11-03 as section 15 borrowed foundations, from
+  the reading list behind the foundational paper: the vocabulary an argument about autonomous
+  organizations is conducted in, from the literatures that built it. Not about organizations
+  where machine agents hold authority, and held so a claim can point at the source of a term
+  rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed
+  and this note says so. Unreviewed as a reading: no claims have been read out of these, and
+  none should be until somebody has the text. Venue: Cambridge University Press.'
+ingested_at: '2026-11-03'

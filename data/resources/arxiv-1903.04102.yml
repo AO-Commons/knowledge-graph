@@ -1,0 +1,38 @@
+id: resource:arxiv:1903.04102
+resource_type: preprint
+title: Blameworthiness in Multi-Agent Settings
+abstract: We provide a formal definition of blameworthiness in settings where multiple agents
+  can collaborate to avoid a negative outcome. We first provide a method for ascribing blameworthiness
+  to groups relative to an epistemic state (a distribution over causal models that describe
+  how the outcome might arise). We then show how we can go from an ascription of blameworthiness
+  for groups to an ascription of blameworthiness for individuals using a standard notion from
+  cooperative game theory, the Shapley value. We believe that getting a good notion of blameworthiness
+  in a group setting will be critical for designing autonomous agents that behave in a moral
+  manner.
+authors:
+- Meir Friedenberg
+- Joseph Y. Halpern
+organizations:
+- Cornell University
+affiliations:
+  Meir Friedenberg:
+  - Cornell University
+  Joseph Yehuda Halpern:
+  - Cornell University
+published_at: '2019-03-11'
+url: https://arxiv.org/abs/1903.04102
+doi: 10.48550/arXiv.1903.04102
+arxiv_id: '1903.04102'
+openalex_id: W2950224421
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '12'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: added from a reading list by @AO Commons research team, in a batch; identity
+  and byline resolved against OpenAlex. topic tags are the contributor's own, confirmed but
+  unreviewed.
+ingested_at: '2026-11-03'

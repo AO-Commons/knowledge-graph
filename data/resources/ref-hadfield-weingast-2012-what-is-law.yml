@@ -1,0 +1,32 @@
+id: resource:ref:hadfield-weingast-2012-what-is-law
+resource_type: paper
+title: What Is Law? A Coordination Model of the Characteristics of Legal Order
+description: What a legal order has to do to coordinate behaviour, stated as attributes rather
+  than as institutions, so an order without a state can be assessed against it. The test a
+  protocol claiming to govern agents has to meet.
+authors:
+- Gillian K. Hadfield
+- Barry R. Weingast
+published_at: '2012-07-29'
+doi: 10.1093/jla/las008
+url: https://doi.org/10.1093/jla/las008
+openalex_id: W3122602001
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-11-03 as section 15 borrowed foundations, from
+  the reading list behind the foundational paper: the vocabulary an argument about autonomous
+  organizations is conducted in, from the literatures that built it. Not about organizations
+  where machine agents hold authority, and held so a claim can point at the source of a term
+  rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed
+  and this note says so. Unreviewed as a reading: no claims have been read out of these, and
+  none should be until somebody has the text. Venue: Journal of Legal Analysis, 4(2).'
+ingested_at: '2026-11-03'

@@ -1,0 +1,163 @@
+# The verified set: what the preview site shows before you ask it for more.
+#
+# The corpus is wide on purpose — a citation scan adds work nobody has looked
+# at yet, and that is how a library finds the thing it was missing. But a
+# reader arriving at the site should not have to guess which of 371 records
+# AO Commons actually stands behind.
+#
+# This file is the subset that is stood behind. Every record here was put on
+# the list by a person, for a stated reason, rather than by the scan: the
+# reading list the AO Commons research agenda is built on, grouped by the nine
+# research streams it is organized around, and the deployments, tools and
+# evaluation suites already listed on aocommons.org/build.
+#
+# `scripts/build_site.py` reads it. The site opens on this set and says how
+# many more records the graph holds; one control shows the rest. Nothing is
+# hidden and nothing is deleted — the distinction is between what is published
+# and what is merely held.
+#
+# An id here that no record matches fails `tests/test_verified.py`, so the set
+# cannot quietly rot as records are renamed.
+
+verified_by: AO Commons research team
+verified_on: '2026-11-03'
+
+streams:
+  - name: Authority and accountability
+    about: The authority gap
+    records:
+      - resource:ref:aghion-tirole-1997-formal-and-real-authority        # Aghion & Tirole (1997), Formal and Real Authority in Organizations
+      - resource:doi:10-1007-s10676-004-3422-1                           # Matthias (2004), The Responsibility Gap
+      - resource:ref:bayern-2016-business-entity-law-autonomous-systems  # Bayern (2015), Modern Business-Entity Law and Autonomous Systems
+      - resource:ref:lopucki-2018-algorithmic-entities                   # LoPucki (2018), Algorithmic Entities
+      - resource:ref:hadfield-menell-hadfield-2019-incomplete-contracting # Hadfield-Menell & Hadfield (2019), Incomplete Contracting and AI Alignment
+      - resource:arxiv:2602.11865                                        # Tomašev, Franklin & Osindero (2026), Intelligent AI Delegation
+      - resource:arxiv:2608.23642                                        # Mitchell, Ghosh & Passi (2026), AI Agents Push Humans Out of the Loop
+      - resource:doi:10-1145-3630106-3658948                             # Chan et al. (2024), Visibility into AI Agents
+      - resource:arxiv:2605.24538                                        # Hu & Rong (2026), Is Decentralized AI Governable?
+
+  - name: Composition and emergence
+    about: The composition gap
+    records:
+      - resource:arxiv:2604.10290   # Shen et al. (2026), AI Organizations are More Effective but Less Aligned
+      - resource:arxiv:2502.14143   # Hammond et al. (2025), Multi-Agent Risks from Advanced AI
+      - resource:arxiv:2606.03237   # Trivedi et al. (2026), Solipsistic Superintelligence is Unlikely to be Cooperative
+      - resource:doi:10-1257-aer-20190623   # Calvano et al. (2020), Artificial Intelligence, Algorithmic Pricing, and Collusion
+      - resource:arxiv:2404.00806   # Fish, Gonczarowski & Shorrer (2026), Algorithmic Collusion by LLMs
+      - resource:arxiv:2410.00031   # Lin et al. (2025), Strategic Collusion of LLM Agents
+      - resource:arxiv:2511.10949   # Arora et al. (2025), Exposing Weak Links under Adversarial Prompting
+      - resource:arxiv:1903.04102   # Friedenberg & Halpern (2019), Blameworthiness in Multi-Agent Settings
+
+  - name: Organizational design for agents
+    about: Structures, constitutions, delegation
+    records:
+      - resource:arxiv:2602.11865   # Tomašev, Franklin & Osindero (2026), Intelligent AI Delegation
+      - resource:arxiv:2604.07007   # Ruan & Zhang (2026), AgentCity: Constitutional Governance
+      - resource:arxiv:2603.18916   # Calvanese et al. (2026), Agentic Business Process Management
+      - resource:arxiv:2511.03434   # Hu & Rong (2025), Inter-Agent Trust Models
+
+  - name: Evaluation science for organizations
+    about: Dynamic evaluation
+    records:
+      - resource:arxiv:2412.14161   # Xu et al. (2024), TheAgentCompany
+      - resource:arxiv:2502.15840   # Backlund & Petersson (2025), Vending-Bench
+      - resource:arxiv:2606.16613   # Sugiura et al. (2026), CoffeeBench
+      - resource:arxiv:2509.14485   # Těšić et al. (2025), Beyond the High Score
+      - resource:arxiv:2312.03664   # Vezhnevets et al. (2023), Concordia
+
+  - name: Field infrastructure
+    about: Traces, telemetry, and access
+    records:
+      - resource:doi:10-1145-3630106-3658948      # Chan et al. (2024), Visibility into AI Agents
+      - resource:platform:vending-bench-arena     # Andon Labs (2025), Vending-Bench Arena
+      - resource:tool:paperclip                   # Paperclip Labs (2026), Paperclip
+      - resource:platform:aria-scaling-trust-arena # ARIA (2026), Scaling Trust Arena
+
+  - name: Safety and security of and by AOs
+    about: Failure modes, fragility, safety cases
+    records:
+      - resource:arxiv:2505.02077   # Schroeder de Witt et al. (2025), Open Challenges in Multi-Agent Security
+      - resource:arxiv:2604.23459   # Hagag et al. (2026), Architecture Matters for Multi-Agent Security
+      - resource:arxiv:2510.04303   # Tailor (2025), Audit the Whisper
+      - resource:arxiv:2511.10949   # Arora et al. (2025), Exposing Weak Links
+      - resource:arxiv:2502.14143   # Hammond et al. (2025), Multi-Agent Risks from Advanced AI
+
+  - name: Markets, scaling, and systemic risk
+    about: Many AOs
+    records:
+      - resource:arxiv:2509.01063        # Hadfield & Koh (2025), An Economy of AI Agents
+      - resource:arxiv:2509.10147        # Tomašev et al. (2025), Virtual Agent Economies
+      - resource:doi:10-3386-w34468      # Shahidi et al. (2025), The Coasean Singularity?
+      - resource:arxiv:2501.16946        # Kulveit et al. (2025), Gradual Disempowerment
+      - resource:doi:10-2139-ssrn-1686004 # Kirilenko et al. (2017), The Flash Crash
+
+  - name: Law, governance, and institutions
+    about: Entities, liability, intervention
+    records:
+      - resource:arxiv:2605.24538   # Hu & Rong (2026), Is Decentralized AI Governable?
+      - resource:arxiv:2602.14951   # Hu & Rong (2026), Sovereign Agents
+      - resource:ref:bayern-2016-business-entity-law-autonomous-systems  # Bayern (2015)
+      - resource:ref:lopucki-2018-algorithmic-entities                   # LoPucki (2018)
+      - resource:ref:shavell-1986-judgment-proof-problem                 # Shavell (1986), The Judgment Proof Problem
+      - resource:ref:hadfield-weingast-2012-what-is-law                  # Hadfield & Weingast (2012), What Is Law?
+      - resource:ref:ostrom-1990-governing-the-commons                   # Ostrom (1990), Governing the Commons
+      - resource:ref:north-1990-institutions-institutional-change        # North (1990), Institutions, Institutional Change
+      - resource:ref:lessig-1999-code-and-other-laws-of-cyberspace       # Lessig (1999), Code and Other Laws of Cyberspace
+
+  - name: Human involvement and legitimacy
+    about: Work, rights, distribution, and participation
+    records:
+      - resource:doi:10-1518-001872097778543886   # Parasuraman & Riley (1997), Humans and Automation
+      - resource:ref:parasuraman-sheridan-wickens-2000-levels-of-automation  # Parasuraman, Sheridan & Wickens (2000)
+      - resource:arxiv:2608.23642                 # Mitchell, Ghosh & Passi (2026), AI Agents Push Humans Out of the Loop
+      - resource:ref:kellogg-valentine-christin-2020-algorithms-at-work      # Kellogg, Valentine & Christin (2020), Algorithms at Work
+
+# What aocommons.org/build already lists, and therefore what AO Commons has
+# already published as a deployment, a tool or an evaluation suite. The build
+# page is generated from these same records by `sync_build.py` in the website
+# repository, so this list and that page say the same thing by construction.
+#
+# New records of these types do not join automatically. The build page lists
+# every one of them; this set is what somebody decided to stand behind, and
+# that decision is made here.
+build_page:
+  records:
+    - resource:platform:ai-village              # AI Village
+    - resource:platform:andon-cafe              # Andon Café
+    - resource:platform:andon-fm                # Andon FM
+    - resource:platform:andon-market            # Andon Market
+    - resource:platform:aria-scaling-trust-arena # Scaling Trust Arena
+    - resource:platform:pion                    # Pion
+    - resource:platform:project-vend            # Project Vend
+    - resource:platform:raft                    # Raft
+    - resource:platform:the-agent-company       # TheAgentCompany
+    - resource:platform:vending-bench-2         # Vending-Bench 2
+    - resource:platform:vending-bench-arena     # Vending-Bench Arena
+    - resource:tool:agentteam-email             # AgentTeam Email
+    - resource:tool:buzz                        # Buzz
+    - resource:tool:crewai                      # CrewAI
+    - resource:tool:gpt-researcher              # GPT Researcher
+    - resource:tool:kikubot                     # Kikubot
+    - resource:tool:langgraph                   # LangGraph
+    - resource:tool:meta-ads-kit                # Meta Ads Kit
+    - resource:tool:mue-x                       # MUE-X
+    - resource:tool:onemancompany               # OneManCompany
+    - resource:tool:open-multi-agent-oma        # open-multi-agent (OMA)
+    - resource:tool:paperclip                   # Paperclip
+
+# On the list, and not in the corpus. Kept here rather than dropped, because
+# a reading list with a silent hole is worse than one that names it.
+not_held:
+  - cite: Hadfield, Trivedi & Hadfield-Menell (2026), Building AI for the Democratic Matrix
+    stream: Human involvement and legitimacy
+    why: >-
+      No DOI, arXiv id or OpenAlex record found on 2026-11-03, under that title
+      or under those authors. Needs a link from whoever put it on the list
+      before it can be filed.
+
+  - cite: ClawBank Business Bench, and Founder Bench
+    stream: Listed on the build page
+    why: >-
+      Both are listed on aocommons.org/build, which was last synced from the
+      branch `add-business-benches`. Neither record is on the main branch yet,
+      so the site cannot show them. They join this set when that branch merges.

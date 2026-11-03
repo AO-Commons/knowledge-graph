@@ -1,0 +1,46 @@
+id: resource:arxiv:2511.10949
+resource_type: preprint
+title: Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting
+abstract: LLM-based agents are increasingly deployed in multi-agent systems (MAS). As these
+  systems move toward real-world applications, their security becomes paramount. Existing
+  research largely evaluates single-agent security, leaving a critical gap in understanding
+  the vulnerabilities introduced by multi-agent design. However, existing systems fall short
+  due to lack of unified frameworks and metrics focusing on unique rejection modes in MAS.
+  We present SafeAgents, a unified and extensible framework for fine-grained security assessment
+  of MAS. SafeAgents systematically exposes how design choices such as plan construction strategies,
+  inter-agent context sharing, and fallback behaviors affect susceptibility to adversarial
+  prompting. We introduce Dharma, a diagnostic measure that helps identify weak links within
+  multi-agent pipelines. Using SafeAgents, we conduct a comprehensive study across five widely
+  adopted multi-agent architectures (centralized, decentralized, and hybrid variants) on four
+  datasets spanning web tasks, tool use, and code generation. Our findings reveal that common
+  design patterns carry significant vulnerabilities. For example, centralized systems that
+  delegate only atomic instructions to sub-agents obscure harmful objectives, reducing robustness.
+  Our results highlight the need for security-aware design in MAS. Link to code is https://github.com/microsoft/SafeAgents
+authors:
+- Nirmit Arora
+- Sathvik Joel
+- Ishan Kavathekar
+- Palak
+- Rohan Gandhi
+- Yash Pandya
+- Tanuja Ganu
+- Aditya Kanade
+- Akshay Nambi
+published_at: '2025-11-14'
+url: https://arxiv.org/abs/2511.10949
+doi: 10.48550/arXiv.2511.10949
+arxiv_id: '2511.10949'
+openalex_id: W4416341374
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '5'
+- '10'
+- '11'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: added from a reading list by @AO Commons research team, in a batch; identity
+  and byline resolved against OpenAlex. topic tags are the contributor's own, confirmed but
+  unreviewed.
+ingested_at: '2026-11-03'

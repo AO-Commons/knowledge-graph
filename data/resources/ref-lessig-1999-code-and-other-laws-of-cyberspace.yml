@@ -1,0 +1,30 @@
+id: resource:ref:lessig-1999-code-and-other-laws-of-cyberspace
+resource_type: paper
+title: Code and Other Laws of Cyberspace
+description: 'Code is law: what a system makes possible regulates behaviour as directly as
+  a statute does, and is written by whoever builds it. The source of the argument that an
+  agent''s constraints are a governance choice rather than a technical detail.'
+authors:
+- Lawrence Lessig
+published_at: '1999-01-01'
+openalex_id: W2170048845
+is_open_access: false
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Admitted by hand on 2026-11-03 as section 15 borrowed foundations, from
+  the reading list behind the foundational paper: the vocabulary an argument about autonomous
+  organizations is conducted in, from the literatures that built it. Not about organizations
+  where machine agents hold authority, and held so a claim can point at the source of a term
+  rather than at whoever most recently used it. Metadata checked against OpenAlex; where the
+  lookup returned a reprint, a review or nothing, the field is left empty rather than guessed
+  and this note says so. Unreviewed as a reading: no claims have been read out of these, and
+  none should be until somebody has the text. Venue: Basic Books. Note: openalex holds an
+  entry with no DOI.'
+ingested_at: '2026-11-03'
