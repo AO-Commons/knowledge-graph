@@ -104,6 +104,7 @@ FIELDS = {
     "maintainer": "maintainer",
     "license and source": "license",
     "license": "license",
+    "organization": "organization",
 }
 
 # What people and forms write when they mean "nothing here". GitHub's own
@@ -257,6 +258,34 @@ def _affiliations(work) -> dict:
         a.name: apply_index(list(a.institutions), index)
         for a in work.authorships if a.institutions
     }
+
+
+def match_organizations(raw: str, organizations: dict) -> tuple[list[str], list[str]]:
+    """The organizations a contributor named, as the library names them.
+
+    Each name, comma- or semicolon-separated, is matched to an organization
+    record by its name or an alias, folded the way the organization index folds
+    them. A match is written as the record's own name, so the resource points at
+    the node already there. A name with no record is kept as typed and returned
+    separately: an organization's kind is a judgment, so the bot does not invent
+    a record for it, and `scripts/seed_organizations.py --only` writes one.
+    """
+    from ao_commons_kg.organizations import fold
+    by_key: dict[str, str] = {}
+    for org in organizations.values():
+        for name in [org.name, *org.aliases]:
+            by_key.setdefault(fold(name), org.name)
+    named, new = [], []
+    for part in re.split(r"[;,\n]", raw or ""):
+        part = part.strip()
+        if not part or part.lower() in BLANK:
+            continue
+        canonical = by_key.get(fold(part))
+        if canonical is None:
+            new.append(part)
+        if (canonical or part) not in named:
+            named.append(canonical or part)
+    return named, new
 
 
 def _slug(text: str) -> str:
@@ -639,7 +668,7 @@ def write_record(payload: dict) -> Path:
 
 def process(body: str, *, author: str, issue: int, resources: list, known_topics: set[str],
             fetch_openalex=None, fetch_s2=None, fetch_arxiv=None,
-            issue_title: str = "") -> tuple[str, dict | None]:
+            issue_title: str = "", organizations: dict | None = None) -> tuple[str, dict | None]:
     """Read an issue and produce the record it asks for.
 
     Returns the summary to post and the record written, if any. A duplicate is
@@ -691,10 +720,21 @@ def process(body: str, *, author: str, issue: int, resources: list, known_topics
             None,
         )
 
-    return summarize(payload, gaps, fields, author), payload
+    # Who makes or runs it, as the contributor named it: first, then whatever the
+    # lookup found, with the library's own spelling wherever a record exists.
+    new_orgs: list[str] = []
+    if fields.get("organization"):
+        if organizations is None:
+            from ao_commons_kg.organizations import load_organizations
+            organizations = load_organizations()
+        named, new_orgs = match_organizations(fields["organization"], organizations)
+        payload["organizations"] = list(dict.fromkeys(named + list(payload.get("organizations") or [])))
+
+    return summarize(payload, gaps, fields, author, new_orgs=new_orgs), payload
 
 
-def summarize(payload: dict, gaps: list[str], fields: dict, author: str) -> str:
+def summarize(payload: dict, gaps: list[str], fields: dict, author: str,
+              new_orgs: list[str] | None = None) -> str:
     """What the bot did, in terms the contributor can check."""
     lines = [
         f"Added **{payload['title']}** — thank you, @{author}.",
@@ -709,6 +749,11 @@ def summarize(payload: dict, gaps: list[str], fields: dict, author: str) -> str:
         lines.append(f"- authors: {shown}{f' and {more} more' if more > 0 else ''}")
     if payload.get("published_at"):
         lines.append(f"- published {payload['published_at']}")
+    if payload.get("organizations"):
+        lines.append(f"- organizations: {', '.join(payload['organizations'])}")
+    for name in new_orgs or []:
+        gaps = gaps + [f"**{name}** is new to the library. A maintainer adds its record "
+                       f"with `python3 scripts/seed_organizations.py --write --only \"{name}\"`"]
 
     if gaps:
         lines += ["", "Worth knowing:", ""] + [f"- {gap}" for gap in gaps]
