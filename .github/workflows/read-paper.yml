@@ -1,0 +1,170 @@
+# A reading request becomes drafted claims in a pull request.
+#
+#   record page  →  prefilled issue  →  this workflow  →  pull request  →  verdicts
+#
+# A pull request rather than a commit to main, which is the opposite of what
+# `new-resource.yml` does, and the difference is what the file changes. A new
+# record is one file that changes no existing judgment and no measured number.
+# Claims are the measured numbers: coverage, how much of the corpus has been
+# read, how much a person has checked. Model output that moves those should be
+# looked at by somebody before it lands.
+#
+# Only papers in the verified set are read. `scripts/read_paper.py` says why,
+# and enforces it — this workflow does not re-state the rule, it runs the thing
+# that holds it.
+
+name: Read a paper
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+# An opened issue that arrives with its label fires this twice, and both runs
+# would draft the same paper — at the price of two readings.
+concurrency:
+  group: reading-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  read:
+    if: contains(github.event.issue.labels.*.name, 'reading')
+    runs-on: ubuntu-latest
+    # The reader's key lives on this environment, and the environment only
+    # admits `main`. The same one the scope scan answers to.
+    environment: scope-scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # `scope` carries the Anthropic client the reader shares with the scope
+      # judge. Without it the reading refuses rather than silently filing
+      # nothing — but a reader that always refuses is a closed door, which is
+      # what issue #80 met on the other path.
+      - run: pip install -e ".[scholarly,scope]"
+
+      - name: Read the request
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/request.md
+
+      - name: Draft the claims
+        id: draft
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 scripts/read_paper.py \
+            --body-file /tmp/request.md --out /tmp/reading.json
+
+      # Refused and could-not-read are answered on the issue rather than
+      # failing silently in a log the requester will never open. Which of the
+      # two it was is in the summary the script wrote, in its own words.
+      - name: Say why not
+        if: steps.draft.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let summary = '**This reading could not be done**, and no reason was recorded — which is itself worth looking at.';
+            try {
+              summary = JSON.parse(fs.readFileSync('/tmp/reading.json', 'utf8')).summary || summary;
+            } catch (e) {}
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number, body: summary,
+            });
+            await github.rest.issues.addLabels({
+              ...context.repo, issue_number: context.issue.number,
+              labels: ['needs-maintainer'],
+            });
+
+      # Run as a check, not as a commit: a reading that breaks the corpus
+      # should stop here rather than at deploy. The built page must not travel
+      # in the pull request — `Publish the site` rebuilds it on main, and two
+      # readings in flight would otherwise conflict over one generated file.
+      - name: The corpus still builds
+        if: steps.draft.outcome == 'success'
+        run: |
+          python3 scripts/build_site.py
+          python3 scripts/check_claims.py || true
+
+      - name: Write the pull request body
+        if: steps.draft.outcome == 'success'
+        run: |
+          printf 'Closes #%s\n\n' "${{ github.event.issue.number }}" > /tmp/pr-body.md
+          python3 - <<'PY' >> /tmp/pr-body.md
+          import json
+          print(json.load(open("/tmp/reading.json"))["summary"])
+          PY
+
+      # Opening the pull request needs "Allow GitHub Actions to create and
+      # approve pull requests", which this organization disables. The branch
+      # still pushes, so a reading is never lost — a maintainer opens the pull
+      # request from the link in the comment below.
+      - name: Open the pull request
+        if: steps.draft.outcome == 'success'
+        id: pr
+        continue-on-error: true
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: reading/issue-${{ github.event.issue.number }}
+          # Only the claims. Anything generated is rebuilt on main.
+          add-paths: |
+            data/claims/**
+          title: "Reading for #${{ github.event.issue.number }}"
+          body-path: /tmp/pr-body.md
+          commit-message: "Draft claims for the paper asked about in #${{ github.event.issue.number }}"
+          labels: reading
+          delete-branch: true
+
+      - name: Report back on the issue
+        if: steps.draft.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          PR: ${{ steps.pr.outputs.pull-request-url }}
+          BRANCH: reading/issue-${{ github.event.issue.number }}
+        with:
+          script: |
+            // GitHub renders every newline in a comment as a line break, so lines
+            // wrapped here for reading are joined back into one paragraph; blank
+            // lines, quotes and list items keep theirs.
+            const para = (lines) => lines.join('\n').replace(/([^\n])\n(?![\n>*-])/g, '$1 ');
+            const fs = require('fs');
+            const reading = JSON.parse(fs.readFileSync('/tmp/reading.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const url = process.env.PR, branch = process.env.BRANCH;
+
+            // Did the branch land? Saying "opened a pull request" when none
+            // exists is a claim the requester cannot check and will believe.
+            let tail;
+            if (url) {
+              tail = para([`The claims are in ${url}, waiting for somebody to read them`,
+                `against the paper.`]);
+            } else {
+              const ref = await github.rest.git.getRef({
+                owner, repo, ref: `heads/${branch}` }).catch(() => null);
+              tail = ref
+                ? para([`The claims are on branch \`${branch}\` —`,
+                    `[open a pull request from it](https://github.com/${owner}/${repo}/compare/main...${branch}?expand=1).`,
+                    `This repository does not let Actions open one itself.`])
+                : para([`Nothing was pushed, so there is nothing to review. That is a bug`,
+                    `in this workflow rather than a verdict on the paper.`]);
+            }
+
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number,
+              body: `${reading.summary}\n\n${tail}`,
+            });
+
+            // Renamed after the paper, and left open: it closes when the pull
+            // request merges, which is when the reading actually landed.
+            if (reading.title) {
+              await github.rest.issues.update({ ...context.repo,
+                issue_number: context.issue.number,
+                title: `[Read] ${reading.title}`.slice(0, 256) });
+            }

@@ -630,10 +630,12 @@ function openRecord(id) {
 
     <div class="links">
       ${r.url ? `<a class="ghost" href="${esc(r.url)}" target="_blank" rel="noopener">Open the source ↗</a>` : ''}
+      ${readable(r) ? `<a class="ghost" id="read" href="#">Ask for this to be read</a>` : ''}
       <a class="ghost" id="fix" href="#">Report an error</a>
     </div>`;
 
   $('#fix').onclick = e => { e.preventDefault(); correct(r); };
+  const ask = $('#read'); if (ask) ask.onclick = e => { e.preventDefault(); request(r); };
   $('#sheetBody').querySelectorAll('[data-go]').forEach(a =>
     a.onclick = e => { e.preventDefault(); openRecord(a.dataset.go); });
   $('#sheet').showModal();
@@ -648,6 +650,13 @@ function issue(template, fields, title) {
 }
 const correct = r => issue('request-adjustment.yml',
   { record: r.id }, `[Fix] ${r.title}`.slice(0, 120));
+// Reading is a model call over a whole paper, so the door is narrow on
+// purpose: a verified paper, with an arXiv id, that nobody has read yet.
+// The same three things `scripts/read_paper.py` checks — asking for a
+// reading it is going to refuse teaches people the button does not work.
+const readable = r => r.verified && !r.claims.length && /^resource:arxiv:/.test(r.id);
+const request = r => issue('read-paper.yml',
+  { record: r.id }, `[Read] ${r.title}`.slice(0, 120));
 const suggest = () => issue('suggest-addition.yml', {}, '[Add] ');
 
 $('#suggest').onclick = e => { e.preventDefault(); suggest(); };
