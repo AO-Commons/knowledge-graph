@@ -17,7 +17,10 @@ GitHub issue with the fields filled in, and the issue is the record of the ask.
 
 The styling is AO Commons', copied from `src/shared/tokens.css` in the website
 repository rather than imported, because a preview page should not fail to
-render when a sibling repository moves a file.
+render when a sibling repository moves a file. It takes the same selection
+from it that the signed-in app does -- the application column, the application
+end of the type scale, the "AO Commons | Knowledge Graph" lockup and the dark
+footer -- so the preview and the app read as one surface rather than two.
 """
 from __future__ import annotations
 
@@ -53,8 +56,27 @@ KIND = {
 }
 
 
+VERIFIED = REPO / "data" / "verified.yml"
+
+
+def verified_ids() -> set[str]:
+    """The records a person put on the list, from data/verified.yml.
+
+    The corpus is wide because a citation scan should be allowed to bring back
+    work nobody has looked at yet. This is the part of it AO Commons stands
+    behind, and the part the site opens on.
+    """
+    if not VERIFIED.exists():
+        return set()
+    doc = yaml.safe_load(VERIFIED.read_text(encoding="utf-8")) or {}
+    ids = {r for stream in doc.get("streams") or [] for r in stream.get("records") or []}
+    ids |= set((doc.get("build_page") or {}).get("records") or [])
+    return ids
+
+
 def payload() -> dict:
     resources = load_resources()
+    verified = verified_ids()
     claims = list(load_claims())
     topics = {t.id.removeprefix("topic:"): t.title for t in load_taxonomy(TAXONOMY)}
     questions, edges = load_questions(claims=claims)
@@ -86,6 +108,7 @@ def payload() -> dict:
             "orgs": r.organizations or [],
             "role": r.role or "",
             "background": bool(r.is_borrowed_background),
+            "verified": r.id in verified,
             "coverage": r.text_coverage,
             "blurb": clip(r.description or r.abstract or "", 420),
             "claims": [{
@@ -119,6 +142,7 @@ def payload() -> dict:
         "people": {p["name"]: p["records"] for p in people_index(resources)},
         "counts": {
             "records": len(resources),
+            "verified": sum(1 for r in resources if r.id in verified),
             "claims": len(claims),
             "read": len(by_resource),
             "reviewed": sum(1 for c in claims if c.verdict),
@@ -202,13 +226,15 @@ def main() -> int:
 PAGE = r"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Knowledge Graph | AO Commons</title>
+<title>AO Commons Knowledge Graph</title>
 <meta name="description" content="A collection of research on autonomous organizations, where AI agents hold operational or decision-making authority. In preview: coverage is incomplete and most claims have not been checked by a person.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <style>
-/* AO Commons tokens, copied from the website's src/shared/tokens.css. */
+/* AO Commons tokens, copied from the website's src/shared/tokens.css, in the
+   same selection the knowledge graph app takes: the application column and
+   the application end of the type scale. Both surfaces read as one app. */
 :root{
   --bg:#f5f8fb; --sky:#cfe4f7; --panel:#fff; --panel-2:#ebebe8;
   --ink:#1a1a19; --ink-2:#5a5a57; --ink-3:#8b8b86;
@@ -217,126 +243,211 @@ PAGE = r"""<!doctype html>
   --serif:"Bricolage Grotesque","Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
   --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
   --mono:"DM Mono","SFMono-Regular",Menlo,monospace;
+  /* type scale: a role is picked, a size is never invented */
+  --t-section:clamp(32px,3.4vw,50px);
+  --t-heading:clamp(24px,2.2vw,32px);
+  --t-lede:clamp(22px,2.1vw,30px);
+  --t-sub:clamp(18px,1.45vw,21px);
+  --t-body:17px;
+  --t-small:14.5px;
+  --t-meta:12px;
+  --t-row:clamp(17px,1.25vw,20px);
+  --t-figure:clamp(28px,2.4vw,36px);
+  /* layout: the app column, which keeps its share on a wide window */
   --gutter:clamp(20px,4vw,64px);
-  --max:1180px;
-  --inset:max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  --max:clamp(1360px,92vw,1680px);
+  --wordmark:clamp(24px,2.2vw,32px);
+  --radius:10px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,var(--sky) 0,var(--bg) 46vh) no-repeat,var(--bg);
-     color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;
+     background:linear-gradient(180deg,var(--sky) 0,var(--bg) 70vh) no-repeat,var(--bg);
+     color:var(--ink);font-family:var(--sans);font-size:var(--t-body);line-height:1.6;
      -webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{padding-inline:var(--inset);max-width:calc(var(--max) + 2*var(--gutter));margin:0 auto}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
 
-header{padding-block:clamp(20px,3vw,34px) 6px}
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.brand b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em}
-.brand span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-h1{font-family:var(--serif);font-weight:300;letter-spacing:-.035em;line-height:1.04;
-   font-size:clamp(34px,4.6vw,62px);margin:.42em 0 .3em;max-width:20ch}
-.lede{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:60ch;margin:0}
-.figs{display:flex;gap:clamp(16px,2.4vw,38px);flex-wrap:wrap;margin:22px 0 0;
-      font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-.figs b{font-family:var(--sans);font-size:19px;font-weight:600;color:var(--ink);margin-right:6px}
+/* ---- header: "AO Commons | Knowledge Graph", the lockup the app uses ---- */
+.top{padding-block:clamp(24px,3vw,40px) 0}
+.top .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);
+           align-items:center;gap:clamp(20px,3vw,44px)}
+.top__brand{justify-self:start;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.wordmark{font-family:var(--serif);font-size:var(--wordmark);font-weight:600;
+          letter-spacing:-.03em;white-space:nowrap}
+.top__what{font-family:var(--serif);font-size:var(--wordmark);font-weight:400;
+           letter-spacing:-.03em;white-space:nowrap}
+.top__rule{font-size:calc(var(--wordmark)*.92);font-weight:200;color:var(--line-2)}
+.beta{display:inline-flex;align-items:center;padding:5px 12px 6px;border-radius:999px;
+      background:var(--green);color:#fff;font-family:var(--mono);font-size:11px;
+      font-weight:500;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+.top__right{justify-self:end;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
-.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
-     padding-block:13px}
-.bar .wrap{display:flex;gap:10px 12px;align-items:center;flex-wrap:wrap}
-.bar .wrap{--pad:0}#q{flex:1 1 260px}.chips{flex:1 1 auto}
-#q{flex:1;min-width:240px;font:inherit;font-size:16.5px;padding:11px 15px;border-radius:10px;
-   border:1px solid var(--line-2);background:var(--panel);color:var(--ink)}
-#q:focus{outline:2px solid var(--green);outline-offset:1px;border-color:transparent}
-.chips{display:flex;gap:7px;flex-wrap:wrap}
-.chip{font:inherit;font-size:13px;padding:7px 13px;border-radius:999px;cursor:pointer;
-      border:1px solid var(--line-2);background:transparent;color:var(--ink-2)}
-.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
-.add{font:inherit;font-family:var(--serif);font-size:15px;padding:10px 18px;border-radius:999px;
-     background:var(--green);color:#fff;border:0;cursor:pointer;text-decoration:none;white-space:nowrap}
-.add:hover{background:var(--green-ink)}
+/* pill buttons, ink outline by default, green for the primary action */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;cursor:pointer;
+     border:1.5px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);
+     font-family:var(--serif);font-size:15px;font-weight:500;letter-spacing:-.01em;
+     line-height:1;white-space:nowrap;
+     transition:background .18s,color .18s,border-color .18s,transform .18s,box-shadow .18s}
+.btn:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+.btn--green{background:var(--green);border-color:var(--green);color:#fff;
+            box-shadow:0 10px 24px -12px rgba(14,79,70,.7)}
+.btn--green:hover{background:var(--green-ink);border-color:var(--green-ink);
+                  box-shadow:0 14px 28px -12px rgba(14,79,70,.8)}
 
-main{padding-bottom:90px;min-height:50vh}
-.notice{max-width:78ch;margin:20px 0 0;font-size:clamp(16px,1.25vw,18px);color:var(--ink-2)}
+/* ---- what this is, and how far along it is ---- */
+.intro{padding-top:clamp(18px,2.2vw,30px)}
+.notice{max-width:68ch;margin:clamp(14px,1.6vw,22px) 0 0;color:var(--ink-2)}
+.notice--lead{font-size:var(--t-sub);line-height:1.5}
+.notice a{color:var(--green);border-bottom:1px solid var(--green-bg)}
+.notice a:hover{border-color:var(--green)}
+.notice .tag{vertical-align:1px}
 .notice b{color:var(--ink);font-weight:600}
-.acts{display:flex;gap:9px;flex-wrap:wrap}
-.tabs{border-bottom:1px solid var(--line);margin-top:24px}
-.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
-.tab{font:inherit;font-family:var(--serif);font-size:16px;padding:13px 17px;border:0;
-     background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;
-     border-bottom:2px solid transparent;margin-bottom:-1px}
-.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--green)}
+/* the app's figure block: the number in the display face, its name beside it */
+.figs{display:flex;gap:clamp(20px,3vw,52px);flex-wrap:wrap;margin:clamp(26px,2.8vw,40px) 0 0}
+.figs div{display:flex;align-items:baseline;gap:9px}
+.figs b{font-family:var(--serif);font-size:var(--t-figure);font-weight:300;
+        letter-spacing:-.03em;line-height:1}
+.figs span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+           text-transform:uppercase;color:var(--ink-3);line-height:1.5;max-width:13ch}
+
+/* ---- sections, set like the app's primary nav ---- */
+.tabs{border-bottom:1px solid var(--line);margin-top:clamp(28px,3vw,44px)}
+.tabs .wrap{display:flex;gap:clamp(18px,2.4vw,36px);overflow-x:auto}
+.tab{font:inherit;font-family:var(--serif);font-size:16px;font-weight:500;
+     letter-spacing:-.01em;padding:14px 0;border:0;background:transparent;color:var(--ink-2);
+     cursor:pointer;white-space:nowrap;border-bottom:1.5px solid transparent;margin-bottom:-1px;
+     transition:border-color .18s,color .18s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink)}
 .tab b{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-3);margin-left:7px}
-.count{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:18px 0 8px}
-.row{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);
-     padding:17px 2px;cursor:pointer;font:inherit;color:inherit}
+
+.bar{position:sticky;top:0;z-index:5;padding-block:14px;border-bottom:1px solid var(--line);
+     background:#f5f8fbd9;backdrop-filter:blur(10px)}
+.bar .wrap{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap}
+#q{flex:1 1 280px;max-width:560px;font:inherit;font-size:var(--t-body);
+   padding:11px 18px;border:1.5px solid var(--ink);border-radius:999px;
+   background:var(--panel);color:var(--ink)}
+#q::placeholder{color:var(--ink-3)}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+#view{position:relative;padding-right:14px;margin-right:4px;border-right:1px solid var(--line)}
+.chip{font:inherit;font-family:var(--serif);font-size:var(--t-small);font-weight:500;
+      padding:.5em 1.1em;border-radius:999px;cursor:pointer;
+      border:1px solid var(--line-2);background:transparent;color:var(--ink-2);
+      transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip b{font-family:var(--mono);font-size:11px;font-weight:400;margin-left:7px;opacity:.65}
+
+/* `.wrap` carries `margin:0 auto`, and an auto cross-axis margin on a flex
+   item stops it stretching: without this the list column is as wide as its
+   widest row rather than as wide as the page. */
+main.wrap{width:100%}
+main{flex:1;padding-bottom:clamp(56px,6vw,96px);min-height:40vh}
+.count{font-family:var(--mono);font-size:var(--t-meta);color:var(--ink-3);padding:22px 0 8px}
+.row{display:block;width:100%;text-align:left;background:transparent;border:0;
+     border-top:1px solid var(--line);padding:15px 2px;cursor:pointer;font:inherit;color:inherit}
 .row:hover{background:#fff8}
-.row h3{font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.25vw,20px);
-        letter-spacing:-.015em;margin:0 0 5px;line-height:1.26}
-.meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);display:flex;gap:11px;flex-wrap:wrap}
-.tag{border:1px solid var(--line-2);border-radius:999px;padding:1px 9px;white-space:nowrap}
-.tag.bg{border-color:var(--line);color:var(--ink-3)}
-.tag.has{border-color:var(--green);color:var(--green)}
-.none{padding:40px 0;color:var(--ink-2);max-width:60ch}
+.row h3{font-family:var(--serif);font-weight:400;font-size:var(--t-row);
+        letter-spacing:-.015em;margin:0 0 5px;line-height:1.35}
+.meta{font-family:var(--mono);font-size:var(--t-meta);color:var(--ink-3);
+      display:flex;gap:11px;flex-wrap:wrap;align-items:baseline}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+     padding:2px 8px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-3);
+     white-space:nowrap}
+.tag.bg{border-color:var(--line)}
+.tag.has{border-color:var(--green);color:var(--green);background:var(--green-bg)}
+.none{padding:40px 0;color:var(--ink-2);max-width:62ch;border-top:1px solid var(--line)}
 .row.static{cursor:default}
 .row.static:hover{background:transparent}
-.meta a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green-bg)}
+.meta a{color:var(--green);border-bottom:1px solid var(--green-bg)}
 .meta a:hover{border-color:var(--green)}
-.why{color:var(--ink-2);font-size:14.5px;margin:9px 0 0;max-width:78ch}
+.none a{color:var(--green);border-bottom:1px solid var(--green-bg)}
+.why{color:var(--ink-2);font-size:var(--t-small);margin:9px 0 0;max-width:78ch;line-height:1.55}
 #chips[hidden]{display:none}
 
-dialog{border:0;border-radius:16px;padding:0;max-width:760px;width:min(92vw,760px);
+dialog{border:0;border-radius:var(--radius);padding:0;max-width:780px;width:min(92vw,780px);
        background:var(--panel);color:var(--ink);box-shadow:0 24px 70px #0b1b2a2e}
 dialog::backdrop{background:#0b1b2a7a}
-.sheet{padding:clamp(22px,3vw,36px)}
-.sheet h2{font-family:var(--serif);font-weight:400;font-size:clamp(21px,2vw,28px);
-          letter-spacing:-.02em;line-height:1.2;margin:0 0 10px}
+.sheet{padding:clamp(24px,3vw,40px)}
+.sheet h2{font-family:var(--serif);font-weight:400;font-size:var(--t-heading);
+          letter-spacing:-.03em;line-height:1.14;margin:0 0 12px}
 .sheet .meta{margin-bottom:18px}
-.byline{color:var(--ink-2);font-size:15px;margin:0 0 14px}
-.blurb{color:var(--ink-2);margin:0 0 20px}
-.sect{border-top:1px solid var(--line);padding-top:16px;margin-top:18px}
-.sect h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-         color:var(--ink-3);margin:0 0 11px;font-weight:400}
-.claim{border-left:2px solid var(--green-bg);padding:0 0 0 14px;margin:0 0 15px}
+.byline{color:var(--ink-2);font-size:var(--t-small);margin:0 0 14px}
+.blurb{color:var(--ink-2);margin:0 0 20px;line-height:1.55}
+.sect{border-top:1px solid var(--line);padding-top:18px;margin-top:20px}
+.sect h4{font-family:var(--mono);font-size:var(--t-meta);letter-spacing:.09em;
+         text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;font-weight:400}
+.claim{border-left:2px solid var(--green-bg);padding:0 0 0 14px;margin:0 0 16px}
 .claim p{margin:0 0 5px}
-.claim q{display:block;color:var(--ink-2);font-size:14.5px;margin-top:5px}
-.claim .meta{margin:6px 0 0}
-.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.ghost{font:inherit;font-size:14px;padding:9px 16px;border-radius:999px;text-decoration:none;
-       border:1px solid var(--line-2);color:var(--ink);background:transparent;cursor:pointer}
-.ghost:hover{border-color:var(--ink-3)}
+.claim q{display:block;color:var(--ink-2);font-size:var(--t-small);margin-top:5px;line-height:1.55}
+.claim .meta{margin:7px 0 0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.ghost{display:inline-flex;align-items:center;gap:8px;font:inherit;font-family:var(--serif);
+       font-size:var(--t-small);font-weight:500;padding:.55em 1.1em;border-radius:999px;
+       border:1px solid var(--line-2);color:var(--ink-2);background:transparent;cursor:pointer;
+       transition:border-color .18s,color .18s}
+.ghost:hover{border-color:var(--ink);color:var(--ink)}
 .x{position:absolute;top:14px;right:16px;border:0;background:transparent;font-size:24px;
    line-height:1;cursor:pointer;color:var(--ink-3);padding:4px 8px}
-footer{border-top:1px solid var(--line);padding:26px 0 60px;font-size:14px;color:var(--ink-2)}
-footer a{color:var(--green)}
+
+/* the dark footer every page of aocommons.org ends with, in its short form */
+.site-foot{background:#0b0b0d;color:#f4f4f2;margin-top:auto}
+.site-foot .wrap{padding-block:clamp(40px,5vw,72px) calc(28px + env(safe-area-inset-bottom,0px))}
+.foot__top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(32px,5vw,80px);
+           align-items:start}
+.site-foot .wordmark{color:#fff}
+.site-foot p{margin:0;max-width:58ch;font-size:var(--t-small);line-height:1.6;color:#a3a39e}
+.site-foot a{color:#c9c9c4;border-bottom:1px solid #4a4a47}
+.site-foot a:hover{color:#fff;border-color:#fff}
+.foot__base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+            margin-top:clamp(32px,4vw,56px);padding-top:22px;border-top:1px solid #2a2a28}
+.site-foot small{font-family:var(--mono);font-size:var(--t-meta);letter-spacing:.04em;color:#8b8b86}
+
+@media (max-width:900px){.top__what,.top__rule{display:none}}
+@media (max-width:760px){
+  .top .wrap{display:flex;flex-wrap:wrap}
+  .top__right{margin-left:auto}
+  .foot__top{grid-template-columns:1fr}
+}
 @media (prefers-reduced-motion:no-preference){.row{transition:background .12s}}
 </style>
 
-<header>
+<header class="top">
   <div class="wrap">
-    <div class="top">
-      <div class="brand"><b>AO Commons</b><span>Knowledge Graph</span></div>
-      <div class="acts">
-        <a class="add" id="suggest" href="#">Suggest an addition</a>
-        <a class="ghost" id="fixAny" href="#">Report an error</a>
-      </div>
-    </div>
-    <p class="notice"><b>Preview.</b> Research on <b>autonomous organizations</b>:
-      organizations in which AI agents hold operational or decision-making authority.
-      AO Commons is collecting it so researchers can see what has been shown and what
-      is still open.</p>
-    <p class="notice">Coverage is incomplete. For some papers we list the claims they
-      make, each with the sentence it came from. A model drafts these claims, and most
-      have not yet been checked by a person. If a paper you expect is missing, it most
-      likely hasn't been added yet.</p>
-    <div class="figs" id="figs"></div>
+    <span class="top__brand">
+      <a href="https://aocommons.org" class="wordmark">AO Commons</a>
+      <span class="top__rule" aria-hidden="true">|</span>
+      <span class="top__what">Knowledge Graph</span>
+      <span class="beta">Preview</span>
+    </span>
+    <span class="top__right">
+      <a class="btn btn--green" id="suggest" href="#">Suggest an addition</a>
+      <a class="btn" id="fixAny" href="#">Report an error</a>
+    </span>
   </div>
 </header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="notice notice--lead"><b>Preview.</b> Research on <b>autonomous
+      organizations</b> &mdash; organizations in which AI agents hold operational or
+      decision-making authority.</p>
+    <p class="notice" id="says"></p>
+    <p class="notice">Claims under a record are drafted by a model from the work's own
+      sentences, and most have not been checked by a person. Coverage is incomplete. If
+      something you expect is missing, it most likely hasn't been added yet &mdash;
+      <a href="#" id="tell">tell us</a>.</p>
+    <div class="figs" id="figs"></div>
+  </div>
+</section>
 
 <nav class="tabs"><div class="wrap" id="tabs"></div></nav>
 
 <div class="bar">
   <div class="wrap">
+    <div class="chips" id="view" role="group" aria-label="Which records to show"></div>
     <input id="q" type="search" placeholder="Search titles, authors, claims…" autocomplete="off" aria-label="Search">
     <div class="chips" id="chips"></div>
   </div>
@@ -347,12 +458,20 @@ footer a{color:var(--green)}
   <div id="list"></div>
 </main>
 
-<footer class="wrap">
-  <p>All data and code are in a
-    <a href="https://github.com/AO-Commons/knowledge-graph">public GitHub repository</a>.
-    To suggest research, correct a record, or help with the code, see the
-    <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md">contributing guide</a>.</p>
-  <p id="built"></p>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <a href="https://aocommons.org" class="wordmark">AO Commons</a>
+      <p>All data and code are in a
+        <a href="https://github.com/AO-Commons/knowledge-graph">public GitHub repository</a>.
+        To suggest research, correct a record, or help with the code, see the
+        <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md">contributing guide</a>.</p>
+    </div>
+    <div class="foot__base">
+      <small id="built"></small>
+      <small>Knowledge Graph · preview</small>
+    </div>
+  </div>
 </footer>
 
 <dialog id="sheet"><button class="x" aria-label="Close">&times;</button><div class="sheet" id="sheetBody"></div></dialog>
@@ -365,25 +484,90 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-$('#figs').innerHTML = [
-  [D.counts.records,'records'], [D.counts.read,'papers with claims'],
-  [D.counts.claims,'claims'], [D.counts.reviewed,'claims checked by a person'],
-  [D.counts.questions,'open questions'],
-].map(([n,l]) => `<span><b>${n}</b>${l}</span>`).join('');
-$('#built').textContent = `Last updated ${D.built}.`;
-
-const KINDS = [...new Set(D.records.map(r => r.kind))].sort();
+// Which records the page shows. It opens on the verified set — the records a
+// person put on the list in data/verified.yml — because a reader should not
+// have to guess which of the graph's records AO Commons stands behind. The
+// rest are one button away: nothing is hidden, and nothing is deleted.
+let only = true;
 let tab = 'records', kind = '', q = '';
 
+const VERIFIED = new Set(D.records.filter(r => r.verified).map(r => r.id));
+const shown = () => only ? D.records.filter(r => r.verified) : D.records;
+
+$('#built').textContent = `Last updated ${D.built}.`;
+
+$('#view').innerHTML = [['1', 'Verified', D.counts.verified],
+                        ['', 'Everything', D.counts.records]]
+  .map(([v, label, n]) =>
+    `<button class="chip" data-v="${v}" aria-pressed="${!!v === only}">${label}<b>${n}</b></button>`
+  ).join('');
+$('#view').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  only = !!b.dataset.v; kind = '';
+  [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', c === b));
+  says(); figures(); tablist(); chiplist(); draw();
+});
+
+// What you are looking at, said in the header rather than left to be inferred
+// from a count that moved.
+function says() {
+  $('#says').innerHTML = only
+    ? `You are seeing the <b>verified set</b>: the reading list behind the AO Commons
+       research agenda, and what is listed on
+       <a href="https://aocommons.org/build">aocommons.org/build</a>. The graph holds
+       ${D.counts.records} records in all &mdash; <b>Everything</b> shows the rest.`
+    : `You are seeing <b>everything in the graph</b>: ${D.counts.records} records. Most
+       came from the citation scan and nobody has checked them. The
+       ${D.counts.verified} that someone stands behind are marked
+       <span class="tag has">verified</span>.`;
+}
+
+// The figures describe what is on screen. A page listing 64 records under a
+// headline figure of 371 is a page that lies by arithmetic.
+function figures() {
+  const rs = shown();
+  const claims = rs.reduce((n, r) => n + r.claims.length, 0);
+  const checked = rs.reduce((n, r) => n + r.claims.filter(c => c.reviewed).length, 0);
+  const asked = new Set(rs.flatMap(r => r.asks));
+  $('#figs').innerHTML = [
+    [rs.length, 'records'], [rs.filter(r => r.claims.length).length, 'papers read'],
+    [claims, 'claims'], [checked, 'checked by a person'], [asked.size, 'open questions'],
+  ].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('');
+}
+
+// Authors of the records on screen. Across the whole graph a name that appears
+// once is noise — most of the 2,000-odd do — so that view keeps the build's
+// list of authors with two or more records. In the verified set every author
+// wrote something somebody stood behind, so every one of them is listed.
+function authors() {
+  if (!only) return Object.entries(D.people).map(([name, ids]) => ({ name, ids }));
+  const m = new Map();
+  for (const r of shown()) for (const a of r.authors)
+    (m.get(a) || m.set(a, []).get(a)).push(r.id);
+  return [...m].map(([name, ids]) => ({ name, ids }));
+}
+
+const orgsShown = () => only
+  ? D.orgs.map(o => ({ ...o, records: o.records.filter(id => VERIFIED.has(id)) }))
+          .filter(o => o.records.length)
+  : D.orgs;
+
+// A question is shown when a record on screen raises it. Its paper list stays
+// whole, because how far a question reaches is the thing worth knowing.
+const askedShown = () => Object.entries(D.asked).map(([id, x]) => ({ id, ...x }))
+  .filter(x => !only || x.papers.some(p => VERIFIED.has(p)));
+
 const TABS = [
-  ['records', 'Records',       () => D.counts.records],
-  ['people',  'Authors',       () => Object.keys(D.people).length],
-  ['orgs',    'Organizations', () => D.orgs.length],
-  ['asked',   'Open questions',() => Object.keys(D.asked).length],
+  ['records', 'Records',        () => shown().length],
+  ['people',  'Authors',        () => authors().length],
+  ['orgs',    'Organizations',  () => orgsShown().length],
+  ['asked',   'Open questions', () => askedShown().length],
 ];
-$('#tabs').innerHTML = TABS.map(([k, label, n]) =>
-  `<button class="tab" data-t="${k}" role="tab" aria-selected="${k === tab}">${label}<b>${n()}</b></button>`
-).join('');
+function tablist() {
+  $('#tabs').innerHTML = TABS.map(([k, label, n]) =>
+    `<button class="tab" data-t="${k}" role="tab" aria-selected="${k === tab}">${label}<b>${n()}</b></button>`
+  ).join('');
+}
 $('#tabs').addEventListener('click', e => {
   const b = e.target.closest('.tab'); if (!b) return;
   tab = b.dataset.t; q = ''; kind = ''; $('#q').value = '';
@@ -392,12 +576,15 @@ $('#tabs').addEventListener('click', e => {
     people: 'Search authors…', orgs: 'Search organizations…',
     asked: 'Search open questions…' }[tab];
   $('#chips').hidden = tab !== 'records';
-  draw();
+  chiplist(); draw();
 });
 
-$('#chips').innerHTML = ['All', ...KINDS].map(k =>
-  `<button class="chip" data-k="${k === 'All' ? '' : esc(k)}" aria-pressed="${k === 'All'}">${esc(k)}</button>`
-).join('');
+function chiplist() {
+  const kinds = [...new Set(shown().map(r => r.kind))].sort();
+  $('#chips').innerHTML = ['All', ...kinds].map(k =>
+    `<button class="chip" data-k="${k === 'All' ? '' : esc(k)}" aria-pressed="${k === 'All'}">${esc(k)}</button>`
+  ).join('');
+}
 $('#chips').addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
   kind = b.dataset.k;
@@ -412,30 +599,29 @@ const hay = r => (r._hay ??= [
   r.claims.map(c => c.text + ' ' + c.quote).join(' '),
 ].join(' ').toLowerCase());
 
-const hits = () => {
-  const all = {
-    records: () => D.records.filter(r => (!kind || r.kind === kind) &&
-      (!q || q.split(/\s+/).every(t => hay(r).includes(t)))),
-    people: () => Object.entries(D.people)
-      .map(([name, ids]) => ({ name, ids }))
-      .filter(p => !q || p.name.toLowerCase().includes(q))
-      .sort((a, b) => b.ids.length - a.ids.length || a.name.localeCompare(b.name)),
-    orgs: () => D.orgs.filter(o => !q ||
-      (o.name + ' ' + o.where + ' ' + o.kind).toLowerCase().includes(q)),
-    asked: () => Object.entries(D.asked).map(([id, x]) => ({ id, ...x }))
-      .filter(x => !q || x.text.toLowerCase().includes(q))
-      .sort((a, b) => b.papers.length - a.papers.length),
-  };
-  return all[tab]();
-};
+const matches = r => (!kind || r.kind === kind) &&
+  (!q || q.split(/\s+/).every(t => hay(r).includes(t)));
+
+const hits = () => ({
+  records: () => shown().filter(matches),
+  people: () => authors().filter(p => !q || p.name.toLowerCase().includes(q))
+    .sort((a, b) => b.ids.length - a.ids.length || a.name.localeCompare(b.name)),
+  orgs: () => orgsShown().filter(o => !q ||
+    (o.name + ' ' + o.where + ' ' + o.kind).toLowerCase().includes(q)),
+  asked: () => askedShown().filter(x => !q || x.text.toLowerCase().includes(q))
+    .sort((a, b) => b.papers.length - a.papers.length),
+}[tab]());
 
 const NOUN = { records: 'records', people: 'authors', orgs: 'organizations', asked: 'open questions' };
 // What a tab lists, where the label alone does not say.
-const ABOUT = {
-  people: 'Authors with two or more records.',
-  orgs: 'Organizations named on records.',
-  asked: 'Questions papers say are still unanswered, grouped where papers ask the same thing.',
-};
+const ABOUT = () => ({
+  people: only ? 'Everyone who wrote something in the verified set.'
+               : 'Authors with two or more records.',
+  orgs: 'Organizations named on these records.',
+  asked: only
+    ? 'Questions the verified papers say are still open, grouped where papers ask the same thing.'
+    : 'Questions papers say are still unanswered, grouped where papers ask the same thing.',
+}[tab]);
 // Tooltips for the tags, in the words of the definitions in models.py.
 const CLAIM_KIND = {
   evidence: 'Something the work reports as observed or measured.',
@@ -456,21 +642,42 @@ const ROLE = {
   context: 'Adjacent work the field borrows from.',
 };
 const RELATED = 'Not about autonomous organizations directly, but relevant to them (for example, economics or law).';
-const tip = (label, text) => `<span class="tag"${text ? ` title="${esc(text)}"` : ''}>${esc(label)}</span>`;
+const VERIFIED_IS = 'On the list behind the AO Commons research agenda, or published on aocommons.org, rather than found by the citation scan.';
+const tip = (label, text, cls) => `<span class="tag${cls ? ' ' + cls : ''}"${
+  text ? ` title="${esc(text)}"` : ''}>${esc(label)}</span>`;
 
 function draw() {
   const rows = hits();
-  const total = { records: D.records.length, people: Object.keys(D.people).length,
-                  orgs: D.orgs.length, asked: Object.keys(D.asked).length }[tab];
+  const total = { records: shown().length, people: authors().length,
+                  orgs: orgsShown().length, asked: askedShown().length }[tab];
+  const about = ABOUT();
   $('#count').textContent = (rows.length === total
     ? `${rows.length} ${NOUN[tab]}` : `${rows.length} of ${total} ${NOUN[tab]}`)
-    + (ABOUT[tab] ? ` · ${ABOUT[tab]}` : '');
+    + (about ? ` · ${about}` : '');
   const render = { records: card, people: personCard, orgs: orgCard, asked: askedCard }[tab];
-  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(render).join('')
-    : `<p class="none">No matches. The collection is incomplete, and it only covers work
-       about organizations where AI agents hold real authority. If something you expected
-       is missing, <a href="#" id="missing">suggest it</a>.</p>`;
-  if (!rows.length) $('#missing').onclick = e => { e.preventDefault(); suggest(); };
+  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(render).join('') : empty();
+  const more = $('#more'); if (more) more.onclick = e => { e.preventDefault(); showAll(); };
+  const miss = $('#missing'); if (miss) miss.onclick = e => { e.preventDefault(); suggest(); };
+}
+
+// Nothing found. Which of the two reasons it is matters: a search that would
+// hit in the full graph is a view problem, and saying "no matches" to that is
+// how a reader concludes the library does not have the paper it has.
+function empty() {
+  const elsewhere = only && tab === 'records'
+    ? D.records.filter(r => !r.verified && matches(r)).length : 0;
+  if (elsewhere) return `<p class="none">Nothing in the verified set.
+    <b>${elsewhere}</b> record${elsewhere === 1 ? '' : 's'} elsewhere in the graph
+    match${elsewhere === 1 ? 'es' : ''} — <a href="#" id="more">show everything</a>.</p>`;
+  return `<p class="none">No matches. The collection is incomplete, and it only covers work
+    about organizations where AI agents hold real authority. If something you expected
+    is missing, <a href="#" id="missing">suggest it</a>.</p>`;
+}
+
+function showAll() {
+  only = false;
+  [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', !c.dataset.v));
+  says(); figures(); tablist(); chiplist(); draw();
 }
 
 const title = id => (D.records.find(r => r.id === id) || {}).title || id;
@@ -521,6 +728,7 @@ function card(r) {
       ${r.claims.length ? `<span class="tag has">${r.claims.length} claims</span>` : ''}
       ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
       ${r.role ? tip(r.role, ROLE[r.role]) : ''}
+      ${!only && r.verified ? tip('verified', VERIFIED_IS, 'has') : ''}
     </div></button>`;
 }
 
@@ -546,6 +754,7 @@ function openRecord(id) {
       ${r.year ? `<span>${r.year}</span>` : ''}<span class="tag">${esc(r.kind)}</span>
       ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
       ${r.role ? tip(r.role, ROLE[r.role]) : ''}
+      ${r.verified ? tip('verified', VERIFIED_IS, 'has') : ''}
       <span>${esc(r.id)}</span>
     </div>
     ${r.authors.length ? `<p class="byline">${esc(r.authors.join(', '))}</p>` : ''}
@@ -601,10 +810,12 @@ const correct = r => issue('request-adjustment.yml',
 const suggest = () => issue('suggest-addition.yml', {}, '[Add] ');
 
 $('#suggest').onclick = e => { e.preventDefault(); suggest(); };
+$('#tell').onclick = e => { e.preventDefault(); suggest(); };
 $('#fixAny').onclick = e => { e.preventDefault(); issue('request-adjustment.yml', {}, '[Fix] '); };
 $('#sheet').querySelector('.x').onclick = () => $('#sheet').close();
 
 $('#q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); draw(); });
+says(); figures(); tablist(); chiplist();
 addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
 });
