@@ -71,12 +71,16 @@ jobs:
       - name: Is it in scope?
         id: scope
         continue-on-error: true
+        # The issue title is anyone's text, so it reaches the shell as a variable
+        # and never as part of the script: an expression pasted into `run`
+        # would execute whatever the title says, beside the API key.
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           python3 scripts/judge_suggestion.py \
             --body-file /tmp/proposal.md --out /tmp/verdict.json \
-            --title "${{ github.event.issue.title }}" 
+            --title "$ISSUE_TITLE"
 
       - name: Say why not, and stop
         if: steps.scope.outcome == 'failure'
@@ -86,6 +90,22 @@ jobs:
             const fs = require('fs');
             let verdict = { reasoning: 'the scope scan did not complete' };
             try { verdict = JSON.parse(fs.readFileSync('/tmp/verdict.json', 'utf8')); } catch (e) {}
+            const { owner, repo } = context.repo, issue_number = context.issue.number;
+
+            // Already held: nothing to judge or add. Said plainly, named after
+            // the record, and closed, because there is nothing left to do.
+            if (verdict.held) {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body: [
+                `**Already in the library.** This is **${verdict.title}** — record \`${verdict.id}\`.`, ``,
+                `Nothing was added, because it is already there. You can find it on the`,
+                `[site](https://ao-commons.github.io/knowledge-graph/). If you meant something`,
+                `else, reply here and say what.`].join('\n') });
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['duplicate'] });
+              await github.rest.issues.update({ owner, repo, issue_number, state: 'closed',
+                title: `[Already held] ${verdict.title}`.slice(0, 256) });
+              return;
+            }
+
             const judged = verdict.judged !== false;
             await github.rest.issues.createComment({
               owner: context.repo.owner, repo: context.repo.repo,
@@ -111,16 +131,25 @@ jobs:
               issue_number: context.issue.number,
               labels: [judged ? 'out-of-scope' : 'needs-maintainer'],
             });
+            // Named after what it is when the lookup found that, and left open:
+            // the boundary is contestable and a reply is the way to contest it.
+            if (judged && verdict.title) {
+              await github.rest.issues.update({ owner, repo, issue_number,
+                title: `[Out of scope] ${verdict.title}`.slice(0, 256) });
+            }
 
       - name: Resolve it and write the record
         if: steps.scope.outcome == 'success'
         id: add
         continue-on-error: true
+        env:   # anyone's text: a variable, never part of the script
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
         run: |
           python3 scripts/add_resource.py \
             --body-file /tmp/proposal.md \
-            --author "${{ github.event.issue.user.login }}" \
-            --title "${{ github.event.issue.title }}" \
+            --author "$ISSUE_AUTHOR" \
+            --title "$ISSUE_TITLE" \
             --issue ${{ github.event.issue.number }} \
             --summary-file /tmp/summary.md \
             --title-file /tmp/title.txt

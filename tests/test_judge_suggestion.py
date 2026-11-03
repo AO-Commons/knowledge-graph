@@ -69,7 +69,7 @@ class TestWhatTheExitCodeSays:
         real = judge_suggestion.anthropic_judge
         judge_suggestion.anthropic_judge = lambda *a, **k: judge
         try:
-            code = judge_suggestion.main(["--body-file", str(body), "--out", str(out)])
+            code = judge_suggestion.main(["--body-file", str(body), "--out", str(out), "--offline"])
         finally:
             judge_suggestion.anthropic_judge = real
         return code, json.loads(out.read_text(encoding="utf-8"))
@@ -136,3 +136,53 @@ class TestTheIssueTitleIsTheOnlyTitle:
         assert form["title"], "the issue title should still be prefilled"
         labels = [b.get("attributes", {}).get("label", "").lower() for b in form["body"]]
         assert not any("title" in label for label in labels), labels
+
+
+class TestItLooksBeforeItJudges:
+    """The form says a paper needs only its link, so the judge must see the paper,
+    and a paper already held is answered as held rather than judged."""
+
+    HELD = None
+
+    def _held(self):
+        from ao_commons_kg.models import Resource
+        return [Resource(id="resource:arxiv:2502.14143", resource_type="preprint",
+                         title="Multi-Agent Risks from Advanced AI", arxiv_id="2502.14143")]
+
+    def test_a_held_paper_is_reported_as_held_not_judged(self):
+        found = judge_suggestion.look_up(BODY, resources=self._held())
+        assert found == {"held": True, "id": "resource:arxiv:2502.14143",
+                         "title": "Multi-Agent Risks from Advanced AI"}
+
+    def test_held_exits_four_and_never_reaches_the_judge(self, tmp_path, monkeypatch):
+        body, out = tmp_path / "proposal.md", tmp_path / "verdict.json"
+        body.write_text(BODY, encoding="utf-8")
+        monkeypatch.setattr(judge_suggestion, "look_up", lambda *a, **k: {
+            "held": True, "id": "resource:arxiv:2502.14143", "title": "Multi-Agent Risks from Advanced AI"})
+        monkeypatch.setattr(judge_suggestion, "anthropic_judge",
+                            lambda *a, **k: pytest.fail("a held paper must not be judged"))
+        assert judge_suggestion.main(["--body-file", str(body), "--out", str(out)]) == 4
+        payload = json.loads(out.read_text(encoding="utf-8"))
+        assert payload["held"] is True and payload["title"] == "Multi-Agent Risks from Advanced AI"
+
+    def test_a_paper_is_judged_on_its_own_abstract_with_the_case_beside_it(self):
+        found = {"title": "Multi-Agent Risks from Advanced AI", "abstract": "We map the risks of many agents.",
+                 "date": "2025-02-19"}
+        meta = judge_suggestion.metadata_from_body(BODY.replace("### Title or name\n\nMulti-Agent Risks from Advanced AI\n", ""),
+                                                   "https://arxiv.org/abs/2502.14143", found)
+        assert meta["title"] == "Multi-Agent Risks from Advanced AI"
+        assert meta["abstract"].startswith("We map the risks of many agents.")
+        assert "only exist once several agents interact" in meta["abstract"]
+        assert meta["date"] == "2025-02-19"
+
+    def test_a_lookup_that_finds_nothing_leaves_the_form_as_it_was(self):
+        def broken(*a, **k):
+            raise RuntimeError("offline")
+        found = judge_suggestion.look_up(BODY, resources=[], fetch_openalex=broken, fetch_arxiv=broken)
+        assert found == {}
+        assert judge_suggestion.metadata_from_body(BODY, "", found) == judge_suggestion.metadata_from_body(BODY)
+
+    def test_a_link_with_no_paper_is_not_looked_up(self):
+        body = BODY.replace("2502.14143", "https://example.org/a-tool")
+        assert judge_suggestion.look_up(body, resources=[], fetch_openalex=lambda *a: pytest.fail("no lookup"),
+                                        fetch_arxiv=lambda *a: pytest.fail("no lookup")) == {}
