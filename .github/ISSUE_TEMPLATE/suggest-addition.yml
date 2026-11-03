@@ -6,8 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        One form for everything. Put the title or name in the box above, and a
-        link below. For a paper, a link alone is enough — we look the rest up.
+        One form for everything. For a paper, just paste the link, DOI or arXiv id
+        below and leave the title as "[Add]" — we look the rest up. For anything
+        else, put its name in the title.
 
   - type: dropdown
     id: kind
@@ -38,8 +39,9 @@ body:
     attributes:
       label: Organization
       description: |
-        The organization behind it, named as it names itself. We link it to the
-        organization already in the library, or add it if it is new. Optional.
+        Optional. Helpful for a tool or a deployed AO: the organization that makes
+        or runs it, named as it names itself. We link it to the organization
+        already in the library, or add it if it is new.
       placeholder: "Andon Labs   ·   Anthropic, Andon Labs"
     validations:
       required: false
