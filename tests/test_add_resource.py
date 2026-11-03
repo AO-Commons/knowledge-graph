@@ -461,7 +461,7 @@ class TestBylines:
 
 
 class TestWhoMakesIt:
-    """The form's "Who makes or runs it?": linked to the organization already in
+    """The form's "Organization": linked to the organization already in
     the library where there is one, kept as typed and flagged where there is not."""
 
     ORGS = {
@@ -471,7 +471,7 @@ class TestWhoMakesIt:
     }
 
     def _run(self, answer):
-        body = TOOL + f"\n### Who makes or runs it?\n\n{answer}\n"
+        body = TOOL + f"\n### Organization\n\n{answer}\n"
         return process(body, author="ankeliu", issue=9, resources=[],
                        known_topics=KNOWN_TOPICS, organizations=self.ORGS)
 

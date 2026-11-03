@@ -103,7 +103,6 @@ FIELDS = {
     "maintainer": "maintainer",
     "license and source": "license",
     "license": "license",
-    "who makes or runs it": "organization",
     "organization": "organization",
 }
 
