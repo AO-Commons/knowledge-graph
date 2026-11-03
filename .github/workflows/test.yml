@@ -69,7 +69,7 @@ jobs:
       # as it does today.
       - name: MIRA projection conforms
         run: |
-          pip install -q rdflib pyshacl
+          pip install -q -e ".[mira]"
           python3 scripts/validate_mira.py /tmp/rel-a/check
 
       # A pin that silently falls behind is a fork nobody decided on. This

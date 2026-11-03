@@ -46,7 +46,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -e ".[scholarly]"
+      # `scope` as well as `scholarly`: the gate below judges with the same
+      # Anthropic client `grow` uses, and without it the scan cannot run.
+      # Which is not silent — it refuses, says so on the issue, and labels it
+      # needs-maintainer — but a gate that refuses everything is a closed
+      # door, and issue #80 met one.
+      - run: pip install -e ".[scholarly,scope]"
 
       - name: Read the proposal
         env:
