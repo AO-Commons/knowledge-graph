@@ -10,6 +10,7 @@ The Knowledge Graph is in early preview. We're gradually adding research, improv
 
 **It's not yet ready to be relied on as a research or discovery tool.** Coverage is incomplete, a model drafts the claims, and most of them haven't been checked by a person.
 
+<!-- stats:start -->
 | | |
 |---|---|
 | Records | 364 papers, tools, deployments, benchmarks, and reports |
@@ -17,6 +18,7 @@ The Knowledge Graph is in early preview. We're gradually adding research, improv
 | Claims | 349, of which 43 have been checked by a person against the paper |
 | Open questions | 13, grouped from questions the papers say are unanswered |
 | Topics | 103, in 16 sections |
+<!-- stats:end -->
 
 Collecting research is the easy part. Reading papers and checking claims is what limits how fast this grows.
 
