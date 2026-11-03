@@ -496,3 +496,17 @@ class TestWhoMakesIt:
         _, payload = self._run("Block")
         payload = {k: v for k, v in payload.items() if v not in (None, [], {}, "")}
         assert Resource(**payload).organizations == ["Block"]
+
+
+def test_the_current_forms_labels_are_read():
+    """The form's own labels, as GitHub renders them. A renamed label the parser
+    does not know drops its answer silently, and a paper then arrives with no
+    identifier."""
+    body = ("### What is it?\n\nPaper or preprint\n\n"
+            "### Link, DOI or arXiv id\n\nhttps://arxiv.org/abs/2502.14143\n\n"
+            "### Organization\n\n_No response_\n\n"
+            "### Why does it belong?\n\nmulti-agent\n")
+    fields = read_issue(body)
+    assert fields["identifier"] == "https://arxiv.org/abs/2502.14143"
+    assert fields["why"] == "multi-agent"
+    assert "organization" not in fields
