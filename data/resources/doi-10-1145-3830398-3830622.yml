@@ -1,0 +1,73 @@
+id: resource:doi:10-1145-3830398-3830622
+resource_type: peer-reviewed-paper
+title: 'Prism-UX: Turning Evaluative Divergence into Traceable Design Evidence for LLM-Based
+  Process-Level UX Evaluation'
+abstract: Generative AI is increasingly being integrated into interactive workflows, introducing
+  new challenges for UX evaluation because user experience is becoming more context-dependent
+  and more closely tied to process-level moments such as waiting, flicker, uncertainty, intermediate
+  artifacts, and loss of control. However, existing AI-assisted evaluation methods often compress
+  such process-level differences into a single decontextualized conclusion. Interviews with
+  10 practitioners revealed that reviewers often struggle to cite specific moments in an interaction,
+  compare interpretations across stakeholders, or trace their judgments back to observable
+  facts. We refer to this loss of perspective-specific evaluative distinctions as insight
+  collapse. To address this problem, we propose Prism-UX, a traceable review system for short,
+  visually observable UI workflows involving GenAI features. Prism-UX first transforms interaction
+  screen recordings into citable storyboard evidence through a frame-difference algorithm,
+  then supports side-by-side evaluation from configurable evaluative viewpoints over shared
+  evidence, and finally applies a structured reasoning protocol that anchors review judgments
+  in explicit Fact IDs. Through a technical ablation study and expert evaluation, Prism-UX
+  reduced the logical conflict rate by 84%, increased grounding completeness from 0.38 to
+  0.82, and was rated more useful than automated baselines for trade-off inspection, discussion
+  support, and decision confidence. The results suggest that preserving evidence-grounded
+  evaluative disagreement, rather than forcing convergence, can support more traceable and
+  disagreement-aware design review.
+authors:
+- Guangpeng Wei
+- Shunan Zhang
+- Zhengxiang Lin
+- Suxiang Ling
+- Wei Wang
+- Yi Xiao
+organizations:
+- Hunan University
+affiliations:
+  Guangpeng Wei:
+  - Hunan University
+  Shunan Zhang:
+  - Hunan University
+  Zhengxiang Lin:
+  - Hunan University
+  Suxiang Ling:
+  - Hunan University
+  Wei Wang:
+  - Hunan University
+  Yi Xiao:
+  - Hunan University
+published_at: '2026-10-31'
+url: https://doi.org/10.1145/3830398.3830622
+doi: 10.1145/3830398.3830622
+openalex_id: W7225012627
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Generative Agents: Interactive Simulacra of Human Behavior; Judging LLM-as-a-Judge
+  with MT-Bench and Chatbot Arena; Out of One, Many: Using Language Models to Simulate Human
+  Sa; Role play with large language models; Self-Refine: Iterative Refinement with Self-Feedback;
+  Social Simulacra: Creating Populated Prototypes for Social C. Scope scan by claude-opus-5:
+  This is a UX evaluation tool for GenAI interfaces, not a study of an organization where
+  agents hold operational or decision authority, so it fails the scope test on its own terms.
+  But its evidence-anchoring protocol and ''insight collapse'' framing are load-bearing method
+  precedent for agent-assisted evaluation and audit, so it belongs as a section 15 pointer
+  rather than a refusal. What changes because agents hold authority: Nothing about agent authority
+  changes directly; it supplies a method for keeping LLM-produced evaluative judgments traceable
+  to observable facts and preserving disagreement rather than collapsing it, which the field
+  borrows when machines assist review. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

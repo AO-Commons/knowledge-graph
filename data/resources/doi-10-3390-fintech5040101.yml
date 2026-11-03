@@ -1,0 +1,59 @@
+id: resource:doi:10-3390-fintech5040101
+resource_type: peer-reviewed-paper
+title: Benchmarking Security and Reliability of Open-Source and Commercial Large Language
+  Models in Financial-Domain Scenarios
+abstract: 'Large language models (LLMs) are adopted in financial services, yet existing benchmarks
+  provide limited insight into financial-domain capability, regulatory compliance-action performance,
+  and security robustness. This study proposes a unified multidimensional evaluation framework
+  for evaluating open-source and commercial LLMs in regulated financial environments. The
+  framework comprises three complementary benchmark components: the Integrated Financial Benchmark
+  (IFB), which integrates financial-domain benchmarks for capability evaluation; the newly
+  developed RegBench for context-grounded regulatory compliance-action performance; and the
+  newly developed FinSec-Eval-1000 for adversarial robustness. Eight LLMs, including five
+  open-source and three commercial models, were evaluated using an inference pipeline, task-specific
+  metrics, statistical testing, and a Composite Security Score (SS). Claude Sonnet 4.6 achieved
+  the highest IFB performance (68.72%) and four-judge mean security robustness (97.43%), while
+  GPT-5.1 achieved the highest RegBench performance (50.28%). Among open-source models, Gemma
+  3 12B led on IFB (63.50%), whereas Phi-3-small achieved the strongest open-source RegBench
+  (49.22%) and four-judge mean security (92.78%) results, demonstrating that model rankings
+  vary across evaluation dimensions. No detectable monotonic association was observed between
+  financial capability and security robustness (Spearman’s ρ = 0.095, p = 0.823). The benchmarking
+  framework provides a transparent and reproducible methodology for multidimensional LLM evaluation
+  and supports informed model selection in regulated financial environments.'
+authors:
+- Marko Pribisalić
+- Sanda Martinčić-Ipšić
+organizations:
+- University of Rijeka
+affiliations:
+  Marko Pribisalić:
+  - University of Rijeka
+  Sanda Martinčić-Ipšić:
+  - University of Rijeka
+published_at: '2026-11-02'
+url: https://doi.org/10.3390/fintech5040101
+doi: 10.3390/fintech5040101
+openalex_id: W7225086465
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Holistic Evaluation of Language Models; Judging LLM-as-a-Judge with MT-Bench and
+  Chatbot Arena; Not What You''ve Signed Up For: Compromising Real-World LLM-I; Red Teaming
+  Language Models with Language Models; TruthfulQA: Measuring How Models Mimic Human Falsehoods.
+  Scope scan by claude-opus-5: This is an evaluation suite of exactly the kind Section 15
+  holds as a pointer: it supports model selection and robustness screening for agents deployed
+  in regulated settings, but says nothing about organizations where agents hold operational
+  authority. No exclusion-register line bars it, and its uptake by five library papers makes
+  it load-bearing background rather than refusable. What changes because agents hold authority:
+  Nothing changes about agent authority directly — it measures model capability, compliance-action
+  performance and adversarial robustness, not how an organization delegates or supervises
+  decision rights. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 2
+is_borrowed_background: true

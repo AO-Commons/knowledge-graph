@@ -1,0 +1,75 @@
+id: resource:arxiv:2307.13854
+resource_type: preprint
+title: Autonomous Tester Agent Benchmark
+abstract: Openstreetmap docker files required to self-host the WebArena benchmark, as described
+  here:https://webarena.dev/https://arxiv.org/abs/2307.13854https://github.com/web-arena-x/webarena/tree/main/environment_docker
+  Copyright to openstreetmaphttps://www.openstreetmap.org/copyright
+authors:
+- Shuyan Zhou
+- Frank F. Xu
+- Hao Zhu
+- Xuhui Zhou
+- Robert Lo
+- Abishek Sridhar
+- Xianyi Cheng
+- Tianyue Ou
+- Yonatan Bisk
+- Daniel Fried
+- Uri Alon
+- Graham Neubig
+organizations:
+- Carnegie Mellon University
+affiliations:
+  Shuyan Zhou:
+  - Carnegie Mellon University
+  Frank F. Xu:
+  - Carnegie Mellon University
+  Hao Zhu:
+  - Carnegie Mellon University
+  Xuhui Zhou:
+  - Carnegie Mellon University
+  Robert Lo:
+  - Carnegie Mellon University
+  Abishek Sridhar:
+  - Carnegie Mellon University
+  Xianyi Cheng:
+  - Carnegie Mellon University
+  Tianyue Ou:
+  - Carnegie Mellon University
+  Yonatan Bisk:
+  - Carnegie Mellon University
+  Daniel Fried:
+  - Carnegie Mellon University
+  Uri Alon:
+  - Carnegie Mellon University
+  Graham Neubig:
+  - Carnegie Mellon University
+published_at: '2023-07-25'
+url: https://arxiv.org/abs/2307.13854
+doi: 10.48550/arXiv.2307.13854
+arxiv_id: '2307.13854'
+openalex_id: W4385327683
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  6 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agent Bazaar: Enabling Economic Alignment in Multi-Agent Mar; CoffeeBench: Benchmarking
+  Long-Horizon LLM Agents in Heterog; Cognitive Architectures for Language Agents; Cooperate
+  or Collapse: Emergence of Sustainable Cooperation ; TheAgentCompany: Benchmarking LLM Agents
+  on Consequential Re; WebVoyager: Building an End-to-End Web Agent with Large Mult. Scope
+  scan by claude-opus-5: This is an evaluation-suite artifact (WebArena''s OpenStreetMap docker
+  environment), load-bearing for the agent-capability measurements that papers like TheAgentCompany
+  and WebVoyager build on, but not itself about organizations where agents hold operational
+  or decision authority. No exclusion-register line applies; it is the Melting Pot case —
+  a benchmark the field builds on, held as a section 15 pointer rather than ingested as scope.
+  What changes because agents hold authority: Nothing about agent authority changes because
+  of this work — it is the self-hosting environment for the WebArena web-agent benchmark,
+  infrastructure for measuring whether agents can execute consequential tasks at all. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,60 @@
+id: resource:arxiv:1707.06347
+resource_type: preprint
+title: Proximal Policy Optimization Algorithms
+abstract: We propose a new family of policy gradient methods for reinforcement learning, which
+  alternate between sampling data through interaction with the environment, and optimizing
+  a "surrogate" objective function using stochastic gradient ascent. Whereas standard policy
+  gradient methods perform one gradient update per data sample, we propose a novel objective
+  function that enables multiple epochs of minibatch updates. The new methods, which we call
+  proximal policy optimization (PPO), have some of the benefits of trust region policy optimization
+  (TRPO), but they are much simpler to implement, more general, and have better sample complexity
+  (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated
+  robotic locomotion and Atari game playing, and we show that PPO outperforms other online
+  policy gradient methods, and overall strikes a favorable balance between sample complexity,
+  simplicity, and wall-time.
+authors:
+- John Schulman
+- Filip Wolski
+- Prafulla Dhariwal
+- Alec Radford
+- Oleg Klimov
+organizations:
+- Friedrich-Alexander-Universität Erlangen-Nürnberg
+affiliations:
+  John Schulman:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+  Filip Wolski:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+  Prafulla Dhariwal:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+  Alec Radford:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+  Oleg Klimov:
+  - Friedrich-Alexander-Universität Erlangen-Nürnberg
+published_at: '2017-07-20'
+url: https://arxiv.org/abs/1707.06347
+doi: 10.48550/arXiv.1707.06347
+arxiv_id: '1707.06347'
+openalex_id: W2736601468
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Quantifying the Self-Interest
+  Level of Markov Social Dilemma; SocialJax: An Evaluation Suite for Multi-agent Reinforcement;
+  Training Language Models to Follow Instructions with Human F; Voyager: An Open-Ended Embodied
+  Agent with Large Language Mo. Scope scan by claude-opus-5: This is a generic policy-gradient
+  optimization algorithm, not a work about organizations where machines hold authority, so
+  it fails the scope test directly. But it is load-bearing method infrastructure for RLHF
+  alignment and multi-agent social-dilemma work already in the corpus, making it a section
+  15 pointer rather than a refusal. What changes because agents hold authority: Nothing about
+  agent authority changes because of PPO; it is the optimization method underlying RLHF-trained
+  and multi-agent policies that the library''s agents are built from. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

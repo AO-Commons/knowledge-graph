@@ -1,0 +1,62 @@
+id: resource:doi:10-1016-j-jrt-2026-100197
+resource_type: peer-reviewed-paper
+title: 'The algorithmic scapegoat: Accountability evasion and the governance of autonomous
+  promise–fulfilment misalignment in agentic AI'
+abstract: 'Agentic AI systems increasingly generate customer-facing commitments while shaping
+  the operational decisions through which those commitments are fulfilled. When both functions
+  converge within a single autonomous system, a governance problem arises that responsible-technology
+  scholarship has not named: the capacity to generate commitments may exceed an organisation''s
+  verified ability, established rules, or willingness to honour them. Drawing on a multi-platform
+  netnographic study of fifteen documented cases (2023–2026), I distinguish nine core cases
+  in which AI systems both generate commitments and shape their fulfilment from six adjacent
+  cases that fall outside this strict definition. Analysed through the Gioia methodology,
+  the corpus yields three mechanisms: autonomous promise generation and the accountability
+  vacuum, operational failure cascades, and a trust–data feedback loop. I conceptualise algorithmic
+  scapegoating as a post-failure organisational manoeuvre through which responsibility is
+  displaced onto the apparent autonomy or opacity of AI. The manoeuvre inverts the moral crumple
+  zone and performs a responsibility gap it does not suffer. The empirical record documents
+  the escalating branch of the resulting cycle, whereas the recursive trust–data relationship
+  and the conditions under which escalation might be contained remain theoretical propositions
+  requiring further investigation. Four governance features, comprising scope boundaries,
+  verified knowledge, escalation architecture, and metric alignment, delineate the proposed
+  conditions of containment; every documented core failure lacked at least one. I develop
+  five propositions and consider their implications for AI accountability, responsible technology
+  governance, and consumer welfare, and the adjacent cases indicate that the heaviest costs
+  fall on those with least opportunity for recourse.'
+authors:
+- Selcen Öztürkcan
+organizations:
+- Linnaeus University
+- Sabancı Üniversitesi
+affiliations:
+  Selcen Öztürkcan:
+  - Sabancı Üniversitesi
+  - Linnaeus University
+published_at: '2026-10-29'
+url: https://doi.org/10.1016/j.jrt.2026.100197
+doi: 10.1016/j.jrt.2026.100197
+openalex_id: W7224669390
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Accountability in a computerized society; Four Responsibility Gaps with Artificial
+  Intelligence: Why t; Moral Crumple Zones: Cautionary Tales in Human-Robot Interac; Moral
+  Responsibility of Public Officials: The Problem of Man; The responsibility gap: Ascribing
+  responsibility for the act. Scope scan by claude-opus-5: This is directly about machine
+  agents exercising operational authority (generating binding commitments and shaping fulfilment)
+  and about who is accountable when that authority fails, which is core scope rather than
+  general entity liability under the tax/IP/securities line. The empirical case corpus and
+  governance propositions would change how one designs escalation and scope limits for agent-authority
+  organizations. What changes because agents hold authority: It identifies a failure mode
+  specific to agents holding commitment-making authority — systems that bind the organization
+  to promises it has not verified it can fulfil — and specifies four containment features
+  (scope boundaries, verified knowledge, escalation architecture, metric alignment) plus the
+  accountability-evasion manoeuvre oversight must anticipate. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 2

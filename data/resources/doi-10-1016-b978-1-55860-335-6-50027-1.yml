@@ -1,0 +1,37 @@
+id: resource:doi:10-1016-b978-1-55860-335-6-50027-1
+resource_type: peer-reviewed-paper
+title: Markov games as a framework for multi-agent reinforcement learning
+authors:
+- Michael L. Littman
+organizations:
+- Brown University
+affiliations:
+  Michael L. Littman:
+  - Brown University
+published_at: '1994-01-01'
+url: https://doi.org/10.1016/b978-1-55860-335-6.50027-1
+doi: 10.1016/b978-1-55860-335-6.50027-1
+openalex_id: W1542941925
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  7 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; Fully Autonomous AI Agents Should
+  Not be Developed; Multi-agent Reinforcement Learning in Sequential Social Dile; Principal-Agent
+  Reinforcement Learning: Orchestrating AI Age; SocialJax: An Evaluation Suite for Multi-agent
+  Reinforcement; Solipsistic Superintelligence is Unlikely to be Cooperative; The Collaboration
+  Gap: Exploration and Benchmarking of Open-. Scope scan by claude-opus-5: Littman''s Markov
+  games paper is the foundational formalism underlying the multi-agent RL, social dilemma
+  and principal-agent contract work already held here, so it is genuinely load-bearing method
+  precedent. It is not itself about delegated machine authority, so it belongs as a section
+  15 pointer rather than in scope. What changes because agents hold authority: Nothing directly
+  — it supplies the formal Markov-game model that multi-agent learning work in this library
+  builds on, but it says nothing about organizations where agents hold authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

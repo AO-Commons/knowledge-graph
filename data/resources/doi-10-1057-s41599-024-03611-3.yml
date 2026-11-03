@@ -1,0 +1,76 @@
+id: resource:doi:10-1057-s41599-024-03611-3
+resource_type: peer-reviewed-paper
+title: 'Large language models empowered agent-based modeling and simulation: a survey and
+  perspectives'
+abstract: 'Abstract Agent-based modeling and simulation have evolved as a powerful tool for
+  modeling complex systems, offering insights into emergent behaviors and interactions among
+  diverse agents. Recently, integrating large language models into agent-based modeling and
+  simulation presents a promising avenue for enhancing simulation capabilities. This paper
+  surveys the landscape of utilizing large language models in agent-based modeling and simulation,
+  discussing their challenges and promising future directions. In this survey, since this
+  is an interdisciplinary field, we first introduce the background of agent-based modeling
+  and simulation and large language model-empowered agents. We then discuss the motivation
+  for applying large language models to agent-based simulation and systematically analyze
+  the challenges in environment perception, human alignment, action generation, and evaluation.
+  Most importantly, we provide a comprehensive overview of the recent works of large language
+  model-empowered agent-based modeling and simulation in multiple scenarios, which can be
+  divided into four domains: cyber, physical, social, and hybrid, covering simulation of both
+  real-world and virtual environments, and how these works address the above challenges. Finally,
+  since this area is new and quickly evolving, we discuss the open problems and promising
+  future directions. We summarize the representative papers along with their code repositories
+  in https://github.com/tsinghua-fib-lab/LLM-Agent-Based-Modeling-and-Simulation .'
+authors:
+- Chen Gao
+- Xiaochong Lan
+- Nian Li
+- Yuan Yuan
+- Jingtao Ding
+- Zhilun Zhou
+- Fengli Xu
+- Yong Li
+organizations:
+- Tsinghua University
+affiliations:
+  Chen Gao:
+  - Tsinghua University
+  Xiaochong Lan:
+  - Tsinghua University
+  Nian Li:
+  - Tsinghua University
+  Yuan Yuan:
+  - Tsinghua University
+  Jingtao Ding:
+  - Tsinghua University
+  Zhilun Zhou:
+  - Tsinghua University
+  Fengli Xu:
+  - Tsinghua University
+  Yong Li:
+  - Tsinghua University
+published_at: '2024-09-27'
+url: https://doi.org/10.1057/s41599-024-03611-3
+doi: 10.1057/s41599-024-03611-3
+openalex_id: W4402901320
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Bridging Inference-Time Scaling and Episodic Memory with Act; Can Large Language
+  Model Agents Simulate Human Trust Behavio; Cooperate or Collapse: Emergence of Sustainable
+  Cooperation ; Multi-Agent Collaboration Mechanisms: A Survey of LLMs; Will Systems of LLM
+  Agents Cooperate: An Investigation into . Scope scan by claude-opus-5: The survey is load-bearing
+  method precedent for the simulation-based studies of multi-agent cooperation and social
+  dilemmas already in the library, and is cited by five of them, so it belongs as a section
+  15 pointer rather than an ingested scope record. No exclusion-register line applies; it
+  is simply background method rather than agent-authority design. What changes because agents
+  hold authority: Nothing changes directly about agent authority — this is a methodological
+  survey of using LLM agents to simulate complex systems, not about organizations where agents
+  hold operational or decision authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

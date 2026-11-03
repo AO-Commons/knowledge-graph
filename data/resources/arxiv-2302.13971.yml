@@ -1,0 +1,51 @@
+id: resource:arxiv:2302.13971
+resource_type: preprint
+title: 'LLaMA: Open and Efficient Foundation Language Models'
+abstract: We introduce LLaMA, a collection of foundation language models ranging from 7B to
+  65B parameters. We train our models on trillions of tokens, and show that it is possible
+  to train state-of-the-art models using publicly available datasets exclusively, without
+  resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms
+  GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B
+  and PaLM-540B. We release all our models to the research community.
+authors:
+- Hugo Touvron
+- Thibaut Lavril
+- Gautier Izacard
+- Xavier Martinet
+- Marie-Anne Lachaux
+- Timothée Lacroix
+- Baptiste Rozière
+- Naman Goyal
+- Eric Hambro
+- Faisal Azhar
+- Aurelien Rodriguez
+- Armand Joulin
+- Edouard Grave
+- Guillaume Lample
+published_at: '2023-02-27'
+url: https://arxiv.org/abs/2302.13971
+doi: 10.48550/arXiv.2302.13971
+arxiv_id: '2302.13971'
+openalex_id: W4322718191
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cited by
+  5 records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Agents vs. Agentic AI: A Conceptual taxonomy, application; Bridging Inference-Time
+  Scaling and Episodic Memory with Act; Cooperate or Collapse: Emergence of Sustainable Cooperation
+  ; Personality Traits in Large Language Models; Voyager: An Open-Ended Embodied Agent with
+  Large Language Mo. Scope scan by claude-opus-5: LLaMA is a foundation-model training paper,
+  not about organizations where agents hold operational or decision authority, so it fails
+  the scope test directly. But it is genuinely load-bearing infrastructure for the field''s
+  experimental work (cited by Voyager, the LLM-agent cooperation studies), so it belongs as
+  a section 15 pointer rather than a refusal. What changes because agents hold authority:
+  Nothing about agent authority changes because of this work; it is a model-release paper
+  that supplies the open base models many agentic systems are built and studied on. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true

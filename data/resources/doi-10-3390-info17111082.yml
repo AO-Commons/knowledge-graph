@@ -1,0 +1,67 @@
+id: resource:doi:10-3390-info17111082
+resource_type: peer-reviewed-paper
+title: 'Beyond Accuracy: A Critical Review of Evaluation, Clinical Validation, and Safety
+  Frameworks for Agentic AI in Medicine'
+abstract: 'Agentic artificial intelligence (AI) extends conventional predictive and generative
+  AI by enabling systems to pursue goals through reasoning, planning, information retrieval,
+  memory, tool use, and interaction with clinical workflows. These capabilities create new
+  opportunities for medicine but also a distinct evaluation problem: the reliability of an
+  agent cannot be inferred from the accuracy of its underlying model or final answer alone.
+  Errors may arise during information retrieval, tool use, state updates, inter-agent communication,
+  or autonomous action and may propagate across a clinical workflow. This critical review
+  examines approaches for evaluating and clinically validating agentic AI in medicine. Existing
+  frameworks, including TRIPOD+AI, CONSORT-AI, SPIRIT-AI, DECIDE-AI, STARD-AI, FUTURE-AI,
+  and Good Machine Learning Practice, provide important foundations but were not primarily
+  designed for systems with persistent state, repeated actions, tool use, and multi-agent
+  interaction. Emerging agent benchmarks increasingly address interactive tasks, tool use,
+  trajectory reliability, and adversarial testing. We propose a five-level evaluation framework
+  spanning model, agent, trajectory, system, and clinical outcome, together with a clinical
+  validation ladder progressing from component testing and simulation to retrospective evaluation,
+  prospective silent deployment, supervised clinical use, bounded action, and post-deployment
+  surveillance. Key gaps include standardized trajectory metrics, evaluation of correlated
+  multi-agent errors, autonomy-aware validation, human–agent performance, and lifecycle monitoring.
+  Radiotherapy is used as a high-stakes clinical exemplar. We argue that agentic AI should
+  be evaluated as a dynamic sociotechnical system and that clinical evidence must extend beyond
+  accuracy toward behavioral reliability, safety, and demonstrated clinical benefit.'
+authors:
+- James C. L. Chow
+- Kay Li
+organizations:
+- Princess Margaret Cancer Centre
+- University Health Network
+- University of Toronto
+affiliations:
+  James C. L. Chow:
+  - University Health Network
+  - University of Toronto
+  - Princess Margaret Cancer Centre
+  Kay Li:
+  - University of Toronto
+published_at: '2026-11-01'
+url: https://doi.org/10.3390/info17111082
+doi: 10.3390/info17111082
+openalex_id: W7225080051
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Automation bias: a systematic review of frequency, effect me; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; Encouraging Divergent Thinking in Large Language
+  Models thro; Holistic Evaluation of Language Models; Judging LLM-as-a-Judge with MT-Bench
+  and Chatbot Arena; Not What You''ve Signed Up For: Compromising Real-World LLM-I. Scope
+  scan by claude-opus-5: This is not generic model evaluation: it ties validation levels to
+  degrees of delegated action authority, correlated multi-agent error, and lifecycle oversight
+  in a high-stakes workflow, which is directly about certifying and overseeing agents that
+  act. No exclusion-register line applies; it is agent-specific sociotechnical governance
+  rather than adjacent human decision-making. What changes because agents hold authority:
+  It specifies a staged autonomy ladder — silent deployment, supervised use, bounded action,
+  post-deployment surveillance — plus trajectory- and system-level evidence requirements,
+  giving a concrete basis for deciding how much operational authority an agent may hold and
+  what evidence must be shown before each escalation. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 2

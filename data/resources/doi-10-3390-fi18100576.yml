@@ -1,0 +1,64 @@
+id: resource:doi:10-3390-fi18100576
+resource_type: peer-reviewed-paper
+title: Coherent Generative Agentic AI Enabled 6G/7G Networking
+abstract: Generative Artificial Intelligence (Generative Agentic AI) models, such as Large
+  Language Models (LLMs), and agentic AI have recently gained widespread attention in both
+  research and industry. They have rapidly emerged as a concept that elevates Generative Agentic
+  AI from passive text generators to the next generation of agentic AI as autonomous, goal-driven
+  agents capable of perception, planning, and dynamic action execution—Coherent Generative
+  Agentic AI (CGA). In addition, CGA provides supervisory intelligence by maintaining persistent,
+  evolving internal world models of the environment, networks, resources, agents, user intents,
+  and policies. CGA reasons over time, runs long-horizon plans, checks consequences against
+  its internal models, and coherently orchestrates lower-level controllers. It sits above
+  network controllers, providing a global, semantic, model-driven brain. The paper starts
+  with a review of CGA functional and non-functional characteristics in the context of key
+  research and development results of agentic AI. It introduces a coherence-first architectural
+  construct and system variable across all future 6G/7G networking planes (data-, transport-,
+  management and operations,- orchestration,- autonomicity-, programmability-, and AI_as_a_Service-plane).
+  It proposes a new deterministic CGA mathematical (CGAM) model that provides a new abstraction
+  and theoretical foundation for analyzing the systemic consequences of different structural
+  design and optimization options. It defines the relation between coherence and intelligence.
+  The CGAM model represents the compute–communications continuum as a partially observable,
+  intent-driven, contract-governed, multi-agent dynamical system with persistent memory and
+  coherence constraints. We also included detailed CGAM validation and evaluation measures.
+  This paper explores and details the CGAM’s role in 6G and 7G networking, as well as the
+  challenges and opportunities for future work they present. We present the CGA-enabled 6G
+  networking as well as 7G networking. Our investigation maps the current development landscape
+  and points to future research and development in using Generative Agentic AI for networking.
+authors:
+- Alex Galis
+organizations:
+- University College London
+affiliations:
+  Alex Galis:
+  - University College London
+published_at: '2026-10-21'
+url: https://doi.org/10.3390/fi18100576
+doi: 10.3390/fi18100576
+openalex_id: W7223178242
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 5
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; Generative Agents: Interactive Simulacra of Human
+  Behavior; Intelligent agents: theory and practice; The Rise and Potential of Large Language
+  Model Based Agents:. Scope scan by claude-opus-5: This is a telecom vision/architecture
+  paper whose contribution (the CGAM model of a contract-governed, intent-driven, partially
+  observable multi-agent system with persistent memory and coherence constraints) is a formalism
+  the field borrows for reasoning about layered machine delegation, not a study of agent-authority
+  organizations; no exclusion-register line applies, but the domain is network autonomicity
+  rather than organizational governance. Its citation by five library papers supports holding
+  it as a section 15 pointer rather than ingesting it as in-scope. What changes because agents
+  hold authority: Nothing directly about organizational authority changes — the paper specifies
+  a hierarchical supervisory architecture in which a generative agent holds operational control
+  over network controllers, which is an infrastructure control pattern rather than an account
+  of an organization where agents hold decision authority. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-03'
+expansion_generation: 1
+is_borrowed_background: true
