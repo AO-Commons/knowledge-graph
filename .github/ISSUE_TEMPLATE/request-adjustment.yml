@@ -6,8 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Corrections are the most useful thing you can send. Most of what is here has
-        not been checked by anyone.
+        Corrections are the most useful thing you can send. Most of what is here has not been checked by anyone.
 
   - type: input
     id: record
@@ -62,5 +61,4 @@ body:
     attributes:
       value: |
         ---
-        A maintainer reads every correction. If you wrote the work, we note that —
-        you are the best judge of whether a claim says what your paper says.
+        A maintainer reads every correction. If you wrote the work, we note that — you are the best judge of whether a claim says what your paper says.

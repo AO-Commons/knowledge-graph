@@ -6,18 +6,15 @@ body:
   - type: markdown
     attributes:
       value: |
-        Paste what the filing site's **Submit** screen gave you. A bot checks it
-        and opens a pull request against the gold set — you don't need git, and
-        you don't need to touch the repository.
+        Paste what the filing site's **Submit** screen gave you. A bot checks it and opens a pull request against the gold set — you don't need git, and you don't need to touch the repository.
 
         Two kinds of filing come through here, and one issue can carry both:
 
         - **Golden-set review** — verdicts on drafted claims. The block
-          starts with `claims:`.
+        starts with `claims:`.
         - **Filing** — taxonomy codes on records. The block starts with `records:`.
 
-        Everything is validated. If something is wrong the bot says what, on this
-        issue, and nothing is merged until it's fixed.
+        Everything is validated. If something is wrong the bot says what, on this issue, and nothing is merged until it's fixed.
 
   - type: textarea
     id: filing

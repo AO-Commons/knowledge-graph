@@ -1,25 +1,25 @@
 name: Request claim extraction
-description: Ask for the claims a paper makes to be drafted, each with the sentence it came from.
+description: Ask for a paper's claims to be written down, each with the sentence it came from.
 title: "[Read] "
 labels: ["reading"]
+# Every paragraph below is one line on purpose. GitHub renders each newline in
+# an issue form as a line break, so a paragraph wrapped for this file arrives
+# wrapped on the page — mid-sentence, at whatever column the file happened to
+# break. The workflows solve the same problem with a `para()` helper; here the
+# fix is to not wrap.
 body:
   - type: markdown
     attributes:
       value: |
-        A record in this library starts as a paper with a title and an abstract.
-        Extracting its claims means drafting what it found, what it argues and
-        what it says is still open — each carried by a sentence quoted from the
-        paper itself and checked against it word for word.
+        Ask for a paper's claims to be written down: what it found, what it argues, and what it says is still unanswered. Every claim is saved with the exact sentence from the paper that it came from, so anyone can check it in seconds.
 
-        Start this from a record's page on the
-        [site](https://ao-commons.github.io/knowledge-graph/), which fills in the
-        id for you.
+        The easy way to start one of these is from the paper's page on the [knowledge graph](https://ao-commons.github.io/knowledge-graph/) — press **Request claim extraction** there and the id below is filled in for you.
 
   - type: input
     id: record
     attributes:
-      label: Which record
-      description: The id, which looks like `resource:arxiv:2604.10290`.
+      label: Which paper
+      description: Its id in the library. It looks like `resource:arxiv:2604.10290`.
       placeholder: resource:arxiv:2604.10290
     validations:
       required: true
@@ -27,10 +27,8 @@ body:
   - type: textarea
     id: notes
     attributes:
-      label: Anything worth knowing before it is read
-      description: |
-        Optional. A section that matters, a result that is easy to misread, a
-        claim you already know is in there.
+      label: Anything we should know
+      description: Optional. A section that matters, a result that is easy to misread, or a claim you already know is in there.
     validations:
       required: false
 
@@ -39,20 +37,12 @@ body:
       value: |
         ### What happens next
 
-        A maintainer reads the request and approves it. Extraction is a model
-        call over a whole paper, so requests are run deliberately rather than on
-        arrival — which also means nothing is spent before somebody has looked.
+        1. **A maintainer starts it.** Nothing runs when you press send. Reading a whole paper costs real money, so somebody starts each one by hand after reading the request.
+        2. **A bot drafts the claims** and opens a pull request with them.
+        3. **A person checks them** against the paper. Until that happens, every claim is a draft — written by a model, not verified by anyone.
 
-        Once approved, a bot drafts the claims and opens a pull request. Nothing
-        it writes has been checked by a person; the pull request is where that
-        happens.
+        ### When a request is turned down
 
-        Two things get a request turned down, and both are worth knowing before
-        you ask:
+        **The paper isn't in the verified set.** That set is what the site shows before you press *Everything*, and only papers in it can be read this way. If yours isn't there yet, ask for it to be added first.
 
-        - **The paper is not in the verified set.** That set is the reading list
-          behind the AO Commons research agenda, and it is what the site opens
-          on. Getting the paper onto it is the step before this one.
-        - **The paper has already been read.** Its claims carry verdicts, and
-          drafting them again would throw those away. To correct one, use
-          *Report an error* on the record instead.
+        **The paper has already been read.** Its claims may already carry people's verdicts, and drafting them again would throw those away. To fix a claim that's wrong, use *Report an error* on the paper instead.

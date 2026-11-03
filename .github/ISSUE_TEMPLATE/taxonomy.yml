@@ -6,19 +6,16 @@ body:
   - type: markdown
     attributes:
       value: |
-        The site fills this in when you propose from a branch in **Explore**, which is
-        the easier route — the topic and its parent come along automatically.
+        The site fills this in when you propose from a branch in **Explore**, which is the easier route — the topic and its parent come along automatically.
 
-        The taxonomy is a seed, not scripture. But its codes are stable identifiers that
-        other people's tags point at, so changes go in order of cost:
+        The taxonomy is a seed, not scripture. But its codes are stable identifiers that other people's tags point at, so changes go in order of cost:
 
         1. **An alias** — the topic exists and is not findable under the words you used.
         2. **Multi-tagging** — two existing topics cover it between them.
         3. **A cross-link** — the relationship is real but the tree cannot hold it.
         4. **A new topic** — only once the first three are ruled out.
 
-        Most gaps turn out to be findability problems. Two rules do not bend: codes are
-        never renumbered or reused, and V1 adds no new top-level sections.
+        Most gaps turn out to be findability problems. Two rules do not bend: codes are never renumbered or reused, and V1 adds no new top-level sections.
 
   - type: input
     id: topic
@@ -59,5 +56,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        Accepted proposals become a file in `taxonomy/proposals/`, then a change to the
-        taxonomy once leadership settles it.
+        Accepted proposals become a file in `taxonomy/proposals/`, then a change to the taxonomy once leadership settles it.

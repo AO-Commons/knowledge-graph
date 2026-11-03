@@ -1,14 +1,17 @@
-# A reading request becomes drafted claims in a pull request.
+# A reading, run by hand, for a paper somebody asked about.
 #
-#   record page  →  prefilled issue  →  a maintainer approves  →  this workflow
-#                 →  pull request  →  verdicts
+#   record page  →  issue  →  a maintainer runs this  →  pull request  →  verdicts
+#
+# Started from the Actions tab rather than by the issue arriving, because a
+# reading is a model call over a whole paper and the request form is public.
+# Who gets one is a decision, and it is made where the rest of those decisions
+# are made rather than encoded as a label here.
 #
 # A pull request rather than a commit to main, which is the opposite of what
 # `new-resource.yml` does, and the difference is what the file changes. A new
-# record is one file that changes no existing judgment and no measured number.
-# Claims are the measured numbers: coverage, how much of the corpus has been
-# read, how much a person has checked. Model output that moves those should be
-# looked at by somebody before it lands.
+# record changes no existing judgment and no measured number. Claims are the
+# measured numbers: coverage, how much of the corpus has been read, how much a
+# person has checked. Model output that moves those gets looked at first.
 #
 # Only papers in the verified set are read. `scripts/read_paper.py` says why,
 # and enforces it — this workflow does not re-state the rule, it runs the thing
@@ -17,29 +20,28 @@
 name: Read a paper
 
 on:
-  issues:
-    types: [opened, edited, labeled]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "Issue number asking for this (the bot reports back there)"
+        required: false
+      record:
+        description: "Record id, if there is no issue — resource:arxiv:2604.10290"
+        required: false
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
 
-# An opened issue that arrives with its label fires this twice, and both runs
-# would draft the same paper — at the price of two readings.
+# One reading at a time. Two runs over the same paper would draft it twice,
+# at the price of two readings.
 concurrency:
-  group: reading-${{ github.event.issue.number }}
-  cancel-in-progress: true
+  group: reading-${{ inputs.issue || inputs.record }}
+  cancel-in-progress: false
 
 jobs:
   read:
-    # Both labels. `reading` says what the issue is; `approved` says a
-    # maintainer has looked at who asked. The request form is public and a
-    # reading is a model call over a whole paper, so arriving is not the same
-    # as being run — somebody says go, by adding the second label.
-    if: >-
-      contains(github.event.issue.labels.*.name, 'reading')
-      && contains(github.event.issue.labels.*.name, 'approved')
     runs-on: ubuntu-latest
     # The reader's key lives on this environment, and the environment only
     # admits `main`. The same one the scope scan answers to.
@@ -55,10 +57,33 @@ jobs:
       # what issue #80 met on the other path.
       - run: pip install -e ".[scholarly,scope]"
 
-      - name: Read the request
-        env:
-          BODY: ${{ github.event.issue.body }}
-        run: printf '%s' "$BODY" > /tmp/request.md
+      # Either input works. A record id is the whole request; an issue
+      # number means the request is written down somewhere a person can read,
+      # which is where the bot answers.
+      - name: Work out what was asked
+        id: ask
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { issue, record } = context.payload.inputs || {};
+            if (!issue && !record) {
+              core.setFailed('Give an issue number, a record id, or both.');
+              return;
+            }
+            let body = record || '';
+            if (issue && !record) {
+              const got = await github.rest.issues.get({
+                ...context.repo, issue_number: Number(issue) });
+              body = got.data.body || '';
+            }
+            fs.writeFileSync('/tmp/request.md', body);
+            core.setOutput('issue', issue || '');
+            // The branch needs a name either way: the issue number when there
+            // is one, otherwise the record flattened to what a git ref takes.
+            core.setOutput('slug', issue
+              ? `issue-${issue}`
+              : (record || 'paper').replace(/[^A-Za-z0-9.]+/g, '-').toLowerCase());
 
       - name: Draft the claims
         id: draft
@@ -73,8 +98,10 @@ jobs:
       # failing silently in a log the requester will never open. Which of the
       # two it was is in the summary the script wrote, in its own words.
       - name: Say why not
-        if: steps.draft.outcome == 'failure'
+        if: steps.draft.outcome == 'failure' && steps.ask.outputs.issue != ''
         uses: actions/github-script@v7
+        env:
+          ISSUE: ${{ steps.ask.outputs.issue }}
         with:
           script: |
             const fs = require('fs');
@@ -83,10 +110,10 @@ jobs:
               summary = JSON.parse(fs.readFileSync('/tmp/reading.json', 'utf8')).summary || summary;
             } catch (e) {}
             await github.rest.issues.createComment({
-              ...context.repo, issue_number: context.issue.number, body: summary,
+              ...context.repo, issue_number: Number(process.env.ISSUE), body: summary,
             });
             await github.rest.issues.addLabels({
-              ...context.repo, issue_number: context.issue.number,
+              ...context.repo, issue_number: Number(process.env.ISSUE),
               labels: ['needs-maintainer'],
             });
 
@@ -103,7 +130,10 @@ jobs:
       - name: Write the pull request body
         if: steps.draft.outcome == 'success'
         run: |
-          printf 'Closes #%s\n\n' "${{ github.event.issue.number }}" > /tmp/pr-body.md
+          : > /tmp/pr-body.md
+          if [ -n "${{ steps.ask.outputs.issue }}" ]; then
+            printf 'Closes #%s\n\n' "${{ steps.ask.outputs.issue }}" > /tmp/pr-body.md
+          fi
           python3 - <<'PY' >> /tmp/pr-body.md
           import json
           print(json.load(open("/tmp/reading.json"))["summary"])
@@ -119,22 +149,23 @@ jobs:
         continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
-          branch: reading/issue-${{ github.event.issue.number }}
+          branch: reading/${{ steps.ask.outputs.slug }}
           # Only the claims. Anything generated is rebuilt on main.
           add-paths: |
             data/claims/**
-          title: "Reading for #${{ github.event.issue.number }}"
+          title: "Reading: ${{ steps.ask.outputs.slug }}"
           body-path: /tmp/pr-body.md
-          commit-message: "Draft claims for the paper asked about in #${{ github.event.issue.number }}"
+          commit-message: "Draft claims for ${{ steps.ask.outputs.slug }}"
           labels: reading
           delete-branch: true
 
       - name: Report back on the issue
-        if: steps.draft.outcome == 'success'
+        if: steps.draft.outcome == 'success' && steps.ask.outputs.issue != ''
         uses: actions/github-script@v7
         env:
+          ISSUE: ${{ steps.ask.outputs.issue }}
           PR: ${{ steps.pr.outputs.pull-request-url }}
-          BRANCH: reading/issue-${{ github.event.issue.number }}
+          BRANCH: reading/${{ steps.ask.outputs.slug }}
         with:
           script: |
             // GitHub renders every newline in a comment as a line break, so lines
@@ -164,7 +195,7 @@ jobs:
             }
 
             await github.rest.issues.createComment({
-              ...context.repo, issue_number: context.issue.number,
+              ...context.repo, issue_number: Number(process.env.ISSUE),
               body: `${reading.summary}\n\n${tail}`,
             });
 
@@ -172,6 +203,25 @@ jobs:
             // request merges, which is when the reading actually landed.
             if (reading.title) {
               await github.rest.issues.update({ ...context.repo,
-                issue_number: context.issue.number,
+                issue_number: Number(process.env.ISSUE),
                 title: `[Read] ${reading.title}`.slice(0, 256) });
             }
+
+      # Whoever pressed the button is standing on this page, and a run started
+      # from a record id has no issue to answer on. Always, so a refusal is
+      # readable here too rather than only in a step's log.
+      - name: Say what happened, on the run
+        if: always()
+        run: |
+          if [ -f /tmp/reading.json ]; then
+            python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          print(json.load(open("/tmp/reading.json")).get("summary", "No summary was written."))
+          PY
+          else
+            echo "The reading did not get as far as writing a result." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -n "${{ steps.ask.outputs.slug }}" ] && [ "${{ steps.draft.outcome }}" = "success" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Branch: \`reading/${{ steps.ask.outputs.slug }}\`" >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -270,9 +270,20 @@ a{color:inherit;text-decoration:none}
                   box-shadow:0 14px 28px -12px rgba(14,79,70,.8)}
 
 /* ---- what this is, and how far along it is ---- */
+/* Two columns, because one is a column of text six lines tall against an
+   empty right half on anything wider than a laptop. Each caps at a measure
+   you can still read; they stack below the app's own breakpoint. */
 .intro{padding-top:clamp(18px,2.2vw,30px)}
-.notice{max-width:68ch;margin:clamp(14px,1.6vw,22px) 0 0;color:var(--ink-2)}
-.notice--lead{font-size:var(--t-sub);line-height:1.5}
+.intro .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+             gap:clamp(24px,3.5vw,72px);align-items:start}
+.notice{margin:0;color:var(--ink-2);max-width:64ch}
+/* The lede is set in the display face and sized to fill its column: a
+   sentence this long at body size either runs to 90 characters or leaves
+   half the page empty, and both are worse than making it bigger. */
+.notice--lead{font-family:var(--serif);font-size:var(--t-lede);font-weight:300;
+              line-height:1.25;letter-spacing:-.02em;color:var(--ink);max-width:none}
+@media (max-width:860px){.intro .wrap{grid-template-columns:minmax(0,58ch)}
+                         .notice + .notice{margin-top:clamp(14px,1.6vw,22px)}}
 .notice a{color:var(--green);border-bottom:1px solid var(--green-bg)}
 .notice a:hover{border-color:var(--green)}
 .notice .tag{vertical-align:1px}
