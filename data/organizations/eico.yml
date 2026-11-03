@@ -1,0 +1,8 @@
+id: org:eico
+name: Eico
+organization_type: company
+roles: [evaluation, infrastructure]
+aliases: [Economic Intelligence Co.]
+website: https://eico.so
+source_provenance: added by hand, 2026-11-03, from eico.so/founder-bench, which describes Eico as running acoco, a platform for
+  funding and operating autonomous companies

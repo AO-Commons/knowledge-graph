@@ -1,0 +1,23 @@
+id: resource:platform:founder-bench
+resource_type: evaluation-suite
+title: Founder Bench
+description: Five frontier models each given the same four businesses to build and run in the real world, including
+  writing and launching their own ads without a human in the loop, compared on customer impressions, ad performance and
+  site traffic. Early data from July 2026.
+url: https://eico.so/founder-bench
+organizations:
+- Eico
+taxonomy_topics:
+- '8.1'
+- '14.1'
+facets:
+  artifact_type: evaluation-suite
+  evidence_strength: structured-case-study
+  source_independence: tooling-vendor
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+source_provenance: added by hand, 2026-11-03, from eico.so/founder-bench. Taxonomy tags are a first pass, as for the seed
+  corpus's deployments and evaluations, and not reviewed.
+ingested_at: '2026-11-03'
+review_status: unreviewed

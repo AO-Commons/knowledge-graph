@@ -1,0 +1,6 @@
+id: org:clawbank
+name: ClawBank
+organization_type: company
+roles: [evaluation, infrastructure]
+website: https://clawbank.co
+source_provenance: added by hand, 2026-11-03, from bench.clawbank.co and github.com/ClawBank-co
