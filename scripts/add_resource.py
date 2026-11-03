@@ -578,7 +578,10 @@ def written_work_record(ident: dict, fields: dict, *, topics: list[str], author:
         "abstract": " ".join(lead.split())[:1200] or None,
         "url": url,
         "taxonomy_topics": topics,
-        "facets": {"artifact_type": "written-work"},
+        # `essay` rather than the resource_type's own word: F1 is a closed
+        # vocabulary and has no "written-work" in it, so that spelling made
+        # every link that is not a DOI or an arXiv id crash on the way out.
+        "facets": {"artifact_type": "essay"},
         "review_status": "unreviewed",
         "text_coverage": "full-text",
         "source_provenance": provenance(author, issue, resolved=False, topics=topics),

@@ -35,7 +35,7 @@ authors:
 - Nick Ryder
 - Mikhail Pavlov
 - Alethea Power
-- Lukasz Kaiser
+- Łukasz Kaiser
 - Mohammad Bavarian
 - Clemens Winter
 - Philippe Tillet
@@ -76,17 +76,15 @@ organizations:
 - OpenAI
 - Zipline International
 affiliations:
-  Mark I-Cheng Chen:
-  - OpenAI
   Jerry Tworek:
   - OpenAI
   Heewoo Jun:
   - OpenAI
   Qiming Yuan:
   - OpenAI
-  Jared Kaplan A:
+  Jared Kaplan:
   - Anthropic
-  Harrison S. Edwards:
+  Harri Edwards:
   - OpenAI
   Yuri Burda:
   - OpenAI
@@ -97,8 +95,6 @@ affiliations:
   Alex Ray:
   - OpenAI
   Raul Puri:
-  - OpenAI
-  Gretchen Marie Krueger:
   - OpenAI
   Michael Petrov:
   - OpenAI
@@ -118,8 +114,6 @@ affiliations:
   - OpenAI
   Alethea Power:
   - OpenAI
-  Łukasz Kaiser:
-  - OpenAI
   Mohammad Bavarian:
   - OpenAI
   Clemens Winter:
@@ -134,11 +128,7 @@ affiliations:
   - OpenAI
   Fotios Chantzis:
   - OpenAI
-  Elizabeth A. Barnes:
-  - OpenAI
   Ariel Herbert-Voss:
-  - OpenAI
-  William H. Guss:
   - OpenAI
   Alex Nichol:
   - OpenAI
@@ -147,8 +137,6 @@ affiliations:
   Nikolas Tezak:
   - OpenAI
   Jie Tang:
-  - OpenAI
-  I. Babuschkin:
   - OpenAI
   Suchir Balaji:
   - OpenAI
@@ -162,7 +150,7 @@ affiliations:
   - OpenAI
   Jan Leike:
   - OpenAI
-  Joshua Achiam:
+  Josh Achiam:
   - OpenAI
   Vedant Misra:
   - OpenAI
@@ -189,6 +177,18 @@ affiliations:
   Ilya Sutskever:
   - OpenAI
   Wojciech Zaremba:
+  - OpenAI
+  Mark I-Cheng Chen:
+  - OpenAI
+  Gretchen Marie Krueger:
+  - OpenAI
+  Łukasz Kaiser:
+  - OpenAI
+  Elizabeth A. Barnes:
+  - OpenAI
+  William H. Guss:
+  - OpenAI
+  I. Babuschkin:
   - OpenAI
 published_at: '2021-07-07'
 url: https://arxiv.org/abs/2107.03374

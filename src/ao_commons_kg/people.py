@@ -89,6 +89,21 @@ def normalize_hyphens(name: str) -> str:
     return (name or "").translate(TYPOGRAPHIC_HYPHENS)
 
 
+#: Latin letters NFKD does not decompose, and what each stands in for when a
+#: source spells the same person without it. Not a transliteration table: it
+#: only has to make two spellings of one byline meet.
+STROKES = {
+    "ß": "ss", "ł": "l", "Ł": "L", "ı": "i", "İ": "I", "ø": "o", "Ø": "O",
+    "đ": "d", "Đ": "D", "ħ": "h", "Ħ": "H", "æ": "ae", "Æ": "AE",
+    "œ": "oe", "Œ": "OE", "ð": "d", "Ð": "D", "þ": "th", "Þ": "Th",
+}
+
+
+def expand_strokes(name: str) -> str:
+    """Replace the undecomposable letters, before NFKD gets a look."""
+    return "".join(STROKES.get(c, c) for c in name)
+
+
 def fold(name: str) -> str:
     """The key two spellings of one person share.
 
@@ -100,11 +115,13 @@ def fold(name: str) -> str:
     the corpus that way. A period and an apostrophe still vanish, because
     "O'Brien" is not "O Brien" in any source that matters.
 
-    ß is expanded to ss before the accent pass, because NFKD leaves it alone —
-    it is a letter, not an accented s. Without this, "Wolfram Barfuß" and
-    "Wolfram Barfuss" are two people.
+    The letters in STROKES are expanded before the accent pass, because NFKD
+    leaves them alone — each is a letter in its own right rather than an
+    accented one, so there is no combining mark to strip. Without ß, "Wolfram
+    Barfuß" and "Wolfram Barfuss" are two people; without ł and ı, so are
+    "Łukasz Kaiser" and "Lukasz Kaiser", and "Orhan Fırat" and "Orhan Firat".
     """
-    decomposed = unicodedata.normalize("NFKD", (name or "").replace("ß", "ss"))
+    decomposed = unicodedata.normalize("NFKD", expand_strokes(name or ""))
     without_accents = "".join(c for c in decomposed if not unicodedata.combining(c))
     spaced = HYPHENS.sub(" ", without_accents)
     return SPACES.sub(" ", PUNCTUATION.sub("", spaced)).strip().lower()

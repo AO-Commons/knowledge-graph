@@ -192,3 +192,20 @@ class TestIntake:
         assert payload["text_coverage"] == "full-text"
         assert payload["resource_type"] == "written-work"
         assert article.snapshot_path(payload["id"], directory=tmp_path).exists()
+
+    def test_the_record_it_builds_is_one_the_model_accepts(self, monkeypatch, tmp_path):
+        """The payload was asserted field by field and never constructed, so
+        `artifact_type: written-work` — a value F1's vocabulary does not have —
+        sat in it until a contributor filed a link that was not a DOI and got a
+        traceback instead of a record."""
+        from ao_commons_kg.models import Resource
+
+        from add_resource import written_work_record
+        monkeypatch.setattr(article, "SNAPSHOTS", tmp_path)
+        piece = article.Article(url="https://lab.org/p", title="A post",
+                                retrieved_on="2026-10-01", sha256="x",
+                                sections=[Section("other", "—", LONG)])
+        payload, _ = written_work_record({"url": "https://lab.org/p"}, {"why": "fits"},
+                                         topics=[], author="a", issue=1,
+                                         read=lambda url: piece)
+        Resource(**{k: v for k, v in payload.items() if v is not None})

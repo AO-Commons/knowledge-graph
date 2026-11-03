@@ -1,0 +1,45 @@
+id: resource:web:building-ai-for-the-democratic-matrix-a-technical-research-agenda-for-normative-competence-and-normative-institutions
+resource_type: written-work
+title: 'Building AI for the Democratic Matrix: A Technical Research Agenda for Normative Competence
+  and Normative Institutions'
+description: A democracy is held up by the everyday choices people make to classify and sanction
+  each other's behaviour, so agents acting in economic life bear on whether it holds. Argues
+  that such agents need normative competence — reading and anticipating norms at the moment
+  of action — and proposes Model Specification Institutions, democratically selected bodies
+  that would tell agents what the norms are.
+authors:
+- Gillian K. Hadfield
+- Rakshit Trivedi
+- Dylan Hadfield-Menell
+organizations:
+- Knight First Amendment Institute at Columbia University
+published_at: '2026-03-03'
+abstract: Democracies are messy. They are constituted not just (or even primarily) by rules
+  and principles written into laws and constitutions, nor by the formal organizational structure
+  of organizations and governments. They are not comprised merely of articulated rights and
+  duties, or even values. Democracies function as complex adaptive systems characterized by
+  dynamic interactions between multiple independent actors. They are “dancing landscapes”
+  as described by Kauffman (1993)—constituted by the concurrent adaptation of numerous independent
+  agents responding to and anticipating behavioral patterns of others in their environment.
+  Democracies embrace complexity rather than imposing order through authoritarian means, rejecting
+  the order achieved by dictators and tyrannical rule in favor of the living order achieved
+  by actors who, in theory and in aspiration, are free to make a wide variety of choices (including
+  choosing or rejecting leaders, laws, and legal outcomes) without fear of retribution. Democracies
+  are performed and experienced, residing in the myriad interactions that make up an ordinary
+  life. The institutions of democracy, such as independent courts, do not only function to
+  inve
+url: https://knightcolumbia.org/content/building-ai-for-the-democratic-matrix-a-technical-research-agenda-for-normative-competence-and-normative-institutions-1
+taxonomy_topics:
+- '4'
+- '12'
+facets:
+  artifact_type: essay
+review_status: unreviewed
+text_coverage: full-text
+source_provenance: 'Admitted by hand on 2026-11-03 from the reading list behind the foundational
+  paper, under human involvement and legitimacy. No DOI and no arXiv id: published by the
+  Knight First Amendment Institute at Columbia University as 26-2 Knight First Amend. Inst.,
+  and not resolvable against OpenAlex on that date under the title or the authors. Authors,
+  date and publisher read off the publisher''s own page, which is also what the snapshot holds.
+  Topic tags are a first pass and unreviewed.'
+ingested_at: '2026-11-03'

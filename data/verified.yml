@@ -111,6 +111,7 @@ streams:
       - resource:ref:parasuraman-sheridan-wickens-2000-levels-of-automation  # Parasuraman, Sheridan & Wickens (2000)
       - resource:arxiv:2608.23642                 # Mitchell, Ghosh & Passi (2026), AI Agents Push Humans Out of the Loop
       - resource:ref:kellogg-valentine-christin-2020-algorithms-at-work      # Kellogg, Valentine & Christin (2020), Algorithms at Work
+      - resource:web:building-ai-for-the-democratic-matrix-a-technical-research-agenda-for-normative-competence-and-normative-institutions  # Hadfield, Trivedi & Hadfield-Menell (2026), Building AI for the Democratic Matrix
 
 # What aocommons.org/build already lists, and therefore what AO Commons has
 # already published as a deployment, a tool or an evaluation suite. The build
@@ -127,6 +128,8 @@ build_page:
     - resource:platform:andon-fm                # Andon FM
     - resource:platform:andon-market            # Andon Market
     - resource:platform:aria-scaling-trust-arena # Scaling Trust Arena
+    - resource:platform:clawbank-business-bench # ClawBank Business Bench
+    - resource:platform:founder-bench           # Founder Bench
     - resource:platform:pion                    # Pion
     - resource:platform:project-vend            # Project Vend
     - resource:platform:raft                    # Raft
@@ -145,19 +148,6 @@ build_page:
     - resource:tool:open-multi-agent-oma        # open-multi-agent (OMA)
     - resource:tool:paperclip                   # Paperclip
 
-# On the list, and not in the corpus. Kept here rather than dropped, because
-# a reading list with a silent hole is worse than one that names it.
-not_held:
-  - cite: Hadfield, Trivedi & Hadfield-Menell (2026), Building AI for the Democratic Matrix
-    stream: Human involvement and legitimacy
-    why: >-
-      No DOI, arXiv id or OpenAlex record found on 2026-11-03, under that title
-      or under those authors. Needs a link from whoever put it on the list
-      before it can be filed.
-
-  - cite: ClawBank Business Bench, and Founder Bench
-    stream: Listed on the build page
-    why: >-
-      Both are listed on aocommons.org/build, which was last synced from the
-      branch `add-business-benches`. Neither record is on the main branch yet,
-      so the site cannot show them. They join this set when that branch merges.
+# On the list, and not in the corpus. Empty, and kept so the next list that
+# arrives with a hole in it has somewhere to say so rather than losing it.
+not_held: []

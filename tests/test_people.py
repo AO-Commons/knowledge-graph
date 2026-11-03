@@ -120,6 +120,21 @@ class TestSamePerson:
         assert same_person("Wolfram Barfuß", "Wolfram Barfuss")
         assert fold("Barfuß") == fold("Barfuss")
 
+    def test_the_other_undecomposable_letters_fold_too(self):
+        """ß was handled and the rest of its class was not, so the same bug
+        came back on the Codex and PaLM bylines: OpenAlex gave "Łukasz Kaiser"
+        and "Orhan Fırat" where arXiv gave the ASCII spellings, and the
+        affiliations keyed to them joined nobody. A stroke and a dotless i
+        carry no combining mark for NFKD to strip."""
+        for accented, plain in [("Łukasz Kaiser", "Lukasz Kaiser"),
+                                ("Orhan Fırat", "Orhan Firat"),
+                                ("Søren Hauberg", "Soren Hauberg"),
+                                ("Anders Ødegård", "Anders Odegard")]:
+            assert same_person(accented, plain), f"{accented} != {plain}"
+
+    def test_folding_a_letter_away_does_not_merge_two_people(self):
+        assert not same_person("Łukasz Kaiser", "Lukasz Kaplan")
+
     def test_two_people_sharing_a_surname_stay_apart(self):
         """The case that started this: OpenAlex credited "Bin Hu" for a paper
         by Botao 'Amber' Hu. Same surname, different person, and nothing in the
