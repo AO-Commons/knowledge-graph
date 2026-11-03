@@ -1,6 +1,6 @@
 """The AO Commons knowledge graph."""
 
-CONTACT = "anke@daostar.org"
+CONTACT = "hello@aocommons.org"
 """Who to reach about this project, sent as the User-Agent on every outbound
 request.
 
