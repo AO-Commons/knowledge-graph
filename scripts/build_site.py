@@ -630,7 +630,7 @@ function openRecord(id) {
 
     <div class="links">
       ${r.url ? `<a class="ghost" href="${esc(r.url)}" target="_blank" rel="noopener">Open the source ↗</a>` : ''}
-      ${readable(r) ? `<a class="ghost" id="read" href="#">Ask for this to be read</a>` : ''}
+      ${readable(r) ? `<a class="ghost" id="read" href="#">Request claim extraction</a>` : ''}
       <a class="ghost" id="fix" href="#">Report an error</a>
     </div>`;
 

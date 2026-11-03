@@ -1,6 +1,7 @@
 # A reading request becomes drafted claims in a pull request.
 #
-#   record page  →  prefilled issue  →  this workflow  →  pull request  →  verdicts
+#   record page  →  prefilled issue  →  a maintainer approves  →  this workflow
+#                 →  pull request  →  verdicts
 #
 # A pull request rather than a commit to main, which is the opposite of what
 # `new-resource.yml` does, and the difference is what the file changes. A new
@@ -32,7 +33,13 @@ concurrency:
 
 jobs:
   read:
-    if: contains(github.event.issue.labels.*.name, 'reading')
+    # Both labels. `reading` says what the issue is; `approved` says a
+    # maintainer has looked at who asked. The request form is public and a
+    # reading is a model call over a whole paper, so arriving is not the same
+    # as being run — somebody says go, by adding the second label.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'reading')
+      && contains(github.event.issue.labels.*.name, 'approved')
     runs-on: ubuntu-latest
     # The reader's key lives on this environment, and the environment only
     # admits `main`. The same one the scope scan answers to.

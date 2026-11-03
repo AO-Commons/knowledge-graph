@@ -1,5 +1,5 @@
-name: Ask for a paper to be read
-description: Draft the claims a paper makes, each with the sentence it came from.
+name: Request claim extraction
+description: Ask for the claims a paper makes to be drafted, each with the sentence it came from.
 title: "[Read] "
 labels: ["reading"]
 body:
@@ -7,16 +7,13 @@ body:
     attributes:
       value: |
         A record in this library starts as a paper with a title and an abstract.
-        Reading it means drafting the claims it makes — what it found, what it
-        argues, what it says is still open — each carried by a sentence quoted
-        from the paper itself.
-
-        A bot does the drafting and opens a pull request. Nothing it writes has
-        been checked by a person; the pull request is where that happens.
+        Extracting its claims means drafting what it found, what it argues and
+        what it says is still open — each carried by a sentence quoted from the
+        paper itself and checked against it word for word.
 
         Start this from a record's page on the
-        [site](https://ao-commons.github.io/knowledge-graph/), which fills in
-        the id for you.
+        [site](https://ao-commons.github.io/knowledge-graph/), which fills in the
+        id for you.
 
   - type: input
     id: record
@@ -40,11 +37,22 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Only papers in the verified set can be read this way.** That set is the
-        reading list behind the AO Commons research agenda, and it is what the
-        site opens on. A paper outside it gets told so, which is also the request
-        it becomes: it has to go on the list first.
+        ### What happens next
 
-        **A paper that has already been read is left alone.** Its claims carry
-        verdicts, and drafting them again would throw those away. To correct one,
-        use *Report an error* on the record instead.
+        A maintainer reads the request and approves it. Extraction is a model
+        call over a whole paper, so requests are run deliberately rather than on
+        arrival — which also means nothing is spent before somebody has looked.
+
+        Once approved, a bot drafts the claims and opens a pull request. Nothing
+        it writes has been checked by a person; the pull request is where that
+        happens.
+
+        Two things get a request turned down, and both are worth knowing before
+        you ask:
+
+        - **The paper is not in the verified set.** That set is the reading list
+          behind the AO Commons research agenda, and it is what the site opens
+          on. Getting the paper onto it is the step before this one.
+        - **The paper has already been read.** Its claims carry verdicts, and
+          drafting them again would throw those away. To correct one, use
+          *Report an error* on the record instead.
