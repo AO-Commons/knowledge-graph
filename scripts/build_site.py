@@ -134,7 +134,6 @@ def payload() -> dict:
 
     return {
         "built": __import__("datetime").date.today().isoformat(),
-        "orgs": organizations(resources),
         "asked": asked,
         "records": sorted(records, key=lambda r: (bool(r["claims"]), r["year"] or "0000"),
                           reverse=True),
@@ -151,33 +150,6 @@ def payload() -> dict:
             "topics": len(topics),
         },
     }
-
-
-def organizations(resources) -> list[dict]:
-    """The organizations the corpus names, and what of theirs it holds.
-
-    Read from `data/organizations/` rather than from the strings on records,
-    because that directory is where the judgments live — what kind of
-    organization it is, and what it does in this field.
-    """
-    folder = REPO / "data" / "organizations"
-    if not folder.exists():
-        return []
-    out = []
-    for path in sorted(folder.glob("*.yml")):
-        org = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        names = {org.get("name"), *(org.get("aliases") or [])} - {None}
-        held = [r.id for r in resources if names & set(r.organizations or [])]
-        if not held:
-            continue
-        out.append({
-            "name": org["name"],
-            "kind": (org.get("organization_type") or "").replace("-", " "),
-            "where": ", ".join(x for x in (org.get("city"), org.get("country")) if x),
-            "site": org.get("website") or "",
-            "records": held,
-        })
-    return sorted(out, key=lambda o: (-len(o["records"]), o["name"]))
 
 
 def clip(text: str, limit: int) -> str:
@@ -305,17 +277,6 @@ a{color:inherit;text-decoration:none}
 .notice a:hover{border-color:var(--green)}
 .notice .tag{vertical-align:1px}
 .notice b{color:var(--ink);font-weight:600}
-/* ---- sections, set like the app's primary nav ---- */
-.tabs{border-bottom:1px solid var(--line);margin-top:clamp(28px,3vw,44px)}
-.tabs .wrap{display:flex;gap:clamp(18px,2.4vw,36px);overflow-x:auto}
-.tab{font:inherit;font-family:var(--serif);font-size:16px;font-weight:500;
-     letter-spacing:-.01em;padding:14px 0;border:0;background:transparent;color:var(--ink-2);
-     cursor:pointer;white-space:nowrap;border-bottom:1.5px solid transparent;margin-bottom:-1px;
-     transition:border-color .18s,color .18s}
-.tab:hover{color:var(--ink)}
-.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink)}
-.tab b{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-3);margin-left:7px}
-
 .bar{position:sticky;top:0;z-index:5;padding-block:14px;border-bottom:1px solid var(--line);
      background:#f5f8fbd9;backdrop-filter:blur(10px)}
 .bar .wrap{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap}
@@ -447,8 +408,6 @@ dialog::backdrop{background:#0b1b2a7a}
   </div>
 </section>
 
-<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
-
 <div class="bar">
   <div class="wrap">
     <div class="chips" id="view" role="group" aria-label="Which records to show"></div>
@@ -500,7 +459,7 @@ let only = true;
 // everything meant landing on a list whose first screen answered no question.
 const KIND_ORDER = ['Paper', 'Deployment', 'Benchmark'];
 const DEFAULT_KIND = 'Paper';
-let tab = 'records', kind = DEFAULT_KIND, q = '';
+let kind = DEFAULT_KIND, q = '';
 
 const VERIFIED = new Set(D.records.filter(r => r.verified).map(r => r.id));
 const shown = () => only ? D.records.filter(r => r.verified) : D.records;
@@ -516,50 +475,6 @@ $('#view').addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
   only = !!b.dataset.v; kind = DEFAULT_KIND;
   [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', c === b));
-  tablist(); kindlist(); draw();
-});
-
-// Authors of the records on screen. Across the whole graph a name that appears
-// once is noise — most of the 2,000-odd do — so that view keeps the build's
-// list of authors with two or more records. In the verified set every author
-// wrote something somebody stood behind, so every one of them is listed.
-function authors() {
-  if (!only) return Object.entries(D.people).map(([name, ids]) => ({ name, ids }));
-  const m = new Map();
-  for (const r of shown()) for (const a of r.authors)
-    (m.get(a) || m.set(a, []).get(a)).push(r.id);
-  return [...m].map(([name, ids]) => ({ name, ids }));
-}
-
-const orgsShown = () => only
-  ? D.orgs.map(o => ({ ...o, records: o.records.filter(id => VERIFIED.has(id)) }))
-          .filter(o => o.records.length)
-  : D.orgs;
-
-// A question is shown when a record on screen raises it. Its paper list stays
-// whole, because how far a question reaches is the thing worth knowing.
-const askedShown = () => Object.entries(D.asked).map(([id, x]) => ({ id, ...x }))
-  .filter(x => !only || x.papers.some(p => VERIFIED.has(p)));
-
-const TABS = [
-  ['records', 'Records',        () => shown().length],
-  ['people',  'Authors',        () => authors().length],
-  ['orgs',    'Organizations',  () => orgsShown().length],
-  ['asked',   'Open questions', () => askedShown().length],
-];
-function tablist() {
-  $('#tabs').innerHTML = TABS.map(([k, label, n]) =>
-    `<button class="tab" data-t="${k}" role="tab" aria-selected="${k === tab}">${label}<b>${n()}</b></button>`
-  ).join('');
-}
-$('#tabs').addEventListener('click', e => {
-  const b = e.target.closest('.tab'); if (!b) return;
-  tab = b.dataset.t; q = ''; kind = DEFAULT_KIND; $('#q').value = '';
-  [...$('#tabs').children].forEach(c => c.setAttribute('aria-selected', c === b));
-  $('#q').placeholder = { records: 'Search titles, authors, claims…',
-    people: 'Search authors…', orgs: 'Search organizations…',
-    asked: 'Search open questions…' }[tab];
-  $('#kindPick').hidden = tab !== 'records';
   kindlist(); draw();
 });
 
@@ -586,26 +501,7 @@ const hay = r => (r._hay ??= [
 const matches = r => (!kind || r.kind === kind) &&
   (!q || q.split(/\s+/).every(t => hay(r).includes(t)));
 
-const hits = () => ({
-  records: () => shown().filter(matches),
-  people: () => authors().filter(p => !q || p.name.toLowerCase().includes(q))
-    .sort((a, b) => b.ids.length - a.ids.length || a.name.localeCompare(b.name)),
-  orgs: () => orgsShown().filter(o => !q ||
-    (o.name + ' ' + o.where + ' ' + o.kind).toLowerCase().includes(q)),
-  asked: () => askedShown().filter(x => !q || x.text.toLowerCase().includes(q))
-    .sort((a, b) => b.papers.length - a.papers.length),
-}[tab]());
-
-const NOUN = { records: 'records', people: 'authors', orgs: 'organizations', asked: 'open questions' };
-// What a tab lists, where the label alone does not say.
-const ABOUT = () => ({
-  people: only ? 'Everyone who wrote something in the verified set.'
-               : 'Authors with two or more records.',
-  orgs: 'Organizations named on these records.',
-  asked: only
-    ? 'Questions the verified papers say are still open, grouped where papers ask the same thing.'
-    : 'Questions papers say are still unanswered, grouped where papers ask the same thing.',
-}[tab]);
+const hits = () => shown().filter(matches);
 // Tooltips for the tags, in the words of the definitions in models.py.
 const CLAIM_KIND = {
   evidence: 'Something the work reports as observed or measured.',
@@ -632,14 +528,10 @@ const tip = (label, text, cls) => `<span class="tag${cls ? ' ' + cls : ''}"${
 
 function draw() {
   const rows = hits();
-  const total = { records: shown().length, people: authors().length,
-                  orgs: orgsShown().length, asked: askedShown().length }[tab];
-  const about = ABOUT();
-  $('#count').textContent = (rows.length === total
-    ? `${rows.length} ${NOUN[tab]}` : `${rows.length} of ${total} ${NOUN[tab]}`)
-    + (about ? ` · ${about}` : '');
-  const render = { records: card, people: personCard, orgs: orgCard, asked: askedCard }[tab];
-  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(render).join('') : empty();
+  const total = shown().length;
+  $('#count').textContent = rows.length === total
+    ? `${rows.length} records` : `${rows.length} of ${total} records`;
+  $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(card).join('') : empty();
   const more = $('#more'); if (more) more.onclick = e => { e.preventDefault(); showAll(); };
   const miss = $('#missing'); if (miss) miss.onclick = e => { e.preventDefault(); suggest(); };
 }
@@ -648,7 +540,7 @@ function draw() {
 // hit in the full graph is a view problem, and saying "no matches" to that is
 // how a reader concludes the library does not have the paper it has.
 function empty() {
-  const elsewhere = only && tab === 'records'
+  const elsewhere = only
     ? D.records.filter(r => !r.verified && matches(r)).length : 0;
   if (elsewhere) return `<p class="none">Nothing in the verified set.
     <b>${elsewhere}</b> record${elsewhere === 1 ? '' : 's'} elsewhere in the graph
@@ -661,45 +553,10 @@ function empty() {
 function showAll() {
   only = false;
   [...$('#view').children].forEach(c => c.setAttribute('aria-pressed', !c.dataset.v));
-  tablist(); kindlist(); draw();
+  kindlist(); draw();
 }
 
 const title = id => (D.records.find(r => r.id === id) || {}).title || id;
-
-function personCard(p) {
-  return `<div class="row static">
-    <h3>${esc(p.name)}</h3>
-    <div class="meta">${p.ids.map(i =>
-      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
-  </div>`;
-}
-
-function orgCard(o) {
-  return `<div class="row static">
-    <h3>${esc(o.name)}</h3>
-    <div class="meta">
-      ${o.kind ? `<span class="tag">${esc(o.kind)}</span>` : ''}
-      ${o.where ? `<span>${esc(o.where)}</span>` : ''}
-      <span>${o.records.length} record${o.records.length === 1 ? '' : 's'}</span>
-    </div>
-    <div class="meta">${o.records.slice(0, 6).map(i =>
-      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
-  </div>`;
-}
-
-function askedCard(x) {
-  return `<div class="row static">
-    <h3>${esc(x.text)}</h3>
-    <div class="meta">
-      <span class="tag ${x.papers.length > 1 ? 'has' : ''}">${x.papers.length} paper${
-        x.papers.length === 1 ? '' : 's'}</span>
-      <span>raised in ${x.occurrences} claim${x.occurrences === 1 ? '' : 's'}</span>
-    </div>
-    <div class="meta">${x.papers.map(i =>
-      `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
-    ${x.note ? `<p class="why">${esc(x.note)}</p>` : ''}
-  </div>`;
-}
 
 function card(r) {
   const who = r.authors.length
@@ -798,7 +655,7 @@ $('#fixAny').onclick = e => { e.preventDefault(); issue('request-adjustment.yml'
 $('#sheet').querySelector('.x').onclick = () => $('#sheet').close();
 
 $('#q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); draw(); });
-tablist(); kindlist();
+kindlist();
 addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
 });

@@ -148,15 +148,13 @@ class TestTheNamesTheScriptDefines:
         assert "function openRecord(" in PAGE
 
 
-class TestTheTabs:
-    def test_there_are_four_and_each_has_a_count(self):
-        assert PAGE.count("['records', 'Records'") == 1
-        for key in ("'people'", "'orgs'", "'asked'"):
-            assert key in PAGE
-
-    def test_the_kind_filter_only_applies_to_records(self):
-        """Filtering people by "Benchmark" is a control that does nothing."""
-        assert "$('#kindPick').hidden = tab !== 'records'" in PAGE
+class TestTheList:
+    def test_the_page_lists_records_and_nothing_else(self):
+        """Authors, organizations and open questions were tabs here until the
+        signed-in app took over browsing them. A tab strip naming one thing is
+        a control that does nothing, so it went with them."""
+        for gone in ("#tabs", "personCard", "orgCard", "askedCard", "D.orgs"):
+            assert gone not in PAGE, f"{gone} outlived its tab"
 
     def test_the_kinds_lead_with_the_three_people_ask_for(self):
         assert "const KIND_ORDER = ['Paper', 'Deployment', 'Benchmark']" in PAGE
