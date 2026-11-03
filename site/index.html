@@ -1,8 +1,8 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Knowledge Graph — AO Commons</title>
-<meta name="description" content="A maintained map of research on autonomous organizations: organizations in which machine agents hold operational or decision authority.">
+<title>Knowledge Graph | AO Commons</title>
+<meta name="description" content="A collection of research on autonomous organizations, where AI agents hold operational or decision-making authority. In preview: coverage is incomplete and most claims have not been checked by a person.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
@@ -116,14 +116,18 @@ footer a{color:var(--green)}
     <div class="top">
       <div class="brand"><b>AO Commons</b><span>Knowledge Graph</span></div>
       <div class="acts">
-        <a class="add" id="suggest" href="#">Suggest something</a>
+        <a class="add" id="suggest" href="#">Suggest an addition</a>
         <a class="ghost" id="fixAny" href="#">Report an error</a>
       </div>
     </div>
-    <p class="notice"><b>Preview, and incomplete.</b> Research on <b>autonomous
-      organizations</b> — where machine agents hold operational or decision authority.
-      Every claim carries the sentence it came from, so you can check it without the
-      paper. Anything missing is missing because nobody has added it yet.</p>
+    <p class="notice"><b>Preview.</b> Research on <b>autonomous organizations</b>:
+      organizations in which AI agents hold operational or decision-making authority.
+      AO Commons is collecting it so researchers can see what has been shown and what
+      is still open.</p>
+    <p class="notice">Coverage is incomplete. For some papers we list the claims they
+      make, each with the sentence it came from. A model drafts these claims, and most
+      have not yet been checked by a person. If a paper you expect is missing, it most
+      likely hasn't been added yet.</p>
     <div class="figs" id="figs"></div>
   </div>
 </header>
@@ -132,7 +136,7 @@ footer a{color:var(--green)}
 
 <div class="bar">
   <div class="wrap">
-    <input id="q" type="search" placeholder="Search…" autocomplete="off" aria-label="Search">
+    <input id="q" type="search" placeholder="Search titles, authors, claims…" autocomplete="off" aria-label="Search">
     <div class="chips" id="chips"></div>
   </div>
 </div>
@@ -143,9 +147,10 @@ footer a{color:var(--green)}
 </main>
 
 <footer class="wrap">
-  <p>Everything is a file in a
-    <a href="https://github.com/AO-Commons/knowledge-graph">public git repository</a> —
-    readable, diffable and citable at a fixed version.</p>
+  <p>All data and code are in a
+    <a href="https://github.com/AO-Commons/knowledge-graph">public GitHub repository</a>.
+    To suggest research, correct a record, or help with the code, see the
+    <a href="https://github.com/AO-Commons/knowledge-graph/blob/main/CONTRIBUTING.md">contributing guide</a>.</p>
   <p id="built"></p>
 </footer>
 
@@ -160,18 +165,18 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 $('#figs').innerHTML = [
-  [D.counts.records,'records'], [D.counts.claims,'claims'],
-  [D.counts.read,'papers read'], [D.counts.reviewed,'checked by a person'],
+  [D.counts.records,'records'], [D.counts.read,'papers with claims'],
+  [D.counts.claims,'claims'], [D.counts.reviewed,'claims checked by a person'],
   [D.counts.questions,'open questions'],
 ].map(([n,l]) => `<span><b>${n}</b>${l}</span>`).join('');
-$('#built').textContent = `Built ${D.built}.`;
+$('#built').textContent = `Last updated ${D.built}.`;
 
 const KINDS = [...new Set(D.records.map(r => r.kind))].sort();
 let tab = 'records', kind = '', q = '';
 
 const TABS = [
   ['records', 'Records',       () => D.counts.records],
-  ['people',  'People',        () => Object.keys(D.people).length],
+  ['people',  'Authors',       () => Object.keys(D.people).length],
   ['orgs',    'Organizations', () => D.orgs.length],
   ['asked',   'Open questions',() => Object.keys(D.asked).length],
 ];
@@ -182,8 +187,8 @@ $('#tabs').addEventListener('click', e => {
   const b = e.target.closest('.tab'); if (!b) return;
   tab = b.dataset.t; q = ''; kind = ''; $('#q').value = '';
   [...$('#tabs').children].forEach(c => c.setAttribute('aria-selected', c === b));
-  $('#q').placeholder = { records: 'Search titles, authors, organizations, claims…',
-    people: 'Search people…', orgs: 'Search organizations…',
+  $('#q').placeholder = { records: 'Search titles, authors, claims…',
+    people: 'Search authors…', orgs: 'Search organizations…',
     asked: 'Search open questions…' }[tab];
   $('#chips').hidden = tab !== 'records';
   draw();
@@ -223,19 +228,47 @@ const hits = () => {
   return all[tab]();
 };
 
-const NOUN = { records: 'records', people: 'people', orgs: 'organizations', asked: 'open questions' };
+const NOUN = { records: 'records', people: 'authors', orgs: 'organizations', asked: 'open questions' };
+// What a tab lists, where the label alone does not say.
+const ABOUT = {
+  people: 'Authors with two or more records.',
+  orgs: 'Organizations named on records.',
+  asked: 'Questions papers say are still unanswered, grouped where papers ask the same thing.',
+};
+// Tooltips for the tags, in the words of the definitions in models.py.
+const CLAIM_KIND = {
+  evidence: 'Something the work reports as observed or measured.',
+  position: 'An argument or recommendation, made without evidence in this work.',
+  protocol: 'A technique, architecture, or mechanism the work introduces or uses.',
+  definition: 'A term the work introduces or defines.',
+  gap: 'A question the work says is still open.',
+  limitation: 'A limit the authors put on their own result.',
+  background: 'A statement about the field or prior work, not this work\'s own contribution.',
+};
+const ROLE = {
+  primitive: 'Where the field\'s vocabulary comes from.',
+  anchor: 'A deployment or result the field keeps returning to.',
+  benchmark: 'What claims are measured against.',
+  method: 'A technique or instrument others use.',
+  law: 'Legal and regulatory scholarship bearing on the field.',
+  survey: 'Brings a field together rather than adding a result.',
+  context: 'Adjacent work the field borrows from.',
+};
+const RELATED = 'Not about autonomous organizations directly, but relevant to them (for example, economics or law).';
+const tip = (label, text) => `<span class="tag"${text ? ` title="${esc(text)}"` : ''}>${esc(label)}</span>`;
 
 function draw() {
   const rows = hits();
   const total = { records: D.records.length, people: Object.keys(D.people).length,
                   orgs: D.orgs.length, asked: Object.keys(D.asked).length }[tab];
-  $('#count').textContent = rows.length === total
-    ? `${rows.length} ${NOUN[tab]}` : `${rows.length} of ${total} ${NOUN[tab]}`;
+  $('#count').textContent = (rows.length === total
+    ? `${rows.length} ${NOUN[tab]}` : `${rows.length} of ${total} ${NOUN[tab]}`)
+    + (ABOUT[tab] ? ` · ${ABOUT[tab]}` : '');
   const render = { records: card, people: personCard, orgs: orgCard, asked: askedCard }[tab];
   $('#list').innerHTML = rows.length ? rows.slice(0, 400).map(render).join('')
-    : `<p class="none">Nothing matches that. The library is deliberately narrow, and it is
-       also incomplete — if something you expected is missing,
-       <a href="#" id="missing">tell us about it</a>.</p>`;
+    : `<p class="none">No matches. The collection is incomplete, and it only covers work
+       about organizations where AI agents hold real authority. If something you expected
+       is missing, <a href="#" id="missing">suggest it</a>.</p>`;
   if (!rows.length) $('#missing').onclick = e => { e.preventDefault(); suggest(); };
 }
 
@@ -268,7 +301,7 @@ function askedCard(x) {
     <div class="meta">
       <span class="tag ${x.papers.length > 1 ? 'has' : ''}">${x.papers.length} paper${
         x.papers.length === 1 ? '' : 's'}</span>
-      <span>${x.occurrences} claim${x.occurrences === 1 ? '' : 's'} ask it</span>
+      <span>raised in ${x.occurrences} claim${x.occurrences === 1 ? '' : 's'}</span>
     </div>
     <div class="meta">${x.papers.map(i =>
       `<a href="#" data-go="${esc(i)}">${esc(title(i))}</a>`).join('<span>·</span>')}</div>
@@ -285,8 +318,8 @@ function card(r) {
       ${who ? `<span>${esc(who)}</span>` : ''}${r.year ? `<span>${r.year}</span>` : ''}
       <span class="tag">${esc(r.kind)}</span>
       ${r.claims.length ? `<span class="tag has">${r.claims.length} claims</span>` : ''}
-      ${r.background ? `<span class="tag bg">background</span>` : ''}
-      ${r.role ? `<span class="tag">${esc(r.role)}</span>` : ''}
+      ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
+      ${r.role ? tip(r.role, ROLE[r.role]) : ''}
     </div></button>`;
 }
 
@@ -310,41 +343,43 @@ function openRecord(id) {
     <h2>${esc(r.title)}</h2>
     <div class="meta">
       ${r.year ? `<span>${r.year}</span>` : ''}<span class="tag">${esc(r.kind)}</span>
-      ${r.background ? `<span class="tag bg">section 15 background</span>` : ''}
-      ${r.role ? `<span class="tag">${esc(r.role)}</span>` : ''}
+      ${r.background ? `<span class="tag bg" title="${esc(RELATED)}">related field</span>` : ''}
+      ${r.role ? tip(r.role, ROLE[r.role]) : ''}
       <span>${esc(r.id)}</span>
     </div>
     ${r.authors.length ? `<p class="byline">${esc(r.authors.join(', '))}</p>` : ''}
     ${r.orgs.length ? `<p class="byline">${esc(r.orgs.join(' · '))}</p>` : ''}
     ${r.blurb ? `<p class="blurb">${esc(r.blurb)}</p>` : ''}
 
-    ${topics.length ? sect('Filed under', topics.map(t =>
+    ${topics.length ? sect('Topics', topics.map(t =>
       `<span class="tag">${esc(t)}</span>`).join(' ')) : ''}
 
-    ${r.claims.length ? sect(`What it says — ${r.claims.length} claims, each with its source sentence`,
+    ${r.claims.length ? sect(`Claims (${r.claims.length})`,
+      `<p class="blurb">Drafted by a model, each with the sentence it was taken from.
+        Only claims marked "checked by a person" have been compared with the source.</p>` +
       r.claims.map(c => `<div class="claim">
         <p>${esc(c.text)}</p>
         <q>${esc(c.quote)}</q>
-        <div class="meta"><span class="tag">${esc(c.kind)}</span>
-          ${c.own ? '' : `<span class="tag">reports ${esc(c.whose || 'another author')}</span>`}
+        <div class="meta">${tip(c.kind, CLAIM_KIND[c.kind])}
+          ${c.own ? '' : `<span class="tag">cites ${esc(c.whose || 'another author')}</span>`}
           ${c.reviewed ? '<span class="tag has">checked by a person</span>' : ''}</div>
-      </div>`).join('')) : sect('What it says',
-        `<p class="blurb">Held, not yet read. ${r.coverage === 'none'
-          ? 'There is no full text to read it from — it is pointed at rather than ingested.'
-          : 'Nobody has drawn claims out of it.'}</p>`)}
+      </div>`).join('')) : sect('Claims',
+        `<p class="blurb">No claims yet. ${r.coverage === 'none'
+          ? 'We don\'t have the full text, so claims can\'t be drafted from it.'
+          : 'Claims haven\'t been drafted from this record yet.'}</p>`)}
 
-    ${asks.length ? sect('Open questions it bears on',
+    ${asks.length ? sect('Open questions it raises',
       asks.map(t => `<p class="blurb">${esc(t)}</p>`).join('')) : ''}
 
     ${also.length ? sect('Also by these authors', also.map(({ a, x }) => {
       const o = D.records.find(z => z.id === x);
       return o ? `<p class="blurb"><a href="#" data-go="${esc(o.id)}">${esc(o.title)}</a>
-        <span class="meta"> — ${esc(a)}</span></p>` : '';
+        <span class="meta"> · ${esc(a)}</span></p>` : '';
     }).join('')) : ''}
 
     <div class="links">
       ${r.url ? `<a class="ghost" href="${esc(r.url)}" target="_blank" rel="noopener">Open the source ↗</a>` : ''}
-      <a class="ghost" id="fix" href="#">Something here is wrong</a>
+      <a class="ghost" id="fix" href="#">Report an error</a>
     </div>`;
 
   $('#fix').onclick = e => { e.preventDefault(); correct(r); };

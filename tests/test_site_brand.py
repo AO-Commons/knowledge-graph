@@ -115,7 +115,7 @@ class TestWhatTheReaderCanDo:
         assert "esc(c.quote)" in PAGE
 
     def test_a_held_but_unread_record_says_so(self):
-        assert "Held, not yet read" in PAGE
+        assert "No claims yet." in PAGE
 
 
 class TestTheNamesTheScriptDefines:
@@ -160,10 +160,10 @@ class TestItSaysWhatItIs:
     opens with what a reader needs to know to judge what they are looking at."""
 
     def test_it_says_it_is_a_preview_and_incomplete(self):
-        assert "Preview, and incomplete." in PAGE
+        assert "<b>Preview.</b>" in PAGE and "Coverage is incomplete." in PAGE
 
     def test_it_says_why_things_are_missing_rather_than_implying_a_judgment(self):
-        assert "missing because nobody has added it yet" in PAGE
+        assert "hasn't been added yet" in PAGE
 
     def test_both_doors_are_reachable_before_opening_a_record(self):
         assert 'id="suggest"' in PAGE and 'id="fixAny"' in PAGE
