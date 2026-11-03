@@ -774,10 +774,14 @@ def cmd_grow(args) -> int:
         judge = anthropic_judge(args.model, titles=titles)
 
     selection = select(candidates, judge=judge, metadata=metadata,
-                       base=args.threshold, budget=args.budget)
+                       base=args.threshold, budget=args.budget, held=resources)
     print(selection.summary())
     for candidate, verdict in selection.rejected:
         print(f"  refused {candidate.key}: {verdict.reasoning[:110]}")
+    # Not a refusal and not an admission. Printed so a week that looks quiet
+    # can be told from a week that was spent rediscovering the corpus.
+    for candidate, record, why in selection.duplicates:
+        print(f"  already held {candidate.key}: {record} — {why}")
     for candidate in selection.unresolvable:
         print(f"  unresolvable {candidate.key}: no title from OpenAlex, so there "
               "was nothing to judge — a data problem, not a scope decision")

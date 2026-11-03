@@ -57,6 +57,8 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 
+from .duplicates import likely_same_work
+
 BASE_THRESHOLD = 2
 """Citations from held papers needed to admit at generation 1."""
 
@@ -196,6 +198,15 @@ class Selection:
     it again later would mean paying for the model call twice and possibly
     getting a different answer than the one the record was admitted on."""
     rejected: list[tuple[Candidate, ScopeVerdict]] = field(default_factory=list)
+    duplicates: list[tuple[Candidate, str, str]] = field(default_factory=list)
+    """Already in the corpus under another identifier, with the record it
+    matches and why.
+
+    Kept apart from refusals for the same reason `unresolvable` is: a refusal
+    says a work does not belong, and this says it is already here. Filing the
+    second as the first pays a model call to rediscover something the corpus
+    knows, and then files the answer where it will be rediscovered again next
+    week. One candidate had been refused eight times before this existed."""
     below_threshold: list[Candidate] = field(default_factory=list)
     over_budget: list[Candidate] = field(default_factory=list)
 
@@ -204,6 +215,8 @@ class Selection:
                  f"{len(self.rejected)} out of scope",
                  f"{len(self.below_threshold)} below threshold",
                  f"{len(self.over_budget)} deferred to the next run"]
+        if self.duplicates:
+            parts.append(f"{len(self.duplicates)} already held under another identifier")
         if self.unresolvable:
             parts.append(f"{len(self.unresolvable)} unresolvable")
         return ", ".join(parts)
@@ -270,6 +283,7 @@ def select(
     metadata: Callable[[Candidate], dict] | None = None,
     base: int = BASE_THRESHOLD,
     budget: int = DEFAULT_BUDGET,
+    held: list | None = None,
 ) -> Selection:
     """Apply the threshold, the scope scan, and the budget, in that order.
 
@@ -283,6 +297,10 @@ def select(
     a missing scope test is not a keyword score, it is a queue. A run with no
     judge configured should look like it did nothing, not like it approved
     everything.
+
+    `held` is the corpus, and is checked between the metadata fetch and the
+    scan — the first moment a title exists to compare, and still before the
+    model call that a duplicate would waste.
     """
     selection = Selection()
     cleared: list[Candidate] = []
@@ -311,6 +329,14 @@ def select(
         if metadata and not (facts.get("title") or "").strip():
             selection.unresolvable.append(candidate)
             continue
+        # Already here under another identifier. Cheaper than the scan and a
+        # different answer from it, so it runs first and stops the candidate.
+        if held:
+            twins = likely_same_work(facts, held)
+            if twins:
+                record, why = twins[0]
+                selection.duplicates.append((candidate, record.id, why))
+                continue
         verdict = judge(candidate, facts)
         if verdict.admit:
             selection.admitted.append((candidate, verdict))

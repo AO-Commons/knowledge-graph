@@ -1,0 +1,33 @@
+id: resource:doi:10-1177-0018720810376055
+resource_type: peer-reviewed-paper
+title: 'Complacency and Bias in Human Use of Automation: An Attentional Integration'
+description: Why a person supervising an automated system stops checking it, and what that does to the
+  errors they catch. Complacency and automation bias are treated as two faces of one attentional process
+  rather than as separate failings, which is the account an oversight regime for agents is implicitly
+  betting against.
+authors:
+- Raja Parasuraman
+- Dietrich Manzey
+published_at: '2010-06-01'
+url: https://doi.org/10.1177/0018720810376055
+doi: 10.1177/0018720810376055
+openalex_id: W1979004942
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '15'
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+text_coverage: none
+role: primitive
+is_borrowed_background: true
+source_provenance: 'Added by hand on 2026-11-03, from the refusal ledger rather than the citation scan.
+  Cited by 10 held records and refused once by the scope scan, which read it as human-factors research
+  rather than a study of organizations where agents hold authority. That reading is right about the paper
+  and wrong about the shelf: section 15 holds exactly the adjacent literature the field borrows from,
+  and the corpus already holds two other Parasuraman papers on the same axis — Humans and Automation (1997)
+  and the levels-of-automation model (2000). This is the third, and the one that says what happens to
+  a supervisor''s attention over time. Not read: no full text path, and section 15 is pointed at rather
+  than ingested. Venue: Human Factors, 52(3).'
+ingested_at: '2026-11-03'

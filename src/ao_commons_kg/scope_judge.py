@@ -152,8 +152,24 @@ Answer with JSON only:
   "borrowed_background": true|false,
   "changes_because_agents_hold_authority": "<one sentence: what about designing, \
 operating, overseeing or holding accountable an agent-authority organization is \
-different because of this work. If nothing, say so plainly and admit must be false>",
+different because of this work. If nothing, say so plainly>",
   "reasoning": "<two sentences at most, naming the exclusion-register line if one applies>"}}
+
+The three states, and how they combine:
+
+  in scope           admit true,  borrowed_background false
+  borrowed background admit true,  borrowed_background true
+  refused            admit false
+
+**Borrowed background is an admission, not a refusal.** Nothing changes about \
+agent authority because of such a work — that is what makes it background rather \
+than scope — so answering "nothing" to the question above does **not** mean \
+refusing. If you find yourself writing that a work "belongs as a section 15 \
+pointer", that is `admit: true` with `borrowed_background: true`, and writing it \
+with `admit: false` throws the work away while saying it should be kept.
+
+Refuse when the work is neither: not about organizations where agents hold \
+authority, and not load-bearing for the field either.
 
 Refuse anything you are unsure about. A wrong admission is expensive and quiet — it sits \
 in the corpus looking like a curated record — while a wrong refusal costs one paper that \
