@@ -1,0 +1,41 @@
+id: resource:platform:kellybench
+resource_type: evaluation-suite
+title: KellyBench
+description: 'A long-horizon benchmark in which an agent manages a bankroll across a full
+  football season, betting matchday by matchday against real historical market odds with access
+  to lineups, advanced statistics and past prices. An episode runs from August to May and
+  takes 500 to 1,000 tool calls. The reported result is that no model makes a return on average
+  across five seeds: models front-load their analysis at the start of the season and fail
+  to adapt as the world changes. Available as an open-access API endpoint on OpenReward.'
+url: https://www.gr.inc/releases/introducing-kellybench
+published_at: '2026-04-30'
+organizations:
+- General Reasoning
+taxonomy_topics:
+- '8.1'
+- '8.4'
+- '14.1'
+- '14.2'
+facets:
+  artifact_type: evaluation-suite
+  evidence_strength: structured-case-study
+  source_independence: self-study-by-subject-organization
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+sources:
+- url: https://arxiv.org/abs/2604.27865
+  title: 'KellyBench: A Benchmark for Long-Horizon Sequential Decision Making'
+  accessed: '2026-11-06'
+source_provenance: 'Admitted by hand on 2026-11-06, on the same shelf as Vending-Bench: a
+  single agent holding a budget and making consequential decisions over a long horizon, scored
+  on what it did with the money rather than on an answer. What it measures — whether an agent
+  keeps adapting once the plan is set — is the capability an organisation delegating a standing
+  budget is relying on. The paper behind it is held separately as resource:arxiv:2604.27865,
+  and the date here is that paper''s rather than the release page''s, which states none. Taxonomy
+  tags are a first pass assigned by hand and unreviewed. Added by hand on 2026-11-06 rather
+  than through the citation scan: General Reasoning publishes to its own site rather than
+  to arXiv, so nothing in the corpus cites it and the scan cannot reach it.'
+ingested_at: '2026-11-06'
+review_status: unreviewed
+role: benchmark

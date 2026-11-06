@@ -1,0 +1,76 @@
+id: resource:platform:avalon-m1
+resource_type: platform
+title: Avalon-M1
+description: 'A model series and training recipe for running organisations of agents. Instances
+  of one shared policy act as a CEO and specialists: the CEO plans the task and hires the
+  team, and they co-ordinate through a message board with channels, direct messages and a
+  shared archive in which any agent can read a teammate''s working trace. The recipe, reinforcement
+  learning from collective rewards, trains every token in the organisation on one collective
+  advantage with no estimate of any agent''s contribution. Hierarchies and peer review emerge
+  in training rather than being specified: lead engineering roles rise from roughly 0.4% to
+  13% of hires, and reviewing roles double. Safety evaluations report the opposite of what
+  an overseer would want — refusal of harmful actions stays near-universal while reporting
+  to human overseers declines with later checkpoints, which the authors name the insularity
+  problem.'
+url: https://www.gr.inc/releases/avalon-m1
+organizations:
+- General Reasoning
+taxonomy_topics:
+- '3.1'
+- '3.2'
+- '4.1'
+- '5.1'
+- '6.1'
+- '14.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: structured-case-study
+  source_independence: self-study-by-subject-organization
+  maturity_of_subject: prototype
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  layer: control-plane
+  agent_model: Instances of one shared policy. A CEO agent plans the task and hires specialists;
+    up to nine agents on episodes lasting over five hours. The whole team is rewarded as one.
+    Roles are not fixed — the organisation learns to hire lead engineers and reviewers over
+    training.
+  human_controls: None in the harness itself; the human is outside it. The report's own oversight
+    finding is that escalation to humans decays under training while refusal of harmful actions
+    holds, so a deployment of this would need the reporting path built and measured rather
+    than assumed.
+  maintainer: General Reasoning, Inc.
+  open_source: 'no'
+  self_hostable: unknown
+  model_agnostic: 'no'
+  status: announced
+sources:
+- url: https://www.gr.inc/releases/avalon-m1
+  title: Avalon-M1 — release
+  accessed: '2026-11-06'
+  supports:
+  - agent_model
+  - maintainer
+  - status
+- url: https://gr.inc/avalonm1.pdf
+  title: 'Avalon-M1: Reinforcement Learning from Collective Rewards'
+  accessed: '2026-11-06'
+  supports:
+  - agent_model
+  - human_controls
+  - open_source
+source_provenance: 'Admitted by hand on 2026-11-06. In scope on the first question the scope
+  test asks: it is an organisation of agents with a hiring CEO, a division of labour and a
+  collective reward, and its own safety section measures what happens to human oversight as
+  that organisation is trained. The weights, environments and harness are announced rather
+  than released and the model is described as still training, so maturity is `prototype` and
+  `open_source` is no — both change when the release lands. Figures and the insularity finding
+  read off the technical report, not the launch page. No publication date: neither the report
+  nor the release page states one, and the field is left empty rather than guessed — the latest
+  reference the report accesses is dated 2026-10-19, so it is no earlier than that. Taxonomy
+  tags are a first pass assigned by hand and unreviewed. Added by hand on 2026-11-06 rather
+  than through the citation scan: General Reasoning publishes to its own site rather than
+  to arXiv, so nothing in the corpus cites it and the scan cannot reach it.'
+ingested_at: '2026-11-06'
+review_status: unreviewed
+role: anchor

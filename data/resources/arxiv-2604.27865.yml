@@ -1,0 +1,43 @@
+id: resource:arxiv:2604.27865
+resource_type: preprint
+title: 'KellyBench: A Benchmark for Long-Horizon Sequential Decision Making'
+abstract: Language models are saturating benchmarks for procedural tasks with narrow objectives.
+  But they are increasingly being deployed in long-horizon, non-stationary environments with
+  open-ended goals. In this paper we introduce KellyBench, an environment for evaluating sequential
+  decision-making in sports betting markets. Agents are placed in a sequential simulation
+  of the 2023-24 English Premier League season and tasked with maximising their long-term
+  bankroll growth. They are given detailed historical data, including advanced statistics,
+  lineups, and public odds. To succeed they must build machine learning models, identify edge
+  in public markets, and adapt as the environment changes over time. We find that all frontier
+  models evaluated lose money on average over the course of the season for five seeds. The
+  best performing model achieves an average return of -8%, and many models experiencing ruin
+  across seeds. To judge strategy sophistication, we use a human expert rubric to grade each
+  model and find their approaches to be unsophisticated compared to human baselines; Claude
+  Opus 4.6 achieves a rubric score of 26.5%, which means there is significant room for improvement.
+  KellyBench is available as an open-access API endpoint at https://openreward.ai/GeneralReasoning/KellyBench.
+authors:
+- Thomas Grady
+- Kip Parker
+- Iliyan Zarov
+- Henry Course
+- Chengxi Taylor
+- Ross Taylor
+organizations:
+- General Reasoning
+published_at: '2026-04-30'
+url: https://arxiv.org/abs/2604.27865
+doi: 10.48550/arXiv.2604.27865
+arxiv_id: '2604.27865'
+openalex_id: W7159677890
+is_open_access: true
+is_retracted: false
+taxonomy_topics:
+- '8'
+- '14'
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: added from a reading list by @AO Commons research team, in a batch; identity
+  and byline resolved against OpenAlex. topic tags are the contributor's own, confirmed but
+  unreviewed.
+ingested_at: '2026-11-06'

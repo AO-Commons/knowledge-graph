@@ -1,0 +1,18 @@
+id: org:general-reasoning
+name: General Reasoning
+aliases:
+- General Reasoning, Inc.
+- gr.inc
+organization_type: company
+roles:
+- research
+- evaluation
+- infrastructure
+country: United Kingdom
+website: https://www.gr.inc
+source_provenance: Added by hand on 2026-11-06, from its own site and the Avalon-M1 technical
+  report. An AI research company whose stated areas are reinforcement learning, multi-agent
+  systems and environment design; Ross Taylor is named as CEO on the site and is the corresponding
+  author on the report. Country from the UK LinkedIn page the site links to; no city is stated
+  anywhere on the site, so none is recorded rather than inferred from the London skyline on
+  its careers page.

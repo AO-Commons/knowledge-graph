@@ -1,0 +1,48 @@
+id: resource:platform:backsearch
+resource_type: platform
+title: BackSearch
+description: A point-in-time search and fetch API over a frozen archive of the web. Every
+  request carries an `as_of` date and returns only material archived on or before it, so the
+  same query with the same cutoff returns the same bytes on every run. Sold for forecasting
+  work, where a reward means nothing if the agent can look up the outcome, and for evaluation
+  and reinforcement-learning teams who need a corpus that does not move under a comparison.
+  Paid API, billed per request.
+url: https://www.gr.inc/backsearch
+organizations:
+- General Reasoning
+taxonomy_topics:
+- '9.1'
+- '14.1'
+- '16.1'
+facets:
+  artifact_type: code-tool
+  evidence_strength: expert-synthesis
+  source_independence: tooling-vendor
+  maturity_of_subject: limited-deployment
+  temporal_relevance: current
+  applicability: directly-actionable
+tool:
+  agent_model: Not an agent runtime. A retrieval surface agents call, and the thing being
+    controlled is what the agent is allowed to have known at the moment it acted.
+  human_controls: 'The cutoff date itself: the evaluator fixes what the agent can see, which
+    is what makes a result replayable rather than a fact about the week it ran in.'
+  maintainer: General Reasoning, Inc.
+  open_source: 'no'
+  self_hostable: 'no'
+  model_agnostic: 'yes'
+  status: active
+sources:
+- url: https://www.gr.inc/backsearch
+  title: BackSearch
+  accessed: '2026-11-06'
+source_provenance: 'Admitted by hand on 2026-11-06 as field infrastructure rather than as
+  a result. It is not about organisations of agents, and it is held because evaluating one
+  honestly needs the evidence available to the agent to be fixed — a benchmark run against
+  the live web measures the week as much as the model. The marginal call in this batch: if
+  the corpus decides general evaluation plumbing does not belong, this is the record to drop.
+  Taxonomy tags are a first pass assigned by hand and unreviewed. Added by hand on 2026-11-06
+  rather than through the citation scan: General Reasoning publishes to its own site rather
+  than to arXiv, so nothing in the corpus cites it and the scan cannot reach it.'
+ingested_at: '2026-11-06'
+review_status: unreviewed
+role: method
