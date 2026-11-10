@@ -13,7 +13,7 @@ The Knowledge Graph is in early preview. We're gradually adding research, improv
 <!-- stats:start -->
 | | |
 |---|---|
-| Records | 403 papers, tools, deployments, benchmarks, and reports |
+| Records | 434 papers, tools, deployments, benchmarks, and reports |
 | Papers with claims | 27 |
 | Claims | 349, of which 43 have been checked by a person against the paper |
 | Open questions | 13, grouped from questions the papers say are unanswered |
