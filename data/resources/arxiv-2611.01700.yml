@@ -1,0 +1,83 @@
+id: resource:arxiv:2611.01700
+resource_type: preprint
+title: 'MemHarmBench: Evaluating Cross-Session Prompt Injection in Memory-Persistent AI Agents'
+abstract: 'AI agents often rely on persistent memory to retain user preferences and operational
+  rules across sessions. However, this capability introduces a new safety risk: malicious
+  instructions from messages, documents, or Web content can be retained in memory and influence
+  future tasks even after the original attack content is removed. Existing attack success
+  metrics, however, fail to capture who is affected and how attacks translate into downstream
+  harm during otherwise normal task execution. We introduce MemHarmBench, a victim-centric
+  benchmark for evaluating cross-session prompt injection in memory-persistent AI agents.
+  MemHarmBench considers three categories of potential victims: users, workspace/project owners,
+  and external stakeholders. Our evaluation first exposes an agent to malicious instructions
+  and tests whether they are retained in memory. We then remove the attack content and initiate
+  a new session with a legitimate task while preserving the agent''s memory. We jointly evaluate
+  whether the agent follows the attacker''s intent, completes the legitimate task, and exhibits
+  observable execution anomalies. Across multiple agent systems, we find that cross-session
+  attacks can remain behaviorally stealthy: agents often complete tasks normally and exhibit
+  no detectable anomalies while still making critical decisions aligned with the attacker''s
+  intent. By connecting malicious memory retention to downstream decisions and affected parties,
+  MemHarmBench provides a systematic framework for exposing safety risks that conventional
+  attack- and task-success metrics may overlook. We publicly release MemHarmBench at https://github.com/Kirito14IT/MemHarmBench.'
+authors:
+- Zhihua Wang
+- Yunhao Feng
+- Yifeng Gao
+- Rui Pan
+- Baiheng Zhao
+- Zixing Chen
+- Xingjun Ma
+organizations:
+- Alibaba Group (China)
+- Fudan University
+- Shanghai Innovation Institute
+- University of Shanghai for Science and Technology
+affiliations:
+  Zhihua Wang:
+  - University of Shanghai for Science and Technology
+  - Fudan University
+  Yunhao Feng:
+  - Alibaba Group (China)
+  Yifeng Gao:
+  - Fudan University
+  Rui Pan:
+  - Fudan University
+  Baiheng Zhao:
+  - Fudan University
+  Zixing Chen:
+  - Fudan University
+  Xingjun Ma:
+  - Fudan University
+  - Shanghai Innovation Institute
+published_at: '2026-11-01'
+url: https://arxiv.org/abs/2611.01700
+doi: 10.48550/arXiv.2611.01700
+arxiv_id: '2611.01700'
+openalex_id: W7225180103
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Benchmarking and Defending against Indirect Prompt Injection; Distributing Accountability,
+  Not Capability: Phase Separatio; Generative Agents: Interactive Simulacra of Human Behavior;
+  InjecAgent: Benchmarking Indirect Prompt Injections in Tool-; Not What You''ve Signed Up
+  For: Compromising Real-World LLM-I; Toolformer: Language Models Can Teach Themselves to
+  Use Tool; VisualWebArena: Evaluating Multimodal Agents on Realistic Vi; WebGPT: Browser-assisted
+  question-answering with human feedb. Scope scan by claude-opus-5: No exclusion-register
+  line applies; this is squarely about the integrity of delegated agent decision-making and
+  who bears the harm, which is an operating and accountability concern for agent-authority
+  organizations rather than general ML evaluation. Its victim-centric framing (user / workspace
+  owner / external stakeholder) is organizational rather than merely technical, which is why
+  it is scope rather than a section 15 pointer. What changes because agents hold authority:
+  If an agent holds standing authority to act on a workspace''s behalf, its persistent memory
+  becomes a durable, silently-corruptible policy store — so oversight must audit memory state
+  and provenance rather than relying on task-success or anomaly monitoring, which this work
+  shows stay clean while the agent executes an attacker''s intent against users, workspace
+  owners, and external stakeholders. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

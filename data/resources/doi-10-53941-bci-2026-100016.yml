@@ -1,0 +1,76 @@
+id: resource:doi:10-53941-bci-2026-100016
+resource_type: peer-reviewed-paper
+title: 'Scope, Challenges, and Future of Agentic AI in Geotechnical and Earthquake Engineering:
+  A Critical Review'
+abstract: Agentic artificial intelligence (agentic AI) refers to systems that pursue goals
+  by planning, invoking external tools, maintaining memory and acting on the results with
+  a defined degree of autonomy. This review examines the scope, challenges and future directions
+  of agentic AI in geotechnical and earthquake engineering, with an explicit distinction between
+  capabilities that have been demonstrated and those that remain conceptual. We first propose
+  a taxonomy that separates predictive machine learning, generative AI, retrieval-augmented
+  language-model systems, tool-using agents, multi-agent systems and closed-loop autonomous
+  agents, and we distinguish within-episode feedback and memory updating from online learning,
+  reinforcement learning and model retraining. We then synthesize 22 studies (2023–2026) in
+  which large language models (LLMs) or agents perform geotechnical, earthquake or adjacent
+  structural engineering tasks, together with two closed-loop exemplars from chemistry, and
+  classify each by architecture, tools, memory, validation, uncertainty treatment, human involvement
+  and evidence level. All civil-engineering studies located are prototypes or proof-of-concept
+  systems; no field-validated agentic deployment in geotechnical or earthquake practice was
+  found, and no peer-reviewed study of an agent operating a commercial geotechnical finite-element
+  package was identified. We discuss the enabling layers that engineering agents require—retrieval-augmented
+  generation over codes and site records, knowledge graphs and data standards (AGS4, DIGGS,
+  IFC), interoperability with OpenSees, PLAXIS and OpenQuake, and physics-informed modeling—and
+  report indicative cost and latency figures. An illustrative proof-of-concept of the tool
+  layer for CPT-based liquefaction assessment shows how deterministic triggering analysis,
+  Monte Carlo uncertainty propagation and human approval gates can be combined. Finally, we
+  assess eight challenges with an explicit ordinal rubric and present a conditional short-,
+  medium- and long-term roadmap linked to eight research gaps. Agentic AI can add value as
+  a supervised orchestration layer over validated engineering tools; claims of autonomous
+  engineering practice are not yet supported by evidence.
+authors:
+- Ishwor Thapa
+- Rojan Subedi
+- Garima Shrestha
+- Sundar Adhikari
+- Pratik Rana Magar
+- Bishwash Poudel
+organizations:
+- Pokhara University
+- Tribhuvan University
+affiliations:
+  Ishwor Thapa:
+  - Tribhuvan University
+  Sundar Adhikari:
+  - Pokhara University
+published_at: '2026-11-04'
+url: https://doi.org/10.53941/bci.2026.100016
+doi: 10.53941/bci.2026.100016
+openalex_id: W7225254998
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents vs. Agentic
+  AI: A Conceptual taxonomy, application; Chain-Of-Thought Prompting Elicits Reasoning in
+  Large Langua; Generative Agents: Interactive Simulacra of Human Behavior; Large Language
+  Model based Multi-Agents: A Survey of Progres; Levels of Autonomy for AI Agents; Reflexion:
+  language agents with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces
+  Enable Automated Softwa; The Rise and Potential of Large Language Model Based Agents:; Toolformer:
+  Language Models Can Teach Themselves to Use Tool. Scope scan by claude-opus-5: This is a
+  discipline-specific review of agentic AI capability and validation maturity in geotechnical/earthquake
+  engineering, not a study of an organization in which agents hold operational or decision
+  authority; no exclusion-register line applies, but it sits adjacent rather than inside scope.
+  It is load-bearing as evidence on autonomy levels, approval gates and uncertainty handling
+  in a safety-critical domain, so it belongs as a section 15 pointer rather than a curated
+  in-scope record. What changes because agents hold authority: Little directly — it is a domain
+  capability survey, though its autonomy taxonomy and human-approval-gate pattern illustrate
+  how far operational authority can defensibly be delegated in a liability-bearing technical
+  practice today (answer: not far, supervised orchestration only). Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true

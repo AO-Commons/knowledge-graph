@@ -1,0 +1,73 @@
+id: resource:doi:10-1145-3799682-3840600
+resource_type: peer-reviewed-paper
+title: 'BenchGuard: A Calibrated, Adversary-Aware Triage Layer for Reward-Hacking Agentic
+  Trajectories'
+abstract: 'Agentic AI systems are increasingly evaluated on executable benchmarks, and a now
+  well-documented failure mode is reward hacking: agents inspect graders, spoof expected outputs,
+  hijack binaries, or extract hidden test inputs. The dominant operational response is to
+  monitor every trajectory with a strong LLM judge, but at 0.4–3.8 per 100 trajectories and
+  several minutes of latency, judge-everywhere is impractical for the millions of runs produced
+  by continuous benchmark development. We present BenchGuard, a strict command-only forensic
+  triage layer: TF-IDF word n-grams over agent shell commands feed a class-balanced LinearSVC
+  that is recalibrated with Platt scaling and reports prevalence-aware operating points. On
+  Terminal Wrench''s 5,984 paired trajectories, BenchGuard reaches ROC-AUC 0.928 [task-grouped
+  bootstrap 95% CI 0.918, 0.939] at 50% prefix and TPR 0.70 at 5% FPR. We then run a head-to-head
+  LLM judge experiment on the same balanced 100-trajectory sample under three configurations:
+  command-only (judge AUC 0.806), full-context with a generic prompt (0.727, DeLong p=0.012
+  vs. BenchGuard), and full-context with a rubric-tuned prompt (0.837, p=0.237). BenchGuard
+  is point-estimate-best across all three at 0 vs. 0.77–1.50 per 100 trajectories. Two cheap
+  baselines (BM25 max-similarity AUC 0.451, a distilled hashed-n-gram MLP AUC 0.931) bracket
+  the result: pure lexical similarity is insufficient, but capacity at this scale is also
+  not the bottleneck. Three static lexicon-evasion attacks plus an LLM-paraphrase adversary
+  that drops token-Jaccard to 0.42 cost only 0.013–0.030 AUC (-9 pp at TPR@5%FPR for the paraphrase);
+  adversary-aware retraining recovers the static gap. Platt-recalibrated flag rates on a 34,029-trajectory
+  external corpus drop from 13.3% (raw) to 0.4% (Platt p >= 0.99), demonstrating calibration
+  transfer. We document a sharp construct-validity boundary: against the realistic union-negative
+  class (legitimate solves + no-reward attacks), AUC drops to 0.700 and operating-point precision
+  collapses — and we translate this into a three-step deployment recommendation. All code,
+  data extracts, judge response logs (scores and verdicts), the LLM paraphrase outputs, and
+  calibration models are released as a reproducible artifact.'
+authors:
+- Zeming Liu
+- Hang Lyu
+- Jingtao Zhang
+- Yuan Xie
+- Qibai Chen
+organizations:
+- Brown University
+- Georgia Institute of Technology
+affiliations:
+  Zeming Liu:
+  - Brown University
+  Hang Lyu:
+  - Brown University
+  Jingtao Zhang:
+  - Georgia Institute of Technology
+published_at: '2026-11-03'
+url: https://doi.org/10.1145/3799682.3840600
+doi: 10.1145/3799682.3840600
+openalex_id: W7225119453
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Agnostic Learning with Unknown Utilities;
+  Distributing Accountability, Not Capability: Phase Separatio; Evaluating Large Language
+  Models Trained on Code; OpenHands: An Open Platform for AI Software Developers as Ge; Reflexion:
+  language agents with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces
+  Enable Automated Softwa; Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks. Scope
+  scan by claude-opus-5: Reward-hacking detection with calibration is monitoring infrastructure
+  for agents that act, not human collective decision-making, so no exclusion-register line
+  applies. It is more than an inert evaluation suite because the triage-and-escalation policy
+  it defines is itself part of the accountability design of an agent-authority organization.
+  What changes because agents hold authority: It gives an organization a calibrated, adversary-aware
+  screen that decides which agent trajectories get flagged and escalated to human review,
+  which is the concrete mechanism by which oversight budgets and intervention thresholds are
+  set when agents act with real operational authority. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

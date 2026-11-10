@@ -1,0 +1,84 @@
+id: resource:arxiv:2610.39813
+resource_type: preprint
+title: 'EvoTeam: Multi-Agent Collaboration via Evolving Teams'
+abstract: LLM-based multi-agent systems (MAS) rely on collaboration among specialized agents
+  to solve complex tasks. Existing methods improve MAS by refining the prompts, skills, and
+  execution strategies of individual agents based on task feedback. However, improving individual
+  agents does not necessarily lead to better team collaboration. Recent studies have therefore
+  extended evolution to the collaboration level, using collective execution experience to
+  adjust team organization, and inter-agent interactions. Nevertheless, evolving collaboration
+  across heterogeneous tasks remains challenging, as existing approaches often constrain team
+  reorganization within a shared structure and reuse interaction rules across incompatible
+  team contexts. In this paper, we propose EvoTeam, a collaboration-centric evolution framework
+  that jointly evolves team organization, interaction rules, and individual agent skills through
+  execution experience. It maintains a library of reusable teams, selecting or creating agent
+  teams and guiding collaboration through team-specific interaction rules. Collaboration experience
+  accumulates within compatible team contexts, while individual skills remain reusable across
+  teams. Experiments across four benchmarks demonstrate its effectiveness. Our code is available
+  at https://github.com/DEEP-JLU/EvoTeam.
+authors:
+- Qinuo Cao
+- Xin He
+- Dianxuan Fu
+- Lizhi Zhang
+- Zhaoqing Xing
+- Jiapu Wang
+- Xin Wang
+- Na Zou
+- Yi Chang
+- Qinggang Zhang
+organizations:
+- Jilin University
+- Nanjing University of Science and Technology
+- Shanghai Artificial Intelligence Laboratory
+affiliations:
+  Qinuo Cao:
+  - Jilin University
+  Xin He:
+  - Jilin University
+  Dianxuan Fu:
+  - Jilin University
+  Lizhi Zhang:
+  - Jilin University
+  邢兆卿:
+  - Jilin University
+  Jiapu Wang:
+  - Nanjing University of Science and Technology
+  Xin Eric Wang:
+  - Jilin University
+  Na Zou:
+  - Shanghai Artificial Intelligence Laboratory
+  Yi Chang:
+  - Jilin University
+  Qinggang Zhang:
+  - Jilin University
+published_at: '2026-10-29'
+url: https://arxiv.org/abs/2610.39813
+doi: 10.48550/arXiv.2610.39813
+arxiv_id: '2610.39813'
+openalex_id: W7224865048
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; AIKernel Semantic
+  DSL Compiler and Deterministic Agent Execu; AgentVerse: Facilitating Multi-Agent Collaboration
+  and Explo; ExpeL: LLM Agents Are Experiential Learners; Large Language Model based Multi-Agents:
+  A Survey of Progres; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Reflexion:
+  language agents with verbal reinforcement learnin; Scaling Large Language Model-based Multi-Agent
+  Collaboration; Self-Refine: Iterative Refinement with Self-Feedback; Voyager: An Open-Ended
+  Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: This is directly about
+  organizational structure among machine agents that hold execution authority — roles, team
+  formation, and interaction protocols adapted from experience — which is the library''s core
+  subject rather than generic optimization. No exclusion-register line applies; removing the
+  machine agents voids the finding entirely. What changes because agents hold authority: It
+  makes team composition and interaction rules themselves machine-evolved artifacts, so an
+  agentic organization''s structure is no longer a fixed design choice but a mutable object
+  that operators must version, select from a library, and oversee. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

@@ -1,0 +1,110 @@
+id: resource:arxiv:2610.38882
+resource_type: preprint
+title: 'Aligning Autoresearch: Co-Improvement between Agents and Humans'
+abstract: 'Autoresearch agents can now attempt long-horizon AI research end-to-end, i.e.,
+  self-improvement. However, best results are still obtained by research agents interacting
+  with human researchers, and improving AI''s ability to perform this co-research will only
+  reinforce this effect---a process termed co-improvement (Weston and Foerster, 2025). Further,
+  aligning with human expectations is likely a safer path for research agents, especially
+  given recent agent reward hacking phenomena (OpenAI, 2026b). In this work we address these
+  issues in four ways: (i) we empirically study the role of humans in directing autoresearch
+  agents, focusing on the domain of benchmark creation, and find humans still play a pivotal
+  role particularly in the ideation phase; (ii) we also develop a benchmark, HackBench, that
+  shows current autoresearch agents are not aligned and are unable to achieve hack localization
+  sufficiently; (iii) we present a method to train agents for improved human interaction by
+  using human simulators as a proxy during reinforcement learning (RL); and finally (iv) we
+  develop a method to improve model text generation, and hence agent communication, by RL
+  with rubrics aligned with human experts. Together, our training and evaluation recipes provide
+  a path toward more capable and aligned (co-)research agents.'
+authors:
+- Tianjian Li
+- Chuanyang Jin
+- Seungone Kim
+- Tong Chen
+- John Hoffman
+- Yoram Bachrach amd Pedro Rodriguez
+- Ping Yu
+- Eryk Helenowski
+- Swarnadeep Saha
+- Jack Lanchantin
+- Weizhe Yuan
+- Ilia Kulikov
+- Jason Weston
+organizations:
+- Carnegie Mellon University
+- Johns Hopkins University
+- University of Washington
+affiliations:
+  Tianjian Li:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Seungone Kim:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Tong Chen:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  John Hoffman:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Ping Yu:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Eryk Helenowski:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Swarnadeep Saha:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Jack Lanchantin:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Weizhe Yuan:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Ilia Kulikov:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+  Jason Weston:
+  - Johns Hopkins University
+  - University of Washington
+  - Carnegie Mellon University
+published_at: '2026-10-28'
+url: https://arxiv.org/abs/2610.38882
+doi: 10.48550/arXiv.2610.38882
+arxiv_id: '2610.38882'
+openalex_id: W7224910716
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Agnostic Learning with Unknown Utilities;
+  Measuring Progress on Scalable Oversight for Large Language ; Self-Refine: Iterative Refinement
+  with Self-Feedback; Toolformer: Language Models Can Teach Themselves to Use Tool; Training
+  a Helpful and Harmless Assistant with Reinforcement. Scope scan by claude-opus-5: This is
+  human-AI hybrid authority allocation and oversight of agent misbehavior, which the settled
+  reading of the deliberative-democracy line explicitly keeps in scope since removing the
+  machine destroys the finding. Its training recipes are instrumentation for that division
+  of labor rather than generic ML method, so it is scope rather than a section 15 pointer.
+  What changes because agents hold authority: It gives empirical evidence on which parts of
+  a research workflow agents can be delegated and which (ideation, direction-setting) humans
+  must retain, plus a benchmark for whether agents can localize their own reward hacking —
+  both directly shaping how authority is apportioned and audited in an agent-run research
+  organization. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

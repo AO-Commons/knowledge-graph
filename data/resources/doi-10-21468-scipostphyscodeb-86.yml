@@ -1,0 +1,56 @@
+id: resource:doi:10-21468-scipostphyscodeb-86
+resource_type: peer-reviewed-paper
+title: MadAgents
+abstract: We uncover an effective and communicative set of agents working with MadGraph. Agentic
+  installation, learning-by-doing training, and user support provide easy access to state-of-the-art
+  simulations and accelerate LHC research. We show in detail how MadAgents interact with inexperienced
+  and advanced users, support a range of simulation tasks, and analyze the results. In a second
+  step, we illustrate how MadAgents automatize event generation and run an autonomous simulation
+  campaign, starting from a pdf file of a paper. We also present successive MadAgents updates,
+  including a Claude Code implementation with a self-improvement loop.
+authors:
+- Tilman Plehn
+- Daniel Schiller
+- Nikita Schmal
+organizations:
+- Heidelberg University
+affiliations:
+  Tilman Plehn:
+  - Heidelberg University
+  Daniel Schiller:
+  - Heidelberg University
+  Nikita Schmal:
+  - Heidelberg University
+published_at: '2026-11-05'
+url: https://doi.org/10.21468/scipostphyscodeb.86
+doi: 10.21468/scipostphyscodeb.86
+openalex_id: W7126215626
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; A survey on large
+  language model based autonomous agents; Chain-Of-Thought Prompting Elicits Reasoning in
+  Large Langua; Distributing Accountability, Not Capability: Phase Separatio; ExpeL: LLM Agents
+  Are Experiential Learners; Improving Factuality and Reasoning in Language Models throug;
+  MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Reflexion: language agents
+  with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Toolformer: Language Models Can Teach Themselves to Use Tool; Voyager: An Open-Ended
+  Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: MadAgents shows agents
+  holding operational authority over a physics simulation pipeline, including an autonomous
+  campaign and self-improvement loop, but it offers no account of oversight, accountability,
+  or organizational structure, so it is load-bearing precedent rather than scope. No exclusion-register
+  line applies; it fits the section 15 pointer role alongside other capability-demonstration
+  records. What changes because agents hold authority: Little changes directly for authority
+  design — it is a domain capability demonstration that agents can run an end-to-end scientific
+  simulation campaign autonomously, which the field cites as evidence that operational delegation
+  to agents is feasible rather than as guidance on structuring or overseeing that delegation.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

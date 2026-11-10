@@ -1,0 +1,89 @@
+id: resource:doi:10-1145-3767308-3836489
+resource_type: peer-reviewed-paper
+title: 'HyperBalance: Hypergraph-based Topology Optimization for Reliable Multi-Agent Communication'
+abstract: 'Communication topology plays a central role in the effectiveness of large language
+  model (LLM)-based multi-agent systems. Recent hypergraph-based methods improve group coordination
+  by connecting multiple agents within unified hyperedges, enabling direct one-step synchronization.
+  However, they largely assume that stronger synchronization is uniformly beneficial. This
+  assumption overlooks a key reliability dilemma: the same mechanism that accelerates useful
+  insight sharing can also accelerate the spread of erroneous outputs. To address this issue,
+  we conduct a causal analysis of hypergraph communication and show that enlarging hyperedges
+  amplifies both insight propagation and error propagation, but the latter grows faster, causing
+  performance to peak at intermediate collaboration intensity. Motivated by this observation,
+  we propose HyperBalance, a dual-view hypergraph topology learning framework that treats
+  topology design as collaboration-intensity allocation. Specifically, HyperBalance learns
+  how strongly each task and agent pair should favor cautious communication for error containment
+  or intensive collaboration for insight sharing, and instantiates this balance as a task-specific
+  hypergraph topology. Experiments on six benchmarks show that HyperBalance is: (1) high-performing,
+  achieving 91.46% average accuracy and outperforming the strongest topology baseline by 3.56%;
+  (2) communication-efficient, substantially reducing communication overhead through more
+  economical collaboration structures; and (3) broadly effective, yielding consistent improvements
+  across reasoning, mathematical reasoning, real-world agentic tasks, and different language
+  models.'
+authors:
+- Heng Zhang
+- Xinyuan Liu
+- Yuling Shi
+- Yihao Zhong
+- Jiawei Chen
+- Lizhao Gan
+- Hao Zhang
+- Jin Huang
+organizations:
+- Chinese Academy of Sciences
+- New York University
+- Northwestern University
+- Old Dominion University
+- Shanghai Jiao Tong University
+- South China Normal University
+- University of Chinese Academy of Sciences
+- University of Science and Technology of China
+affiliations:
+  Heng Zhang:
+  - South China Normal University
+  - Chinese Academy of Sciences
+  - University of Chinese Academy of Sciences
+  Xinyuan Liu:
+  - Northwestern University
+  Yuling Shi:
+  - Shanghai Jiao Tong University
+  Yihao Zhong:
+  - New York University
+  Jiawei Chen:
+  - Old Dominion University
+  Lizhao Gan:
+  - University of Science and Technology of China
+  Hao Zhang:
+  - South China Normal University
+  - Chinese Academy of Sciences
+  - University of Chinese Academy of Sciences
+  Jin Huang:
+  - South China Normal University
+published_at: '2026-11-05'
+url: https://doi.org/10.1145/3767308.3836489
+doi: 10.1145/3767308.3836489
+openalex_id: W7225332566
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 7
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AutoAgents: A Framework
+  for Automatic Agent Generation; Chain-Of-Thought Prompting Elicits Reasoning in Large Langua;
+  ChatDev: Communicative Agents for Software Development; Evaluating Large Language Models
+  Trained on Code; MAgIC: Investigation of Large Language Model Powered Multi-A; Tree of Thoughts:
+  Deliberate Problem Solving with Large Lang. Scope scan by claude-opus-5: This is communication-structure
+  design for organizations composed of acting agents — the error-propagation-versus-insight
+  tradeoff is an operational reliability property of the agent org itself, not a generic optimization
+  result. No exclusion-register line applies; it is agent-specific by construction, since
+  removing the machine agents voids the finding entirely. What changes because agents hold
+  authority: It shows that in agent collectives where outputs propagate without human checking,
+  denser communication structure amplifies error faster than insight, so organizational topology
+  must be tuned to an intermediate collaboration intensity for error containment rather than
+  maximal synchronization. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

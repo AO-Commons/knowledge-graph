@@ -2384,6 +2384,68 @@ refused:
   refused_on: '2026-09-22'
   times_refused: 1
   first_refused_on: '2026-09-22'
+- key: arxiv:2610.41177
+  generation: 2
+  support: 6
+  cited_by: []
+  reasoning: 'This is inference-serving optimization (speculative decoding throughput), precisely
+    the class of ''optimization, neural architectures'' work the brief says our papers cite generally
+    without it belonging here. It is not load-bearing for reasoning about agent authority either,
+    so it is a refusal rather than a section 15 pointer. What changes because agents hold authority:
+    Nothing — it improves decoding throughput for agent model calls and leaves every question of
+    delegated authority, oversight, and accountability untouched.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-10'
+  times_refused: 1
+  first_refused_on: '2026-11-10'
+- key: arxiv:2611.04977
+  generation: 1
+  support: 21
+  cited_by: []
+  reasoning: 'This is a vertical application of multi-agent orchestration (specialist agents, orchestrator
+    ledger, artifact store) plus a domain benchmark; none of it concerns how authority is held,
+    exercised, or audited in an organization. It is not load-bearing background for agentic organizations
+    either, since the general orchestration and evaluation precedents the field relies on are already
+    held elsewhere and this adds only geospatial specificity. What changes because agents hold authority:
+    Nothing — the agents here are analytic tooling that produces decision support for human responders,
+    with no delegated operational or decision authority, and the contributions are domain-specific
+    pipeline engineering and a geospatial benchmark.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-10'
+  times_refused: 1
+  first_refused_on: '2026-11-10'
+- key: arxiv:2611.05263
+  generation: 2
+  support: 6
+  cited_by: []
+  reasoning: 'This is an RL training-architecture paper (hierarchical role factorization, GRPO variant)
+    of exactly the kind the brief flags as cited-but-out — ''our papers cite optimization, neural
+    architectures and game theory generally, and none of that belongs here.'' It is also not the
+    canonical load-bearing artifact the field builds on (that would be WebArena/WebArena-Lite itself),
+    so it does not warrant a section 15 pointer either. What changes because agents hold authority:
+    Nothing — it improves success rates on long-horizon web navigation by jointly training a decomposer
+    and actor, and says nothing about how authority is delegated, bounded, overseen, or accounted
+    for.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-10'
+  times_refused: 1
+  first_refused_on: '2026-11-10'
+- key: arxiv:2611.05373
+  generation: 2
+  support: 7
+  cited_by: []
+  reasoning: 'This is single-model post-training methodology (a reimplementation study of a Nash-equilibrium-based
+    DPO variant), precisely the kind of ''optimization and game theory generally'' that citation
+    by library papers does not make in-scope. It is not load-bearing for organizational design either
+    — no evaluation suite, authority structure, or oversight mechanism depends on it — so it is
+    a refusal rather than a section 15 pointer. What changes because agents hold authority: Nothing
+    — it reports how well a preference-optimization fine-tuning recipe raises win rates on a chat
+    benchmark, which says nothing about how authority is delegated to, exercised by, or audited
+    in an organization of agents.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-10'
+  times_refused: 1
+  first_refused_on: '2026-11-10'
 - key: doi:10.1002/0471667196.ess2588.pub3
   generation: 1
   support: 2
@@ -3931,18 +3993,18 @@ refused:
   first_refused_on: '2026-09-29'
 - key: doi:10.1145/3799682.3841057
   generation: 2
-  support: 7
+  support: 11
   cited_by: []
-  reasoning: 'This appears to be a generic RL/LLM policy-optimization technique, exactly the ''optimization,
-    neural architectures and game theory generally'' that the brief warns citation counts will surface
-    without conferring scope. It is a capability-training method rather than an evaluation suite
-    or governance-relevant substrate, so it is not load-bearing enough to hold as a section 15 pointer,
-    and with no abstract available the uncertainty argues for refusal. What changes because agents
-    hold authority: Nothing — a policy optimization/training method for reasoning models does not
-    alter how authority is delegated, exercised, or audited in an organization.'
+  reasoning: 'This is a generic RL training technique (GRPO variant with teacher distillation on
+    all-zero groups), exactly the ''optimization and neural architecture'' class the brief says
+    our papers cite without it belonging. It is not load-bearing infrastructure for reasoning about
+    delegated machine authority either, so it is not a section 15 pointer but a refusal. What changes
+    because agents hold authority: Nothing — it improves how a small policy model is trained from
+    sparse verifiable rewards, which is unchanged whether the resulting agent holds any organizational
+    authority or none.'
   judged_by: claude-opus-5
-  refused_on: '2026-11-03'
-  times_refused: 1
+  refused_on: '2026-11-10'
+  times_refused: 2
   first_refused_on: '2026-11-03'
 - key: doi:10.1145/3816947
   generation: 1

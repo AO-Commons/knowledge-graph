@@ -1,0 +1,79 @@
+id: resource:doi:10-1002-sej-70067
+resource_type: peer-reviewed-paper
+title: The intelligence loop and value creation in the age of AI agents
+abstract: 'Abstract Research Summary Artificial intelligence (AI) is moving from generating
+  outputs to executing work. An agent that executes work autonomously produces something generative
+  AI does not: operational experience that can raise its future intelligence. Prior research
+  on AI emphasizes value creation through demand‐side feedback, notably data network effects,
+  in which user data improve prediction and reinforce adoption. We develop the supply‐side
+  counterpart, the intelligence loop: delegated usage generates operational experience, agentic
+  capability converts it into future intelligence, and the resulting value maintains or expands
+  usage. The loop cannot operate until autonomous execution is viable, a threshold we call
+  minimum viable intelligence (MVI). Crossing MVI does not guarantee rising intelligence.
+  Comparable deployments of AI agents can diverge as their loops decay, sustain, or accelerate.
+  Three implications follow. Competitive advantage may depend more on the loop than on installed
+  base. An above‐MVI agent supplies scarce expert skill as a non‐rival, replicable resource,
+  so productive capacity can grow faster than expert headcount, with the one‐person company
+  as a limiting case. And a venture with adequate demand, capital, and a capable team can
+  still fail because its loop never functions or later deteriorates. Managerial Summary Artificial
+  intelligence (AI) agents can execute work, and the experience generated through execution
+  can raise their future intelligence, a feedback process we call the intelligence loop. An
+  agent crosses a workflow''s minimum viable intelligence (MVI) when it executes reliably
+  without step‐by‐step direction, autonomous execution creates at least as much net value
+  as the best alternative after oversight and correction costs, and governance arrangements
+  keep residual risk acceptable and accountability clear. Investment belongs where one of
+  these conditions keeps a valuable workflow below MVI. Deployment can begin with narrow,
+  feedback‐rich workflows near MVI that ideally lead to harder workflows, since base model
+  upgrades can match gains on simple work. Even above MVI, the loop is not automatic: it stalls
+  when feedback is not timely and diagnostic, experience yields little intelligence gain,
+  gains add little user value, or value does not maintain or expand usage. Human involvement
+  shifts from executing work to specifying goals, evaluating outputs, governing execution,
+  and supplying tacit knowledge. When the loop sustains or accelerates, productive capacity
+  can grow faster than expert headcount. With capable base models widely available, advantage
+  depends less on access to AI than on building and governing the loop, controlling proprietary
+  operational experience, and converting it into intelligence more effectively than rivals.
+  A venture with adequate demand, capital, and a capable team can fail because its loop never
+  functions or later deteriorates. Cutting evaluation or oversight to scale faster may increase
+  output in the short run but weaken the loop even while revenue remains healthy.'
+authors:
+- Yong Li
+- Ming Zeng
+- Alexis Li
+organizations:
+- Brown University
+- University of Nevada, Las Vegas
+affiliations:
+  Yong Li:
+  - University of Nevada, Las Vegas
+  Alexis Li:
+  - Brown University
+published_at: '2026-10-30'
+url: https://doi.org/10.1002/sej.70067
+doi: 10.1002/sej.70067
+openalex_id: W7171630644
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Agnostic Learning with Unknown Utilities;
+  Complacency and Bias in Human Use of Automation: An Attentio; Deep reinforcement learning
+  from human preferences; Intelligent agents: theory and practice; Language Models are Few-Shot
+  Learners; Large Language Model based Multi-Agents: A Survey of Progres; Self-Refine: Iterative
+  Refinement with Self-Feedback; Voyager: An Open-Ended Embodied Agent with Large Language
+  Mo. Scope scan by claude-opus-5: This is directly about when and how work is delegated to
+  autonomously executing agents, how human roles shift to goal-specification, evaluation and
+  governance of execution, and what organizational advantage comes from governing that loop
+  — squarely about organizations where machines hold operational authority. No exclusion-register
+  line applies; it is not voting mechanism design, token design, or human collective decision
+  theory. What changes because agents hold authority: It gives a delegation threshold (minimum
+  viable intelligence) that bundles reliability, net value after oversight and correction
+  costs, and acceptable residual risk with clear accountability, and argues that trimming
+  evaluation and oversight to scale degrades the agent''s capability loop — making oversight
+  a capability investment rather than a drag on an agent-authority organization. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

@@ -1,0 +1,61 @@
+id: resource:arxiv:2611.07495
+resource_type: preprint
+title: Learning Multi-Agent Orchestration:Higher-Order Interactions in Policy Improvement
+abstract: Learned orchestration has emerged as a promising paradigm for large language model
+  (LLM)-based multi-agent systems, in which a central orchestrator selects agents and controls
+  the information they receive throughout a task. Despite rapid empirical progress, existing
+  methods train the orchestrator by crediting each decision with its own advantage, implicitly
+  assuming that the other decisions in the episode stay fixed. This assumption fails in orchestration,
+  where the contribution of each decision to the final outcome depends on the decisions preceding
+  it, so the gain of a joint update is not the sum of its per-decision effects. To address
+  this challenge, we introduce \textbf{IAPO}, an interaction-aware policy optimization framework
+  that explicitly accounts for interactions among decisions. Specifically, IAPO exactly decomposes
+  the performance difference between two policies into the effects of individual decisions
+  and their interactions, which we prove can account for half of the attainable gain, and
+  then optimizes both from sampled trajectories while certifying that every update is an improvement.
+  On long-input versions of GSM8K, MATH, DROP, MBPP and HumanEval, against fifteen published
+  multi-agent and workflow-search systems on the same 7B executor, IAPO's deployed plans reach
+  the strongest system's accuracy with fewer tokens, and removing the interaction term costs
+  7 to 17 points of accuracy on code.
+authors:
+- Kaixuan Liu
+- Guojun Xiong
+organizations:
+- Emory University
+- Shanghai Jiao Tong University
+affiliations:
+  Kaixuan Liu:
+  - Emory University
+  Guojun Xiong:
+  - Shanghai Jiao Tong University
+published_at: '2026-11-05'
+url: https://arxiv.org/abs/2611.07495
+doi: 10.48550/arXiv.2611.07495
+arxiv_id: '2611.07495'
+openalex_id: W7225374900
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentVerse: Facilitating
+  Multi-Agent Collaboration and Explo; Distributing Accountability, Not Capability: Phase
+  Separatio; Evaluating Large Language Models Trained on Code; Improving Factuality and Reasoning
+  in Language Models throug; Proximal Policy Optimization Algorithms. Scope scan by claude-opus-5:
+  The paper is directly about a machine agent that holds operational authority (agent selection
+  and information control) over other agents, and about how that authority structure is learned
+  and certified to improve, so it is agent-specific organizational design rather than generic
+  optimization. No exclusion-register line applies; it is not merely borrowed background because
+  the finding about higher-order interaction among delegation decisions bears on how such
+  an orchestrating authority is built and audited. What changes because agents hold authority:
+  It shows that when a machine orchestrator holds authority over which subordinate agents
+  act and what information they receive, delegation decisions cannot be credited or tuned
+  independently — their interactions carry roughly half the attainable performance, so designing
+  and improving the orchestrator''s allocation policy requires joint, certified-improvement
+  updates rather than per-decision attribution. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

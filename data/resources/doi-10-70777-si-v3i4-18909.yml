@@ -1,0 +1,76 @@
+id: resource:doi:10-70777-si-v3i4-18909
+resource_type: peer-reviewed-paper
+title: Detecting Multi-Agent Collusion Through Multi-Agent Interpretability
+abstract: Non-verbalised or secret collusion may impose a ceiling on transcript-level monitoring
+  in multi-agent deployments. Internal model activations are known to provide an additional
+  monitoring surface for single-agent phenomena such as deception, but detecting collusion
+  within an unknown subgroup is ultimately a joint inference task over multiple agents. This
+  paper derives collusion detection statistics based on the composite hypothesis testing literature
+  and introduces HELIOS, a multi-agent detection framework for collusion. Using per-agent
+  activation probes as sensors, we then evaluate these principled statistics alongside heuristics
+  on NARCBench, a novel benchmark for evaluating multi-agent collusion detection under environment
+  distribution shift. Across four open-weight models, both our group-level statistics and
+  heuristics transfer zero-shot to NARCBench's holdout environments. Notably, the best method
+  on every model reaches 0.99 to 1.00 AUROC when transferred from committee deliberations
+  to a steganographic collusion task that unprimed transcript monitors fail to separate. We
+  find empirically that no single statistic or heuristic dominates across tasks, consistent
+  with our analysis that there is no known universally most powerful test for this setting.
+  We then evaluate detector transfer to third-party environments with emergent, rather than
+  instructed, collusion. In one such environment, only 2 of 229 collusive episodes verbalise
+  the coordination in the transcript. We find evidence of partial transfer from NARCBench
+  to these environments, indicating that probes fitted to instructed collusion may not fully
+  capture emergent collusion signals. Overall, we establish multi-agent interpretability as
+  a complementary monitoring technique, while highlighting the need to evaluate detector performance
+  on both emergent and instructed collusion risks.
+authors:
+- Aaron Rose
+- Carissa Cullen
+- Sahar Abdelnabi
+- Philip H. S. Torr
+- Brandon Kaplowitz
+- Christian A. Schroeder de Witt
+organizations:
+- ELLIS Institute Tübingen
+- University College London
+- University of Oxford
+affiliations:
+  Aaron Rose:
+  - University of Oxford
+  Carissa Cullen:
+  - University of Oxford
+  Sahar Abdelnabi:
+  - ELLIS Institute Tübingen
+  Philip H. S. Torr:
+  - University of Oxford
+  Brandon Kaplowitz:
+  - University of Oxford
+  Christian A. Schroeder de Witt:
+  - University College London
+published_at: '2026-10-27'
+url: https://doi.org/10.70777/si.v3i4.18909
+doi: 10.70777/si.v3i4.18909
+openalex_id: W7148280789
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Algorithmic Collusion by Large Language Models; Artificial Intelligence, Algorithmic
+  Pricing, and Collusion; Large Language Model based Multi-Agents: A Survey of Progres; Large
+  Language Models can Strategically Deceive their Users ; MetaGPT: Meta Programming for A
+  Multi-Agent Collaborative Fr; Multi-Agent Risks from Advanced AI. Scope scan by claude-opus-5:
+  This is squarely about monitoring and holding to account multiple agents exercising joint
+  authority (explicitly including committee deliberation settings), not about human collective
+  decision-making, so no exclusion-register line applies. It is a monitoring technique designed
+  for the multi-agent authority case itself rather than adjacent background the field merely
+  builds on. What changes because agents hold authority: Oversight of an organization whose
+  agents deliberate and decide cannot rely on reading their communications alone — collusion
+  among a subgroup may never be verbalised — so accountability mechanisms must include group-level
+  inference over per-agent internal states, with detectors validated against emergent rather
+  than only instructed collusion. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

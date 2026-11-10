@@ -1,0 +1,59 @@
+id: resource:arxiv:2611.00291
+resource_type: preprint
+title: 'When AI Agents Act on Our Behalf: A Taxonomy of Human-Agent Interaction Failure'
+abstract: AI agents write and execute code, manipulate user interfaces, and transact on their
+  users' behalf. We ask what forms failure takes in human-agent interaction, and how those
+  forms change as agents act with greater autonomy. From 695 documented incidents in two public
+  repositories, we developed 12 failure modes bottom-up within three interaction stages adapted
+  from Amershi et al.'s guidelines, coding the autonomy at which each arose. What a person
+  can do when an agent fails depends on how much the agent completes between points of user
+  involvement--a property fixed at deployment. Therefore, the same model on the same task
+  can fail differently under different configurations. All 12 modes appear at both low and
+  high autonomy, and rising autonomy changes the form each failure takes. Users need controls
+  between full delegation and full manual work, and neither incident records nor agent benchmarks
+  reach the interaction where these failures occur.
+authors:
+- Canwen Wang
+- Qing Xiao
+- Haiyi Zhu
+- Hong Shen
+organizations:
+- Carnegie Mellon University
+affiliations:
+  Canwen Wang:
+  - Carnegie Mellon University
+  Qing Xiao:
+  - Carnegie Mellon University
+  Haiyi Zhu:
+  - Carnegie Mellon University
+  Hong Shen:
+  - Carnegie Mellon University
+published_at: '2026-10-30'
+url: https://arxiv.org/abs/2611.00291
+doi: 10.48550/arXiv.2611.00291
+arxiv_id: '2611.00291'
+openalex_id: W7225142012
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Fully Autonomous AI Agents Should Not be Developed; Governing AI Agents; Harms
+  from Increasingly Agentic Algorithmic Systems; Infrastructure for AI Agents; Ironies of
+  automation; Levels of Autonomy for AI Agents; Multi-Agent Risks from Advanced AI; The Ethics
+  of Advanced AI Assistants. Scope scan by claude-opus-5: This is squarely about machine agents
+  acting with delegated authority on a principal''s behalf, and the failure taxonomy across
+  autonomy levels is directly actionable for designing oversight and accountability in agentic
+  organizations. No exclusion-register line applies; the hybrid human-AI authority reading
+  settled 2026-09-10 reinforces inclusion, and the finding that incident records and agent
+  benchmarks miss the interaction layer is itself an evaluation-gap claim the field needs.
+  What changes because agents hold authority: It shows that the amount of work an agent completes
+  between human checkpoints — an autonomy setting fixed at deployment — determines what recourse
+  a principal has when the agent errs, so delegation boundaries and intervention points become
+  first-class design parameters rather than afterthoughts. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

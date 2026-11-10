@@ -1,0 +1,78 @@
+id: resource:doi:10-1016-j-ipm-2026-105240
+resource_type: peer-reviewed-paper
+title: Reducing confirmation bias on controversial issues through LLM-generated multi-persona
+  debates
+abstract: 'Multi-persona debate systems powered by large language models (LLMs) show promise
+  in reducing confirmation bias; however, empirical evidence remains limited. Through a within-subjects
+  experiment, we compared an LLM-generated multi-persona debate system with an opposing-stances
+  retrieval system. We evaluated system effectiveness in mitigating confirmation bias over
+  312 study trials across 8 controversial topics, using behavioral measures (changes in eye-fixation
+  patterns) and attitudinal measures (shifts between pre/post-intervention beliefs), with
+  topic familiarity and cognitive tendencies as moderators. Our results show that: (i) participants
+  allocated more than half of their visual attention to attitude-inconsistent content in both
+  systems, with no significant between-system differences; (ii) the debate system showed a
+  suggestive but statistically non-significant buffering pattern among participants with stronger
+  cognitive tendencies, and topic familiarity did not significantly moderate its effect on
+  visual attention; and (iii) reading effort and perceived argument quality influenced participants''engagement
+  with attitude-inconsistent content. These findings suggest that multi-persona debate systems
+  can support engagement with diverse viewpoints, while their comparative advantage over opposing-stances
+  retrieval was not established; individual cognitive tendencies remained an important predictor
+  of visual attention. We provide further implications for designing multi-persona debates
+  to better mitigate confirmation bias, focusing on balancing facts and persuasion and on
+  deciding when to explore diverse viewpoints versus offer concrete solutions.'
+authors:
+- Li Shi
+- Houjiang Liu
+- Yian Wong
+- Utkarsh Mujumdar
+- Dan Zhang
+- Jacek Gwizdka A
+- Matthew Lease
+organizations:
+- Lodz University of Technology
+- The University of Texas at Austin
+affiliations:
+  Li Shi:
+  - The University of Texas at Austin
+  Houjiang Liu:
+  - The University of Texas at Austin
+  Yian Wong:
+  - The University of Texas at Austin
+  Utkarsh Mujumdar:
+  - The University of Texas at Austin
+  Dan Zhang:
+  - The University of Texas at Austin
+  Jacek Gwizdka A:
+  - Lodz University of Technology
+  - The University of Texas at Austin
+  Matthew Lease:
+  - The University of Texas at Austin
+published_at: '2026-10-31'
+url: https://doi.org/10.1016/j.ipm.2026.105240
+doi: 10.1016/j.ipm.2026.105240
+openalex_id: W4405173238
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI can help humans find common ground in democratic delibera; Encouraging Divergent
+  Thinking in Large Language Models thro; Generative Agents: Interactive Simulacra of Human
+  Behavior; Out of One, Many: Using Language Models to Simulate Human Sa; Role play with large
+  language models; Social Simulacra: Creating Populated Prototypes for Social C. Scope scan
+  by claude-opus-5: This sits at the edge of the settled human-AI hybrid reading: the LLM
+  drafts the positions people reason over, so it is not the excluded ''deliberative democracy
+  unchanged by machines'' line, but it studies individual bias reduction rather than an organization
+  where agents hold authority. It is load-bearing for designing advisory/mediating agents
+  and is already cited by six library papers, so it belongs as a section 15 pointer rather
+  than a core record. What changes because agents hold authority: Nothing changes about agent
+  authority itself — the agents here generate argumentation that influences individual human
+  belief, not operational or decision authority within an organization; it is a method precedent
+  for machine-mediated deliberation rather than a finding about delegated authority. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true

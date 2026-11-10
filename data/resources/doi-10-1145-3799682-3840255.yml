@@ -1,0 +1,75 @@
+id: resource:doi:10-1145-3799682-3840255
+resource_type: peer-reviewed-paper
+title: 'Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning'
+abstract: LLM agents increasingly rely on reinforcement learning to improve multi-turn reasoning,
+  tool use, and environment interaction. However, existing training pipelines often treat
+  an agent trajectory as a flat token sequence or a reconstructed message trace, making it
+  difficult to preserve rollout fidelity, manage long contexts, and inspect step-level credit
+  signals. We present Agent-R1, an open-source modular framework for agentic reinforcement
+  learning (RL). Agent-R1 uses interaction steps as the native unit for trajectory representation,
+  replay, and environment interaction, and decouples exact trajectory storage from flexible
+  context construction. The system supports context-management policies, step-level rollout
+  inspection, action-mask visualization, tool-feedback analysis, and unified comparison of
+  related RL algorithms. Through demonstrations on multiple tasks, Agent-R1 enables users
+  to configure, train, inspect, and compare agentic RL workflows within a single interactive
+  interface. Code and project resources are available at https://github.com/AgentR1/Agent-R1.
+authors:
+- Mingyue Cheng
+- Shuo Yu
+- Daoyu Wang
+- Qingchuan Li
+- Xiaoyu Tao
+- Jie Ouyang
+- Yucong Luo
+- Yitong Zhou
+- Qi Liu
+- Enhong Chen
+organizations:
+- University of Science and Technology of China
+affiliations:
+  Mingyue Cheng:
+  - University of Science and Technology of China
+  Shuo Yu:
+  - University of Science and Technology of China
+  Daoyu Wang:
+  - University of Science and Technology of China
+  Qingchuan Li:
+  - University of Science and Technology of China
+  Xiaoyu Tao:
+  - University of Science and Technology of China
+  Jie Ouyang:
+  - University of Science and Technology of China
+  Yucong Luo:
+  - University of Science and Technology of China
+  Yitong Zhou:
+  - University of Science and Technology of China
+  Qi Liu:
+  - University of Science and Technology of China
+  Enhong Chen:
+  - University of Science and Technology of China
+published_at: '2026-11-03'
+url: https://doi.org/10.1145/3799682.3840255
+doi: 10.1145/3799682.3840255
+openalex_id: W7106156359
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; AgentBench: Evaluating LLMs as Agents;
+  Large Language Model based Multi-Agents: A Survey of Progres; Proximal Policy Optimization
+  Algorithms; Training Language Models to Follow Instructions with Human F; Voyager: An Open-Ended
+  Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: Agent-R1 is a training/tooling
+  framework, not a study of organizations where agents hold operational or decision authority,
+  so it fails the scope test on its own terms. But it is a foundational method several library
+  papers build on, which is precisely the section 15 borrowed-background case rather than
+  a refusal. What changes because agents hold authority: Nothing directly — it is single-agent
+  RL training infrastructure, though its step-level trajectory fidelity and rollout inspection
+  are the substrate on which auditable agent behaviour is later built. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true

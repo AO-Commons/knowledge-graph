@@ -1,0 +1,76 @@
+id: resource:doi:10-1016-j-aibm-2026-100002
+resource_type: peer-reviewed-paper
+title: 'From passive tools to autonomous partners: the rise of AI agents in bioinformatics'
+abstract: 'Large language model (LLM)-driven agents have emerged as a promising paradigm in
+  bioinformatics, enabling autonomous and adaptive analysis of complex biological problems.
+  This review comprehensively summarizes the fundamental frameworks of artificial intelligence
+  (AI) agents, breaking down their core architecture into essential components: an LLM brain,
+  planning, memory, and tools. Furthermore, we categorize current biomedical AI agents into
+  general agents—designed for broad interdisciplinary tasks—and specialized agents tailored
+  for distinct biological data types. We further organize specialized agents along two dimensions—data
+  modalities and representative applications—with a particular focus on genomics, single-cell
+  transcriptomics, proteomics, spatial omics, and multi-omics analysis, while highlighting
+  drug discovery as a representative application scenario. Despite their potential to automate
+  complex workflows, hurdles such as model hallucinations, “black-box” reasoning, and biosafety
+  risks persist. We highlight the transition toward embodied intelligence and self-driving
+  laboratories, envisioning natively multimodal agents as critical drivers in accelerating
+  the pace of biological discovery.'
+authors:
+- Jingjing Peng
+- Fei-Ran Zeng
+- Jing-Min Yang
+- Yu Lin
+- Qian Lei
+- An-Yuan Guo
+organizations:
+- Sichuan University
+- West China Hospital of Sichuan University
+affiliations:
+  Jingjing Peng:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+  Fei-Ran Zeng:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+  Jing-Min Yang:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+  Yu Lin:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+  Qian Lei:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+  An-Yuan Guo:
+  - Sichuan University
+  - West China Hospital of Sichuan University
+published_at: '2026-11-01'
+url: https://doi.org/10.1016/j.aibm.2026.100002
+doi: 10.1016/j.aibm.2026.100002
+openalex_id: W7225240551
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AgentBench: Evaluating
+  LLMs as Agents; Chain-Of-Thought Prompting Elicits Reasoning in Large Langua; Distributing
+  Accountability, Not Capability: Phase Separatio; Intelligent agents: theory and practice;
+  The Rise and Potential of Large Language Model Based Agents:; Toolformer: Language Models
+  Can Teach Themselves to Use Tool; Tree of Thoughts: Deliberate Problem Solving with Large
+  Lang. Scope scan by claude-opus-5: This is a domain capability review (LLM brain/planning/memory/tools
+  taxonomy, omics applications, self-driving labs) that the library''s papers cite as grounding
+  for what autonomous scientific agents can do, which makes it load-bearing adjacent literature
+  rather than scope. No exclusion-register line bars it; it is held as a section 15 pointer
+  because its findings would survive unchanged in a world with no delegated machine authority
+  over organizational decisions. What changes because agents hold authority: Nothing directly
+  — it surveys agent architectures and bioinformatics applications rather than how authority,
+  oversight, or accountability are structured in an organization that delegates to agents.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

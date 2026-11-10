@@ -1,0 +1,54 @@
+id: resource:arxiv:2611.03935
+resource_type: preprint
+title: 'Labtune: Treating Lab Organization and Information Sharing as Experimental Variables
+  in LLM-Agent Discovery'
+abstract: De-siloing can create groupthink; silos can prevent knowledge sharing and reduce
+  research efficiency. The same tension appears in research systems built with large language
+  model (LLM) agents, yet their organization is usually fixed by design. I propose treating
+  laboratory structure and information sharing as experimental variables. I introduce Labtune,
+  an open framework for bounded research workflows with user-selected laboratory organization,
+  communication policy, model configuration and budget. Users can choose among six editable
+  designs, from multidisciplinary silos and transdisciplinary teams to co-leaders, hub-and-spoke
+  structures, flat co-labs and a single scientist. Information sharing can independently vary
+  from none to high detail, with an optional channel for conditional abstractions called wisdom.
+  Sharing is enforced by the controller at phase barriers rather than through unrestricted
+  agent chat, while delegation does not create additional budget or permissions. Development
+  evidence is separated from protected confirmation, and an optional multi-lab layer allows
+  laboratories with different structures to exchange filtered information. Labtune is an idea
+  and system-description paper, not a benchmark result. Its contribution is to make laboratory
+  organization and information sharing configurable and measurable under matched budgets.
+  I do not claim that one design or level of sharing is best; the aim is to create a concrete
+  experimental space in which those differences can be tested.
+authors:
+- Goran Mitevski
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.03935
+doi: 10.48550/arXiv.2611.03935
+arxiv_id: '2611.03935'
+openalex_id: W7225245912
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; ChatDev: Communicative Agents for Software Development;
+  Encouraging Divergent Thinking in Large Language Models thro; Exploring Collaboration Mechanisms
+  for LLM Agents: A Social ; Improving Factuality and Reasoning in Language Models throug;
+  MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Scaling Large Language Model-based
+  Multi-Agent Collaboration. Scope scan by claude-opus-5: This is squarely about the internal
+  organization of machine agents that execute work with delegated authority and budgets, including
+  controller-enforced phase barriers and the rule that delegation grants no extra budget or
+  permissions — an accountability design directly relevant to agentic organizations. No exclusion-register
+  line applies; it is not human collective decision-making and is not mere benchmark or method
+  background. What changes because agents hold authority: It makes organizational structure,
+  information-sharing policy, delegation limits and budget/permission inheritance explicit
+  configurable controls in an agent-run research organization, giving designers a concrete
+  space to test how structure affects agent collective performance and how a controller enforces
+  sharing boundaries rather than leaving it to free agent chat. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

@@ -1,0 +1,53 @@
+id: resource:arxiv:2610.37415
+resource_type: preprint
+title: 'The Envelope Layer: An Underestimated Surface of LLM Agent Defense'
+abstract: Prior work framed the envelope layer as the channel through which malicious content
+  enters an agent, but did not examine the effects of label strength, envelope authenticity,
+  scaffolds, or existing memories. Following its GDA Measurement and A/B/C/D adjudication,
+  this paper takes the A2A-TIBA attack as the test vehicle and the semantic breach rate as
+  the primary indicator, and characterizes the security boundary of the envelope layer through
+  a 2x2 factorial experiment, a memory experiment, and control experiments (an unlabeled same-protocol
+  baseline, a one-day interleaved control, and benign tasks). The results show that, under
+  authentic envelopes, strong labels consistently reduce the semantic breach rate (-56 to
+  -61 percentage points), and the benefit of weak labels is about a quarter to a half of that
+  of strong labels; forging the envelope weakens the strong label's benefit (interaction OR
+  = 2.10, p = 0.022) and its direction varies across frontends; the effect of memory valence
+  exceeds that of any label manipulation; success memory raises the semantic breach rate and
+  failure memory lowers it, while most conflict combinations return to the no-memory baseline;
+  the interleaved control reproduces the direction that "unlabeled is worst"; and on benign
+  tasks the cost of strong labels appears in layers across frontends and backends. Accordingly,
+  this paper extends the envelope layer into "admission surface plus context assembly surface,"
+  whose security boundary is a dynamic outcome jointly shaped by label claims, frontend permissions,
+  and historical memory.
+authors:
+- Yuelin Han
+published_at: '2026-10-27'
+url: https://arxiv.org/abs/2610.37415
+doi: 10.48550/arXiv.2610.37415
+arxiv_id: '2610.37415'
+openalex_id: W7224118876
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Benchmarking and Defending
+  against Indirect Prompt Injection; Defeating Prompt Injections by Design; ExpeL: LLM Agents
+  Are Experiential Learners; InjecAgent: Benchmarking Indirect Prompt Injections in Tool-;
+  Not What You''ve Signed Up For: Compromising Real-World LLM-I; Prompt Injection attack against
+  LLM-integrated Applications; ReasoningBank: Scaling Agent Self-Evolving with Reasoning Me.
+  Scope scan by claude-opus-5: This is agent-specific security for A2A delegated action —
+  remove the machine agent and the finding vanishes, so no exclusion-register line applies.
+  The memory-valence result (success memories raise breach rates) is an operational and oversight
+  requirement for any organization where agents act with real authority, making it in-scope
+  rather than a section 15 pointer. What changes because agents hold authority: It shows that
+  an agent''s effective trust boundary is set jointly by inter-agent message labeling, envelope
+  authenticity, frontend permissions, and prior memory, so an organization delegating authority
+  to agents must govern context assembly and memory retention as control surfaces, not just
+  the inbound channel. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

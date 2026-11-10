@@ -1,0 +1,57 @@
+id: resource:arxiv:2611.02852
+resource_type: preprint
+title: Value-Conditioned Proposal Acquisition for Test-Time Reasoning
+abstract: Sampling and selection spend test-time compute inside a candidate pool, but they
+  cannot recover a correct answer that never enters it. We introduce ValueFormation, a test-time
+  policy that decides after each primary-model draw whether to stop, continue sampling, or
+  acquire one proposal from a heterogeneous reasoning specialist. The three actions are compared
+  on one cost-regularized value scale learned from vote-state features; the calibration is
+  frozen across tasks and primary models, and acquired proposals are accepted only through
+  a frozen posterior comparison. On held-out MATH-500, one Llama-fitted calibration improves
+  over the strongest of eight identically evaluated baselines by more than fifteen points
+  for each of three 8B primaries and transfers unchanged to Qwen3-14B. Removing acquisition
+  lowers Llama MATH accuracy by 20.43 points, while same-trace and same-access replays attribute
+  the gain to state-conditioned acquisition rather than specialist access alone. Where primary
+  coverage is high, as on GSM8K, acquisition is rare and gains mainly come from cheaper allocation;
+  on MBPP, a fixed code route attains the top accuracy at the lowest interaction cost. Varying
+  the token price monotonically reduces calls without retraining.
+authors:
+- Zeyan Li
+- Jianfeng Xu
+organizations:
+- Shanghai Jiao Tong University
+affiliations:
+  Zeyan Li:
+  - Shanghai Jiao Tong University
+  Jianfeng Xu:
+  - Shanghai Jiao Tong University
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.02852
+doi: 10.48550/arXiv.2611.02852
+arxiv_id: '2611.02852'
+openalex_id: W7225206138
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; Evaluating Large
+  Language Models Trained on Code; Improving Factuality and Reasoning in Language Models throug;
+  Large Language Monkeys: Scaling Inference Compute with Repea; Reflexion: language agents
+  with verbal reinforcement learnin; Self-Refine: Iterative Refinement with Self-Feedback.
+  Scope scan by claude-opus-5: This is an inference-time reasoning policy (stop/continue/acquire-from-specialist
+  on a cost-regularized value scale), which is machine-method substrate rather than a claim
+  about organizations where agents hold operational authority. It is load-bearing enough —
+  cost-conditioned escalation to a second model is the mechanical core of agent-to-agent delegation,
+  and six library papers lean on it — to hold as a section 15 pointer rather than refuse.
+  What changes because agents hold authority: Nothing about agent authority changes from this
+  work itself — it is a test-time compute allocation and specialist-routing method, not an
+  account of how authority is held or delegated organizationally, though it supplies the escalation-under-budget
+  primitive that agent-delegation designs build on. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

@@ -1,0 +1,56 @@
+id: resource:arxiv:2611.07945
+resource_type: preprint
+title: 'tok: a textual concrete syntax of BPMN and DMN for humans and AI agents'
+abstract: tok is a plain-text notation for Business Process Model and Notation (BPMN) 2.0.2
+  process models and Decision Model and Notation (DMN) 1.5 decisions. One engine checks a
+  tok document against both standards, compiles the document to XML with an automatic diagram,
+  and serves language-model applications through the Model Context Protocol. The paper classifies
+  the notation as an alternative concrete syntax of the BPMN and DMN metamodels and reports
+  one study. A tok model takes 2.2 times fewer tokens than the smallest BPMN XML of 893 files
+  exported by 37 tools and 7.7 times fewer than the files as exported. The checker signals
+  98.2% of 1,411 injected faults, against 85.8% for the XML Schema with bpmnlint. Four language
+  models new to tok write valid tok from a one-page reference for 85.7 to 100% of 87 process
+  descriptions from two datasets and valid BPMN XML for every description, and the strongest
+  model writes tok with 25% and 19% fewer tokens than BPMN XML. As agents with a lean skill
+  and one checker tool, the models write valid tok for 97.6 to 100% of the descriptions, the
+  strongest model spends 21% and 14% fewer tokens on tok than on BPMN XML, and a skill which
+  sends the model to read the reference through a tool costs 1.7 to 2.8 times the tokens of
+  the lean skill. Of 47 event logs simulated from public models, 44 fit their source models,
+  and tok imports every model discovered from the logs.
+authors:
+- Marek Deja
+organizations:
+- Jagiellonian University
+affiliations:
+  Marek Deja:
+  - Jagiellonian University
+published_at: '2026-11-05'
+url: https://arxiv.org/abs/2611.07945
+doi: 10.48550/arXiv.2611.07945
+arxiv_id: '2611.07945'
+openalex_id: W7225289525
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI Agents That Matter; Distributing Accountability, Not Capability: Phase Separatio;
+  Reflexion: language agents with verbal reinforcement learnin; SWE-agent: Agent-Computer
+  Interfaces Enable Automated Softwa; Self-Refine: Iterative Refinement with Self-Feedback;
+  Toolformer: Language Models Can Teach Themselves to Use Tool. Scope scan by claude-opus-5:
+  This is a notation and tooling paper — an alternative concrete syntax for BPMN/DMN with
+  a checker and MCP server — evaluated on token cost and fault detection, not on how authority
+  is delegated to or overseen in agents. It is genuinely load-bearing (agents that execute
+  or draft organizational processes need a verifiable representation, and six library papers
+  build on it), so it belongs as a section 15 pointer rather than an in-scope record. What
+  changes because agents hold authority: Nothing about agent authority itself changes; it
+  supplies a token-efficient, machine-checkable representation in which process and decision
+  rules can be authored and validated by language models, which is substrate rather than governance.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

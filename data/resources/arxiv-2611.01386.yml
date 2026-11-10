@@ -1,0 +1,60 @@
+id: resource:arxiv:2611.01386
+resource_type: preprint
+title: 'Learning by Doing: Autonomously Compiling and Curating Agent Skills from Verified
+  Traces'
+abstract: Memory systems for production LLM agents mostly store semantic memory (facts about
+  users and domains) or episodic memory (earlier interactions). Research systems such as Trace2Skill,
+  WikiSkill, and SkillRevise learn procedures from agent runs, package them as Skills, and
+  evaluate them on benchmarks. We describe Zep Agent Skills, a production service that gives
+  deployed agents this procedural memory. The service uses only verified attempts as evidence,
+  cites the supporting events for each field of a Skill, and governs the admission and distribution
+  of each Skill version. The service records each task attempt as a Trace with ordered events,
+  an outcome, and a verification strength. A compiler with separate Reflector and Curator
+  roles turns verified Traces into versioned Skills. Scans and admission gates control which
+  candidates become active, and verified use outcomes change the search rank of each Skill.
+  The Agent Skills format is an open standard that Anthropic originated and donated to the
+  Agentic AI Foundation, so any host of the format can load a compiled Skill. Agents retrieve
+  Skills through lexical search with progressive disclosure, over an API or MCP. We evaluate
+  Zep Agent Skills on $τ^3$-bench banking, AppWorld, and EnterpriseOps-Gym. Skills compiled
+  from the Traces of a teacher model increase the pass rate of three weaker executor models
+  on the same tasks, at every reasoning effort, by 4.5 to 18.8 points. Most of the gain is
+  on the tasks that the teacher solved. On ALFWorld, Skills compiled from the runs of a small
+  model give a gain similar to or larger than the gain that prior work reports for continuous
+  fine-tuning, with no training.
+authors:
+- Daniel Chalef
+- Peter Evans
+- Pavlo Paliychuk
+- Mehul Patel
+- Preston Rasmussen
+- Jack Ryan
+published_at: '2026-11-01'
+url: https://arxiv.org/abs/2611.01386
+doi: 10.48550/arXiv.2611.01386
+arxiv_id: '2611.01386'
+openalex_id: W7225194494
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: ALFWorld: Aligning Text and Embodied Environments for Intera; Cognitive Architectures
+  for Language Agents; ExpeL: LLM Agents Are Experiential Learners; Procedural Graphs: Self-Evolving
+  Execution Structures for LL; Reflexion: language agents with verbal reinforcement learnin;
+  Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  This is a capability/memory engineering paper: compiling skills from traces to raise task
+  pass rates, not a study of agents holding operational or decision authority in an organization.
+  Its curation, admission-gate and evidence-citation machinery is genuinely load-bearing for
+  how agentic systems accumulate and distribute sanctioned procedure, so it belongs as a section
+  15 pointer rather than a scope record; no exclusion-register line applies. What changes
+  because agents hold authority: Nothing about agent authority changes because of this work;
+  it supplies the procedural-memory substrate — verified-trace provenance, versioned skills,
+  and admission gating — that agent-authority designs can later build audit and promotion
+  controls on top of. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true

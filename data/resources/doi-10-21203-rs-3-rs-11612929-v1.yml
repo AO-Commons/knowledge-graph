@@ -1,0 +1,59 @@
+id: resource:doi:10-21203-rs-3-rs-11612929-v1
+resource_type: preprint
+title: 'Adding a Neutral Third Agent to LLM Deliberation: An Exploratory Case Series of Six
+  Dyadic and Triadic Ethical Deliberations'
+abstract: Abstract Multi-agent systems of large language models (LLMs) are now proposed for
+  deliberative tasks in ethically charged domains, yet little is known about how their composition
+  shapes deliberation. This article reports an exploratory case series of six multi-agent
+  deliberations in which LLM agents, each bound to a fixed instructed persona, decided binary
+  ethical dilemmas in three domains (medical intensive care allocation, a corporate layoff,
+  and an academic department closure), once in a dyadic configuration (an institutional decision-maker
+  and an ethical-minority advocate) and once in a triadic configuration that added a critically
+  neutral facilitator. Three frontier models rotated across the roles, sessions were run under
+  a verbatim Relay Protocol, and the complete transcripts and prompts are publicly archived.
+  Analysis is descriptive throughout. Across the six cases (84 agent turns, 37 rounds), the
+  minority agent in every case accepted the operational decision while maintaining a distinguishable
+  ethical position through an identifiable strategy, yielding a six-item descriptive taxonomy
+  of resistance strategies. A coded measure of the authority agent's pressure intensity was
+  lower in the triadic run in all three domains (mean paired difference −0.131), while three
+  of the study's four pre-defined hypotheses were not supported and deliberation length was
+  domain-dependent. Because the personas instructed the very behaviours under study and each
+  configuration was run once, the series supports no causal or emergent-behaviour claim. Its
+  contribution is a transparent, fully archived set of cases, a design vocabulary for facilitator
+  agents, and a precisely stated attenuation hypothesis for confirmatory work.
+authors:
+- Abbas Hamidavi
+organizations:
+- Islamic Azad University, Mashhad
+affiliations:
+  Abbas Hamidavi:
+  - Islamic Azad University, Mashhad
+published_at: '2026-11-05'
+url: https://doi.org/10.21203/rs.3.rs-11612929/v1
+doi: 10.21203/rs.3.rs-11612929/v1
+openalex_id: W7225316463
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 7
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; ChatEval: Towards Better LLM-based
+  Evaluators through Multi-; Encouraging Divergent Thinking in Large Language Models thro;
+  Improving Factuality and Reasoning in Language Models throug; Machine Psychology; Machine
+  psychology for language models; The ethics of algorithms: Mapping the debate. Scope scan
+  by claude-opus-5: The deliberative-democracy exclusion covers human collective decision-making
+  unchanged by machines; here the deliberators are themselves LLM agents deciding allocation,
+  layoff and closure questions, so removing the machines removes the finding entirely. Its
+  evidentiary weight is slight (six single-run cases, personas that instruct the behaviour
+  studied), but the facilitator-agent design vocabulary and dissent-preservation taxonomy
+  bear directly on structuring agent decision bodies. What changes because agents hold authority:
+  It supplies a design vocabulary and a testable attenuation hypothesis for how composing
+  an agent decision body — adding a neutral facilitator agent alongside an authority agent
+  and a minority advocate — shapes pressure intensity and whether dissent survives into the
+  record, which is a choice only available when machines occupy the deliberative roles. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

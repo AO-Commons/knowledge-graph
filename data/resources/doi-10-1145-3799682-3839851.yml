@@ -1,0 +1,64 @@
+id: resource:doi:10-1145-3799682-3839851
+resource_type: peer-reviewed-paper
+title: 'RAH: Recursive Agent Harnesses for Long-Context Reasoning through Delegation-as-Code'
+abstract: When an agent recurses over a long-context task, should the recursive unit be a
+  bare model call or a full harness with filesystem tools, code execution, and planning? We
+  study this question on long-context aggregation, tasks where a single instance may contain
+  thousands of key--value pairs each requiring individual model reasoning. Coding agents reduce
+  per-entry reasoning to regex heuristics. Recursive language models (RLMs) invoke LLMs recursively
+  but lack tool access. We introduce the Recursive Agent Harness (RAH), in which a parent
+  agent generates and runs an executable script that programmatically spawns full subagent
+  harnesses in parallel for fine-grained workloads and uses structured function calls for
+  subtasks of 1-5 entries. We call this harness recursion and study it against model recursion,
+  recursion over bare model calls as in RLMs, on long-context aggregation. With the backbone
+  held fixed at GPT-5 to match the published Codex and RLM baselines, RAH improves the Codex
+  coding-agent baseline from 71.75% to 81.36% on Oolong-Synthetic (199 samples, 13 context-length
+  buckets up to 4M tokens), a gain attributable to the harness rather than the model. With
+  a stronger backbone, Claude Sonnet 4.5, the same design reaches 89.77%.
+authors:
+- Elias Lumer
+- Sahil Sen
+- Vamse Kumar Subbiah
+- Kevin Paul
+organizations:
+- PricewaterhouseCoopers
+affiliations:
+  Elias Lumer:
+  - PricewaterhouseCoopers
+  Sahil Sen:
+  - PricewaterhouseCoopers
+  Vamse Kumar Subbiah:
+  - PricewaterhouseCoopers
+  Kevin Paul:
+  - PricewaterhouseCoopers
+published_at: '2026-11-03'
+url: https://doi.org/10.1145/3799682.3839851
+doi: 10.1145/3799682.3839851
+openalex_id: W7164537692
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentBench: Evaluating
+  LLMs as Agents; AgentVerse: Facilitating Multi-Agent Collaboration and Explo; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Cognitive Architectures for Language Agents;
+  Distributing Accountability, Not Capability: Phase Separatio; SWE-agent: Agent-Computer
+  Interfaces Enable Automated Softwa; Toolformer: Language Models Can Teach Themselves to
+  Use Tool; Tree of Thoughts: Deliberate Problem Solving with Large Lang; Voyager: An Open-Ended
+  Embodied Agent with Large Language Mo; WebGPT: Browser-assisted question-answering with
+  human feedb. Scope scan by claude-opus-5: This is a capability/architecture result about
+  how a parent agent decomposes and delegates work, load-bearing for the multi-agent delegation
+  substrate the field builds on but not itself about organizations where agents hold operational
+  or decision authority. No exclusion-register line applies; it fits the section 15 pointer
+  pattern used for evaluation suites and foundational methods. What changes because agents
+  hold authority: Nothing about authority, oversight or accountability changes; it only shows
+  that recursive delegation to full subagent harnesses outperforms bare model recursion on
+  long-context aggregation accuracy. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

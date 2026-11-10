@@ -1,0 +1,82 @@
+id: resource:arxiv:2611.03066
+resource_type: preprint
+title: 'Towards a Trustworthy and Governable Internet of Agentics: An Architectural Perspective
+  on Protocols, Systems, and Services'
+abstract: 'Large language model applications are increasingly being organized as tool-using
+  and multi-agent workflows rather than as isolated chat interfaces. This perspective paper
+  examines the architectural problem that follows from that shift: agents may reason, invoke
+  tools, and delegate work, but dependable deployment still requires interoperability across
+  frameworks, runtimes, data boundaries, and organizational control domains. We study this
+  problem through the lens of the \emph{Internet of Agentics} (IoA), an emerging service-computing
+  view in which heterogeneous agents are treated as governable service participants rather
+  than only as stand-alone model endpoints. The paper organizes the landscape as a three-layer
+  progression: from today''s fragmented agent ecosystem, to interoperable agents, and ultimately
+  to trustworthy and governable autonomy. First, it examines the protocol stack centered on
+  the Agentic AI Foundation, including MCP for agent--tool interaction; A2A for agent--agent
+  coordination; AGENTS.md and Skills-style procedural manifests; and discovery, transport,
+  and trust mechanisms such as AGNTCY and SLIM. Second, it reviews the systems abstractions
+  that make agents deployable as service components, including logical agent architectures,
+  orchestration patterns, gateways, registries, runtime control loops, and hardware-aware
+  inference infrastructure. Third, it situates these developments within services computing,
+  arguing that agentic systems reinterpret classical concerns from SOA and microservices---discovery,
+  composition, governance, pricing, and trust---at the level of cognitive capabilities rather
+  than deterministic functions.'
+authors:
+- Haoyi Xiong
+- Yi Liu
+- Jiang Bian
+- Peng Diao
+- Bin Zhu
+- Tingting Hu
+- Yi Wang
+- Sumi Helal
+organizations:
+- University of Bologna
+affiliations:
+  Haoyi Xiong:
+  - University of Bologna
+  Yi Liu:
+  - University of Bologna
+  Jiang Bian:
+  - University of Bologna
+  Peng Diao:
+  - University of Bologna
+  Bin Zhu:
+  - University of Bologna
+  Tingting Hu:
+  - University of Bologna
+  Yi Ru Wang:
+  - University of Bologna
+  Sumi Helal:
+  - University of Bologna
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.03066
+doi: 10.48550/arXiv.2611.03066
+arxiv_id: '2611.03066'
+openalex_id: W7225163595
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Distributing Accountability, Not Capability: Phase
+  Separatio; Intelligent AI Delegation; Intelligent agents: theory and practice; Large Language
+  Model based Multi-Agents: A Survey of Progres; MetaGPT: Meta Programming for A Multi-Agent
+  Collaborative Fr; Reflexion: language agents with verbal reinforcement learnin; The Rise
+  and Potential of Large Language Model Based Agents:. Scope scan by claude-opus-5: This is
+  squarely about treating heterogeneous agents as governable service participants with delegation
+  across control boundaries, so it bears directly on designing and overseeing organizations
+  where agents act with real authority; no exclusion-register line applies. Its governance,
+  discovery, composition and trust framing is agent-specific rather than general distributed-systems
+  background. What changes because agents hold authority: It specifies the protocol and systems
+  substrate — MCP/A2A interoperability, registries, gateways, runtime control loops, and trust/discovery
+  mechanisms — through which delegated agent action crosses organizational control domains
+  and can be governed, which is the technical layer any agent-authority organization must
+  build its oversight and accountability on. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1

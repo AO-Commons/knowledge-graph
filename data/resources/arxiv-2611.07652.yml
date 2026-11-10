@@ -1,0 +1,59 @@
+id: resource:arxiv:2611.07652
+resource_type: preprint
+title: 'Don''t Prompt Your Agents. Equip Them: Skillware as a Modular Standard for Sovereign,
+  Auditable, and Deterministic Capability Execution for Logical Systems'
+abstract: 'Current autonomous logical systems rely on a fragile assumption: that language
+  models should dynamically write code, guess API payloads, and memorize operational constraints
+  through prompt engineering. In practice, this burns massive context windows, inflates API
+  bills, and produces brittle agents that fail unpredictably in production. In this work,
+  we present Skillware, an open architectural framework and capability registry that formally
+  separates what an agent wants to do from how that task is executed. Instead of prompting
+  models with loose text instructions or markdown files baptized as ''skills'', Skillware
+  equips them with modular, versioned software capability bundles. Much like skill hotkeys
+  in video games that execute deterministically under fixed world rules, each bundle combines
+  a typed JSON input contract, deterministic Python code, task directives, bundled datasets,
+  and automated unit tests. In-process adapters translate these capabilities into native tool
+  declarations for any model, from frontier cloud APIs to local open-weight runtimes with
+  zero network latency. Evaluating 23 frontier and open-weight models across 368 benchmark
+  conditions, we show that small local models (3B to 8B parameters) equipped with Skillware
+  consistently outperform unequipped frontier models on complex multi-step workflows. They
+  cut token usage by up to 84.8%, slash inference costs by up to 97.3%, and eliminate parameter
+  errors entirely. True agent reliability does not come from larger models or longer prompts,
+  but from equipping logical systems with verified, deterministic software. Finally, we articulate
+  the trajectory of capability bundles across an invariant continuum of information processing
+  systems: from digital logical systems today, to IoT, drones, and embodied robotics tomorrow,
+  establishing a foundation for auditable, real-time capability execution.'
+authors:
+- Vladimiros Peilivanidis
+published_at: '2026-11-05'
+url: https://arxiv.org/abs/2611.07652
+doi: 10.48550/arXiv.2611.07652
+arxiv_id: '2611.07652'
+openalex_id: W7225433238
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Distributing Accountability, Not Capability: Phase
+  Separatio; Do As I Can, Not As I Say: Grounding Language in Robotic Aff; Not What You''ve
+  Signed Up For: Compromising Real-World LLM-I; Prompt Injection attack against LLM-integrated
+  Applications; Reflexion: language agents with verbal reinforcement learnin; The Rise and
+  Potential of Large Language Model Based Agents:. Scope scan by claude-opus-5: This is agent
+  execution tooling and benchmarking, not a study of organizations where machines hold operational
+  or decision authority, so it fails the scope test on its own terms. It is nonetheless load-bearing
+  infrastructure the field builds on (eight library papers cite it), making it a section 15
+  pointer rather than a refusal; no exclusion-register line applies. What changes because
+  agents hold authority: It supplies a substrate — versioned, typed, unit-tested capability
+  bundles — that makes an agent''s permitted actions enumerable, deterministic and auditable,
+  which is the kind of control surface an accountability regime for agent authority would
+  rest on, but the work itself says nothing about who holds authority or how it is delegated.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

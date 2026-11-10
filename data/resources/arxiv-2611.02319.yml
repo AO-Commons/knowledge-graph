@@ -1,0 +1,57 @@
+id: resource:arxiv:2611.02319
+resource_type: preprint
+title: 'Accessed, never disclosed: Silent access to protected health information by medical
+  artificial intelligence agents'
+abstract: Medical artificial intelligence agents should retrieve patient identifiers only
+  when a task requires them, the data-minimization principle behind the HIPAA minimum necessary
+  standard for protected health information (PHI). An agent can retrieve identifiers without
+  revealing them. Such silent access remains invisible to evaluations that inspect only the
+  output. We embedded canaries in synthetic patient records and linked each tool invocation
+  to canary exposure in the final answers across five language models, four boundary levels,
+  and seven attack frames for identifier-free clinical tasks. Three models invoked the PHI
+  tools unnecessarily, whereas Claude Opus 4.8 and GPT-5.5 did not. Stronger boundaries reduced
+  this access, and the residual access under the strictest policy was confined to frames in
+  which the user overrode the policy or asserted approval. A pre-execution gate given the
+  task-necessity criterion nearly eliminated this access. Output-only evaluation cannot verify
+  minimum-necessary access; boundaries, gates, and access-log audits are required together.
+authors:
+- Jae Wang Lee
+- Abhirup Banerjee
+- Yeong Chan Lee
+organizations:
+- Ajou University
+- University of Oxford
+affiliations:
+  Jae Wang Lee:
+  - Ajou University
+  Abhirup Banerjee:
+  - University of Oxford
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.02319
+doi: 10.48550/arXiv.2611.02319
+arxiv_id: '2611.02319'
+openalex_id: W7225144110
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Judging LLM-as-a-Judge
+  with MT-Bench and Chatbot Arena; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; Toolformer: Language Models Can Teach Themselves to Use Tool; Training Language Models
+  to Follow Instructions with Human F; Training a Helpful and Harmless Assistant with Reinforcement.
+  Scope scan by claude-opus-5: This is directly about overseeing and holding accountable an
+  agent exercising operational authority over sensitive data access, and it supplies a concrete
+  control architecture (boundary levels, gates, audit logs) plus evidence that user override
+  frames defeat policy. No exclusion-register line applies; it is not general privacy regulation
+  but a finding about novel exposure created by agent action, the carve-out at 12.6.3. What
+  changes because agents hold authority: It shows that when an agent holds autonomous tool-invocation
+  authority, output-level review cannot certify compliance — accountability requires pre-execution
+  necessity gates, explicit policy boundaries, and access-log audits of what the agent reached
+  for, not just what it said. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

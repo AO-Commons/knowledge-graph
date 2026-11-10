@@ -1,0 +1,62 @@
+id: resource:doi:10-70315-uloap-ulete-2026-0304006
+resource_type: peer-reviewed-paper
+title: Contract-Bounded Agents - A Practical Method for Building LLM Agents over Distributed
+  Operational Pipelines
+abstract: 'An investigation into why a unit of business work did not finish in a distributed
+  operational pipeline crosses several systems of record: schedulers, orchestration engines,
+  warehouses, code repositories and configuration stores. This monograph formulates Contract-Bounded
+  Agent Design (CBAD), a reproducible engineering method for building language-model agents
+  that conduct such investigations within fixed boundaries and can be carried from one pipeline
+  to the next. The method rests on four structural decisions: one narrow, read-only tool per
+  external source, whose description serves as a semantic contract; safety contracts enforced
+  in code, including statement guards, pinned query scopes, payload ceilings and truncation
+  reported with true totals; an explicit failure taxonomy that classifies by meaning on two
+  orthogonal axes, the business stage at which work stopped and the concern that owns the
+  fix; and a named separation between the current state of the work and its historical occurrence.
+  Around the decisions the book sets an ordered investigation runbook, an answer discipline
+  that limits each answer to what the tools returned, and four named design rules: liveness
+  check before trust, best-effort secondary write, partial success by construction and routing
+  by identifier shape. The decisions were derived from two systems developed separately in
+  the author’s own practice as a software engineer, an incident-investigation agent over a
+  workflow orchestration engine and a multi-purpose assistant over a scheduled data pipeline,
+  and the graded convergence of their designs is the principal evidence for the method. The
+  method is positioned against research on tool-using agents, AIOps and failure management,
+  natural-language interfaces to data, software architecture and technical debt. Its procedures
+  are given as checklists, decision tables and rule cards, worked through on a constructed
+  claims-processing pipeline, and the final chapter adds a transfer checklist and a staged
+  adoption path. The book addresses software engineers, site reliability engineers and architects
+  who build, review or adopt agents over production workflow and data systems.'
+authors:
+- Sai Sruthi Puchakayala
+published_at: '2026-11-03'
+url: https://doi.org/10.70315/uloap.ulete.2026.0304006
+doi: 10.70315/uloap.ulete.2026.0304006
+openalex_id: W7225162656
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Cognitive Architectures
+  for Language Agents; Defeating Prompt Injections by Design; Distributing Accountability,
+  Not Capability: Phase Separatio; InjecAgent: Benchmarking Indirect Prompt Injections in
+  Tool-; Not What You''ve Signed Up For: Compromising Real-World LLM-I; The Rise and Potential
+  of Large Language Model Based Agents:; Toolformer: Language Models Can Teach Themselves
+  to Use Tool. Scope scan by claude-opus-5: This is an engineering method for tool-using diagnostic
+  agents over production pipelines, not a treatment of organizations where machines hold operational
+  or decision authority, so it fails the scope test on its own terms. It is nonetheless load-bearing
+  background for the field — the containment and grounding mechanisms it names are the substrate
+  for bounding delegated agent action — and eight library papers already build on it, so it
+  belongs as a section 15 pointer rather than a refusal. What changes because agents hold
+  authority: Nothing about agent authority changes here — the agents are read-only investigators
+  that advise humans — but the work supplies the enforced-in-code bounding primitives (narrow
+  tool contracts, statement guards, pinned scopes, payload ceilings, truncation reported with
+  true totals, answers limited to what tools returned) that any design constraining an agent''s
+  operational reach builds on. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

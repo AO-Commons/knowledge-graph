@@ -1,0 +1,68 @@
+id: resource:arxiv:2611.03931
+resource_type: preprint
+title: 'Beyond Division of Labor: How Roles Shape Feedback and Recovery in Multi-Agent Systems'
+abstract: 'Roles in multi-agent large language model (LLM) systems allocate decisions as well
+  as work. In a Planner--Executor--Reviewer team, the Reviewer''s approval can determine when
+  the team submits an answer and receives corrective feedback. We study both functions by
+  varying role instructions while holding agents, topology, call budget, and ground-truth
+  evaluator constant, using three open-weight models on Omni-MATH and two on SciBench. Removing
+  roles largely eliminates functional specialization without lowering first-pass accuracy.
+  After a failed first answer, however, submission decisions matter: a role-structured Reviewer
+  often withholds approval, so its team submits less often and receives fewer evaluator verdicts.
+  In an exploratory comparison with feedback available to both teams, the role-free team recovers
+  more often across all five model--benchmark settings. Two further analyses support the importance
+  of feedback opportunities. In a post hoc comparison at equal numbers of verdicts, the pooled
+  recovery difference is small (role-structured minus role-free: $+0.009$, 95% interval $[-0.014,+0.033]$).
+  In an exploratory intervention on $400$ Omni-MATH problems with gemma-4, keeping the role
+  prompts but forcing submission in every cycle raises recovery from $0.198$ to $0.613$; the
+  paired comparison detects no difference from the role-free team. The takeaway is to evaluate
+  roles through recovery after failure as well as specialization. For systems with reliable
+  external feedback, this requires measuring who may submit, how often the team receives feedback,
+  and which agents can act on it.'
+authors:
+- Chih-Hsuan Yang
+- Xinyang Li
+- Rajeev Thakur
+- Feng Yan
+organizations:
+- Argonne National Laboratory
+- University of Houston
+affiliations:
+  Chih-Hsuan Yang:
+  - Argonne National Laboratory
+  Xinyang Li:
+  - University of Houston
+  Rajeev Thakur:
+  - Argonne National Laboratory
+  Feng Yan:
+  - University of Houston
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.03931
+doi: 10.48550/arXiv.2611.03931
+arxiv_id: '2611.03931'
+openalex_id: W7225258514
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; CRITIC: Large Language
+  Models Can Self-Correct with Tool-Int; Encouraging Divergent Thinking in Large Language
+  Models thro; Improving Factuality and Reasoning in Language Models throug; Large Language
+  Monkeys: Scaling Inference Compute with Repea; MetaGPT: Meta Programming for A Multi-Agent
+  Collaborative Fr; Reflexion: language agents with verbal reinforcement learnin; Self-Refine:
+  Iterative Refinement with Self-Feedback. Scope scan by claude-opus-5: The Reviewer''s approval
+  is operational decision authority held by a machine agent, and the finding is that this
+  allocation of authority — not specialization — drives outcomes, which is exactly a design
+  lever for agentic organizations. No exclusion-register line applies; removing the agents
+  would void the finding entirely. What changes because agents hold authority: It shows that
+  granting an agent approval/gatekeeping authority over submission suppresses the team''s
+  access to corrective feedback and halves recovery after failure, so role design must be
+  audited for who holds the authority to submit and how often the organization is permitted
+  to learn from external verdicts. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2

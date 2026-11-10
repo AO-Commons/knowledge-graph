@@ -1,0 +1,75 @@
+id: resource:doi:10-3390-electronics15215024
+resource_type: peer-reviewed-paper
+title: 'A Scoping Review of Agentic AI: Applications, Emerging Trends, Risks & Future Directions'
+abstract: Agentic AI describes systems based on foundation models that extend generative AI
+  from passive response generation toward executing tasks to achieve specific goals through
+  planning, tool use, memory, reflection, multi-agent coordination, and environmental interaction.
+  This scoping review maps recent peer-reviewed research on Agentic AI to clarify its conceptual
+  foundations, application domains, technical patterns, risks, and future directions. Following
+  PRISMA-ScR guidance, searches were conducted in IEEE Xplore, Scopus, and ScienceDirect for
+  studies published between 2017 and June 2026. A total of 3549 records were identified, 3308
+  records were screened after duplicate removal, and 163 included studies were synthesized.
+  The findings show that Agentic AI is commonly operationalized through LLM or foundation
+  model reasoning combined with multi-step task decomposition, tool or API use, RAG, memory,
+  reflection, and multi-agent coordination. Major application areas include cybersecurity,
+  privacy and compliance; networks and telecommunications; robotics and embodied AI; software
+  engineering, DevOps and EDA; and knowledge, data, and multimodal analytics. A post hoc ACM
+  Digital Library and Scopus conference-coverage sensitivity analysis showed that application-domain
+  proportions were sensitive to database and document-type coverage, whereas the main recurring
+  architectural signals remained qualitatively stable. Recurring technical patterns include
+  governance middleware, collaborative and hierarchical multi-agent architectures, memory-enabled
+  agency, executable reasoning, and closed-loop validation. Reported risks include hallucination
+  propagation, unsafe tool use, memory poisoning, privacy leakage, prompt injection, coordination
+  failure, cost, latency, scalability, and human-oversight challenges. Future research should
+  prioritize real-world validation, standardized benchmarks, runtime governance, secure memory
+  management, human oversight, and cross-domain generalization.
+authors:
+- Anoop Yadav
+- Leonard Chukwualuka Nnadi
+- Chukwuemeka Paul Isiwu
+- Ikechukwu Samuel Okechukwu
+- Yutaka Watanobe
+organizations:
+- University of Aizu
+affiliations:
+  Anoop Yadav:
+  - University of Aizu
+  Leonard Chukwualuka Nnadi:
+  - University of Aizu
+  Chukwuemeka Paul Isiwu:
+  - University of Aizu
+  Ikechukwu Samuel Okechukwu:
+  - University of Aizu
+  Yutaka Watanobe:
+  - University of Aizu
+published_at: '2026-10-29'
+url: https://doi.org/10.3390/electronics15215024
+doi: 10.3390/electronics15215024
+openalex_id: W7210278635
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Embodied LLM Agents Learn
+  to Cooperate in Organized Teams; Intelligent agents: theory and practice; Large Language
+  Model based Multi-Agents: A Survey of Progres; Not What You''ve Signed Up For: Compromising
+  Real-World LLM-I; Reflexion: language agents with verbal reinforcement learnin; The Rise
+  and Potential of Large Language Model Based Agents:; Toolformer: Language Models Can Teach
+  Themselves to Use Tool. Scope scan by claude-opus-5: A PRISMA-ScR landscape survey of agentic
+  AI capabilities, domains and risks is adjacent orientation material rather than a finding
+  about delegated machine authority; no exclusion-register line bars it, since its subject
+  is machine agency rather than human collective decision-making. Its catalogue of governance-middleware,
+  runtime-oversight and coordination-failure patterns is load-bearing enough for the field
+  — and widely cited within the corpus — to hold as a section 15 pointer. What changes because
+  agents hold authority: Nothing directly — it maps the technical landscape (planning, tool
+  use, memory, multi-agent coordination) and recurring risk categories that agent-authority
+  organizations must govern, but it does not study organizations in which agents hold operational
+  or decision authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true

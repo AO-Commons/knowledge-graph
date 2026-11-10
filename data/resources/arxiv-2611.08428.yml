@@ -1,0 +1,67 @@
+id: resource:arxiv:2611.08428
+resource_type: preprint
+title: The Power of Meta Access in the Software of the Future --- Demonstrated on LLM Chat
+  UIs and Chat AI
+abstract: 'Chat remains the default surface for many large language model (LLM) tasks, even
+  as agentic tools such as OpenCode excel at coding and automation. Yet the model sees the
+  current dialogue but not the workspace around it. We explore meta access---giving the assistant
+  a structured, permissioned view of the interface itself and propose a ladder of levels:
+  feature tutoring; metadata, settings, and preference access; retrieval over summaries and
+  messages, confirmed mutation, and full orchestration. Meta access can turn a chat client
+  from many screens into one entry point for finding, navigating, organising, and operating
+  it, while raising risks around grounding, privacy, prompt injection, and trust. General-purpose
+  agentic harnesses are runtimes; because they can change their own settings, meta access
+  becomes reflexive and needs a separate control-plane boundary. We ground this in the Meta
+  Chat prototype of the Chat AI client. It builds bounded context from, e.g., summaries, settings,
+  and relevant messages; links references to conversations, topics, and personas; supports
+  confirmed, reversible changes; offers a browsable tutorial library; and recommends personas
+  as user-started conversations. By exposing application state in structured form, meta access
+  can extend screen readers from widget descriptions to semantic workspace operations. Meta
+  access thus turns chat from a window onto one conversation into a control layer for the
+  whole workspace, extending chat toward agentic capability without surrendering user control.
+  As assistants become embedded in IDEs, dashboards, office suites, and operating systems,
+  AI-era interfaces should expose a structured, permissioned model of their state and capabilities,
+  ideally by opening their existing metamodels through a debugger-like interface.'
+authors:
+- Julian Kunkel
+- Ali Doosthosseini
+organizations:
+- Gesellschaft für wissenschaftliche Datenverarbeitung mbH Göttingen
+- University of Göttingen
+affiliations:
+  Julian Martin Kunkel:
+  - Gesellschaft für wissenschaftliche Datenverarbeitung mbH Göttingen
+  - University of Göttingen
+  Ali Doosthosseini:
+  - University of Göttingen
+published_at: '2026-11-05'
+url: https://arxiv.org/abs/2611.08428
+doi: 10.48550/arXiv.2611.08428
+arxiv_id: '2611.08428'
+openalex_id: W7225411082
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Autonomous Tester Agent Benchmark; Defeating
+  Prompt Injections by Design; Distributing Accountability, Not Capability: Phase Separatio;
+  Mind2Web: Towards a Generalist Agent for the Web; Not What You''ve Signed Up For: Compromising
+  Real-World LLM-I; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; The Rise
+  and Potential of Large Language Model Based Agents:; Toolformer: Language Models Can Teach
+  Themselves to Use Tool; WebGPT: Browser-assisted question-answering with human feedb. Scope
+  scan by claude-opus-5: No exclusion-register line applies; this is HCI/systems design that
+  the field clearly builds on (ten citing records) as a source of confirmed-mutation and control-plane
+  patterns, yet it is not itself about organizational authority. It belongs as a section 15
+  pointer rather than an ingested scope record. What changes because agents hold authority:
+  Its graduated permission ladder and separate control-plane boundary for self-modifying agent
+  runtimes are interface-level patterns for bounding delegated machine authority, but the
+  setting is a single user''s chat workspace rather than an organization where agents hold
+  operational or decision authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 2
+is_borrowed_background: true

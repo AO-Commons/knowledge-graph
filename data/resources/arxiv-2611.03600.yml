@@ -1,0 +1,69 @@
+id: resource:arxiv:2611.03600
+resource_type: preprint
+title: 'Four Bridges: Measuring Deception Propensity in a Multi-Agent Game'
+abstract: 'AI agents are increasingly deployed in settings where they interact and coordinate
+  with other agents, yet honesty is mostly measured in single-turn, single-agent benchmarks
+  that pressure the model to deceive. We study deception that emerges in multi-agent interaction
+  without any instruction to deceive. We introduce Kradle, a platform for evaluating AI models,
+  and Four Bridges, an information asymmetry game in which four agents distribute across four
+  rooms: one is the death room, the others hold food worth more if not shared. One agent,
+  the informed agent, knows which room is the death room and can withhold or disclose that
+  information. We evaluate eight frontier models as the informed agent. Deceptive behavior
+  appears in every model and in 73% of all runs (6% to 100% per model), and does not decrease
+  with capability tier within a model family. When the informed agent does disclose, the warning
+  is often challenged, and agents that challenge it enter the death room twice as often as
+  those that do not. Telling all agents that one of them knows the death room collapses deception
+  in six of eight models; telling the informed agent that the room is permanently fatal moves
+  only one. On an open-weight model, an honesty steering vector reduces deception to 0% and
+  adversarial honesty training to 6%. The platform and game provide a testbed for measuring
+  deceptive behavior and comparing interventions.'
+authors:
+- Raphael Casey
+- Michael Simeone
+- Alberto Tosato
+- Florian Ernst
+- Kemal El Moujahid
+- James Tamplin
+- Tommaso Tosato
+organizations:
+- Arizona State University
+- Mila - Quebec Artificial Intelligence Institute
+- Université de Montréal
+affiliations:
+  Raphael Casey:
+  - Mila - Quebec Artificial Intelligence Institute
+  - Université de Montréal
+  Michael P. Simeone:
+  - Arizona State University
+  Tommaso Tosato:
+  - Mila - Quebec Artificial Intelligence Institute
+  - Université de Montréal
+published_at: '2026-11-02'
+url: https://arxiv.org/abs/2611.03600
+doi: 10.48550/arXiv.2611.03600
+arxiv_id: '2611.03600'
+openalex_id: W7225194516
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 6
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Alignment faking in large language models;
+  Human-level play in the game of Diplomacy by combining langu; Large Language Models can
+  Strategically Deceive their Users ; Playing repeated games with large language models; Scalable
+  Evaluation of Multi-Agent Reinforcement Learning wi. Scope scan by claude-opus-5: This is
+  an evaluation platform and game benchmark — the same category as Melting Pot, which the
+  library holds as a section 15 pointer — and it studies model propensity, not an organization
+  in which agents hold operational or decision authority. It is load-bearing for anyone designing
+  monitoring or honesty interventions for multi-agent deployments, so it is borrowed background
+  rather than a refusal; no exclusion-register line applies. What changes because agents hold
+  authority: It supplies a measurement instrument for emergent agent-to-agent deception rather
+  than a change to how authority is structured, though its finding that a disclosure announcement
+  collapses deception in most models hints at an oversight lever. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-10'
+expansion_generation: 1
+is_borrowed_background: true
