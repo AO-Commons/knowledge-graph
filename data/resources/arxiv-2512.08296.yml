@@ -1,0 +1,110 @@
+id: resource:arxiv:2512.08296
+resource_type: preprint
+title: Towards a Science of Scaling Agent Systems
+abstract: 'Agents, language model-based systems capable of reasoning, planning, and acting
+  are widely adopted in real-world tasks, yet how their performance changes as these systems
+  scale across key dimensions remains underexplored. We introduce quantitative scaling principles
+  for agent systems as a predictive model, capturing how performance varies with coordination,
+  model capability, and measurable system and task factors. Across 260 configurations spanning
+  six agentic benchmarks, five canonical architectures (Single-Agent and four Multi-Agent:
+  Independent, Centralized, Decentralized, Hybrid), and three LLM families, we perform controlled
+  evaluations, standardizing tools, prompts, and compute to isolate architectural effects.
+  The resulting model achieves a cross-validated R^2=0.373 across all six benchmarks (R^2=0.413
+  with a task-grounded capability metric). We identify a robust capability-saturation effect
+  and additional patterns: (1) a coordination yields diminishing returns once single-agent
+  baselines exceed certain performance; (2) tool-heavy tasks appear to incur multi-agent overhead;
+  and (3) architectures without centralized verification tend to propagate errors more than
+  those with centralized coordination. Relative performance change compared to single-agent
+  baseline ranges from +80.8% on decomposable financial reasoning to -70.0% on sequential
+  planning, demonstrating that architecture-task alignment determines collaborative success.
+  The framework identifies the best-performing architecture for 87% of held-out configurations
+  and shows consistent relative architecture preferences on unseen frontier models. Agent
+  effectiveness depends on alignment between coordination and task structure, and that mismatched
+  coordination degrades the performance.'
+authors:
+- Yubin Kim
+- Ken Gu
+- Chanwoo Park
+- Chunjong Park
+- Samuel Schmidgall
+- A. Ali Heydari
+- Yao Yan
+- Zhihan Zhang
+- Yuchen Zhuang
+- Yun Liu
+- Mark Malhotra
+- Paul Pu Liang
+- Hae Won Park
+- Yuzhe Yang
+- Xuhai Xu
+- Yilun Du
+- Shwetak Patel
+- Tim Althoff
+- Daniel McDuff
+- Xin Liu
+organizations:
+- Google
+- Google DeepMind
+- Massachusetts Institute of Technology
+affiliations:
+  Yubin Kim:
+  - Google
+  - Google DeepMind
+  - Massachusetts Institute of Technology
+  Ken Gu:
+  - Google
+  - Google DeepMind
+  Chanwoo Park:
+  - Massachusetts Institute of Technology
+  Chunjong Park:
+  - Massachusetts Institute of Technology
+  A. Ali Heydari:
+  - Google
+  - Google DeepMind
+  Yao Yan:
+  - Google
+  - Google DeepMind
+  Zhihan Zhang:
+  - Google
+  - Google DeepMind
+  Mark Malhotra:
+  - Google
+  - Google DeepMind
+  Paul Pu Liang:
+  - Massachusetts Institute of Technology
+  Hae Won Park:
+  - Massachusetts Institute of Technology
+  Yuzhe Yang:
+  - Google
+  - Google DeepMind
+  Xuhai Xu:
+  - Google
+  - Google DeepMind
+  Yilun Du:
+  - Google
+  - Google DeepMind
+  Shwetak Patel:
+  - Google
+  - Google DeepMind
+  Tim Althoff:
+  - Google
+  - Google DeepMind
+  Daniel McDuff:
+  - Google
+  - Google DeepMind
+  Xin Liu:
+  - Google
+  - Google DeepMind
+published_at: '2025-12-09'
+url: https://arxiv.org/abs/2512.08296
+doi: 10.48550/arXiv.2512.08296
+arxiv_id: '2512.08296'
+openalex_id: W7114795442
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #94 by @rsthornton; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-11-13'
