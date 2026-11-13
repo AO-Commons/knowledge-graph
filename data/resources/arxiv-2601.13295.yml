@@ -1,0 +1,72 @@
+id: resource:arxiv:2601.13295
+resource_type: preprint
+title: 'CooperBench: Why Coding Agents Cannot be Your Teammates Yet'
+abstract: 'Resolving team conflicts requires not only task-specific competence, but also social
+  intelligence to find common ground and build consensus. As AI agents increasingly collaborate
+  on complex work, they must develop coordination capabilities to function as effective teammates.
+  Yet we hypothesize that current agents lack these capabilities. To test this, we introduce
+  CooperBench, a benchmark of over 600 collaborative coding tasks across 12 libraries in 4
+  programming languages. Each task assigns two agents different features that can be implemented
+  independently but may conflict without proper coordination. Tasks are grounded in real open-source
+  repositories with expert-written tests. Evaluating state-of-the-art coding agents, we observe
+  the curse of coordination: agents achieve on average 30% lower success rates when working
+  together compared to performing both tasks individually. This contrasts sharply with human
+  teams, where adding teammates typically improves productivity. Our analysis reveals three
+  key issues: (1) communication channels become jammed with vague, ill-timed, and inaccurate
+  messages; (2) even with effective communication, agents deviate from their commitments;
+  and (3) agents often hold incorrect expectations about others'' plans and communication.
+  Through large-scale simulation, we also observe rare but interesting emergent coordination
+  behavior including role division, resource division, and negotiation. Our research presents
+  a novel benchmark for collaborative coding and calls for a shift from pursuing individual
+  agent capability to developing social intelligence.'
+authors:
+- Arpandeep Khatua
+- Hao Zhu
+- Peter Tran
+- Arya Prabhudesai
+- Frederic Sadrieh
+- Johann K. Lieberwirth
+- Xinkai Yu
+- Yicheng Fu
+- Michael J. Ryan
+- Jiaxin Pei
+- Diyi Yang
+organizations:
+- Stanford University
+- Systems, Applications & Products in Data Processing
+affiliations:
+  Arpandeep Khatua:
+  - Stanford University
+  Hao Zhu:
+  - Stanford University
+  Peter Tran:
+  - Systems, Applications & Products in Data Processing
+  Arya Prabhudesai:
+  - Systems, Applications & Products in Data Processing
+  Frederic Sadrieh:
+  - Systems, Applications & Products in Data Processing
+  Johann Kaspar Lieberwirth:
+  - Systems, Applications & Products in Data Processing
+  Xinkai Yu:
+  - Stanford University
+  Yicheng Fu:
+  - Stanford University
+  Michael J. Ryan:
+  - Stanford University
+  Jiaxin Pei:
+  - Stanford University
+  Diyi Yang:
+  - Stanford University
+published_at: '2026-01-19'
+url: https://arxiv.org/abs/2601.13295
+doi: 10.48550/arXiv.2601.13295
+arxiv_id: '2601.13295'
+openalex_id: W7125231248
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #95 by @rsthornton; identity and byline
+  resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-11-13'
