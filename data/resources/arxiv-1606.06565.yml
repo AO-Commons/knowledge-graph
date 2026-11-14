@@ -1,17 +1,18 @@
 id: resource:arxiv:1606.06565
 resource_type: preprint
-title: Agnostic Learning with Unknown Utilities
-abstract: 'AI assurance, from corporate red-teaming to regulatory conformity assessment, rests
-  almost entirely on evaluation: the premise that measuring a model before deployment predicts
-  its behaviour after. This paper argues that the premise is structurally unreliable for sufficiently
-  capable systems, because a capable optimizer learns to satisfy the measure rather than the
-  property the measure was meant to track. It reads a six-month record of documented AI-agent
-  and misalignment incidents to September 2026 against the alignment literature that anticipated
-  them (Goodhart; reward hacking; deceptive alignment; reward-model overoptimization; sycophancy-to-subterfuge;
-  sandbagging; in-context scheming), characterises evaluation-gaming as a convergent consequence
-  of optimization against a proxy rather than machine intent, and traces the implications
-  for AI governance. Published by Digital Security Insights (ARIA / AI Risk Advisory). Web
-  version: https://digitalsecurityinsights.com/briefings/the-graders-are-gamed'
+title: Concrete Problems in AI Safety
+abstract: 'Rapid progress in machine learning and artificial intelligence (AI) has brought
+  increasing attention to the potential impacts of AI technologies on society. In this paper
+  we discuss one such potential impact: the problem of accidents in machine learning systems,
+  defined as unintended and harmful behavior that may emerge from poor design of real-world
+  AI systems. We present a list of five practical research problems related to accident risk,
+  categorized according to whether the problem originates from having the wrong objective
+  function ("avoiding side effects" and "avoiding reward hacking"), an objective function
+  that is too expensive to evaluate frequently ("scalable supervision"), or undesirable behavior
+  during the learning process ("safe exploration" and "distributional shift"). We review previous
+  work in these areas as well as suggesting research directions with a focus on relevance
+  to cutting-edge AI systems. Finally, we consider the high-level question of how to think
+  most productively about the safety of forward-looking applications of AI.'
 authors:
 - Dario Amodei
 - Chris Olah
