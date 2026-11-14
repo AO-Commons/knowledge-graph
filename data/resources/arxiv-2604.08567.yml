@@ -1,0 +1,65 @@
+id: resource:arxiv:2604.08567
+resource_type: preprint
+title: Multi-User Large Language Model Agents
+abstract: 'Large language models (LLMs) and LLM-based agents are increasingly deployed as
+  assistants in planning and decision making, yet most existing systems are implicitly optimized
+  for a single-principal interaction paradigm, in which the model is designed to satisfy the
+  objectives of one dominant user whose instructions are treated as the sole source of authority
+  and utility. However, as they are integrated into team workflows and organizational tools,
+  they are increasingly required to serve multiple users simultaneously, each with distinct
+  roles, preferences, and authority levels, leading to multi-user, multi-principal settings
+  with unavoidable conflicts, information asymmetry, and privacy constraints. In this work,
+  we present the first systematic study of multi-user LLM agents. We begin by formalizing
+  multi-user interaction with LLM agents as a multi-principal decision problem, where a single
+  agent must account for multiple users with potentially conflicting interests and associated
+  challenges. We then introduce a unified multi-user interaction protocol and design three
+  targeted stress-testing scenarios to evaluate current LLMs'' capabilities in instruction
+  following, privacy preservation, and coordination. Our results reveal systematic gaps: frontier
+  LLMs frequently fail to maintain stable prioritization under conflicting user objectives,
+  exhibit increasing privacy violations over multi-turn interactions, and suffer from efficiency
+  bottlenecks when coordination requires iterative information gathering.'
+authors:
+- Shu Yang
+- Shenzhe Zhu
+- Hao Zhu
+- José Ramón Enríquez
+- Di Wang
+- Alex Pentland
+- Michiel A. Bakker
+- Jiaxin Pei
+organizations:
+- King Abdullah University of Science and Technology
+- Massachusetts Institute of Technology
+- Stanford University
+- University of Toronto
+affiliations:
+  Shu Yang:
+  - King Abdullah University of Science and Technology
+  Shenzhe Zhu:
+  - University of Toronto
+  Hao Zhu:
+  - Stanford University
+  José Ramón Enríquez:
+  - Stanford University
+  Di Wang:
+  - King Abdullah University of Science and Technology
+  Alex Pentland:
+  - Massachusetts Institute of Technology
+  - Stanford University
+  Michiel A. Bakker:
+  - Massachusetts Institute of Technology
+  Jiaxin Pei:
+  - Stanford University
+published_at: '2026-03-19'
+url: https://arxiv.org/abs/2604.08567
+doi: 10.48550/arXiv.2604.08567
+arxiv_id: '2604.08567'
+openalex_id: W7154150650
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'added automatically from issue #97 by @ao-commons-graph[bot]; identity
+  and byline resolved against OpenAlex. no topic tags yet — it enters the review queue untagged.'
+ingested_at: '2026-11-14'
