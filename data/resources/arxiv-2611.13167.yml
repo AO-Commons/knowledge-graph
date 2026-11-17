@@ -1,0 +1,54 @@
+id: resource:arxiv:2611.13167
+resource_type: preprint
+title: AI Alignment Is Neither Solvable nor Sufficient
+abstract: Humans and AI systems increasingly act within the same social and economic environments.
+  Alignment, the goal of ensuring that AI systems act in accordance with human values, is
+  widely regarded as a central challenge for ensuring that AI benefits society while avoiding
+  harm. We argue that this endeavor is misguided. First, alignment is not well defined, as
+  it presumes a sufficiently stable and identifiable set of human intentions or values. Second,
+  where a concrete notion of alignment can be specified, it is not solvable. Third, where
+  alignment appears solvable, solving it would not necessarily mitigate the negative consequences
+  of AI. A key reason is that alignment is typically framed as a property of individual AI
+  systems, while the resulting hybrid societies of humans and machines are complex systems
+  shaped by interactions and feedback loops. Emergent risks, and not only those posed by individual
+  misaligned systems, are therefore likely to become a major source of harm. We conclude that
+  AI safety is an ongoing challenge and not a problem that can be solved once and for all
+  by verifying a particular model property.
+authors:
+- Gerrit Großmann
+organizations:
+- German Research Centre for Artificial Intelligence
+affiliations:
+  Gerrit Großmann:
+  - German Research Centre for Artificial Intelligence
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.13167
+doi: 10.48550/arXiv.2611.13167
+arxiv_id: '2611.13167'
+openalex_id: W7225823150
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Alignment with Changing and Influenceable Reward Function; AI Alignment: A Comprehensive
+  Survey; AI Organizations are More Effective but Less Aligned than In; AI-to-AI Code Reviews
+  of GitHub Pull Requests; Alignment faking in large language models; Foundational Challenges
+  in Assuring Alignment and Safety of ; Multi-Agent Risks from Advanced AI; Open Problems
+  in Cooperative AI; Scalable agent alignment via reward modeling: a research dir. Scope scan
+  by claude-opus-5: This is a foundational position paper on AI safety and emergent risk in
+  hybrid societies, not about delegated machine authority within an organization, so it fails
+  the scope test directly; no exclusion-register line applies. Its heavy citation by library
+  papers and its load-bearing argument against model-level alignment certification make it
+  a legitimate section 15 pointer. What changes because agents hold authority: It reframes
+  safety as an ongoing systemic property of mixed human-machine populations rather than a
+  verifiable per-model property, which is the rationale for continuous organizational-level
+  oversight of agents, but the paper itself offers no design guidance for organizations where
+  agents hold authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

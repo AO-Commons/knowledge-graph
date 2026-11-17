@@ -1,0 +1,52 @@
+id: resource:doi:10-22146-abis-v14i4-125774
+resource_type: peer-reviewed-paper
+title: 'Large Language Models In Auditing Assessments: Comparisons Between Human Learners,
+  Model Scale, and Enhancement Techniques'
+abstract: 'This study examines whether large language models (LLMs) can perform audit work
+  by comparing their performance with human learners, across model scale and under two enhancement
+  techniques. Drawing on the audit-judgment distinction between declarative and procedural
+  knowledge, the study evaluates seven publicly available LLMs on audit work in two forms
+  of audit assessment. In the knowledge-based assessment, the LLMs answer four undergraduate
+  auditing examinations previously sat by 352 accounting students, as a proxy of human learners.
+  In the data-analytic case assessment, they plan and execute SQL-based substantive procedures
+  to test the occurrence of revenue and the completeness of expenditures. On the knowledge-based
+  assessment, LLMs outperform human learners where large LLMs typically fall between the 78th
+  and 98th student percentiles, and large LLMs outperform small LLMs. On the data-analytic
+  case assessment, no LLM scores above 50% of the rubric maximum, and large and small LLMs
+  do not differ significantly. Meanwhile, two enhancement techniques: self-reflection and
+  agentic workflow do not improve performance on the data-analytic case assessment. These
+  results reveal a knowing–doing gap: LLMs display strong declarative audit knowledge but
+  weak procedural capability, and self-correction without external feedback does not repair
+  knowledge errors. This study discusses implications for audit practice, assessment design
+  and standard setters.'
+authors:
+- Arizona Mustikarini
+published_at: '2026-11-11'
+url: https://doi.org/10.22146/abis.v14i4.125774
+doi: 10.22146/abis.v14i4.125774
+openalex_id: W7225777540
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Distributing Accountability, Not Capability: Phase Separatio; Emergent Abilities
+  of Large Language Models; GPT-4 Technical Report; Language Models are Few-Shot Learners;
+  Reflexion: language agents with verbal reinforcement learnin; Self-Refine: Iterative Refinement
+  with Self-Feedback; Toolformer: Language Models Can Teach Themselves to Use Tool; Why Do
+  Multi-Agent LLM Systems Fail?. Scope scan by claude-opus-5: This is a capability benchmark
+  of LLMs against human learners in an accountability-relevant domain, load-bearing for judging
+  whether agents can be trusted with audit and control functions, yet its findings are about
+  model competence rather than organizational design. No exclusion-register line applies;
+  it fits the section 15 pointer role alongside other evaluation suites. What changes because
+  agents hold authority: It supplies an evaluation result — strong declarative audit knowledge
+  but weak procedural execution, unimproved by self-reflection or agentic workflows — that
+  bounds how much assurance work can be delegated to agents, but it does not itself study
+  an organization where agents hold authority. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

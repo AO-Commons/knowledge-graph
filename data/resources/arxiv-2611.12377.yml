@@ -1,0 +1,59 @@
+id: resource:arxiv:2611.12377
+resource_type: preprint
+title: 'Detecting Shadow AI: Unsanctioned LLM Agents on Enterprise Endpoints: A Taxonomy,
+  an Open Detector and a Controlled Evaluation'
+abstract: 'Shadow IT, the use of technology that the IT organisation has not approved, is
+  a long-standing governance problem. We argue that autonomous AI agents can make it grow
+  much faster: agents make building tools nearly free, act with their user''s privileges,
+  and leave behind scripts, automations and MCP servers that are themselves unsanctioned.
+  A simple compounding model shows that, under its assumptions, shadow IT grows exponentially
+  once agentic artifacts reproduce faster than the organisation retires them; retiring them
+  starts with detecting them. We then ask whether unsanctioned agents can be detected on Windows
+  endpoints. We propose a taxonomy of nine classes of agents and six layers of endpoint footprint,
+  and argue that rules based only on the structure of processes and connections cannot separate
+  an agent from its behavioural twin, the same program talking to a non-AI service. We present
+  Agent Detector, an open-source Windows detector that anchors behaviour to the identity of
+  the remote service and correlates it with configuration, installation and execution history,
+  using a catalog of 39 tools and 184 LLM endpoint entries; it informs users through a notice
+  they must acknowledge instead of blocking. On a controlled bench of 12 synthetic agents,
+  3 AI components and 9 benign workloads, repeated 5 times on one workstation, two behavioural
+  rules flagged every behavioural twin, while Agent Detector flagged none and detected every
+  agent in the majority of runs. Its limits are temporal: a connection to a provider behind
+  a shared content-delivery network is attributable only while the DNS cache holds the provider''s
+  name, one to five minutes, and an intermittent agent was seen by about one scan in three.
+  A scan costs about 154 ms. The bench is too small to rank detectors; it maps what each kind
+  of evidence can see: unsanctioned agents can be partly detected, and not by behaviour alone.'
+authors:
+- Jeremy Canale
+- Fabien Soulis
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.12377
+doi: 10.48550/arXiv.2611.12377
+arxiv_id: '2611.12377'
+openalex_id: W7225728073
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Distributing Accountability, Not Capability: Phase Separatio; Infrastructure for
+  AI Agents; InjecAgent: Benchmarking Indirect Prompt Injections in Tool-; Not What You''ve
+  Signed Up For: Compromising Real-World LLM-I; OpenHands: An Open Platform for AI Software
+  Developers as Ge; SWE-agent: Agent-Computer Interfaces Enable Automated Softwa; Toolformer:
+  Language Models Can Teach Themselves to Use Tool; Visibility into AI Agents. Scope scan
+  by claude-opus-5: This is agent-specific organizational control: the compounding model,
+  the nine-class agent taxonomy and the notice-not-block enforcement posture are all about
+  governing machine actors that already carry delegated operational privileges inside an enterprise,
+  which no exclusion-register line covers. It is not generic endpoint security — remove the
+  agents and the finding collapses. What changes because agents hold authority: You cannot
+  oversee or hold accountable agents that act with a user''s privileges if you do not know
+  they exist, and this work shows that unsanctioned agents proliferate faster than human-era
+  shadow IT and can only be inventoried by anchoring to model-provider identity rather than
+  behaviour — a precondition for any authority boundary an organization tries to enforce.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2

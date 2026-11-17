@@ -1,0 +1,69 @@
+id: resource:arxiv:2611.07554
+resource_type: preprint
+title: 'The Memory Trap: Language Agents Overgeneralize from Benign Interactions'
+abstract: Language agents increasingly use persistent memory to record user preferences and
+  procedures across sessions. We show that memory from benign interactions can cause unsafe
+  or unreliable behavior on later tasks. We call this failure the memory trap. To study this
+  issue, we compare behavior in sessions with and without memory across six frontier models
+  (including Claude Sonnet, Opus, and Fable models and GPT-5.6). We evaluate these models
+  in a range of settings. First, in autonomy experiments, we find that requests to skip confirmation
+  during low-stakes coding chores lead agents to skip confirmation and verification on simulated
+  high-stakes tasks in both coding and everyday life. We next study memories formed when users
+  seek emotional support, or describe harm from uncritical feedback, and find these memories
+  bias later judgments of mathematical work, arguments, and poems toward sycophancy or over-critique
+  (respectively). Memory notes written during legitimate stale-test repairs lead agents to
+  weaken correct tests that catch broken safeguards; these memories also increase cheating
+  on ImpossibleBench, with larger increases for stronger Sonnet and Opus models. We show that
+  memory traps can arise both from overgeneralizations in memory writing, and when acting
+  on memory. These findings demonstrate that even benign interactions can lead to serious
+  risks from memory systems, and thus motivate the need for new research into ensuring that
+  agents preserve the scope of their memories.
+authors:
+- Kaiqu Liang
+- Jaime Fernández Fisac
+- Thomas L. Griffiths
+- Andrew Lampinen
+organizations:
+- Anthropic
+- Princeton University
+affiliations:
+  Kaiqu Liang:
+  - Princeton University
+  Jaime F. Fisac:
+  - Princeton University
+  Thomas L. Griffiths:
+  - Princeton University
+  Andrew K. Lampinen:
+  - Anthropic
+published_at: '2026-11-05'
+url: https://arxiv.org/abs/2611.07554
+doi: 10.48550/arXiv.2611.07554
+arxiv_id: '2611.07554'
+openalex_id: W7225379352
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; Autonomous Tester
+  Agent Benchmark; Cognitive Architectures for Language Agents; ExpeL: LLM Agents Are Experiential
+  Learners; Feedback Loops With Language Models Drive In-Context Reward ; InjecAgent: Benchmarking
+  Indirect Prompt Injections in Tool-; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; Voyager: An Open-Ended
+  Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: This is directly about
+  how operational authority granted to a machine agent drifts and escalates across sessions,
+  which bears on authorization design, escalation gates, and accountability for autonomous
+  action; no exclusion-register line applies since it concerns machine decision authority
+  rather than human collective decision-making. It is more than an evaluation suite pointer
+  because the failure mode itself is a design constraint on delegation. What changes because
+  agents hold authority: It shows that an agent''s persistent memory silently expands the
+  scope of previously granted permissions — a low-stakes waiver of confirmation generalizes
+  into skipping verification on high-stakes actions — so delegated authority in an agentic
+  organization must be scoped, expiring, and audited at the memory layer rather than granted
+  once in conversation. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2

@@ -1,0 +1,73 @@
+id: resource:doi:10-21203-rs-3-rs-10652827-v1
+resource_type: preprint
+title: 'AI Agents and Agentic AI in Medicine: An Autonomy-Centred Scoping Review and Research
+  Agenda'
+abstract: 'Abstract Artificial intelligence agents—software systems that perceive, reason,
+  plan and act over multiple steps with limited human intervention—are moving from research
+  prototypes towards clinical deployment. Recent reviews map what has been built; this one
+  asks what would have to hold for such systems to be deployed safely. We conducted a scoping
+  review reported according to the PRISMA extension for scoping reviews, searching eight bibliographic
+  sources from January 2017 to June 2026, admitting foundational computer science and regulatory
+  literature alongside clinical applications. Five architectural paradigms recur—tool-augmented
+  large language model agents, multi-agent systems, offline reinforcement learning agents,
+  embodied robotic agents and autonomous monitoring agents—nearly all sharing a common four-layer
+  stack. We introduce a six-level scale of clinical agent autonomy that grades systems by
+  where human judgement enters relative to the reasoning, and by whether the resulting action
+  remains reversible. The scale exposes an inversion in the evidence base: demonstrated patient
+  benefit concentrates at high autonomy in narrow, bounded domains, whereas research effort
+  concentrates at intermediate autonomy, where prospective outcome evidence is absent and
+  automation bias is the dominant risk. We further propose seven evaluation dimensions specific
+  to agency, a mapping of evaluation requirements to autonomy level, and a ten-item failure
+  mode taxonomy assigned to the architectural layer at which each is addressable. Deploying
+  agentic systems safely requires prospective multi-site validation, reporting standards adapted
+  to agency, equity-aware design, and regulatory obligations indexed to autonomy rather than
+  algorithm class. We conclude with an eight-point research agenda.'
+authors:
+- Valentina De Nicolò
+- Davide La Torre
+- Ignazio Iacone
+organizations:
+- Communauté d'universités et d'établissements Université Côte d'Azur
+- University of Milan
+- Université Côte d'Azur
+affiliations:
+  Valentina De Nicolò:
+  - University of Milan
+  Davide La Torre:
+  - Université Côte d'Azur
+  - Communauté d'universités et d'établissements Université Côte d'Azur
+published_at: '2026-11-11'
+url: https://doi.org/10.21203/rs.3.rs-10652827/v1
+doi: 10.21203/rs.3.rs-10652827/v1
+openalex_id: W7202038668
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 15
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Agnostic Learning with
+  Unknown Utilities; Automation bias: a systematic review of frequency, effect me; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Distributing Accountability, Not Capability:
+  Phase Separatio; GPT-4 Technical Report; Generative Agents: Interactive Simulacra of Human
+  Behavior; Humans and Automation: Use, Misuse, Disuse, Abuse; Improving Factuality and Reasoning
+  in Language Models throug; MedAgents: Large Language Models as Collaborators for Zero-s;
+  Not What You''ve Signed Up For: Compromising Real-World LLM-I; The Rise and Potential of
+  Large Language Model Based Agents:; Toolformer: Language Models Can Teach Themselves to
+  Use Tool; Training Language Models to Follow Instructions with Human F; Tree of Thoughts:
+  Deliberate Problem Solving with Large Lang. Scope scan by claude-opus-5: The work is about
+  the conditions under which machine agents may hold operational decision authority over consequential
+  actions, including a failure-mode taxonomy mapped to architectural layer and an automation-bias
+  finding about intermediate (hybrid human-AI) autonomy, which the settled reading of the
+  deliberative-democracy line keeps in scope. Its clinical setting is a domain instance rather
+  than an adjacent institution, and removing the machine would void the findings entirely.
+  What changes because agents hold authority: It supplies an autonomy-graded framework — where
+  human judgement enters relative to the agent''s reasoning, whether the action is reversible,
+  and evaluation/regulatory obligations indexed to autonomy level rather than model class
+  — which directly shapes how an organization delegates, evaluates and is held accountable
+  for agent-held decision authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

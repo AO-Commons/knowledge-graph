@@ -1,0 +1,70 @@
+id: resource:arxiv:2611.11985
+resource_type: preprint
+title: 'Trajectory Density Ratios under Weak Support: A Survey across the Sciences'
+abstract: 'Many problems across the sciences compare two stochastic processes through the
+  sequences they generate. Reinforcement learning asks what a new policy would return from
+  the trajectories of an old one; molecular simulation asks how much more a ligand binds from
+  samples of the unbound state; climate attribution asks how a heat wave shifted under warming;
+  and language-model post-training asks what a deployed agent will do from logged interactions.
+  In every case, one quantity would answer all these questions at once: the ratio of the two
+  probability laws over their generated sequences, the trajectory density ratio. This ratio
+  exists only under strong conditions. When one process reaches states the other cannot, the
+  ratio does not exist; when their overlap is thin, its variance grows without control with
+  the sequence length; and when they concentrate on different lower-dimensional sets, the
+  ratio is undefined altogether. Weak support of this kind is the norm for sequence data,
+  not a sampling accident, and its price is paid in identifiability rather than in noise alone.
+  This survey organizes the field around a three-level diagnosis of weak support and a map
+  of the nine retreats that methods take when the full ratio is out of reach, from direct
+  estimation and reweighting through staged decomposition, stationarization, and partial-identification
+  bounds to smoothing, transport couplings, operator spectra, and direct estimation of a single
+  functional. Each retreat keeps part of what the ratio offers and pays for the rest, and
+  each application domain has standardized the retreat its data force. The survey closes with
+  open problems: testable diagnostics at every level, partial identification at the trajectory
+  level, a rate theory of time-amplified error, and benchmarks with ground truth.'
+authors:
+- Wei Chen
+- Lihao Zhuang
+- Yubing Wu
+- Delu Zeng
+organizations:
+- South China University of Technology
+affiliations:
+  Wei Chen:
+  - South China University of Technology
+  Lihao Zhuang:
+  - South China University of Technology
+  Yubing Wu:
+  - South China University of Technology
+  Delu Zeng:
+  - South China University of Technology
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.11985
+doi: 10.48550/arXiv.2611.11985
+arxiv_id: '2611.11985'
+openalex_id: W7225757091
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Deep reinforcement learning from
+  human preferences; LLaMA: Open and Efficient Foundation Language Models; Learning to summarize
+  from human feedback; Mind2Web: Towards a Generalist Agent for the Web; OSWorld: Benchmarking
+  Multimodal Agents for Open-Ended Tasks; Toolformer: Language Models Can Teach Themselves
+  to Use Tool; Training Language Models to Follow Instructions with Human F; WebGPT: Browser-assisted
+  question-answering with human feedb; WebShop: Towards Scalable Real-World Web Interaction
+  with Gr. Scope scan by claude-opus-5: This is a cross-disciplinary statistical survey of
+  trajectory density-ratio estimation, not a treatment of organizations where machine agents
+  hold operational or decision authority, so it fails the scope test directly. But it is genuinely
+  load-bearing — ten library papers cite it, and its weak-support diagnosis governs what can
+  be concluded about a deployed agent from logged interaction data — so it belongs as a section
+  15 pointer rather than a refusal. What changes because agents hold authority: Nothing about
+  agent authority changes because of this work; it supplies the estimation theory behind off-policy
+  evaluation of logged agent behavior that oversight methods in the library build on. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2
+is_borrowed_background: true

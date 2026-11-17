@@ -1,0 +1,76 @@
+id: resource:doi:10-1145-3830454-3832577
+resource_type: peer-reviewed-paper
+title: 'DRIP: Defending Prompt Injection via Token-wise Representation Editing and Residual
+  Fusion'
+abstract: 'Large language models (LLMs) are rapidly becoming core components of IT infrastructure,
+  tasked with processing user data according to predefined instructions. However, LLMs remain
+  vulnerable to prompt injection attacks, where malicious users inject directive tokens within
+  the data to manipulate model behavior. The current defense strategies attempt to train LLMs
+  to semantically distinguish between data and instruction tokens. Nevertheless, these approaches
+  still face two key challenges: (1) the balance between security and utility, especially
+  when interpreting the instruction-like tokens in the data section, and (2) the robustness
+  against adaptive adversarial samples. In this work, we propose DRIP which aims to (1) achieve
+  a new security-utility balance by ''''de-instructionalization'''', i.e., precisely removing
+  the instruction semantics from the tokens in the data section while preserving their data
+  semantics and (2) robustly maintain the effectiveness of the intended instruction, even
+  against strong adversarial content. As for ''''de-instructionalize'''' tokens in the data
+  section, we propose a training paradigm across data curation, model architecture, and loss
+  design. It introduces a lightweight representation-editing module, which is trained to edit
+  the embedding of instruction-like tokens in the data section, enhancing the model''s security
+  without compromising utility. As for preserving the intended instruction against unseen
+  adversarial content, we improve the model architecture by introducing a lightweight residual
+  module in LLM, largely reducing the overwriting possibility of adversarial content. We extensively
+  compare DRIP with state-of-the-art techniques, including StruQ, SecAlign, ISE, and PFT on
+  LLaMA-8B and Mistral-7B across three prompt injection benchmarks (SEP, AlpacaFarm, and InjecAgent).
+  The results show that DRIP (1) improves role separation score by 44–64% and reduces attack
+  success rate by over 68% for adaptive attacks and (2) achieves utility on par with the undefended
+  model, indicating a new state-of-the-art against prompt injection attacks.'
+authors:
+- Ruofan Liu
+- Yun Lin
+- Zhiyong Huang
+- Jin Song Dong
+organizations:
+- National University of Singapore
+- Shanghai Jiao Tong University
+affiliations:
+  Ruofan Liu:
+  - National University of Singapore
+  Yun Lin:
+  - Shanghai Jiao Tong University
+  Zhiyong Huang:
+  - National University of Singapore
+  Jin Song Dong:
+  - National University of Singapore
+published_at: '2026-11-12'
+url: https://doi.org/10.1145/3830454.3832577
+doi: 10.1145/3830454.3832577
+openalex_id: W4415937592
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; A survey on large
+  language model based autonomous agents; AIKernel Semantic DSL Compiler and Deterministic
+  Agent Execu; Benchmarking and Defending against Indirect Prompt Injection; Generative Agents:
+  Interactive Simulacra of Human Behavior; InjecAgent: Benchmarking Indirect Prompt Injections
+  in Tool-; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena; Measuring Massive Multitask
+  Language Understanding; SWE-agent: Agent-Computer Interfaces Enable Automated Softwa; Voyager:
+  An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: DRIP is
+  a defense method for prompt injection — load-bearing background for any deployment where
+  agents act on untrusted content with real authority, since injection is the primary channel
+  by which delegated authority is hijacked, but the paper is about representation editing
+  and loss design, not about how authority is held or overseen. No exclusion-register line
+  applies; it belongs as a section 15 pointer alongside other foundational methods the field
+  builds on. What changes because agents hold authority: Nothing about organizational design
+  changes directly; it is a model-level training technique for separating instruction from
+  data semantics, which underpins but does not itself constitute the trust boundary an agent-authority
+  organization must enforce. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

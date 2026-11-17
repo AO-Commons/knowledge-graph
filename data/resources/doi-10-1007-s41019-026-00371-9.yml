@@ -1,0 +1,82 @@
+id: resource:doi:10-1007-s41019-026-00371-9
+resource_type: peer-reviewed-paper
+title: 'From Code Completion to Agentic Development: A Survey of AI Coding Agents, Ecosystems,
+  and Evolving Software Engineering Practice'
+abstract: 'Abstract Large language models have extended software-development assistance from
+  token-level completion to systems that can navigate repositories, edit files, execute tools,
+  and iterate on test feedback. This survey studies the design, use, and evaluation of these
+  AI coding agents, together with their commercial and societal context. Reproducible database
+  queries support literature discovery, but the cited corpus is selected and coded for relevance;
+  we therefore describe the work as a structured scoping survey rather than an exhaustive
+  systematic review. We organize the field using five dimensions: interaction paradigm, computational
+  architecture, deployment form, orchestration mode, and human-oversight mode. Treating oversight
+  separately from architecture resolves a conceptual overlap in earlier classifications and
+  gives each representative system one value per dimension. The technical synthesis covers
+  repository context, planning, tool use, multi-agent coordination, SDLC applications, and
+  benchmark limitations. We keep technical capability evidence separate from business and
+  adoption reports. Vendor and news sources are used as dated context, not as proxies for
+  maturity or user preference. The survey covers material available through 28 February 2026.'
+authors:
+- Yanshu Wang
+- Chenfeng Yang
+- Shuyang Hou
+- Xinye Xu
+- Bin Cui
+- 蒋严冰
+- Tong Yang
+organizations:
+- Peking University
+- Zhejiang University
+affiliations:
+  Yanshu Wang:
+  - Peking University
+  Chenfeng Yang:
+  - Zhejiang University
+  Shuyang Hou:
+  - Peking University
+  Xinye Xu:
+  - Peking University
+  Bin Cui:
+  - Peking University
+  蒋严冰:
+  - Peking University
+  Tong Yang:
+  - Peking University
+published_at: '2026-11-13'
+url: https://doi.org/10.1007/s41019-026-00371-9
+doi: 10.1007/s41019-026-00371-9
+openalex_id: W7225996758
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 19
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Behavioral Safety and Context Retention of Large
+  Language Mo; CAMEL: Communicative Agents for "Mind" Exploration of Large ; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Distributing Accountability, Not Capability:
+  Phase Separatio; Evaluating Large Language Models Trained on Code; GPT-4 Technical Report;
+  Improving Factuality and Reasoning in Language Models throug; LLaMA: Open and Efficient
+  Foundation Language Models; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr;
+  OpenHands: An Open Platform for AI Software Developers as Ge; Reflexion: language agents
+  with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Self-Refine: Iterative Refinement with Self-Feedback; Terminal-Bench: Benchmarking
+  Agents on Hard, Realistic Tasks; The Rise and Potential of Large Language Model Based Agents:;
+  Toolformer: Language Models Can Teach Themselves to Use Tool; Tree of Thoughts: Deliberate
+  Problem Solving with Large Lang. Scope scan by claude-opus-5: No exclusion-register line
+  applies; this is a technical/ecosystem scoping survey of the most widely deployed class
+  of agents that take consequential actions in a production workflow, and nineteen library
+  papers build on it, making it genuinely load-bearing. It describes agent capability, orchestration
+  and benchmark limits rather than the design or accountability of an agent-authority organization,
+  so it belongs as a section 15 pointer rather than as core scope. What changes because agents
+  hold authority: Its separation of human-oversight mode from architecture gives a vocabulary
+  for specifying how much operational authority a coding agent actually holds over a repository,
+  but the survey itself is about tooling and engineering practice rather than organizations
+  where agents hold authority. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2
+is_borrowed_background: true

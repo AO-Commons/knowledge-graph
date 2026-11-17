@@ -1,0 +1,53 @@
+id: resource:doi:10-1145-3841580-3841581
+resource_type: peer-reviewed-paper
+title: 'Vibe Research: Active Exploration in Deep Research'
+abstract: 'Deep-research systems are agentic tools that orchestrate multi-step web searches
+  and summarization to produce comprehensive reports. However, in conventional deep-research
+  systems, the user plays a largely passive role: they must approve extended agent runs, wait
+  for the results, and repeat the process until a satisfactory result is obtained. We introduce
+  Vibe Research, an active–exploration framework for deep research. The system enables the
+  user to remain in control throughout a single interactive session by selecting candidate
+  sections, drilling down into details, and pivoting the research direction based on intermediate
+  results, while the agent performs web exploration in parallel. We developed a prototype
+  user interface that interleaves a tile-based “research view” with a “report view”. In a
+  user study with 32 participants, Vibe Research achieved higher ratings for user experience,
+  reduced workload, and increased coverage compared with a conventional workflow.'
+authors:
+- Yuto Sekiguchi
+- Keita Higuchi
+organizations:
+- Meiji University
+affiliations:
+  Yuto Sekiguchi:
+  - Meiji University
+published_at: '2026-11-13'
+url: https://doi.org/10.1145/3841580.3841581
+doi: 10.1145/3841580.3841581
+openalex_id: W7226005065
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentVerse: Facilitating
+  Multi-Agent Collaboration and Explo; CAMEL: Communicative Agents for "Mind" Exploration
+  of Large ; Chain-Of-Thought Prompting Elicits Reasoning in Large Langua; Distributing Accountability,
+  Not Capability: Phase Separatio; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena;
+  Toolformer: Language Models Can Teach Themselves to Use Tool; Training Language Models to
+  Follow Instructions with Human F; WebGPT: Browser-assisted question-answering with human
+  feedb; WebVoyager: Building an End-to-End Web Agent with Large Mult. Scope scan by claude-opus-5:
+  This is an HCI interface study for a single-user deep-research agent, not an account of
+  an organization where agents hold operational or decision authority, so it fails the scope
+  test on its own terms. But the field cites it as the reference pattern for keeping a human
+  in control of an extended agent run, which makes it load-bearing background worth a section
+  15 pointer rather than a refusal. What changes because agents hold authority: Little directly
+  — it concerns a single user steering one research agent''s run rather than an organization
+  delegating authority, though its mid-run interruption-and-pivot pattern is a primitive that
+  oversight of long-horizon agent work can build on. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2
+is_borrowed_background: true

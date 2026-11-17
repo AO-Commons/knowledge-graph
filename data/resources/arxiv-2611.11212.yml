@@ -1,0 +1,66 @@
+id: resource:arxiv:2611.11212
+resource_type: preprint
+title: 'Deterministic Narrative Gravity: Bridging Theory of Mind and Historical Simulation
+  through ABM-LLM Architectures'
+abstract: 'Historical social simulation faces a fundamental reproducibility challenge: the
+  stochastic nature of large language models (LLMs) introduces a digital butterfly effect
+  that prevents exact replication across multi-turn runs. Furthermore, the inability to control
+  low-level server parameters in commercial LLM hosting environments severely limits reproducibility.
+  To overcome this opacity, we present a deterministic multi-agent framework coupling LLMs
+  to an Agent-Based Modelling (ABM) pipeline grounded in Theory of Mind (ToM) and Cognitive
+  Archaeology, and validate exact artifact identity within local, pinned execution environments
+  using SHA-256 hashing. Run locally at temperature zero with clean per-call model reloads,
+  the system injects differentiated cognitive states per turn through dissonance-driven behavioural
+  modes and gated internal voices. Evaluating seven model configurations spanning 4B to 31B
+  parameters against an ablated baseline reveals clear operational boundaries. Small models
+  ($\leq$8B) suffer from context capacity overload, producing repetitive, specular dialogue
+  loops. However, at $\geq$12B parameters, the ABM scaffolding breaks the monotonous response
+  patterns seen in ablation. Crucially, these scaffolded models exhibit spontaneous diegetic
+  expansion: they coherently expand scenario lore through tactically motivated, anachronism-free
+  details rather than escalating into aggression. By resisting the structural pull toward
+  premature scene closure, scaffolded sessions sustain an open terminal Narrative Vector ($V_N
+  = \mathrm{Open}$ in 12/21 overall; 9/9 in official $\geq$12B configurations) whereas unscaffolded
+  ablation never does (0/21). This framework provides a transparent, auditable benchmark architecture
+  for virtual archaeology, with the full pipeline released as open-source software to enable
+  independent replication.'
+authors:
+- Alicia Colmenero-Fernández
+- Lidia Ortega Alvarado
+organizations:
+- Universidad de Jaén
+affiliations:
+  Alicia Colmenero-Fernández:
+  - Universidad de Jaén
+  Lidia Ortega Alvarado:
+  - Universidad de Jaén
+published_at: '2026-11-08'
+url: https://arxiv.org/abs/2611.11212
+doi: 10.48550/arXiv.2611.11212
+arxiv_id: '2611.11212'
+openalex_id: W7225734490
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Supported Degradation of the Self Concept: A Theoretical ; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; ChatEval: Towards Better LLM-based Evaluators through
+  Multi-; Cognitive Architectures for Language Agents; Exploring Collaboration Mechanisms
+  for LLM Agents: A Social ; Generative Agents: Interactive Simulacra of Human Behavior; Large
+  Language Model based Multi-Agents: A Survey of Progres; The Butterfly Effect of Altering
+  Prompts: How Small Changes . Scope scan by claude-opus-5: No agent here holds operational
+  or decision authority; the subject is virtual archaeology and Theory-of-Mind scaffolding,
+  so it fails the scope test on its own content. It is nonetheless load-bearing as a reproducibility/auditability
+  method precedent for multi-agent LLM systems and is cited by eight library papers, which
+  places it at section 15 as a pointer rather than an ingest. What changes because agents
+  hold authority: Nothing about agent authority changes — the work is about narrative coherence
+  in historical simulation — but its determinism protocol (temperature-zero, pinned environments,
+  SHA-256 artifact identity across multi-turn multi-agent runs) is a method precedent for
+  making agent pipelines reproducibly auditable. Unreviewed, like everything that has not
+  been through the review queue — and machine-admitted as well as machine-resolved, so the
+  scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,87 @@
+id: resource:arxiv:2611.04977
+resource_type: preprint
+title: 'GeoFaham: Domain-Specialized Multi-Agent Geospatial Analytics for Disaster Response'
+abstract: Real-world geospatial decision support requires more than single-step retrieval
+  or code generation. Disaster-response questions often involve multi-source workflows that
+  combine spatial databases, map-derived features, satellite imagery, raster products, and
+  reusable geospatial artifacts, where correctness depends on preserving spatial scope, temporal
+  context, and intermediate execution state. While large language models and coding agents
+  offer a promising interface for such workflows, they struggle with geospatial-specific failure
+  modes, including handling large artifacts, selecting the wrong evidence source, losing spatial
+  or temporal metadata, and applying invalid geometric operations. We introduce GeoFaham,
+  a domain-specialized multi-agent system for geospatial disaster analytics. GeoFaham decomposes
+  workflows into specialist agents for vector operations, map feature retrieval, imagery discovery,
+  and raster analysis, coordinated by an Orchestrator with a dual-ledger control loop for
+  dependency-aware planning, progress tracking, validation, and replanning. To support artifact-centric
+  collaboration, GeoFaham uses a Response Store that persists full geospatial outputs and
+  typed metadata outside the LLM context window while agents exchange compact identifiers
+  and summaries. We also introduce GeoFaham-Bench, a 40-task benchmark grounded in 17 real-world
+  disaster records, designed to evaluate multi-step geospatial reasoning, cross-source integration,
+  raster-vector computation, artifact generation, and recovery under non-rigid ground truth.
+  We evaluate GeoFaham on GeoFaham-Bench against strong general-purpose coding-agent baselines,
+  including Codex, Claude Code, and OpenCode. GeoFaham achieves the best overall performance,
+  scoring 0.940 versus the next-best 0.879, while using 7.5 times fewer tokens. Our code and
+  benchmark are publicly available at https://github.com/microsoft/GeoFaham.
+authors:
+- Muhammad Sohail Danish
+- Gilles Q. Hacheme
+- Akram Zaytar
+- Satej S. Soman
+- Inbal Becker-Reshef
+- Juan Lavista Ferres
+- Salman Khan
+- Girmaw Abebe Tadesse
+organizations:
+- Microsoft
+- Mohamed bin Zayed University of Artificial Intelligence
+affiliations:
+  Muhammad Sohail Danish:
+  - Mohamed bin Zayed University of Artificial Intelligence
+  Gilles Hacheme:
+  - Mohamed bin Zayed University of Artificial Intelligence
+  Akram Zaytar:
+  - Microsoft
+  Satej Soman:
+  - Microsoft
+  Juan Lavista Ferres:
+  - Mohamed bin Zayed University of Artificial Intelligence
+  Salman Khan:
+  - Mohamed bin Zayed University of Artificial Intelligence
+  Girmaw Abebe Tadesse:
+  - Microsoft
+published_at: '2026-11-03'
+url: https://arxiv.org/abs/2611.04977
+doi: 10.48550/arXiv.2611.04977
+arxiv_id: '2611.04977'
+openalex_id: W7225263184
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 17
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; A survey on large
+  language model based autonomous agents; AIKernel Semantic DSL Compiler and Deterministic
+  Agent Execu; AgentBench: Evaluating LLMs as Agents; AgentVerse: Facilitating Multi-Agent
+  Collaboration and Explo; AutoAgents: A Framework for Automatic Agent Generation; Autonomous
+  Tester Agent Benchmark; CAMEL: Communicative Agents for "Mind" Exploration of Large ; Cognitive
+  Architectures for Language Agents; Large Language Model based Multi-Agents: A Survey of
+  Progres; Magentic-One: A Generalist Multi-Agent System for Solving Co; MetaGPT: Meta Programming
+  for A Multi-Agent Collaborative Fr; Multi-Agent Collaboration: Harnessing the Power of Intellige;
+  OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; The Rise and Potential of
+  Large Language Model Based Agents:; Tree of Thoughts: Deliberate Problem Solving with Large
+  Lang; Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  GeoFaham is load-bearing as a method and benchmark precedent for orchestrated multi-agent
+  workflows with dependency-aware planning, validation, replanning, and out-of-context artifact
+  ledgers — coordination machinery the field builds on — but the agents advise rather than
+  decide. It is not excluded by any register line; it simply sits as a section 15 pointer
+  rather than in scope. What changes because agents hold authority: Nothing directly about
+  agent authority changes — the system is a domain-specialized analytics pipeline producing
+  decision support for human responders, not an organization where agents hold operational
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

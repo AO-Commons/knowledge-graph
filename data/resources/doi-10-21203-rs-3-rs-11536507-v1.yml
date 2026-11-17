@@ -1,0 +1,63 @@
+id: resource:doi:10-21203-rs-3-rs-11536507-v1
+resource_type: preprint
+title: When Does Hallucination Propagate? Reconciling Six Formalizations of Error Spread in
+  Multi-Agent LLM Systems
+abstract: 'Abstract Multi-agent LLM systems are deployed on the assumption that agents checking
+  one another reduce hallucination. Two studies of the same linear topology contradict it
+  in opposite directions, and both are right: one measures prevalence, the other detectability,
+  and a claim can become rarer and less visible at once. Whether a false claim grows is set
+  by two structural variables: how correlated the agents'' errors are, and whether any channel
+  supplies evidence independent of them. Topology bounds the number of carriers a chain can
+  produce; it says nothing about the other channel. Six formalisms proposed in the past year
+  describe this process. Each defines a state space, a transition rule and a measurable quantity;
+  none is stated in terms another can absorb. Taking the travelling claim as the unit of analysis,
+  we show that the six are projections of one process onto different observables. In a purposive
+  sample of 42 papers, 10 of 32 included studies report a propagation-level metric, 9 report
+  a verification channel independent of the agents, and 7 report a graph with a recoverable
+  out-degree. The two features never co-occur: all nine studies with such a channel report
+  attenuation, and both studies that report amplification lack one. One prediction runs against
+  design intuition: raising the initial diversity of agents'' answers increases false adoption.
+  We specify the experiment that separates a causal reading from an artefact, and a reporting
+  standard — carrier set, aggregation loss, out-degree distribution, comparator — under which
+  the six become comparable.'
+authors:
+- Shaoxuan Zhang
+organizations:
+- Harbin Institute of Technology
+affiliations:
+  Shaoxuan Zhang:
+  - Harbin Institute of Technology
+published_at: '2026-11-10'
+url: https://doi.org/10.21203/rs.3.rs-11536507/v1
+doi: 10.21203/rs.3.rs-11536507/v1
+openalex_id: W7225699292
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 13
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Supported Degradation of the Self Concept: A Theoretical ; AIKernel Semantic
+  DSL Compiler and Deterministic Agent Execu; AgentVerse: Facilitating Multi-Agent Collaboration
+  and Explo; Chain-Of-Thought Prompting Elicits Reasoning in Large Langua; ChatDev: Communicative
+  Agents for Software Development; Encouraging Divergent Thinking in Large Language Models
+  thro; Generative Agents: Interactive Simulacra of Human Behavior; Improving Factuality and
+  Reasoning in Language Models throug; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena;
+  MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Multi-Agent Collaboration
+  Mechanisms: A Survey of LLMs; Reflexion: language agents with verbal reinforcement learnin;
+  Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  This is directly about the reliability of multi-agent LLM systems acting without a human
+  in the loop, and its findings (independent channel required; higher initial diversity increases
+  false adoption) are actionable design and assurance constraints for organizations delegating
+  operational authority to such agents. No exclusion-register line applies; it is agent-specific
+  by construction and not human collective decision-making. What changes because agents hold
+  authority: It shows that stacking agents to cross-check each other does not by itself contain
+  false claims — attenuation depends on having a verification channel whose evidence is independent
+  of the agents — so oversight of an agent-run process must be designed around independent
+  evidence sources and reported carrier/out-degree metrics rather than around topology or
+  agent diversity. Unreviewed, like everything that has not been through the review queue
+  — and machine-admitted as well as machine-resolved, so the scope judgment here is a model''s
+  until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

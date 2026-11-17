@@ -2446,6 +2446,20 @@ refused:
   refused_on: '2026-11-10'
   times_refused: 1
   first_refused_on: '2026-11-10'
+- key: arxiv:2611.17007
+  generation: 2
+  support: 9
+  cited_by: []
+  reasoning: 'This is agent capability engineering (skill personalization and routing), analogous
+    to the optimization and neural architecture work the brief explicitly says does not belong despite
+    being cited. It is not load-bearing infrastructure for reasoning about agent authority either,
+    so it is a refusal rather than a section 15 pointer. What changes because agents hold authority:
+    Nothing — it is a single-agent skill-library and routing method that improves task success rates,
+    with no bearing on how authority is delegated, exercised, or overseen in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.1002/0471667196.ess2588.pub3
   generation: 1
   support: 2
@@ -2800,6 +2814,21 @@ refused:
   refused_on: '2026-10-13'
   times_refused: 1
   first_refused_on: '2026-10-13'
+- key: doi:10.1007/s44336-026-00047-y
+  generation: 1
+  support: 9
+  cited_by: []
+  reasoning: 'This is a domain-specific survey of LLM tutoring architectures; its orchestration
+    and evaluation discussion is application-bound and not load-bearing for designing or overseeing
+    agent-authority organizations. Citation by library papers reflects shared interest in agentic
+    system components generally, which the brief explicitly says does not confer scope. What changes
+    because agents hold authority: Nothing — the work concerns pedagogical control and evaluation
+    of tutoring agents interacting with individual learners, not agents holding operational or decision
+    authority within an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.1016/0142-694x(81)90102-2
   generation: 1
   support: 3
@@ -4038,6 +4067,20 @@ refused:
   refused_on: '2026-10-13'
   times_refused: 2
   first_refused_on: '2026-10-06'
+- key: doi:10.1145/3828523.3857081
+  generation: 1
+  support: 10
+  cited_by: []
+  reasoning: 'This is LLM inference-serving optimization, exactly the kind of general systems/optimization
+    work the brief says our papers cite without it belonging here. It is not load-bearing for reasoning
+    about agent authority, oversight, or accountability, so it is a refusal rather than a section
+    15 pointer. What changes because agents hold authority: Nothing — faster prefill via head-aware
+    KV sharing changes serving cost and latency, not how authority is delegated, exercised, or audited
+    in an organization.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.1145/3832101
   generation: 2
   support: 3
@@ -4331,6 +4374,22 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 2
   first_refused_on: '2026-09-29'
+- key: doi:10.17613/90v07-0pa54
+  generation: 1
+  support: 9
+  cited_by: []
+  reasoning: 'This is a non-empirical perspective paper on model sociolinguistics and corpus-driven
+    trait shaping; its implications run to responsible deployment and dialect equity rather than
+    to designing or overseeing organizations where machines hold decision authority, and it is closest
+    to the register''s excluded ''participation equity, inclusion, cultural studies'' line. It is
+    also not a method or evaluation suite the field operationally builds on, so it does not qualify
+    as a section 15 pointer either. What changes because agents hold authority: Nothing — the paper
+    concerns measurable personality traits and language-ideology bias in LLM outputs, not how agents
+    exercise or are held accountable for operational authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.18653/v1/2020.findings-emnlp.301
   generation: 2
   support: 3
@@ -4434,6 +4493,22 @@ refused:
   refused_on: '2026-09-29'
   times_refused: 1
   first_refused_on: '2026-09-29'
+- key: doi:10.21203/rs.3.rs-11591735/v1
+  generation: 1
+  support: 8
+  cited_by: []
+  reasoning: 'This is a domain-specific engineering application: an LLM agent automating photonic
+    inverse design within a single technical workflow, with no organizational authority, oversight,
+    accountability or multi-agent governance dimension. It is a demonstration of autonomous technical
+    competence, not load-bearing infrastructure (benchmark, evaluation suite, or foundational method)
+    for reasoning about organizations where agents hold authority. What changes because agents hold
+    authority: Nothing — it shows an agent can replace expert judgment inside a design loop, but
+    says nothing about how to design, operate, oversee, or hold accountable an organization in which
+    agents hold authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.2139/ssrn.1686004
   generation: 1
   support: 3
@@ -4615,6 +4690,22 @@ refused:
   refused_on: '2026-10-20'
   times_refused: 2
   first_refused_on: '2026-10-13'
+- key: doi:10.4324/9781042013173
+  generation: 2
+  support: 9
+  cited_by: []
+  reasoning: 'This is cultural/intellectual-history theory about representation and authorship,
+    closest to the register''s excluded ''participation equity, inclusion, cultural studies'' and
+    political-theory lines, and it is not a method, benchmark, or foundational technique the field
+    builds on, so it is not load-bearing background either. Citation by library papers reflects
+    general interest in interpretability and AI-and-culture framing, not scope. What changes because
+    agents hold authority: Nothing — it is an art-historical and philosophy-of-technology argument
+    about transformers as a symbolic form, with no bearing on how authority is delegated to, operated
+    by, or held accountable in agent-run organizations.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-17'
+  times_refused: 1
+  first_refused_on: '2026-11-17'
 - key: doi:10.4324/9781315097176-4
   generation: 1
   support: 3

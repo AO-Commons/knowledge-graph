@@ -1,0 +1,65 @@
+id: resource:doi:10-21203-rs-3-rs-11444119-v1
+resource_type: preprint
+title: 'Introducing Grounding into the Agentic Design Loop: An Exploratory Review of an Unclaimed
+  Problem'
+abstract: 'Abstract Large language model (LLM) based agents are moving from executing well-specified
+  tasks to Agentic Design: shaping what and how to build upstream of fabrication, integration,
+  and deployment. However, an internally coherent but externally infeasible design propagates
+  its compounding error downstream. The failure is easy to overlook, yet consequential and
+  hard throughout: a design-generating loop rarely includes a check against the world, and
+  the error surfaces only after the artifact is built. Design Grounding names the correspondence
+  between such a design and the world it must satisfy. The mechanisms that establish it exist
+  in adjacent fields but have been introduced into the design loop only in isolated, domain-specific
+  forms, which leaves the same difficulty scattered across fields under different names. Studying
+  both sides through their own corpora, the review is the first to consolidate them into one
+  unclaimed problem. What makes the problem hard is structural: a design''s referent is a
+  system that has not been built, and the model that produces the design cannot supply it
+  without external intervention. The review is exploratory in aim: it characterizes the problem
+  and screens Agentic Design and Grounding in all four combinations. Reading titles and abstracts
+  with an LLM flags roughly one in fifteen of nearly three thousand papers as closing the
+  Design Grounding loop; only twenty survive full-text adjudication and manual review. Those
+  twenty sort into four structural difficulties, and each becomes an open problem whose parts
+  already exist in an adjacent field but remain unassembled.'
+authors:
+- Zhongkai Wang
+- Yan Liu
+organizations:
+- Tongji University
+affiliations:
+  Zhongkai Wang:
+  - Tongji University
+  Yan Liu:
+  - Tongji University
+published_at: '2026-11-12'
+url: https://doi.org/10.21203/rs.3.rs-11444119/v1
+doi: 10.21203/rs.3.rs-11444119/v1
+openalex_id: W7225886379
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: CAMEL: Communicative Agents for "Mind" Exploration of Large ; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Distributing Accountability, Not Capability:
+  Phase Separatio; Do As I Can, Not As I Say: Grounding Language in Robotic Aff; Generative
+  Agents: Interactive Simulacra of Human Behavior; MetaGPT: Meta Programming for A Multi-Agent
+  Collaborative Fr; Reflexion: language agents with verbal reinforcement learnin; The Effects
+  of Reward Misspecification: Mapping and Mitigati; The Rise and Potential of Large Language
+  Model Based Agents:; Toolformer: Language Models Can Teach Themselves to Use Tool; Voyager:
+  An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: The paper
+  is a problem-characterizing review of grounding mechanisms for LLM design loops: load-bearing
+  method background for anyone designing checks on agent-produced decisions, which explains
+  its 11 citations from library papers, but it concerns artifact-design correctness rather
+  than organizational authority. No exclusion-register line bars it; it sits in the same class
+  as an evaluation suite or foundational method, so it belongs as a section 15 pointer rather
+  than an in-scope record. What changes because agents hold authority: It names a structural
+  verification gap — an agent-generated design loop with no check against the world — that
+  oversight of agents holding upstream decision authority would need to close, but it does
+  not itself address organizations or how authority is held. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

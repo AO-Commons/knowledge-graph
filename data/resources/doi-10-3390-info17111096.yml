@@ -1,0 +1,62 @@
+id: resource:doi:10-3390-info17111096
+resource_type: peer-reviewed-paper
+title: Governing Highly Capable Human–Machine Systems Through Authority, Memory, and Consequence
+abstract: 'Increasingly capable AI systems can generate proposals, invoke tools, and create
+  institutional commitments. Their cognitive performance does not establish their authority
+  to act. This conceptual systems article develops governed systemic intelligence as an assurance
+  framework for human–machine systems, rather than redefining intelligence to include governance.
+  It distinguishes capability, epistemic justification, operational authorization, and normative
+  legitimacy. A structured synthesis of intelligence, augmentation, cybernetics, computer
+  security, provenance, and AI oversight motivates eight architectural requirements: ratified
+  purpose, capability–authority separation, bounded authorization, authoritative memory, consequence
+  closure, ratified learning, governed continuity, and external verifiability. A unified traceability
+  matrix connects each requirement to an evaluation criterion, evidence artifact, and omission
+  counterexample. Predicates over an explicit system model separate governance conformance
+  from measured augmentation and from the stronger claim of domain-superhuman performance.
+  A worked hypothetical prior-authorization episode illustrates all eight requirements, while
+  a numerical coherence-debt example makes unresolved discrepancies and missing outcomes visible.
+  Mindful Machines and a conventional policy-and-workflow stack provide alternative implementation
+  mappings. Previously reported implementations support component feasibility and governance-path
+  execution but do not establish complete conformance, scalable oversight, or superhuman capability.
+  The contribution is an assurance-case pattern that composes authority, memory, continuity,
+  and correction obligations into testable claims, with explicit limits under adversarial
+  behavior, institutional capture, and incomplete consequence observation.'
+authors:
+- Rao Mikkilineni
+organizations:
+- Dominican University of California
+- Golden Gate University
+- Texas Instruments
+affiliations:
+  Rao Mikkilineni:
+  - Dominican University of California
+  - Golden Gate University
+  - Texas Instruments
+published_at: '2026-11-03'
+url: https://doi.org/10.3390/info17111096
+doi: 10.3390/info17111096
+openalex_id: W7225182941
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Automation bias: a systematic review
+  of frequency, effect me; Complacency and Bias in Human Use of Automation: An Attentio; Governing
+  AI Agents; Ironies of automation; Levels of AGI for Operationalizing Progress on the Path
+  to A; Measuring Progress on Scalable Oversight for Large Language ; Moral Crumple Zones:
+  Cautionary Tales in Human-Robot Interac; Visibility into AI Agents. Scope scan by claude-opus-5:
+  The work is squarely about delegated machine authority and its oversight, not human collective
+  decision-making, so no exclusion-register line applies. Its traceability matrix of requirement-to-evidence
+  directly changes how one would architect and hold accountable an agent-authority organization.
+  What changes because agents hold authority: It supplies an assurance-case pattern that separates
+  a machine''s capability from its authorization — ratified purpose, bounded authority, authoritative
+  memory, consequence closure, external verifiability — giving concrete, testable requirements
+  and evidence artifacts for designing and auditing an organization where agents can invoke
+  tools and create institutional commitments. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

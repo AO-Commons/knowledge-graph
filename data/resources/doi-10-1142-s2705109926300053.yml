@@ -1,0 +1,44 @@
+id: resource:doi:10-1142-s2705109926300053
+resource_type: peer-reviewed-paper
+title: Agentic Commerce and the Economics of Machine-to-Machine Payments
+abstract: We define agentic commerce as the delegation of commercial decisions and payments
+  to artificial intelligence (AI) and provide statistics on prices and services using data
+  from Coinbase’s x402 Protocol and Tempo & Stripe’s Machine Payments Protocol. Despite more
+  than 234 million recorded transactions, activity across these protocols consists largely
+  of pay-per-use micropayments for digital resources, while observed x402 usage is concentrated
+  among a small number of services, many of which report few paying accounts. Agentic commerce
+  can reduce search and transaction costs, but it also creates governance and accountability
+  problems when AI agents make persistent errors, interact strategically, or are manipulated,
+  potentially generating negative distributional and welfare effects. This review also discusses
+  regulatory approaches and identifies priorities for AI governance and future research.
+authors:
+- Valerie Laturnus
+published_at: '2026-11-06'
+url: https://doi.org/10.1142/s2705109926300053
+doi: 10.1142/s2705109926300053
+openalex_id: W7214994842
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: An Economy of AI Agents; Artificial Intelligence, Algorithmic Pricing, and Collusion;
+  DAO-AI: Evaluating Collective Decision-Making through Agenti; Generative Agents: Interactive
+  Simulacra of Human Behavior; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks;
+  The Automated but Risky Game: Modeling and Benchmarking Agen; The Coasean Singularity? Demand,
+  Supply, and Market Design w; Vending-Bench: A Benchmark for Long-Term Coherence of Autono.
+  Scope scan by claude-opus-5: This is squarely about agents holding real operational authority
+  (committing funds autonomously) and the governance/regulatory problems that creates, not
+  financial engineering, so the token-design/market-microstructure exclusion does not bite.
+  Removing the machine removes the finding entirely, so it passes the scope test on its own
+  terms rather than as background. What changes because agents hold authority: It documents
+  the actual infrastructure and empirical scale of machine agents exercising spending authority,
+  and names the accountability failure modes — persistent agent error, strategic interaction,
+  manipulation — that an organization delegating payment authority must design controls and
+  liability allocation around. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

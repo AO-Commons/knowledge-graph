@@ -1,0 +1,69 @@
+id: resource:doi:10-1145-3847352-3848101
+resource_type: peer-reviewed-paper
+title: 'Ghost Approvals: Approval-Provenance Failure in Agentic AI Frameworks'
+abstract: 'Agentic AI systems increasingly execute actions for users, including transfers,
+  deployments, account changes, and data release. Human approval gates are meant to prevent
+  these actions from running until a reviewer has inspected the proposed action and issued
+  a decision. Because approval can arrive after a delay, frameworks often persist workflow
+  state and resume later. The resume path therefore becomes a security boundary: it must distinguish
+  evidence that a human approved from approval-shaped values stored in mutable state. We define
+  Approval-Provenance Failure as a condition in which a workflow resume path treats mutable
+  approval-relevant state as evidence that a trusted human approval path produced a decision.
+  Our adversary can write approval-relevant workflow state, but cannot use the approval path,
+  change the model, modify tool code, invoke the tool directly, write the business database,
+  mint a valid approval artifact, or access the approval issuer key. We evaluate 18 agent
+  frameworks with human approval, interruption, or pause-resume behavior. Thirteen are exposed,
+  three are resistant, and two are non-applicable. In exposed cases, state-only approval forgery
+  causes gated action execution after a negative control blocks ordinary resume. The failure
+  also forges the evidence of human oversight itself: across 500 paired audit traces, genuine
+  and forged records are statistically indistinguishable, with exact-match rate 1.0 and AUC
+  0.5 under the tested native audit-field projection, while provenance evidence separates
+  them with AUC 1.0. Finally, we evaluate a provenance-bound approval artifact that authenticates
+  the decision with a MAC or digital signature and is verified at resume time. The full artifact
+  check blocks 13 adversarial variants on five representative targets with microsecond-scale
+  verification cost.'
+authors:
+- Yuvraj Pradhan
+- Aman Singh
+- Archana Kumari
+- Abhishek Kumar Pradhan
+- Deepak Kumar Singh
+organizations:
+- MIT Art, Design and Technology University
+affiliations:
+  Yuvraj Pradhan:
+  - MIT Art, Design and Technology University
+  Aman Singh:
+  - MIT Art, Design and Technology University
+  Archana Kumari:
+  - MIT Art, Design and Technology University
+published_at: '2026-11-09'
+url: https://doi.org/10.1145/3847352.3848101
+doi: 10.1145/3847352.3848101
+openalex_id: W7225622068
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; Autonomous Tester
+  Agent Benchmark; Benchmarking and Defending against Indirect Prompt Injection; Defeating
+  Prompt Injections by Design; Generative Agents: Interactive Simulacra of Human Behavior;
+  Not What You''ve Signed Up For: Compromising Real-World LLM-I; OSWorld: Benchmarking Multimodal
+  Agents for Open-Ended Tasks; Prompt Injection attack against LLM-integrated Applications;
+  Securing AI Agents with Information-Flow Control; Toolformer: Language Models Can Teach
+  Themselves to Use Tool. Scope scan by claude-opus-5: This is squarely about how authority
+  is delegated to and checked on machine agents: the integrity of the human-in-the-loop gate
+  and the evidentiary value of oversight records, both of which are prerequisites for accountability
+  in an agent-authority organization. No exclusion-register line applies; removing the agent
+  removes the finding entirely. What changes because agents hold authority: It shows that
+  the human-approval gate on which agent authority is bounded can be forged from mutable workflow
+  state — and that audit trails of human oversight are indistinguishable from fabricated ones
+  — so oversight design must bind approvals to cryptographic provenance verified at resume
+  time rather than trusting persisted state. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

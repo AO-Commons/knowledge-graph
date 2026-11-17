@@ -1,0 +1,64 @@
+id: resource:doi:10-21203-rs-3-rs-11710086-v1
+resource_type: preprint
+title: 'Incentive-Responsive Agents: A Principal-Agent Framework, Metric Suite, and Runtime
+  Architecture for Long-Lived Personal AI Agents'
+abstract: 'Abstract Personal AI agents now persist: they hold accounts, mailboxes, long-term
+  memory, and open-ended task streams, yet the dominant way to improve them remains capability-side:
+  prompt engineering, larger models, longer thinking, and retrieval. We argue that long-lived
+  agents are missing an incentive layer. We formalize an incentive not as text in a prompt
+  but as a runtime contract over the agent''s operating point (model tier, test-time compute,
+  memory budget, tool authority, task priority, verification, and compensation) that the agent''s
+  policy must causally consume. We develop a principal-agent model with hidden effort, a contractible
+  operating point, and costly verification. We derive (i) a non-consumption invariance principle
+  separating genuine incentives from prompt-level persuasion, (ii) a persistence-as-discount
+  theorem making identity continuity a precondition for sustained effort, (iii) an incentive-capability
+  exchange-rate frontier yielding a per-task routing rule, and (iv) a Goodhart bound for multi-channel
+  verification, plus a three-channel decomposition of mechanism gains (allocation, verification,
+  continuation). A 240-run real-LLM experiment with two models and 60 verifiable tasks shows
+  that prompt-level incentive framing has no detectable effect (p = 0.62), whereas runtime
+  allocation raises success on the hardest task family from 0.60 to 1.00 (p = 0.008) at 4.8x
+  price-weighted cost; the exchange-rate theorem predicts the break-even baseline at 0.21.
+  A 20-seed, 3,000-task simulation shows resource ROI rising from 7.09 to 16.67 and gaming
+  falling from 0.333 to 0.115. Code, simulator, and all results are released; live deployment
+  remains future work.'
+authors:
+- Jipu Su
+organizations:
+- City University of Hong Kong
+affiliations:
+  Jipu Su:
+  - City University of Hong Kong
+published_at: '2026-11-12'
+url: https://doi.org/10.21203/rs.3.rs-11710086/v1
+doi: 10.21203/rs.3.rs-11710086/v1
+openalex_id: W7225909081
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 15
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; AI Supported Degradation
+  of the Self Concept: A Theoretical ; Agnostic Learning with Unknown Utilities; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; ChatDev: Communicative Agents for Software
+  Development; CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterog; Cognitive Architectures
+  for Language Agents; Distributing Accountability, Not Capability: Phase Separatio; Generative
+  Agents: Interactive Simulacra of Human Behavior; Inherent and emergent liability issues
+  in LLM-based agentic ; Inter-Agent Trust Models: A Comparative Study of Brief, Clai; Large
+  Language Monkeys: Scaling Inference Compute with Repea; MetaGPT: Meta Programming for A
+  Multi-Agent Collaborative Fr; Reflexion: language agents with verbal reinforcement learnin;
+  Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  This is principal-agent theory specialized to machine agents whose authority (tool access,
+  task priority, budget) is the contractible object, with empirical evidence that persuasion-level
+  control fails and allocation-level control works — removing the machine destroys the finding.
+  No exclusion-register line applies; it is agent-specific delegation and verification design,
+  not general game theory. What changes because agents hold authority: It shows that controlling
+  a long-lived agent requires contracting over its runtime operating point — tool authority,
+  compute, verification, continuation — rather than prompt-level instruction, giving concrete
+  levers and a Goodhart bound for overseeing agents that hold accounts and act with delegated
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

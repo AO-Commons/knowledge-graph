@@ -1,0 +1,46 @@
+id: resource:doi:10-1007-978-981-92-7922-7-17
+resource_type: peer-reviewed-paper
+title: 'Diagnosing LLM Non-determinism in Multi-agent Financial Systems: A Layer-Wise Propagation
+  Framework'
+authors:
+- Ronghui Zhu
+- Xiping Liu
+organizations:
+- Jiangxi University of Finance and Economics
+affiliations:
+  Ronghui Zhu:
+  - Jiangxi University of Finance and Economics
+  Xiping Liu:
+  - Jiangxi University of Finance and Economics
+published_at: '2026-11-12'
+url: https://doi.org/10.1007/978-981-92-7922-7_17
+doi: 10.1007/978-981-92-7922-7_17
+openalex_id: W7225863621
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; Chain-Of-Thought Prompting Elicits Reasoning in
+  Large Langua; Distributing Accountability, Not Capability: Phase Separatio; Generative Agents:
+  Interactive Simulacra of Human Behavior; Improving Factuality and Reasoning in Language
+  Models throug; Language Models are Few-Shot Learners; Large Language Models Are Zero-Shot
+  Reasoners; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Reflexion: language
+  agents with verbal reinforcement learnin. Scope scan by claude-opus-5: The work is directly
+  about systems where machine agents make consequential financial decisions, and it addresses
+  the oversight and accountability property of being able to reproduce and attribute an agentic
+  decision; no exclusion-register line applies since it is not human collective decision-making,
+  voting, token design, or general entity regulation. Its wide citation within the library
+  reflects genuine load-bearing use for reliability engineering of agent-authority systems
+  rather than generic ML background. What changes because agents hold authority: It shows
+  how stochastic variation at the model layer compounds through multi-agent pipelines into
+  divergent financial decisions, which means auditability, reproducibility of an agent''s
+  decision record, and control-point placement must be designed around propagation of non-determinism
+  rather than single-agent output variance. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

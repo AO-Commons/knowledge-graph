@@ -1,0 +1,97 @@
+id: resource:arxiv:2611.12856
+resource_type: preprint
+title: 'WorkflowArena: Benchmarking Executable Workflow Orchestration in LLM-Based Multi-Agent
+  Systems'
+abstract: 'Large language model agents are increasingly deployed as multi-agent systems rather
+  than as a standalone model operating within a single context. Recent agent harnesses allow
+  the model to instantiate worker agents and to author the executable workflow that coordinates
+  them, shifting the design of system structure from developers to the model at run time.
+  The quality of this organization therefore constitutes a distinct capability, yet existing
+  benchmarks either measure end-to-end task completion or evaluate coordination under structures
+  specified in advance. We formalize this capability as workflow orchestration and introduce
+  WorkflowArena, a benchmark of 145 long-horizon tasks spanning 8 professional domains, from
+  software engineering and formal mathematics to legal analysis and 3D production. Each task
+  specifies an initial workspace and an integrated deliverable composed of interdependent
+  components, which is assessed by a hidden verifier. Agents determine autonomously whether
+  and how to delegate, and all delegation is recorded, enabling joint evaluation of deliverable
+  quality and the organization of the underlying work. Experiments with nine models show that
+  no single configuration performs best across all domains and that systems exhibit distinct
+  delegation strategies: at high effort, Claude models in Claude Code invoke workflows less
+  frequently but with larger worker groups, whereas GPT models in Codex delegate more frequently
+  in smaller units. When the executing model is held fixed on a challenging subset of tasks,
+  workflows authored by Claude Opus 5.5 substantially improve weaker executors, indicating
+  that workflow organization is itself a measurable determinant of task performance.'
+authors:
+- Zheng Jiang
+- Fang Niu
+- Bo Peng
+- Houde Qian
+- Wenyi Li
+- Deyao Hong
+- Mingju Gao
+- Yizhe Chi
+- Youjie Zheng
+- Kaisen Yang
+- Calvin Xiao
+- Lifeng Sun
+- Huan-ang Gao
+organizations:
+- Tsinghua University
+affiliations:
+  Zheng Jiang:
+  - Tsinghua University
+  Fang Niu:
+  - Tsinghua University
+  Bo Peng:
+  - Tsinghua University
+  Houde Qian:
+  - Tsinghua University
+  Wenyi Li:
+  - Tsinghua University
+  Deyao Hong:
+  - Tsinghua University
+  Mingju Gao:
+  - Tsinghua University
+  Youjie Zheng:
+  - Tsinghua University
+  Kaisen Yang:
+  - Tsinghua University
+  Calvin Xiao:
+  - Tsinghua University
+  Lifeng Sun:
+  - Tsinghua University
+  Huan-ang Gao:
+  - Tsinghua University
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.12856
+doi: 10.48550/arXiv.2611.12856
+arxiv_id: '2611.12856'
+openalex_id: W7225756737
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 12
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; AIKernel Semantic
+  DSL Compiler and Deterministic Agent Execu; AgentBench: Evaluating LLMs as Agents; Autonomous
+  Tester Agent Benchmark; ChatDev: Communicative Agents for Software Development; Distributing
+  Accountability, Not Capability: Phase Separatio; Magentic-One: A Generalist Multi-Agent
+  System for Solving Co; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; OSWorld:
+  Benchmarking Multimodal Agents for Open-Ended Tasks; Reflexion: language agents with verbal
+  reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated Softwa; Why
+  Do Multi-Agent LLM Systems Fail?. Scope scan by claude-opus-5: The benchmark''s object is
+  delegation authority held by the model at run time, including recorded delegation traces
+  and evidence that a stronger model''s authored workflow improves weaker executors, which
+  is a finding about structure-setting authority rather than task skill. No exclusion-register
+  line applies; it is not a generic evaluation suite but one whose unit of measurement is
+  the agent-designed organization itself, so it sits in scope rather than as a section 15
+  pointer. What changes because agents hold authority: It makes the agent''s own authoring
+  of organizational structure — whether to delegate, to how many workers, under what workflow
+  — a separately measurable and auditable capability, so designers and overseers can evaluate
+  the organization an agent builds rather than only the deliverable it returns. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

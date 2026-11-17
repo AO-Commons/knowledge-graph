@@ -1,0 +1,68 @@
+id: resource:arxiv:2611.16493
+resource_type: preprint
+title: 'ReA-Bench: Benchmarking Responsible Agent Auditing'
+abstract: 'As agents perform tasks autonomously in local and cloud environments, auditing
+  their execution trajectories can help service providers identify risks and improve agent
+  harnesses and foundation models. Our analysis of production and red-team trajectories shows
+  that some risks are repeatedly missed across auditing configurations. Overall recall obscures
+  which risks are missed and whether higher recall comes with more false positives on legitimate
+  behavior. Existing benchmarks offer limited insight into these failures. Generated trajectories
+  can contain inconsistent tool calls and responses, conspicuous risky actions, or repetitive
+  attack patterns. Grouping results by risk type also makes it difficult to tell whether auditors
+  overlooked evidence, accepted an unsupported conclusion, or lacked information needed to
+  make a judgment. We introduce ReA-Bench, a diagnostic benchmark for auditing responsible
+  agent behavior. It organizes auditing challenges into six tiers: internal safety knowledge,
+  contradictions within trajectories, evidence retrieval in long contexts, verification of
+  sources and reasoning, indirect steering, and missing information. It includes challenging
+  benign cases in which actions resemble risky ones but are consistent with the task and its
+  authorization. It also provides paired trajectory versions to test whether auditors detect
+  the same risks more reliably when the trajectory is shortened or missing information is
+  supplied. Most samples are drawn from real production trajectories, with scenarios manually
+  selected and adapted to preserve realistic tasks and risks that could plausibly arise during
+  execution.'
+authors:
+- Zipeng Ye
+- Shenyu Dai
+- Yong Xie
+- Kun Wang
+- Jiyang Guan
+- Zhikai Chen
+- Jiaqi Weng
+- Jialing Tao
+- Hui Xue
+published_at: '2026-11-12'
+url: https://arxiv.org/abs/2611.16493
+doi: 10.48550/arXiv.2611.16493
+arxiv_id: '2611.16493'
+openalex_id: W7226040351
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 15
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Autonomous Tester Agent Benchmark; Benchmarking
+  and Defending against Indirect Prompt Injection; Chain-Of-Thought Prompting Elicits Reasoning
+  in Large Langua; Distributing Accountability, Not Capability: Phase Separatio; GuardAgent:
+  Safeguard LLM Agents by a Guard Agent via Knowle; InjecAgent: Benchmarking Indirect Prompt
+  Injections in Tool-; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena; Large Language
+  Models Are Zero-Shot Reasoners; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; OpenHands: An Open
+  Platform for AI Software Developers as Ge; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Toolformer: Language Models Can Teach Themselves to Use Tool; TruthfulQA: Measuring
+  How Models Mimic Human Falsehoods. Scope scan by claude-opus-5: The work is entirely about
+  the after-the-fact review function for agents executing tasks with delegated authority,
+  so removing the machine agent leaves nothing of the finding — no exclusion-register line
+  applies. It is more than an eval suite pointer because its tiered diagnosis tells an operator
+  where trajectory-based oversight will fail and what redundancy is needed, which is an operating
+  and accountability design decision. What changes because agents hold authority: It shows
+  that automated auditors of autonomous agent trajectories systematically miss specific failure
+  classes (contradictions, long-context evidence, indirect steering, missing information)
+  and that aggregate recall hides both those gaps and false positives on legitimate authorized
+  actions, which directly constrains how an organization designs its oversight and accountability
+  layer over acting agents. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2

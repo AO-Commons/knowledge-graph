@@ -1,0 +1,68 @@
+id: resource:doi:10-1080-10447318-2026-2755127
+resource_type: peer-reviewed-paper
+title: 'Evaluating AI Alignment in LLMs: Output Analysis of Value Priorities Across 75 Models
+  with Human Benchmarking'
+abstract: 'Large language models (LLMs) shape human–AI interaction, yet capability and safety
+  benchmarks provide limited insight into their expressed value priorities. Across three studies,
+  we developed an output-based approach to evaluating correspondence between LLM priorities
+  and human judgements of optimal AI functioning. Study 1 identified six themes through inductive
+  qualitative analysis: Performance, Adaptive Capacity, Social Good, Ethics and Responsibility,
+  Relational Integration, and Agency. Study 2 found stable rankings within models and a shared
+  priority structure across models. Study 3 compared 75 LLMs with 376 human respondents using
+  a profile-fidelity metric combining profile shape and calibration of between-priority differences.
+  Many models reproduced the human profile while exaggerating differences between priorities.
+  Fidelity varied across models, with no clear pattern linking fidelity to more recent releases.
+  Both humans and LLMs assigned Agency low priority. This framework offers a standardized
+  method for auditing expressed value profiles across models alongside capability, safety,
+  and output evaluations.'
+authors:
+- Gabriel R. Lau
+- Wei Yan Low
+- Seow Min Koh
+- Fiona Fui-Hoon Nah
+- Andree Hartanto
+organizations:
+- Nanyang Technological University
+- National University of Singapore
+- Singapore Management University
+affiliations:
+  Gabriel R. Lau:
+  - Nanyang Technological University
+  Wei Yan Low:
+  - Nanyang Technological University
+  Seow Min Koh:
+  - National University of Singapore
+  Fiona Fui-Hoon Nah:
+  - Singapore Management University
+  Andree Hartanto:
+  - Singapore Management University
+published_at: '2026-11-09'
+url: https://doi.org/10.1080/10447318.2026.2755127
+doi: 10.1080/10447318.2026.2755127
+openalex_id: W4415249921
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 12
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI Alignment: A Comprehensive Survey; AI Supported Degradation of the Self Concept:
+  A Theoretical ; AI-to-AI Code Reviews of GitHub Pull Requests; Agentic AI: Autonomous Intelligence
+  for Complex Goals—A Comp; Discovering Language Model Behaviors with Model-Written Eval;
+  Foundational Challenges in Assuring Alignment and Safety of ; Large Language Model Alignment:
+  A Survey; Machine Psychology; Machine psychology for language models; Measuring Progress
+  on Scalable Oversight for Large Language ; Training Language Models to Follow Instructions
+  with Human F; Training a Helpful and Harmless Assistant with Reinforcement. Scope scan by
+  claude-opus-5: This is a model-evaluation/benchmarking method about expressed value profiles,
+  not about organizations where machines hold operational or decision authority, so it is
+  not in scope on its own terms. It is load-bearing background of the same kind as an evaluation
+  suite (cf. Melting Pot held at section 15), hence a pointer rather than an ingest or refusal.
+  What changes because agents hold authority: Nothing directly changes about agent authority;
+  it supplies an auditing method for expressed value priorities that could inform model selection
+  and ongoing oversight of agents placed in authority. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2
+is_borrowed_background: true

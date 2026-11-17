@@ -1,0 +1,91 @@
+id: resource:arxiv:2611.10382
+resource_type: preprint
+title: 'From Reflection to Co-Evolution: Self-Evolving Agents with Locally Verified Memory'
+abstract: 'LLM agents have made impressive progress in coding and mathematical reasoning,
+  motivating growing interest in learning from long-horizon interaction. Memory supports this
+  process, but plausible lessons can be redundant or reinforce inappropriate actions. Can
+  a memory''s source decision provide a practical test for whether to retain it? We localize
+  consequential trajectory steps, extract candidate memories, and replay each source decision
+  with and without its candidate under the same context. This reveals two properties: most
+  candidates barely shift the probed distribution, and both successful and failed source actions
+  can be reinforced or suppressed. These observations motivate Anchor, which tests shift magnitude
+  and source-role alignment before retention. Admitted memories guide later trajectories,
+  enabling experience-driven improvement under a frozen policy. On held-out ALFWorld and WebShop
+  tasks, Anchor improves success rate and mean score by up to 19.9% and 17.2%, respectively,
+  relative to the strongest baseline for each backbone. With Qwen3.5-27B, it retains 41% fewer
+  ALFWorld cards than unfiltered retention and outperforms all four WebShop cost-comparison
+  baselines while using fewer tokens.'
+authors:
+- Xinxiang Yin
+- Xinglang Zhang
+- Haodong Chen
+- Zhiqing Cui
+- Weidong Tang
+- Yuxuan Wang
+- Junrui Wang
+- Jingyi Zhang
+- Jianfeng Zhang
+- Jian Qian
+organizations:
+- Hong Kong University of Science and Technology
+- Huawei Technologies (China)
+- Huazhong University of Science and Technology
+- National University of Singapore
+- Peking University
+- University of Hong Kong
+- Xi'an Jiaotong University
+affiliations:
+  Xinxiang Yin:
+  - University of Hong Kong
+  Xinglang Zhang:
+  - Huazhong University of Science and Technology
+  Haodong Chen:
+  - Hong Kong University of Science and Technology
+  Zhiqing Cui:
+  - Hong Kong University of Science and Technology
+  Weidong Tang:
+  - National University of Singapore
+  Yuxuan Wang:
+  - Peking University
+  Junrui Wang:
+  - Xi'an Jiaotong University
+  Jingyi Zhang:
+  - Huawei Technologies (China)
+  - University of Hong Kong
+  Jianfeng Zhang:
+  - Huawei Technologies (China)
+  - University of Hong Kong
+  Jian Qian:
+  - University of Hong Kong
+published_at: '2026-11-07'
+url: https://arxiv.org/abs/2611.10382
+doi: 10.48550/arXiv.2611.10382
+arxiv_id: '2611.10382'
+openalex_id: W7225719031
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 13
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; ALFWorld: Aligning
+  Text and Embodied Environments for Intera; CRITIC: Large Language Models Can Self-Correct
+  with Tool-Int; Cognitive Architectures for Language Agents; Distributing Accountability,
+  Not Capability: Phase Separatio; ExpeL: LLM Agents Are Experiential Learners; Generative
+  Agents: Interactive Simulacra of Human Behavior; ReasoningBank: Scaling Agent Self-Evolving
+  with Reasoning Me; Reflexion: language agents with verbal reinforcement learnin; SWE-agent:
+  Agent-Computer Interfaces Enable Automated Softwa; Self-Refine: Iterative Refinement with
+  Self-Feedback; Voyager: An Open-Ended Embodied Agent with Large Language Mo; WebShop: Towards
+  Scalable Real-World Web Interaction with Gr. Scope scan by claude-opus-5: Anchor is a foundational
+  capability method (verified memory admission enabling experience-driven improvement under
+  a frozen policy) that thirteen library papers build on, which is exactly the section 15
+  pointer case rather than scope. No exclusion-register line applies; it is simply not about
+  organizations where machines hold operational authority. What changes because agents hold
+  authority: Nothing directly — it is a single-agent memory-retention method measured on task
+  success, not a change to how authority is delegated, overseen, or accounted for. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

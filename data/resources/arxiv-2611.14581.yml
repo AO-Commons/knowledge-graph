@@ -1,0 +1,61 @@
+id: resource:arxiv:2611.14581
+resource_type: preprint
+title: 'When Evaluators of AI Agents Disagree: An Empirical Study of Native Scoring, LLM Judges,
+  and Commit-Boundary Checks on tau2-bench'
+abstract: 'Agentic workflows, in which a large language model (LLM) calls tools to read and
+  write data, are evaluated in two ways. Benchmarks compare the final state against a gold
+  answer. Deployed services have none; an LLM judge reads the transcript and decides. Practice
+  treats the two as interchangeable. This paper measures whether they are. We ran 2,160 episodes
+  in tau2-bench''s airline and retail domains and recorded every database write. We scored
+  each episode four ways: native scoring against gold state, an LLM judge, that judge given
+  the policy document, and the boundary evaluator, a minimal rule-based check of whether a
+  write was expected against whether one occurred in the trace. Two annotators independently
+  labeled 120 episodes for task correctness, policy compliance, and commitment correctness.
+  The judge repeated its verdict 98.2% of the time but agreed with native scoring on 56.2%.
+  In 11 episodes the agent executed a forbidden write. The judge passed 10 to 11, with or
+  without the policy or transcript. A stronger judge still passed 6. The boundary evaluator,
+  with no model call, caught all 11; no judge significantly exceeded it on human labels. Forbidden
+  writes occurred in 11.1% of episodes without gates. Verification, correction, and safe-termination
+  gates did not reduce them significantly. The traces show a candidate cause: the gates''
+  evidence digest dropped the order status and customer authentication, so valid requests
+  were rejected. The choice of evaluator decides the conclusion; the minimal check exposes
+  failures the judges miss. Traces, code, prompts, and labels are released.'
+authors:
+- Sungbin Im
+organizations:
+- Seoul School of Integrated Sciences and Technologies
+affiliations:
+  Sungbin Im:
+  - Seoul School of Integrated Sciences and Technologies
+published_at: '2026-11-10'
+url: https://arxiv.org/abs/2611.14581
+doi: 10.48550/arXiv.2611.14581
+arxiv_id: '2611.14581'
+openalex_id: W7226015650
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 12
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentBench: Evaluating
+  LLMs as Agents; Autonomous Tester Agent Benchmark; Chain-Of-Thought Prompting Elicits Reasoning
+  in Large Langua; Distributing Accountability, Not Capability: Phase Separatio; GuardAgent:
+  Safeguard LLM Agents by a Guard Agent via Knowle; Judging LLM-as-a-Judge with MT-Bench and
+  Chatbot Arena; Reflexion: language agents with verbal reinforcement learnin; SWE-agent:
+  Agent-Computer Interfaces Enable Automated Softwa; Self-Refine: Iterative Refinement with
+  Self-Feedback; Toolformer: Language Models Can Teach Themselves to Use Tool; Voyager: An
+  Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5: The paper''s
+  subject is oversight of agents that execute consequential writes — exactly the authority-holding
+  case — and its finding that verification/correction/termination gates failed to reduce forbidden
+  writes directly constrains control design. No exclusion-register line applies; this is not
+  generic benchmark background but a result about detecting and bounding unauthorized agent
+  commitments. What changes because agents hold authority: It shows that when agents hold
+  write authority, LLM-judge oversight passes ~90% of forbidden commitments while a trivial
+  rule-based commit-boundary check catches all of them, so accountability for agent action
+  must be anchored at the state-change boundary rather than in transcript review. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2

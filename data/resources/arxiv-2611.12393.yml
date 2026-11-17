@@ -1,0 +1,68 @@
+id: resource:arxiv:2611.12393
+resource_type: preprint
+title: 'AutoBuddy: Evaluating Proactive, Always-On Agents on Task Discovery and Execution
+  in a Simulated Workplace'
+abstract: 'As LLM agents become more autonomous, they are increasingly expected to run as
+  always-on assistants on a user''s behalf, identifying work to be done and completing it
+  without being asked. Yet existing benchmarks usually give the agent its task, whereas in
+  knowledge work the requests sit in the user''s workspace and the agent must first recognise
+  which obligations exist. We study proactive task discovery and execution, in which an agent
+  must infer a user''s pending tasks from their workspace and complete them in the systems
+  where the work lives. This setting poses two challenges. For the agent, the tasks are buried
+  in a large volume of mail, chat, documents and records. For evaluation, a benchmark needs
+  a simulated organisation whose people, events and documents are mutually consistent, so
+  that tasks arise realistically and their correct outcomes are known. We introduce AutoBuddy-Bench,
+  a simulator that addresses these challenges. It models an organisation''s employees, projects,
+  business systems and event history as a temporal graph, renders it into realistic workspace
+  artefacts, derives ground-truth tasks from the events that create obligations, and computes
+  each task''s outcome from the world state; execution is judged by the agent''s changes to
+  the workspace. To evaluate current LLMs, we build AutoBuddy, a reference agent with interchangeable
+  backbone LLMs: it identifies tasks from the workspace, grounding each in its source records,
+  and executes each in a separate session with write access. Varying only the backbone, we
+  find a systematic shift in where tasks are lost: weaker models fail mainly at discovery,
+  intermediate models identify tasks but often stop short of carrying them out, and the strongest
+  models fail mainly during execution, most often on business-system operations. Discovery
+  precision is only weakly related to execution quality, suggesting the two are distinct capabilities.'
+authors:
+- Shiqi Chen
+- Daniel Madrigal Diaz
+- Wei-Ning Chen
+- Gbola Afonja
+- Fangkai Yang
+- Rujia Wang
+- Chetan Bansal
+- Victor Rühle
+- Saravan Rajmohan
+- Dongge Han
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.12393
+doi: 10.48550/arXiv.2611.12393
+arxiv_id: '2611.12393'
+openalex_id: W7225729816
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; ARE: Scaling Up Agent
+  Environments and Evaluations; Generative Agents: Interactive Simulacra of Human Behavior;
+  Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena; Mind2Web: Towards a Generalist Agent
+  for the Web; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; Terminal-Bench:
+  Benchmarking Agents on Hard, Realistic Tasks; Toolformer: Language Models Can Teach Themselves
+  to Use Tool; VisualWebArena: Evaluating Multimodal Agents on Realistic Vi. Scope scan by
+  claude-opus-5: This is an evaluation suite and simulated-workplace benchmark, load-bearing
+  for anyone scoping what autonomy to delegate, which is exactly the Melting Pot-style section
+  15 holding. No exclusion-register line applies; it is kept as a pointer rather than ingested
+  because the finding is about model capability, not about how authority is allocated or overseen
+  in an organization. What changes because agents hold authority: It supplies a measurement
+  precedent for the moment an agent acts unasked with write access to organizational systems
+  — separating task discovery from execution as distinct failure surfaces — but it evaluates
+  a personal assistant''s capability rather than an organization in which agents hold authority.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

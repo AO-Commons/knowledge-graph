@@ -1,0 +1,84 @@
+id: resource:arxiv:2611.12177
+resource_type: preprint
+title: Embodied First Exam
+abstract: 'Early successes on agentic robotics point to a potential paradigm shift toward
+  using coding agents to control robots. Existing robotics benchmarks are built around visuomotor
+  policy learning, leaving it open whether coding agents can reliably control diverse robots
+  under physical-world constraints. We therefore introduce the Embodied First Exam, a unified,
+  comprehensive, and agent-native evaluation framework where coding agents can choose their
+  own control approach: direct control, code to control, or train a policy to control. We
+  hope it serves as a first exam for coding agents before they enter the physical world, with
+  1,156 tasks in 35 suites on 47 robots, including 9 new suites that go beyond pick-and-place
+  to spatial puzzles, dexterous manipulation, multi-robot interaction, dynamic whole-body
+  control, and sim-to-sim engineering. Each task can be run in up to three evaluation settings.
+  The Standard Setting mimics the real world: the agent receives only sensor observations
+  and, by default, cannot reset the environment. Its Realtime variant keeps the environment
+  running while the agent reasons. The Privileged Setting gives the agent access to the full
+  simulator state and unlimited resets, allowing it to search for an oracle solution for training
+  purposes. Success rates in this setting serve as an approximate upper bound. On the 456
+  core tasks, the strongest of eight agents, GPT-6 Astra in Codex, achieves a success rate
+  of 34% in the Standard Setting, leaving much room for improvement. To see where agents fail,
+  we label the stage at which failed attempts go wrong and compare failures across agents,
+  settings, and stage categories.'
+authors:
+- Kangrui Wang
+- Qineng Wang
+- Changhe Chen
+- Pingyue Zhang
+- Chi Gui
+- Feishi Wang
+- Canyu Chen
+- Wenli Xiao
+- Xiaoyu Huang
+- Tonghe Zhang
+- Linjie Li
+- Zihan Wang
+- Minyeong Kim
+- Yiyou Sun
+- Mingkai Deng
+- Jinyu Hou
+- Qi Zhu
+- Han Liu
+- Eric P. Xing
+- Huaxiu Yao
+- Zhiwen Fan
+- Yuejiang Liu
+- Dawn Song
+- Pieter Abbeel
+- Li Fei-Fei
+- Jiajun Wu
+- Yuke Zhu
+- Guanya Shi
+- Ruohan Zhang
+- Manling Li
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.12177
+doi: 10.48550/arXiv.2611.12177
+arxiv_id: '2611.12177'
+openalex_id: W7225730523
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: ALFWorld: Aligning Text and Embodied Environments for Intera; AgentBench: Evaluating
+  LLMs as Agents; Autonomous Tester Agent Benchmark; Distributing Accountability, Not Capability:
+  Phase Separatio; Do As I Can, Not As I Say: Grounding Language in Robotic Aff; Evaluating
+  Large Language Models Trained on Code; OSWorld: Benchmarking Multimodal Agents for Open-Ended
+  Tasks; OpenHands: An Open Platform for AI Software Developers as Ge; Reflexion: language
+  agents with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  This is an evaluation suite for agent competence, the same category as Melting Pot, held
+  as a section 15 pointer rather than ingested as scope. No exclusion-register line bars it,
+  but it is not about organizations where agents hold operational or decision authority. What
+  changes because agents hold authority: Nothing about agent-authority organizations changes
+  directly; it supplies a capability-and-failure-mode measurement of coding agents acting
+  under physical-world constraints, which informs but does not itself address delegation of
+  authority. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 2
+is_borrowed_background: true

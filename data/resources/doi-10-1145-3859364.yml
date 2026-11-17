@@ -1,0 +1,85 @@
+id: resource:doi:10-1145-3859364
+resource_type: peer-reviewed-paper
+title: A Survey on LLMs from a Human-Centric Perspective
+abstract: The rapid evolution of large language models (LLMs) has positioned them as powerful
+  computational instruments for human-centered research and applications, spanning tasks involving
+  cognition, decision-making, and social interaction. This survey examines LLMs from a human-centric
+  perspective organized around individual and collective levels. We first review LLM competencies
+  across perception, analysis, integration, execution, and social interaction, highlighting
+  both their demonstrated capabilities and the evaluation conditions under which these capabilities
+  are observed. We then explore how LLMs are used across behavioral science, psychology, linguistics,
+  political science, economics, and sociology as research tools, behavioral simulators, and
+  objects of inquiry, covering both individual behavior and collective social processes. Finally,
+  we identify challenges and future research directions, such as improving LLM adaptability,
+  affective-to-behavior evaluation, and cultural sensitivity, while addressing inherent biases
+  and enhancing frameworks for human-AI collaboration. This survey aims to provide a foundational
+  understanding of LLMs from a human-centric perspective, offering insights into their current
+  capabilities and potential for future development.
+authors:
+- Jing Yi Wang
+- Nicholas Sukiennik
+- Tong Li
+- Weikang Su
+- Qianyue Hao
+- Zihan Huang
+- Jingbo Xu
+- Fengli Xu
+- Yong Li
+organizations:
+- Tsinghua University
+affiliations:
+  Jing Yi Wang:
+  - Tsinghua University
+  Nicholas Sukiennik:
+  - Tsinghua University
+  Tong Li:
+  - Tsinghua University
+  Weikang Su:
+  - Tsinghua University
+  Qianyue Hao:
+  - Tsinghua University
+  Zihan Huang:
+  - Tsinghua University
+  Jingbo Xu:
+  - Tsinghua University
+  Fengli Xu:
+  - Tsinghua University
+  Yong Li:
+  - Tsinghua University
+published_at: '2026-11-12'
+url: https://doi.org/10.1145/3859364
+doi: 10.1145/3859364
+openalex_id: W4405032057
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 22
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Dynamic LLM-Powered Agent Network for Task-Oriented Agent ; AI Alignment with
+  Changing and Influenceable Reward Function; Behavioral Safety and Context Retention of Large
+  Language Mo; CAMEL: Communicative Agents for "Mind" Exploration of Large ; Can Large Language
+  Model Agents Simulate Human Trust Behavio; CompeteAI: Understanding the Competition Dynamics
+  in Large L; Cooperate or Collapse: Emergence of Sustainable Cooperation ; Deep reinforcement
+  learning from human preferences; Embodied LLM Agents Learn to Cooperate in Organized Teams;
+  Exploring Collaboration Mechanisms for LLM Agents: A Social ; GPT-4 Technical Report; Generative
+  Agents: Interactive Simulacra of Human Behavior; LLaMA: Open and Efficient Foundation Language
+  Models; Language Models are Few-Shot Learners; Machine Psychology; Machine psychology for
+  language models; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; Open Problems
+  in Cooperative AI; Role play with large language models; Social Simulacra: Creating Populated
+  Prototypes for Social C; Training Language Models to Follow Instructions with Human F; VisualWebArena:
+  Evaluating Multimodal Agents on Realistic Vi. Scope scan by claude-opus-5: The survey covers
+  LLM competencies, simulation of human behavior, and human-AI collaboration frameworks, which
+  is foundational capability literature rather than agentic organizational design; its heavy
+  citation by 22 library papers indicates it is load-bearing background. It is not excluded
+  by the deliberative-democracy line since it concerns machine capability, but it offers no
+  finding that depends on agents holding operational authority, so it belongs as a section
+  15 pointer. What changes because agents hold authority: Nothing directly — it is a capability-and-usage
+  survey of LLMs in human-centric research, not about organizations where agents hold authority,
+  though it maps the competency and evaluation landscape the field builds on. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

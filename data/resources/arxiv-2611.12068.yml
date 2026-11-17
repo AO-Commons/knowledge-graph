@@ -1,0 +1,56 @@
+id: resource:arxiv:2611.12068
+resource_type: preprint
+title: 'MIRIX-2.0: Multi-Agent Memory System'
+abstract: Long-term memory lets LLM agents personalize, stay consistent, and reuse what worked
+  before. Parametric memories need training, consolidation can lose details for good, and
+  keeping every record leaves a growing store to search. We present MIRIX-2.0, a multi-agent
+  memory system designed to be practical, accurate, and efficient at once. It is the most
+  accurate of the compared systems on four of five QA benchmarks. It reaches 91.4% on LoCoMo
+  and 72.6% on LongMemEval-S, where it leads the strongest baseline by 14.3 points, and with
+  AutoDream disabled it gains 31.0 and 22.0 points over HyperMem on single-hop and multi-hop
+  document QA. As procedural memory, it yields the highest mean success among the compared
+  memory methods on ALFWorld and WebShop and reaches 49.2% on MetaClaw-Bench, against 44.0%
+  for MetaClaw's skill library. Six typed memory agents keep complete records as the system
+  of record, and a provenance hypergraph indexes episodic and semantic records with n-ary
+  frames that cite their rows. Retrieval runs under explicit budgets, so the evidence a question
+  inspects does not grow with the history. AutoDream merges duplicate anchors outside the
+  write path without rewriting any record, and it distills task sessions into skills. With
+  AutoDream disabled, MIRIX-2.0 answers faster than HyperMem on all five timed benchmarks.
+  It needs no fine-tuning, runs with closed and open models, and its code is public.
+authors:
+- Wei-Chieh Huang
+- Weizhi Zhang
+- Jiayan Nan
+- Peng Xia
+- Yu Wang
+published_at: '2026-11-09'
+url: https://arxiv.org/abs/2611.12068
+doi: 10.48550/arXiv.2611.12068
+arxiv_id: '2611.12068'
+openalex_id: W7225721830
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; Encouraging Divergent Thinking in Large Language
+  Models thro; ExpeL: LLM Agents Are Experiential Learners; Generative Agents: Interactive
+  Simulacra of Human Behavior; Improving Factuality and Reasoning in Language Models throug;
+  Large Language Model based Multi-Agents: A Survey of Progres; Reflexion: language agents
+  with verbal reinforcement learnin; Self-Refine: Iterative Refinement with Self-Feedback;
+  WebShop: Towards Scalable Real-World Web Interaction with Gr. Scope scan by claude-opus-5:
+  MIRIX-2.0 is a general-purpose long-term memory substrate evaluated on QA and task benchmarks,
+  with no account of delegated authority, oversight, or accountability in an organization.
+  It is load-bearing background — persistent, auditable memory is a precondition for agents
+  that act over time — so it belongs as a section 15 pointer rather than an in-scope record.
+  What changes because agents hold authority: Nothing about agent authority changes because
+  of this work; it is an agent memory architecture whose provenance-indexed complete records
+  are infrastructure the field builds on rather than a claim about who decides. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,68 @@
+id: resource:doi:10-21203-rs-3-rs-11409743-v1
+resource_type: preprint
+title: Replication Instability in Experience Replay for Multi-Agent LLM Pipelines
+abstract: Abstract Experience replay, the re-injection of highly rated past outputs as in-context
+  exemplars, gives large language model (LLM) agents memory without parameter updates. In
+  a multi-agent system such a store is the organization's memory, and retrieval a coordination
+  mechanism. Its effect is typically measured in a single stochastic run, which this paper
+  shows cannot support the claim drawn from it. In a five-agent LLM pipeline, after repairing
+  three coordination failure modes that had prevented the loop from closing, fifteen controlled
+  comparisons across two models produced no replay effect that reproduces. Significance did
+  not survive replication even where the sign did. Single-run evaluations produced large,
+  significant effects of opposite sign on the two models (Δ=-0.172, p = 0.041 and Δ=+0.147,
+  p = 0.040), and neither survived replication. A pool-size comparison that looked decisive
+  in single runs did not survive either. Ten independent runs of one identical configuration,
+  five per model, spanned a range of 0.138 and disagreed about significance and, on one model,
+  about the sign. What relevance-matched retrieval can return is bounded by the resolution
+  of its key rather than by the size of the store, and we prove the bound for key-dominated
+  scoring; the parameter the literature reports is not the one that governs the outcome. An
+  objective task with a deterministic answer key reproduced the instability. We conclude with
+  a seven-point protocol to make such evaluations informative rather than merely confident.
+  Code, data, and the full call log are available at https://github.com/wjh55224545/replication-instability-in-experience-replay.
+authors:
+- Jianhao Wang
+- Ke Wu
+- Dong Liu
+- shouqiang Liu
+organizations:
+- South China Business College Guangdong University of Foreign Studies
+- South China Normal University
+affiliations:
+  Jianhao Wang:
+  - South China Normal University
+  Ke Wu:
+  - South China Normal University
+  Dong Liu:
+  - South China Business College Guangdong University of Foreign Studies
+  shouqiang Liu:
+  - South China Normal University
+published_at: '2026-11-12'
+url: https://doi.org/10.21203/rs.3.rs-11409743/v1
+doi: 10.21203/rs.3.rs-11409743/v1
+openalex_id: W7225908205
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 8
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; Generative Agents:
+  Interactive Simulacra of Human Behavior; Intelligent agents: theory and practice; Judging
+  LLM-as-a-Judge with MT-Bench and Chatbot Arena; Large Language Model based Multi-Agents:
+  A Survey of Progres; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Reflexion:
+  language agents with verbal reinforcement learnin; Self-Refine: Iterative Refinement with
+  Self-Feedback. Scope scan by claude-opus-5: The finding is entirely about multi-agent LLM
+  pipelines: remove the machine agents and neither the replay store, the coordination failure
+  modes, nor the retrieval-resolution bound exist, so no exclusion-register line applies.
+  It is load-bearing for designing and overseeing agent organizations because it governs when
+  evidence about their memory and coordination mechanisms can be believed. What changes because
+  agents hold authority: It shows that a shared experience-replay store — the organization''s
+  memory and its retrieval-based coordination mechanism — produces effects that do not replicate
+  across runs, so any claim that a memory or coordination change improved an agent pipeline
+  must be established across repeated runs before it is trusted as an operating or oversight
+  decision. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

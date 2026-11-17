@@ -1,0 +1,58 @@
+id: resource:doi:10-1609-aaaiss-v10i1-43409
+resource_type: peer-reviewed-paper
+title: Soft-Label Governance for Distributional Safety in Multi-Agent Systems
+abstract: 'Multi-agent AI systems exhibit emergent risks that no single agent produces in
+  isolation. Existing safety frameworks rely on binary classifications of agent behavior,
+  which discard the uncertainty inherent in proxy-based evaluation. We introduce SWARM (System-Wide
+  Assessment of Risk in Multi-agent systems), a simulation framework that replaces binary
+  good/bad labels with soft probabilistic labels p = P(v = +1) in [0, 1], enabling continuous-valued
+  payoffs, toxicity metrics, and governance interventions. SWARM implements a modular governance
+  engine with configurable levers (transaction taxes, circuit breakers, reputation decay,
+  and random audits) and quantifies their effects using probabilistic metrics, including expected
+  toxicity E[1 - p | accepted] and the quality gap E[p | accepted] - E[p | rejected]. In seven
+  scenarios, each replicated with five seeds, a strict threshold-based governance regime records
+  40.2% less welfare than the ungoverned baseline at indistinguishable toxicity, and the pattern
+  recurs in a population-controlled lever sweep: removing a 10% transaction tax alone recovers
+  20.3% of welfare without raising toxicity. Full externality internalization collapses welfare
+  from +262 to -67 while toxicity remains at 0.315, and a circuit-breaker sweep identifies
+  an interior optimum whose toxicity gain costs roughly three percent of welfare per percent
+  removed; no setting in that sweep dominates the ungoverned baseline. Companion experiments
+  show that soft metrics detect proxy gaming by a self-optimizing agent that passes every
+  binary check and that the governance layer applies without modification to live LLM-backed
+  agents (Concordia entities, Claude, GPT-4o Mini). These results indicate that distributional
+  safety requires continuous risk metrics and that governance calibration involves quantifiable
+  tradeoffs between safety and system welfare.'
+authors:
+- Aizierjiang Aiersilan
+- Raeli Savitt
+published_at: '2026-11-06'
+url: https://doi.org/10.1609/aaaiss.v10i1.43409
+doi: 10.1609/aaaiss.v10i1.43409
+openalex_id: W7155418083
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Agnostic Learning with
+  Unknown Utilities; Audit the Whisper: Detecting Steganographic Collusion in Mul; Generative
+  Agents: Interactive Simulacra of Human Behavior; Generative agent-based modeling with actions
+  grounded in phy; Governing the Commons: The Evolution of Institutions for Col; The AI Economist:
+  Taxation policy design via two-level deep ; The Alignment Problem from a Deep Learning Perspective;
+  The Rise and Potential of Large Language Model Based Agents:; Training a Helpful and Harmless
+  Assistant with Reinforcement. Scope scan by claude-opus-5: This is governance machinery
+  designed for and only meaningful in systems where machine agents transact and act autonomously,
+  including live LLM-backed agents, so removing the agents removes the finding entirely. No
+  exclusion-register line applies; the reputation-decay lever in fact lands on the arguable
+  reputation-weight judgment call in a way that favors inclusion. What changes because agents
+  hold authority: It gives a concrete, measurable governance toolkit — transaction taxes,
+  circuit breakers, reputation decay, random audits — with evidence that strict threshold-based
+  oversight of autonomous agents can destroy ~40% of system welfare without reducing toxicity,
+  so calibration of agent oversight becomes a quantified tradeoff rather than a precautionary
+  default. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1

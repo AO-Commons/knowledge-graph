@@ -1,0 +1,37 @@
+id: resource:doi:10-1038-s43588-026-01080-z
+resource_type: preprint
+title: Cognitive Heuristics are Necessary for Human-Like Multi-Agent Dynamics in Large Language
+  Models
+authors:
+- Hongan Zhu
+- Babak Heydari
+published_at: '2026-01-01'
+url: https://doi.org/10.1038/s43588-026-01080-z
+doi: 10.1038/s43588-026-01080-z
+openalex_id: W7135089179
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; Can Large Language Models
+  Serve as Rational Players in Game ; Generative Agents: Interactive Simulacra of Human Behavior;
+  Large Language Model based Multi-Agents: A Survey of Progres; Large Language Models as Simulated
+  Economic Agents: What Can; Multi-Agent Risks from Advanced AI; Out of One, Many: Using Language
+  Models to Simulate Human Sa; Training Language Models to Follow Instructions with Human
+  F; Training a Helpful and Harmless Assistant with Reinforcement. Scope scan by claude-opus-5:
+  This is a mechanism-level finding about LLM multi-agent behavioral realism, load-bearing
+  for the simulation-based methods much of the library relies on (like Melting Pot, held the
+  same way), rather than a study of delegated machine authority. No exclusion-register line
+  applies; it is adjacent method foundation, so it belongs as a section 15 pointer. What changes
+  because agents hold authority: Nothing directly — it characterizes when LLM populations
+  reproduce human-like collective dynamics, which informs whether multi-agent simulations
+  can be trusted as evidence about agent organizations, but it does not itself concern agents
+  holding operational or decision authority. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-17'
+expansion_generation: 1
+is_borrowed_background: true
