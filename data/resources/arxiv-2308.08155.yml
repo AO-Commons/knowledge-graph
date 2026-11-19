@@ -1,6 +1,6 @@
 id: resource:arxiv:2308.08155
 resource_type: preprint
-title: AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+title: 'AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation'
 abstract: AutoGen is an open-source framework that allows developers to build LLM applications
   via multiple agents that can converse with each other to accomplish tasks. AutoGen agents
   are customizable, conversable, and can operate in various modes that employ combinations

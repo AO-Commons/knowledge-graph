@@ -1,35 +1,24 @@
 id: resource:arxiv:2210.03629
 resource_type: preprint
-title: 'Distributing Accountability, Not Capability: Phase Separation and the LLM Workflow
-  Quadrant in Autonomous AI Agent Architectures'
-abstract: 'Autonomous AI agents in business deployments exhibit a recurring failure mode:
-  when an incident occurs, responsibility cannot be redirected to a separable contributor.
-  The dominant discourse treats this as a single phenomenon, addressed by sandboxing, human-in-the-loop
-  overload, or what Elish (2019) named the moral crumple zone. This paper argues the phenomenon
-  is two architecturally distinct failure modes that have been conflated, and that the conflation
-  is sustained by a missing positive name and a missing time-axis. The paper introduces two
-  contributions. First, a four-quadrant decomposition of business AI work — along the axes
-  of deterministic vs semantic-judgment and pre-defined vs exploratory — yields a positive
-  name for the cell most current LLM applications occupy: the LLM Workflow Quadrant. The quadrant
-  is defined by a single load-bearing property: the path is decided in advance by humans or
-  by code, and the LLM is called as a single bounded step within that path; the property divides
-  naturally into a conversational sub-form (specialized chat agents) and a batch sub-form
-  (single-purpose LLM functions inside deterministic pipelines). The decomposition distinguishes
-  principled from artificial redirect impossibility: the former intrinsic to autonomous loops,
-  the latter the product of routing workflow work through autonomous-loop architecture by
-  elimination, with four downstream symptoms (the RPA exception-handling bottleneck, the sandbox-strength
-  demand, the structural distortion of human-in-the-loop, and the dissolution of the accountability
-  chain at postmortem). Second, a Phase Separation axis (design vs operation), independent
-  of Quadrant, surfaces a Phase-crossing decision — recorded at deployment time, in one sentence
-  — required when an autonomous-loop component is placed in the operation phase. The Phase
-  axis descends recursively to skill-design granularity, where the Quadrant 3 ↔ Quadrant 4
-  boundary is a continuous gradient on which model capability is downstream of phase, not
-  the primary lever. The consequence is procedural rather than architectural: deployments
-  make the Phase-crossing decision explicit, designate a pre-named gap-bearer for principled-impossibility
-  placements, and route artificial-impossibility cases to re-architecture. The framework complements
-  existing AI risk-management and management-system standards by recording the judgment layer
-  they presuppose. Both rules are stated as experimental; the open questions are the research
-  agenda.'
+title: 'ReAct: Synergizing Reasoning and Acting in Language Models'
+abstract: 'While large language models (LLMs) have demonstrated impressive capabilities across
+  tasks in language understanding and interactive decision making, their abilities for reasoning
+  (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily
+  been studied as separate topics. In this paper, we explore the use of LLMs to generate both
+  reasoning traces and task-specific actions in an interleaved manner, allowing for greater
+  synergy between the two: reasoning traces help the model induce, track, and update action
+  plans as well as handle exceptions, while actions allow it to interface with external sources,
+  such as knowledge bases or environments, to gather additional information. We apply our
+  approach, named ReAct, to a diverse set of language and decision making tasks and demonstrate
+  its effectiveness over state-of-the-art baselines, as well as improved human interpretability
+  and trustworthiness over methods without reasoning or acting components. Concretely, on
+  question answering (HotpotQA) and fact verification (Fever), ReAct overcomes issues of hallucination
+  and error propagation prevalent in chain-of-thought reasoning by interacting with a simple
+  Wikipedia API, and generates human-like task-solving trajectories that are more interpretable
+  than baselines without reasoning traces. On two interactive decision making benchmarks (ALFWorld
+  and WebShop), ReAct outperforms imitation and reinforcement learning methods by an absolute
+  success rate of 34% and 10% respectively, while being prompted with only one or two in-context
+  examples. Project site with code: https://react-lm.github.io'
 authors:
 - Shunyu Yao
 - Jeffrey Zhao

@@ -1,7 +1,6 @@
 id: resource:arxiv:2310.13548
 resource_type: preprint
-title: 'AI Supported Degradation of the Self Concept: A Theoretical Framework Grounded in
-  Established Cognitive and Computational Mechanisms'
+title: Towards Understanding Sycophancy in Language Models
 abstract: Human feedback is commonly utilized to finetune AI assistants. But human feedback
   may also encourage model responses that match user beliefs over truthful ones, a behaviour
   known as sycophancy. We investigate the prevalence of sycophancy in models whose finetuning

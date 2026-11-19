@@ -1,29 +1,21 @@
 id: resource:arxiv:2212.08073
 resource_type: preprint
-title: AI-to-AI Code Reviews of GitHub Pull Requests
-abstract: 'AI coding agents are increasingly integrated into software development workflows,
-  operating on both sides of the pull request (PR) process: AI authoring agents, which create
-  or modify PRs, and AI reviewers, which evaluate them. This creates a closed loop where one
-  AI coding agent reviews contributions of another AI coding agent. In this paper, we construct
-  an AI-to-AI code review dataset by linking AI-authored pull requests with AI-attributed
-  review events from CodAGE, a public dataset of coding agent–generated GitHub events. Our
-  dataset contains νm{248641} PRs across 12 AI coding agents with at least one AI review,
-  including νm{45269} reviewed by a different AI product and νm{208145} by the same product.
-  We observe that cross-product AI-to-AI code review occurs in only about 1.6% of identified
-  agent-authored PRs but is substantial in absolute terms: 45k PRs written by one identifiable
-  AI product and reviewed by another. This activity grows by more than two orders of magnitude
-  from 2025-Q1 to 2025-Q3. We measure reviewer behavior using CodeRabbit comment categories,
-  per-PR comment volume, and time to first review, and find that it varies across author–reviewer
-  pairs. For example, Claude-Code PRs receive more refactor comments from CodeRabbit than
-  Copilot PRs (35.0% vs. 10.5%), a difference that may stem from PRs themselves rather than
-  the reviewer. For three of four dual-role reviewers, mean comments per PR were 58-65% higher
-  in the same-product group, though effect sizes were small or negligible and the difference
-  was concentrated in the upper tail. Median time from PR creation to first AI review was
-  1.2 minutes for cross-product pairs and 4.7 minutes for same-product pairs, reflecting which
-  reviewer bots are in each group rather than the product pairing. Overall, our large-scale
-  characterization shows that closed-loop AI-to-AI code review is on the rise but remains
-  a minority phenomenon, with review output varying across authoring-agent groups and author-reviewer
-  configurations.'
+title: 'Constitutional AI: Harmlessness from AI Feedback'
+abstract: As AI systems become more capable, we would like to enlist their help to supervise
+  other AIs. We experiment with methods for training a harmless AI assistant through self-improvement,
+  without any human labels identifying harmful outputs. The only human oversight is provided
+  through a list of rules or principles, and so we refer to the method as 'Constitutional
+  AI'. The process involves both a supervised learning and a reinforcement learning phase.
+  In the supervised phase we sample from an initial model, then generate self-critiques and
+  revisions, and then finetune the original model on revised responses. In the RL phase, we
+  sample from the finetuned model, use a model to evaluate which of the two samples is better,
+  and then train a preference model from this dataset of AI preferences. We then train with
+  RL using the preference model as the reward signal, i.e. we use 'RL from AI Feedback' (RLAIF).
+  As a result we are able to train a harmless but non-evasive AI assistant that engages with
+  harmful queries by explaining its objections to them. Both the SL and RL methods can leverage
+  chain-of-thought style reasoning to improve the human-judged performance and transparency
+  of AI decision making. These methods make it possible to control AI behavior more precisely
+  and with far fewer human labels.
 authors:
 - Yuntao Bai
 - Saurav Kadavath
