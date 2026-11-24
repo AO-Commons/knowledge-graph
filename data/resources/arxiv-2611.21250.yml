@@ -1,0 +1,52 @@
+id: resource:arxiv:2611.21250
+resource_type: preprint
+title: 'Stream of Belief: Eliciting Collective Intelligence through Latent Belief Dynamics'
+abstract: In this work, we view multi-agent reasoning as a process of seeking a collective
+  equilibrium of implicit belief dynamics and introduce Stream of Belief (SoB), where agents
+  maintain continuous latent beliefs and iteratively refine them through communication and
+  reflection. Our method seeks a collective belief state of a multi-agent system where further
+  communication induces no meaningful information propagation. Through extensive experiments,
+  we demonstrate the generalization of SoB across tasks and model families. More Broadly,
+  our results suggest a new perspective on scaling multi-agent reasoning from belief dynamics.
+authors:
+- Yu Yao
+- Jiayi Dong
+- Yilun Du
+organizations:
+- Harvard University
+- University of California, Los Angeles
+affiliations:
+  Jiayi Dong:
+  - University of California, Los Angeles
+  Yilun Du:
+  - Harvard University
+published_at: '2026-11-16'
+url: https://arxiv.org/abs/2611.21250
+doi: 10.48550/arXiv.2611.21250
+arxiv_id: '2611.21250'
+openalex_id: W7234845870
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AgentVerse: Facilitating Multi-Agent Collaboration and Explo; Agentic AI: Autonomous
+  Intelligence for Complex Goals—A Comp; CAMEL: Communicative Agents for "Mind" Exploration
+  of Large ; ChatEval: Towards Better LLM-based Evaluators through Multi-; Encouraging Divergent
+  Thinking in Large Language Models thro; Exploring Collaboration Mechanisms for LLM Agents:
+  A Social ; Generative Agents: Interactive Simulacra of Human Behavior; Large Language Model
+  based Multi-Agents: A Survey of Progres; Multi-Agent Collaboration Mechanisms: A Survey
+  of LLMs; Tree of Thoughts: Deliberate Problem Solving with Large Lang. Scope scan by claude-opus-5:
+  SoB is a foundational multi-agent aggregation/communication technique that the library''s
+  agent-collective work builds on, which makes it load-bearing substrate rather than scope
+  material. It belongs as a section 15 pointer alongside other method and benchmark precedents
+  like Melting Pot. What changes because agents hold authority: Nothing directly — it is a
+  multi-agent reasoning method for reaching a stable collective belief state, with no account
+  of authority, delegation, or accountability. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

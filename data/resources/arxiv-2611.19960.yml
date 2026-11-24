@@ -1,0 +1,53 @@
+id: resource:arxiv:2611.19960
+resource_type: preprint
+title: 'Anatomy of an Agent Harness: Decisions, Invariants and Corner Cases'
+abstract: 'An agent harness is the program around a language model that turns its replies
+  into actions: it builds each request, runs the tools the model asks for, decides what the
+  model may do without asking, stores the conversation, recovers from failures, and shows
+  a person what happened. Most of these decisions are made in code and rarely written down,
+  so each harness meets the same corner cases again. This paper writes them down as invariants
+  to test. It gives a system model with trust boundaries; 30 decision cards in six groups,
+  each with options and costs, an invariant, the corner cases that break it, a test and an
+  evidence tag; six cause classes for failures; a test method built on scripted providers,
+  recorded behaviour and planted changes; and a checklist. The cards come from building one
+  desktop harness, Crewroom, the author''s own, and from manually testing ten other harnesses
+  and studying open-source harnesses as reference; some patterns in the cards were adopted
+  from those, so the catalogue is not independent of them. Of the 83 invariant clauses, 56
+  are tagged Tested, 12 Believed and 15 Open. The checklist is applied to the author''s harness
+  as one worked example, by its builder with no second rater: of its 30 items, 11 hold, 14
+  do not and 5 were not tested. It is not a ranking. The paper makes no claims about answer
+  quality or cost or other platforms, and does not evaluate or rank other harnesses.'
+authors:
+- Resham Joshi
+published_at: '2026-11-15'
+url: https://arxiv.org/abs/2611.19960
+doi: 10.48550/arXiv.2611.19960
+arxiv_id: '2611.19960'
+openalex_id: W7234775741
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Cognitive Architectures for Language Agents; Defeating
+  Prompt Injections by Design; Distributing Accountability, Not Capability: Phase Separatio;
+  InjecAgent: Benchmarking Indirect Prompt Injections in Tool-; Magentic-One: A Generalist
+  Multi-Agent System for Solving Co; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; OpenHands: An Open Platform for AI Software Developers as Ge; SWE-agent: Agent-Computer
+  Interfaces Enable Automated Softwa; Why Do Multi-Agent LLM Systems Fail?. Scope scan by
+  claude-opus-5: This is not human collective decision-making and no exclusion-register line
+  applies; it is about the enforcement point for machine authority, including autonomy gating
+  and oversight surfaces, which is exactly what changes when agents act. Its weaknesses (single-author
+  worked example, no second rater) limit its evidential weight but not its scope fit. What
+  changes because agents hold authority: It specifies, as testable invariants, the layer where
+  an agent''s operational authority is actually bounded and recorded — what the model may
+  do without asking, how tool calls cross trust boundaries, how failures are recovered and
+  how a human is shown what happened — so delegation limits and audit trails become design
+  artifacts that can be checked rather than implicit code. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

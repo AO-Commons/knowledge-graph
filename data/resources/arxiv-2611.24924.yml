@@ -1,0 +1,99 @@
+id: resource:arxiv:2611.24924
+resource_type: preprint
+title: 'Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses'
+abstract: 'Real-world harness engineering is driven by explicit and implicit user requirements,
+  which guide development and validation. However, existing harness evolution methods often
+  overlook implicit requirements and interaction needs, while using a single evolution agent
+  to modify the harness and benchmark scores to select changes. This process often produces
+  narrow patches and leads to benchmark-specific local optima. We introduce Agentic Harness
+  Engineering Beta (AHE-Beta), a requirement-centered loop that brings real-world engineering
+  practices into harness evolution. The loop consists of three steps: (1) User-driven evaluation
+  lets simulated users raise their requirements as issues while they work with the harness
+  over multiple turns. (2) Team-based modification implements those requirements as generalizable
+  changes rather than task-specific patches. (3) Requirement-driven selection merges a change
+  only when it resolves a verified requirement and passes review. Empirically, on held-out
+  tasks, AHE-Beta raises pass@1 from 21.9% to 33.3% while using 40.8% fewer tokens than Base
+  Harness, and achieves higher pass@1 than Claude Code, Meta-Harness, and AHE. In a blind
+  human A/B test, real users prefer AHE-Beta in 31 of 48 valid pairs and rate it higher on
+  all five dimensions, matching the directional preference of the user simulator. The human
+  A/B results show that AHE-Beta achieves its goal of aligning harness evolution with real-world
+  user requirements. Without further evolution, the gains transfer to GLM-5.3 and DeepSeek-V4.1-Flash
+  with pass@1 improvements of 15.8% and 5.3% over Base Harness. Together, these results show
+  that requirement-centered harness evolution is a more general method for improving agent
+  capabilities.'
+authors:
+- Jiahang Lin
+- Jiahao Chen
+- Yiding Wang
+- Shichun Liu
+- Chengjun Pan
+- Shihan Dou
+- Honglin Guo
+- Yuyang Hu
+- Changhao Jiang
+- Zhenhua Han
+- Hang Yan
+- Qi Zhang
+- Tao Gui
+- Xuanjing Huang
+organizations:
+- Fudan University
+- Peking University
+- Renmin University of China
+affiliations:
+  Jiahang Lin:
+  - Fudan University
+  Jiahao Chen:
+  - Fudan University
+  Yiding Wang:
+  - Fudan University
+  Shichun Liu:
+  - Fudan University
+  Chengjun Pan:
+  - Peking University
+  Shihan Dou:
+  - Fudan University
+  Honglin Guo:
+  - Fudan University
+  Yuyang Hu:
+  - Renmin University of China
+  Changhao Jiang:
+  - Fudan University
+  Qi Zhang:
+  - Fudan University
+  Tao Gui:
+  - Fudan University
+  Xuanjing Huang:
+  - Fudan University
+published_at: '2026-11-18'
+url: https://arxiv.org/abs/2611.24924
+doi: 10.48550/arXiv.2611.24924
+arxiv_id: '2611.24924'
+openalex_id: W7236778055
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agentic Harness Engineering: Observability-Driven Automatic ; ChatDev: Communicative
+  Agents for Software Development; ExpeL: LLM Agents Are Experiential Learners; MetaGPT: Meta
+  Programming for A Multi-Agent Collaborative Fr; ReasoningBank: Scaling Agent Self-Evolving
+  with Reasoning Me; Reflexion: language agents with verbal reinforcement learnin; SWE-agent:
+  Agent-Computer Interfaces Enable Automated Softwa; Self-Refine: Iterative Refinement with
+  Self-Feedback; Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan
+  by claude-opus-5: AHE-Beta is capability/scaffold engineering: self-improving harnesses
+  selected by simulated-user requirements and review gates, which is load-bearing infrastructure
+  the field builds on (and is cited by nine library records) but is not itself about organizations
+  where machines hold authority. No exclusion-register line applies; it sits with Melting
+  Pot as a section 15 pointer rather than a scope record. What changes because agents hold
+  authority: Nothing directly — this is a method for evolving agent harnesses to better satisfy
+  user requirements, not an account of agents exercising operational or decision authority,
+  though the harness is the substrate on which any delegated authority is actually exercised.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

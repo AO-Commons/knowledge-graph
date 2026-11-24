@@ -1,0 +1,40 @@
+id: resource:doi:10-1007-s43681-026-01524-2
+resource_type: peer-reviewed-paper
+title: 'Approval invalidation and renewed authorization in agentic AI: a conceptual synthesis
+  of responsibility and human oversight'
+authors:
+- Jiaxing Du
+organizations:
+- Suzhou Vocational Institute of Industrial Technology
+affiliations:
+  Jiaxing Du:
+  - Suzhou Vocational Institute of Industrial Technology
+published_at: '2026-11-23'
+url: https://doi.org/10.1007/s43681-026-01524-2
+doi: 10.1007/s43681-026-01524-2
+openalex_id: W7238899426
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 12
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Agnostic Learning with Unknown Utilities; Distributing Accountability, Not Capability:
+  Phase Separatio; Four Responsibility Gaps with Artificial Intelligence: Why t; Generative
+  Agents: Interactive Simulacra of Human Behavior; Governing AI Agents; Harms from Increasingly
+  Agentic Algorithmic Systems; Humans and Automation: Use, Misuse, Disuse, Abuse; Ironies
+  of automation; The Rise and Potential of Large Language Model Based Agents:; The responsibility
+  gap: Ascribing responsibility for the act; Toolformer: Language Models Can Teach Themselves
+  to Use Tool; Visibility into AI Agents. Scope scan by claude-opus-5: This is squarely about
+  human oversight of and responsibility for machine agents exercising delegated authority
+  — the hybrid human-AI authority-sharing question the deliberative-democracy line explicitly
+  does not exclude. No exclusion-register line applies, and removing the machine would void
+  the finding entirely. What changes because agents hold authority: It specifies when a human''s
+  prior approval of an agent''s delegated authority lapses and must be re-granted, which directly
+  governs how authorization scopes, escalation triggers and responsibility attribution are
+  designed for agents acting on standing permissions. Unreviewed, like everything that has
+  not been through the review queue — and machine-admitted as well as machine-resolved, so
+  the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

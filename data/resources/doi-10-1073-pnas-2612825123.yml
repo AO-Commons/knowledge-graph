@@ -1,0 +1,71 @@
+id: resource:doi:10-1073-pnas-2612825123
+resource_type: peer-reviewed-paper
+title: Language model teams as distributed systems
+abstract: 'Large language models (LLMs) are growing increasingly powerful. Yet, fundamental
+  constraints on the reasoning, memory, and performance of individual models has sparked recent
+  interest in scaling abilities using LLM teams. With growing deployment of LLM teams at scale,
+  there is a need for principled guidelines for when teams help, how many agents to use, and
+  how structure impacts performance. Rather than building these teams through trial-and-error,
+  we propose using distributed systems as a formal foundation for designing and evaluating
+  LLM teams. Under this formal framework, we derive predictions about how task structure and
+  team architecture should shape performance. Empirical evidence supports these predictions:
+  LLM team scaling follows classical distributed computing laws based on the structure of
+  a task, and centralized and decentralized architectures exhibit the asymmetric vulnerabilities
+  predicted by distributed systems theory. These results establish distributed computing as
+  a generative framework that yields testable, quantitative predictions about LLM team behavior
+  and informs the construction of more efficient and capable teams.'
+authors:
+- Elizabeth Mieczkowski
+- Katherine M. Collins
+- Ilia Sucholutsky
+- Natalia Vélez
+- Thomas L. Griffiths
+organizations:
+- Massachusetts Institute of Technology
+- New York University
+- Princeton University
+- University of Cambridge
+affiliations:
+  Elizabeth Mieczkowski:
+  - Princeton University
+  Katherine M. Collins:
+  - Princeton University
+  - University of Cambridge
+  - Massachusetts Institute of Technology
+  Ilia Sucholutsky:
+  - New York University
+  Natalia Vélez:
+  - Princeton University
+  Thomas L. Griffiths:
+  - Princeton University
+published_at: '2026-11-18'
+url: https://doi.org/10.1073/pnas.2612825123
+doi: 10.1073/pnas.2612825123
+openalex_id: W7135230687
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AgentVerse: Facilitating Multi-Agent Collaboration and Explo; Agents of Chaos;
+  Building machines that learn and think with people; CooperBench: Why Coding Agents Cannot
+  be Your Teammates Yet; Cooperate or Collapse: Emergence of Sustainable Cooperation ; Embodied
+  LLM Agents Learn to Cooperate in Organized Teams; Improving Factuality and Reasoning in
+  Language Models throug; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Scaling
+  Large Language Model-based Multi-Agent Collaboration; Towards a Science of Scaling Agent
+  Systems; Why Do Multi-Agent LLM Systems Fail?. Scope scan by claude-opus-5: This is about
+  the internal structure of machine-agent collectives and the predictable failure profiles
+  of centralized versus decentralized agent architectures, which is organizational design
+  for agents rather than a general optimization or benchmark method. No exclusion-register
+  line applies; it is not human collective decision-making, and its findings vanish if the
+  agents are removed. What changes because agents hold authority: It gives quantitative, theory-grounded
+  guidance on how many agents to deploy and whether to centralize or decentralize coordination,
+  including the asymmetric failure modes each architecture carries — directly shaping how
+  an organization that delegates work to machine agents should be structured and where oversight
+  must sit. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

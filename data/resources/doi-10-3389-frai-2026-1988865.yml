@@ -1,0 +1,107 @@
+id: resource:doi:10-3389-frai-2026-1988865
+resource_type: peer-reviewed-paper
+title: 'From the fluency fallacy to the micro-to-macro validity gap: opportunities and pitfalls
+  of LLMs in social simulation'
+abstract: 'The integration of Large Language Models (LLMs) into social simulation has generated
+  considerable enthusiasm, but also raises substantial methodological and epistemological
+  challenges. This critical review examines the use of LLMs as cognitive or decision-making
+  components of simulated agents from a computational social science perspective. Rather than
+  treating the psychological evaluation of LLMs as separate from simulation mechanics, we
+  argue that their behavioral and epistemic limitations can become systemic vulnerabilities
+  when scaled to multi-agent societies. We first map the rapidly evolving landscape of LLM-driven
+  platforms, ranging from small narrative sandboxes to population-scale and spatially structured
+  simulations. We then develop a unified critical framework for analyzing the Micro-to-Macro
+  Validity Gap: the propagation, nonlinear amplification, or convergent contraction of micro-level
+  limitations—including hallucinations, stochastic inconsistency, representational biases,
+  and alignment effects—into agent-level distortions (such as average persona convergence)
+  and macro-level risks (such as artificial consensus and behavioral homogenization), while
+  exposing evaluators to epistemic vulnerabilities such as the Fluency Fallacy and automation
+  bias. We identify contexts in which LLM-based agents offer genuine operational value, including
+  serious games, participatory environments, and exploratory modeling, while distinguishing
+  these uses from confirmatory research with unconstrained models and precise social forecasting.
+  Finally, we examine theory-driven hybrid architectures that embed LLMs within explicit,
+  mechanistic, and reproducible Agent-Based modeling (ABM) frameworks. We argue that such
+  architectures offer a promising but not sufficient path toward improving epistemic control:
+  their validity depends on multi-level evaluation of environmental dynamics, individual behavior,
+  cross-level interactions, and aggregate outcomes, and they remain vulnerable to the risk
+  of physics washing.'
+authors:
+- Patrick Taillandier
+- Jean-Daniel Zucker
+- Arnaud Grignard
+- Benoît Gaudou
+- Nghi Quang Huynh
+- Haojia Kong
+- Alexis Drogoul
+organizations:
+- Can Tho University
+- Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement
+- Institut de Recherche en Informatique de Toulouse
+- Institut de Recherche pour le Développement
+- Mathématiques et Informatique Appliquées Toulouse
+- Sorbonne Université
+- Thuyloi University
+- Unité de Modélisation Mathématique et Informatique des Systèmes Complexes
+- Université Toulouse Capitole
+- Université de Toulouse
+affiliations:
+  Patrick Taillandier:
+  - Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement
+  - Université de Toulouse
+  - Mathématiques et Informatique Appliquées Toulouse
+  Jean‐Daniel Zucker:
+  - Sorbonne Université
+  - Unité de Modélisation Mathématique et Informatique des Systèmes Complexes
+  - Institut de Recherche pour le Développement
+  Arnaud Grignard:
+  - Thuyloi University
+  - Sorbonne Université
+  - Unité de Modélisation Mathématique et Informatique des Systèmes Complexes
+  - Institut de Recherche pour le Développement
+  Benoît Gaudou:
+  - Institut de Recherche en Informatique de Toulouse
+  - Université de Toulouse
+  - Université Toulouse Capitole
+  Nghi Quang Huynh:
+  - Can Tho University
+  - Thuyloi University
+  Haojia Kong:
+  - Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement
+  - Université de Toulouse
+  - Mathématiques et Informatique Appliquées Toulouse
+  Alexis Drogoul:
+  - Thuyloi University
+  - Sorbonne Université
+  - Unité de Modélisation Mathématique et Informatique des Systèmes Complexes
+  - Institut de Recherche pour le Développement
+published_at: '2026-11-17'
+url: https://doi.org/10.3389/frai.2026.1988865
+doi: 10.3389/frai.2026.1988865
+openalex_id: W4417266324
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Supported Degradation
+  of the Self Concept: A Theoretical ; Generative Agents: Interactive Simulacra of Human Behavior;
+  Generative agent-based modeling with actions grounded in phy; Language Models are Few-Shot
+  Learners; Large Language Models Fail on Trivial Alterations to Theory-; Large language models
+  empowered agent-based modeling and sim; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; Training Language Models to Follow Instructions with Human F. Scope scan by claude-opus-5:
+  This is a methodological critique of LLM-driven social simulation, a method the library''s
+  own multi-agent organizational studies rest on, so it is load-bearing without itself being
+  about delegated machine authority. No exclusion-register line bars it; it fits the section
+  15 pointer role alongside evaluation-suite records like Melting Pot. What changes because
+  agents hold authority: Nothing directly — it concerns the validity of LLM agents as simulated
+  social actors rather than agents holding real operational authority, though its failure
+  taxonomy (persona convergence, artificial consensus, homogenization, automation bias) is
+  the methodological caution for any simulation-based evidence about agentic organizations.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,65 @@
+id: resource:doi:10-21203-rs-3-rs-11814023-v1
+resource_type: preprint
+title: 'TCA-DARE: A Task-Complexity-Aware Dynamic Agent Routing Framework for Multi-Agent
+  LLM Systems'
+abstract: 'Autonomous Large Language Model (LLM) agents have demonstrated significant capability
+  in complex problem-solving. However, existing multi-agent systems predominantly rely on
+  fixed, static execution topologies where a predefined suite of specialist agents is invoked
+  sequentially regardless of query complexity. This rigid paradigm imposes a heavy computational
+  tax, leading to inflated token consumption, high execution latency, and elevated operational
+  costs on simple to moderately complex tasks. In this paper, we propose TCA-DARE (Task-Complexity-Aware
+  Dynamic Agent Routing and Execution), an adaptive multi-agent framework that evaluates incoming
+  academic requests prior to agent instantiation and allocates a minimal viable agent topology.
+  By combining a lightweight four-feature mathematical complexity-scoring router (Layer 1),
+  a dynamic specialist agent pool (Layer 2), a source-grounding verification guardrail (Layer
+  3, specified for future integration), and a telemetry logger (Layer 4), the framework routes
+  queries across three distinct execution topologies: single-agent extraction (C₁), dual-pipeline
+  synthesis (C₂), and full multi-agent orchestration (C₃). We present the complete system
+  architecture, formal routing algorithm, and an implemented (not yet experimentally executed)
+  local Python prototype built on Ollama (llama3) and tiktoken, alongside a structured multi-tier
+  evaluation protocol designed for upcoming empirical validation against static multi-agent
+  baselines.'
+authors:
+- Moksha Arora
+- Bhawna Mittal
+- Mohit Tiwari
+organizations:
+- Bharati Vidyapeeth (Deemed to be University)
+affiliations:
+  Moksha Arora:
+  - Bharati Vidyapeeth (Deemed to be University)
+  Bhawna Mittal:
+  - Bharati Vidyapeeth (Deemed to be University)
+  Mohit Tiwari:
+  - Bharati Vidyapeeth (Deemed to be University)
+published_at: '2026-11-23'
+url: https://doi.org/10.21203/rs.3.rs-11814023/v1
+doi: 10.21203/rs.3.rs-11814023/v1
+openalex_id: W7238786417
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; ChatDev: Communicative Agents for Software Development;
+  Magentic-One: A Generalist Multi-Agent System for Solving Co; Reflexion: language agents
+  with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Scaling Large Language Model-based Multi-Agent Collaboration; Toolformer: Language
+  Models Can Teach Themselves to Use Tool; Towards a Science of Scaling Agent Systems; Why
+  Do Multi-Agent LLM Systems Fail?. Scope scan by claude-opus-5: This is multi-agent systems
+  engineering (complexity scoring, topology selection, token cost) with an unexecuted prototype
+  and no empirical results; no exclusion-register line applies directly, but it is not about
+  organizations where machines hold operational or decision authority. It is nonetheless the
+  kind of orchestration/delegation-topology method the field''s papers build on, so it is
+  better held as a section 15 pointer than discarded. What changes because agents hold authority:
+  Nothing about agent authority changes — the work is a cost-driven orchestration router that
+  decides how many specialist agents to instantiate, not a scheme for delegating, bounding,
+  or auditing decision authority. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

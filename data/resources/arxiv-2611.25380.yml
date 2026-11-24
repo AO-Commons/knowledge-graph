@@ -1,0 +1,50 @@
+id: resource:arxiv:2611.25380
+resource_type: preprint
+title: 'Beyond Weight Updates: Evolving Agent Harnesses for Domain Specialization'
+abstract: 'Domain specialization of LLM agents is usually framed as a weight-update problem:
+  collect trajectories, run reinforcement learning (RL) or supervised fine-tuning (SFT), and
+  deploy a new checkpoint. We study a complementary axis: evolving the \textbf{agent harness}---the
+  system prompt, tool schemas, skill library, and planning scaffolding---while keeping the
+  policy frozen. We cast harness evolution as an RL-style outer loop and instantiate it with
+  GEPA, a reflective evolutionary optimizer. The resulting harness adapters require no GPU
+  training, are loadable per vertical domain, and compose with weight-based RL. Experiments
+  with Codev, a Claude Code-style coding agent, on SWE-bench Verified, OfficeBench, and Terminal-Bench
+  show a consistent pattern: weight updates give the strongest single-path gains, harness
+  evolution recovers most of those gains at a small fraction of the compute, and combining
+  both paths is best overall. We also analyze a failure mode of SFT-based specialization---shortened
+  reasoning chains and increased truncation---and argue that harness adapters avoid it by
+  construction. Our results position harness evolution as a practical, non-destructive complement
+  to weight updates for vertical agents.'
+authors:
+- BoHao Chen
+published_at: '2026-11-19'
+url: https://arxiv.org/abs/2611.25380
+doi: 10.48550/arXiv.2611.25380
+arxiv_id: '2611.25380'
+openalex_id: W7237161534
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Distributing Accountability, Not Capability:
+  Phase Separatio; Proximal Policy Optimization Algorithms; Reflexion: language agents with
+  verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated Softwa;
+  Self-Refine: Iterative Refinement with Self-Feedback; Terminal-Bench: Benchmarking Agents
+  on Hard, Realistic Tasks; Toolformer: Language Models Can Teach Themselves to Use Tool;
+  Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  This is agent capability engineering — an outer-loop optimizer over harness configuration
+  — with no claim about delegated authority, oversight, or accountability within an organization.
+  But harness adapters as an inspectable, versionable, non-destructive alternative to opaque
+  checkpoints is a method the field visibly builds on (9 citing library papers), so it belongs
+  as a section 15 pointer rather than an ingested record. What changes because agents hold
+  authority: Nothing about agent authority changes because of this work; it is a method for
+  specializing single agents by evolving prompts, tools and scaffolding rather than weights.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true

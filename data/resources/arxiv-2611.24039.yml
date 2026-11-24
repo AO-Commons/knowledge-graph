@@ -1,0 +1,62 @@
+id: resource:arxiv:2611.24039
+resource_type: preprint
+title: A Capability Framework for Evaluating Agentic AI Platforms in Regulated Enterprises
+abstract: 'Agentic AI platforms-systems in which LLM agents plan, invoke tools, retain memory
+  and coordinate to change the state of enterprise systems-are being procured faster than
+  they can be measured. Public agent benchmarks score models in fixed harnesses; enterprises
+  buy integrated platforms whose orchestration, memory, governance and tooling layers dominate
+  outcomes, and they buy them largely on the strength of vendor demonstrations. We report
+  an industrial evaluation programme ("bakeoff") run by the innovation laboratory of a global
+  bank in which ten platforms-spanning open-source frameworks, proprietary products and hyperscaler
+  ecosystems-were assessed by a cross-functional panel on nine capability dimensions across
+  three financial-services workloads: counterparty credit risk, retrieval-augmented generation
+  and process automation. Scores separate the field into three tiers that are stable under
+  alternative weightings, and surface workload-specific strengths that aggregates hide. A
+  secondary analysis, however, finds Cronbach''s alpha = 0.98 across nominally distinct dimensions
+  and rank correlations >= 0.93 with the total for eight of nine: a halo effect indicating
+  that demonstration-based scoring measures presentation as much as capability. From these
+  lessons we propose a gate-then-score evaluation protocol with four layers (capability, execution
+  reliability, governance gates, business value), trace-level reliability metrics estimated
+  over repeated runs, an autonomy-readiness scale and a reproducibility protocol. We state
+  precisely what the present evidence supports, and what a controlled harness must add to
+  turn enterprise platform evaluation from structured judgement into measurement.'
+authors:
+- Abbas Raza Ali
+- Muhammad Ajmal Siddiqui
+- Moona Zahid
+published_at: '2026-11-18'
+url: https://arxiv.org/abs/2611.24039
+doi: 10.48550/arXiv.2611.24039
+arxiv_id: '2611.24039'
+openalex_id: W7236590102
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 18
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AI Agents That Matter;
+  AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentBench: Evaluating LLMs
+  as Agents; CAMEL: Communicative Agents for "Mind" Exploration of Large ; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Generative Agents: Interactive Simulacra of
+  Human Behavior; Harms from Increasingly Agentic Algorithmic Systems; Intelligent agents:
+  theory and practice; Magentic-One: A Generalist Multi-Agent System for Solving Co; MetaGPT:
+  Meta Programming for A Multi-Agent Collaborative Fr; Not What You''ve Signed Up For: Compromising
+  Real-World LLM-I; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; The Rise
+  and Potential of Large Language Model Based Agents:; Toolformer: Language Models Can Teach
+  Themselves to Use Tool; Tree of Thoughts: Deliberate Problem Solving with Large Lang; Voyager:
+  An Open-Ended Embodied Agent with Large Language Mo; Why Do Multi-Agent LLM Systems Fail?.
+  Scope scan by claude-opus-5: This is squarely about the conditions under which a bank delegates
+  state-changing authority to agents, with governance gates and autonomy readiness as first-class
+  evaluation layers, so no exclusion-register line applies. It is not mere benchmarking of
+  models: the unit of assessment is the orchestration, memory and governance stack an organization
+  would actually hand authority to. What changes because agents hold authority: It gives procurement
+  and oversight functions a gate-then-score protocol, trace-level reliability metrics and
+  an autonomy-readiness scale for deciding how much operational authority an agent platform
+  may hold in a regulated firm — and documents that demonstration-based judgement collapses
+  into a halo effect, so authority grants cannot rest on it. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

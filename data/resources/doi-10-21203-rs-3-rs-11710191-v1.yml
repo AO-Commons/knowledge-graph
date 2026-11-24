@@ -1,0 +1,58 @@
+id: resource:doi:10-21203-rs-3-rs-11710191-v1
+resource_type: preprint
+title: 'When to Delegate: A Measurement Study of Bounded Agent Teams for Personal Super Agents'
+abstract: 'Personal super agents coordinate many tools while remaining fast, safe, and accountable
+  to one user. A popular design is a Router delegating to Workers. Recent work shows coordination
+  can cost more than it returns, but transfer to personal agents—single-user context, side-effecting
+  tools, cross-turn references, and refusals—is not established. We present the bounded-delegation
+  runtime protocol, instantiate it in Eva, a 22-tool in-vehicle agent, and introduce Eva-Bench,
+  80 rule-scored tasks in ten categories. With one real model and tool set, we compare monolithic
+  ReAct, bounded team, and unbounded team, and ablate budgets, reasoning, concurrency, guards,
+  ledger, and injected failures. Delegation is not free: the main team pays 2.75×the latency
+  and 2.59×the tokens. In one full-suite run it leads by one task (92.5% versus 91.2%), but
+  three full-suite repetitions give 92.9% versus 93.3% (difference -0.4pp). Four post hoc
+  temperature- matched runs average 90.6% (range 86.2–93.8%), so temperature alone does not
+  explain the team’s small, unstable lead. We do not claim a general team advantage. The stable
+  finding is the tax; service workflows and cross-turn references favor the team in repeated
+  data, while safety and aggregate success do not. Bounded budgets reduce tail latency, reasoning
+  is a net cost, and guards/ledger are null at oracle success. A selective-delegation policy
+  reaches 95.0% at 6.27s in one run, versus 91.2% at 3.22s monolithic and 92.5% at 8.85s for
+  the fixed team; it is exploratory. Delegation should be earned by request structure, and
+  evaluation must report organizational overhead separately from task success.'
+authors:
+- Jipu Su
+organizations:
+- City University of Hong Kong
+affiliations:
+  Jipu Su:
+  - City University of Hong Kong
+published_at: '2026-11-12'
+url: https://doi.org/10.21203/rs.3.rs-11710191/v1
+doi: 10.21203/rs.3.rs-11710191/v1
+openalex_id: W7225879188
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; AgentBench: Evaluating
+  LLMs as Agents; AgentVerse: Facilitating Multi-Agent Collaboration and Explo; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; ChatDev: Communicative Agents for Software Development;
+  Cognitive Architectures for Language Agents; Magentic-One: A Generalist Multi-Agent System
+  for Solving Co; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Why Do Multi-Agent
+  LLM Systems Fail?. Scope scan by claude-opus-5: The paper is directly about an organization
+  of machine agents holding operational authority over side-effecting tools — router-to-worker
+  delegation, spending budgets, guardrails, and an audit ledger — and it argues organizational
+  overhead must be reported separately from task outcomes. No exclusion-register line applies;
+  this is agent-internal structure, not human collective decision-making. What changes because
+  agents hold authority: It gives measured evidence that delegating authority among agents
+  carries a quantified latency/token tax and that accountability machinery (budget bounds,
+  guards, ledgers) is near-free at success but only earns its keep under specific request
+  structures, so delegation depth and oversight instrumentation become design parameters to
+  justify rather than defaults. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

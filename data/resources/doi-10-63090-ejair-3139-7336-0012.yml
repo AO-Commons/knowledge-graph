@@ -1,0 +1,55 @@
+id: resource:doi:10-63090-ejair-3139-7336-0012
+resource_type: peer-reviewed-paper
+title: 'Scalable Oversight for Advanced AI: Recursive Reward Modeling and Debate'
+abstract: Reinforcement learning from human feedback trains language models against a reward
+  model fitted to human comparisons, and it works only as long as the people giving feedback
+  can tell a good output from a bad one. Scalable oversight is the problem of supervising
+  systems whose outputs exceed that competence. This article reviews the two oldest proposals
+  for the problem, recursive reward modelling with its close relative iterated amplification,
+  and debate between competing models before a human judge, and places them beside two newer
+  lines of work, weak-to-strong generalization and model-written critique. The review first
+  sets out why direct feedback fails under optimization pressure, drawing on published evidence
+  of reward hacking, reward model overoptimization, sycophancy and unintended persuasion.
+  It then examines the assumptions each oversight method needs, using simple cost and error
+  formulas to show what decomposition and adversarial argument gain and where their guarantees
+  stop. The empirical record on debate is reported as it stands, with clear gains for multi-turn
+  debate in reading comprehension tasks where the judge cannot see the source passage and
+  small or mixed effects elsewhere. A comparative framework is proposed that links each method
+  to its required assumption, its characteristic failure mode and a diagnostic test, together
+  with an evaluation protocol built on the sandwiching design. The framework is analytical
+  and has not yet been tested empirically.
+authors:
+- Raji N
+published_at: '2026-11-20'
+url: https://doi.org/10.63090/ejair/3139.7336.0012
+doi: 10.63090/ejair/3139.7336.0012
+openalex_id: W7237222711
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI Supported Degradation of the Self Concept: A Theoretical ; AI-to-AI Code Reviews
+  of GitHub Pull Requests; Agnostic Learning with Unknown Utilities; Deep reinforcement learning
+  from human preferences; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena; Measuring
+  Progress on Scalable Oversight for Large Language ; Scalable agent alignment via reward
+  modeling: a research dir; Self-critiquing models for assisting human evaluators; The Alignment
+  Problem from a Deep Learning Perspective; The Effects of Reward Misspecification: Mapping
+  and Mitigati; Training Language Models to Follow Instructions with Human F. Scope scan by
+  claude-opus-5: The work is genuinely load-bearing for the field — every argument about holding
+  a competence-exceeding agent accountable rests on the scalable-oversight assumptions and
+  failure modes catalogued here — but its unit of analysis is a model and its human judge,
+  not an organization with delegated machine authority. No exclusion-register line applies;
+  it is the section 15 pointer case, held like Melting Pot as a foundational method the field
+  builds on. What changes because agents hold authority: Nothing about organizational design
+  changes directly — this is a review of training- and evaluation-time supervision techniques
+  (recursive reward modelling, debate, sandwiching) rather than of organizations where agents
+  hold authority, though it supplies the oversight vocabulary and diagnostic framing that
+  such organizations borrow when human principals can no longer evaluate agent outputs. Unreviewed,
+  like everything that has not been through the review queue — and machine-admitted as well
+  as machine-resolved, so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true

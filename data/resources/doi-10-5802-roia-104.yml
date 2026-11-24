@@ -1,0 +1,55 @@
+id: resource:doi:10-5802-roia-104
+resource_type: peer-reviewed-paper
+title: 'Système multi-agents génératif : état de l’art et défis'
+abstract: Dotés de capacités exceptionnelles pour résoudre une grande variété de tâches complexes,
+  les grands modèles de langue (LLMs) ouvrent de nouvelles perspectives pour la conception
+  de Systèmes Multi-Agents (SMA) génératifs, capables de s’adapter à des environnements ouverts
+  et de simuler des dynamiques sociales complexes. Cet article propose une analyse approfondie
+  des LLMs et de leur intégration dans les SMA, en mettant en lumière leur potentiel pour
+  surmonter les limites des approches traditionnelles. Les défis que soulève cette intégration
+  sont également examinés, notamment le désalignement, la validité, l’explicabilité, la reproductibilité
+  et le passage à l’échelle.
+authors:
+- Maxime Morge
+organizations:
+- Centre National de la Recherche Scientifique
+- Institut National des Sciences Appliquées de Lyon
+- Laboratoire d'Informatique en Images et Systèmes d'Information
+- Lyon 1 Université
+affiliations:
+  Maxime Morge:
+  - Lyon 1 Université
+  - Centre National de la Recherche Scientifique
+  - Laboratoire d'Informatique en Images et Systèmes d'Information
+  - Institut National des Sciences Appliquées de Lyon
+published_at: '2026-11-20'
+url: https://doi.org/10.5802/roia.104
+doi: 10.5802/roia.104
+openalex_id: W7237131459
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; AgentVerse: Facilitating Multi-Agent Collaboration
+  and Explo; CAMEL: Communicative Agents for "Mind" Exploration of Large ; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Cooperate or Collapse: Emergence of Sustainable
+  Cooperation ; GPT-4 Technical Report; Language Models are Few-Shot Learners; Large language
+  models empowered agent-based modeling and sim; Toolformer: Language Models Can Teach Themselves
+  to Use Tool; Training Language Models to Follow Instructions with Human F. Scope scan by
+  claude-opus-5: This is a general state-of-the-art survey of generative multi-agent systems,
+  the foundational method layer on which agentic-organization work is built, which explains
+  the 11 citations from library papers. No exclusion-register line bars it, but it is adjacent
+  technical groundwork rather than a study of delegated machine authority, so it belongs as
+  a section 15 pointer. What changes because agents hold authority: Nothing directly — it
+  surveys LLM-based multi-agent system construction and its open challenges (misalignment,
+  validity, explainability, reproducibility, scale) rather than organizations in which agents
+  hold operational or decision authority. Unreviewed, like everything that has not been through
+  the review queue — and machine-admitted as well as machine-resolved, so the scope judgment
+  here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true

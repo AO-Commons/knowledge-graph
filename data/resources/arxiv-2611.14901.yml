@@ -1,0 +1,55 @@
+id: resource:arxiv:2611.14901
+resource_type: preprint
+title: Understanding the Effects of Multi-Agent Deliberation for Human-AI Decision-Making
+abstract: Multi-agent deliberation (MAD), where multiple LLMs engage in structured discussion,
+  improves AI performance on many benchmarks, but whether it helps humans make better decisions
+  remains untested. We conduct two user studies on LLM-response-verification and fact-checking.
+  We first compare MAD against common AI decision-support methods that isolate its two defining
+  dimensions --- multiple AIs and multi-round interaction. We find MAD outperformed single-round
+  AI assistance on both tasks; multi-round interaction was the main driver of this benefit,
+  while a second AI added value when the single AI had room to improve. Then, we study two
+  design choices in MAD --- AI persona and human engagement level --- finding a devil's advocate
+  persona to lower accuracy and user experience, while humans' active participation in MAD
+  improved accuracy in one task at the cost of frustration. We conclude by discussing implications
+  for when, why, and how multi-agent deliberation can support human decision-making.
+authors:
+- Harry Yizhou Tian
+- Ming Yin
+organizations:
+- Purdue University West Lafayette
+affiliations:
+  Harry Yizhou Tian:
+  - Purdue University West Lafayette
+  Ming Yin:
+  - Purdue University West Lafayette
+published_at: '2026-11-11'
+url: https://arxiv.org/abs/2611.14901
+doi: 10.48550/arXiv.2611.14901
+arxiv_id: '2611.14901'
+openalex_id: W7225982792
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI Supported Degradation of the Self Concept: A Theoretical ; ChatEval: Towards
+  Better LLM-based Evaluators through Multi-; Encouraging Divergent Thinking in Large Language
+  Models thro; Examining Inter-Consistency of Large Language Models Collabo; Exploring Collaboration
+  Mechanisms for LLM Agents: A Social ; Measuring Progress on Scalable Oversight for Large
+  Language ; Reducing confirmation bias on controversial issues through L; Talk Isn''t Always
+  Cheap: Understanding Failure Modes in Mult; Towards Human-AI Deliberation: Design and Evaluation
+  of LLM-. Scope scan by claude-opus-5: This is squarely human-AI hybrid decision-making under
+  the 2026-09-10 reading: removing the machines destroys the finding, since the object of
+  study is the structure of LLM deliberation that shapes the human''s call. The deliberative-democracy
+  exclusion does not apply because the deliberation is machine-constituted rather than software-assisted
+  human discussion. What changes because agents hold authority: It gives empirical grounding
+  for configuring advisory agent panels that feed human decision authority — showing that
+  multi-round interaction, not agent plurality, drives the gain, that adversarial personas
+  degrade both accuracy and trust, and that mandating human participation in the deliberation
+  trades frustration for accuracy. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

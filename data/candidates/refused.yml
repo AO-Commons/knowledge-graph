@@ -2450,15 +2450,16 @@ refused:
   generation: 2
   support: 9
   cited_by: []
-  reasoning: 'This is agent capability engineering (skill personalization and routing), analogous
-    to the optimization and neural architecture work the brief explicitly says does not belong despite
-    being cited. It is not load-bearing infrastructure for reasoning about agent authority either,
-    so it is a refusal rather than a section 15 pointer. What changes because agents hold authority:
-    Nothing — it is a single-agent skill-library and routing method that improves task success rates,
-    with no bearing on how authority is delegated, exercised, or overseen in an organization.'
+  reasoning: 'This is agent capability engineering (skill distillation, routing, RL optimization)
+    of the same kind as the ''optimization, neural architectures'' the brief says our papers cite
+    without those citations conferring scope. It is not load-bearing infrastructure for reasoning
+    about agent authority either — no governance, delegation, oversight, or accountability content
+    — so it is a refusal rather than a section 15 pointer. What changes because agents hold authority:
+    Nothing — it improves how a single agent selects and personalizes procedural skills, which affects
+    task competence but not how operational or decision authority is delegated, bounded, or audited.'
   judged_by: claude-opus-5
-  refused_on: '2026-11-17'
-  times_refused: 1
+  refused_on: '2026-11-24'
+  times_refused: 2
   first_refused_on: '2026-11-17'
 - key: doi:10.1002/0471667196.ess2588.pub3
   generation: 1
@@ -2477,6 +2478,21 @@ refused:
   refused_on: '2026-10-06'
   times_refused: 3
   first_refused_on: '2026-09-22'
+- key: doi:10.1002/widm.70143
+  generation: 2
+  support: 15
+  cited_by: []
+  reasoning: 'This is a generic capability survey, the kind of foundational-method citation the
+    brief explicitly warns is cited by our papers without belonging; it is not load-bearing for
+    organizational design the way an agent evaluation suite like Melting Pot is. Broad LLM taxonomy
+    is background to all of AI, not specifically to agentic organizations, so even a section 15
+    pointer would be unselective. What changes because agents hold authority: Nothing — a general
+    NLP survey of LLM architectures, training and evaluation says nothing about organizations where
+    agents hold operational or decision authority.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-24'
+  times_refused: 1
+  first_refused_on: '2026-11-24'
 - key: doi:10.1007/978-0-387-39940-9_923
   generation: 1
   support: 2
@@ -4144,6 +4160,22 @@ refused:
   refused_on: '2026-10-13'
   times_refused: 1
   first_refused_on: '2026-10-13'
+- key: doi:10.1145/3860527
+  generation: 2
+  support: 10
+  cited_by: []
+  reasoning: 'This is an SE lifecycle survey of LLM development (requirements, datasets, testing,
+    deployment), which is general ML engineering background rather than material about agent authority,
+    oversight, or accountability in organizations. It is widely cited the way optimization or neural
+    architecture work is cited, which the brief explicitly says does not confer scope, and it is
+    not load-bearing enough as a shared method or evaluation artifact to warrant a section 15 pointer.
+    What changes because agents hold authority: Nothing — it surveys software-engineering practice
+    for building and maintaining LLMs, not how organizations delegate operational or decision authority
+    to agents.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-24'
+  times_refused: 1
+  first_refused_on: '2026-11-24'
 - key: doi:10.1162/coli_a_00502
   generation: 1
   support: 2
@@ -4509,6 +4541,21 @@ refused:
   refused_on: '2026-11-17'
   times_refused: 1
   first_refused_on: '2026-11-17'
+- key: doi:10.21203/rs.3.rs-11736368/v1
+  generation: 2
+  support: 10
+  cited_by: []
+  reasoning: 'This is prompt-engineering tooling for improving individual LLM queries, not about
+    organizations where agents hold operational or decision authority, and it is not load-bearing
+    infrastructure for the field in the way an evaluation suite or foundational method would be.
+    Citation count reflects the general MCP/prompting literature rather than membership in this
+    conversation. What changes because agents hold authority: Nothing — it is a single-user prompt
+    rewriting utility with a keyword classifier and rule-based scorer, touching no question of delegated
+    authority, oversight, or accountability.'
+  judged_by: claude-opus-5
+  refused_on: '2026-11-24'
+  times_refused: 1
+  first_refused_on: '2026-11-24'
 - key: doi:10.2139/ssrn.1686004
   generation: 1
   support: 3

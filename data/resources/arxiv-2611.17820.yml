@@ -1,0 +1,60 @@
+id: resource:arxiv:2611.17820
+resource_type: preprint
+title: Aligning AI Teams
+abstract: 'Previous work has shown that alignment training on individual LLM agents can fail
+  to transfer to multi-agent settings. We investigate the underlying mechanisms for this failure,
+  and explore interventions to preserve alignment transfer to multi-agent LLM teams. We focus
+  on two software-engineering tasks (sepsis triage, a news recommender) and ten consulting-proposal
+  generation tasks. We present four findings: (1) The single-vs-team safety gap does not show
+  a clear trend with more capable models. We find that Anthropic''s Mythos Preview shows the
+  largest gap on one of our tasks but the smallest on another; (2) Many natural interventions,
+  such as having agents critique each other''s work or coordinate in a group chat, do not
+  reliably bring agent teams back to single-agent alignment behavior; (3) diffusion of responsibility
+  substantially accounts for the safety gap: agents in teams are less likely to proactively
+  check for system-level safety failures and more likely to ignore, rationalize, or deflect
+  responsibility for issues when they arise; (4) having a designated safety lead agent ensure
+  system-level safety, and having a coordinator agent publish a safety specifications document
+  are effective at restoring single-agent alignment. We also release magelab, a multi-agent
+  LLM orchestration and experimentation framework. Our findings can help practitioners design
+  agent teams that successfully preserve the behaviors expected of aligned individual agents.'
+authors:
+- Siddarth Srinivasan
+- Morgan Jane Matthews
+- Jascha Sohl-Dickstein
+- Erik Jones
+organizations:
+- Harvard University
+affiliations:
+  Siddarth Srinivasan:
+  - Harvard University
+published_at: '2026-11-13'
+url: https://arxiv.org/abs/2611.17820
+doi: 10.48550/arXiv.2611.17820
+arxiv_id: '2611.17820'
+openalex_id: W7234124832
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Review of Cooperation in Multi-agent Learning; AI Organizations are More Effective
+  but Less Aligned than In; Agents of Chaos; Agnostic Learning with Unknown Utilities; Formal
+  Contracts Mitigate Social Dilemmas in Multi-Agent RL; Foundational Challenges in Assuring
+  Alignment and Safety of ; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr;
+  Multi-Agent Risks from Advanced AI; Open Problems in Cooperative AI; Towards a Science of
+  Scaling Agent Systems; Why Do Multi-Agent LLM Systems Fail?. Scope scan by claude-opus-5:
+  This is squarely about accountability and role structure inside organizations of machine
+  agents executing real tasks, including a diffusion-of-responsibility failure mode that only
+  exists because authority is distributed across agents. No exclusion-register line applies;
+  it is agent-specific organizational design, not human collective decision-making or general
+  evaluation infrastructure. What changes because agents hold authority: It shows that alignment
+  properties verified on a single agent do not survive delegation to a team, and that specific
+  organizational roles — a designated safety lead and a coordinator publishing a safety specification
+  — are what restore them, which directly changes how one staffs and oversees an agent team
+  holding operational authority. Unreviewed, like everything that has not been through the
+  review queue — and machine-admitted as well as machine-resolved, so the scope judgment here
+  is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

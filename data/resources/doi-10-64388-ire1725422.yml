@@ -1,0 +1,55 @@
+id: resource:doi:10-64388-ire1725422
+resource_type: peer-reviewed-paper
+title: 'Prompt Injection and Jailbreak Attacks on LLM Applications: A Review of Attacks, Defenses
+  and Risk-Adaptive Protection'
+abstract: 'Large language models (LLMs) are now embedded in chatbots, coding assistants, search
+  tools and agents, and this has exposed a new class of security problems in which attackers
+  use ordinary text to override a developer’s instructions or to push a model past its safety
+  training. This paper reviews the literature on these problems, focusing on prompt injection
+  and jailbreak attacks. It organises attacks into a taxonomy (direct and indirect injection,
+  manual, optimisation-based, LLM-driven, obfuscated, multi-turn, multimodal and training-time
+  attacks), organises defenses into eight layers from alignment-time training to system-level
+  controls, and summarises the benchmarks and metrics used to compare them. It then examines
+  a theme that is discussed less often than attack and defense strength, namely the cost of
+  defending: most published defenses are applied uniformly to every request, while research
+  on LLM routing and adaptive moderation shows that matching effort to difficulty can save
+  cost. The paper discusses risk-proportional defense as a design direction, and closes with
+  open problems, including adaptive attackers, evaluation validity, over-refusal, multi-model
+  deployments and agents. The review draws on more than one hundred papers and resources published
+  between 2020 and 2026.'
+authors:
+- Prabhakarn
+- Birjendra Gupta
+published_at: '2026-11-19'
+url: https://doi.org/10.64388/ire1725422
+doi: 10.64388/ire1725422
+openalex_id: W7236652444
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 15
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Behavioral Safety and Context Retention
+  of Large Language Mo; Benchmarking and Defending against Indirect Prompt Injection; Discovering
+  Language Model Behaviors with Model-Written Eval; Ethical and social risks of harm from
+  Language Models; GPT-4 Technical Report; InjecAgent: Benchmarking Indirect Prompt Injections
+  in Tool-; Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena; LLaMA: Open and Efficient
+  Foundation Language Models; Language Models are Few-Shot Learners; Not What You''ve Signed
+  Up For: Compromising Real-World LLM-I; Prompt Injection attack against LLM-integrated Applications;
+  Red Teaming Language Models with Language Models; Survey of Vulnerabilities in Large Language
+  Models Revealed ; Training a Helpful and Harmless Assistant with Reinforcement. Scope scan
+  by claude-opus-5: The review is about LLM application security in general rather than about
+  organizations where agents hold operational or decision authority, so it fails the scope
+  test on its own terms. It is nonetheless load-bearing — indirect injection is the canonical
+  way an authorized agent is turned against its principal — so it belongs as a section 15
+  pointer rather than being discarded. What changes because agents hold authority: It supplies
+  the threat taxonomy and defense-layer vocabulary for the main channel by which an agent''s
+  delegated authority can be hijacked by untrusted text, but it does not itself address how
+  authority is allocated or overseen in an organization. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true

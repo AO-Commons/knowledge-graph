@@ -1,0 +1,78 @@
+id: resource:doi:10-21203-rs-3-rs-11144434-v1
+resource_type: preprint
+title: 'Self-Reflection and Self-Correction in Agentic AI: A Critical Review of Feedback,
+  Verification, Memory, and Failure Modes'
+abstract: 'Agentic artificial intelligence transforms self-correction from a localized answer-revision
+  problem into a system-level reliability and recovery challenge. In autonomous, stateful,
+  and long-horizon systems, early errors can propagate through reasoning, planning, retrieval,
+  tool use, external actions, multi-agent interaction, and persistent memory. However, existing
+  research often treats self-correction as either response-level refinement or a capability
+  within broader agent architectures. This study develops an agent-level perspective that
+  connects these fragmented views. It distinguishes reasoning, reflection, verification, correction,
+  and adaptation, emphasizing that reasoning or critique alone does not constitute self-correction
+  unless evaluative information produces a subsequent behavioral change. The study introduces
+  a unified corrective lifecycle covering anomaly detection, error diagnosis and localization,
+  corrective evidence acquisition, repair, validation, commitment or rollback, memory updating,
+  and continuation, termination, or escalation. Existing approaches are organized across five
+  dimensions: correction target, feedback source, temporal scope, persistence, and control
+  architecture. A comparative synthesis shows that self-correction is not uniformly beneficial:
+  repeated reflection can improve performance, stagnate, or degrade initially correct behavior.
+  More reliable gains generally arise when feedback is task-relevant, informative, and at
+  least partially independent of the process that produced the error. The study also identifies
+  key failure modes, including missed errors, unsuccessful repair, over-correction, error
+  amplification, memory contamination, and objective misalignment. These findings motivate
+  research on calibrated intervention, memory integrity, verification, rollback, cost-aware
+  correction, human escalation, and resilience under distribution shift.'
+authors:
+- Most. Anamika Akter Zedni
+- Md Monzurul Islam
+- Amith Khandakar
+- Md Minhazul Islam
+- Mohamed Arselene Ayari
+organizations:
+- Qatar University
+- Rajshahi University of Engineering and Technology
+- Texas State University
+affiliations:
+  Most. Anamika Akter Zedni:
+  - Rajshahi University of Engineering and Technology
+  Md Monzurul Islam:
+  - Texas State University
+  Amith Khandakar:
+  - Qatar University
+  Md Minhazul Islam:
+  - Rajshahi University of Engineering and Technology
+  Mohamed Arselene Ayari:
+  - Qatar University
+published_at: '2026-11-19'
+url: https://doi.org/10.21203/rs.3.rs-11144434/v1
+doi: 10.21203/rs.3.rs-11144434/v1
+openalex_id: W7236844449
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: A survey on large language model based autonomous agents; CRITIC: Large Language
+  Models Can Self-Correct with Tool-Int; Chain-Of-Thought Prompting Elicits Reasoning in Large
+  Langua; Distributing Accountability, Not Capability: Phase Separatio; Encouraging Divergent
+  Thinking in Large Language Models thro; Reflexion: language agents with verbal reinforcement
+  learnin; Self-Refine: Iterative Refinement with Self-Feedback; The Rise and Potential of
+  Large Language Model Based Agents:; Training a Helpful and Harmless Assistant with Reinforcement;
+  Tree of Thoughts: Deliberate Problem Solving with Large Lang. Scope scan by claude-opus-5:
+  No exclusion-register line applies: this is not human collective decision-making but the
+  reliability and escalation machinery for agents taking external, stateful, long-horizon
+  actions. Its corrective lifecycle and failure taxonomy (error amplification, memory contamination,
+  objective misalignment) are directly load-bearing for designing oversight and accountability
+  of delegated machine authority rather than merely adjacent method. What changes because
+  agents hold authority: It supplies the operational control primitives an agent-authority
+  organization needs — anomaly detection, independent verification, commit/rollback of consequential
+  actions, memory-integrity guards, cost-aware correction, and human escalation thresholds
+  — plus evidence that unchecked self-reflection can degrade correct behavior, which bounds
+  how much self-oversight can substitute for external review. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2

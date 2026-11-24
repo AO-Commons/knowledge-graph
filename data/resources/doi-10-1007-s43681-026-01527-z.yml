@@ -1,0 +1,78 @@
+id: resource:doi:10-1007-s43681-026-01527-z
+resource_type: peer-reviewed-paper
+title: 'Misconceptions of artificial intelligence: the modern seer as a synthesis of human
+  knowledge without consciousness, emotion, or moral sill'
+abstract: 'Artificial intelligence is often depicted in public discourse as either a compliant
+  statistical instrument or an emerging entity endowed with knowledge, creativity, feelings,
+  and intentions that may soon rival human capabilities. Both portrayals are fundamentally
+  flawed, as they rely solely on observable performance and infer internal experiences from
+  social appearances. This Viewpoint advocates for a more rigorous model: conceptualizing
+  artificial intelligence as a modern seer, an intricate system that compresses, retrieves,
+  and recombines recorded human knowledge at scales unattainable by any individual. The Viewpoint
+  develops the seer from a metaphor into an analytical framework. The seer is a consulted
+  but uncertified epistemic authority: its capabilities generate interaction cues, the cues
+  invite inferences of understanding, emotion, intention, and authority, and governance must
+  act on these cues and on the calibration of trust rather than on claims about a machine
+  mind. This model clarifies both the practical utility of these systems and the misguided
+  authority often attributed to them. It demonstrates that synthesis can generate novel insights
+  without consciousness, that affective language can provide reassurance without genuine concern,
+  and that value-sensitive recommendations can be produced without moral agency. These distinctions
+  do not render the technology inherently safe, as systems lacking experience can still amplify
+  errors, entrench biases, concentrate power, and undertake consequential actions. The field
+  of drug development exemplifies these limitations: a model may integrate evidence throughout
+  the pharmaceutical process; nevertheless, biological validation and accountable judgment
+  remain essential. This discussion is no longer solely philosophical; regulatory bodies such
+  as the United States Food and Drug Administration, the European Medicines Agency, the International
+  Committee of Medical Journal Editors, and prominent scientific publishers have each adopted
+  frameworks to evaluate context, risk, credibility, and transparency, none of which directly
+  address machine consciousness. Institutions have already moved beyond metaphor-based policymaking.
+  This Viewpoint encourages scientists and scholars to do the same. It identifies ten misconceptions,
+  eight category errors and two factual errors, traces each to the interaction cue that produces
+  it, and states what the framework adds to existing debates on anthropomorphism, stochastic
+  parrots, responsibility gaps, and context-based governance. Addressing these misconceptions
+  will change how AI systems are tested, trusted, and governed.'
+authors:
+- Sarfaraz K. Niazi
+- Mikołaj Stańczak
+organizations:
+- Heriot-Watt University
+- Washington State University Spokane
+affiliations:
+  Sarfaraz K. Niazi:
+  - Washington State University Spokane
+  Mikołaj Stańczak:
+  - Heriot-Watt University
+published_at: '2026-11-20'
+url: https://doi.org/10.1007/s43681-026-01527-z
+doi: 10.1007/s43681-026-01527-z
+openalex_id: W7237147149
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 15
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: Accountability in a computerized society; Agnostic Learning with Unknown Utilities;
+  Emergent Abilities of Large Language Models; Ethical and social risks of harm from Language
+  Models; Four Responsibility Gaps with Artificial Intelligence: Why t; GPT-4 Technical Report;
+  Humans and Automation: Use, Misuse, Disuse, Abuse; Ironies of automation; Language Models
+  are Few-Shot Learners; Moral Crumple Zones: Cautionary Tales in Human-Robot Interac; Moral
+  Responsibility of Public Officials: The Problem of Man; Role play with large language models;
+  The ethics of algorithms: Mapping the debate; The responsibility gap: Ascribing responsibility
+  for the act; TruthfulQA: Measuring How Models Mimic Human Falsehoods. Scope scan by claude-opus-5:
+  This is a conceptual Viewpoint on anthropomorphism, responsibility gaps, and regulatory
+  framing rather than a study of organizations where machines hold operational or decision
+  authority, so it fails the scope test on its own terms. It is nonetheless load-bearing vocabulary
+  that fifteen library papers already build on, which is exactly the section 15 pointer case
+  rather than a refusal. What changes because agents hold authority: Little changes operationally:
+  it supplies a conceptual frame (AI as consulted-but-uncertified epistemic authority whose
+  interaction cues invite unwarranted inferences of understanding and moral agency) that argues
+  oversight should target trust calibration and context-based risk rather than claims about
+  machine minds, but it does not itself specify how authority is delegated, bounded, or accounted
+  for in an organization. Unreviewed, like everything that has not been through the review
+  queue — and machine-admitted as well as machine-resolved, so the scope judgment here is
+  a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true

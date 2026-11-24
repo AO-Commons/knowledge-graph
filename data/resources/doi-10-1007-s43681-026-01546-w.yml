@@ -1,0 +1,66 @@
+id: resource:doi:10-1007-s43681-026-01546-w
+resource_type: peer-reviewed-paper
+title: 'Governing Agentic AI: An Onto-Relational-Sophic (ORS) Framework for Deployment-Sensitive
+  Governance'
+abstract: 'Agentic AI systems now act, rather than merely advise, within social and institutional
+  settings. The persistent gap lies less in principles than in deciding which obligations
+  a deployment should attract as the relationships around it change. Risk-based regulation
+  classifies by declared intended purpose and does not register the dependence that forms
+  around a system once it is in use. We propose the Onto-Relational-Sophic (ORS) framework,
+  whose core contribution is to treat that dependence, rated as social embedding, as a trigger
+  for reclassification. A system-in-deployment is rated on autonomy, social embedding, and
+  moral relevance; each rating triggers a module of obligations on providers, deployers, and
+  institutions; nine explicit rules govern assignment, conflicts, and reclassification, including
+  the rating of multi-agent ensembles as wholes and the prospective rating of systems designed
+  to induce dependence; and categories serve as summary labels. Two supporting pillars, grounded
+  in Cyberism, structure the framework: a Cyber-Physical-Social-Thinking ontology that organises
+  the evidence for each rating, and Cybersophy, an axiology that applies a reversibility priority
+  when principles conflict. Three scenarios and a structured comparison with existing EU law
+  show where ORS converges with current obligations and where it adds to them, most clearly
+  when people come to depend on one certified system in different ways. No legal personality
+  is conferred on any system. The rating scales and rules are proposed rather than validated:
+  the social-embedding instrument has not been tested for inter-rater reliability, and the
+  worked classifications rest on the authors’ own ratings. A reliability study should precede
+  regulatory use.'
+authors:
+- Huansheng Ning
+- Jianguo Ding
+organizations:
+- Blekinge Institute of Technology
+- University of Science and Technology Beijing
+affiliations:
+  Huansheng Ning:
+  - University of Science and Technology Beijing
+  Jianguo Ding:
+  - Blekinge Institute of Technology
+published_at: '2026-11-19'
+url: https://doi.org/10.1007/s43681-026-01546-w
+doi: 10.1007/s43681-026-01546-w
+openalex_id: W7236651762
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 14
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AI-to-AI Code Reviews of GitHub Pull Requests; Accountability in artificial intelligence:
+  what it is and ho; AgentBench: Evaluating LLMs as Agents; Agentic profiles for effective
+  AI governance; Automation bias: a systematic review of frequency, effect me; Fully Autonomous
+  AI Agents Should Not be Developed; Generative Agents: Interactive Simulacra of Human Behavior;
+  Harms from Increasingly Agentic Algorithmic Systems; Multi-Agent Risks from Advanced AI;
+  Scalable agent alignment via reward modeling: a research dir; Sociotechnical Safety Evaluation
+  of Generative AI Systems; The Alignment Problem from a Deep Learning Perspective; The Ethics
+  of Advanced AI Assistants; Visibility into AI Agents. Scope scan by claude-opus-5: This
+  is squarely about oversight and accountability for systems that act with operational authority,
+  not general entity regulation, so the tax/IP/securities exclusion does not apply. Its self-acknowledged
+  lack of inter-rater validation weakens its authority but not its scope relevance. What changes
+  because agents hold authority: It supplies a deployment-sensitive rating and obligation-assignment
+  scheme — autonomy, social embedding, moral relevance, with rules for multi-agent ensembles
+  rated as wholes and reclassification as dependence forms — that changes how an organization
+  allocates accountability across providers, deployers and institutions once agents act rather
+  than advise. Unreviewed, like everything that has not been through the review queue — and
+  machine-admitted as well as machine-resolved, so the scope judgment here is a model''s until
+  a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

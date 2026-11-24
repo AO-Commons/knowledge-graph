@@ -1,0 +1,91 @@
+id: resource:arxiv:2611.22245
+resource_type: preprint
+title: 'Multi-Agent Memory Inconsistency: Where Factual Conflicts Disappear in LLM Agents'
+abstract: 'Multi-agent delegation lets LLM systems distribute evidence collection across workers
+  with separate contexts. This creates a consistency challenge: facts retrieved by workers
+  may be missing from the evidence available to the lead for a joint conclusion. We introduce
+  a benchmark and evidence-flow profiler for studying multi-agent memory inconsistency through
+  controlled factual conflicts in Harvey LAB document-review tasks. Pooled across three models
+  with comparable generation spending, requiring delegation increases retrieval of both conflicting
+  claims from 50.2% to 68.7% relative to single-agent execution, yet conflict detection falls
+  from 16.2% to 13.2%. Within this setting, workers report both claims for only 35.2% of retrieved
+  pairs, and pooled matched comparisons show higher detection than single-agent execution
+  when one worker reads both claims but lower detection when the claims are split across workers.
+  Worker-to-lead handoffs are a central target for improving conflict detection in multi-agent
+  LLMs.'
+authors:
+- Hejia Zhang
+- Zhongming Yu
+- Yimin Ding
+- Wei-Ting Chen
+- Hengjia Yu
+- Wentao Ni
+- Yijun Liu
+- Cong Xu
+- Xin Chen
+- Matrix Yao
+- Fan Zhao
+- Jishen Zhao
+organizations:
+- Hewlett Packard Enterprise
+- Intel
+- University of California San Diego
+affiliations:
+  Hejia Zhang:
+  - Intel
+  - University of California San Diego
+  Zhongming Yu:
+  - University of California San Diego
+  Yimin Ding:
+  - University of California San Diego
+  Wei-Ting Chen:
+  - University of California San Diego
+  于恒嘉:
+  - University of California San Diego
+  Wentao Ni:
+  - University of California San Diego
+  Yijun Liu:
+  - University of California San Diego
+  Cong Xu:
+  - Hewlett Packard Enterprise
+  Xin Chen:
+  - Intel
+  Matrix Yao:
+  - Intel
+  Fan Zhao:
+  - Intel
+  Jishen Zhao:
+  - University of California San Diego
+published_at: '2026-11-17'
+url: https://arxiv.org/abs/2611.22245
+doi: 10.48550/arXiv.2611.22245
+arxiv_id: '2611.22245'
+openalex_id: W7235908943
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 11
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Survey on the Memory Mechanism of Large Language Model-bas; A survey on large
+  language model based autonomous agents; CAMEL: Communicative Agents for "Mind" Exploration
+  of Large ; Generative Agents: Interactive Simulacra of Human Behavior; Judging LLM-as-a-Judge
+  with MT-Bench and Chatbot Arena; Large Language Model based Multi-Agents: A Survey of Progres;
+  Magentic-One: A Generalist Multi-Agent System for Solving Co; OpenHands: An Open Platform
+  for AI Software Developers as Ge; Reflexion: language agents with verbal reinforcement learnin;
+  SWE-agent: Agent-Computer Interfaces Enable Automated Softwa; Towards a Science of Scaling
+  Agent Systems. Scope scan by claude-opus-5: This is a study of an internal delegation hierarchy
+  in which machine agents collect evidence and a machine lead reaches the operative conclusion
+  — a failure mode of agent-held decision authority, not human collective decision-making,
+  so no exclusion-register line applies. Although it contributes a benchmark, its finding
+  directly reshapes how one designs and oversees multi-agent delegation and escalation, which
+  makes it in scope rather than a section 15 pointer. What changes because agents hold authority:
+  It shows that when an agent lead draws conclusions from delegated agent workers, factual
+  conflicts are systematically lost at the worker-to-lead handoff, so delegation structures
+  in agent organizations need explicit conflict-surfacing and evidence-flow auditing rather
+  than trusting summarized subordinate reports. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

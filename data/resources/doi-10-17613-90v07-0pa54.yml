@@ -1,0 +1,60 @@
+id: resource:doi:10-17613-90v07-0pa54
+resource_type: peer-reviewed-paper
+title: 'The Sociolinguistics of Machine Identity: LLM Personality and Ideology Propagation'
+abstract: 'Do large language models (LLMs) possess a measurable "personality," and how do
+  the linguistic properties of training corpora shape their cognitive style and downstream
+  reasoning? This paper approaches these questions from a sociolinguistic perspective on machine
+  "identity." This manuscript is positioned explicitly as a conceptual perspective paper:
+  it does not present original experimental data, nor does it constitute a systematic review
+  with defined search strategies or inclusion criteria. Instead, it synthesises key published
+  findings into two original theoretical frameworks intended to guide future empirical and
+  engineering work. We examine evidence that LLMs exhibit reliable, valid Big Five personality
+  traits—particularly in large, instruction-tuned models—and that continued pre-training on
+  domain-specific corpora may shape those traits through measurable linguistic features: imperative
+  ratio, type-token ratio (TTR), and syntactic complexity. We then analyse how standard-language
+  ideology embedded in training corpora is amplified in model outputs, disadvantaging dialect
+  and minority-language communities. Building on these findings, we propose two conceptual
+  contributions: (1) a Personality Engineering (PE) framework for targeted continued pre-training
+  to cultivate task-appropriate cognitive profiles, and (2) a Language Ideology Propagation
+  Model (LIPM) mapping the pipeline from corpus composition to societal impact. Both frameworks
+  are explicitly conceptual and require empirical validation before they can function as operational
+  guidelines. Their value lies in structuring future research and providing a shared vocabulary
+  for cross-disciplinary collaboration, with direct implications for responsible AI deployment.'
+authors:
+- Guangni Li
+organizations:
+- Université Bordeaux Montaigne
+affiliations:
+  Guangni Li:
+  - Université Bordeaux Montaigne
+published_at: '2026-12-31'
+url: https://doi.org/10.17613/90v07-0pa54
+doi: 10.17613/90v07-0pa54
+openalex_id: W7164183113
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: Behavioral Safety and Context Retention of Large Language Mo; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; GPT-4 Technical Report; Generative Agents:
+  Interactive Simulacra of Human Behavior; Language Models are Few-Shot Learners; Machine
+  Psychology; Machine psychology for language models; Out of One, Many: Using Language Models
+  to Simulate Human Sa; Personality Traits in Large Language Models. Scope scan by claude-opus-5:
+  The paper is a conceptual, data-free synthesis about machine personality measurement and
+  standard-language ideology; its ideology half sits close to the excluded ''participation
+  equity, inclusion, cultural studies'' line, and its personality half is agent-characterization
+  method rather than organizational design. Its citation by nine library papers and its use
+  as shared vocabulary for specifying agent cognitive profiles make it a section 15 pointer
+  rather than an ingest or a refusal. What changes because agents hold authority: Nothing
+  directly — it describes how training corpora shape LLM traits and language ideology, not
+  how agents exercise or are held to account for authority, though it supplies vocabulary
+  for specifying and auditing the behavioural profile of agents placed in organizational roles.
+  Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

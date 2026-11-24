@@ -1,0 +1,41 @@
+id: resource:doi:10-1007-978-981-92-8233-3-7
+resource_type: peer-reviewed-paper
+title: 'TradeSwarm: A Multi-agent Collaborative Quantitative Trading System'
+authors:
+- Zhijie Li
+- Noman Ahmed
+- Chengxu Zhu
+- Chengzhang Yu
+- Zhanpeng Jin
+published_at: '2026-11-24'
+url: https://doi.org/10.1007/978-981-92-8233-3_7
+doi: 10.1007/978-981-92-8233-3_7
+openalex_id: W7238866288
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AIKernel Semantic DSL Compiler and Deterministic Agent Execu; Chain-Of-Thought
+  Prompting Elicits Reasoning in Large Langua; Generative Agents: Interactive Simulacra of
+  Human Behavior; Improving Factuality and Reasoning in Language Models throug; Language Models
+  are Few-Shot Learners; MetaGPT: Meta Programming for A Multi-Agent Collaborative Fr; Reflexion:
+  language agents with verbal reinforcement learnin; Toolformer: Language Models Can Teach
+  Themselves to Use Tool; TradingAgents: Multi-Agents LLM Financial Trading Framework. Scope
+  scan by claude-opus-5: No exclusion-register line squarely applies (it is not market microstructure
+  or token design, but an agent-pipeline system paper), and nine library papers treat it as
+  part of the conversation, so discarding it would lose a cited architectural precedent. Because
+  its contribution appears to be returns-oriented system design rather than any account of
+  oversight, delegation limits, or accountability for agent decisions, it is held as a section
+  15 pointer rather than ingested as scope. What changes because agents hold authority: It
+  supplies a role-differentiated multi-agent architecture in which machine agents generate
+  and execute capital-allocation decisions, which is a reference pattern for how operational
+  authority gets decomposed across agents — but the work itself is oriented to trading performance
+  rather than to governing or holding such a system accountable. Unreviewed, like everything
+  that has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,100 @@
+id: resource:doi:10-21203-rs-3-rs-11461890-v1
+resource_type: preprint
+title: 'Agentic AI: A Comprehensive Survey of Foundations, Architectural Paradigms, Core Capabilities,
+  and a Unified Reference Architecture'
+abstract: 'Agentic artificial intelligence (Agentic AI) integrates goal-directed decision-making,
+  state continuity, planning, tool-mediated action, and feedback-driven adaptation into interactive
+  computational systems. Although existing surveys examine agent capabilities, architectures,
+  and applications, cross-paradigm comparisons often conflate functional capabilities with
+  implementation mechanisms and organizational structures. This comprehensive narrative survey
+  synthesizes foundational and contemporary research on symbolic/classical, neural/generative,
+  neuro-symbolic, and multi-agent approaches to clarify conceptual boundaries and examine
+  how agentic capabilities are architecturally realized. It organizes recurring functions
+  into nine groups: goal and context management, perception and state representation, reasoning
+  and decision-making, planning and replanning, memory and knowledge, action and tool use,
+  evaluation and reflection, learning and adaptation, and coordination and orchestration.
+  The principal contribution is an architecture-capability mapping separating functional responsibilities
+  from computational mechanisms and coordination structures. A complementary conceptual reference
+  architecture integrates goal management, environmental interaction, planning, memory, execution,
+  evaluation, and cross-cutting assurance concerns. Representative cases demonstrate how different
+  systems can realize similar functions using different mechanisms. The proposed taxonomy,
+  formal abstraction, and reference architecture are analytical synthesis artifacts rather
+  than experimentally validated models. They support transparent architectural comparison
+  and identify testable research questions.'
+authors:
+- Adabara Ibrahim
+- Abigaba Sofia
+- Kyampaire Sarah
+- Rumanzi Smith
+- Kisembo Moreen
+- Yale Ibrahim Danjuma
+- Elhadi Abdalla A. Arbab
+- Venkateswarlu Maninti
+- kanyesigye simon
+- Ninyesiga Allan
+organizations:
+- Kampala International University
+affiliations:
+  Adabara Ibrahim:
+  - Kampala International University
+  Abigaba Sofia:
+  - Kampala International University
+  Kyampaire Sarah:
+  - Kampala International University
+  Rumanzi Smith:
+  - Kampala International University
+  Kisembo Moreen:
+  - Kampala International University
+  Yale Ibrahim Danjuma:
+  - Kampala International University
+  Elhadi Abdalla A. Arbab:
+  - Kampala International University
+  Venkateswarlu Maninti:
+  - Kampala International University
+  kanyesigye simon:
+  - Kampala International University
+  Ninyesiga Allan:
+  - Kampala International University
+published_at: '2026-11-18'
+url: https://doi.org/10.21203/rs.3.rs-11461890/v1
+doi: 10.21203/rs.3.rs-11461890/v1
+openalex_id: W7236210279
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 29
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A Holistic Review of Agentic AI Frameworks, Applications, an; A survey on large
+  language model based autonomous agents; AI Agents vs. Agentic AI: A Conceptual taxonomy,
+  application; AI-to-AI Code Reviews of GitHub Pull Requests; AgentVerse: Facilitating Multi-Agent
+  Collaboration and Explo; Agentic AI Needs a Systems Theory; Agentic AI: Autonomous Intelligence
+  for Complex Goals—A Comp; Agentic profiles for effective AI governance; CAMEL: Communicative
+  Agents for "Mind" Exploration of Large ; CRITIC: Large Language Models Can Self-Correct
+  with Tool-Int; Chain-Of-Thought Prompting Elicits Reasoning in Large Langua; Cognitive Architectures
+  for Language Agents; Distributing Accountability, Not Capability: Phase Separatio; Do As
+  I Can, Not As I Say: Grounding Language in Robotic Aff; Generative Agents: Interactive Simulacra
+  of Human Behavior; Improving Factuality and Reasoning in Language Models throug; Intelligent
+  agents: theory and practice; Language Models are Few-Shot Learners; MetaGPT: Meta Programming
+  for A Multi-Agent Collaborative Fr; Multi-Agent Collaboration Mechanisms: A Survey of LLMs;
+  Multi-Agent Risks from Advanced AI; Not What You''ve Signed Up For: Compromising Real-World
+  LLM-I; OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks; Reflexion: language
+  agents with verbal reinforcement learnin; Self-Refine: Iterative Refinement with Self-Feedback;
+  The Rise and Potential of Large Language Model Based Agents:; Toolformer: Language Models
+  Can Teach Themselves to Use Tool; Tree of Thoughts: Deliberate Problem Solving with Large
+  Lang; Voyager: An Open-Ended Embodied Agent with Large Language Mo. Scope scan by claude-opus-5:
+  A general agentic-AI survey is foundational method the field builds on rather than a study
+  of delegated machine authority, which is exactly the section 15 pointer case; its heavy
+  citation within the library confirms it is load-bearing background. No exclusion-register
+  line bars it — it is neither human collective decision theory nor adjacent-institution material.
+  What changes because agents hold authority: Nothing directly — it is an architectural taxonomy
+  of agent capabilities and reference architectures, not an account of organizations where
+  agents hold authority, though it supplies the shared vocabulary (planning, memory, tool
+  use, coordination/orchestration) that the field''s authority-and-oversight arguments rest
+  on. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

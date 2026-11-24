@@ -1,0 +1,62 @@
+id: resource:arxiv:2611.24845
+resource_type: preprint
+title: 'Vibe-Trading: Towards Agent-Native Trading'
+abstract: 'Existing AI agents can retrieve information, call tools, run experiments, and produce
+  multi-step outputs. Yet most are built around relatively static workflows and struggle to
+  preserve reliable state as the environment changes. Financial trading makes this limitation
+  especially consequential: prices, news, market conditions, portfolio positions, and available
+  capital evolve continuously. A result is useful only when it remains tied to the correct
+  time, data snapshot, and execution context. We present Vibe-Trading, a comprehensive agent-native
+  trading framework and all-in-one workspace for building, evaluating, and evolving agents
+  for financial trading. It unifies market research, financial data, strategy generation,
+  backtesting, portfolio analysis, paper trading, multi-agent collaboration, and optional
+  broker execution. Its central contribution is an architecture that keeps results, evidence,
+  research history, and trading authority connected throughout the research-to-action process.
+  Each result retains its source, temporal scope, configuration, and producing run. Shared
+  evidence grounding enables verification, versioned research records support reproducible
+  continuation, and an explicit authority gate separates strategy research from live execution.
+  Together, these designs provide a practical foundation for trading agents whose results
+  can be traced, reproduced, and acted on only under explicit authority.'
+authors:
+- Haozhe Wu
+- Zhonghang Li
+- Chao Huang
+organizations:
+- University of Hong Kong
+affiliations:
+  Haozhe Wu:
+  - University of Hong Kong
+  Zhonghang Li:
+  - University of Hong Kong
+  Chao Huang:
+  - University of Hong Kong
+published_at: '2026-11-18'
+url: https://arxiv.org/abs/2611.24845
+doi: 10.48550/arXiv.2611.24845
+arxiv_id: '2611.24845'
+openalex_id: W7236852764
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 9
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: A survey on large language model based autonomous agents; AIKernel Semantic DSL
+  Compiler and Deterministic Agent Execu; Generative Agents: Interactive Simulacra of Human
+  Behavior; Not What You''ve Signed Up For: Compromising Real-World LLM-I; Reflexion: language
+  agents with verbal reinforcement learnin; SWE-agent: Agent-Computer Interfaces Enable Automated
+  Softwa; Toolformer: Language Models Can Teach Themselves to Use Tool; TradingAgents: Multi-Agents
+  LLM Financial Trading Framework; Voyager: An Open-Ended Embodied Agent with Large Language
+  Mo. Scope scan by claude-opus-5: The core contribution is an explicit authority gate plus
+  evidence/provenance chain governing when a machine agent may act with real (financial) authority
+  — an operational-authority and accountability design, not the excluded market-microstructure
+  or token-design material. It changes how one would scope, log, and oversee delegated execution
+  authority in an agentic organization. What changes because agents hold authority: It supplies
+  a concrete architecture for gating when an agent may move from research to capital-committing
+  execution, with provenance, temporal scoping and versioned evidence that make an agent''s
+  authorized actions traceable and auditable after the fact. Unreviewed, like everything that
+  has not been through the review queue — and machine-admitted as well as machine-resolved,
+  so the scope judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1

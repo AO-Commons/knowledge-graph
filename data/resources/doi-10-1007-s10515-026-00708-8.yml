@@ -1,0 +1,49 @@
+id: resource:doi:10-1007-s10515-026-00708-8
+resource_type: peer-reviewed-paper
+title: 'RISA: Engineering runtime integrity for tool-using large language model agents'
+authors:
+- Zeyuan Han
+- Yu Yan
+- 钟涵
+organizations:
+- China People's Public Security University
+- Chinese Academy of Sciences
+- Institute of Computing Technology
+affiliations:
+  Zeyuan Han:
+  - China People's Public Security University
+  Yu Yan:
+  - Chinese Academy of Sciences
+  - Institute of Computing Technology
+  钟涵:
+  - China People's Public Security University
+published_at: '2026-11-20'
+url: https://doi.org/10.1007/s10515-026-00708-8
+doi: 10.1007/s10515-026-00708-8
+openalex_id: W7236747931
+is_open_access: false
+is_retracted: false
+facets:
+  artifact_type: peer-reviewed-paper
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 1 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 2 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Benchmarking and Defending against Indirect
+  Prompt Injection; Defeating Prompt Injections by Design; InjecAgent: Benchmarking Indirect
+  Prompt Injections in Tool-; Mind2Web: Towards a Generalist Agent for the Web; Not What You''ve
+  Signed Up For: Compromising Real-World LLM-I; OSWorld: Benchmarking Multimodal Agents for
+  Open-Ended Tasks; Securing AI Agents with Information-Flow Control; Toolformer: Language
+  Models Can Teach Themselves to Use Tool; WebShop: Towards Scalable Real-World Web Interaction
+  with Gr. Scope scan by claude-opus-5: No exclusion-register line applies; this is agent-specific
+  control infrastructure that the field''s oversight and accountability arguments build on,
+  and ten library papers already lean on it. It is load-bearing but not itself about organizations
+  where agents hold authority, so it belongs as a section 15 pointer rather than a core record.
+  What changes because agents hold authority: It supplies the runtime enforcement layer —
+  integrity checks on tool invocation — that bounds what an agent with delegated operational
+  authority can actually do, but the work itself is single-agent security engineering rather
+  than a theory of organizational authority. Unreviewed, like everything that has not been
+  through the review queue — and machine-admitted as well as machine-resolved, so the scope
+  judgment here is a model''s until a person confirms it.'
+ingested_at: '2026-11-24'
+expansion_generation: 1
+is_borrowed_background: true

@@ -1,0 +1,55 @@
+id: resource:arxiv:2611.21407
+resource_type: preprint
+title: 'Harness Leverage Across Model Size: A Ladder of Five Local Agent Harnesses from 0.75B
+  to 4.7B'
+abstract: 'A harness turns a model into a system that completes tasks: it builds the prompt,
+  exposes tools and decides when work is done. Harness comparisons hold the model fixed. Model
+  comparisons hold the harness fixed. We vary both: five shipped harnesses, 18 artifact-producing
+  tasks, four locally deployable open-weight models from 0.75B to 4.7B and a 35.5B anchor,
+  with one deterministic checker scoring all 360 ladder cells. The completion-controlling
+  harness, Mingbird, has the highest mean at every size. Of four pre-registered paired contrasts,
+  two survive Holm correction, at 0.75B and 4.7B. Thirteen of sixteen paired intervals exclude
+  zero under the deployment reading, with leads from 0.075 over the strongest rival to 0.819
+  over the weakest. The completion gate is not the carrier: disabling all six executable checks
+  moves the mean by +0.080, +0.117, +0.003 and -0.004, every interval including zero, and
+  only at 1.9B does disabling it create empty runs. Removing one repeat-blocking rule alone
+  costs 0.411 at 0.75B and leaves eight of eighteen tasks with no artifact. The harness effect
+  is a progress effect: it decides whether a run leaves anything on disk. Of 357 usable cells,
+  127 leave none of their declared artifacts and 85 of those exit normally, so a scorer that
+  reads exit status credits work that was never written. Whether the effect grows or shrinks
+  with size, four rungs cannot settle: a floor arm produces a rise, a ceiling a decline, and
+  a cross-family rung a peak.'
+authors:
+- Hao Wang
+- Ting Huang
+published_at: '2026-11-16'
+url: https://arxiv.org/abs/2611.21407
+doi: 10.48550/arXiv.2611.21407
+arxiv_id: '2611.21407'
+openalex_id: W7234771655
+is_open_access: true
+is_retracted: false
+facets:
+  artifact_type: preprint
+review_status: unreviewed
+source_provenance: 'admitted automatically at generation 2 by citation expansion: cites 10
+  records already held, which is at or above the threshold of 3 for this generation. Connected
+  records: AgentBench: Evaluating LLMs as Agents; Autonomous Tester Agent Benchmark; Cognitive
+  Architectures for Language Agents; Defeating Prompt Injections by Design; Distributing Accountability,
+  Not Capability: Phase Separatio; OSWorld: Benchmarking Multimodal Agents for Open-Ended
+  Tasks; OpenHands: An Open Platform for AI Software Developers as Ge; SWE-agent: Agent-Computer
+  Interfaces Enable Automated Softwa; Self-Refine: Iterative Refinement with Self-Feedback;
+  Toolformer: Language Models Can Teach Themselves to Use Tool. Scope scan by claude-opus-5:
+  This is a harness-versus-model-size evaluation study: it concerns scaffolding and benchmark
+  methodology, not organizations in which agents hold operational or decision authority, so
+  it fails the scope test on its own terms. It is nevertheless load-bearing measurement infrastructure
+  that ten library papers build on, which is exactly the section 15 borrowed-background case
+  alongside Melting Pot. What changes because agents hold authority: Nothing about agent authority
+  changes directly, though the finding that 85 runs exited normally while writing no artifact
+  is a cautionary note for anyone verifying delegated agent work by exit status rather than
+  output. Unreviewed, like everything that has not been through the review queue — and machine-admitted
+  as well as machine-resolved, so the scope judgment here is a model''s until a person confirms
+  it.'
+ingested_at: '2026-11-24'
+expansion_generation: 2
+is_borrowed_background: true
